@@ -1,0 +1,74 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Samuli Ikonen
+\\ {\bf
+Multigrid Methods for Pricing American Options under Stochastic
+Volatility
+}}
+
+Department of Mathematical Information Technology \\
+University of Jyv\"{a}skyl\"{a} \\
+Finland
+\\ {\tt
+samikon@cc.jyu.fi
+}
+\\
+Jari Toivanen
+\end{center}
+
+We study numerical methods for pricing American put options with
+Heston's stochastic volatility model. This model leads to a two
+dimensional parabolic partial differential equation with an early
+exercise constraint. We perform the space discretization using a finite
+difference method with a seven point stencil. Implicit time
+discretizations lead to a sequence of linear complementarity problems
+(LCPs).
+
+We consider two approaches employing multigrid methods. The first
+approach uses an operator splitting method [4]. The idea is to decouple
+the system of linear equations and the early exercise constraint into
+separate fractional time steps. In the first fractional step, a
+convection diffusion type problem with a second-order cross derivative
+is solve. In a multigrid method we use an alternating direction
+smoother proposed by Oosterlee in [5]. In the second fractional step, a
+simple update is performed so that the solution satisfies the early
+exercise constraint.
+
+The second approach is to solve the LCPs using a multigrid based on a
+projected full approximation scheme (PFAS) proposed by Brandt and Cryer
+in [1]. The papers [3,5] consider such multigrids for pricing American
+options. We study the use of the Brennan and Schwartz algorithm [2] in
+the line smoothing in these multigrids.
+
+[1] A.~Brandt, C.W.~Cryer,
+{\em Multigrid Algorithms for the Solution of
+Linear Complementarity Problems Arising from Free Boundary Problems},
+SIAM Journal on Scientific and Statistical Computing, 4(1983), 655--684.
+
+[2] M.J.~Brennan, E.S.~Schwartz,
+{\em The Valuation of American Put Options},
+Journal of Finance, 32(1977), 449--462.
+
+[3] N.~Clarke, K.~Parrott,
+{\em Multigrid for American Option Pricing with
+Stochastic Volatility}, Applied Mathematical Finance, 6(1999), 177--195.
+
+[4] S.~Ikonen, J.~Toivanen,
+{\em Operator Splitting Methods for Pricing
+American Options with Stochastic Volatility}, Report B11/2004,
+Department of Mathematical Information Technology, University of
+Jyv\"{a}skyl\"{a}, 2004.
+
+[5] C.W.~Oosterlee,
+{\em On Multigrid for Linear Complementarity Problems
+with Application to American-style Options}, Electronic Transactions on
+Numerical Analysis, 15(2003), 165--185.
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\def\mathbi#1{\textbf{\em #1}}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Tim Chartier
+\\ {\bf
+Algebraic Multigrid Schemes
+}}
+
+Department of Mathematics
+\\
+Davidson College
+\\
+Davidson NC 28035-6908
+\\ {\tt
+tichartier@davidson.edu
+}
+\\
+Edmond Chow
+\end{center}
+
+Considerable efforts in recent multigrid research have concentrated on
+algebraic multigrid schemes. A vital aspect of this work is uncovering
+algebraically smooth error modes in order to construct effective
+multigrid components. Many existing algebraic multigrid algorithms rely
+on assumptions regarding the nature of algebraic smoothness. For
+example, a common assumption is that smooth error is essentially
+constant along `strong connections'. Performance can degrade as smooth
+error for a problem differs from this assumption. Through tests on the
+homogeneous problem
+($\mathbi{Ax} = \mathbf{0}$)
+adaptive multigrid methods expose
+algebraically smooth error.
+
+The method presented in this talk uses relaxation and subcycling on
+complementary grids as an evaluative tool in correcting multigrid
+cycling. Each complementary grid is constructed with the intent of
+dampening a subset of the basis of algebraically smooth error. The
+particular implementation of this framework manages smooth error in a
+manner analogous to spectral AMGe. Numerical results will be included.
+
+
+\end{document}

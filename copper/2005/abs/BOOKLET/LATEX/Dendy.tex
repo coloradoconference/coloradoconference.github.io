@@ -1,0 +1,60 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Joel E. Dendy
+\\ {\bf
+A Robust Multigrid Method with Cell-Based Coarsening
+}}
+
+MS B284
+\\
+Los Alamos National Laboratory
+\\
+Los Alamos NM 87544
+\\ {\tt
+jed@lanl.gov
+}
+\\
+J. David Moulton
+\end{center}
+
+Generally robust multigrid codes, like BoxMG, employ Galerkin
+coarsening to form the coarse grid operators. That is, if the fine
+grid operator is $A$, then the coarse grid operator is $RAP$, where
+$P$ is the interpolation operator from the coarse grid to the fine
+grid, and $R$ is the restriction operator from the fine grid to the
+coarse grid. In BoxMG, $R$ is chosen as the transpose of $P$. This choice
+minimizes the error in the range of interpolation. Also, in BoxMG,
+interpolation is operator-induced, thereby approximately preserving
+the continuity of the normal component of the flux across interfaces.
+Cell-centered discretizations on a logically structured grids are
+readily treated with BoxMG by associating them with the corresponding
+dual grid. However, this approach does not preserve the cell based
+structure on coarser levels. Although this structure may not be
+important in some applications, in the case of patch- or cell-based
+mesh refinement, it is very desirable.
+
+Several multigrid methods have
+been proposed to coarsen by cells, but these methods have been either
+too costly or not robust with respect to fine-scale discontinuous
+coefficients. For example coarsening by cells, using an
+operator-induced piecewise bilinear interpolation for $P$, the transpose
+of $P$ for $R$, and forming the coarse grid operator as $RAP$ leads to
+unacceptable stencil growth. In contrast, Wesseling has investigated a
+method that coarsens by cells, in which $R$ is not the transpose of $P$,
+yet under certain conditions RAP is symmetric; however, his use of a
+non-operator-dependent $P$ yields a method that is not as robust as
+BoxMG. In this paper we explore the use of multiple dual-meshes on a
+logically structured two-dimensional grid in conjunction with the
+variational framework of BoxMG to create a robust method that coarsens
+by cells while maintaining a 9-point coarse-grid operator on all
+levels. This approach readily extends to the cases of patch- and
+cell-based refinement.
+
+\end{document}

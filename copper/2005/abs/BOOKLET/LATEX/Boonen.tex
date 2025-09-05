@@ -1,0 +1,63 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Tim Boonen
+\\ {\bf
+A new prolongator for multigrid for the curlcurl equation
+}}
+
+Computer Science Department
+\\
+Katholieke Universiteit Leuven
+\\ {\tt
+tim.boonen@cs.kuleuven.ac.be
+}
+\\
+Stefan Vandewalle
+\end{center}
+
+We consider algebraic multigrid methods for the numerical solution of
+curlcurl systems in computational electromagnetics. Existing
+prolongation schemes for the curlcurl equation are often based on the
+Reitzinger-Sch\"{o}berl prolongator presented in [1]. There, a
+piecewise constant edge prolongator $P_e$ is derived from a piecewise
+constant nodal prolongator $P_n$, such that the commutation property is
+satisfied. This prolongation scheme can be improved by applying ideas
+of smoothed aggregation multigrid to it ([2], [3]).
+
+We will present an alternative prolongation scheme that takes as a
+starting point an arbitrary partition of unity nodal prolongator $P_n$.
+We will show that it is possible to associate with the set of coarse nodal
+elements (the columns of $P_n$) a set of coarse edge elements. The link
+between both sets is the analytical formula for edge elements on
+triangular/tetrahedral meshes
+
+$$ E_{ij} = N_i \nabla(N_j) - N_j \nabla(N_i)  $$
+
+We will show that in the coarse setting, this formula has an exact
+discrete counterpart, which satisfies the commutation property. This
+prolongation schema contains the Reitzinger-Sch\"{o}berl edge
+prolongator as the special case for a piecewise constant nodal
+prolongator $P_n$.
+
+
+[1] S. Reitzinger, J. Sch\"{o}berl, \emph{An algebraic multigrid method
+for finite element discretizations with edge elements}, Numer. Linear
+Algebra Appl. 2002, {\bf 9}, pp.223--238.
+
+[2] P.B.Bochev, C.J.Garasi, J.J.Hu, A.C.Robinson, R.S.Tuminaro,
+\emph{An
+improved algebraic multigrid method for solving Maxwell's equations},
+Siam Journal on Scientific Computing, {\bf 25}, pp.623--642, 2003.
+
+[3] J.Hu, R.Tuminaro, P.Bochev, C.Garasi, A.Robinson, \emph{Toward an
+$h$-independent Algebraic Multigrid Method for Maxwell's Equations},
+to appear in SIAM Journal on Scientific Computing, 2005. 
+
+\end{document}

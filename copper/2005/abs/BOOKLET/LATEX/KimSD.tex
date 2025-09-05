@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Sang Dong Kim
+\\ {\bf
+A Preconditioner on High-order Finite Element Methods
+}}
+
+Dept
+\\
+Inst
+\\
+Addr
+\\ {\tt
+email
+}
+\end{center}
+
+Even if the high-order finite element method has many advantages for
+solving a uniformly self adjoint elliptic operator such as Lu := -
+ A u + c0u in  = [-1,1]  [-1,1] with boundary conditions ( L = D(L)
+N(L)) u = 0 on D(L), n  A u = 0 on N(L), one may have a difficulty
+controlling condition numbers occurred from spectral element
+discretizations which makes it uneasy to use iterative methods.  In
+order to alleviate such a situation, we take a lower order finite
+element preconditioner operator corresponding to Bv := -  u + b0u in
+with boundary conditions (B = D(B)  N(B)) v = 0 on D(B), n  v = 0 on
+N(B).  Let {k}N be the standard Legendre-Gauss-Lobatto (=:LGL) points
+in [-1,1].  By translations from I to a jth subinterval Ij := [xj ,xj]
+we denote {k}N as the kth- LGL points in each subinterval Ij for j =
+1,2, ,M.  Let PN be the subspace of C[-1,1] which consists of piecewise
+polynomials with support Ij = [xj ,xj] whose
+
+degree is less than or equal to N.  For the space PN, we choose a
+piecewise Lagrange polynomial basis functions denoted as {jk(x)}
+supported in Ij for j = 1, ,M.  Let VN be the space of all piecewise
+Lagrange linear functions k(x).  Define an
+
+interpolation operator IN : C[-1,1]  PN(I) such that (INv)() = v(), v
+C[-1,1].  First, we set up the following relations for v  VN
+
+where two positive constants c and C do not independent of the mesh
+size hj = element stiffness matrices corresponding to L and B
+respectively.  Then we will show the preconditioned system (BN)- LN
+
+xj - xj ^h ^h -1 and the degree N of piecewise polynomial.  Let (LN)
+and BN be finite
+
+^h 1 h ^
+
+has positive eigenvalues which are independent of the mesh size hj = xj
+- xj the degree N of piecewise polynomial.
+
+-1 and
+
+This work was supported by KOSEF R02-2004-000-10109-0 Department of
+Mathematics Education, Kyungpook National University, Taegu 702-701,
+Korea
+
+\end{document}

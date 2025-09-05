@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+
+open (NONTEX,"> ind.out");
+open (TEX,"ALL.tex");
+while (<TEX>) {
+	chomp;
+	if (/end{center}/) {
+		unless ($label) { next; }
+		print NONTEX "\\pageref{$label}\n\n\n";
+		$label="";
+		$center=0;
+		next;
+		}
+	if (/begin{center}/) {
+		$center=1;
+		next;
+		}
+	unless ($center) { next; }
+
+	if (/label{/) {
+		($label=$_) =~ s/^.*label{//;
+		$label =~ s/}.*$//;
+		next;
+		}
+
+	if (/\@/) { next; }
+	if (/{6in}/) { next; }
+	if (/\\tt/) { next; }
+
+	$line=$_;
+	$line =~ s/\\bf\s*//;
+	$line =~ s/\s+/ /g;
+	$line =~ s/^[ \\{}]*//;
+	$line =~ s/[ \\{}]*$//;
+
+	if (/^\s*$/) { next; }
+
+	print NONTEX "$line\n";
+}
+close TEX;
+exit 0;
+
+###################################################################
+
+

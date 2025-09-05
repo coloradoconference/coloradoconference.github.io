@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>cm conference abstract: Luke Olson</title>
+</head>
+
+<body>
+
+<center>
+Algebraic Multigrid (AMG) for Higher-Order Finite Elements
+</center>
+
+<p>
+<center>
+  <a href="mailto:lolson@dam.brown.edu">Luke Olson</a><br>
+Division of Applied Mathematics, Brown University<br><br>
+Jeff Heys, Arizona State University<br>
+Tom Manteuffel, University of Colorado at Boulder<br>
+Steve McCormick, University of Colorado at Boulder<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk we consider two related approaches for solving linear systems
+that arise from a higher-order finite element discretization of elliptic
+partial differential equations. The first approach explores direct
+application of an algebraic-based multigrid method (AMG) to iteratively
+solve the linear systems that result from higher-order discretizations.
+While the choice of basis used on the discretization has a significant
+impact on the performance of the solver, results indicate that AMG is
+capable of solving operators from both Poisson's equation and a first-order
+system least-squares (FOSLS) formulation of Stoke's equation in a scalable
+manner, nearly independent of basis order, p.   The second approach
+incorporates preconditioning based on a bilinear finite element mesh
+overlaying the entire set of degrees of freedom in the higher-order scheme.
+AMG is applied to the operator based on the bilinear finite element
+discretization and is used as a preconditioner in a conjugate gradient (CG)
+iteration to solve the algebraic system derived from the high-order
+discretization. This approach is also nearly independent of p.  We present
+several numerical examples that support each method and discuss the
+computational advantages of the preconditioning implementation.
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+U. Hetmaniuk
+\\ {\bf
+A new Rayleigh quotient minimization algorithm based on algebraic
+multigrid
+}}
+
+Sandia National Laboratories
+\\
+PO BOX 5800, MS 1110
+\\
+Albuquerque NM 87185
+\\ {\tt
+ulhetma@sandia.gov
+}
+\\
+R. Lehoucq
+\end{center}
+
+Mandel and McCormick [2] introduced the RQMG method, which
+approximately minimizes the Rayleigh quotient over a sequence of grids.
+In this talk, we will present an algebraic extension. We replace the
+geometric mesh information with the algebraic information defined by an
+AMG preconditioner. At each level, we improve the smoother to
+accelerate the convergence. With a series of numerical experiments, we
+assess the efficiency of this new algorithm to compute several
+eigenpairs. 
+
+[1] T. Chan and I. Sharapov, {\em Subspace correction multi-level methods
+for elliptic eigenvalue problems}, Numer. Linear Algebra Appl. {\bf 9}
+pp.1--20 (2002).
+
+[2] J. Mandel and S. McCormick,
+{\em A multilevel variational method for $Au=\mu Bu$
+on composite grids}, J.~Comput.~Phys. {\bf 80},
+pp.442--452 (1989). 
+
+\end{document}

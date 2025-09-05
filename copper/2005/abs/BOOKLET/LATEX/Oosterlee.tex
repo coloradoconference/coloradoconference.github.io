@@ -1,0 +1,52 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Cornelis W. Oosterlee 
+\\ {\bf
+Multigrid for a segregated version of the poroelasticity system
+}}
+
+Delft University of Technology, DIAM \\
+Mekelweg 4, 2628 CD Delft \\
+the Netherlands
+\\ {\tt
+c.w.oosterlee@ewi.tudelft.nl
+}
+\\
+Fransisco J. Gaspar,  Francisco J. Lisbona
+\end{center}
+
+Poroelasticity has a wide range of applications in biology, filtration,
+tissue engineering and soil sciences. It represents a model for
+problems where an elastic porous solid is saturated by a viscous fluid.
+The poroelasticity equations were derived by Biot in 1941, studying the
+consolidation of soils. In this talk we will present an efficient
+solution method for the poroelasticity system. A staggered grid
+discretization is adopted from incompressible flow and modified for the
+poroelasticity system. Standard finite elements (or finite differences)
+do not lead to stable solutions without additional stabilization. The
+staggered grid discretization leads to a natural stable discretization.
+In contrast to our previous work, where we provided multigrid
+solvers for the whole system of poroelasticity equations, here we first
+split the system into scalar equations. This splitting can be
+interpreted as a segregated solution approach, similarly to
+pressure-correction methods in incompressible fluid flow simulation. In
+fact, we just reverse loops as compared to our previous work: The
+distributive smoothing method from now acts as the "outer loop" in
+the solution process. The method can also be seen as a form of
+preconditioning of the original poroelasticity system. Next to a right-
+we also present the left-preconditioned system and corresponding
+results. In the segregated framework we need to solve for scalar
+equations only, thus enabling the solution of three-dimensional
+problems on relatively fine grids. Highly efficient multigrid schemes
+are used to solve the resulting scalar equations. Next to numerical
+experiments and analysis results we will present some theoretical
+convergence results for the approach adopted. 
+
+\end{document}

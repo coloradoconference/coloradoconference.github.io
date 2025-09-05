@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>cm conference abstract:Persson</title>
+</head>
+
+<body>
+
+<center>
+Space-Time Adaptive Finite Difference Method for European Multi-Asset Options
+</center>
+
+<p>
+<center>
+<a href="mailto: jonas.persson@it.uu.se">
+Jonas Persson</a><br><br>
+Box 337, SE-75105 Uppsala, Sweden<br><br>
+Per Lötstedt<br>
+Lina von Sydow<br>
+Johan Tysk<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+We are interested in the numerical solution of the multi-dimensional
+Black-Scholes equation to determine the arbitrage free price F(t,x) of an
+option. We will consider European call basket options on several underlying
+assets (e.g. stocks). This problem can e.g. be solved by finding a numerical
+solution to a multi-dimensional PDE.
+This way to determine the arbitrage
+free price was introduced independently by F. Black and M. Scholes
+(who gave name to the PDE) and R.C. Merton in 1973.  
+<br>
+<br>
+In a
+previous paper an adaptive finite difference method was developed with
+full control of the local discretization errors.
+The method was shown to be very efficient. In this paper we develop a space-time adaptive FD-method with control of the global error. 
+<br>
+<br>
+
+The Black-Scholes equation is discretized by second
+order accurate finite difference stencils on a Cartesian grid. An
+error equation is derived for the global error E(t, x) in the
+solution. The driving right hand side in the error equation is the
+discretization error in the original PDE. This error is estimated a posteriori
+and the grid is adapted so that the Cartesian structure of the grid is
+maintained and the time step is adapted in every time step. The step
+sizes are chosen so that a linear functional of the solution error at
+maturity of the option satisfies an accuracy constraint. This means that the
+integral over the error, E(x,t) times a function g(x) is smaller than some
+positive constant.  
+<br>
+<br>
+The time step is adjusted to comply with the bound on
+the local error and the space grid is changed at a few pre-specified time
+points. The weights for the local error bounds in each time interval are
+solutions of the adjoint equation of the multidimensional
+Black-Scholes PDE. The growth of the error in the intervals between
+the grid adaptations is estimated a priori by the maximum principle
+for parabolic equations. In the same manner estimates of the solution of the
+adjoint equation is bounded.
+<br>
+<br>
+ The advantage with our procedure is that we obtain estimates of the
+numerical errors and we have an algorithm to choose the computational grid
+so that bounds like the functional explained above on the errors are satisfied
+also for multi-dimensional equations. For more dimensions than five
+(or so), the solution with finite difference approximations on a grid
+suffers severly from the 'curse of dimensionality' with an exponential growth
+in the number of grid points and other alternatives must be considered.
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large David Alber \\
+{\bf Modifying CLJP Coarse Grid Selection to Attain Lower
+Complexities}}
+
+Siebel Center for Computer Science \\ University of Illinois at
+Urbana-Champaign \\ 201 North Goodwin Avenue \\ Urbana IL 61801
+\\
+{\tt alber@uiuc.edu}
+\end{center}
+
+To build an efficient parallel algebraic multigrid (AMG) solver both
+the setup phase and the solve phase need to be implemented with
+parallel algorithms.  Parallelizing the latter is straightforward
+because of the similarities between the AMG solve phase and geometric
+multigrid.  However, parallelizing the original Ruge-St\"{u}ben (RS) setup
+phase presents difficulties.  The RS coarse grid selection algorithm
+uses a breadth first search for its first pass which makes the
+algorithm inherently sequential.  Parallel coarse grid selection
+algorithms had to be designed in order to make a parallel setup phase.
+
+Of those algorithms which select coarse grids for use with RS
+interpolation, Cleary-Luby-Jones-Plassmann (CLJP) is unique because it
+produces the same coarse grid regardless of the number of processors on
+which the coarsening algorithm is run.  Additionally, CLJP is able to
+coarsen the grid to a single node.  Both of these properties have
+positive implications in the design of a parallel setup phase.
+Unfortunately, CLJP tends to select coarse grids which lead to high
+operator complexities on many problems and especially high complexities
+on problems in three dimensions.
+
+This talk discusses methods to modify CLJP in order to produce grid
+hierarchies which lead to lower operator complexities.  In particular,
+methods to modify the maximal independent set algorithm on which CLJP
+is based are examined.  By modifying this algorithm, CLJP can be made
+to produce results with more evenly distributed coarse nodes.
+Experimental results show that these changes lead to lower operator
+complexities.  The eventual goal is to create CLJP-based algorithms
+with performance close to that of the Falgout hybrid algorithm while
+retaining the positive aspects of the original CLJP.
+
+
+\end{document}

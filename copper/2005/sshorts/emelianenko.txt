@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Emelianenko</title>
+</head>
+
+<body>
+
+<center>
+A Nonlinear Energy-based Multilevel Quantization Scheme
+</center>
+
+<p>
+<center>
+<a href="mailto: emeliane@math.psu.edu">
+Maria Emelianenko</a><br><br>
+Department of Mathematics<br> Pennsylvania State University<br>
+University Park, PA 16802<br><br>
+<a href="mailto: qdu@math.psu.edu">Qiang Du</a><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk, we discuss a new multigrid quantization scheme in a nonlinear energy-based optimization setting. The problem of constructing an optimal vector quantizer based on the Centroidal Voronoi Tesselation is nonlinear in nature and hence cannot in general be analyzed using standard linear multigrid approach. We try to overcome this difficulty by essentially relying on the energy minimization. Since the energy functional is in general non-convex, a dynamic nonlinear preconditioner is proposed to relate our problem to a sequence of convex optimization problems.
+<p>
+In the case of the one-dimensional problem, we have shown that for a large class of density functions, the nonlinear multigrid algorithm enjoys uniform convergence properties independent of k, the problem size, thus a significant speedup comparing to the traditional Lloyd-Max iteration is achieved. We will show some results of numerical experiments and discuss analytical extensions of our theoretical framework to higher dimensions. 
+
+</body>
+</html>

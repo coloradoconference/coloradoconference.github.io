@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Irad Yavneh
+\\ {\bf
+Multilevel two-dimensional phase unwrapping
+}}
+
+Department of Computer Science \\
+Technion - Israel Institute of Technology \\
+Haifa 32000, Israel
+\\ {\tt
+irad@cs.technion.ac.il
+}
+\\
+Iddit Shalem
+\end{center}
+
+Two-dimensional phase unwrapping is the problem of deducing unambiguous
+``phase'' from values known only modulo $2\pi$. Many authors agree that
+the objective of phase unwrapping should be to find a weighted minimum
+of the number of places where adjacent (discrete) phase values differ
+by more than $\pi$. This NP-hard problem is of considerable practical
+interest, largely due to its importance in interpreting data acquired
+with synthetic aperture radar (SAR) interferometry. Consequently, many
+heuristic algorithms have been proposed. In this talk we shall present
+a novel multi-level graph algorithm for the approximate solution of
+this problem via an equivalent problem: minimal residue cut in the dual
+graph.
+
+\end{document}

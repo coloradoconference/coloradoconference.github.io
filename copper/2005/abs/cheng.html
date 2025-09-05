@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>cm conference abstract: Cheng</title>
+</head>
+
+<body>
+
+<center>
+Effective adaptive multigrid for strongly anisotropic problems with Krylov smoothers
+</center>
+
+<p>
+<center>
+<a href="mailto: zcheng@uiuc.edu">
+Zhen Cheng</a><br><br>
+Department of Computer Science<br>
+University of Illinois at Urbana-Champaign<br>
+Urbana IL 61801<br><br>
+Eric de Sturler<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We consider the parallel solution of strongly anisotropic diffusion problems on adaptive grids by 
+multigrid methods. The standard multigrid methods with pointwise relaxation and standard coarsening have problems 
+because smoothers are not effective. To improve multigrid, the common ways are to 
+use semicoarsening or line smoothers. However, neither
+of these techniques is suitable for parallel adaptive grids
+environment. Moreover, both techniques require that the anisotropy aligned with the grid, which may not be the case
+for realistic problems. In this talk, we will discuss a robust and easy-to-parallelize smoother for
+multigrid which can deal with strongly anisotropic problems on adaptive grids effectively. This method remains effective 
+even if the anisotropy is not aligned with the grid.
+<p>
+We use multilevel adaptive technique (MLAT). The
+main idea of MLAT is to perform smoothing sweeps only on locally refined grids, and use the full
+approximation scheme (FAS) to generate the error correction cycle. We propose to use
+Krylov subspace methods as smoothers. Our numerical experiments show that they reduce oscillatory error 
+components effectively. Therefore with such smoothers, multigrid achieves fast convergence rate. Moreover, parallelizing 
+Krylov methods is straightforward since only matrix vector
+products and vector inner products need communication. 
+<p>
+Convergence rate analysis for multigrid on adaptive grids can be simplified to analysis on uniform
+grids, since with properly chosen
+interpolation and prolongation operators, convergence rate on adaptive grids is almost identical to that on uniform grids. 
+Standard analytic tools such as Local Fourier Analysis
+(LFA) fail for Krylov smoothers because they require the smoothing operators to be linear. In addition, Krylov methods 
+are not ``strict'' smoothers. Their smoothing effect for high frequency modes may deteriorate when 
+large smooth error components are present.
+ In our work, we use a slightly
+different approach. Assume the coarse grid correction 
+operator (including interpolation and restriction) satisfies certain requirements, we derive the
+level-independent upper bound for convergence rate of Krylov methods. This rate is used to estimate
+ multigrid convergence rate. This explains why level-independent convergence rate of multigrid is achieved. 
+The numerical experiments verify our statement. Our approach of 
+quantitative analysis can be applied to more general problems and may be useful for other multigrid practitioners.
+<p>
+This work is part of IBEAM project which is sponsored under a Round III Grand Challenge Cooperative
+Agreement with NASA's Computational Technologies Project.
+
+</body>
+</html>

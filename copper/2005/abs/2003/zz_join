@@ -1,0 +1,155 @@
+#!/usr/local/bin/perl
+##############################################################################
+$ThisDir="/www/faculty/copper/2003/abs";
+@hfiles = glob "*.html";
+
+open (TMP,">TMP");
+
+foreach $file (@hfiles) {
+	$n++;  $title="";  $names="";  $key="";
+	open (ORIG,$file);
+	while ($line=<ORIG>) {
+		chomp $line;
+		if ($line =~ /-- TITLE --/) { $title = "$title $line"; }
+		if ($line =~ /cm conference abstr/) { $names = $line; }
+		}
+	close ORIG;
+
+	$title =~ s/<.-- TITLE -->//g;
+	$title =~ s/\s+/ /g;
+	$title =~ s/<center>//ig;
+	$title =~ s/<.center>//ig;
+	$title =~ s/<p [^>]*>//ig;
+	$title =~ s/<p>//ig;
+	$title =~ s/<.p>//ig;
+	$title =~ s/<b>//ig;
+	$title =~ s/<br>/ /ig;
+	$title =~ s/<.b>//ig;
+	$title =~ s/<font[^>]*>//ig;
+	$title =~ s/<.font>//ig;
+	$title =~ s/^ //;
+	$title =~ s/ $//;
+
+	$names =~ s/^.*ence abstract:\s*//i;
+	$names =~ s/\s*<.title>.*$//i;
+
+	($key=$names) =~ s/\s*,.*$//;
+	$key =~ s/^.*\s//;
+	$key = "$key$n$names";
+	$key =~ s/\s//g;
+	$key = substr(lc($key),0,16);
+
+	unless ($file eq "index.html") { $thefile{$key} = $file; }
+	$thetitle{$key} = $title;
+	$thenames{$key} = $names;
+
+	# printf TMP "%2d. %s\n\tkey=%s\n\tnames=%s\n\t%s\n\n",
+	#			$n, $file, $key, $names, $title;
+
+	}
+
+open (ALL,">./ALL.HTML");
+&Header();
+
+$n=0;
+foreach $ky (sort keys %thefile) {
+	open (SINGLE,$thefile{$ky});
+	$n++;
+	printf ALL "\n\n<hr><font size=\"+1\"><b>%d. %s</b></font><br>\n",
+		$n, $thenames{$ky};
+	printf ALL "\&nbsp \&nbsp \&nbsp <b>%s</b><p>\n", $thetitle{$ky};
+
+	$text="";
+	while ($line=<SINGLE>) {
+		chomp $line;
+		if ($line =~ /-- TITLE --/) { next; }
+		if ($line =~ /cm conference abstract/) { next; }
+		if ($line =~ /<head>/i) { next; }
+		if ($line =~ /<title>/i) { next; }
+		if ($line =~ /<body>/i) { next; }
+		if ($line =~ /<\/body>/i) { next; }
+		$text .= " $line";
+		}
+	close SINGLE;
+
+	$text =~ s/<br>\s*<br>/<br>/ig;
+	$text =~ s/<br>\s*<br>/<br>/ig;
+	$text =~ s/.nbsp;/ /g;
+	$text =~ s/\s*<br>\s*/ <br> /ig;
+	$text =~ s/\s*<p[^>]*>\s*/ <p> /ig;
+	$text =~ s/\s*<\/p>\s*/ /ig;
+	$text =~ s/\s*<div[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/div>\s*/ /ig;
+	$text =~ s/\s*<span[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/span>\s*/ /ig;
+	$text =~ s/\s*<head[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/head>\s*/ /ig;
+	$text =~ s/\s*<body[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/body>\s*/ /ig;
+	$text =~ s/\s*<font[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/font>\s*/ /ig;
+	$text =~ s/<\/center>\s*<p>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<p>\s*<\/center>/ /ig;
+	$text =~ s/<\/center>\s*<br>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<br>\s*<\/center>/ /ig;
+	$text =~ s/\s*<a [^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/a>\s*/ /ig;
+	$text =~ s/<\![^>]*>/ /g;
+	$text =~ s/<meta [^>]*>/ /g;
+	$text =~ s/>\s*Abstract\s*</></ig;
+	$text =~ s/\s+/ /g;
+	$text =~ s/<br> <br>/<br>/g;
+	$text =~ s/<p> <br>/<p>/g;
+	$text =~ s/<br> <p>/<p>/g;
+	$text =~ s/<p> <p> <p>/<p>/g;
+	$text =~ s/<p> <p>/<p>/g;
+	$text =~ s/<\/center>\s*<p>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<p>\s*<\/center>/ /ig;
+	$text =~ s/<\/center>\s*<br>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<br>\s*<\/center>/ /ig;
+
+
+	$text =~ s/\s+/ /g;
+
+	$text =~ s/\. /\.\n/g;
+	$text =~ s/\s*<p>\s*/\n<p>\n/g;
+	$text =~ s/\s*<br>\s*/\n<br>\n/g;
+
+
+
+	print ALL "$text\n\n";	# HEY
+	}
+
+&Trailer();
+close ALL;
+system("vi ALL.HTML");
+#	close TMP; system("vi TMP");
+exit 0;
+##############################################################################
+
+sub Header { print ALL<<EOH;
+<html>
+<head><title>Abstracts, Copper Mountain Conference, 2003</title></head>
+<body bgcolor=white>
+<center>
+<h1>Abstracts</h1>
+<h3>Copper Mountain Conference on Multigrid Methods<br>
+	March 30 - April 4 2003</h3>
+</center>\n\n
+EOH
+}
+
+sub Trailer { print ALL<<EOT;
+\n\n</body>
+</html>
+EOT
+}
+
+
+##############################################################################
+##############################################################################
+__END__
+
+###############################################################################
+
+

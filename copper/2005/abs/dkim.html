@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>cm conference abstract: Kim</title>
+</head>
+
+<body>
+
+<center>
+  <i><b>p</b></i><b>-Multigrid for the Nodal Discontinuous Galerkin Approximation 
+  </b> 
+</center>
+
+<p>
+<center>
+<a href="mailto: dongkim@uwyo.edu">
+Dongjin Kim</a><br><br>
+	Department of Mathematics<br>
+    University of Wyoming<br>
+	Laramie, WY 82071<br><br>
+Dan Stanescu<br>
+
+</center>
+
+<p>
+<center>
+<br>
+    <b>Abstract</b> 
+  </center>
+
+<p>The Discontinuous Galerkin (DG) Method is increasingly used
+nowadays to solve advection-dominated problems. Its most
+attractive features, namely the high accuracy obtained without the
+use of an extended stencil and the inherent parallelization, have
+turned it into a method of choice for Computational Fluid Dynamics
+problems (see the recent review in [Cockburn,Karniadakis,Shu (2001)]). 
+The early formulation of the DG method by Cockburn and Shu (1989) 
+uses as degrees of freedom the coefficients of the
+solution in a polynomial basis expansion (Legendre polynomials
+being used in one dimension to take advantage of their
+orthogonality). This modal formulation seems more intuitive, but
+has a large drawback for nonlinear problems: to compute nonlinear
+fluxes, one needs to first compute the value of the solution by
+evaluating the polynomial expansion at the flux integration
+points, then evaluate the fluxes. Researchers realized later that
+this translation from modal space into physical space can be
+avoided through a collocation (nodal) formulation. In the latter
+framework the degrees of freedom are the values of the solution at
+the collocation points, so the flux values can be evaluated
+easily, in particular if the collocation points are chosen to
+coincide with the integration points
+[Stanescu,Hussaini,Farassat (2003)],
+[Kopriva,Woodruff,Hussaini (2001)].</p>
+
+<p>In the context of multigrid methods, the modal DG formulation again is more 
+  intuitive: the polynomial-type basis functions can be made hierarchical, and 
+  a <i>p</i>-multigrid approach is natural (the restriction operator for example 
+  just neglects extra modes); see recent research in this direction [Helenbrook,Mavriplis,Atkins 
+  (2003)], [Fidkowski,Darmofal (2003)]. Due to the advantage of the nodal approach 
+  for nonlinear problems, we want to investigate the feasibility of a <i>p</i>-type 
+  multigrid method in this latter formulation. It seems that such an investigation 
+  has not been reported yet in the literature. The use of an acceleration technique 
+  such as multigrid may reduce the difference in cost between the two approaches; 
+  however, this is very likely to be problem dependent, hence arguably a nodal 
+  DG <i>p</i>-multigrid method may lead to savings in computer time.</p>
+
+<p>For a preliminary numerical result, we solve the one-dimensional nonlinear 
+  Euler equations and compare the performance (CPU time, MG cycles) of a nodal 
+  DG <i>p</i>-multigrid with a modal DG <i>p</i>-multigrid. Figure 1 shows the accuracy versus the number of MG
+cycles. Figure 2 shows the accuracy versus CPU time.</p>
+<p>&nbsp;</p>
+<p><img src="nvsm_cycle.gif" width="419" height="315"></p>
+<p><font size="-1">Figure 1: nodal DG <i>p</i>-multigrid (top) vs. modal DG <i>p</i>-multigrid 
+  (bottom) in the MG cycles</font></p>
+<p>&nbsp;</p>
+<p><img src="nvsm_cpu.gif" width="419" height="315"></p>
+<p><font size="-1">Figure 2: nodal DG <i>p</i>-multigrid (top) vs. modal DG <i>p</i>-multigrid 
+  (bottom) in CPU time</font></p>
+
+</body>
+</html>

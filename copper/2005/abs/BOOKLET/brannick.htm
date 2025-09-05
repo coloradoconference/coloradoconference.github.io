@@ -1,0 +1,153 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./brannick_files/filelist.xml">
+<title>Adaptive Algebraic Multigrid Preconditioners in </title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Cathy Lee</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Cathy Lee</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2005-02-15T22:55:00Z</o:Created>
+  <o:LastSaved>2005-02-15T22:56:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Company>Front Range Scientific Computations</o:Company>
+  <o:Lines>1</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal>Adaptive Algebraic Multigrid Preconditioners in <o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>Quantum
+Chromodynamics<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>James Brannick<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>University of Colorado at Boulder<o:p></o:p></p>
+
+<p class=MsoNormal>Campus Box 526<o:p></o:p></p>
+
+<p class=MsoNormal>Boulder, CO 80309-0526<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Marian Brezina, David Keyes, Oren Livne,<span
+style="mso-spacerun: yes">     </span><o:p></o:p></p>
+
+<p class=MsoNormal>Irene Livshits, Scott MacLachlan, Tom Manteuffel, <o:p></o:p></p>
+
+<p class=MsoNormal>Steve McCormick, John Ruge, Ludmil Zikatanov<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Standard algebraic multigrid methods assume explicit
+knowledge of <o:p></o:p></p>
+
+<p class=MsoNormal>so-called algebraically-smooth or near-kernel components, <o:p></o:p></p>
+
+<p class=MsoNormal>which loosely speaking are errors that give relatively small
+residuals. <o:p></o:p></p>
+
+<p class=MsoNormal>Tyically, these methods automatically generate a sequence of
+coarse <o:p></o:p></p>
+
+<p class=MsoNormal>problems under the assumption that the near-kernel is
+locally constant. <o:p></o:p></p>
+
+<p class=MsoNormal>The difficulty in applying algebraic multigrid to lattice
+QCD is that <o:p></o:p></p>
+
+<p class=MsoNormal>the near-kernel components can be far from constant, often
+exhibiting <o:p></o:p></p>
+
+<p class=MsoNormal>little or no apparent smoothness. In fact, the local
+character of <o:p></o:p></p>
+
+<p class=MsoNormal>these components appears to be random, depending on the
+randomness of <o:p></o:p></p>
+
+<p class=MsoNormal>the so-called &quot;gauge&quot; group. Hence, no apriori knowledge
+of<o:p></o:p></p>
+
+<p class=MsoNormal>the local character of the near-kernel is readily available.<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>This talk proposes adaptive algebraic multigrid (AMG)<o:p></o:p></p>
+
+<p class=MsoNormal>preconditioners suitable for the linear systems arising in
+lattice QCD.<o:p></o:p></p>
+
+<p class=MsoNormal>These methods recover good convergence properties in situations
+where <o:p></o:p></p>
+
+<p class=MsoNormal>explicit knowledge of the near-kernel components may not be
+available. This is <o:p></o:p></p>
+
+<p class=MsoNormal>accomplished using the method itself to determine
+near-kernel<o:p></o:p></p>
+
+<p class=MsoNormal>components automatically, by applying it carefully to the
+homogeneous matrix<o:p></o:p></p>
+
+<p class=MsoNormal>equation, $Ax=0$.<span style="mso-spacerun: yes"> 
+</span>The coarsening process is modified to use and improve the<o:p></o:p></p>
+
+<p class=MsoNormal>computed components. Preliminary results with model 2D QCD
+problems <o:p></o:p></p>
+
+<p class=MsoNormal>suggest that this approach yields optimal multigrid-like
+performance <o:p></o:p></p>
+
+<p class=MsoNormal>that is uniform in matrix dimension and gauge-group
+randomness.<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

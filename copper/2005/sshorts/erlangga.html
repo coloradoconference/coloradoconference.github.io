@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 2002 (1.67)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><HTML><HEAD><TITLE>Multigrid-based preconditioner for heterogeneous, high wavenumber Helmholtz problems1</TITLE>
+<META 
+content="Multigrid-based preconditioner for heterogeneous, high wavenumber Helmholtz problems1" 
+name=description>
+<META content=abstract name=keywords>
+<META content=document name=resource-type>
+<META content=global name=distribution>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1276" name=GENERATOR>
+<META http-equiv=Content-Style-Type content=text/css><LINK href="abstract.css" 
+rel=STYLESHEET><LINK href="node1.html" rel=next></HEAD>
+<BODY><!--Navigation Panel--><A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/node1.html" 
+name=tex2html3><IMG height=24 alt=next src="" width=37 align=bottom 
+border=0></A> <IMG height=24 alt=up src="" width=26 align=bottom border=0> <IMG 
+height=24 alt=previous src="" width=63 align=bottom border=0> <BR><B>Next:</B> 
+<A href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/node1.html" 
+name=tex2html4>About this document ...</A> <BR><BR><!--End of Navigation Panel-->
+<H1 align=center>Multigrid-based preconditioner for heterogeneous, high 
+wavenumber Helmholtz problems<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/footnode.html#foot6" 
+name=tex2html1><SUP>1</SUP></A></H1>
+<P align=center><STRONG>Yogi A. Erlangga <BR><FONT size=-1>Delft Univ. of 
+Technology, Dept. Appl. Math. Anal.,</FONT> <BR><FONT size=-1>Mekelweg 8, 2628 
+CD Delft, The Netherlands</FONT> <BR><FONT size=-1>Correspondence: 
+y.a.erlangga@ewi.tudelft.nl</FONT></STRONG></P>
+<P align=left></P>
+<P>In this paper an iterative method to solve the Helmholtz equation <BR>
+<DIV align=center><A name=helm></A><!-- MATH
+ \begin{eqnarray}
+\mathcal{A} u := \left( - \frac{\partial^2}{\partial x^2} - \frac{\partial^2}{\partial y^2} - k^2(x,y) \right) u = f \text{ in } \Omega = \mathbb{R}^2,
+\end{eqnarray}
+ -->
+<TABLE cellPadding=0 width="100%" align=center>
+  <TBODY>
+  <TR vAlign=center>
+    <TD noWrap align=right><IMG height=58 
+      alt="$\displaystyle \mathcal{A} u := \left( - \frac{\partial^2}{\partial x^2} - \frac{\partial^2}{\partial y^2} - k^2(x,y) \right) u = f$" 
+      src="" width=282 align=middle border=0>&nbsp; &nbsp; in&nbsp;<IMG 
+      height=38 alt="$\displaystyle \Omega = \mathbb{R}^2,$" src="" width=62 
+      align=middle border=0></TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD align=right width=10>(1)</TD></TR></TBODY></TABLE></DIV><BR clear=all>with 
+radiation boundary conditions on <!-- MATH
+ $\Gamma = \partial \Omega$
+ --><IMG 
+height=18 alt="$ \Gamma = \partial \Omega$" src="" width=58 align=bottom 
+border=0> is discussed. The iterative method is based on the Krylov subspace 
+methods (in our case Bi-CGSTAB) accelerated by a multigrid method. Since the 
+Helmholtz equation with high wavenumber <IMG height=18 alt="$ k$" src="" 
+width=15 align=bottom border=0> arises problems in both smoothing and coarse 
+grid correction, direct application of a <I>standard</I> multigrid method to (<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#helm">1</A>) 
+usually leads to a diverging method. We find that adding an imaginary shift to 
+the Helmholtz equation may result in a good operator that multigrid can handle 
+it efficiently, and that at the same time can also be used as an effective 
+preconditioner for (<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#helm">1</A>). 
+<P>In its general formulation, the <I>preconditioning</I> operator is defined as 
+<BR>
+<DIV align=center><A name=prec></A><!-- MATH
+ \begin{eqnarray}
+\mathcal{M} := - \frac{\partial^2}{\partial x^2} - \frac{\partial^2}{\partial y^2} - (\beta_1 - \hat{j} \beta_2) k^2(x,y), \ \beta_1, \beta_2 \in \mathbb{R}
+\end{eqnarray}
+ -->
+<TABLE cellPadding=0 width="100%" align=center>
+  <TBODY>
+  <TR vAlign=center>
+    <TD noWrap align=right><IMG height=58 
+      alt="$\displaystyle \mathcal{M} := - \frac{\partial^2}{\partial x^2} - \frac{\partial...&#10;... y^2} - (\beta_1 - \hat{j} \beta_2) k^2(x,y),  \beta_1, \beta_2 \in \mathbb{R}$" 
+      src="" width=367 align=middle border=0></TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD align=right width=10>(2)</TD></TR></TBODY></TABLE></DIV><BR clear=all>with <!-- MATH
+ $\hat{j} = \sqrt{-1}$
+ --><IMG height=40 alt="$ \hat{j} = \sqrt{-1}$" 
+src="" width=68 align=middle border=0>., the complex identity. 
+<P>To investigate the convergence of multigrid as a solver for (<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#prec">2</A>) 
+and as a preconditioner for (<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#helm">1</A>), 
+analyses based on <I>Rigorous Fourier Analysis</I> (RFA) is done. It is found 
+from this analysis that standard multigrid components can still be applied to 
+(<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#prec">2</A>), 
+with a slight modification to the matrix-dependent interpolation operator by de 
+Zeeuw. This interpolation is effective for cases where heterogeneity is present. 
+Furthermore, from RFA we also find that the combination <!-- MATH
+ $(\beta_1,\beta_2) = (1.0,0.5)$
+ --><IMG height=34 
+alt="$ (\beta_1,\beta_2) = (1.0,0.5)$" src="" width=139 align=middle border=0> 
+results in a robust preconditioner for (<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#helm">1</A>). 
+For this combination, V(1,1) cycle with Jacobi smoother with small 
+underrelaxation factor (<!-- MATH
+ $\omega = 0.5$
+ --> <IMG height=17 
+alt="$ \omega = 0.5$" src="" width=58 align=bottom border=0>)can be applied. 
+<P>Table <A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#tab1">1</A> 
+shows Bi-CGSTAB iterations preconditioned by (<A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/abstract.html#prec">2</A>) 
+for Helmholtz problems with constant <IMG height=18 alt="$ k$" 
+src="erlanngga2_files/img4.gif" width=15 align=bottom border=0>. CPU time is 
+measured on a Pentium IV Linux PC. These results, especially with <IMG height=18 
+alt="$ k = 500$" src="" width=60 align=bottom border=0>, show the robustness of 
+the method. 
+<P><BR>
+<P></P>
+<DIV align=center>
+<DIV align=center></DIV>
+<P>
+<DIV align=center><A name=45></A>
+<TABLE cellPadding=3 border=1>
+  <CAPTION><STRONG>Table 1:</STRONG> Number of preconditioned Bi-CGSTAB 
+  iteration and CPU time (in brackets) to reduce the initial residual by 7 
+  orders</CAPTION>
+  <TBODY>
+  <TR>
+    <TD align=left><IMG height=18 alt="$ k$" src="erlanngga2_files/img4.gif" 
+      width=15 align=bottom border=0></TD>
+    <TD align=left>40</TD>
+    <TD align=left>50</TD>
+    <TD align=left>100</TD>
+    <TD align=left>150</TD>
+    <TD align=left>200</TD>
+    <TD align=left>500</TD></TR>
+  <TR>
+    <TD align=left>iter</TD>
+    <TD align=left>26</TD>
+    <TD align=left>31</TD>
+    <TD align=left>52</TD>
+    <TD align=left>73</TD>
+    <TD align=left>92</TD>
+    <TD align=left>250</TD></TR>
+  <TR>
+    <TD align=left>CPU time</TD>
+    <TD align=left>0.21</TD>
+    <TD align=left>0.40</TD>
+    <TD align=left>3.3</TD>
+    <TD align=left>10.8</TD>
+    <TD align=left>25.4</TD>
+    <TD align=left>425</TD></TR></TBODY></TABLE><A name=tab1></A></DIV></DIV><BR>
+<P>Problems with heterogeneity, which are of our main interest, will be 
+presented during the talk. 
+<P><BR>
+<HR>
+<!--Table of Child-Links--><A name=CHILD_LINKS></A>
+<UL>
+  <LI><A href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/node1.html" 
+  name=tex2html5>About this document ...</A> </LI></UL><!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel--><A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/node1.html" 
+name=tex2html3><IMG height=24 alt=next src="erlanngga2_files/next.gif" width=37 
+align=bottom border=0></A> <IMG height=24 alt=up src="erlanngga2_files/up_g.gif" 
+width=26 align=bottom border=0> <IMG height=24 alt=previous 
+src="erlanngga2_files/prev_g.gif" width=63 align=bottom border=0> 
+<BR><B>Next:</B> <A 
+href="file:///C:/WINDOWS/TEMP/TD_0002.DIR/abstract/node1.html" 
+name=tex2html4>About this document ...</A> <!--End of Navigation Panel-->
+<ADDRESS>Yogi Ahmad Erlangga 2005-02-28 </ADDRESS></BODY></HTML>

@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Oliver R\"{o}hrle
+\\ {\bf
+Modeling Jaw and Teeth Mechanics
+}}
+
+Bioengineering Institute \\
+The University of Auckland \\
+Private Bag 92019 \\
+Auckland, New Zealand
+\\ {\tt
+o.rohrle@auckland.ac.nz
+}
+\\
+
+Iain Anderson,
+Andrew Pullan
+\end{center}
+
+
+Abstract
+
+To get a better understanding of forces acting on teeth and the
+temporo-mandibular joint (TMJ) during the mastication process, we are
+developing accurate finite element models for parts of the human
+musculo-skeletal system. While the ultimate goal is to obtain models
+guided by active electrical muscle activation, we focus in a first step
+on large displacement deformations of the muscles of mastication. The
+deformation of these muscles is dictated by their material properties
+and the movement of the mandible. A motion tracking system is used to
+track the movements of the mandible during a chewing cycle. This allows
+us to prescribe the displacements at the attachment points of the
+muscles to the bone.
+
+Three dimensional high-order (cubic Hermite) elements are used to
+construct accurate meshes for the anatomically based geometries. Taking
+into account the complexity (and desired accuracy) of the geometry, the
+high-order discretizations, and the kinematics and kinetic of the
+mandible, it is clear that fast, efficient and accurate iterative
+solvers, such as an (algebraic) multigrid method, are inevitable. In
+this talk, we discuss the applications, introduce the model creation
+for bone, teeth, and muscles, and present first numerical results.
+
+This research is funded by the Foundation for Research in Science and
+Technology (FRST) under contract number UOAX0406. 
+
+\end{document}

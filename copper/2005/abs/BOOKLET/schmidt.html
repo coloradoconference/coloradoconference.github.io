@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://amath.colorado.edu/faculty/copper/2005/abstract.txt -->
+<HTML><HEAD><TITLE>cm conference abstract: Schmidt</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4134.100" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>On the Use of Algebraic Multigrid inside a Non-Linear Finite Element Method
+ for Maxillo-Facial Surgery Simulations </CENTER>
+<P>
+<CENTER><A href="mailto:schmidt@ccrl-nece.de">J.G.Schmidt</A>
+<BR><BR>C+C Research Labs, NEC Europe Ltd.
+<BR>Rathausallee 10
+<BR>53757 Sankt Augustin
+<BR>Germany
+<BR><BR>G.Berti 
+<BR>J.Fingberg
+<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>In this paper we will present a computational tool chain for simulating the
+outcome of the ostheogenetic distraction process of a maxillo-facial surgery.
+<BR><BR>
+The main tool of this tool chain is a parallel Finite Element code for non-linear,
+viscoelastic elasticity (FEBiNA), that has been developed at the C+C Labs.
+<BR><BR>
+The Finite Element meshes used for this maxillo-facial surgery simulation are
+based on patient specific tomography data and their geometry is highly complicated.
+In addition to that the material parameters for bony structures, like skull and teeth,
+differ by several orders of magnitude from those for the soft tissues of the human head.
+Finally, the latter materials are nearly incompressible.
+<BR><BR>
+Due to those difficulties, the systems of linear equations that have to be solved during
+the simulation process are severly maleconditioned. Our tests show that given our 
+hardware environment, only multigrid methods can handle those systems within a reasonable
+solution time.
+<BR><BR>
+Nevertheless, the algebraic multigrid solvers we are using do not always show
+satisfying behaviour. We will show some numerical experiments and point out the
+arising problems we encountered during the linear solution phase.
+<BR><BR>
+By doing so, we hope to nurture a
+fruitful discussion on the use of algebraic multigrid methods for these kinds of problems.     
+</P></BODY></HTML>

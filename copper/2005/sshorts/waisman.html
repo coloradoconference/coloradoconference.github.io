@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://amath.colorado.edu/faculty/copper/2003/abs/olson.html -->
+<HTML><HEAD><TITLE>cm conference: Waisman</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY>
+<p align="center"><font size="5">A Multiscale Filter to Accelerate Multigrid Methods</font></p>
+<p align="center">&nbsp;</p>
+<P style="line-height: 100%; margin-top: -2">
+<CENTER><b><a href="file:///C:/Documents%20and%20Settings/Owner/My%20Documents/HAIM/WebSite/GGBabstract.htm">Haim
+Waisman</a>, Jacob Fish<BR></b><BR>Department of Civil Engineering<BR>Rensselaer Polytechnic Institute,
+Troy, NY 12180</CENTER>
+<P style="line-height: 100%; margin-top: -2">
+&nbsp;
+<P style="line-height: 100%; margin-top: -2">
+&nbsp;<P style="line-height: 100%; margin-top: -2"><CENTER><b>Ray Tuminaro<BR></b><BR>Sandia
+National Laboratories<BR>PO
+Box 969, MS 9159, Livermore, CA 94551</CENTER><P style="line-height: 100%; margin-top: -2">&nbsp;<P style="line-height: 100%; margin-top: -2">&nbsp;<P style="line-height: 100%; margin-top: -2"><CENTER><b>John
+Shadid<BR></b><BR>Sandia National Laboratories<BR>PO Box 5800, MS 1111, Albuquerque, NM 87185</CENTER><P style="line-height: 100%" align="center">
+&nbsp;<P style="line-height: 100%" align="center">
+<CENTER><BR><font size="3">Abstract</font> </CENTER>
+<p style="line-height: 150%; word-spacing: 1" align="left">We present the Generalized Global-Basis (GGB) method aimed at
+enhancing performance of multigrid solvers for difficult systems such as those arising from indefinite and nonsymmetric matrices.
+The GGB method is a multiscale filter that constructs an auxiliary coarse model from the largest eigenvalues of the iteration matrix.
+It projects these modes which would cause slow convergence to a coarse problem which is then used to eliminate&nbsp;
+these modes.&nbsp;</p>
+<p style="line-height: 150%; word-spacing: 1" align="left"> For nonlinear problems the filter is modified (MGGB) to selectively
+reuse the same prolongation and thus reduce the amount of eigensolver calculations. This selection criteria is based on
+principal angles between subspaces spanned between the previous and current prolongation operators.&nbsp;</p>
+<p style="line-height: 150%; word-spacing: 1" align="left"> Numerical examples show that best performance is obtained when GGB is accelerated by GMRES and
+used for problems with multiple right hand sides. In addition it is demonstrated that GGB can enhance restarted GMRES strategies by
+retention of important subspace information. For nonlinear problems, MGGB scheme indicate significant time savings.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>References
+<p style="line-height: 150%">H.
+Waisman, J. Fish, R. S. Tuminaro and J. Shadid, <i>The Generalized Global Basis
+(GGB) Method</i>, International Journal for Numerical Methods in Engineering 61
+(8):1243-1269, October 2004.</p>
+<p style="line-height: 150%"><br>
+H. Waisman, J. Fish, R. S. Tuminaro and J. Shadid, <i>Acceleration of the Generalized
+Global Basis&nbsp;method for nonlinear problem</i>, Submitted to&nbsp; Journal
+of Computational Physics.</p>
+<P style="line-height: 100%" align="center">&nbsp;<P style="line-height: 100%" align="center">&nbsp;</BODY></HTML>

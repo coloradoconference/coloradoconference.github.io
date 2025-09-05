@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+James Brannick
+\\ {\bf
+Adaptive Algebraic Multigrid Preconditioners in Quantum Chromodynamics
+}}
+
+Dept. of Applied Mathematics
+\\
+University of Colorado
+\\
+Boulder CO 80309-0526
+\\ {\tt
+james.brannick@colorado.edu
+}
+\\
+Marian Brezina, David Keyes, Oren Livne,
+Irene Livshits, Scott MacLachlan, Tom Manteuffel,
+Steve McCormick, John Ruge, Ludmil Zikatanov
+\end{center}
+
+
+Standard algebraic multigrid methods assume explicit knowledge of
+so-called algebraically-smooth or near-kernel components, which loosely
+speaking are errors that give relatively small residuals.  Tyically,
+these methods automatically generate a sequence of coarse problems
+under the assumption that the near-kernel is locally constant.  The
+difficulty in applying algebraic multigrid to lattice QCD is that the
+near-kernel components can be far from constant, often exhibiting
+little or no apparent smoothness. In fact, the local character of these
+components appears to be random, depending on the randomness of the
+so-called "gauge" group. Hence, no apriori knowledge of the local
+character of the near-kernel is readily available.
+
+This talk proposes adaptive algebraic multigrid (AMG) preconditioners
+suitable for the linear systems arising in lattice QCD.  These methods
+recover good convergence properties in situations where explicit
+knowledge of the near-kernel components may not be available.  This is
+accomplished using the method itself to determine near-kernel
+components automatically, by applying it carefully to the homogeneous
+matrix equation, $Ax=0$.  The coarsening process is modified to use and
+improve the computed components. Preliminary results with model 2D QCD
+problems suggest that this approach yields optimal multigrid-like
+performance that is uniform in matrix dimension and gauge-group
+randomness.
+
+
+\end{document}

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+vi '+/HEY' ALL.tex
+
+echo q | pdflatex ALL
+echo q | pdflatex ALL
+echo q | pdflatex ALL
+
+acroread -geometry 870x1120-0+0 ALL.pdf &
+

@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Michael W. Gee
+\\ {\bf
+Nonlinear Nearly Matrix-Free Algebraic Multigrid for Solid Mechanics
+}}
+
+Sandia National Laboratories
+\\
+PO Box 5800, MS 1110
+\\
+Albuquerque  NM  87185-1110
+\\ {\tt
+mwgee@sandia.gov
+}
+\\
+Ray S. Tuminaro
+\end{center}
+
+The increasing demands of large-scale complex solid mechanics
+simulations are placing greater emphasis on the challenges associated
+with the efficient solution of the set of nonlinear equations. Here,
+the solution of large systems of equations with material and geometric
+nonlinearities in a parallel framework is addressed.
+
+
+Instead of applying widely used Newton- or Newton-Krylov type methods
+that involve the derivation of a stiffness matrix and a sequence of
+linear solves, the presented work details the implementation of a
+(nearly) matrix-free nonlinear algebraic multigrid algorithm applied to
+solve this set of nonlinear equations.
+
+
+As a basic iterative method, a nonlinear conjugate gradient algorithm
+(nlnCG) using the Polak-Ribiere formula and a secant method for the
+stepsize is applied. It has the advantage of being a completely
+matrix-free method eliminating the need to form a stiffness matrix.
+Preconditioned nonlinear CG is then applied as a smoother/coarse solver
+in a classical full approximation scheme (FAS) nonlinear multigrid
+cycle. Transfer operators are constructed by an aggregation approach
+operating on the graph of the fine level problem. The preconditioners
+to the nlnCG on all levels are obtained by multicolor finite
+differencing and are chosen to be either simple Jacobi or a direct
+solve on the coarsest level.
+For Jacobi-preconditioned nonlinear CG, only the main diagonal of a
+Jacobian matrix needs to be formed involving a distance-1 graph
+coloring algorithm and an inexpensive modified colored finite
+difference scheme.
+
+
+The algorithm is implemented within Sandia National Laboratories'
+freely available parallel `Trilinos' linear algebra framework and makes
+use of its smoothed aggregation multigrid library `ML' and its
+nonlinear solver library `NOX'. The outline of the algorithm and
+implementation are given together with examples demonstrating the
+advantages of this new approach. Several variants of the algorithm will
+be discussed and compared. 
+
+\end{document}

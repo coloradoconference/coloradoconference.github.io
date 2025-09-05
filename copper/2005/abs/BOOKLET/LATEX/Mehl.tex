@@ -1,0 +1,137 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Miriam Mehl
+\\ {\bf
+A cache-oblivious self-adaptive full multigrid method
+}}
+
+Institut f\"{u}r Informatik, TU M\"{u}nchen \\
+Boltzmannstr. 3 \\
+85748 Garching, Germany
+\\ {\tt
+mehl@in.tum.de
+}
+\\
+Nadine Dieminger,
+Christoph Zenger
+\end{center}
+
+In many implementations of modern solvers for partial differential
+equations, the use of multigrid methods in particular in combination
+with dynamically adaptive grids causes a non-negligible loss of
+efficiency in data access and storage usage: As multilevel data on
+adaptively refined grids are typically organized in trees and stored
+with the help of pointer structures, the evaluation of difference
+stencils, restrictions and interpolations generate jumps within the
+physical memory space and, thus, prevent an efficient usage of
+cache-hierarchies and prefetching strategies. In addition, the storage
+of pointers to neighbours, fathers and sons of each grid cell is
+required. Our algorithm overcomes these inefficiencies by a
+linearization of all data with the help of space-trees and
+space-filling curves. Space-filling curves are well known as an
+efficient tool for parallelization strategies on space-tree grids as
+they define a linear ordering of all grid cells and, thus, allow a
+simple partitioning of data. Space-tree grids are structured grids but,
+at the same time, permit arbitrary local refinement (The only exception
+are unisotropic refinements. The realization of such refinements is
+subject of our current studies.).
+
+In our algorithm, we associate the degrees of freedom of the unknown
+function(s) to the vertices of the grid cells and - as a first step
+towards cache-optimality - we replace the common pointwise operator
+evaluation - that is the complete computation of the operator value at
+a grid point necessitating access to data of neighbouring points and,
+thus, causing a part of the jumps within the physical memory space. We
+use an elementwise operator evaluation instead: We decompose the
+pointwise difference stencils in parts only incorporating vertex data
+of the actual cell and get the overall operator value by accumulation
+over all cells involved. From the algorithmic point of view, the
+consequence is a cellwise instead of pointwise processing of the
+space-tree grid during the iterations of our solver.
+
+The second and crucial step on our way to cache-optimality is to
+construct suitable data structures with minimal storage overhead and
+strictly local access properties. If we use the discrete iterates of
+the Peano-curve, a self-similar recursively defined space-filling
+curve, to define a top-down-depth-first processing order of the grid
+cells (on all levels), we can derive a storage concept with a fixed,
+small and constant number of stacks as the only kind of data structures
+[1,2,3,4]: Due to the dimension-recursivity of the Peano-curve, this
+traversion order leads to a to-and-fro-processing of vertex data on
+certain sub-manifolds of the domain which exactly fits the properties
+of stacks: Stacks are very simple data structures allowing only the two
+basic operations push and pop (push puts data on top of a pile and pop
+takes data from the top of a pile). Due to this, the locality of data
+access is inherently very high which makes data access very fast - even
+faster than the common access of non-hierarchical data stored in
+matrices - and, in particular, reduces cache misses considerably. In
+addition, we can define locally deterministic rules for pushing and
+poping data to/from the set of stacks. Thus, also the storage overhead
+for administrational information is minimal. Each cell only has to
+carry one bit for geometrical and one bit for refinement information.
+
+Dynamical adaptivity can be realized in a very natural way in this
+concept by definition of data sources and sinks at interface to the
+input and output stacks of a solver iteration. Based on the algorithmic
+concepts described above, we implemented an adaptive Full Multigrid
+method for the three-dimensional Poisson equation with several
+adaptivity criteria like shape of the domain, error estimators for the
+global error and dual approaches to handle local accuracy requirements.
+In addition, the Multigrid method was combined with a tau-extrapolation
+scheme to achieve a fourth order discretization [5,6]. Thus, we
+considerably enhanced the numerical efficiency without loosing
+cache-efficiency compared to a simple non-adaptive one-level solver. In
+all case studies, the number of actual cache misses is only about ten
+percent higher than the unavoidable minimum of cache misses caused by
+the first loading of data points to the cache.
+
+[1] F.~G\"{u}nther, M.~Mehl, M.~P\"{o}gl, Ch.~Zenger,
+{\em A cache-aware
+algorithm for PDEs on hierarchical data structures},
+Conference Proceedings PARA '04, Kopenhagen, June 2004,
+LNCS, Springer, submitted.F.
+
+[2] F.~G\"{u}nther, M.~Mehl, M.~P\"{o}gl, Ch.~Zenger,
+{\em A cache-aware
+algorithm for PDEs on hierarchical data structures based on
+space-filling curves}, SIAM Journal on Scientific Computing,
+in review.
+
+[3] F.~G\"{u}nther,
+{\em A Cache-Optimal Implementation of the
+Finite-Element-Method} (German: Eine cache-optimale
+Implementierung der Finite-Elemente-Methode), Doctoral
+Thesis, Institut f\"{u}r Informatik, TU M\"{u}nchen, 2004.
+
+[4] M.~P\"{o}gl,
+{\em Development of a Cache-Optimal 3D
+Finite-Element-Method for Big Problems} (German:
+Entwicklung eines cache-optimalen 3D
+Finite-Element-Verfahrens f\"{u}r groe Probleme),
+Doctoral Thesis, Institut f\"{u}r Informatik, TU
+M\"{u}nchen, 2004.
+
+[5] A.~Krahnke,
+{\em Adaptive Higher Order Methods on Cache-Optimal
+Datastructures for Three-Dimensional Problems} (German:
+Adaptive Verfahren hherer Ordnung auf cache-optimalen
+Datenstrukturen f\"{u}r dreidimensionale Probleme),
+Doctoral Thesis, Institut f\"{u}r Informatik, TU
+M\"{u}nchen, 2005.
+
+[6] N.~Dieminger,
+{\em Criteria for the Selfadaption of
+Cache-Efficient Multigrid Algorithms} (German: Kriterien
+f\"{u}r die Selbstadaption cache-effizienter
+Mehrgitteralgorithmen), Diploma Thesis, Institut f\"{u}r
+Informatik, TU M\"{u}nchen, 2005.
+
+
+\end{document}

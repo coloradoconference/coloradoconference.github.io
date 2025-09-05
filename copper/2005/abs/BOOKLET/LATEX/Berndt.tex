@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Markus Berndt
+\\ {\bf
+Toward an efficient nonlinear solver for an mesh smoothing problem
+}}
+
+Los Alamos National Laboratory
+\\
+Los Alamos NM 87545
+\\ {\tt
+berndt@lanl.gov
+}
+\\
+J. David Moulton, Glen Hansen
+\end{center}
+
+The problem of unstructured mesh smoothing can be approached by solving
+a set of Laplace-Beltrami equations that are discretized using finite
+elements. The resulting discrete problem is non-linear and a
+Newton-Krylov type procedure can be employed to solve it. We will
+report on our efforts to speed up the solution of this problem using an
+AMG based preconditioner in the Krylov step.
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Barry Lee
+\\ {\bf
+A Multilevel Time Parallelization Algorithm
+}}
+
+LLNL, L-561 \\ P.O. Box 808 \\ Livermore CA 94550
+\\ {\tt
+lee123@llnl.gov
+}
+\\
+Izaskun Garrido,
+Gunnar E. Fladmark,
+Magne S. Espedal
+\end{center}
+
+Parallel methods are usually not applied to the time domain because of
+the inherit sequentialness of time evolution. But for many evolutionary
+problems, computer simulation can benefit substantially from time
+parallelization methods. In this talk, we present several such
+multilevel algorithms that actually exploit the sequential nature of
+time evolution through a predictor-corrector procedure. This
+sequentialness ensures convergence of a parallel predictor corrector
+procedure within a fixed number of iterations. The performance of these
+novel algorithms which can be derived from the classical alternating
+Schwarz method, are illustrated through several examples from reservoir
+simulation.
+
+
+\end{document}

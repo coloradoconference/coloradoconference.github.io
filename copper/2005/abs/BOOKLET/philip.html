@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Philip</title>
+</head>
+
+<body>
+
+<center>
+Performance of FAC Preconditioners for Multi-Material Equilibrium Radiation
+Diffusion on Adaptively Refined Grids
+</center>
+
+<p>
+<center>
+<a href="mailto: bphilip@lanl.gov">
+Bobby Philip</a><br><br>
+MS B256, CCS-3, Los Alamos National Laboratory<br><br>
+Michael Pernice<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p> 
+Radiation transport plays an important role in numerous fields of
+study, including astrophysics, laser fusion, and combustion
+applications such as modeling of coal-fired power generation systems
+and wildfire spread.  A diffusion approximation provides a reasonably
+accurate description of penetration of radiation from a hot source to
+a cold medium in materials with short mean free paths.  This
+approximation features a nonlinear conduction coefficient that leads
+to formation of a sharply defined thermal front, or Marshak wave, in
+which the solution can vary several orders of magnitude over a very
+short distance. Resolving these localized features with adaptive mesh
+refinement (AMR) concentrates computational effort by increasing
+spatial resolution only locally.  Previously we have demonstrated the
+effectiveness of combining AMR with implicit time integration to solve
+these highly nonlinear time-dependent problems.  The key to this
+approach has been the use of effective multilevel preconditioners that
+exploit the hierarchical structure of AMR grids.
+<p>  
+Our previous work used the Fast Adaptive Grid (FAC) method which is
+multiplicative in nature. While extremely robust FAC does impose
+sequential processing of levels in an AMR hierarchy. The additive
+variants of FAC, namely AFAC and AFACx, provide the opportunity to
+overlap communication and computation. However, little is known about
+their performance as preconditioners for difficult problems.  We
+report on efforts to solve multimaterial equilibrium radiation
+diffusion problems using structured AMR and the Newton-Krylov method
+preconditioned by FAC, AFAC,or AFACx. We describe our FAC, AFAC, and
+AFACx solvers and report on their performance.
+<p>
+This work was performed under the auspices of the
+U.S. Department of Energy by Los Alamos National Laboratory under
+contract W-7405-ENG-36.  Los Alamos National Laboratory does not
+endorse the viewpoint of a publication or guarantee its technical
+correctness.  LAUR 05-0750.
+</body>
+</html>

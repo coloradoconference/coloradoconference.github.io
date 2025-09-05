@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>cm conference abstract: Toivanen</title>
+</head>
+
+<body>
+
+<center>
+Multigrid Methods for Pricing American Options under
+Stochastic Volatility
+</center>
+
+<p>
+<center>
+<a href="mailto: samikon@cc.jyu.fi">
+Samuli Ikonen</a><br>
+<a href="http://www.mit.jyu.fi/index.en.html">
+Department of Mathematical Information Technology</a><br>
+University of Jyv&auml;skyl&auml;, Finland<br><br>
+<a href="mailto: jatoivan@ncsu.edu">
+Jari Toivanen</a><br>
+<a href="http://www.ncsu.edu/crsc">
+Center for Research in Scientific Computation</a><br>
+North Carolina State University
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We study numerical methods for pricing American put options with
+Heston's stochastic volatility model. This model leads to a two
+dimensional parabolic partial differential equation with an early
+exercise constraint. We perform the space discretization using a finite
+difference method with a seven point stencil. Implicit time
+discretizations lead to a sequence of linear complementarity problems
+(LCPs).
+
+<br><br>
+
+We consider two approaches employing multigrid methods. The first
+approach uses an operator splitting method [<a href="#Ikonen">4</a>].
+The idea is to decouple the system of linear equations and the early
+exercise constraint into separate fractional time steps. In the first
+fractional step, a convection diffusion type problem with a second-order
+cross derivative is solve. In a multigrid method we use an alternating
+direction smoother proposed by Oosterlee in [<a href="#Oosterlee">5</a>].
+In the second fractional step, a simple update is performed so that
+the solution satisfies the early exercise constraint.
+
+<br><br>
+
+The second approach is to solve the LCPs using a multigrid
+based on a projected full approximation scheme (PFAS) proposed
+by Brandt and Cryer in [<a href="#Brandt">1</a>].
+The papers [<a href="#Clarke">3</a>,<a href="#Oosterlee">5</a>]
+consider such multigrids for pricing American options. We study
+the use of the Brennan and Schwartz algorithm
+[<a href="#Brennan">2</a>] in the line smoothing in these multigrids.
+
+<br><br>
+References
+<br><br>
+
+[<a name="Brandt">1</a>] A. Brandt, C.W. Cryer,
+Multigrid Algorithms for the Solution of Linear
+Complementarity Problems Arising from Free Boundary Problems,
+SIAM Journal on Scientific and Statistical Computing,
+4(1983), 655-684. <br>
+
+[<a name="Brennan">2</a>] M.J. Brennan, E.S. Schwartz,
+The Valuation of American Put Options,
+Journal of Finance, 32(1977), 449-462. <br>
+
+[<a name="Clarke">3</a>] N. Clarke, K. Parrott,
+Multigrid for American Option Pricing with Stochastic Volatility,
+Applied Mathematical Finance, 6(1999), 177-195. <br>
+
+[<a name="Ikonen">4</a>] S. Ikonen, J. Toivanen,
+<a href="http://www.mit.jyu.fi/tene/papers/reportB11-04.pdf">
+Operator Splitting Methods for Pricing American Options with
+Stochastic Volatility</a>, Report B11/2004,
+Department of Mathematical Information Technology,
+University of Jyv&auml;skyl&auml;, 2004. <br>
+
+[<a name="Oosterlee">5</a>] C.W. Oosterlee,
+<a href="http://etna.mcs.kent.edu/vol.15.2003/pp165-185.dir/pp165-185.pdf">On
+Multigrid for Linear Complementarity Problems with Application
+to American-style Options</a>,
+Electronic Transactions on Numerical Analysis,
+15(2003), 165-185.
+
+</body>
+</html>

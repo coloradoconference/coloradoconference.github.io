@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Krzysztof J. Fidkowski
+\\ {\bf
+$p$-Multigrid Solution of High-Order Discontinuous Galerkin
+Discretizations of the Euler and Compressible Navier-Stokes Equations
+}}
+
+Massachusetts Institute of Technology \\
+77 Mass. Ave \\
+MIT 37-442 \\
+Cambridge MA 02139
+\\ {\tt
+kfid@mit.edu
+}
+\\
+David L. Darmofal
+\end{center}
+
+In this talk, we focus on a $p$-multigrid solution algorithm for
+high-order discontinuous Galerkin (DG) finite element discretizations
+of the Euler and compressible Navier-Stokes equations. $p$-Multigrid, or
+multi-order, solution strategies have been studied by other authors,
+including Helenbrook, Mavriplis, and most recently Bassi and Rebay.
+Common features of this method for high-order DG include ease of
+implementation and order-independent convergence rates. A key aspect of
+our $p$-multigrid implementation is the use of an element-line Jacobi
+smoother instead of the standard element-Jacobi. The element-line
+Jacobi smoother consists of solving implicitly on lines of elements
+formed using coupling based on a $p=0$ discretization of the scalar
+convection-diffusion equation. This choice of elemental coupling allows
+for the removal of stiffness associated with strong convection or
+regions of high grid anisotropy frequently required in viscous layers.
+A line creation algorithm is presented for general unstructured meshes,
+showing how unique lines can be obtained in two and three dimensions
+for a given elemental coupling.
+
+Using Fourier analysis for scalar convection-diffusion, we demonstrate
+that the higher-order DG discretizations can be stably marched for all
+orders with element Jacobi and element-line Jacobi schemes without the
+use of multi-stage iterations. $p$-Multigrid is then applied with the
+element-line smoother to inviscid and viscous test cases, in two and
+three dimensions. Results demonstrate optimal order of accuracy of the
+discretization, as well as $p$-independent multigrid convergence rates.
+$h$-dependence is observed, although it is not found to be strong for
+many practical problems. Finally, for the smooth problems considered,
+$p$-refinement outperforms $h$-refinement in terms of the time required to
+reach a desired high accuracy level.
+
+\end{document}

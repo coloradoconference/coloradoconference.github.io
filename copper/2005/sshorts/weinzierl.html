@@ -1,0 +1,169 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>cm conference abstract: Tobias Weinzierl</title>
+</head>
+
+<body>
+
+<center>
+A Cache-aware Multigrid Navier-Stokes Solver
+</center>
+
+<p>
+<center>
+<a href="mailto:weinzier@in.tum.de">
+Tobias Weinzierl</a><br><br>
+TU M&uuml;nchen,
+Institut f&uuml;r Informatik,
+Boltzmannstr. 3,
+85748 Garching b. M&uuml;nchen,
+Germany
+<br><br>
+Miriam Mehl<br>
+Christoph Zenger<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+<p>
+Sophisticated numerical algorithms like multigrid techniques on adaptive
+grids require hierarchical multilevel data, which are commonly organized
+in tree structures. The resulting non-locality of interconnections between
+data causes jumps in the memory space during the run of the algorithm. This
+makes an efficient usage of cache-hierarchies and prefetching algorithms
+impossible. We present both a domain
+discretization and a traversion concept solving this problem.
+Hereby, we achieve a very high cache-efficiency 
+by the construction of particular linear data structures based on the concepts 
+of space-filling
+curves and space-trees. In fact, we can avoid memory jumps completely and,
+in addition, we get along with only two bits per degree of freedom for 
+administrational information - one for the
+geometry description and one for the description of the refinement structure.
+</p>
+<p>
+To achieve a descrition of our computational domain with the help of space-trees, 
+it is embedded into the unit square and the grid is created by recursive 
+decomposition
+of each cell (square) into nine subcells. The refinement rules 
+depend on the geometry and numerical requirements.
+This allows the construction of very flexible adaptive grids
+without loosing the structuredness of the grid.
+During our computation, we process the grid cell-wise and perform
+a cell-wise operator evaluation. Hereby, the velocity
+degrees of freedom are located on the cells vertices and the cells 
+edges. Using a structured grid as defined above, one is able to traverse the
+grid along the corresponding approximative polygon of the Peano curve -
+a space-filling curve. The recursive definition of the space-filling curve
+induces an unique ordering of grid cells for adaptive space-tree grids in 
+a top-down-depth-first manner. 
+</p>
+<p>
+If we now examine the order vertex data are used during a traversion of a regular 
+grid, we observe a property which will be fundamental for the
+construction of our data structures: Each gridline is pased by the space-filling
+curve two times and vertex data on these lines are used in alternating directions
+during those two passes. Therefore, we could show that we can store all vertex data
+on a small number of stacks (independent from the rifinement depth of the grid). 
+For a regular grid, we can even do with two stacks
+corresponding to data on the left hand side and on the right hand side of the curve. 
+For hierarchical adaptive grids, we need eight stacks in 2D and 26 stacks in 3D.
+Stacks are cache-efficient due to the inherent local memory access. Furthermore, we 
+can show that if we use stacks, the storage of further administrational information 
+like pointers to neighbors and/or subsequent points is obsolete.
+Based on this idea, our research group has developed a dimension-generic algorithm 
+and&nbsp; added parallel programming, adaptivity and extrapolation techniques 
+successfully.
+In related publications we have proven that such an algorithm ends up
+with only 10 percent more cache-misses than absolutely inevitable
+in a code which does not make explicit use of a prefetching strategy. 
+This holds for arbitrary dimensions, too.
+</p>
+<p>
+In this contribution, we derive an algorithm for the time-dependent
+Navier-Stokes equations within this cache-efficient programming environment.
+Solving both the momentum and the continuity 
+equation in a weak formulation, the FEM minimizing problem 
+requires an extended theory for mixed elements.  In contrast
+to this, we eliminate all complications induced by the side condition by solving it
+exactly (pointwise).
+For this, we approximate the velocity space in a very 
+special way: We use a particular interpolation to exactly fulfill the side 
+condition if a discrete control volume formulation on the spacetree is fulfilled. 
+The exact fulfillment is the precondition for both energy and
+momentum conservation with respect to space discretizations.
+The idea is to subdivide each geometric element into triangles with linear
+interpolation on each triangle. The veolcity components at the midpoint of the 
+cell assure the pointwise fulfillment of the side condition. For our Finite Element
+discretization, this leads to specialized piecewise linear basis functions 
+coupling the two velocity components. Such an ansatzspace with square support for 
+the velocity was presented in several publications of our research group - even in 
+a more complicated setting.
+</p>
+<p>
+According to Chorins projection method with an explicit Euler step, we use 
+the pressure to achieve a divergence free solution at the next time step.
+Thus, we have to solve the pressure poisson equation in the control volume 
+formulation derived using the Gauss integral theorem in each time step, which
+leads to an allocation of pressure values at the midpoints of the grid cells.
+Such a pressure layout is energy preserving and stable with respect to 
+checkerboard patterns. 
+</p>
+<p>
+To implement a relaxation method for the pressure, we have to integrate both
+the storage scheme of the pressure (cell-wise) and the evaluation of the
+discrete staggered Laplace-operator into our algorithmic concept based on
+stacks and cell-wise operator evaluation. Since the pressure values are
+visited in a strict linear order, it is sufficient to add one
+additional stack for the pressure. In contrast, the evaluation of the operator
+turns out to be a litte more complex for the operator
+offends the locality property, as for the direct evaluation we
+would have to use the pressure values of the neighbouring cells.
+To prevent this, it is a good idea to store the gradients of the pressure, too, 
+which are located at the cells vertices and edges analog to the location of the
+velocity values. This makes us able to implement a Gauss-Seidel smoother 
+on the fine grid for the pressure poisson equation.
+</p>
+<p>
+The aim of the last part of this contribution is to develop a Galerkin multigrid 
+algorithm for the pressure poisson equation. Since we are solving a 
+time-dependent problem, the main focus is on reducing low frequency
+error components fast as they are changing more substantially in each
+time step than the high frequency components. This can be done using a 
+multigrid approach.&nbsp; 
+</p>
+<p>
+The implementation of our multigrid algorithms profits by the fact that 
+the concept of hierarchical generating systems fits the concept of space-trees 
+and top-down-depth-first tree traversion in a very natural way: We dehierarchize
+data descending the space-tree, compute the fine-grid residual at the leaves of 
+the tree and, finally, restrict the residual ascending the space-tree. Due
+to our stack concept, the implementation of the traversion concept does not
+cause any loss of hardware efficiency.
+Unfortunately, in the case of cell-centered data and non-constant interpolation
+like for the pressure, one is not able to restrict the pressure residual in one 
+step ascending the spacetree as every fine grid residual on a micro cell - except 
+the one in the center - would 
+affect the residuals of all neighbouring macro cells within the space-tree. 
+We present a solution for this very technical task is presented. Finally, we and 
+up with an additive multigrid
+solver using a multiplicative fine grid solver for the pressure equation. 
+</p>
+<p>
+The solver shows 
+full multigrid performance. For the side condition is fulfilled exactly,
+the algorithm becomes energy and momentum preserving in terms of 
+spatial discretization. Therefore, the standard FEM theory can be
+applied. The L2-cache-miss-rate is almost minimal in accord with
+our earlier results for simpler PDEs.
+Although the algorithm is designed for adaptive hierarchical meshes, the geometry
+is stored sequentially using space-filling curves. Therefore, two bits per grid 
+point are sufficient to store the complete administrational data.</p>
+
+</body>
+</html>

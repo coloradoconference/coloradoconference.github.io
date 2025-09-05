@@ -1,0 +1,127 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\def\mathbi#1{\textbf{\em #1}}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Serge Gratton
+\\ {\bf
+On Recursive Multiscale Trust-Region Algorithms for Unconstrained
+Minimization
+}}
+
+CERFACS \\ Toulouse \\ France
+\\ {\tt
+gratton@cerfacs.fr
+}
+\\
+Annick Sartenaer,  Philippe L. Toint
+\end{center}
+
+A large class of large-scale finite-dimensional minimization programs
+arises from the discretization of infinite-dimensional problems, such
+as optimal-control problems defined in terms of either ordinary or
+partial differential equations. We report here on a potentially
+efficient new class of algorithms using this structure and briefly
+discuss a first set of numerical experiments. A simple first approach
+that we refer to as mesh refinement, is to use coarser grids in order
+to compute approximate solutions which can then be used as starting
+points for the optimization problem on a finer grid (see [2], [3] or
+[8], for instance). However, potentially more efficient techniques are
+inspired from the multigrid paradigm in the solution of partial
+differential equations and associated systems of linear algebraic
+equations (see, for example, [4] or [5]). The work presented here was
+in particular motivated by the ``generalized truncated Newton
+algorithm'' presented in Fisher [7], a talk by Mor\'{e} [10], the
+contribution by Nash and Lewis [9] and the computational success of the
+low/high-fidelity model management techniques of Alexandrov, Lewis and
+co-authors [1].
+
+We aim at minimizing the cost function $f(x)$, $x \in \mathbf{R}^n$,
+and assume that
+we know a collection of functions $f_0$, \ldots, $f_r$,
+such that each $f_i$ is a twice-continuously differentiable function
+from $\mathbf{R}^{n_i}$ to $\mathbf{R}$ (with $n_i \ge n_{i-1}$),
+the connection with our original problem being
+that $n_r = n$
+and $f_r(x) = f(x)$ for all $x$ in $\mathbf{R}^n$. We also assume that, for
+each $i$=1,\ldots,$r$, $f_i$ is ``more costly'' to minimize than
+$f_{i-1}$.
+This may be because $f_i$ has more variables than
+$f_{i-1}$ (as would typically be the
+case if $f_i$ represent increasingly finer discretizations of the same
+infinite-dimensional objective), or because the structure (in terms of
+partial separability, sparsity or eigenstructure) of $f_i$ is more complex
+than that of $f_{i-1}$, or for any other reason. Our algorithm generates at
+each level $i$ a sequence of iterates using either a recursive call to a
+coarser level (lower level iteration) or an iteration at level $i$ (same
+level iteration). A condition for function $f_{i-1}$ to be useful in
+minimizing $f_i$ is provided in terms of gradient of these functions
+prolongated in suitable spaces. If this condition does not hold, a same
+level iteration is performed. The same level iterations fall into two
+classes: smoothing iterations aim at decreasing high-frequency
+components of the gradients and damping iterations, which decrease
+their low-frequency components. A multilevel trust region mechanism is
+implemented that ensures a global convergence of the algorithm to first
+order critical points, under some classical assumptions, such as the
+sufficient decrease condition (in the sense of the Cauchy condition)
+[6].
+
+We present a numerical applications for one of the possible
+implementations. We provide details on the mechanisms ensuring that the
+convergence conditions are met. Other implementation questions are
+concerned with the form of the recursive iterations, ranging from free
+form (where the optimization at lower levels is governed purely by
+accuracy requirements) to fixed cycles (such as the V and W cycles
+inspired by multigrid techniques). Demonstration of the efficiency of
+the method when compared to mesh refinement is done on a minimum
+surface problem with highly oscillatory boundary conditions and on the
+Dirichlet-to-Newman transfer problem. Problems involving up to 1.1
+million variables were solved by the new algorithm in MATLAB on a
+laptop PC (Pentium 4 Mobile, 1.6 GHz).
+
+[1] N.M.~Alexandrov, R.L.~Lewis, C.R.~Gumbert, L.L.~Green, and
+P.A.~Newman. {\em Approximation and model management in aerodynamic optimization
+with variable fidelity models}. Journal of Aircraft, 38(6):1093--1101,
+2001.
+
+[2] S.J.~Benson, L.C.~McInnes, J.Mor\'{e}, and J.Sarich. {\em Scalable
+algorithms in optimization: Computational experiments}. Preprint
+ANL/MCS-P1175-0604, Mathematics and Computer Science, Argonne National
+Laboratory, Argonne, Illinois, USA, 2004. To appear in the Proceedings
+of the 10th AIAA/ISSMO Multidisciplinary Analysis and Optimization
+Conference, August 30 - September 1, 2004.
+
+[3] J.T.~Betts and S.O.~Erb. {\em Optimal low thurst trajectory to the moon}.
+SIAM Journal on Applied Dynamical Systems, 2(2):144--170, 2003.
+
+[4] A.~Brandt. {\em Multi-level adaptative solutions to boundary value
+problems}. Mathematics of Computation, 31(138):333--390, 1977.
+
+[5] W.L.~Briggs, V.E.~Henson, and S.F.~McCormick. {\em A Multigrid Tutorial}.
+SIAM, Philadelphia, USA, 2nd edition, 2000.
+
+[6] A.R.~Conn, N.I.M.~Gould, and Ph.L.~Toint. {\em Trust-Region Methods}.
+Number 01 in MPS-SIAM Series on Optimization. SIAM, Philadelphia, USA,
+2000.
+
+[7] M.Fisher. {\em Minimization algorithms for variational data
+assimilation}. In Recent Developments in Numerical Methods for
+Atmospheric Modelling, pages 364--385. ECMWF, 1998.
+
+[8] A.Griewank and Ph.L.~Toint. {\em Local convergence analysis for
+partitioned quasi-Newton updates}. Numerische Mathematik, 39:429--448,
+1982.
+
+[9] M.Lewis and S.G.~Nash. {\em Model problems for the multigrid
+optimization of systems governed by differential equations}.
+SIAM Journal on Scientific Computing, (to appear), 2005.
+
+[10] J.J.~Mor\'{e}. {\em Terascale optimal PDE solvers}.
+Talk at the ICIAM 2003 Conference in Sydney, 2003. 
+
+\end{document}

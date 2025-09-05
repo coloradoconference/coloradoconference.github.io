@@ -1,0 +1,174 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Cristian R. Nastase
+\\ {\bf
+High-Order Spectral $hp$-Multigrid Methods on Unstructured Grids
+}}
+
+
+Department of Mechanical Engineering \\
+University of Wyoming \\
+1000 E. University Ave. \\
+Laramie WY 82071-3295 
+\\ {\tt
+nastase@uwyo.edu
+}
+\\
+Dimitri J. Mavriplis
+\end{center}
+
+The development of optimal, or near optimal solution strategies for
+higher-order discretizations, including steady-state solutions
+methodologies, and implicit time integration strategies, remains one of
+the key determining factors in devising higher-order methods which are
+not just competitive but superior to lower-order methods in overall
+accuracy and efficiency. The goal of this work is to investigate and
+develop a fast and robust algorithm for the solution of high-order
+accurate Discontinuous Galerkin discretizations of non-linear systems
+of conservation laws on unstructured grids. Herein we extend the
+spectral multigrid approach described in [1] to the two-dimensional
+steady-state Euler equations, and couple the spectral $p$-multigrid
+approach with a more traditional agglomeration $h$-multigrid method for
+unstructured meshes. The investigation of efficient smoothers to be
+used at each level of the multigrid algorithm is also pursued, and
+comparisons between linear and non-linear solver strategies are made as
+well [2]. The overall goal is the development of a solution algorithm
+which delivers convergence rates which are independent of ``$p$" (the
+order of accuracy of the discretization) and independent of ``$h$" (the
+degree of mesh resolution), while minimizing the cost of each
+iteration.
+
+The computational domain is partitioned into an ensemble of
+non-overlapping unstructured elements and within each element the
+solution is approximated by a truncated polynomial expansion. The
+semi-discrete formulation employs a local discontinuous Galerkin
+formulation in spatial variables within each element. Thus, the
+solution approximation is local, discontinuous, and doubled valued on
+each elemental interface. Monotone numerical fluxes are used to resolve
+the discontinuity, providing the means of communication between
+adjacent elements and specification of the boundary conditions. An
+approximate Riemann solver is used to compute the flux at inter-element
+boundaries. The discrete form of the local discontinuous Galerkin
+formulation is defined by the particular choice of the set of basis
+functions. Hereby a set of hierarchical basis functions is used in
+order to simplify our subsequent spectral multigrid implementation. The
+full description of the basis function set is given in [3]. The
+resulting set of equations is solved in the modal space and the
+integrals are evaluated by Gaussian quadrature rules.
+
+The spectral $p$-multigrid approach is based on the same concepts as a
+traditional $h$-multigrid method, but makes use of ``coarser'' levels
+which are constructed by reducing the order of accuracy of the
+discretization, rather than using physically coarser grids with fewer
+elements. Furthermore, the formulation of the interpolation operators,
+between fine and coarse grid levels, is greatly simplified when a
+hierarchical basis set is employed for the solution approximation. The
+main advantage is due to the fact that the lower order basis functions
+are a subset of the higher order basis (i.e. hierarchical) and the
+restriction and prolongation operators become simple projection
+operators into a lower and higher order space, respectively [4]. For
+pure $p$-multigrid methods, the recursive application of lower order
+discretizations ends with the $p=0$ discretization on the same grid as
+the fine level problem. For relatively fine meshes, the (exact)
+solution of this $p=0$ problem at each multigrid cycle can become
+expensive, and may impede the $h$-independence property of the multigrid
+strategy. The $p=0$ problem can either be solved approximately by
+employing the same number of smoothing cycles on this level as on the
+finer $p$-levels, or it can be solved more accurately by performing a
+larger number of smoothing cycles at each visit to this coarsest level.
+In either case, the convergence efficiency will be compromised, either
+due to inadequate coarse level convergence, or due to excessive coarse
+level solution cost. An alternative is to employ an $h$-multigrid
+procedure to solve the coarse level problem at each multigrid cycle. In
+this scenario, the $p$-multigrid scheme reverts to an agglomeration
+multigrid scheme once the $p=0$ level has been reached, making use of a
+complete sequence of physically coarser agglomerated grids, thus the
+designation $hp$-multigrid. First-order accurate (p=0) agglomeration
+multigrid methods for unstructured meshes are well established [5] and
+deliver near optimal convergence rates. Therefore, this procedure has
+the potential of resulting in a truly $h$- and $p$-independent solution
+strategy for high-order accurate discontinuous Galerkin
+discretizations.
+
+At each $h$- or $p$-multigrid level an element-Jacobi type scheme is used
+as a smoother. The element-Jacobi scheme can be viewed as an
+approximate Newton scheme where the full Jacobian matrix is replaced by
+the block diagonal entries representing the coupling between all modes
+within each element, [D], thus neglecting the coupling between
+neighboring element modes, which arises through the inter-element flux
+evaluations. The [D] blocks represent small dense matrices associated
+with each grid element. A second variant of this solver is denoted as
+the ``linearized" element-Jacobi method. In this approach, the full
+Jacobian matrix is retained, but is decomposed into block diagonal [D]
+and off-diagonal [O] components. Note that the linearized element
+Jacobi scheme involves a dual iteration strategy, where each nth outer
+non-linear iteration entails ``k" inner linear iterations. The
+advantage of this formulation is that the non-linear residual and the
+Jacobian entries, [D] and [O], are held constant during the linear
+iterations. This can significantly reduce the required computational
+time per cycle for expensive non-linear residual constructions. Because
+this scheme represents an exact linearization of the element-Jacobi
+scheme both approaches can be expected to converge asymptotically at
+the same rates per cycle [6]. The convergence can be further
+accelerated by using a Gauss-Seidel strategy where the off-diagonal
+matrices are split into lower, [L], and upper, [U] contributions (i.e.
+[O]=[L]+[U]). This last solver variant, again, involves a dual
+iteration strategy, but follows an ordered sweep across the elements
+using latest available neighboring information in the Gauss-Seidel
+sense. In this work, we employ a frontal sweep along the elements which
+begins near the inner boundary and proceeds toward the outer boundary,
+using the numbering assigned to the grid elements from an advancing
+front mesh generation technique.
+
+The resulting $hp$-multigrid scheme demonstrates $p$-independent and nearly
+$h$-independent convergence rates. The coupling of $p$- and $h$-multigrid
+procedures, through the use of agglomerated coarse levels for
+unstructured meshes, increases the overall solution efficiency compared
+to a $p$-alone multigrid procedure, and the benefits of the $hp$-multigrid
+approach can be expected to increase for finer meshes. The multigrid
+procedure can itself be applied as a non-linear solver (FAS), or as a
+linear solver (CGC) for a Newton scheme applied to the non-linear
+problem. The linear multigrid approach demonstrates superior overall
+efficiency, provided a suitable linear iteration termination strategy
+is employed. Results are presented for compressible flow over a bump in
+a channel and for flow over a four element airfoil in two dimensions.
+
+
+[1] Helenbrook, B. and Mavriplis, D. J. and Atkins, H.,
+{\em Analysis of
+``p''-Multigrid for Continuous and Discontinuous Finite Element
+Discretizations}, Proceedings of the 16th AIAA Computational Fluid
+Dynamics Conference, 2003, AIAA Paper 2003-3989.
+
+[2] Nastase, C.R. and Mavriplis, D.J.,
+{\em High-Order Discontinuous
+Galerkin Methods using a Spectral Multigrid Approach}, Proceedings of
+the 43rd AIAA Aerospace Sciences Meeting and Exhibit, 2005, AIAA Paper
+2005-1268.
+
+[3] Solin, P. and Segeth, P. and Zel, I.D.,
+{\em High-Order Finite Element Methods}, Chapman and Hall, 2003.
+
+[4] Fidkowski, K.J. and Darmofal, D.L.,
+{\em Development of a
+Higher-Order Solver for Aerodynamic Applications}, Proceedings of the
+42nd AIAA Aerospace Sciences Meeting and Exhibit, 2004, AIAA Paper
+2004-0436.
+
+[5] Mavriplis, D. J. and Venkatakrishnan, V.,
+{\em Agglomeration Multigrid for Two Dimensional Viscous Flows},
+Computers and Fluids, 24(5):553--570, 1995.
+
+[6] Mavriplis, D.J.,
+{\em An Assessment of Linear versus Non-Linear
+Multigrid Methods for Unstructured Mesh Solvers},
+J.~Comput.~Phys., 175:302--325, 2002. 
+
+\end{document}
