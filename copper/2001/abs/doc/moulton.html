@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>cm conference abstract: Moulton</title>
+</head>
+
+<body>
+
+<center>
+An Augmented Systems Approach to Preconditioning Mimetic Discretizations
+</center>
+
+<p>
+<center>
+<a href="mailto: moulton@lanl.gov">David Moulton</a>,
+Misha Shashkov
+<br><br>
+Mathematical Modeling and Analysis Group <br>
+Theoretical Division<br>
+Los Alamos National Laboratory <br>
+Los Alamos, NM 87545
+<br><br>
+Jim Morel
+<br><br>
+Transport Methods Group<br>
+Computer and Computational Sciences Division <br>
+Los Alamos National Laboratory<br>
+Los Alamos, NM 87545
+</center>
+
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The diffusive component in many important application areas is
+characterized by a discontinuous diffusion coefficient with fine-scale
+anisotropic spatial structure; moreover, the underlying grid may be
+severely distorted.  Thus, increasingly mixed discretizations, which
+include mixed finite element methods (FEM) and support operator
+methods (SOM), are employed because they explicitly enforce important
+physical physical properties of the problem.  Unfortunately, these
+discretizations are based on the first order form, and hence naturally
+lead to an indefinite linear system.  In the case of orthogonal grids
+and a diagonal diffusion tensor optimal preconditioners have been
+developed.  However, the performance of these methods degrades with
+increasing full tensor anisotropy or grid distortion.  Moreover, 
+the development of alternative preconditioners that are robust
+with respect to general forms of anisotropy has been thwarted by 
+a significant loss of sparsity.
+
+<p>In this work we are motivated by one specific advantage that the
+hybrid or local forms of mixed discretizations exhibit, namely, their
+more localized sparsity structure.  Specifically, for the SOM we
+consider augmentation of the flux (i.e., vector unknowns) such that an
+appropriate ordering of the augmented flux leads to a new block
+diagonal system for this component.  In contrast to the block diagonal
+structure of the hybrid system this system has blocks centered about
+vertices, and block elimination of the flux (i.e., formation of the
+Schur complement) leads to a symmetric positive definite scalar
+problem with a standard cell-based 9-point structure (in two
+dimensions).  This reduced system is readily solved with existing
+robust multigrid methods, such as Dendy's black box multigrid.  An
+analogous approach is used to augment the hybrid system and derive the
+equivalent preconditioner for this case.  We demonstrate the
+effectiveness of this preconditioner for both GMRES iterations of the
+full indefinite system as well as a CG iterations of the reduced
+scalar problem.
+
+</body>
+</html>

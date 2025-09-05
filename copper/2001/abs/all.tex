@@ -1,0 +1,3288 @@
+\documentclass[11pt]{article}
+
+\setlength{\baselineskip}{11.4pt}
+\setlength{\parskip}{0.9ex}
+\setlength{\parindent}{0mm}
+
+\setlength{\textwidth}{176mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\evensidemargin}{-5mm}
+
+\setlength{\textheight}{236mm}
+\setlength{\topmargin}{-19mm}
+
+\newcommand{\nextab}[4]{
+	\section{#2}
+	{\bf #1} \\ \nopagebreak
+	{#3} \\ \nopagebreak
+	{\tt #4} \nopagebreak
+	}
+
+
+\title{Copper Mountain Conference Abstracts}
+\author{~ }
+\date{March 2001}
+
+\begin{document}
+
+\maketitle
+
+
+%	*******************************************
+%	*************  adams.html  ************
+%	*******************************************
+
+\nextab
+	{Mark Adams}
+	{Parallel algorithms for unstructured Gauss-Seidel multigrid smoothers}
+	{MS 9217, Sandia National Laboratory, PO Box 969, Livermore CA 94551}
+	{mfadams@ca.sandia.gov}
+
+Gauss-Seidel is the most commonly used multigrid smoother on
+serial machines as it is provably optimal on structured grids
+and exhibits superior performance on unstructured grids as
+well.  Gauss-Seidel is not commonly (or ever to our knowledge)
+used on parallel machines as it is difficult to parallelize.
+Jacobi, block Jacobi and additive Schwarz parallelize well but
+require damping when used as multigrid smoothers; these damping
+parameters are well know for say Poisson on regular grids but we
+are not aware of an effective method to pick this parameter for
+unstructured elasticity problems.  We have found that Krylov
+solvers (eg, conjugate gradients (CG) for symmetric positive
+definite problems) preconditioned with the above mentioned
+methods are effective and to are knowledge are university used
+for unstructured elasticity problems.  Gauss-Seidel does however
+have some very attractive properties as a multigrid smoother,
+namely: fast convergence, no global communication and fewer
+flops per iteration as the ``Eisenstat'' trick allows for a
+incorporating an initial guess whereas CG requires that a
+residual be computed first and thus doubles the work required if
+only one iteration is used (as is common for smoothers).  This
+talk will discuss some preliminary work on one approach for
+parallelizing a few iterations (ie, one or two) of Gauss-Seidel
+with unstructured linear elasticity example problems with up to
+76 million degrees of freedom.
+
+
+
+%	*******************************************
+%	*************  austin.html  ************
+%	*******************************************
+
+\nextab
+{Travis Austin}
+{A Divergence-Free Relaxation Scheme in an
+	$H^1$-Finite Element Space: Numerical Results and Theory}
+{Dept. of Applied Mathematics, 526 UCB, Boulder CO 80309-0526}
+{austint73@yahoo.com}
+
+
+An effective multilevel solver for (I - grad div) must account for the
+presence of divergence-free error components.  As a result, the Raviart-Thomas
+(RT) finite element spaces, with locally computable divergence-free
+subspaces, are often used in the discretization of (I - grad div).
+The presence of an epsilon-sized Laplacian term, leading to
+(I - eps*Laplacian - grad div),
+results in poor approximation properties for the
+discontinuous RT finite element spaces.  With a new continuous, RT-like
+finite element space, we can define a multilevel solution algorithm which
+achieves optimal convergence factors.  In this talk, we will present numerical
+results validating our claim and introduce theory to firmly establish the
+algorithms effectiveness.
+
+%	*******************************************
+%	*************  bader.html  ************
+%	*******************************************
+
+\nextab
+{Michael Bader}
+{A robust and parallel Multigrid Method for Convection Diffusion Equations}
+{Institut f\"ur Informatik, TU M\"unchen, 80290 M\"unchen, Germany}
+{bader@in.tum.de}
+
+We present a multigrid method that is based on the combination of
+recursive substructuring of the computational domain and the
+discretization on hierarchical bases and generating systems.
+The substructuring approach makes the algorithm inherently parallel.
+The use of hierarchical generating systems allows an optimal complexity
+of the resulting method.
+The robustness of the resulting method for convection problems is
+achieved by a partial elimination between certain ``coarse grid unknowns''.
+
+This additional elimination is performed such that in the resulting
+matrices of the local systems of equations any couplings between coarse
+grid unknowns on the separator and coarse grid unknowns on the subdomain
+boundary are zero.
+The coarse grid unknowns themselves are chosen with respect to the
+physical properties of the underlying differential equation.
+
+The resulting coarse grid meshes are not uniformly coarsened but are
+refined on the edges and separators of the coarse grid cells.
+This refinement of the coarse grid unknowns is chosen such that the
+number of coarse grid unknowns grows with the square root of the total
+number of boundary and separator unknowns.
+This choice is due to the fact that for convection diffusion problems
+the isolines of the transported matter are typically parabolic.
+
+We will present some results for the application of this method to several
+convection diffusion problems.
+For these benchmark problems the algorithm shows an $O(N)$ complexity with
+respect to the required computing time and storage.
+In particular, the number of iterations needed does not depend on the
+geometry of the flow field.
+Moreover it is also independent of the strength of convection as long
+as a certain amount of diffusion is present.
+More precisely, it requires that on the finest grid a certain mesh Peclet
+number is not exceeded.
+
+The algorithm can also be applied to convection problems on complicated
+computational domains with reasonably complex boundaries and obstacles.
+It is especially suited to discretization techniques that are based on
+a quadtree or octree representation of the computational domain.
+
+
+
+
+%	*******************************************
+%	*************  bennighof.html  ************
+%	*******************************************
+
+\nextab
+{Jeff Bennighof and Richard B. Lehoucq}
+{Automated Multi-Level Substructuring: Numerical Results}
+{Dept. Aerospace Engineering \& Engineering Mechanics,
+University of Texas at Austin,
+W.R. Woolrich Laboratories (WRW), Room 117D - Mail Code: C0600,
+Austin TX 78712-1085
+\\ and \\
+Sandia National Laboratories, PO Box 5800, MS 1110, Albuquerque NM 87185-1110
+}{}
+
+
+In the Automated Multi-Level Substructuring (AMLS) method for
+frequency response analysis of complex structures, very large
+finite element models are divided into thousands of
+substructures on many levels, and frequency response is
+represented in terms of substructure modes. The algorithm
+approximates the fundamental global mode subspace.  Numerical
+examples demonstrate how multi-million degree of freedom FEM
+models are efficiently resolved and how excellent eigenvalue and
+frequency response accuracy can be obtained.
+
+
+
+
+%	*******************************************
+%	*************  bochev.html  ************
+%	*******************************************
+
+\nextab
+{Pavel Bochev}
+{Constrained transport remap algorithms on unstructured quadrilateral and hexahedral grids}
+{Dept. of Mathematics, Box 19408, University of Texas at Arlington, Arlington TX 76019-0408}
+{bochev@math.uta.edu}
+
+
+The constrained transport (CT) algorithm introduced by Evans and Hawley
+(1988) on structured meshes provides a mechanism for advection of magnetic
+flux density which also preserves a discrete div(B)=0 property. CT is
+extended to unstructured meshes and algorithms for computing high-order
+upwind fluxes on edges are compared. The natural association of edge and
+face elements with CT on unstructured meshes is discussed.
+
+
+
+
+%	*******************************************
+%	*************  brandt.html  ************
+%	*******************************************
+
+\nextab
+{Achi Brandt}
+{Multiscale Computation: Recent Methodological Developments}
+{Dept. of Computer Science and Applied Mathematics, The Weizmann Institute of Science, Rehovot 76100, Israel}
+{achi@wisdom.weizmann.ac.il}
+
+
+A brief account of new multiscale computational approaches in
+the following areas: efficient algebraic multigrid, Dirac solvers,
+image processing, clustering, tomography, inverse hyperbolic problems,
+optimal control, collective computation of many eigenfunctions,
+global optimization, statistical mechanics and molecular dynamics.
+A full account of these and other developments, with detailed
+reference list, will appear in the Proceeding of the Yosemite
+Educational Symposium (Springer Series Lecture Notes in Computational
+Science and Engineering) and on the Internet at the time of the
+Copper Mountain Conference.
+
+
+%	*******************************************
+%	*************  brenner.html  ************
+%	*******************************************
+
+\nextab
+{Susanne C. Brenner}
+{An Additive Theory for Multigrid V-Cycle Algorithms}
+{Dept. of Mathematics, University of South Carolina, Columbia SC 29208 USA}
+{brenner@math.sc.edu}
+
+
+
+In this talk we will present a result on the asymptotic
+behavior of the contraction numbers of multigrid V-cycle
+algorithms with respect to the number of smoothing steps.
+This result is obtained using an additive convergence theory
+and new estimates for mesh-dependent norms.  When combined
+with earlier results of Zhang, Bramble and Pasciak, it yields
+a generalization of the classical convergence theorem of
+Braess and Hackbusch to problems without full elliptic regularity.
+
+
+
+%	*******************************************
+%	*************  brezina.html  ************
+%	*******************************************
+
+\nextab
+{Marian Brezina}
+{An extension of convergence theory for the smoothed aggregation multigrid.}
+{University of Colorado, Boulder CO 80309-0526}
+{brezina@colorado.edu}
+
+
+We have recently presented modified version of the smoothed aggregation
+multigrid suitable for application on problems featuring large variation of
+coefficients. For the modified version, we have been able to prove convergence
+independent of the size of the coefficient jump under certain assumptions
+on the jump distribution.
+
+However, numerical experiments suggest that our assumptions may be too
+restrictive and one may expect good convergence rates even
+in situations where our assumptions do not hold.
+In this talk, we present an extension of the convergence theory to certain
+configurations excluded by our theory to date.
+
+
+
+%	*******************************************
+%	*************  chartier.html  ************
+%	*******************************************
+
+\nextab
+{Tim Chartier}
+{Spectral AMGe}
+{Dept. Applied Mathematics, 526 UCB, University of Colorado, Boulder CO 80309-0526}
+{chartier@colorado.edu}
+
+
+AMGe is an algebraic multigrid method for solving discretizations that
+arise in Ritz-type finite element methods for partial differential
+equations.  Assuming access to the element stiffness matrices, Spectral
+AMGe uses the spectral decomposition of small collections of element
+stiffness matrices to determine local representations of algebraically
+``smooth'' error components.  This decomposition provides the basis for
+generating a coarse grid and for defining effective interpolation.  Recent
+results will be presented for problems such as linear elasticity.
+
+
+
+
+
+%	*******************************************
+%	*************  codd.html  ************
+%	*******************************************
+
+\nextab
+{Andrea Codd}
+{First-Order System Least Squares (FOSLS) for Elliptic Grid Generation (EGG)}
+{Dept. of Applied Mathematics, University of Colorado at Boulder, Boulder CO 80309-0526}
+{andrea.codd@colorado.edu}
+
+
+Elliptic Grid Generation (EGG), using the Winslow generator, defines a map
+between a simple computational region and a potentially complicated
+physical region. It can be used numerically to create meshes for
+discretizing equations directly on the physical domain or indirectly on
+the computational domain by way of the transforming map. EGG allows
+complete specification of the boundary, and it guarantees a one-to-one and
+onto transformation when the computational region is convex.
+
+A new fully variational approach is developed for solving the Winslow
+equations that enables accurate discretization and fast solution methods.
+The EGG equations are converted to a first-order system that is then
+linearized via Newton's method. First-order system least squares (FOSLS)
+is used to formulate and discretize the Newton step, and the resulting
+matrix equation is solved using algebraic multigrid (AMG). The approach is
+coupled with nested iteration to provide an accurate initial guess for
+finer levels using coarse-level computation. Theoretical and numerical
+results confirm the usual full multigrid efficiency: accuracy comparable
+to the finest-level discretization is achieved at a cost proportional to
+the number of finest-level degrees of freedom.
+
+
+
+
+%	*******************************************
+%	*************  cullum.html  ************
+%	*******************************************
+
+\nextab
+{Jane Cullum}
+{A numerical exploration of algebraic multigrid}
+{MS B256, CCS-3, Los Alamos National Laboratory, Los Alamos NM 87545}
+{cullumj@lanl.gov}
+
+
+Algebraic multigrid (AMG) methods for
+solving large systems of linear equations, $Ax=b$,
+are  matrix-based analogs of geometric
+multigrid methods.
+Both types of methods are multi-level,
+with the method being applied recursively
+at each level except at the bottom level.
+
+
+In this talk we
+focus on AMG procedures which are
+based upon papers of Ruge and St\"uben.
+At each level, except the bottom level,
+the procedure requires the choice of the
+\begin{enumerate}
+\item {\em Coarse} and {\em Fine} variables
+\item {\em Prolongation} and  {\em Restriction} operators
+\item {\em Coarse} problem
+\item {\em Smoother} operator
+\end{enumerate}
+
+The choice of each of these components
+places constraints upon the choice of each of
+the other components.
+Numerically, we explore the effects of
+different choices upon the observed convergence.
+We consider example problems where AMG
+has been shown to work well and other example
+problems where  AMG converges
+slowly.
+
+
+
+%	*******************************************
+%	*************  diskin.html  ************
+%	*******************************************
+
+\nextab
+{Boris Diskin}
+{Textbook Multigrid Efficiency for High-Reynolds-Number Navier-Stokes Equations}
+{ICASE, MS 132C, NASA Langley Research Center, Hampton VA 23681}
+{bdiskin@icase.edu}
+
+
+Full multigrid (FMG) algorithms are the fastest solvers for elliptic problems.
+These algorithms can solve a general discretized elliptic problem
+to the discretization accuracy in a computational work  that is a small
+(less than 10) multiple of the operation count in one target-grid residual
+evaluation. Such efficiency is known as textbook multigrid efficiency
+(TME). The difficulties associated with extending
+TME for solution of the Reynolds-averaged
+Navier-Stokes (RANS) equations relate to the fact that the
+RANS equations are a system of coupled nonlinear equations
+that is not, even for subsonic Mach numbers, fully elliptic, but
+contain hyperbolic partitions. TME for the RANS simulations
+can be achieved if the different factors contributing to
+the system could be separated and treated
+optimally, e.g., by multigrid for elliptic factors
+and by downstream marching for hyperbolic factors.
+One of the ways to separate the factors is the
+{\em distributed relaxation} approach proposed by A. Brandt.
+Earlier demonstrations of TME solvers with
+distributed relaxation has been performed for
+the incompressible free-stream inviscid and viscous
+flows without boundary layers.
+
+
+In this talk, I am going to outline a general framework
+for achieving TME in solution of the  high-Reynolds-number Navier-Stokes
+equations. TME distributed-relaxation solvers will be demonstrated for
+the viscous incompressible and subsonic compressible flows with
+boundary layers and for the inviscid compressible flow with shock.
+
+
+%	*******************************************
+%	*************  douglas.html  ************
+%	*******************************************
+
+\nextab
+{Craig C. Douglas}
+{Subgrid Substructuring Techniques for a Multilayered Ocean Model}
+{Dept. Computer Science, University of Kentucky,
+325 McVey Hall - CCS, Lexington KY 40506-0045}
+{douglas@ccs.uky.edu}
+
+
+We simulate the wind driven circulation in oceans.  Our aim
+is to study the impact of short scale wind forcing on the
+oceanic circulation.  We use the isopycnal version of the
+Spectral Element Ocean Model (SEOM).  The modeling of these
+flows and their climatic impact is complicated by the
+inherent range of spatial scales involved, which extend
+from the global scale of $O(10,000)$ km down to the local
+scale of $O(1)$ km, and by the intrinsic three dimensionality
+of the dynamics.
+
+SEOM offers an elegant solution to these difficulties.  It
+features advanced algorithms, based on $h-p$ type finite
+element methods, allowing accurate representation of
+complex coastline and oceanic bathymetry, variable lateral
+resolution, and high order solution of the three
+dimensional oceanic equations of motion.
+
+SEOM's geometrical flexibility permits highly inhomogeneous
+horizontal grids.  An added advantage of the technique is
+its scalability.  Most of the computations are carried out
+at the element level; only interface information needs to
+be exchanged between elements.  The dual characteristic of
+dense and structured local computations, and sparse and
+unstructured communication enhances the locality of the
+computations.  The dual characteristic of dense and
+structured local computations, and sparse and unstructured
+communication enhances the locality of the computations,
+and makes SEOM ideally suited for parallel computers.
+
+In this talk, we define a novel set of techniques that
+allow us to store relevant matrices for 1/200-th the normal
+amount that would be expected using normal sparse matrix
+techniques.  A combination of a Schur complement and a
+parallel algebraic multigrid method is described and
+compared to a traditional matrix-free preconditioned
+conjugate gradient solution methodology.
+
+
+%	*******************************************
+%	*************  farrell.html  ************
+%	*******************************************
+
+\nextab
+{Paul A. Farrell}
+{Factors Involved in the Performance of Computations on Beowulf Clusters}
+{Dept. of Mathematics \& Computer Science,
+Kent State University, Kent OH 44242}
+{farrell@mcs.kent.edu}
+
+
+PC (Beowulf) clusters represent a cost-effective platform
+for large scale scientific computations. In this talk,
+we examine the effects of some possible configuration,
+hardware, and software choices on
+the communications latency and throughput attainable, and the consequent
+impact on scalability and performance of codes.
+We compare performance currently attainable using Gigabit Ethernet with
+that of Fast Ethernet.
+We discuss the effects of various versions of the Linux kernel,
+and the approaches to tuning it to improve TCP/IP performance.
+
+
+We evaluate and compare the performance of LAM, MPICH, and MVICH on a
+Linux cluster connected by a Gigabit Ethernet network.
+Since LAM and MPICH use the
+TCP/IP socket interface for communicating messages, it is critical to
+have high TCP/IP performance for these to give satisfactory results.
+Despite many efforts to improve TCP/IP
+performance, the performance graphs presented here indicate that the
+overhead incurred in protocol stack processing is still high.
+We discuss the Virtual Interface Architecture (VIA) which is intended to
+provide low latency, high bandwidth message-passing between user processes.
+Developments such as the VIA-based MPI implementation MVICH can improve
+communication throughput and thus give the promise of enabling
+distributed applications to improve performance.
+
+Finally we present some examples of how these various choices can
+impact the performance of an example multigrid code.
+
+
+
+
+%	*******************************************
+%	*************  fulton.html  ************
+%	*******************************************
+
+\nextab
+{Scott R. Fulton}
+{On the Accuracy of Multigrid Truncation Error Estimates}
+{Dept. of Mathematics and Computer Science,
+Clarkson University, Potsdam NY 13699-5815}
+{fulton@clarkson.edu}
+
+
+In solving boundary-value problems, multigrid methods can provide
+computable estimates of the truncation error, which can then be used in
+adaptive grid refinement algorithms or in extrapolation to higher-order
+accuracy (tau-extrapolation).  To be useful, these estimates must be
+accurate, i.e., if the truncation error itself is order p, then the
+computed estimate must differ from it by a term of order p+m for some
+positive m.
+
+
+
+This paper analyzes the accuracy of multigrid truncation error
+estimates, examining how m depends on the grid transfers employed.  In
+particular, we compare two definitions of the relative local truncation
+error (a computable estimate of the truncation error difference between
+two grids) found in the literature.  One definition requires a careful
+choice of high-order grid transfers to achieve accurate estimates (e.g.,
+Bernert, 1997), while the other (e.g., Schaffer, 1984) can utilize
+simpler grid transfers (and is itself simpler to compute).  Our
+analytical results are illustrated with numerical calculations for
+several model problems.
+
+
+%	*******************************************
+%	*************  gopalakrishnan.html  ************
+%	*******************************************
+
+\nextab
+{Jayadeep Gopalakrishnan}
+{Multigrid and Schwarz methods for time-harmonic Maxwell equations}
+{Institute for Mathematics and its Applications,
+514 Vincent Hall, 206 Church St SE, Minneapolis MN 55414}
+{jayg@ima.umn.edu}
+
+
+Time-harmonic Maxwell equations in a lossless cavity lead to a second
+order differential equation for electric field involving a
+differential operator that is neither elliptic nor definite.  A
+Galerkin method using Nedelec's curl-conforming finite elements can be
+employed to get approximate solutions numerically. In this talk,
+results of [4, 5] on the suitability of multigrid and Schwarz methods
+for efficiently solving the resulting indefinite linear system will be
+presented.
+
+
+The analysis of the present work builds on techniques in [1, 6] to
+overcome the difficulties caused by the non-ellipticity of the
+operator. As in their analysis, discrete Helmholtz decompositions play
+a crucial role.  A new and critical ingredient of our analysis is an
+estimate on discrete solution operators of Maxwell equations.  This
+estimate allows analysis of overlapping Schwarz methods in the spirit
+of perturbation arguments in [3], even though our operator is not
+elliptic.  It also allows analysis of a `\\' multigrid cycle
+using techniques of [2], although prima facie it may appear that
+ellipticity is required for application of these techniques. In both
+cases, the analysis involves comparison of operators with their
+analogues in positive definite case.
+
+Of practical importance is the fact that some algorithms that work
+well in the elliptic case, fails in our application. It has now been
+known for some time that a multigrid V-cycle with a point-Jacobi
+smoother is not appropriate for our problem.  However, we show that a
+multigrid algorithm with block Jacobi or block Gauss-Seidel smoother,
+if the blocks are chosen as in [1], leads to good convergence rates,
+provided the coarse mesh used is sufficiently fine.  Our results also
+indicate that, in contrast to the elliptic case, replacing subdomain
+solves by equivalent operations in overlapping Schwarz methods does
+not lead to good results.
+
+
+
+\begin{enumerate}
+
+\item
+D. N. Arnold, R. S. Falk and R. Winther,
+{\em Multigrid in H(div) and H(curl)},
+Numer. Math. {\bf 85}(2):197--217, 2000.
+
+
+\item
+J. H. Bramble, D. Y. Kwak, and J. E. Pasciak.
+{\em Uniform convergence of multigrid V-cycle
+iterations for indefinite and nonsymmetric
+problems},  SIAM J. Numer. Anal.,
+{\bf 31}(6):1746--1763, 1994.
+
+
+\item
+X.-C. Cai and O. B. Widlund.
+{\em Domain decomposition algorithms for
+indefinite elliptic problems},
+SIAM J. Sci. Stat. Comput.,
+{\bf 13}(1):243--258, 1992.
+
+
+\item
+R. Hiptmair,
+{\em Multigrid method for Maxwell's equations},
+SIAM J. Numer. Anal.,
+{\bf 36}(1):204--225, 1999.
+
+\item
+J. Gopalakrishnan and J. E. Pasciak,
+{\em Overlapping Schwarz preconditioners for indefinite
+time harmonic Maxwell equations}.
+Submitted. Available as IMA Preprint 1711, June 2000.
+
+
+\item
+J. Gopalakrishnan, J. E. Pasciak and L. Demkowicz.
+{\em A multigrid algorithm for time harmonic
+Maxwell equations}. In preparation.
+
+
+\end{enumerate}
+
+
+
+%	*******************************************
+%	*************  haase.html  ************
+%	*******************************************
+
+\nextab
+{Gundolf Haase}
+{Simultaneous Iterations in Ocean Modeling}
+{Johannes Kepler University Linz,
+Institute for Analysis and Computational Mathematics,
+Dept. of Computational Mathematics and Optimization,
+Altenberger Strasse 69,
+A-4040 Linz, Austria}
+{ghaase@numa.uni-linz.ac.at}
+
+
+The investigated ocean modeling code bases on a
+five layer model using higher order spectral elements
+for discretization
+and a special filtering technique
+for the vortex and divergence field.
+
+These filterings contain the solving of the Laplace equation
+for the velocity components in x- and y-direction
+cause on each layer most of the arithmetic work per time step.
+The system matrix is never accumulated and so all
+matrix operations are performed
+on an element level with the small dense
+element matrices.
+
+We have the special situation that the system matrix and the
+filtering matrix are the same for both directions and
+for all layers. This gave us the chance
+to redesigning the code such that all layers and directions
+can be handled simultaneously.
+The general reduction of memory accesses together with
+cache aware data structures improve the run time significantly.
+
+These techniques can be also used very successfully when
+the pcg solver uses multigrid as preconditioner.
+
+
+Ocean Modeling Session
+
+
+%	*******************************************
+%	*************  haber.html  ************
+%	*******************************************
+
+\nextab
+{E. Haber, U. Ascher}
+{Multigrid all-at-once methods for large scale inverse problems}
+{Dept of Computer Science UBC, Vancouver BC, Canada}
+{}
+
+
+The problem of recovering a parameter function based on
+measurements of solutions of a system of partial differential
+equations in several space variables leads to a number of
+computational challenges. Upon discretization of a regularized
+formulation a large, sparse constrained optimization problem is
+obtained.
+Typically in the literature, the constraints are eliminated and
+the resulting unconstrained formulation is solved by some variant
+of Newton's method, usually the Gauss-Newton method. A
+preconditioned conjugate gradient algorithm is applied at each
+iteration for the resulting reduced Hessian system.
+
+In this talk we apply instead a multigrid method directly to the
+KKT system arising from a Newton-type method for the constrained
+formulation (an ``all-at-once'' approach). Since the reduced
+Hessian system presents significant expense already in forming
+a matrix-vector product, the savings are substantial.
+
+Numerical experiments are performed for the DC-resistivity
+problem in 3D, comparing the two approaches for solving the
+linear system at each Gauss-Newton iteration and a substantial
+efficiency gain is demonstrated.
+The relative efficiency of our proposed method is even higher in
+the context of inexact Newton-type methods, where the linear
+system at each iteration is solved less accurately. .
+
+
+
+%	*******************************************
+%	*************  howle.html  ************
+%	*******************************************
+
+\nextab
+{Victoria E. Howle}
+{Experiences with Parallel Block Preconditioning of
+	the Linearized Incompressible Navier-Stokes Equations}
+{Sandia National Laboratory, MS 9217, PO Box 969, Livermore CA 94551}
+{vehowle@ca.sandia.gov}
+\\ {\bf Ray Tuminaro}, Sandia National Laboratory
+\\ {\bf John Shadid}, Sandia National Laboratory
+\\ {\bf Howard Elman}, Univ. of Maryland
+
+
+We consider the use of parallel block preconditioning techniques
+for the Navier-Stokes equations.  These block techniques correspond
+to those of Kay \& Loghin and result in methods that can be effective
+and robust over a variety of Reynolds numbers. The basic idea is to
+approximate the Schur complement operator for the Pressure equation
+based on the notion that certain differential operators approximately
+commute. The resulting preconditioner requires two block `solves' at each
+invocation: one for the pressure unknowns and the other for the velocities.
+A multigrid V cycle is then used to approximate each of these block solves,
+which makes the cost per iteration proportional to the number of unknowns.
+Numerical studies on the ASCI Red machine demonstrate that the preconditioner
+is effective in terms of both convergence rate and parallel performance.
+
+
+%	*******************************************
+%	*************  hu.html  ************
+%	*******************************************
+
+\nextab
+{Jonathan Hu}
+{Parallel Algebraic Aggregation for Maxwell's Equations}
+{Sandia National Laboratories, P.O. Box 969, MS 9217, Livermore CA 94551}
+{jhu@ca.sandia.gov}
+
+
+{\bf Ray Tuminaro} \\
+Sandia National Laboratories, P.O. Box 969, MS 9217, Livermore CA 94551
+\\ \verb9tuminaro@ca.sandia.gov9
+
+{\bf Allen C. Robinson} \\
+Sandia National Laboratories, Computational Physics R\&D,
+	P.O. Box 5800, MS 0819, Albuquerque NM 87185-0819
+\\ \verb9acrobin@sandia.gov9
+
+
+{\bf Pavel B. Bochev} \\
+Dept. of Mathematics, Box 19408, University of Texas, Arlington TX 76019-0408
+\\ \verb9bochev@uta.edu9
+
+
+We consider the use of parallel algebraic multigrid for the
+solution of Maxwell's equations which are discretized via
+edge elements.  The key difficulty is properly mapping the
+Curl operator's null space on to the coarse grids via a
+prolongation operator that is constructed using only
+algebraic information (i.e. matrix coefficients and a
+minimal amount of element information).  The scheme that we
+consider is based on the work of Reitzinger and Sch\"oberl
+as well as that of Hiptmair.  This parallel multilevel
+preconditioner is implemented within the ML framework which
+already contains similar techniques like smoothed
+aggregation.  The resulting iteration scheme is being
+integrated into a large complex parallel code that requires
+the repeated solution of the eddy current approximation to
+Maxwell's equations in a heterogeneous material properties
+environment as part of an overall Arbitrary
+Lagrangian-Eulerian magnetohydrodynamics algorithm.
+Numerical experiments are presented illustrating the
+efficiency of the approach on the ASCI Red machine in terms
+of both convergence and parallel speed-up.
+
+
+%	*******************************************
+%	*************  iskandarani.html  ************
+%	*******************************************
+
+\nextab
+{Mohamed Iskandarani}
+{Overview of Ocean Modeling Using Spectral Elements}
+{Rosenstiel School of Marine and Atmospheric Science,
+4600 Rickenbacker Causeway, Miami FL 33149-1098}
+{miskandarani@rsmas.miami.edu}
+
+Finite element are relatively uncommon for basin scale simulations of
+the oceanic circulation. Here, we present the spectral element ocean
+model, SEOM, an h-p type FEM model that solves the Boussinesq
+hydrostatic primitive equations. The model exist in two versions that
+differ primarily in their choice of vertical coordinate system: a
+``sigma''-like terrain-following coordinate system, and a density
+(isopycnal) coordinate. We discuss briefly the pro's and cons of each
+version and present a calculation of the wind-driven circulation over
+the Pacific Basin using the isopycnal model.
+
+
+
+
+%	*******************************************
+%	*************  israeli.html  ************
+%	*******************************************
+
+\nextab
+{Moshe Israeli, Elena Braverman}
+{A Hierarchical Domain Decomposition Method for the Solution of Helmholtz and Biharmonic Equations}
+{Technion, Computer Science Dept., Haifa 32000, Israel}
+{israeli@cs.technion.ac.il ~ ~ maelena@cs.technion.ac.il}
+
+{\bf Amir Averbuch} \\
+School of Mathematical Sciences, Tel Aviv University, Tel Aviv 69978, Israel
+\\ \verb9amir@math.tau.ac.il9
+
+Implicit discretization of time dependent problems
+in computational physics, semiconductor device simulation,
+electromigration and
+fluid dynamics often gives rise to elliptic equations.
+Helmholtz type equations usually appear in acoustics
+or electromagnetics and also as a result of time discretization of
+the Navier-Stokes equations.
+Biharmonic problems appear in elasticity and viscous flows.
+
+We solve the Helmholtz and the biharmonic equation by the Domain
+Decomposition (DD) methods.
+Previously [1] we adopted a DD method where the equation was solved in
+each subdomain with assumed boundary conditions,
+resulting in jumps in function or derivative on subdomain boundaries.
+These jumps were removed by the introduction of singularity layers.
+In order to account for the global effect of the layers we computed
+first the influence of each layer on each subdomain boundary,
+taking into account the decay or smoothing out of the influence
+as a function of the distance from the layer.
+To reduce the communication load,  compression in a multiwavelet
+basis was applied.
+Nevertheless, this part of the  procedure can  become expensive
+as the number of subdomains grows considerably.
+An  algorithm for a fast solution of the Poisson equation
+by decomposition of the domain into square domains and the subsequent
+matching of these solutions by the fast multipole method was
+developed in [2].
+
+The algorithm developed in [1] incorporates the following steps:
+
+1. In each subdomain
+a particular solution of the non-homogeneous equation
+with arbitrary Neumann (Dirichlet) boundary conditions is found.
+
+2. The collection of particular solutions usually has
+discontinuities (or discontinuities in the derivatives) on the
+boundaries of the subdomains. We introduce double (single) layers on the
+boundaries to match
+the solutions from different domains to have continuous global solution.
+The effect of these layers on other boundaries is calculated.
+
+3. The solutions obtained at the first step are patched
+by adding the solutions of the Laplace
+equation with the boundary conditions that were computed in the previous
+step.
+
+4. An additional solution of the corresponding homogeneous equation is
+added to satisfy the global boundary conditions.
+
+
+Considerable improvement in the efficiency of
+the interface jump removal step can be achieved if at each step only
+adjacent boxes are matched. This is the basis of the hierarchical
+approach which was proposed in [4].
+The ``elementary step'' of the hierarchical algorithm is the following.
+
+1. First, for each two adjacent subdomains some boundary conditions
+are defined.
+These conditions should not contradict the given right hand side
+at the junctions (see [4]).
+The Poisson equation is solved with these boundary
+conditions by a fast spectral algorithm [3].
+
+2. The solutions have a discontinuity in the first derivative.
+We match the subdomains by adding certain discontinuous
+functions. In fact we only evaluate these functions at the boundaries
+of two adjacent subdomains and then
+solve the homogeneous equation in each subdomain with the cumulative
+boundary conditions.
+
+3. The global homogeneous equation is solved in such a way that
+it satisfies
+the assumed conditions at the ``global boundaries'' of the merged
+subdomains.
+The solution of the non-homogeneous equation is expensive
+if compared to the homogeneous equation where efficient algorithms
+are available [3].
+
+This step is repeated hierarchically.
+For example, first the smallest adjacent domains are matched:
+box 1 with box 2, box 3 with box 4, then the merged box 1,2 is
+matched with 3,4, afterwards the box which is a union of boxes 1,2,3,4
+is patched with the adjacent merged box etc.
+
+Here we extend the results of [1,4] in the following directions.
+
+1. In addition to the Poisson equation, we solve
+the Helmholtz or modified Helmholtz equation.
+One of the problems that arise is
+resonance and non-resonance situations
+for Dirichlet and Neumann boundary conditions.
+This can be avoided by introducing
+``transparent'' boundary conditions which are
+approximations to the Sommerfeld radiation
+boundary condition.
+This means that the scattered wave behaves
+asymptotically like a diverging spherical wave. Some modifications
+of the non-reflecting conditions were considered in [5].
+
+2. We solve the biharmonic equation with either a free boundary
+as in [2] or
+boundary conditions of one type only
+(Dirichlet or Neumann).
+The biharmonic equation is split into a coupled system of
+the Poisson equations. The unknown function satisfies the Poisson equation
+with a certain right hand side which will be called a vorticity
+function.
+The solution  is also performed by DD.
+Here the matching algorithm which was developed in [1,4]
+is applied to find the smooth vorticity function which matches
+the given right hand side. Then we obtain a solution of the
+biharmonic equation. The global boundary conditions of either
+Dirichlet or Neumann
+type can be satisfied by the addition of an appropriate
+harmonic function, as was done for the solution of the Poisson equation.
+
+\begin{enumerate}
+
+\item
+A. Averbuch, E. Braverman and M. Israeli,
+{\em Parallel adaptive solution of
+a Poisson equation with multiwavelets},
+SIAM J. Sci. Comput. {\bf 22} (2000), 1053--1086.
+
+\item
+L. Greengard and J.-Y. Lee,
+{\em A direct adaptive Poisson solver of arbitrary order
+accuracy}, J. Comput. Phys. {\bf 125} (1996), 415--424.
+
+\item
+A. Averbuch, M. Israeli, L. Vozovoi,
+{\em A fast Poisson solver of arbitrary order accuracy
+in rectangular regions},
+SIAM J. of Sci. Comput.
+{\bf 19} (1998), 933--952.
+
+\item
+M. Israeli, E. Braverman and A. Averbuch,
+{\em A Hierarchical domain decomposition method with
+low communication overhead}, submitted to Proceedings of
+the 13th Domain Decomposition Conference, Lyon, 2000.
+
+\item
+A. Bamberger, P. Joly and J.E. Roberts,
+{\em Second-order absorbing boundary conditions for the wave
+equation: a solution for the corner},
+SIAM J. Numer. Anal. {\bf 27} (1990), 323--352.
+
+\end{enumerate}
+
+%	*******************************************
+%	*************  jones.html  ************
+%	*******************************************
+
+\nextab
+{Jim Jones, Panayot Vassilevski, Carol S. Woodward}
+{Computational Issues in the Application of Nonlinear Multigrid to Nonlinear Diffusion Problems}
+{Center for Applied Scientific Computing, Lawrence Livermore National Laboratory, Box 808, L-561 Livermore CA 94551}
+{jjones@llnl.gov}
+
+
+
+Our discussion concerns the application of nonlinear multigrid,
+or FAS, to nonlinear diffusion problems with the eventual target
+application of variably saturated flow.  We will focus on
+computational issues related to calculation of efficient
+interpolation and restriction operators for the multigrid
+V-cycle, as well as appropriate nonlinear coarse grid operators.
+Our numerical results compare this nonlinear multigrid method
+with traditional Newton techniques.
+
+This work was performed under the auspices of the U.S. Dept. of
+Energy by University of California
+Lawrence Livermore National Laboratory under
+Contract W-7405-Eng-48
+
+
+%	*******************************************
+%	*************  kenigsberg.html  ************
+%	*******************************************
+
+\nextab
+{Avraham Kenigsberg}
+{A Multigrid Approach for Fast Geodesic Active Contours}
+{Dept. of Computer Science, Technion, Haifa 32000, Israel}
+{}
+
+Image segmentation is a basic and important problem in the field
+of computer vision. A recent geometric approach for image
+segmentation is the geodesic active contour based on the level-set
+method. One drawback of the method, is the extended numerical
+support that makes its solution time consuming. We propose to solve an
+implicit system of the geodesic active contour model using the
+computationally efficient multigrid method.
+
+This work is a part of the M.Sc. thesis research of the author,
+under the supervision of Dr. Ron Kimmel and Assoc. Prof. Irad Yavneh.
+
+
+
+
+%	*******************************************
+%	*************  kiefer.html  ************
+%	*******************************************
+
+\nextab
+{Michael Griebel, Frank Kiefer}
+{AMG-based wavelet-like multiscale solvers for convection-diffusion problems}
+{Dept. of Applied Mathematics, Division for Scientific Computing and Numerical Simulation, Wegelerstr. 6, D-53115 Bonn, Germany}
+{griebel@iam.uni-bonn.de, kiefer@iam.uni-bonn.de}
+
+
+We consider the efficient solution of discrete convection
+dominated convection-diffusion problems.  It is well known that
+the standard hierarchical basis multigrid method (HBMG) leads
+for discrete operators arising from singularly perturbed
+convection-diffusion problems neither to optimal (w.r.t.
+mesh size) nor to robust solvers, i.e. the performance still
+depends strongly on the coefficients in the differential
+equation (e.g. strength of convection).
+
+(Pre-)Wavelet splittings of the underlying function spaces allow
+efficient algorithms that can be viewed as generalized HBMG
+methods.  They can be interpreted as ordinary multigrid methods
+that use a special kind of multiscale smoother and show for the
+respective non-perturbed equations an optimal convergence
+behavior similar to classical multigrid.  In our general
+Petrov--Galerkin multiscale approach we apply problem-dependent
+coarsening strategies known from robust multigrid techniques
+(matrix-dependent prolongations, algebraic coarsening) together
+with certain (pre-)wavelet-like and hierarchical multiscale
+decompositions of the trial- and test-spaces on the finest
+grid.  We demonstrate through extensive experiments that by this
+choice we are able to construct generalized HBMG methods, that
+result in possibly robust solvers.
+
+
+
+%	*******************************************
+%	*************  kim.html  ************
+%	*******************************************
+
+\nextab
+{Chisup Kim}
+{A Two-level Preconditioner for an Anisotropic Mixed Finite Element Problem}
+{Dept. of Mathematics, Texas A\&M University, College Station TX 77843-3368}
+{cskim@math.tamu.edu}
+
+
+We consider a mixed finite element method for a model second anisotropic
+elliptic equation on the unit square $\Omega$ of the following form
+\begin{eqnarray}
+- ( p_xx + \varepsilon p_yy ) &=& f  ~{\rm in} ~ \Omega,
+\nonumber \\
+p &=& 0  ~{\rm in} ~ \Gamma,
+\nonumber
+\end{eqnarray}
+where $\Gamma$ is the boundary of $\Omega$ and $\varepsilon$
+is a small constant.
+We study a multilevel preconditioner for this problem on uniform
+rectangular and triangular meshes.
+
+We use a two-level result by Bramble, Pasciak, and Zhang [1]
+in which no approximation or regularity
+conditions are required.  Our ``coarse'' level problem will be the finite
+element problem on the same mesh as in the mixed finite element problem.
+
+In the rectangular case, we use the Schur complement of the mixed problem
+at the ``fine'' level.  A mesh dependent form is used in the analysis and
+implementation.  In the triangular case, we take the equivalent
+nonconforming finite element problem to the mixed finite element problem
+as the ``fine'' level problem.  In both cases, line Jacobi smoothers are
+used to effectively reduce the error in the ``fine'' level.
+
+
+[1] Bramble, Pasciak, and Zhang, {\em East-West J.~Numer.~Math.},
+	{\bf 4} 1996, pp.99--120
+
+
+%	*******************************************
+%	*************  kirk.html  ************
+%	*******************************************
+
+\nextab
+{B. Kirk, K. Lipnikov, G. Carey}
+{Cascadic Multigrid Simulation of Incompressible Viscous Flow Problems:  Performance Analysis and Parallel Workstation and Cluster Implementation}
+{Aerospace Enineering Dept, C0600, University of Texas, Austin TX 78712}
+{benkirk@cfdlab.ae.utexas.edu}
+
+
+In this investigation we examine the use of one-way cascadic
+multigrid strategies CMG for solution of incompressible viscous
+flow problems using the finite element method.  The content of
+the presentation is as follows:  First we describe the basic CMG
+approach for representative elliptic boundary value problems and
+summarize the theoretical error estimates from approximation
+theory, desired smoother properties, and arithmetic complexity
+of the method as a function of iteration parameters at each
+level.  The extension of these error and complexity estimates to
+adaptive grids is also given.
+
+
+In the numerical experiments, performance of the algorithm on
+both serial and distributed parallel systems is examined.  We
+carry out a series of comparison studies between the CMG scheme
+and a standard bi-conjugate gradient solve strategy on the fine
+level grid.  Other issues such as the treatment of the diagonal
+elements in the zero block corresponding to the pressure
+variables are also considered and the results of associated
+numerical studies are presented.  Finally, parallel performance
+studies on a distributed parallel PC cluster in the CFDLab
+(http://cfdlab.ae.utexas.edu) are described and both performance
+and flow simulation results are given for 3D applications to
+linear Stokes flow, low Reynolds number Navier Stokes problems,
+and coupled fluid-thermal problems.
+
+
+\begin{enumerate}
+
+
+\item Bornemann, F. and P. Deuflhard,
+{\em The Cascadic Multigrid Method for Elliptic Problems},
+Num. Math {\bf 75}, 135--152, 1996.
+
+\item Bramble, J., J. Pasciak, J. Wang and J. Xu,
+{\em Convergence Estimates for Multigrid Algorithms
+without Regularity Assumptions}, Math. Comp
+{\bf 57}, 23--45, 1991.
+
+\item Carey, G. F.,
+{\em Computational Grids:  Generation, Adaptation
+and Solution Strategies}, Taylor \& Francis, 1997.
+
+\item Carey, G. F.,
+{\em Adaptive Techniques and Related Issues in
+Finite Element Modeling of Heat and Fluid Flow},
+To appear in Proceedings of CHT'01 (Australia May 2001).
+
+\item Carey, G. F., R. McLay, G. Bicken, B. Barth, S. Swift and
+A. Ardelea,
+{\em Parallel Finite Element Solution of 3D
+Rayleigh-Benard-Marangoni Flows}, IJNMF {\bf 31},
+37--52, 1999.
+
+\item Carey, G. F., R. McLay, W. Barth, S. Swift and B. Kirk,
+{\em Distributed Parallel Simulation of Surface Tension Driven
+Viscous Flow and Transport Processes}, Submitted to World
+Scientific, June, 2000.
+
+\item Ciarlet, P. J.,
+{\em The Finite Element Method for Elliptic Problems},
+North-Holland, Amsterdam, 1978.
+
+\item Deuflhard, P.,
+{\em Cascadic Conjugate Gradient Methods for
+Elliptic Partial Differential Equations: Algorithm and Numerical
+Results}, in D. Keyes and J. Xu (eds).,
+{\em Domain Decomposition
+Methods in Scientific and Engineering Computing},
+AMS Series, 180, 29--42, 1994.
+
+\end{enumerate}
+
+
+
+%	*******************************************
+%	*************  knyazev.html  ************
+%	*******************************************
+
+
+\section{Eigensolvers with multigrid preconditioners}
+{\bf Andrew Knyazev, Klaus Neymeyr} \\
+Center for Computational Mathematics, University of Colorado at Denver,
+P.O. Box 173364, Campus Box 170, Denver CO 80217-3364,
+\verb9http://www-math.cudenver.edu/~aknyazev/9 \\
+{\tt andrew.knyazev@cudenver.edu, neymeyr@na.uni-tuebingen.de}
+
+
+We describe the Locally Optimal Block Preconditioned Conjugate
+Gradient (LOBPCG) Method for symmetric eigenvalue problems,
+based on a local optimization of a three-term recurrence.
+We suggest using the same multigrid preconditioner in the LOBPCG method
+for eigenproblems as that in the preconditioned conjugate
+gradient method for the corresponding system of linear equations.
+We provide new convergence rate estimates and
+numerical results, which show effectiveness of such an approach.
+
+A MATLAB code of the LOBPCG method is available at \\
+\verb9http://www-math.cudenver.edu/~aknyazev/software/CG/9.
+
+The talk is partially based on the papers:
+
+\begin{itemize}
+
+\item
+Andrew Knyazev,
+Toward the Optimal Preconditioned Eigensolver: Locally Optimal Block
+Preconditioned Conjugate Gradient Method, Report
+UCD-CCM 149, 2000, at the Center for Computational Mathematics,
+University of Colorado at Denver (a revised version accepted to SIAM SISC).
+
+\item
+Klaus Neymeyr,
+Solving mesh eigenproblems with multigrid efficiency
+SFB 382, Report Nr. 157, October 2000
+
+\end{itemize}
+
+
+
+%	*******************************************
+%	*************  korsawe.html  ************
+%	*******************************************
+
+\nextab
+{Johannes Korsawe}
+{Nonlinear Convergence via Linear Multilevel Performance: Gauss-Newton-Multilevel}
+{University of Hannover, Dept. for Applied Mathematics, 30167 Hannover, Germany}
+{jkorsawe@ifam.uni-hannover.de}
+
+
+This talk is about multilevel techniques for solving a nonlinear
+problem $f(u)=0!$ in a Hilbert space $H$, arising from a least squares
+formulation
+for a system of nonlinear partial differential equations
+of first order.
+After discretizing the space $H$, this is a minimization problem that may
+be solved using a linear multilevel method for successive Gauss-Newton
+problems or using a nonlinear multilevel method like FAS.
+
+Although these approaches both yield nice numerical results, there are
+some difficulties in the convergence theory.
+Since the discretized problem is not consistent, the core problem turns
+from finding a zero of $f(u)$
+to finding a zero of $df/du$ which requires second order information about
+$f$ for the theory.
+One more problem for describing theory for the linear multilevel case is
+the lack
+of a direct relation between the error due to the discretization
+and the algebraical error due to the iterative method in order to check
+on overall convergence.
+For the FAS-case, the Gauss-Newton method does not fit into existing
+nonlinear multilevel theory with respect
+to smoothing properties.
+
+These problems disappear if the (inexact) Gauss-Newton solver is applied
+directly to the infinite
+dimensional problem in H and the emerging linear problems are
+discretized and solved
+using linear multilevel after that.
+The problem remains consistent and the above-mentioned errors both
+contribute to
+the inaccuracy of the Gauss-Newton method.
+Consequently, the number of linear multilevel sweeps may be monitored by
+easily computable
+error bounds via the multiplicative multilevel norm ensuring convergence
+of the overall method.
+
+In this talk, these results will be presented in more detail. Numerical
+examples show the competitiveness of this method.
+
+
+
+
+%	*******************************************
+%	*************  kowarschik.html  ************
+%	*******************************************
+
+\section{Enhancing the Cache Performance of Multigrid Codes on Structured Grids}
+{\bf Markus Kowarschik} \\
+System Simulation Group, Dept. of Computer Science,
+	University of Erlangen-Nuremberg, Germany.
+	\verb9http://www10.informatik.uni-erlangen.de/~markus9
+\\ {\tt markus.kowarschik@cs.fau.de}
+
+
+Modern computer architectures use hierarchical memory designs in order
+to hide the latencies of accesses to main memory components, which are
+dramatically slow in contrast to the floating-point performance of the
+CPUs. Current memory designs commonly involve several levels of cache
+memories, which can be accessed up to a hundred times faster than main
+memory.
+It is well-known that efficient program execution can merely be achieved,
+if the codes respect the hierarchical memory design.
+Unfortunately, today's compilers are still far away from automatically
+performing code transformations like the ones we apply in order to achieve
+remarkable speedups.
+As a consequence, much of this optimization effort is left to the programmer.
+
+Another observation is that iterative methods, like e.g. multigrid, are
+characterized by
+successive sweeps over data sets, which - for representative problems in
+science and engineering - are much too large to fit in cache.
+Therefore, conservative implementations of such algorithms often reach
+disappointing execution speeds, which are far away from the
+theoretically available peak performances of the machines under
+consideration.
+
+In this paper we present techniques in order to enhance the cache
+efficiency of multigrid methods for variable-coefficient problems
+on regular mesh structures.
+These techniques comprise both {\em data layout optimizations}
+and {\em data access optimizations}.
+Data layout optimizations are code transformation techniques which
+change the data arrangement in memory, e.g. array padding and the
+introduction of cache-aware data structures.
+In contrast, data access optimizations modify the order in which
+data are retrieved in the course of the computation. Loop blocking
+(tiling), for example, belongs to the class of data access optimizations.
+
+A variety of performance results are provided, showing both profiling data
+and the speedups which can be achieved by applying these kinds of
+optimization techniques.
+It can be observed that in most cases speedup factors of 2-3 can be
+obtained.
+
+For further details, we would like to refer the reader to
+\verb9http://wwwbode.in.tum.de/Par/arch/cache9,
+the web page of our {\em DiME} project
+(Data-local iterative methods for the efficient solution of
+partial differential equations).
+
+
+%	*******************************************
+%	*************  kraus.html  ************
+%	*******************************************
+
+\nextab
+{Van Emden Henson}
+{Element-Free AMG Interpolation Based on Multilevel Extension Mappings}
+{Center for Applied Scientific Computing, Lawrence Livermore National Laboratory, Livermore CA}
+{}
+\\
+{\bf Johannes Kraus} \\
+Center for Applied Scientific Computing, Lawrence Livermore
+	National Laboratory, Livermore CA, and
+	University for Mining and Metallurgy, Leoben, Austria
+\\ {\tt kraus1@llnl.gov}
+
+
+{\bf Panayot S. Vassilevski} \\
+Center for Applied Scientific Computing, Lawrence Livermore
+National Laboratory, Livermore CA
+
+
+Recently a new general algorithm, denoted ``element-free AMGe,'' was
+proposed [1], for constructing the interpolation weights in algebraic
+multigrid.  The method uses an extension mapping to provide boundary
+values outside a neighborhood about a fine-grid degree of freedom
+(dof) to which interpolation is desired. The interpolated value is
+obtained by a matrix-dependent harmonic extension of these boundary
+values into the interior of the neighborhood. In essence, this method
+is designed to capture information that can be obtained from
+individual finite-element stiffness matrices, as is done in the
+so-called ``element-based AMG method'' (AMGe) [2], for problems in which
+such matrices may not be available.
+
+The object of such a method is to characterize, on a local scale, the
+nature of the smooth modes of the global operator, insuring that they
+can be represented by the interpolation. We propose here a
+modification to this method, in which we use a more global method of
+localizing the nature of the smooth modes. In essence, the ``extended
+neighborhood'' of the fine-grid dof is defined globally, by looking at
+the coarse dofs on every level that feed information to the specified
+fine dof.  The harmonic extension is then generated from a
+``multilevel'' extended neighborhood, which can be constructed to allow
+for recursive improvement of the interpolation operators as each
+coarser level is addressed.
+
+We describe the basic algorithm and methods of implementation, and
+discuss some early experimental results.
+
+This work was performed under the auspices of the U.S. Dept.
+of Energy by University of California Lawrence Livermore National
+Laboratory under contract No. W-7405-Eng-48.
+
+
+\begin{enumerate}
+
+\item
+Henson, V. E., and Vassilevski, P. S.,
+{\em Element Free AMGe: general algorithms for computing
+interpolation weights in AMG}, to appear in
+SIAM Journal on Scientific Computing.
+
+\item
+Brezina, M., Cleary, A. J., Falgout, R. D., Henson, V. E., Jones,
+J. E., Manteuffel, T. A., McCormick, S. F., and Ruge, J. W.,
+{\em Algebraic multigrid based on element interpolation (AMGe)},
+SIAM Journal on Scientific Computing
+{\bf 22}, 1570--1592, 2000.
+
+
+\end{enumerate}
+
+
+
+%	*******************************************
+%	*************  kremenetsky.html  ************
+%	*******************************************
+
+\nextab
+{Mark Kremenetsky}
+{Considerations for Parallel CFD Enhancements on SGI ccNUMA and Cluster Architectures}
+{Supercomputer Applications, Silicon Graphics, Inc.,M/S 41L-932, Mountain View, California 94043}
+{mdk@sgi.com}
+
+
+The maturity of Computational Fluid Dynamics (CFD) methods and
+the increasing computational power of contemporary computers has
+enabled industry to incorporate CFD technology in several stages
+of design processes.  As the application of the CFD technology
+grows from component level analysis to system level, the
+complexity and the size of models increase continuously.
+Successful simulation requires synergy between CAD, grid
+generation and solvers.
+
+The requirement for shorter design cycles has put severe
+limitations on the turnaround time of the numerical
+simulations.  The time required for (1) mesh generation for
+computational domains of complex geometry and (2) obtaining
+numerical solutions for flows with complex physics has
+traditionally been the pacing item for CFD applications.
+Unstructured grid generation techniques and parallel algorithms
+have been instrumental in making such calculations affordable.
+Availability of these algorithms in commercial packages has
+grown in the last few years and parallel performance has become
+a very important factor in the selection of such methods for
+production work.
+
+Although extensive research has been devoted in determining the
+optimum parallel paradigm, in practice the best parallel
+performance can be obtained only when algorithm and paradigms
+take into consideration the architectural design of the target
+computer system they are intended for.  This paper addresses the
+issues related to efficient performance of the commercial CFD
+software FLUENT (based on AMG linear solver) on a cache coherent
+Non Uniform Memory (ccNUMA) Architecture.  Also presented are
+results from implementation of FLUENT on cluster systems of
+workstation for both the Linux and SGI IRIX operating systems.
+Issues related to performance of the message passing system and
+memory-processor affinity are investigated for efficient
+scalability of FLUENT when applied to a variety of industrial
+problems.
+
+
+%	*******************************************
+%	*************  lahaye.html  ************
+%	*******************************************
+
+\nextab
+{Domenico Lahaye}
+{A Multilevel Preconditioner for Field-Circuit Coupled Problems}
+{Dept. of Computer Science, Celestijnenlaan 200A, B-3001 Heverlee Belgium}
+{domenico.lahaye@cs.kuleuven.ac.be}
+
+
+In simulating time-varrying magnetic fields in electromagnetic devices like
+motors and transformers, it is often necessary to couple the partial
+differential equation for the magnetic field with a model for the external
+electrical circuit connections. The electrical circuit is a system of
+linear equations relating the unknown currents and voltages of the
+electrical conductors present in the device to known voltage and current
+sources. Time-varrying sources give rise to magnetically induced currents
+and voltages in the conductors. The partial differential equation and the
+circuit are coupled by these magnetically induces quantities.
+
+
+
+In low-frequent time-harmonic Maxwell formulations in two dimensions,
+the partial differential governing the magnetic vector potential is the
+Helmholtz equation with a complex shift. The finite element discretization
+of this equation results in sparse, complex symmetric system matrices.
+Discretized
+field-circuit coupled problems yield two by two block structured matrices
+whose diagonal is formed by the discretized partial differential equation
+and the electrical circuit matrix. The size of the second diagonal block is
+typically several orders of magnitude smaller than that of the first. The
+coupling is performed in such a way that no fill-in occurs in the
+discretized differential equation matrix and that the two by two
+block matrices are again complex symmetric.
+
+
+Solving the linear system is the computational bottleneck in simulating
+technically relevant engineering problems. Motivated by previous experience
+[1,2],
+we want to alleviate this bottleneck by the application of algebraic multigrid
+(AMG) techniques. The straightforward application of AMG is hampered by the
+presence of the electrical circuit. We developed a multigrid cycle that takes
+the circuit into account.
+
+
+Our multigrid technique is a generalization of a method by Hackbush for
+solving an elliptic problem augmented by an algebraic equation. We base the
+AMG setup on the differential equation block of the matrix. The electrical
+circuit is taking into account in the cycling phase. The resulting algorithm
+is a black-box solver for general field-circuit coupled problems.
+
+
+For the implementation of our multigrid technique, we developed an interface
+between the GMD-AMG-code by Stueben and PETSc. This interace allows to call
+the AMG setup on the differential equation block of the system matrix. After
+the setup, the AMG coarser grid and interpolation operators are available as
+PETSc matrices. The multigrid cycling is done by PETSc's multigrid components
+that we extended to be able to treat the electrical circuit.
+
+
+Our algorithm has been tested on a variety of engineering problems. It has
+proven to be stable and to deliver a speedup by a factor between five and ten
+compared to previously existing solvers.
+
+\begin{enumerate}
+
+\item
+R. Mertens, H. De Gersem, R. Belmans, K. Hameyer, D. Lahaye,
+S. Vandewalle and D. Roose,
+{\em An Algebraic Multigrid Method for Solving Very
+Large Electromagnetic Systems},
+IEEE Trans. on Magn. {\bf 34} (5), 3327--3330 (1999).
+
+\item
+D. Lahaye, H. De Gersem, S. Vandewalle and K. Hameyer,
+{\em Algebraic Multigrid for Complex Symmetric Systems},
+IEEE Trans. on Magn. {\bf 36} (4), 1535--1538 (2000).
+
+\end{enumerate}
+
+
+
+%	*******************************************
+%	*************  lee.html  ************
+%	*******************************************
+
+\nextab
+{Lee}
+{FOSLS for Neutron/Photon Transport at LLNL}
+{Lawrence Livermore National Laboratory, CASC L-661, P.O. Box 808, Livermore CA 94551}
+{lee123@llnl.gov}
+
+
+We give an overview of our FOSLS codes for
+neutron/photon transport at LLNL. A brief description of the Boltzmann
+transport equation, the finite element discretizations, and the
+numerical algorithms will be given. In particular, we describe
+the least-squares finite element formulations (trilinear in space
+and spherical harmonic in angle, trilinear in space and piecewise
+constant in angle, trilinear/macro-element in space and spherical
+harmonic in angle) and the multigrid algorithms implemented in
+our codes. Numerical examples illustrating discretization accuracy,
+multigrid scalability, and processor scalability will be presented.
+
+
+%	*******************************************
+%	*************  lehoucq.html  ************
+%	*******************************************
+
+\nextab
+{Richard B. Lehoucq and Jeff Bennighof}
+{Automated Multi-Level Substructuring: Theory}
+{Sandia National Laboratories,
+PO Box 5800 MS 1110,
+Albuquerque NM 87185-1110
+\\ and \\
+The University of Texas at Austin,
+Dept. of Aerospace Engineering and Engineering Mechanics,
+W.R. Woolrich Laboratories (WRW),
+Room 117D - Mail Code: C0600,
+Austin TX 78712-1085}
+{}
+
+A new method for frequency
+response analysis of very large finite element models of structures,
+known as Automated Multi-Level Substructuring (AMLS),
+has recently been developed.
+Large FEM models typically having over one million degrees of freedom are
+automatically subdivided into thousands of substructures. The response of the
+structure is represented in terms of substructures eigenvectors. These
+eigenvectors are much less expensive to obtain than the global eigenvectors
+required for conventional modal frequency response analysis.
+
+As a result, the computational cost of the
+analysis is substantially reduced when AMLS is used in place of traditional
+methods.
+This presentation will give an
+overview of an analysis of AMLS.
+
+
+
+%	*******************************************
+%	*************  macmillan.html  ************
+%	*******************************************
+
+\nextab
+{Hugh R. MacMillan}
+{First-order System Least-squares for Electrical Impedance Tomography}
+{University of Colorado, Boulder}
+{macmillh@colorado.edu}
+
+
+The practical limitations of electrical impedance tomography
+(EIT), due to both the necessarily finite set of inexact boundary
+data and the diffusive nature of the current into the interior,
+lead to the conclusion that reconstructing the interior impedance
+is an ill-posed problem. Given a set of applied normal boundary
+currents, a standard approach to EIT is to minimize the defect
+between the known and the computed boundary voltages that are
+associated, respectively, with the exact impedance and its
+approximation. In minimizing a boundary functional, standard
+least-squares approaches implicitly impose the interior partial
+differential equation (PDE), the diffusion equation. We have
+developed and implemented a first-order system least-squares
+(FOSLS) formulation which incorporates the elliptic PDE in a
+global multigrid minimization scheme. To place the new functional in
+context, we establish its equivalence to existing least-squares
+approaches, and to a novel norm on the error in the approximate
+impedance. The effect of this equivalence is to guarantee that,
+for each formulation, there is a unique minimizer in the topology
+corresponding to this special norm.  Thus, the theory quantifies
+the sense in which the fully nonlinear inverse problem is well
+posed, and guides the discretization according to those components
+which we can expect to reconstruct, regardless of the
+computational objective. With this framework established, {\it a
+priori} information, which might otherwise be used to regularize,
+can be incorporated by introducing an additional term to the
+functional.
+
+
+
+
+
+
+%	*******************************************
+%	*************  mandel.html  ************
+%	*******************************************
+
+\nextab
+{Jan Mandel}
+{Approximation and Coupling Estimators for Algebraic Multigrid}
+{Center for Computational Mathematics, Dept. of Mathematics, University of Colorado at Denver, P.O. Box 173364, Campus Box 170, Denver CO 80217-3364}
+{jmandel@math.cudenver.edu}
+
+
+A-priori estimates of approximation of fine grid functions by
+coarse grid functions are important for the design of robust
+Algebraic Multigrid methods. A number of coarsening schemes will
+work well on an easy problem, such as a the Laplace equation
+discretized by linear elements on a reasonable unstructured
+grid. Methods that incorporate rigid body modes, such as [1],
+work also very well for elasticity. Realistic problems, however,
+typically include elements violating shape limits, large jumps
+of coefficients,  and special kinds of elements that destroy the
+numerical relevance of  the underlying differential equations,
+such as side constraints on the values of degrees of freedom,
+enforced by large penalties (``stiff spring'' or ``contact''
+elements in engineering parlance), or even arbitrary additional
+equations that are eliminated before the matrix is passed to the
+solver (``multiple point constraints''). Such problems are hard to
+solve by Algebraic Multigrid even if they are symmetric and
+positive semidefinite.  Without a-priori numerical estimates of
+the rate of convergence, with  a rigorous foundation, an
+Algebraic Multigrid algorithm is essentially based just on the
+hope that the problem will not have anything unexpected and
+things will work out in the end.
+
+One common estimate that can be computed a-priori is the weak
+approximation property, which bounds the error of the best
+approximation in Euclidean norm of a fine grid vector by the
+prolongation of a coarse grid vector in terms of the energy norm
+of the fine grid vector. The weak approximation property is
+known to imply a bound on the two-level convergence factor,
+albeit a fairly pessimistic one. In the smoothed aggregation
+method [1], two-level as well as multilevel convergence bounds
+can be obtained [2] from the weak approximation property for the
+so-called tentative prolongator, which is simply the transpose
+of the matrix of a weighted aggregation of degrees of freedom.
+The actual prolongation used in the multigrid algorithm is then
+obtained by smoothing the tentative prolongation.
+
+
+In the absence of multiple point constraints, the constant in
+the weak approximation property can be bounded rigorously from
+the solution of eigenvalue problems based on local element
+matrices.  In [3], it was proposed to select the columns of the
+tentative prolongator as the eigenvectors of the local problems
+and to control the convergence of algebraic multigrid by
+choosing the number of the eigenvectors and by selecting the
+amount of smoothing of the prolongation.
+
+
+In practice, the problem to be solved is most conveniently given
+in terms of a single global stiffness matrix with all
+constraints incorporated. Then the information contained in the
+local stiffness matrices is lost, and to bound the constant in
+the weak approximation property rigorously by the solution of
+local eigenvalue problems, one would need to decompose the
+global matrix into the sum of positive semidefinite local
+matrices. We show that in general, such decomposition does not
+exists if the dimension of the coarse space is more than two. To
+estimate the contribution of a single aggregate (or,
+equivalently, of a block of coarse basis functions) to the
+constant in the weak approximation property, we decompose the
+global matrix into local matrices corresponding to the
+decomposition of the set of all nodes into the given aggregate
+and its complement.  We also present further approximation
+techniques to reduce the cost of the estimation.  The resulting
+estimates are not rigorous but they are still practically
+useful.
+
+We show that bad constants in the weak approximation condition
+will sometimes arize when the coarsening does not follow strong
+couplings of the nodes. An analysis of the mechanism how this
+happens shows when coarsening along weak couplings can still be
+tolerated.  We observe that while strong couplings can be
+usually quite well determined from the local stiffness matrices,
+the computation of strong couplings from the global matrix is
+not reliable.  We propose a new method to estimate the strength
+of the coupling between two nodes from an approximate local
+matrix corresponding to the pair of nodes.
+
+
+\begin{enumerate}
+
+\item
+P. Vanek, J. Mandel, and M. Brezina,
+{\em Algebraic Multigrid by Smoothed Aggregation for
+Second and Fourth Order Elliptic Problems},
+Computing {\bf 56} (1996) 179--196. \\
+\verb9http://www-math.cudenver.edu/~jmandel/papers/meis.ps.gz9
+
+\item
+P. Vanek, M. Brezina, and J. Mandel,
+{\em Convergence of Algebraic Multigrid Based on Smoothed
+Aggregation}, UCD/CCM Report 126,
+February 1998. Revised February 2000.
+To appear in Numerische Mathematik.
+\verb9http://www-math.cudenver.edu/~jmandel/papers/amg.pdf9
+
+\item
+M. Brezina, C. Heberton, J. Mandel, and P. Vanek,
+{\em An Iterative Method with Convergence Rate Chosen a Priori},
+UCD/CCM Report {\bf 140}, April 1999. \\
+\verb9http://www-math.cudenver.edu/~jmandel/papers/bhmv.ps.gz9
+
+\end{enumerate}
+
+
+
+%	*******************************************
+%	*************  mardal.html  ************
+%	*******************************************
+
+\nextab
+{An efficient parallel iterative approach to the time-dependent Stokes problem}
+{Kent-Andre Mardal}
+{P.O. Box 1080, Blindern, N-0316 Oslo, Norway}
+{kent-and@ifi.uio.no}
+
+
+
+In this paper we consider an optimal multigrid/domain
+decomposition preconditioner for the time-dependent Stokes
+problem.  Preconditioners for this problem arise when using
+fully implicit time stepping schemes for the Navier-Stokes
+equations.  However, as the time stepping parameter decreases
+against 0, the problem to be solved at each time step changes
+from the Stokes problem to the mixed formulation of the Poisson
+equation.  The same preconditioning techniques do not work in
+both cases, even the finite elements typically used for Stokes
+are not considered stable for the mixed Poisson equation.  We
+will show that some typical Stokes elements are in fact stable
+also for the Poisson equation in another norm, this leads us to
+a proper preconditioner working uniformly in the time stepping
+parameter.  Preconditioners for this problem have been studied
+before in [Bramble, Pasciak 94], however our approach is
+different.  In essence they constructed the preconditioner  by
+assuming only that the finite elements satisfy the usual
+Babuska-Brezzi condition for Stokes problem, requiring that the
+time parameter $k<h^2$.  Our preconditioner is based on the
+observation that the continuous time-dependent Stokes problem
+satisfy  another Babuska-Brezzi condition, which also the Mini
+element satisfy. We are therefore able to make a rather simple
+preconditioner, where the time stepping parameter only enters
+the preconditioner as a constant.  The efficiency of this
+preconditioner will  be demonstrated by numerical experiments
+done in parallel with  Diffpack, a C++ toolbox for finite
+element simulations,  on a Beowulf cluster having roughly 50
+CPUs.  It is established that the preconditioner works for the
+Mini element.  Other elements like the Crouzeix-Raviart element
+and the P2-P1 element will be considered.
+
+This is joint work with Hans Petter Langtangen and  Ragnar Winther.
+
+An extended abstract can be found
+at \verb9http://www.ifi.uio.no/~kent-and/copper.ps9.
+
+
+
+
+%	*******************************************
+%	*************  mavriplis.html  ************
+%	*******************************************
+
+\nextab
+{Dimitri Mavriplis}
+{Comparisons of Unstructured Multigrid as a Non-linear Solver, a Linear Solver, or a Pre-Conditioner}
+{ICASE MS 132C, NASA Langley Research Center, Hampton VA 23681}
+{dimitri@icase.edu}
+
+
+The relative efficiency of an unstructured multigrid
+algorithm used as a non-linear solver (FAS)
+is compared with the efficiency of the equivalent
+multigrid algorithm used as a linear solver
+on a Newton linearization of the non-linear problem,
+and with the efficiency obtained
+using either approach as a preconditioner
+for a non-linear GMRES method.
+Two types of problems are examined,
+the solution of a transient radiation diffusion
+problem, and the solution of the Navier-Stokes equations.
+In the first case, the discretization employs
+a nearest neighbor stencil and the linearized scheme
+operates on an exact Newton linearization.
+In the second case, the discretization is based
+on a second-order form which involves neighbors of neighbors
+while the linearization employed is based on a first-order
+accurate nearest-neighbor stencil.
+For the radiation diffusion case, the linear multigrid
+approach is more efficient than the FAS approach,
+mainly due to the expense involved in the more frequent
+computation of the highly non-linear residuals required
+in the non-linear multigrid case.
+When the linear system is solved to sufficient
+tolerance, quadratic convergence of the non-linear problem
+is observed.
+For the Navier-Stokes equations, quadratic convergence
+of the non-linear problem is not possible, since an
+inexact linearization is employed.
+While a linear multigrid iteration is shown
+to be substantially cheaper than the corresponding
+non-linear multigrid iteration, the relative performance
+of both methods depends largely on the tolerance
+to which the linear system is solved, and the achievable
+non-linear convergence rate.
+Using either method as a preconditioner
+rather than as a solver is also shown to provide
+additional convergence acceleration.
+Other issues such as memory requirements
+and robustness of the various schemes will also be discussed.
+
+
+
+
+
+%	*******************************************
+%	*************  medeke.html  ************
+%	*******************************************
+
+\nextab
+{Bj\"orn Medeke}
+{On Algebraic Multilevel Preconditioners for Disordered Systems}
+{Dept. of Mathematics, University of Wuppertal, D-42097 Wuppertal, Germany}
+{medeke@math.uni-wuppertal.de}
+
+
+Based on a Schur complement approach we present an algebraic multilevel
+preconditioning technique for large, sparse and totally disordered systems.
+
+
+We focus on the Schwinger model which is an ideal laboratory to
+develop and to test preconditioners for discretizations of lattice
+fermions since it has many features in common with lattice QCD. The
+corresponding Schwinger matrices represent a nearest neighbor coupling
+on a regular two-dimensional lattice. In general, the Schwinger matrices
+are large, sparse and structured but totally disordered.
+
+
+
+In contrast to the original system, an initial odd-even reduction enables us
+to distinguish between strong and weak edges in the digraph induced by the
+odd-even reduced system. The F-sites are chosen to be a maximal independent
+vertex set of the reduced digraph consisting of the vertex set and the set
+of strong edges.  Although the F-sites are selected algebraically,
+the resulting F/C partitioning of the even lattice sites can be easily fixed
+in advance such that costly coarsening strategies become obsolete.
+
+
+
+To precondition the subsystem residing on the F-sites only,
+standard incomplete LU preconditioners (ILU) are considered.
+Rigorous bounds of the condition number of the preconditioned
+submatrix are given. An appropriate and easy to construct Schur
+complement approximation is proposed. With respect to the
+odd-even reduced system no fill-in occurs so that the Schur
+complement preconditioner allows a recursive procedure on coarse
+lattices.
+
+
+The algebraic multilevel preconditioner is compared with standard
+odd-even preconditioning. Numerical experiments indicate that the
+Schur complement preconditioner outperforms the standard odd-even
+preconditioner.
+
+
+%	*******************************************
+%	*************  moulton.html  ************
+%	*******************************************
+
+\nextab
+{David Moulton, Misha Shashkov}
+{An Augmented Systems Approach to Preconditioning Mimetic Discretizations}
+{Mathematical Modeling and Analysis Group, Theoretical Division, Los Alamos National Laboratory, Los Alamos NM 87545}
+{moulton@lanl.gov}
+
+{\bf Jim Morel} \\
+Transport Methods Group,
+Computer and Computational Sciences Division,
+Los Alamos National Laboratory,
+Los Alamos NM 87545
+
+
+
+The diffusive component in many important application areas is
+characterized by a discontinuous diffusion coefficient with fine-scale
+anisotropic spatial structure; moreover, the underlying grid may be
+severely distorted.  Thus, increasingly mixed discretizations, which
+include mixed finite element methods (FEM) and support operator
+methods (SOM), are employed because they explicitly enforce important
+physical physical properties of the problem.  Unfortunately, these
+discretizations are based on the first order form, and hence naturally
+lead to an indefinite linear system.  In the case of orthogonal grids
+and a diagonal diffusion tensor optimal preconditioners have been
+developed.  However, the performance of these methods degrades with
+increasing full tensor anisotropy or grid distortion.  Moreover,
+the development of alternative preconditioners that are robust
+with respect to general forms of anisotropy has been thwarted by
+a significant loss of sparsity.
+
+In this work we are motivated by one specific advantage that the
+hybrid or local forms of mixed discretizations exhibit, namely, their
+more localized sparsity structure.  Specifically, for the SOM we
+consider augmentation of the flux (i.e., vector unknowns) such that an
+appropriate ordering of the augmented flux leads to a new block
+diagonal system for this component.  In contrast to the block diagonal
+structure of the hybrid system this system has blocks centered about
+vertices, and block elimination of the flux (i.e., formation of the
+Schur complement) leads to a symmetric positive definite scalar
+problem with a standard cell-based 9-point structure (in two
+dimensions).  This reduced system is readily solved with existing
+robust multigrid methods, such as Dendy's black box multigrid.  An
+analogous approach is used to augment the hybrid system and derive the
+equivalent preconditioner for this case.  We demonstrate the
+effectiveness of this preconditioner for both GMRES iterations of the
+full indefinite system as well as a CG iterations of the reduced
+scalar problem.
+
+
+
+%	*******************************************
+%	*************  naegele.html  ************
+%	*******************************************
+
+\nextab
+{Sandra N\"agele}
+{Multigrid Method coupled with Large Eddy Simulation}
+{Interdisciplinary Centre for Scientific Computing, University of Heidelberg, Im Neuenheimer Feld 368, 69120 Heidelberg, Germany}
+{sandra.naegele@iwr.uni-heidelberg.de}
+
+
+
+
+The use of multigrid methods in conjunction with a Large Eddy
+Simulation (LES) is very proximate since both are based on
+multiple scales. LES is a turbulence model which resolves large
+turbulent scales and models the small ones. The scale separation
+is performed by applying a spatial convolution operator (filter
+operator) to the incompressible Navier-Stokes equations. As
+filter operator a top hat filter is applied with a grid
+dependent support size. Hence the application of the filter
+results in a locally varying average in space. The LES model
+itself also depends on the grid size since the filtering process
+removes all subgrid scales. Some special dynamic LES models have
+been developed by various researchers which apply two filters
+with different support size at each point of the domain to the
+governing equation system. By comparison of the two different
+large scale resolutions the model term can be specified locally.
+This is similar to the multigrid cycle where the defect is
+restricted to the coarser grid and higher frequencies are
+removed.  Another property of dynamic models is their ability to
+adjust themselves to local flow structures. This adaptivity is
+very useful since in some regions of the domain the flow can be
+laminar and a turbulence model is not necessary at all. Hence
+dynamic models were used in the simulations.
+
+
+The simulations were carried out on the software platform
+{\bf UG} which is based on unstructured grids
+(see \verb9http://cox.iwr.uni-heidelberg.de/~ug9).
+Thus the filter width varies in the
+solution domain. Using unstructured grids the resolution of the
+turbulent scales can be increased locally to decrease the
+modeling effort. In the neighbourhood of walls for example it
+is possible to use a smaller grid size. By this grid adaptation
+the local flow structures can be better resolved and less
+modeling with less modeling error is necessary.
+
+
+A Krylov subspace method with linear multigrid as preconditioner
+is used to solve the linearized system. Within the multigrid
+cycle it is important to separate modeling and solving in the
+sense that only on the finest grid the modeled part of the
+equations is determined as described above. This is necessary
+for an appropriate modeling of the subgrid turbulent scales.
+Afterwards the model term is restricted to the coarse grids and
+a standard linear multigrid cycle can be used.  This solution
+strategy was applied to different flow problems which will be
+presented.
+
+
+%	*******************************************
+%	*************  oosterlee.html  ************
+%	*******************************************
+
+\nextab
+{C.W. Oosterlee}
+{On multigrid methods for linear complementarity problems with application to American-style options}
+{GMD-SCAI, Schloss Birlinghoven, 53754 Sankt Augustin, Germany}
+{oosterlee@gmd.de}
+
+
+In this talk, we will discuss multigrid methods for solving
+time-dependent 2D partial differential equations (PDEs)
+arising in option pricing theory.  The problem considered
+is the computation of the value of an option of
+American-style in a stochastic volatility setting. It leads
+to the solution of a convection-diffusion type PDE
+with a free, beforehand unknown boundary.
+In [4] it has been shown that
+for American-style options the theory of linear
+complementarity, as it is developed in the 1970-ties
+applies.  It is possible to rewrite the arising free
+boundary problems to linear complementarity problems
+(LCPs), of the form
+\centerline{(equation)}
+plus boundary
+conditions, where $L$ is a differential operator.  This
+formulation is beneficial for iterative solution, since the
+unknown boundary does not appear explicitly and can be
+obtained in a postprocessing step.  A slight disadvantage
+of this formulation is that the linear partial differential
+equation has been transformed into a nonlinear partial
+differential inequality.
+
+
+In 1983, Brandt and Cryer [1] proposed a multigrid method
+for LCPs arising from free boundary problems.  The
+algorithm is a multigrid generalization of the projected
+SOR method. Due to the nonlinear character of the problem,
+the multigrid method is based on the full approximation
+scheme, FAS.  The solution method has therefore been called
+the projected full approximation scheme, PFAS in [1].  In
+the original paper, the operator $L$ in [1,3] was the
+nicely elliptic Laplace operator and fast convergence was
+presented.  PFAS has been successfully used in the
+financial community for American options with stochastic
+volatility in [2].  The smoother applied in [2] is,
+however, somewhat involved.  It is based on the pointwise
+PSOR method for the detection of the free boundary,
+followed by a linewise version in order to deal with the
+stretched numerical grid occurring in the financial
+problem.  The need to change multigrid components like the
+smoother for optimal convergence of a new problem at hand
+is sometimes considered as unsatisfactory.
+
+It is our aim to give some more insight in the multigrid
+convergence for the problems from option pricing. At the
+same time, we will introduce some recent developments in
+multigrid techniques to the field of LCPs, making the
+algorithms more robust, i.e. less sensitive to parameter
+changes.
+
+In the search for efficient solvers that are more generally
+applicable, we consider multigrid as a preconditioner for
+Krylov subspace methods.  Often different complications
+such as anisotropies, nonlinearities or strong positive
+off-diagonal stencil elements occur simultaneously, as is
+the case in the discretization of the PDEs arising from
+American-style option pricing, for example discretized by a
+higher-order upwind scheme.
+
+The fundamental idea of multigrid, to reduce the high
+frequency components of the error by smoothing procedures
+and to take care of the low frequency error components by
+coarse grid corrections, might not work optimally if
+straightforward multigrid approaches are used.  Certain
+error components may remain large since they cannot be
+reduced by pointwise Gauss-Seidel-type smoothing procedures
+combined with a standard coarse grid approximation. These
+specific error components (and the corresponding
+eigenvectors/eigenvalues) are then responsible for the poor
+multigrid convergence.
+
+A commonly known solution approach for {\em nonlinear
+equations} is to apply global (Newton) linearization,
+solve the arising linear system with a Krylov subspace
+method, like GMRES or BiCGSTAB and a multigrid
+preconditioner.  This is not the approach followed here.
+We apply to nonlinear problems a solution method based on
+PFAS as the multigrid technique.  The Krylov subspace
+acceleration can be interpreted as a technique, in which
+intermediate iterants are recombined in order to obtain an
+improved approximation, see, for example, [3].  We will
+generalize this method to solving LCPs.
+
+\begin{enumerate}
+
+\item
+A. Brandt and C.W. Cryer,
+{\em Multigrid algorithms for the solution of linear
+complementarity problems arising from free boundary problems},
+SIAM J. Sci. Comput {\bf 4}, 655--684, 1983.
+
+
+\item
+N. Clarke and K. Parrot,
+{\em Multigrid for American option pricing with stochastic
+volatility}, Appl. Math. Finance {\bf 6}, 177--197, 1999.
+
+\item
+U. Trottenberg, C.W. Oosterlee and A. Sch\"uller,
+{\em Multigrid}, Academic Press, London,  2000.
+
+\item
+P. Wilmott, J. Dewynne and S. Howison,
+{\em Option pricing}. Oxford Financial Press, 1993.
+
+\end{enumerate}
+
+
+
+
+%	*******************************************
+%	*************  park.html  ************
+%	*******************************************
+
+\nextab
+{K. C. Park, Carlos A. Felippa  and Gert Rebel}
+{Localized Construction of Non-Matching Interfaces That  Pass A-Priori  Patch Test}
+{Center for Aerospace Structures and Dept. Aerospace Engineering Sciences, University of Colorado, Boulder CO 80309-0429}
+{kcpark@titan.colorado.edu}
+
+
+Interface coupling of independently modeled structural and other
+multiphysics computational modules is emerging as a key procedure for
+local refinements, contact-impact modeling, and parallel simulation
+employing partitioned domains. In the first part of this paper, we
+present a localized version of the method of Lagrange multipliers whose
+key feature  is the use of frames that
+lie between the partitioned domains and that facilitate localized
+interface coupling as opposed to global coupling inherent when employing
+the classical method of Lagrange multipliers.
+
+In the second part of the paper we present a selection of its
+applications to the coupling of non-matching interfaces and contact
+problems. In particular, we present an interface patch test criterion
+that can be employed a priori for the construction of patch test-passing
+interfaces.  The resulting coupling procedure satisfies a priori the
+interface patch test when the interfaces are discretized with different
+non-matching meshes. Example are finally discussed, which demonstrate the
+utility of the present method as compared to the master-slave method, the
+mortar method and the so-called three-field method.
+
+
+
+%	*******************************************
+%	*************  pasciak.html  ************
+%	*******************************************
+
+\nextab
+{Joseph Pasciak, R.D. Lazarov, J. Schoberl and P. Vassilevski}
+{An penalty approach for elliptic problems on non-matching grids}
+{Dept. of Mathematics, Texas A\&M University, College Station TX 77840}
+{pasciak@math.tamu.edu}
+
+
+In this talk I will consider approximations to second order elliptic
+problems on non-matching grids which utilize penalty terms to
+impose interface continuity.  This approach avoids the introduction and
+construction of multiplier subspaces commonly associated with mortar
+finite element techniques.
+I will present results which
+show that in the case of piecewise linear finite elements,
+the penalty formulation leads to almost optimal approximation.
+
+
+\verb9http://www.math.tamu.edu/~pasciak9
+
+
+
+%	*******************************************
+%	*************  pflaum.html  ************
+%	*******************************************
+
+\nextab
+{C. Pflaum}
+{Discretization of Neutron Transport by FOSLS and Piecewise Constant Functions on the Sphere}
+{}
+{}
+
+
+The approximation of the function space on the sphere
+plays an important role in the discretization of transport equation.
+We will present a discretization that employs
+piecewise constant functions on the sphere and the FOSLS formulation
+of the Boltzmann transport equation. The discrete equation system is
+solved by a multigrid process in space and on the sphere.
+Numerical results show an amelorization of the ray effect.
+For the implementation of the discretization and the multigrid
+algorithm, we used the parallel version of the library EXPDE
+(Expression Templates for Partial Differential Equations).
+
+
+This work was performed under the auspices
+of the U.S. Dept.  of Energy by University of
+California Lawrence Livermore National Laboratory
+under contract no. W-7405-Eng-48.
+
+
+
+
+%	*******************************************
+%	*************  philip.html  ************
+%	*******************************************
+
+\nextab
+{Bobby Philip}
+{Elliptic Solvers with Adaptive Mesh Refinement and First-Order System Least-Squares (FOSLS) Methodologies}
+{L-551, Center for Applied Scientific Computing, Lawrence Livermore National Laboratory, Livermore CA 94550}
+{bobbyp@llnl.gov}
+
+
+The talk will describe current ongoing work on developing
+elliptic solvers on adaptively refined curvilinear coordinate
+grids. First-Order System Least-Square formulations are used for
+elliptic systems to facilitate the development of reliable local
+error estimators. These error estimators will be used to
+determine where to place local fine grids during the adaptive
+mesh refinement process.  The class of Fast Adaptive Composite
+Grid (FAC) algorithms will be described. Details of implementing
+AFACx, an asynchronous version of FAC, on adaptively refined
+curvilinear grids will be described.
+
+
+
+%	*******************************************
+%	*************  poole.html  ************
+%	*******************************************
+
+\nextab
+{Gene Poole and Yong-Cheng Liu}
+{Advancing Analysis Capabilities in ANSYS through Solver Technology}
+{ANSYS, Inc., 275 Technology Drive, Canonsburg PA 15317}
+{}
+
+This talk describes substantial improvements in analysis
+capabilities in a large scale commercial finite element program
+made possible by the implementation of solver technology.  The
+ANSYS program is a commercial finite element analysis program
+which has been in use for thirty years.  The original code,
+developed around a direct frontal solver has been expanded over
+the years to include full featured pre- and post- processing
+capabilities which support a comprehensive list of analysis
+capabilities including linear static analysis, multiple
+nonlinear analyses, modal analysis and many other analysis
+types.  The finite element models on which these analyses are
+used have continued to grow in size and complexity.  This growth
+in size and complexity has been both enabled by and dependent on
+new solver technology along with increased computer memory and
+CPU resources.  Beginning in 1994 ANSYS added a jacobi
+preconditioned conjugate gradient solver (JCG) and subsequently
+an incomplete cholesky preconditioned conjugate gradient solver
+(ICCG) to improve thermal analysis capabilities.  In recent
+years the addition of the Boeing sparse matrix library for modal
+and static analysis, and a proprietary preconditioned conjugate
+gradient solver as well as additional iterative solvers to
+support new CFD capabilities have greatly increased the number
+of solver options available in ANSYS.  Most recently, in version
+5.7, ANSYS has added a new domain solver for solving very large
+structural analysis solutions on distributed MPI-based computer
+systems and the newest iterative solver option, an algebraic
+multi-grid iterative solver (AMG).
+
+This paper will describe implementation considerations for the
+addition of new solver technology to a large legacy code,
+compare resource requirements for the various solver choices and
+present some comparative results from several customer generated
+problems.  The AMG solver benefits, both in improved robustness
+and parallel processing efficiency will be described.  The paper
+will also discuss some of the implementation challenges that
+have been overcome to add new solver technology to a large
+existing code.  The role of solver technology in meeting current
+and future demands of large scale commercial analysis codes will
+be discussed.
+
+
+%	*******************************************
+%	*************  ruede.html  ************
+%	*******************************************
+
+\nextab
+{Ulrich Ruede}
+{Multigrid Solution of Bioelelectric Field Problems}
+{Dept. of Applied Mathematics, Univ. of Colorado, Boulder CO 80309-0526
+\\ (permanent address:
+Lehrstuhl fuer Informatik X,
+Universitaet Erlangen-Nuernberg,
+Cauerstr. 6,
+D-91058 Erlangen, Germany)}
+{ruede@cs.fau.de}
+
+{\bf C.R. Johnson, A. Samsonov, K. Zyp} \\
+Scientific Computing and Imaging Institute, University of Utah
+
+{\bf Marcus Mohr} \\
+Lehrstuhl fuer Informatik X, Universitaet Erlangen-Nuernberg, Cauerstr. 6, D-91058 Erlangen, Germany
+
+
+The reconstruction of bioelectric fields from non-invasive measurements
+can be used as a powerful new diagnostic tool in cardiology and neurology.
+Mathematically, the reconstruction of a bioelectric field can be modeled
+as an inverse problem for a potential equation. This problem is ill-posed
+and requires special treatment, in particular either regularization or an
+otherwise suitable restriction of the solution space.
+
+
+The differential equation itself can be discretized by finite differences or
+finite elements and thus gives rise to large sparse linear systems for
+which multigrid is one of the most efficient solvers, but regularization,
+adaptive mesh refinement, and efficient solution techniques must be
+combined to solve the inverse bioelectric field problem efficiently.
+While
+multigrid algorithms can reduce the compute times substantially, new local
+regularization techniques can be used to improve the quality of the
+reconstruction. Local mesh refinement can be used to increase the
+resolution in domains of increased activity, but must be used with care
+because refined meshes worsen the ill-conditioning of the inverse problem.
+
+
+
+%	*******************************************
+%	*************  ruge.html  ************
+%	*******************************************
+
+\nextab
+{John Ruge}
+{AMG: An Overview}
+{1005 Gillaspie Dr., Boulder CO  80305}
+{jruge@colorado.edu}
+
+Over the years, there have been many variants and different approaches
+to algebraic multigrid methods. In this talk, we attempt to describe
+and classify a number of these. This is not meant to be all-inclusive,
+but is a start of a framework for classification and comparison of
+AMG variants, both new and old.
+
+
+%	*******************************************
+%	*************  schoeberl.html  ************
+%	*******************************************
+
+\nextab
+{Joachim Schoeberl}
+{Algebraic Multigrid for H(curl) and H(div)}
+{Dept. of Mathematics, Texas A\&M University, College Station, Texas 77843-3368}
+{joachim@math.tamu.edu}
+
+{\bf Stefan Reizinger} \\
+SFB013 ``Scientific Computing'', University Linz, 4020 Linz, Austria
+\\ {\tt reitz@sfb013.uni-linz.ac.at}
+
+
+
+There exists a variety of algebraic multigrid methods for elliptic
+problems in Sobolev spaces. Recently, Arnold, Falk and Winther and
+Hiptmair presented geometric multigrid methods for elliptic problems
+in the spaces H(curl) and H(div). Their new multigrid components are
+special smoothers, the grid transfer is canonical since the spaces are
+nested. Their analysis is much more involved then the multigrid
+estimates for problems in Sobolev spaces. The difficulty occurs since
+the operator leads to a regularity pick-up only on a part of the
+space. They overcome the difficulty by splitting the space due to the
+discrete Helmholtz decomposition.  Heavily exploring the commuting
+diagram property, they can approximate both components independently.
+
+
+
+In our talk we will present a technique to maintain the commuting
+diagram property during an algebraic coarsening process. The key is to
+identify the geometric entities node, edge and face, and keep
+their relationships on the coarser levels. As usual, we can give a two
+level analysis, and present a couple of numerical results
+demonstrating the good multigrid behavior. The algorithm is
+implemented into Stefan Reitzinger's AMG code {\bf PEBBLES}
+(\verb9http://www.sfb013.uni-linz.ac.at/~reitz/pebbles.html9).
+
+
+
+%	*******************************************
+%	*************  schorsch.html  ************
+%	*******************************************
+
+\nextab
+{Jens Georg Schmidt}
+{FOSLL* for Stokes and Elasticity}
+{Dept. of Applied Math, University of Colorado, Campus Box 0526, Boulder CO 80309-0526}
+{schorsch@colorado.edu}
+
+The standard FOSLS Method only works well if the exact solution
+of the problem is in $H^2$.
+For many practical applications of Stokes or Elasticity this is not
+true (Mixed BCs, reentrant corners, etc.). In our talk we
+present the FOSLL* Method, which is an FOSLS-like method,
+constructed to overcome this drawback.
+
+We will present numerical results for Stokes and linear Elasticity, which
+show optimal FE- and MG-convergence of the method.
+
+
+%	*******************************************
+%	*************  schweitzer.html  ************
+%	*******************************************
+
+\nextab
+{Michael Griebel, Marc Alexander Schweitzer}
+{A Multilevel Particle-Partition of Unity Method}
+{Dept. of Applied Mathematics, Division for Scientific Computing and Numerical Simulation, Wegelerstr. 6, D-53115 Bonn, Germany}
+{griebel@iam.uni-bonn.de, schweitz@iam.uni-bonn.de}
+
+
+In this paper we present a multilevel solver for Galerkin
+discretizations of elliptic PDEs using so-called meshless
+methods (MM) [2, 3, 5, 6, 7, 8].  Meshless methods are promising
+approaches to overcome the problem of mesh generation which
+still is the most time-consuming part of any finite element (FE)
+simulation. Meshless methods are based only on a (finite)
+collection of independent points within the domain of interest,
+i.e. there are no fixed connections between any two points like
+in a conventional mesh.
+
+In the design of our multilevel solver, we utilize a
+hierarchical cover construction algorithm [2] for
+Partition of Unity Methods, {\bf PUM}
+(see \verb9http://wissrech.iam.uni-bonn.de/research/projects/schweitz/pum/9),
+which induces a hierarchy
+of nonnested PUM function spaces and a variational approach to
+the approximation problem arising in the construction of
+interlevel transfer operators.  The shape functions of our PUM
+are piecewise rational functions and non-interpolatory, due to
+the meshless construction which uses only a set of irregularly
+spaced points with no fixed connection between them (unlike in a
+mesh).  Hence, the usual interpolation approach to the
+construction of interlevel transfer operators is not applicable.
+One way of tackling this problem is the use of $L2$-projections as
+interlevel transfer operators.  The linear systems arising from
+a PUM discretization are sparse block systems, due to the fact
+that the PUM shape functions are products of a partition of
+unity function ($h$-component) and a higher order approximation
+function ($p$-component).  Therefore, we can choose the second
+main ingredient of our multilevel solver, the smoothing
+operators, to utilize this block structure.  Here, we choose
+block smoothers which operate on p-component blocks of the PUM
+function space and therefore eliminate the p-dependence of the
+convergence rate.
+
+Since the meshless construction leads to a sequence of nonnested
+function spaces, the variational assumption
+$$
+a_k\,({\bf I}_{k-1}^k \phi_{k-1}, {\bf I}_{k-1}^k \psi_{k-1}) \not= a_{k - 1}\,(\phi_{k-1}, \psi_{k-1})
+$$
+is no longer valid (even if we assume that the bilinear forms
+are the same on all levels)
+and the standard theory for variational multilevel algorithms
+is not applicable. Along the lines of a general multilevel
+theory presented in [9]
+the (uniform) convergence of the V and W cycles can be shown if
+$$
+a_k\,({\bf I}_{k-1}^k \phi_{k-1}, {\bf I}_{k-1}^k \psi_{k-1}) \leq C a_{k - 1}\,(\phi_{k-1}, \psi_{k-1})
+$$
+holds (in addition to further regularity assumptions).
+The results of our numerical experiments show that this is indeed
+the case for our method (for $L = -\Delta + id$).
+The V(1,1) cycle converges independently of the number of points
+$N$
+(which are generated by a Halton sequence) and the polynomial
+degree $p$ used during the discretization of the PDE.
+The average error reduction factor is independent
+of the number of points $N$ and the polynomial degree $p$
+between 0.1 and 0.25 for the V(1,1) cycle, i.e.
+$$
+0.2 \sim \rho \not= \rho\,(N, p)
+$$
+using block Gauss-Seidel smoothing and about 0.5 for block Jacobi smoothing.
+Furthermore, these results also hold for highly irregular
+point sets, which correspond to adaptive discretizations.
+In summary, our multilevel Partition of Unity Method
+converges independently of the polynomial degree
+of the discretization and independently of the
+number and position of the discretization points.
+
+The overall computational costs C of our multilevel algorithm
+is bounded by the number of points and the costs for the
+p-block inversion, i.e. its worst case complexity in d dimensions is
+$$
+C = O(Np^{3d})
+$$
+
+In some cases, the computational costs C may even be reduced to
+$$
+C = O(Np^{d})
+$$
+leading to a multilevel solver for an hp discretization which would be
+only linearly dependent on the total number of degrees of freedom.
+
+
+\begin{enumerate}
+
+\item M. Griebel and M. A. Schweitzer.
+{\em A Particle-Partition of Unity Method:
+Part III Parallelization}, in preparation.
+
+
+\item M. Griebel and M. A. Schweitzer.
+{\em A Particle-Partition of Unity Method:
+Part II Efficient Cover Construction and Reliable
+Integration}, in preparation.
+
+
+\item M. Griebel and M. A. Schweitzer.
+{\em A Particle-Partition of Unity Method for the solution
+of Elliptic, Parabolic and Hyperbolic PDE}
+SIAM J. Sci. Comp. {\bf 22}(3), 853--890, 2000.
+Also as SFB Preprint 600, SFB 256, Institut fr Angewandte
+Mathematik, Universitt Bonn.
+
+
+\item A. Caglar, M. Griebel, M. A. Schweitzer, and G. Zumbusch,
+{\em Dynamic load-balancing of hierarchical tree algorithms on a
+cluster of multiprocessor PCs and on the Cray T3E},
+in H.W.~Meuer, editor,
+{\em Proceedings 14th Supercomputer Conference, Mannheim},
+ISBN 3-932178-08-4, Mannheim, Germany, 1999.
+Mateo.  SuParCup '99 Award Winning Paper,
+also as SFB 256 report 27.
+
+
+\item M. A. Schweitzer.
+{\em Ein Partikel-Galerkin-Verfahren mit
+Ansatzfunktionen der Partition of Unity Method},
+Diplomarbeit, Institut fr Angewandte Mathematik,
+Universitt Bonn, 1997.
+
+
+\item I. Babuska and J. M. Melenk.
+{\em The Partition of Unity Finite Element Method:
+Basic Theory and Applications}, Comput. Meths.
+Appl. Mech. Engrg., Special Issue on Meshless Methods 1996
+{\bf 139}, 289--314.
+
+
+\item C. A. M. Duarte and J. T. Oden,
+{\em Hp clouds - A Meshless Method to solve Boundary
+Value Problems}, Num Meth. for PDE {\bf 12}
+(1996), 673--705.
+Also as Tech Rep 95-05, TICAM, University of Texas, 1995.
+
+
+\item C. A. M. Duarte, I. Babuska and J. T. Oden,
+{\em Generalized Finite Element Methods for Three
+Dimensional Structural Mechanics Problems},
+Computers and Structures {\bf 77} (2000), 215--232.
+
+
+\item J. H. Bramble, J. E. Pasciak and J. Xu.
+{\em The Analysis of Multigrid Algorithms with
+nonnested Spaces or noninherited quadratic Forms},
+Math. Comp. {\bf 56} (1991), 1--34.
+
+
+\end{enumerate}
+
+
+%	*******************************************
+%	*************  silva.html  ************
+%	*******************************************
+
+\nextab
+{Malik Silva}
+{Cache Aware Data Layouts}
+{Dept. of Statistics and Computer Science, University of Colombo, Colombo, Sri Lanka}
+{msilva@mail.cmb.ac.lk}
+
+
+Feeding the CPU with data operands is the bottleneck in many
+scientific computations.  This bottleneck is alleviated by means
+of caches, small fast memories to keep data.  The performance of
+a memory-intensive computation depends critically on whether
+most of the data accesses can be performed within the cache.
+This research is on cache aware computing, in which the
+programmers make their code cache friendly.  In particular, we
+have tested cache aware data laying which is a promising
+technique as it gives significant performance improvements.  For
+example, we recorded an improvement of about 64\% over the
+standard matrix multiplication.
+
+
+%	*******************************************
+%	*************  stals.html  ************
+%	*******************************************
+
+\nextab
+{Linda Stals}
+{The Parallel Solution of Radiation Transport Equations}
+{Dept. of Computer Science, Old Dominion University, Norfolk VA 23529-01
+\\ and \\ ICASE, NASA Langley Res. Ctr, Hampton VA 23681-2199}
+{stals@icase.edu}
+
+
+Radiation transport equations arise in the study of many different fields,
+such as combustion, astrophysics and hypersonic flow. The solution of
+these equations presents interesting challenges due to large jumps in the
+coefficients and strong non-linearities. In this talk we plan to compare
+the parallel efficiency of several techniques that may be used to solve
+these non-linear equations.
+
+Under certain physical assumptions, such
+as isotropic radiation, optically thick material and temperature
+equilibrium, radiation transport may be modeled by a system of three
+non-linear equations. As a first approach we consider the case where all
+energies are in equilibrium and the system is reduced to a single highly
+non-linear equation. The radiation may travel through inhomogeneous
+material, which translates into large jumps in the coefficients.
+Furthermore, a flux limiter is often included and it changes the equations
+from being locally parabolic to hyperbolic. As a consequence of all of
+these features, the equations are very difficult and time
+consuming to solve.
+
+To be able to solve the types of problems we are
+interested in we need to look at algorithms that show both parallel
+scalability and algorithmic scalability, ignoring one of these aspects
+means that we can not fully exploit available resources and will fall
+short of our goals. Techniques such as the multigrid method and adaptive
+finite elements have good algorithmic scalability, we want to measure
+their parallel scalability in relation to the radiation transport
+equations. Specifically, we shall focus on the performance of an inexact
+Newton multigrid scheme and compare it with the Full Approximation Scheme
+(FAS). Furthermore, we will also look at how the use of adaptive
+refinement affect the solution time.
+
+
+
+%	*******************************************
+%	*************  tiesinga.html  ************
+%	*******************************************
+
+\nextab
+{Eite Tiesinga}
+{Multigrid Modeling of Two Confined and Interacting Atoms}
+{National Institute of Standards and Technology, 100 Bureau Drive stop 8423, Gaithersburg MD, 20899-8423}
+{eite.tiesinga@nist.gov}
+
+{\bf William F. Mitchell} \\
+National Institute of Standards and Technology,
+100 Bureau Drive stop 8910,
+Gaithersburg MD, 20899-8910
+\\ {\tt william.mitchell@nist.gov}
+
+
+The 1994 discovery by P. Shor of a polynomial quantum factoring
+algorithm has started initial efforts into the development of quantum
+computers.  This opened new avenues of research for mathematicians,
+computer scientists, and physicists alike.  The quantum paradigm of
+computing induced renewed interest in complexity classes, (quantum)
+error correction, searches for other algorithms, and the search for
+physical implementations of the basic building blocks,
+such as qubits and quantum gates, of a quantum computer.
+
+
+We have applied multigrid methods to solve for a two-dimensional
+Schr\"odinger equation in order to study the feasibility of a quantum
+computer based on extremely-cold neutral alkali-metal atoms.  Qubits are
+implemented as motional states of an atom trapped in a single well of
+an optical lattice of counter-propagating laser beams.  Quantum gates
+are constructed by bringing two atoms together in a single well leaving
+the interaction between the atoms to cause entanglement.  For special
+geometries of the optical lattices and thus shape of the wells, quantifying
+the entanglement reduces to solving for eigenfunctions of a Schr\"odinger
+equation that contains a two-dimensional Laplacian, a trapping potential
+that describes the optical well, and a short-ranged interaction potential.
+
+
+Length and energy scales of the trapping potential and interaction
+potential are too disparate to allow for a naive discretization of
+the differential operator. The size of the resulting linear systems would
+prohibit reasonable calculations. An adaptive grid approach automatically
+finds a spatial representation that is refined when the atoms are close
+together and the interaction potential is very strong and is coarse
+at larger separation where the trapping potential is the largest
+energy scale.  The finite element discretization of the Schr\"odinger
+equation on this grid produces an eigenproblem with the matrix
+$A^{-1}B$ where $A$ is the usual finite
+element discretization of a second order linear elliptic operator and
+$B$ contains the $L_2$ inner products of the
+finite element basis functions.  Selected eigenvalues and eigenvectors
+are computed by an iterative method that requires only multiplication
+of a vector by the matrix.  Multiplication by $A^{-1}$
+is achieved by solving a linear system with the matrix $A$ by a
+multigrid method.
+
+
+
+
+%	*******************************************
+%	*************  toivanen.html  ************
+%	*******************************************
+
+\nextab
+{Janne Martikainen, Tuomo Rossi, Jari Toivanen}
+{Multilevel Preconditioners for Boundary Lagrange Multipliers}
+{Dept. of Mathematical Information Technology,
+University of Jyv\"askyl\"a,
+P.O. Box 35 (Agora), FIN-40351 Jyv\"askyl\"a, Finland,
+http://www.mit.jyu.fi/en/}
+{jamartik@mit.jyu.fi, tro@mit.jyu.fi, tene@mit.jyu.fi}
+
+
+By embedding the original elliptic boundary value problem into a larger
+simple-shaped domain and treating the Dirichlet boundary conditions by
+using boundary Lagrange multipliers, the discretization and efficient
+solution can become much easier. The generation of hierarchical meshes
+required by the traditional multigrid methods for complicated domains
+can be very difficult or even impossible. Furthermore, it much easier
+to make fast cache aware multigrid implementations for simple-shaped
+domains like rectangles. The use of Lagrange multipliers leads to
+saddle-point problems which are here assumed to be symmetric.
+Such problems can be solved using a preconditioned MINRES method.
+A simple and natural idea is to construct separate preconditioners
+for primal variables and Lagrange multipliers. Thus, the overall
+preconditioner has a block diagonal form. The preconditioner for
+the primal variables can be based on any symmetric multigrid method or,
+for example, on fast direct solvers. It is well-known that a good
+preconditioner for the Lagrange multipliers should approximate the
+Schur complement of the diagonal block for primal variables in
+the saddle-point matrix. One family of such preconditioners are based
+on the square root of a boundary operator, but they are not robust with
+respect to the geometry of domain. Furthermore, usual implementations
+based on FFT can not be used for three-dimensional problems.
+
+
+
+Here, preconditioners for Lagrange multipliers based on multilevel
+techniques for Poisson-like problems are proposed. More precisely, the
+employed techniques are the multilevel nodal basis (BPX) and multilevel
+diagonal scaling (MDS) preconditioners. The idea is to approximate
+the Schur complement using these techniques and then perform the
+multiplication by its inverse by using a suitable iterative method.
+The implementation must take an advantage of sparsity of vectors
+in the different levels of multilevel preconditioners in order to be
+affordable. To implement such a sparse version of BPX or MDS might seem
+to be difficult, but in practice it is rather easy and straightforward task.
+A natural assumption is that the number of Lagrange multipliers is the
+order of square root of $N$ for two-dimensional problems and the order of
+square of cubic root of $N$ for three-dimensional problems, where $N$ denotes
+the number of primal variables. In this case, a simple analysis shows
+that the computational cost of approximating the Schur complement using
+BPX or MDS requires the same order of floating point operations as
+the number of Lagrange multipliers is. Furthermore, based on a simple
+condition number estimation it can be shown that the number of CG or
+Chebyshev iterations required to perform a multiplication by the inverse
+of the Schur complement approximation is the order of square root of $N$
+for two-dimensional problems and the order of cubic root of $N$ for
+three-dimensional problems. Thus, the total computational cost of
+applying Lagrange preconditioner once is the order of $N$.
+
+
+
+In the numerical experiments, the efficiency of proposed approach
+is studied for two-dimensional and three-dimensional Poisson and diffusion
+problems. The number of iterations and the condition number for several
+problems are given. Also, the capability to solve easily problems in very
+complicated domains is demonstrated.
+
+
+
+%	*******************************************
+%	*************  tuminaro.html  ************
+%	*******************************************
+
+\nextab
+{A Parallel Multilevel Preconditioning Module for Unstructured Mesh Krylov Solvers}
+{Ray Tuminaro}
+{Sandia National Laboratories, PO Box 969, Livermore CA 94551}
+{tuminaro@ca.sandia.gov}
+
+{\bf Charles Tong} \\
+Lawrence Livermore National Labs, Livermore CA
+
+{\bf John Shadid, Karen Devine, David Day} \\
+Sandia National Laboratories, Albuquerque NM 87185
+
+
+Multilevel methods offer the best promise to attain both
+fast convergence and parallel efficiency in the numerical
+solution of partial differential equations. Unfortunately,
+they have not been widely used, in part, due to
+implementation difficulties for unstructured mesh solvers.
+To facilitate use, a multilevel preconditioner software
+module, ML, has been constructed. Several methods (e.g.
+smoothed aggregation multigrid and two-level domain
+decomposition) are provided requiring relatively modest
+effort from the application developer. We discuss the
+current status of this software module including the
+parallel smoothed aggregation method, domain decomposition
+scheme, and their use with other software packages (e.g.
+Aztec, ParaSails, Metis, SuperLU, XYT) for outer
+iterations, smoothers, and coarse grid solvers. We will
+discuss our experiences in solving problems arising from a
+few application areas in electromagnetics, elasticity, and
+computational fluid dynamics (CFD) on the ASCI red
+machine.
+
+
+
+%	*******************************************
+%	*************  vassilevski.html  ************
+%	*******************************************
+
+\nextab
+{Panayot S. Vassilevski}
+{Parallelizing AMGe using domain decomposition}
+{Center for Applied Scientific Computing, Lawrence Livermore National Laboratory, 7000 East Avenue, Mail Stop 560, Livermore CA 94550}
+{vassilevski1@llnl.gov}
+
+
+In this talk we will present a natural domain decomposition
+strategy for parallelizing agglomeration based AMGe
+(algebraic multigrid for finite element problems exploiting
+fine-grid element matrices).
+
+
+The method consists of the following simple steps:
+
+
+{\bf (1)}   local subdomain solvers (preconditioners); i.e., each
+mesh subdomain (union of fine grid elements) is assigned to
+a processor and a sequential AMGe solver is built in there.
+That is, a sequence of coarse grids (coarse spaces) and
+respective interpolation matrices are constructed. The
+setup phase is based on the local bilinear (quadratic)
+forms (assembled from the subdomain element matrices).
+Since the local bilinear forms, in the case of model
+Laplace operator, correspond to a problem with natural
+(Neumann type) boundary conditions they are typically only
+semi-definite. Therefore, one builds the sequential AMGe
+solvers to be defined only for vectors in a space which is
+a hierarchical complement to a certain coarse space. This
+coarse space must contain the null-space components (so
+called rigid body modes) of the local quadratic forms. The
+version of the AMGe method which we exploit, called
+spectral agglomerate AMGe, allows for explicit construction
+of such hierarchical complements and ensures that the
+null-space components are fully represented on the coarse
+grid.
+
+
+
+{\bf (2)}   a global coarse problem;
+The overall preconditioner then is defined as the standard
+Neumann-Neumann type domain decomposition preconditioner
+(cf., [3], [2] or [4]), however, here the preconditioner is
+defined not for the interface Schur complements (as is in
+the original Neumann-Neumann case) but is applied to the
+original bilinear forms. As already mentioned, in addition
+to the subdomain solvers, one incorporates a global coarse
+solver.
+
+
+The sequential subdomain coarsening AMGe algorithm consists
+of an agglomeration step and involves computing a few
+minimal eigenvectors of the corresponding assembled
+agglomerate stiffness matrix. The method (similarly to [1]
+and [5]) requires access to the individual element matrices
+(in order to assemble certain subdomain matrices). Based on
+the topological agglomeration algorithm (cf. [5]) we
+employed and the special interpolation rule chosen, one is
+able to define coarse elements and coarse element matrices
+thus allowing for recursion.
+
+
+Numerical tests illustrating the parallel performance of
+the algorithm will be presented.
+
+
+
+\begin{enumerate}
+
+
+\item M. Brezina A. J. Cleary, R. D. Falgout, V. E. Henson,
+J.  E. Jones, T. A. Manteuffel, S. F. McCormick, and J. W. Ruge,
+{\em Algebraic multigrid based on element interpolation (AMGe)},
+SIAM J. Sci. Comput. {\bf 22} (2000), 1570--1592.
+
+\item J. Mandel,
+{\em Balancing domain decomposition},
+Comm. Appl. Numer. Methods {\bf 9} (1993), 233--241.
+
+\item Y.-H. De Roeck and P. Le Tallec,
+{\em Analysis and a test of a local domain decomposition
+preconditioner}, in: ``Fourth International Symposium on
+Domain Decomposition Methods for Partial Differential
+Equations'' (R. Glowinski, Y. Kuznetsov, G. Meurant, J.
+Periaux, and O. Widlund, eds.),
+SIAM, Philadelphia PA 1991.
+
+\item M. Dryja and O. B. Widlund,
+{\em Schwarz methods of Neumann-Neumann type for
+three-dimensional elliptic finite element problems},
+Comm. Pure Appl. Math. {\bf 42} (1995), 121--155.
+
+\item J. E. Jones and P. S. Vassilevski,
+{\em AMGe based on element agglomeration},
+SISC (to appear).
+
+
+\end{enumerate}
+
+
+This work was performed under the auspices of the U. S.
+Dept. of Energy by University of California Lawrence
+Livermore National Laboratory under contract W-7405-Eng-48.
+
+
+
+
+%	*******************************************
+%	*************  wan.html  ************
+%	*******************************************
+
+\nextab
+{Antony Jameson}
+{Two Multigrid Time Stepping Schemes which Preserve Monotonicity and TVD}
+{Dept. of Aeronautics and Astronautics, Stanford University, Stanford CA 94305}
+{jameson@baboon.stanford.edu}
+
+{\bf Justin W.L. Wan} \\
+Dept. of Computer Science, University of Waterloo, Waterloo, Ontario, Canada N2L 3G1
+\\ {\tt jwlwan@bryce1.uwaterloo.ca}
+
+
+In this talk, we present two efficient multigrid time stepping schemes for
+scalar linear and nonlinear wave equations based on a upwind biased
+interpolation and restriction, and a nonstandard coarse grid update
+formula. Furthermore, we prove that these schemes preserve monotonicity
+and are total variation diminishing (TVD). Thus, no numerical oscillation
+is introduced, resulting in fast wave propagation to the steady state.
+
+
+Multigrid for solving elliptic partial differential equations (PDEs)
+has been proven, both numerically and theoretically, to be a successful
+and powerful techniques. Efficient multigrid methods have also been
+proposed for solving non-elliptic equations, in particular, Euler
+and Navier Stokes equations. One approach is to accelerate the evolution
+of a hyperbolic system to a
+steady state on multiple grids by taking larger time steps on
+coarse grids without violating the stability condition. Thus, the low
+frequency disturbances are rapidly expelled through the outer boundary
+whereas the high frequency errors are locally damped. It can be proved
+that an M-level multigrid cycle consisting of one smoothing
+step on each coarse grid results in an effective time step of the sum
+of the time steps of all the coarser grids.
+
+
+While the above approach has achieved great success, for instance, in
+Euler calculations, the understanding of the numerical property is
+relatively limited and analyses are scarce.
+In this paper, two efficient multigrid time stepping schemes proposed by
+Jameson is studied and extended for the steady state solution of
+scalar linear and nonlinear wave equations. One scheme
+is multiplicative in nature and the other additive. Thus the former is
+usually more effective but the latter is more parallel.
+The upwind biased interpolation and restriction are defined based on the
+characteristic directions. As opposed to elliptic multigrid,
+they are not transpose of each other. For nonlinear wave equations, the
+characteristic directions change at every grid points and in every time
+steps. To define the appropriate upwind interpolation and restriction, we
+solve a local Riemann problem which determines locally the characteristic
+direction. Up to the authors' knowledge, Riemann solutions have not
+been used in the context of multigrid interpolation/restriction.
+
+
+In addition, we present the numerical analysis of these schemes;
+the primary focus is on the monotonicity preserving and total variation
+diminishing properties. Both concepts are fundamental in designing
+discretization schemes for conservation laws, but nevertheless, have never
+been used to analyze multigrid methods in the literature.
+We prove that both the two-level multiplicative and additive schemes
+preserve monotonicity and are TVD; and the same holds for the multilevel
+additive scheme.
+Finally, numerical results for solving the linear wave equation and the
+nonlinear Burgers' equation in one and two dimensions are presented to
+demonstrate the effectiveness of the proposed schemes and verify that no
+oscillation occurs during the multigrid time stepping.
+
+
+
+
+
+
+%	*******************************************
+%	*************  wienands.html  ************
+%	*******************************************
+
+\nextab
+{R. Wienands, C.W. Oosterlee}
+{Local Fourier $k$-grid ($k$=1,2,3) analysis for Navier-Stokes-type systems}
+{GMD - Institute for Algorithms and Scientific Computing (SCAI),
+Schloss Birlinghoven, D-53754 Sankt Augustin, Germany}
+{wienands@gmd.de, oosterlee@gmd.de}
+
+
+Local Fourier one- (smoothing) and two-grid analysis (LFA) [1,2,6] are
+well-known tools for the quantitative analysis and the design of
+efficient multigrid methods for several problems.
+The two-grid analysis is the basis
+for classical asymptotic multigrid convergence estimates [6].
+Moreover, it is the main analysis tool for nonsymmetric problems.
+For several multigrid components or cycle variants, however, the
+overall multigrid convergence cannot be approximated accurately
+by two-grid factors. For example, if one is interested in the varying
+performance of V- and W-cycles, of pre- and post-smoothing, of
+different smoothers on different grids or of different discretizations
+on different grids one has to consider at least one additional grid
+leading to a three-grid analysis [8].
+
+Although LFA is often applied to scalar equations,
+two-grid values for systems of equations are rarely found
+in the literature and three-grid values are completely missing.
+To close this gap we developed a freely available, general Fourier
+analysis program -- \verb9LFA00_2D9 --
+which will be presented in the first part of the talk.
+\verb9LFA00_2D9 is a set of Fortran77 subroutines to
+perform Fourier $k$-grid ($k$=1,2,3)
+analysis for two-dimensional systems of PDEs yielding measures of
+h-ellipticity [1], smoothing factors, two- and three-grid convergence
+factors and norms of the two- and three-grid operators.
+Several discretizations of well-known
+systems, like the biharmonic system, the Stokes equations, the Oseen
+equations (linearized Navier-Stokes equations) have already been
+implemented. Furthermore, an option to analyze your own linearized
+system is available.
+\verb9LFA00_2D9 supports a large variety of multigrid components including
+\begin{itemize}
+\item Coarsening strategy: standard (full), semi coarsening,
+\item Coarse grid discretization: direct PDE based, Galerkin-type,
+\item Prolongation: bilinear, cubic interpolation, matrix-dependent
+interpolation (of Dendy[3]- and de Zeeuw[9]-type),
+\item Restriction: full, half weighting, injection,
+\item Relaxation: Jacobi, Gauss-Seidel, red-black-type smoothers,
+point- and line-wise.
+\end{itemize}
+It is, furthermore, possible to estimate convergence factors if the
+two- or three-grid operators are used as preconditioners for GMRES [7].
+
+In the second part of the talk, we evaluate several non-staggered
+discretizations for Navier-Stokes-type systems (w.r.t. an efficient
+multigrid treatment) in order to demonstrate the usefulness of the
+analysis program. Here, we focus on second order discretizations.
+In particular, the Stokes and the Oseen equations are investigated,
+discretized by central differences with an artificial pressure correction
+term in the continuity equation (for low Reynolds numbers) or by higher
+order upwind schemes like Dick's flux difference splitting [4]
+using van Leer's kappa-scheme [5] (for high Reynolds numbers).
+The Fourier results are confirmed by numerical experiments with the
+incompressible Navier-Stokes equations.
+
+\begin{enumerate}
+
+\item A. Brandt,
+{\em Multigrid techniques: 1984 guide with applications to
+fluid dynamics}, GMD-Studie Nr. 85, Sankt Augustin, Germany (1984).
+
+\item A. Brandt,
+{\em Rigorous quantitative analysis of multigrid,
+I: Constant coefficients two-level cycle with L2-norm},
+SIAM J. Numer. Anal. {\bf 31} (1994), 1695--1730.
+
+\item J.E. Dendy Jr.,
+{\em Blackbox multigrid for nonsymmetric problems},
+Appl. Math. Comput. {\bf 13} (1983), 261--283.
+
+\item E. Dick and J. Linden,
+{\em A multigrid method for steady incompressible
+Navier-Stokes equations based on flux difference splitting},
+Int. J. Num. Meth. Fluids {\bf 14} (1992), 1311--1323.
+
+\item B. van Leer,
+{\em Upwind-difference methods for aerodynamic problems
+governed by the Euler equations}, In:
+{\em Large Scale Computations in Fluid Mechanics},
+Lectures in Appl. Math. {\bf 22}, II, B. Enquist, S. Osher,
+and R. Somerville (eds.), AMS, Providence RI, 1985, 327--336.
+
+\item U. Trottenberg, C.W. Oosterlee, and A. Sch\"uller,
+{\em Multigrid}, Academic Press (2001).
+
+\item R. Wienands, C.W. Oosterlee, and T. Washio,
+{\em Fourier analysis of GMRES(m) preconditioned by multigrid},
+SIAM J. Sci. Comput. {\bf 22} (2000), 582--603.
+
+\item R. Wienands and C.W. Oosterlee,
+{\em On three-grid Fourier analysis for multigrid},
+to appear in SIAM J. Sci. Comput. (2001).
+
+\item P.M. de Zeeuw,
+{\em Matrix-dependent prolongations and restrictions in a
+blackbox multigrid solver},
+J. Comput. Appl. Math. {\bf 33} (1990), 1--27.
+
+\end{enumerate}
+
+
+%	*******************************************
+%	*************  wittum.html  ************
+%	*******************************************
+
+\nextab
+{Gabriel Wittum}
+{Multigrid Methods for Porous Media Flow Problems}
+{Institute for Computer Science, Heidelberg University, INF 368, D-69120 Heidelberg}
+{wittum@iwr.uni-heidelberg.de}
+
+
+Solvers play a crucial role in many simulations
+determining the complexity of the whole process. Thus
+solving often limits the obtainable accuracy and fast
+solver even are the key to simulate new challenging
+problems.
+
+In the lecture multigrid methods for the simulation of
+large porous media flow problems are discussed.  Problems
+like heterogeneity, non-M-matrices etc. are addresseed.
+Further adaptivity and parallelism is discussed. The software
+system UG is presented which is based on these
+strategies. In several application cases the efficiency of
+the selected approach is shown.
+
+
+
+%	*******************************************
+%	*************  yang.html  ************
+%	*******************************************
+
+\nextab
+{Ulrike Meier Yang}
+{On the Use of Schwarz Smoothing in AMG}
+{Center for Applied Scientific Computing, Lawrence Livermore National Laboratory, Box 808, L-560, Livermore CA 94551}
+{umyang@llnl.gov}
+
+
+The need to solve increasingly larger linear systems, with hundreds of
+millions or billions of unknowns, has necessitated the use of massively
+parallel computers and the investigation of scalable linear solvers, such as
+multigrid. For unstructured grid problems, an attractive choice is
+algebraic multigrid (AMG). Although AMG is a very effective method for
+many applications, however for some applications, e.g. structural elasticity
+problems where the governing equations are a system of PDEs with the unknowns
+being the displacements in each coordinate direction, the choice of
+conventional smoothers such as Jacobi or Gauss-Seidel within AMG is not
+sufficient to achieve good convergence.
+
+
+In this talk, we investigate the use of the Schwarz alternating method as a
+smoother on the finest levels of AMG. Preliminary experiments show promising
+results for such problems as mentioned above. We consider both multiplicative
+and additive variants of the Schwarz method. The use of a multicoloring
+technique for parallelization of the multiplicative variant is considered.
+The choice of domains, efficiency and convergence behavior are discussed,
+and numerical results are presented.
+
+
+*This work was performed under the auspices of the U.S. Dept. of Energy
+by University of California Lawrence Livermore National Laboratory under
+contract number W-7405-Eng-48.
+
+
+
+%	*******************************************
+%	*************  yavneh.html  ************
+%	*******************************************
+
+\nextab
+{Irad Yavneh, Ron Kimmel}
+{An Algebraic Multigrid Approach for Shape from Photometric Stereo}
+{Dept. of Computer Science, Technion---Israel Institute of Technology, Haifa, 32000, Israel}
+{irad@cs.technion.ac.il}
+
+
+We apply a new algebraic multigrid method for solving computer vision
+problems with constraints, in particular ``shape from photometric
+stereo''. A variational formulation is applied to the problem
+of shape reconstruction from three or more images of an object with
+the same viewing direction and different lighting conditions,
+supplemented by some pointwise height constraints. In order to
+obtain a smooth reconstruction, we choose a weight-function
+that is singular at the constrained points, resulting in
+an elliptic equation with constraints and
+singular coefficients, which is
+solved efficiently by our algebraic multigrid algorithm.
+
+
+
+%	*******************************************
+%	*************  zhang.html  ************
+%	*******************************************
+
+\section{Multigrid Method and High Order Compact Scheme
+	for Solving Boundary Layer Problems on Nonuniform Grids}
+{\bf Jun Zhang} \\
+Laboratory for High Performance Scientific Computing and Computer Simulation,
+	Dept. of Computer Science, University of Kentucky,
+	Lexington KY 40506-0046 \\
+\verb9www.cs.uky.edu/~jzhang9
+
+
+A fourth order compact finite difference scheme (nine point compact
+difference scheme) and a multigrid cycling algorithm are employed
+to solve the two dimensional convection diffusion equations with
+boundary layers. The computational domain is first discretized on a
+nonuniform (stretched) grid to resolve the boundary layers. A grid
+transformation technique is used to map the nonuniform grid to a
+uniform one. The fourth order compact scheme is applied to the
+transformed uniform grid. A multigrid method is then used to solve
+the resulting linear system. We conduct experimental analyses to show
+how the grid stretching may affect the computed accuracy of the solutions
+from the fourth order compact scheme. We demonstrate that the grid
+stretching may affect the convergence rate of the multigrid
+method. Numerical experiments are used to show that a graded mesh
+and a grid transform are necessary to compute high accuracy solution
+with the fourth order compact scheme for convection diffusion problems
+with boundary layers. Accuracy comparisons between the standard
+(central and upwind) difference schemes and the present fourth order
+compact scheme are given. Special properties of the transformed
+convection diffusion equation that may affect multigrid
+convergence are investigated.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

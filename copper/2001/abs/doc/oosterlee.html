@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>cm conference abstract: C.W.Oosterlee </title>
+</head>
+
+<body>
+
+<center>
+On multigrid methods for 
+linear complementarity problems
+with application to American-style options
+</center>
+
+<p>
+<center>
+<a href="mailto: oosterlee@gmd.de">
+C.W. Oosterlee  </a> <br><br>
+GMD-SCAI, Schloss Birlinghoven, 53754 Sankt Augustin, Germany
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+
+In this talk, we will discuss multigrid methods for solving time-dependent 
+2D partial differential equations (PDEs) arising in option pricing theory.
+The problem considered is the computation of the value of an option of American-style in a stochastic volatility setting. It leads to the solution of a convection-diffusion type PDE
+ with a free, beforehand unknown boundary.
+In [<A HREF="node1.html#Wil93DH">4</A>], it has been shown that for American-style options 
+the theory of linear complementarity, as it is developed in the 1970-ties applies.
+It is possible to rewrite the arising free boundary problems to linear complementarity problems (LCPs), of the form
+<P><A NAME="lcp3">&#160;</A><A NAME="lcp2">&#160;</A><A NAME="lcp1">&#160;</A> <IMG WIDTH=500 HEIGHT=75 ALIGN=BOTTOM ALT="eqnarray37" SRC="img1.gif"  > <P>
+plus boundary conditions, where <I>L</I> is a differential operator.<BR> 
+This formulation is beneficial for iterative solution, since the unknown boundary does not appear explicitly and can be obtained in a postprocessing step. 
+A slight disadvantage of this formulation is that the linear partial differential equation has been transformed into a nonlinear partial differential inequality.
+<P>
+In 1983, Brandt and Cryer&nbsp;[<A HREF="node1.html#Bra83C">1</A>] proposed a multigrid 
+method for LCPs arising from free boundary problems.
+The algorithm is a multigrid generalization of the projected SOR method. Due to the nonlinear character of the problem, the multigrid method is based on the full approximation scheme, FAS.
+The solution method has therefore been called the projected full approximation scheme, PFAS in&nbsp;[<A HREF="node1.html#Bra83C">1</A>].
+In the original paper, the operator <I>L</I> in&nbsp;(<A HREF="copper1.html#lcp1">1</A>,<A HREF="copper1.html#lcp3">3</A>) was the nicely elliptic Laplace operator
+and fast convergence was presented.
+PFAS has been successfully used in the financial community for American options with stochastic volatility in&nbsp;[<A HREF="node1.html#Cla99P">2</A>].
+The smoother applied in&nbsp;[<A HREF="node1.html#Cla99P">2</A>] is, however, somewhat involved.
+It is based on the pointwise PSOR method for the detection of the free boundary, followed by a linewise version in order to deal with the stretched numerical grid occurring in the financial problem.
+The need to change multigrid components like the smoother for optimal convergence of a new problem at hand is sometimes considered as unsatisfactory.
+<P>
+It is our aim to give some more insight in the multigrid convergence for the problems from option pricing. At the same time, we will introduce some recent developments in multigrid techniques to the field of LCPs, making the algorithms more robust, i.e. less sensitive to parameter changes.
+<P>
+In the search for efficient solvers that are more generally applicable, we consider multigrid as a preconditioner for Krylov subspace methods.
+Often different complications such as 
+anisotropies, nonlinearities or strong positive off-diagonal stencil
+elements occur
+simultaneously,
+as is the case in the discretization of the PDEs arising from American-style option pricing, for example discretized by a higher-order upwind scheme.
+<P>
+The fundamental idea of multigrid, to reduce the high
+frequency components of the error by smoothing procedures
+and to take care of the low frequency error components by
+coarse grid corrections, might not work optimally if
+straightforward multigrid approaches are used.
+Certain error components may remain
+large since they cannot be reduced by pointwise Gauss-Seidel-type smoothing
+procedures combined with a standard coarse grid approximation. These
+specific error components (and the corresponding
+eigenvectors/eigenvalues) are then
+responsible for the poor multigrid convergence.
+<P>
+A commonly known solution approach for <EM>nonlinear equations</EM> is to apply global (Newton) linearization, solve the arising linear system with a Krylov subspace method, like GMRES or BiCGSTAB and a multigrid preconditioner.
+This is not the approach followed here.
+We apply to nonlinear problems a solution method based on PFAS as the multigrid technique.
+The Krylov subspace acceleration can be interpreted 
+as a technique, in which intermediate iterants are 
+recombined in order to obtain an improved approximation, see, for example&nbsp;[<A HREF="node1.html#Tro00OS">3</A>].
+We will generalize this method to solving LCPs.
+
+<HR>
+<H2>References</H2>
+<DL COMPACT>
+<DT><A NAME="Bra83C"><STRONG>1</STRONG></A><DD>
+A. Brandt and C.W. Cryer,
+Multigrid algorithms for the solution of linear complementarity problems arising
+ from free boundary problems,
+<I>SIAM J. Sci Comput.,</I> 4: 655-684, 1983.
+<P>
+<DT><A NAME="Cla99P"><STRONG>2</STRONG></A><DD>
+N. Clarke and K. Parrot,
+Multigrid for American option pricing with stochastic volatility.
+<EM>Appl. Math. Finance,</EM> 6: 177-197, 1999.
+<P>
+<DT><A NAME="Tro00OS"><STRONG>3</STRONG></A><DD>
+U. Trottenberg, C.W. Oosterlee and A. Sch&#252;ller,
+<I>Multigrid</I>, Academic Press, London,  2000.
+<P>
+<DT><A NAME="Wil93DH"><STRONG>4</STRONG></A><DD>
+P. Wilmott, J. Dewynne and S. Howison,
+<EM>Option pricing</EM>. Oxford Financial Press, 1993.
+</DL>
+
+
+</BODY>
+</HTML>

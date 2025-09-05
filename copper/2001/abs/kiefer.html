@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>cm conference abstract: Michael Griebel and Frank Kiefer</title>
+</head>
+
+<body>
+
+<center>
+<b>AMG-based wavelet-like multiscale solvers for convection-diffusion problems</b><br>
+</center>
+
+<p>
+<center>
+<a href="mailto:griebel@iam.uni-bonn.de">
+Michael Griebel</a><br>
+<a href="mailto:kiefer@iam.uni-bonn.de">
+<b>Frank Kiefer</b></a><br><br>
+Department of Applied Mathematics, 
+Division for Scientific Computing and Numerical Simulation<br>
+Wegelerstr. 6, D-53115 Bonn, Germany<br>
+Tel.: +49-228-73-3427, 
+FAX:   +49-228-73-7527 <br>
+<address>
+<a href="mailto:griebel@iam.uni-bonn.de">griebel@iam.uni-bonn.de</a>
+</address>
+<address>
+<a href="mailto:kiefer@iam.uni-bonn.de">kiefer@iam.uni-bonn.de</a>
+</address>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+We consider the efficient solution of discrete convection dominated convection-diffusion
+problems.
+It is well known that the standard hierarchical basis multigrid method (HBMG) leads 
+for discrete operators arising from singularly perturbed convection-diffusion problems
+neither to optimal (w.r.t. meshsize) nor to robust solvers, i.e. the performance still
+depends strongly on the coefficients in the differential equation (e.g. strength of
+convection).
+<br>
+(Pre-)Wavelet splittings of the underlying function spaces allow efficient algorithms that
+can be viewed as generalized HBMG methods.
+They can be interpreted as ordinary multigrid methods that use a special kind of
+multiscale smoother and show for the respective non-perturbed equations an optimal
+convergence behaviour similar to classical multigrid.
+In our general Petrov--Galerkin multiscale approach we apply problem-dependent coarsening
+strategies known from robust multigrid techniques (matrix-dependent prolongations,
+algebraic coarsening) together with certain (pre-)wavelet-like and hierarchical multiscale
+decompositions of the trial- and test-spaces on the finest grid.
+We demonstrate through extensive experiments that by this choice we are able to construct
+generalized HBMG methods, that result in possibly robust solvers.
+</body>
+</html>

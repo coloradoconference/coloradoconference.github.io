@@ -1,0 +1,64 @@
+<HTML>
+<title> Enhancing the Cache Performance of Multigrid Codes on Structured Grids </title>
+<BODY BGCOLOR="White" LINK="#0000FF" VLINK="#500050">
+
+<center>
+<H1> Enhancing the Cache Performance of Multigrid Codes on Structured Grids </H1>
+
+<H2>
+<A HREF="http://www10.informatik.uni-erlangen.de/~markus">Markus Kowarschik</A>
+</H2>
+<H4>
+<A HREF="http://www10.informatik.uni-erlangen.de">System Simulation Group</A><br>
+<A HREF="http://www.informatik.uni-erlangen.de">Department of Computer Science</A><br>
+<A HREF="http://www.uni-erlangen.de">University of Erlangen-Nuremberg, Germany</A><br>
+<A HREF="mailto:markus.kowarschik@cs.fau.de"><em>markus.kowarschik@cs.fau.de</em></A>
+</H4>
+</center>
+
+Modern computer architectures use hierarchical memory designs in order
+to hide the latencies of accesses to main memory components, which are
+dramatically slow in contrast to the floating-point performance of the
+CPUs. Current memory designs commonly involve several levels of cache
+memories, which can be accessed up to a hundred times faster than main
+memory.
+It is well-known that efficient program execution can merely be achieved,
+if the codes respect the hierarchical memory design.
+Unfortunately, today's compilers are still far away from automatically
+performing code transformations like the ones we apply in order to achieve
+remarkable speedups.
+As a consequence, much of this optimization effort is left to the programmer.
+<p> 
+Another observation is that iterative methods, like e.g. multigrid, are
+characterized by
+successive sweeps over data sets, which - for representative problems in
+science and engineering - are much too large to fit in cache.
+Therefore, conservative implementations of such algorithms often reach
+disappointing execution speeds, which are far away from the
+theoretically available peak performances of the machines under
+consideration.
+<p> 
+In this paper we present techniques in order to enhance the cache
+efficiency of multigrid methods for variable-coefficient problems
+on regular mesh structures.
+These techniques comprise both <em>data layout optimizations</em>
+and <em>data access optimizations</em>. 
+Data layout optimizations are code transformation techniques which
+change the data arrangement in memory, e.g. array padding and the
+introduction of cache-aware data structures.
+In contrast, data access optimizations modify the order in which
+data are retrieved in the course of the computation. Loop blocking
+(tiling), for example, belongs to the class of data access optimizations.
+<p> 
+A variety of performance results are provided, showing both profiling data
+and the speedups which can be achieved by applying these kinds of
+optimization techniques.
+It can be observed that in most cases speedup factors of 2-3 can be
+obtained.
+<p>
+For further details, we would like to refer the reader to the web page
+of our <A HREF="http://wwwbode.in.tum.de/Par/arch/cache"><em>DiME</em></A>
+project (Data-local iterative methods for the efficient solution of
+partial differential equations).
+</BODY>
+</HTML>

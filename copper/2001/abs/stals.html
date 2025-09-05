@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>cm conference abstract: STALS</title>
+</head>
+
+<body>
+
+<center>
+The Parallel Solution of Radiation Transport Equations
+</center>
+
+<p>
+<center>
+<a href="mailto: stals@icase.edu">
+Linda Stals</a><br><br>
+Department of Computer Science,
+                     Old Dominion University,
+                     Norfolk, VA 23529-01,
+                     U.S.A.
+     and
+           ICASE,
+           NASA Langley Res. Ctr,
+           Hampton, VA 23681-2199.
+           U.S.A. 
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Radiation transport equations arise in the study of many different fields,
+such as combustion, astrophysics and hypersonic flow. The solution of
+these equations presents interesting challenges due to large jumps in the
+coefficients and strong non-linearities. In this talk we plan to compare
+the parallel efficiency of several techniques that may be used to solve
+these non-linear equations. 
+<p> 
+Under certain physical assumptions, such
+as isotropic radiation, optically thick material and temperature
+equilibrium, radiation transport may be modeled by a system of three
+non-linear equations. As a first approach we consider the case where all
+energies are in equilibrium and the system is reduced to a single highly
+non-linear equation. The radiation may travel through inhomogeneous
+material, which translates into large jumps in the coefficients.
+Furthermore, a flux limiter is often included and it changes the equations
+from being locally parabolic to hyperbolic. As a consequence of all of
+these features, the equations are very difficult and time
+ consuming to solve. 
+<p> 
+To be able to solve the types of problems we are
+interested in we need to look at algorithms that show both parallel
+scalability and algorithmic scalability, ignoring one of these aspects
+means that we can not fully exploit available resources and will fall
+short of our goals. Techniques such as the multigrid method and adaptive
+finite elements have good algorithmic scalability, we want to measure
+their parallel scalability in relation to the radiation transport
+equations. Specifically, we shall focus on the performance of an inexact
+Newton multigrid scheme and compare it with the Full Approximation Scheme
+(FAS). Furthermore, we will also look at how the use of adaptive
+refinement affect the solution time. </body> </html>
+
+
+

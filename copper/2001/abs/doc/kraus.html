@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>cm conference abstract: Kraus</title>
+</head>
+
+<body>
+
+<center>
+<b><font size=4>Element-Free AMG Interpolation Based on Multilevel 
+Extension Mappings</font></b>
+</center>
+
+<p>
+<center>
+Van Emden Henson<br>
+<font size=2>Center for Applied Scientific Computing, Lawrence Livermore
+National Laboratory, Livermore, CA, USA</font>
+<br><br>
+<a href="mailto:kraus1@llnl.gov">
+Johannes Kraus</a><br>
+<font size=2>Center for Applied Scientific Computing, Lawrence Livermore
+National Laboratory, Livermore, CA, USA<br>and<br> University for Mining 
+and Metallurgy, Leoben, Austria</font><br>
+<br>
+Panayot S. Vassilevski<br>
+<font size=2>Center for Applied Scientific Computing, Lawrence Livermore
+National Laboratory, Livermore, CA, USA</font>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Recently a new general algorithm, denoted "element-free AMGe," was
+proposed [1], for constructing the interpolation weights in algebraic
+multigrid.  The method uses an extension mapping to provide boundary
+values outside a neighborhood about a fine-grid degree of freedom
+(dof) to which interpolation is desired. The interpolated value is
+obtained by a matrix-dependent harmonic extension of these boundary
+values into the interior of the neighborhood. In essence, this method
+is designed to capture information that can be obtained from
+individual finite-element stiffness matrices, as is done in the
+so-called "element-based AMG method" (AMGe) [2], for problems in which
+such matrices may not be available.
+<p>
+The object of such a method is to characterize, on a local scale, the
+nature of the smooth modes of the global operator, insuring that they
+can be represented by the interpolation. We propose here a
+modification to this method, in which we use a more global method of
+localizing the nature of the smooth modes. In essence, the "extended
+neighborhood" of the fine-grid dof is defined globally, by looking at
+the coarse dofs on every level that feed information to the specified
+fine dof.  The harmonic extension is then generated from a
+"multilevel" extended neighborhood, which can be constructed to allow
+for recursive improvement of the interpolation operators as each
+coarser level is addressed.
+<p>
+We describe the basic algorithm and methods of implementation, and
+discuss some early experimental results.
+<p>
+<font size=2>This work was performed under the auspices of the U.S. 
+Department of
+Energy by University of California Lawrence Livermore National
+Laboratory under contract No. W-7405-Eng-48.</font>
+<p>
+<center>
+<b>References</b>
+</center>
+<p>
+[1] Henson, V. E., and Vassilevski, P. S., "Element Free AMGe: general
+algorithms for computing interpolation weights in AMG," to appear in
+<i>SIAM Journal on Scientific Computing</i>.
+<br><br>
+[2]  Brezina, M., Cleary, A. J., Falgout, R. D., Henson, V. E., Jones, J. 
+E., Manteuffel, T. A., McCormick, S. F., and Ruge, J. W., "Algebraic 
+multigrid based on element interpolation (AMGe)," <i>SIAM Journal on 
+Scientific Computing</i>, V. 22, pp. 1570-1592, 2000.
+</menu>
+
+
+
+</body>
+</html>
+
+

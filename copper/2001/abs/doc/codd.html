@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>cm conference abstract: Codd </title>
+</head>
+
+<body>
+
+<center>
+First-Order System Least Squares (FOSLS) 
+for Elliptic Grid Generation (EGG)
+</center>
+
+<p>
+<center>
+<a href="mailto: andrea.codd@colorado.edu">
+Andrea Codd </a><br><br>
+Department of Applied Mathematics
+University of Colorado at Boulder
+Boulder Colorado 80309-0526
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Elliptic Grid Generation (EGG), using the Winslow generator, defines a map
+between a simple computational region and a potentially complicated
+physical region. It can be used numerically to create meshes for
+discretizing equations directly on the physical domain or indirectly on
+the computational domain by way of the transforming map. EGG allows
+complete specification of the boundary, and it guarantees a one-to-one and
+onto transformation when the computational region is convex.
+
+A new fully variational approach is developed for solving the Winslow
+equations that enables accurate discretization and fast solution methods.
+The EGG equations are converted to a first-order system that is then
+linearized via Newton's method. First-order system least squares (FOSLS)
+is used to formulate and discretize the Newton step, and the resulting
+matrix equation is solved using algebraic multigrid (AMG). The approach is
+coupled with nested iteration to provide an accurate initial guess for
+finer levels using coarse-level computation. Theoretical and numerical
+results confirm the usual full multigrid efficiency: accuracy comparable
+to the finest-level discretization is achieved at a cost proportional to
+the number of finest-level degrees of freedom.
+</body>
+</html>
+
+

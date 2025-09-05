@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>cm conference abstract: Korsawe</title>
+</head>
+
+<body>
+
+<center>
+Nonlinear Convergence via Linear Multilevel Performance:
+Gauss-Newton-Multilevel
+</center>
+
+<p>
+<center>
+<a href="mailto: jkorsawe@ifam.uni-hannover.de">
+Johannes Korsawe</a><br><br>
+University of Hannover,
+Department for Applied Mathematics,
+30167 Hannover, Germany
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+This talk is about multilevel techniques for solving a nonlinear
+problem f(u) = 0 ! in a Hilbert space H, arising from a least squares
+formulation
+for a system of nonlinear partial differential equations
+of first order.
+After discretizing the space H, this is a minimization problem that may
+be solved using a linear multilevel method for successive Gauss-Newton
+problems or using a nonlinear multilevel method like FAS.
+<p>
+Although these approaches both yield nice numerical results, there are
+some difficulties in the convergence theory.
+Since the discretized problem is not consistent, the core problem turns
+from finding a zero of f(u)
+to finding a zero of df/du which requires second order information about
+f for the theory.
+One more problem for describing theory for the linear multilevel case is
+the lack
+of a direct relation between the error due to the discretization
+and the algebraical error due to the iterative method in order to check
+on overall convergence.
+For the FAS-case, the Gauss-Newton method does not fit into existing
+nonlinear multilevel theory with respect
+to smoothing properties.
+<p>
+These problems disappear if the (inexact) Gauss-Newton solver is applied
+directly to the infinite
+dimensional problem in H and the emerging linear problems are
+discretized and solved
+using linear multilevel after that.
+The problem remains consistent and the above-mentioned errors both
+contribute to
+the inaccuracy of the Gauss-Newton method.
+Consequently, the number of linear multilevel sweeps may be monitored by
+easily computable
+error bounds via the multiplicative multilevel norm ensuring convergence
+of the overall method.
+<p>
+In this talk, these results will be presented in more detail. Numerical
+examples show the competitiveness of this method.
+</body>
+</html>
+
+

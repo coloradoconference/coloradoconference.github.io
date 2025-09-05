@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>cm conference abstract: R. Wienands and C.W. Oosterlee</title>
+</head>
+
+<body>
+
+<center>
+Local Fourier k-grid (k=1,2,3) analysis for Navier-Stokes-type systems
+</center>
+
+<p>
+<center>
+<a href="mailto: wienands@gmd.de">
+R. Wienands</a> and 
+<a href="mailto: oosterlee@gmd.de">
+C.W. Oosterlee</a> <br><br>
+GMD - Institute for Algorithms and Scientific Computing (SCAI) <br>
+Schloss Birlinghoven, D-53754 Sankt Augustin, Germany <br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Local Fourier one- (smoothing) and two-grid analysis (LFA) [1,2,6] are 
+well-known tools for the quantitative analysis and the design of 
+efficient multigrid methods for several problems.
+The two-grid analysis is the basis
+for classical asymptotic multigrid convergence estimates [6].
+Moreover, it is the main analysis tool for nonsymmetric problems.
+For several multigrid components or cycle variants, however, the
+overall multigrid convergence cannot be approximated accurately
+by two-grid factors. For example, if one is interested in the varying
+performance of V- and W-cycles, of pre- and post-smoothing, of
+different smoothers on different grids or of different discretizations 
+on different grids one has to consider at least one additional grid
+leading to a three-grid analysis [8]. <br><br>
+ 
+Although LFA is often applied to scalar equations, 
+two-grid values for systems of equations are rarely found
+in the literature and three-grid values are completely missing. 
+To close this gap we developed a freely available, general Fourier 
+analysis program - LFA00_2D -
+which will be presented in the first part of the talk.
+LFA00_2D is a set of Fortran77 subroutines to perform Fourier k-grid (k=1,2,3)
+analysis for two-dimensional systems of PDEs yielding measures of
+h-ellipticity [1], smoothing factors, two- and three-grid convergence
+factors and norms of the two- and three-grid operators.
+Several discretizations of well-known
+systems, like the biharmonic system, the Stokes equations, the Oseen
+equations (linearized Navier-Stokes equations) have already been
+implemented. Furthermore, an option to analyze your own linearized 
+system is available.
+LFA00_2D supports a large variety of multigrid components including 
+<ul>
+<li> Coarsening strategy: standard (full), semi coarsening,
+<li> Coarse grid discretization: direct PDE based, Galerkin-type,
+<li> Prolongation: bilinear, cubic interpolation, matrix-dependent
+interpolation (of Dendy[3]- and de Zeeuw[9]-type),
+<li> Restriction: full, half weighting, injection,
+<li> Relaxation: Jacobi, Gauss-Seidel, red-black-type smoothers,
+point- and line-wise.
+</ul>
+It is, furthermore, possible to estimate convergence factors if the
+two- or three-grid operators are used as preconditioners for GMRES [7].
+<br><br>
+In the second part of the talk, we evaluate several non-staggered 
+discretizations for Navier-Stokes-type systems (w.r.t. an efficient
+multigrid treatment) in order to demonstrate the usefulness of the 
+analysis program. Here, we focus on second order discretizations.
+In particular, the Stokes and the Oseen equations are investigated,
+discretized by central differences with an artificial pressure correction
+term in the continuity equation (for low Reynolds numbers) or by higher 
+order upwind schemes like Dick's flux difference splitting [4]
+using van Leer's kappa-scheme [5] (for high Reynolds numbers). <br>
+The Fourier results are confirmed by numerical experiments with the
+incompressible Navier-Stokes equations.
+<br><br><br>
+<ol>
+<li> A. Brandt, Multigrid techniques: 1984 guide with applications to
+     fluid dynamics, GMD-Studie Nr. 85, Sankt Augustin, Germany (1984).
+<li> A. Brandt, Rigorous quantitative analysis of multigrid, I:
+     Constant coefficients two-level cycle with L2-norm, 
+     SIAM J. Numer. Anal., 31 (1994), pp. 1695-1730.
+<li> J.E. Dendy Jr., Blackbox multigrid for nonsymmetric problems,
+     Appl. Math. Comput., 13 (1983), pp. 261-283.
+<li> E. Dick and J. Linden, A multigrid method for steady incompressible
+     Navier-Stokes equations based on flux difference splitting,
+     Int. J. Num. Meth. Fluids, 14 (1992), pp. 1311-1323.
+<li> B. van Leer, Upwind-difference methods for aerodynamic problems 
+     governed by the Euler equations, In: Large Scale Computations in
+     Fluid Mechanics, Lectures in Appl. Math. 22, II, B. Enquist, S. Osher,
+     and R. Somerville (eds.), AMS, Providence, RI, 1985, pp. 327-336.
+<li> U. Trottenberg, C.W. Oosterlee, and A. Sch&uuml;ller, Multigrid,
+     Academic Press (2001).
+<li> R. Wienands, C.W. Oosterlee, and T. Washio,
+     Fourier analysis of GMRES(m) preconditioned by multigrid, 
+     SIAM J. Sci. Comput., 22 (2000), pp. 582-603.
+<li> R. Wienands and C.W. Oosterlee,
+     On three-grid Fourier analysis for multigrid,
+     to appear in SIAM J. Sci. Comput. (2001).
+<li> P.M. de Zeeuw, Matrix-dependent prolongations and restrictions in a
+     blackbox multigrid solver, J. Comput. Appl. Math., 33 (1990), pp. 1-27.
+</ol>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>cm conference abstract: Diskin</title>
+</head>
+
+<body>
+
+<center>
+Textbook Multigrid Efficiency for High-Reynolds-Number Navier-Stokes Equations
+</center>
+
+<p>
+<center>
+<a href="mailto: bdiskin@icase.edu">
+Boris Diskin</a><br><br>
+ICASE, MS 132C, NASA Langley Research Center, Hampton VA 23681, USA
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Full multigrid (FMG) algorithms are the fastest solvers for elliptic problems. 
+These algorithms can solve a general discretized elliptic problem 
+to the discretization accuracy in a computational work  that is a small
+(less than 10) multiple of the operation count in one target-grid residual 
+evaluation. Such efficiency is known as textbook multigrid efficiency 
+(TME). The difficulties associated with extending 
+TME for solution of the Reynolds-averaged
+Navier-Stokes (RANS) equations relate to the fact that the  
+RANS equations are a system of coupled nonlinear equations
+that is not, even for subsonic Mach numbers, fully elliptic, but
+contain hyperbolic partitions. TME for the RANS simulations 
+can be achieved if the different factors contributing to 
+the system could be separated and treated
+optimally, e.g., by multigrid for elliptic factors
+and by downstream marching for hyperbolic factors.
+One of the ways to separate the factors is the <it> distributed 
+relaxation </it> approach proposed by A. Brandt.
+Earlier demonstrations of TME solvers with
+distributed relaxation has been performed for
+the incompressible free-stream inviscid and viscous
+flows without boundary layers. 
+
+<p>
+
+In this talk, I am going to outline a general framework
+for achieving TME in solution of the  high-Reynolds-number Navier-Stokes 
+equations. TME distributed-relaxation solvers will be demonstrated for 
+the viscous incompressible and subsonic compressible flows with boundary layers 
+and for the inviscid compressible flow with shock.
+
+</body>
+</html>

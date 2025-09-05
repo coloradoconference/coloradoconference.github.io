@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>cm conference abstract: Schoeberl</title>
+</head>
+
+<body>
+
+<center>
+Algebraic Multigrid for H(curl) and H(div)
+</center>
+
+<p>
+<center>
+<a href="mailto: joachim@math.tamu.edu">
+Joachim Schoeberl</a><br><br>
+Department of Mathematics,
+Texas A&amp;M University, 
+College Station, Texas 77843-3368 
+</center>
+
+<p>
+<center>
+<a href="mailto: reitz@sfb013.uni-linz.ac.at">
+Stefan Reizinger</a><br><br>
+SFB013 "Scientific Computing", University Linz, 4020 Linz, Austria
+</center>
+
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p> 
+
+There exists a variety of algebraic multigrid methods for elliptic
+problems in Sobolev spaces. Recently, Arnold,Falk and Winther and
+Hiptmair presented geometric multigrid methods for elliptic problems
+in the spaces H(curl) and H(div). Their new multigrid components are
+special smoothers, the grid transfer is canonical since the spaces are
+nested. Their analysis is much more involved then the multigrid
+estimates for problems in Sobolev spaces. The difficulty occurs since
+the operator leads to a regularity pick-up only on a part of the
+space. They overcome the difficulty by splitting the space due to the
+discrete Helmholtz decomposition.  Heavily exploring the commuting
+diagram property, they can approximate both components independently.
+
+<p> 
+
+In our talk we will present a technique to maintain the commuting
+diagram property during an algebraic coarsening process. The key is to
+identify the geometric entities node, edge and face, and keep
+their relationships on the coarser levels. As usual, we can give a two
+level analysis, and present a couple of numerical results
+demonstrating the good multigrid behavior. The algorithm is
+implemented into Stefan Reitzinger's AMG code 
+<a href="http://www.sfb013.uni-linz.ac.at/~reitz/pebbles.html">PEBBLES</a>.
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>cm conference abstract: Lahaye </title>
+</head>
+
+<body>
+
+<center>
+A Multilevel Preconditioner for Field-Circuit Coupled Problems 
+</center>
+
+<p>
+<center>
+<a href="mailto: domenico.lahaye@cs.kuleuven.ac.be">
+Domenico Lahaye</a><br><br>
+Dept. of Computer Science, Celestijnenlaan 200A, B-3001 Heverlee Belgium
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+In simulating time-varrying magnetic fields in electromagnetic devices like 
+motors and transformers, it is often necessary to couple the partial
+differential equation for the magnetic field with a model for the external 
+electrical circuit connections. The electrical circuit is a system of 
+linear equations relating the unknown currents and voltages of the 
+electrical conductors present in the device to known voltage and current 
+sources. Time-varrying sources give rise to magnetically induced currents 
+and voltages in the conductors. The partial differential equation and the 
+circuit are coupled by these magnetically induces quantities. 
+
+<p> 
+
+In low-frequent time-harmonic Maxwell formulations in two dimensions, 
+the partial differential governing the magnetic vector potential is the 
+Helmholtz equation with a complex shift. The finite element discretization 
+of this equation results in sparse, complex symmetric system matrices. 
+Discretized 
+field-circuit coupled problems yield two by two block structured matrices 
+whose diagonal is formed by the discretized partial differential equation 
+and the electrical circuit matrix. The size of the second diagonal block is 
+typically several orders of magnitude smaller than that of the first. The 
+coupling is performed in such a way that no fill-in occurs in the discritized 
+differential equation matrix and that the two by two block matrices are again 
+complex symmetric. 
+
+<p> 
+
+Solving the linear system is the computational bottleneck in simulating 
+technically relevant engineering problems. Motivated by previous experience 
+[1,2],  
+we want to alleviate this bottleneck by the application of algebraic multigrid 
+(AMG) techniques. The straightforward application of AMG is hampered by the 
+presence of the electrical circuit. We develloped a multigrid cycle that takes 
+the circuit into account. 
+
+<p>
+
+Our multigrid technique is a generalization of a method by Hackbush for 
+solving an elliptic problem augmented by an algebraic equation. We base the 
+AMG setup on the differential equation block of the matrix. The electrical 
+circuit is taking into account in the cycling phase. The resulting algorithm 
+is a black-box solver for general field-circuit coupled problems. 
+
+<p> 
+
+For the implementation of our multigrid technique, we develloped an interface
+between the GMD-AMG-code by Stueben and PETSc. This interace allows to call 
+the AMG setup on the differential equation block of the system matrix. After 
+the setup, the AMG coarser grid and interpolation operators are available as 
+PETSc matrices. The multigrid cycling is done by PETSc's multigrid components 
+that we extended to be able to treat the electrical circuit. 
+
+<p> 
+
+Our algorithm has been tested on a variety of engineering problems. It has 
+proven to be stable and to deliver a speedup by a factor between five and ten 
+compared to previously existing solvers. 
+
+<ol> 
+
+<li> R. Mertens, H. De Gersem, R. Belmans, K. Hameyer, D. Lahaye, 
+S. Vandewalle and D. Roose, "An Algebraic Multigrid Method for Solving Very 
+Large Electromagnetic Systems", IEEE Trans. on Magn., Vol 34 (5), 3327-3330
+(1999). 
+
+<li> D. Lahaye, H. De Gersem, S. Vandewalle and K. Hameyer, "Algebraic 
+Multigrid for Complex Symmetric Systems", IEEE Trans. on Magn., Vol 36 (4), 
+1535-1538 (2000). 
+
+</ol> 
+
+</body>
+</html>

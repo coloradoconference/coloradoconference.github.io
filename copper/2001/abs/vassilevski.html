@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>cm conference abstract: 
+Vassilevski</title>
+</head>
+
+<body>
+
+<center>
+Parallelizing AMGe using domain decomposition
+</center>
+
+<p>
+<center>
+<a href="mailto: vassilevski1@llnl.gov">
+Panayot S. Vassilevski</a><br><br>
+Center for Applied Scientific Computing, 
+Lawrence Livermore National Laboratory, 
+7000 East Avenue, Mail Stop 560, 
+Livermore, CA 94550
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk we will present a natural domain decomposition strategy for parallelizing agglomeration based AMGe (algebraic multigrid for finite element
+problems exploiting fine-grid element matrices). 
+
+<p>
+The method consists of the following simple steps: 
+<br>
+
+    (1)   local subdomain solvers (preconditioners); i.e., each mesh subdomain (union of fine grid elements) is assigned to a processor and a sequential
+       AMGe solver is built in there. That is, a sequence of coarse grids (coarse spaces) and respective interpolation matrices are constructed. The
+       setup phase is based on the local bilinear (quadratic) forms (assembled from the subdomain element matrices). Since the local bilinear forms, in
+       the case of model Laplace operator, correspond to a problem with natural (Neumann type) boundary conditions they are typically only
+       semi-definite. Therefore, one builds the sequential AMGe solvers to be defined only for vectors in a space which is a hierarchical complement to a
+       certain coarse space. This coarse space must contain the null-space components (so called rigid body modes) of the local quadratic forms. The
+       version of the AMGe method which we exploit, called spectral agglomerate AMGe, allows for explicit construction of such hierarchical
+       complements and ensures that the null-space components are fully represented on the coarse grid. 
+
+
+<p>
+   (2)    a global coarse problem; 
+<p>
+<p>
+The overall preconditioner then is defined as the standard Neumann-Neumann type domain decomposition preconditioner (cf., [3], [2] or [4]), however,
+here the preconditioner is defined not for the interface Schur complements (as is in the original Neumann-Neumann case) but is applied to the original
+bilinear forms. As already mentioned, in addition to the subdomain solvers, one incorporates a global coarse solver. 
+<p>
+<p>
+The sequential subdomain coarsening AMGe algorithm consists of an agglomeration step and involves computing a few minimal eigenvectors of the
+corresponding assembled agglomerate stiffness matrix. The method (similarly to [1] and [5]) requires access to the individual element matrices (in order
+to assemble certain subdomain matrices). Based on the topological agglomeration algorithm (cf. [5]) we employed and the special interpolation rule
+chosen, one is able to define coarse elements and coarse element matrices thus allowing for recursion. 
+<p>
+<p>
+Numerical tests illustrating the parallel performance of the algorithm will be presented. 
+<p>
+<p>
+<p>
+<center>
+<br>References 
+</center>
+<p>
+<p>
+[1] M. Brezina A. J. Cleary, R. D. Falgout, V. E. Henson, J. E. Jones, T. A. Manteuffel, S. F. McCormick, and J. W. Ruge, "Algebraic multigrid based
+       on element interpolation (AMGe)", SIAM J. Sci. Comput. 22(2000), 1570-1592. 
+<p>
+[2] J. Mandel, Balancing domain decomposition, Comm. Appl. Numer. Methods 9 (1993) 233-241. 
+<p>
+[3] Y.-H. De Roeck and P. Le Tallec, Analysis and a test of a local domain decomposition preconditioner, in: ``Fourth International Symposium on
+       Domain Decomposition Methods for Partial Differential Equations'', (R. Glowinski, Y. Kuznetsov, G. Meurant, J. Periaux, and O. Widlund, eds.)
+       SIAM, Philadelphia, PA 1991. 
+<p>
+[4] M. Dryja and O. B. Widlund, Schwarz methods of Neumann-Neumann type for three-dimensional elliptic finite element problems, Comm. Pure
+       Appl. Math. 42(1995), 121-155. 
+<p>
+[5] J. E. Jones and P. S. Vassilevski, AMGe based on element agglomeration, SISC (to appear). 
+<p>
+
+
+<p>
+This work was performed under the auspices of the U. S. Department of Energy by University of California Lawrence Livermore National Laboratory under
+contract W-7405-Eng-48. 
+<p>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>cm conference abstract: Toivanen</title>
+</head>
+
+<body>
+
+<center>
+Multilevel Preconditioners for Boundary Lagrange Multipliers
+</center>
+
+<p>
+<center>
+<a href="mailto: jamartik@mit.jyu.fi">Janne Martikainen</a>,
+<a href="mailto: tro@mit.jyu.fi">Tuomo Rossi</a> and
+<a href="mailto: tene@mit.jyu.fi">
+Jari Toivanen</a><br><br>
+<a href="http://www.mit.jyu.fi/en">
+Department of Mathematical Information Technology</a>,
+University of Jyv&auml;skyl&auml;,
+<br>
+P.O. Box 35 (Agora), FIN-40351 Jyv&auml;skyl&auml;, Finland
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+By embedding the original elliptic boundary value problem into a larger
+simple-shaped domain and treating the Dirichlet boundary conditions by
+using boundary Lagrange multipliers, the discretization and efficient
+solution can become much easier. The generation of hierarchical meshes
+required by the traditional multigrid methods for complicated domains
+can be very difficult or even impossible. Furthermore, it much easier
+to make fast cache aware multigrid implementations for simple-shaped
+domains like rectangles. The use of Lagrange multipliers leads to
+saddle-point problems which are here assumed to be symmetric.
+Such problems can be solved using a preconditioned MINRES method.
+A simple and natural idea is to construct separate preconditioners
+for primal variables and Lagrange multipliers. Thus, the overall
+preconditioner has a block diagonal form. The preconditioner for
+the primal variables can be based on any symmetric multigrid method or,
+for example, on fast direct solvers. It is well-known that a good
+preconditioner for the Lagrange multipliers should approximate the
+Schur complement of the diagonal block for primal variables in
+the saddle-point matrix. One family of such preconditioners are based
+on the square root of a boundary operator, but they are not robust with
+respect to the geometry of domain. Furthermore, usual implementations
+based on FFT can not be used for three-dimensional problems.
+
+<br><br>
+
+Here, preconditioners for Lagrange multipliers based on multilevel
+techniques for Poisson-like problems are proposed. More precisely, the
+employed techniques are the multilevel nodal basis (BPX) and multilevel
+diagonal scaling (MDS) preconditioners. The idea is to approximate
+the Schur complement using these techniques and then perform the
+multiplication by its inverse by using a suitable iterative method.
+The implementation must take an advantage of sparsity of vectors
+in the different levels of multilevel preconditioners in order to be
+affordable. To implement such a sparse version of BPX or MDS might seem
+to be difficult, but in practice it is rather easy and straightforward task.
+A natural assumption is that the number of Lagrange multipliers is the
+order of square root of N for two-dimensional problems and the order of
+square of cubic root of N for three-dimensional problems, where N denotes
+the number of primal variables. In this case, a simple analysis shows
+that the computational cost of approximating the Schur complement using
+BPX or MDS requires the same order of floating point operations as
+the number of Lagrange multipliers is. Furthermore, based on a simple
+condition number estimation it can be shown that the number of CG or
+Chebyshev iterations required to perform a multiplication by the inverse
+of the Schur complement approximation is the order of square root of N
+for two-dimensional problems and the order of cubic root of N for
+three-dimensional problems. Thus, the total computational cost of
+applying Lagrange preconditioner once is the order of N.
+
+<br><br>
+
+In the numerical experiments, the efficiency of proposed approach
+is studied for two-dimensional and three-dimensional Poisson and diffusion
+problems. The number of iterations and the condition number for several
+problems are given. Also, the capability to solve easily problems in very
+complicated domains is demonstrated.
+
+</body>
+</html>

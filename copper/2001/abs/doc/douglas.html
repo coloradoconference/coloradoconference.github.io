@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>cm conference abstract: Douglas</title>
+</head>
+
+<body>
+
+<center>
+Subgrid Substructuring Techniques for a Multilayered Ocean Model
+</center>
+
+<p>
+<center>
+<a href="mailto:douglas@ccs.uky.edu">
+Craig C. Douglas</a><br><br>
+University of Kentucky<br>
+Department of Computer Science<br>
+325 McVey Hall - CCS<br>
+Lexington, KY 40506-0045, USA
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We simulate the wind driven circulation in oceans.  Our aim is to study the
+impact of short scale wind forcing on the oceanic circulation.  We use the
+isopycnal version of the Spectral Element Ocean Model (SEOM).  The modeling of
+these flows and their climatic impact is complicated by the inherent range of
+spatial scales involved, which extend from the global scale of O(10,000) km
+down to the local scale of O(1) km, and by the intrinsic three dimensionality
+of the dynamics.
+<p>
+SEOM offers an elegant solution to these difficulties.  It features advanced
+algorithms, based on h-p type finite element methods, allowing accurate
+representation of complex coastline and oceanic bathymetry, variable lateral
+resolution, and high order solution of the three dimensional oceanic equations
+of motion.
+<p>
+SEOM's geometrical flexibility permits highly inhomogeneous horizontal grids.
+An added advantage of the technique is its scalability.  Most of the
+computations are carried out at the element level; only interface information
+needs to be exchanged between elements.  The dual characteristic of dense and
+structured local computations, and sparse and unstructured communication
+enhances the locality of the computations.  The dual characteristic of dense
+and structured local computations, and sparse and unstructured communication
+enhances the locality of the computations, and makes SEOM ideally suited for
+parallel computers.
+<p>
+In this talk, we define a novel set of techniques that allow us to store
+relevant matrices for 1/200-th the normal amount that would be expected using
+normal sparse matrix techniques.  A combination of a Schur complement and a
+parallel algebraic multigrid method is described and compared to a traditional
+matrix-free preconditioned conjugate gradient solution methodolgy.
+</body>
+</html>

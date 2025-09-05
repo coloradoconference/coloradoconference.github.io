@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>cm conference abstract: ISRAELI, BRAVERMAN, AVERBUCH </title>
+</head>
+
+<body>
+
+<center>
+A HIERARCHICAL DOMAIN DECOMPOSITION METHOD FOR THE
+SOLUTION OF HELMHOLTZ AND BIHARMONIC EQUATIONS
+</center>
+
+<p>
+<center>
+<a href="mailto: israeli@cs.technion.ac.il">
+Moshe Israeli,</a><br><br> 
+<a href="mailto: maelena@cs.technion.ac.il">
+Elena Braverman</a><br><br>
+Technion, Computer Science Department, Haifa 32000,
+Israel
+</center>
+<center>
+<br>
+and
+<p>
+</center>
+<center>
+<a href="mailto: amir@math.tau.ac.il">
+Amir Averbuch</a><br><br>
+School of Mathematical Sciences,
+Tel Aviv University, Tel Aviv 69978, Israel
+</center>
+<p>
+<center>
+<br>Abstract
+</center>
+<p>
+
+Implicit discretization of time dependent problems
+in computational physics, semiconductor device simulation,
+electromigration and
+fluid dynamics often gives rise to elliptic equations.
+Helmholtz type equations usually appear in acoustics
+or electromagnetics and also as a result of time discretization of
+the Navier-Stokes equations. 
+Biharmonic problems appear in elasticity and viscous flows.
+<p>
+We solve the Helmholtz and the biharmonic equation by the Domain
+Decomposition (DD) methods.
+Previously [1] we adopted a DD method where the equation was solved in
+each subdomain with assumed boundary conditions,
+resulting in jumps in function or derivative on subdomain boundaries.
+These jumps were removed by the introduction of singularity layers.
+In order to account for the global effect of the layers we computed
+first the influence of each layer on each subdomain boundary,
+taking into account the decay or smoothing out of the influence
+as a function of the distance from the layer.
+To reduce the communication load,  compression in a multiwavelet
+basis was applied.
+Nevertheless, this part of the  procedure can  become expensive
+as the number of subdomains grows considerably.
+An  algorithm for a fast solution of the Poisson equation
+by decomposition of the domain into square domains and the subsequent
+matching of these solutions by the fast multipole method was
+developed in [2].
+<p>
+The algorithm developed in [1] incorporates the following steps:
+<br>
+1. In each subdomain
+a particular solution of the non-homogeneous equation
+with arbitrary Neumann (Dirichlet) boundary conditions is found.
+<br>
+2. The collection of particular solutions usually has
+discontinuities (or discontinuities in the derivatives) on the
+boundaries of the subdomains. We introduce double (single) layers on the
+boundaries to match
+the solutions from different domains to have continuous global solution.
+The effect of these layers on other boundaries is calculated.
+<br>
+3. The solutions obtained at the first step are patched
+by adding the solutions of the Laplace
+equation with the boundary conditions that were computed in the previous
+step.
+<br>
+4. An additional solution of the corresponding homogeneous equation is
+added to satisfy the global boundary conditions.
+<p>
+
+Considerable improvement in the efficiency of 
+the interface jump removal step can be achieved if at each step only
+adjacent boxes are matched. This is the basis of the hierarchical
+approach which was proposed in [4].
+The "elementary step" of the hierarchical algorithm is the following.
+<br>
+1. First, for each two adjacent subdomains some boundary conditions
+are defined.
+These conditions should not contradict the given right hand side
+at the junctions (see [4]).
+The Poisson equation is solved with these boundary
+conditions by a fast spectral algorithm [3].
+<br>  
+2. The solutions have a discontinuity in the first derivative.
+We match the subdomains by adding certain discontinuous
+functions. In fact we only evaluate these functions at the boundaries
+of two adjacent subdomains and then
+solve the homogeneous equation in each subdomain with the cumulative
+boundary conditions.
+<br>  
+3. The global homogeneous equation is solved in such a way that
+it satisfies
+the assumed conditions at the ``global boundaries" of the merged
+subdomains.
+The solution of the non-homogeneous equation is expensive 
+if compared to the homogeneous equation where efficient algorithms
+are available [3].
+<br>
+This step is repeated hierarchically.
+For example, first the smallest adjacent domains are matched:
+box 1 with box 2, box 3 with box 4, then the merged box 1,2 is
+matched with 3,4, afterwards the box which is a union of boxes 1,2,3,4
+is patched with the adjacent merged box etc.
+<p>
+Here we extend the results of [1,4] in the following directions.
+<p>
+1. In addition to the Poisson equation, we solve 
+the Helmholtz or modified Helmholtz equation.
+One of the problems that arise is
+resonance and non-resonance situations
+for Dirichlet and Neumann boundary conditions.
+This can be avoided by introducing
+"transparent" boundary conditions which are
+approximations to the Sommerfeld radiation
+boundary condition.
+This means that the scattered wave behaves 
+asymptotically like a diverging spherical wave. Some modifications
+of the non-reflecting conditions were considered in [5]. 
+<p>
+2. We solve the biharmonic equation with either a free boundary
+as in [2] or
+boundary conditions of one type only
+(Dirichlet or Neumann).
+The biharmonic equation is split into a coupled system of 
+the Poisson equations. The unknown function satisfies the Poisson equation
+with a certain right hand side which will be called a vorticity
+function. 
+ The solution  is also performed by DD. 
+Here the matching algorithm which was developed in [1,4]
+is applied to find the smooth vorticity function which matches
+the given right hand side. Then we obtain a solution of the
+biharmonic equation. The global boundary conditions of either 
+Dirichlet or Neumann
+type can be satisfied by the addition of an appropriate
+harmonic function, as was done for the solution of the Poisson equation.
+<p>
+<center>
+<br>References
+</center>
+<p>
+1. A. Averbuch, E. Braverman and M. Israeli,
+Parallel adaptive solution of
+a Poisson equation with multiwavelets,
+SIAM J. Sci.Comput. 22(2000), 1053-1086.
+<br>
+2. L. Greengard and J.-Y. Lee, A direct adaptive Poisson
+solver of arbitrary order
+accuracy, J. Comput. Phys. 125 (1996), 415-424.
+<br>
+3. A. Averbuch, M. Israeli, L. Vozovoi, A fast Poisson solver of arbitrary
+order accuracy in rectangular
+regions, SIAM J. of Sci. Comput. 19(1998), 933-952.
+<br>
+4. M. Israeli, E. Braverman and A. Averbuch,
+A Hierarchical domain decomposition method with
+low communication overhead, submitted to Proceedings of
+the 13th Domain Decomposition Conference, Lyon, 2000.
+<br>
+5. A. Bamberger, P. Joly and J.E. Roberts,
+Second-order absorbing boundary conditions for the wave equation: 
+a solution for the corner, SIAM J. Numer. Anal. 27 (1990), 323-352.
+</body>
+</html>

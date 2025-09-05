@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>cm conference abstract: Howle</title>
+</head>
+
+<body>
+
+<center>
+Experiences with Parallel Block Preconditioning of the Linearized Incompressible 
+Navier-Stokes Equations 
+</center>
+
+<p>
+<center>
+<a href="mailto: vehowle@ca.sandia.gov">
+Victoria E. Howle</a><br>
+Sandia National Laboratory<br>
+MS 9217, PO Box 969<br>
+Livermore, CA 94551
+<p>
+Ray Tuminaro, Sandia National Laboratory<br>
+John Shadid, Sandia National Laboratory<br>
+Howard Elman, Univ. of Maryland
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We consider the use of parallel block preconditioning techniques
+for the Navier-Stokes equations.  These block techniques correspond
+to those of Kay & Loghin and result in methods that can be effective
+and robust over a variety of Reynolds numbers. The basic idea is to
+approximate the Schur complement operator for the Pressure equation
+based on the notion that certain differential operators approximately
+commute. The resulting preconditioner requires two block `solves' at each
+invocation: one for the pressure unknowns and the other for the velocities.
+A multigrid V cycle is then used to approximate each of these block solves,
+which makes the cost per iteration proportional to the number of unknowns.
+Numerical studies on the ASCI Red machine demonstrate that the preconditioner
+is effective in terms of both convergence rate and parallel performance.
+</body>
+</html>

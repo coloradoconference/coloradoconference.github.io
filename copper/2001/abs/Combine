@@ -1,0 +1,77 @@
+#!/bin/sh
+
+for hfile in \
+	adams.html \
+	austin.html \
+	bader.html \
+	bennighof.html \
+	bochev.html \
+	brandt.html \
+	brenner.html \
+	brezina.html \
+	chartier.html \
+	codd.html \
+	cullum.html \
+	diskin.html \
+	douglas.html \
+	farrell.html \
+	fulton.html \
+	gopalakrishnan.html \
+	haase.html \
+	haber.html \
+	howle.html \
+	hu.html \
+	iskandarani.html \
+	israeli.html \
+	jones.html \
+	kenigsberg.html \
+	kiefer.html \
+	kim.html \
+	kirk.html \
+	knyazev.html \
+	korsawe.html \
+	kowarschik.html \
+	kraus.html \
+	kremenetsky.html \
+	lahaye.html \
+	lee.html \
+	lehoucq.html \
+	macmillan.html \
+	mandel.html \
+	mardal.html \
+	mavriplis.html \
+	medeke.html \
+	moulton.html \
+	naegele.html \
+	oosterlee.html \
+	park.html \
+	pasciak.html \
+	pfalum.html \
+	pflaum.html \
+	philip.html \
+	poole.html \
+	ruede.html \
+	ruge.html \
+	schoeberl.html \
+	schorsch.html \
+	schweitzer.html \
+	silva.html \
+	stals.html \
+	tiesinga.html \
+	toivanen.html \
+	tuminaro.html \
+	vassilevski.html \
+	wan.html \
+	wienands.html \
+	wittum.html \
+	yang.html \
+	yavneh.html \
+	zhang.html
+do
+
+	echo "*******************************************" >> all.tex
+	echo "*************  $hfile  ************" >> all.tex
+	echo "*******************************************" >> all.tex
+	cat $hfile >> all.tex
+
+done

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>cm conference abstract: Eite Tiesinga</title>
+</head>
+
+<body>
+
+<center>
+<H2>
+Multigrid Modeling of Two Confined and Interacting Atoms.
+</H2>
+</center>
+
+<center>
+<p>
+<a href="mailto: eite.tiesinga@nist.gov">
+Eite Tiesinga</a><br><br>
+National Institute of Standards and Technology<br>
+100 Bureau Drive stop 8423<br>
+Gaithersburg MD, 20899-8423<br>
+United States of America
+
+<p>
+<a href="mailto: william.mitchell@nist.gov">
+William F. Mitchell</a><br><br>
+National Institute of Standards and Technology<br>
+100 Bureau Drive stop 8910<br>
+Gaithersburg MD, 20899-8910<br>
+United States of America                                                       
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The 1994 discovery by P. Shor of a polynomial quantum factoring
+algorithm has started initial efforts into the development of quantum
+computers.  This opened new avenues of research for mathematicians,
+computer scientists, and physicists alike.  The quantum paradigm of
+computing induced renewed interest in complexity classes, (quantum)
+error correction, searches for other algorithms, and the search for
+physical implementations of the basic building blocks, such as qubits
+and quantum gates, of a quantum computer.
+ 
+<p>
+We have applied multigrid methods to solve for a two-dimensional
+Schr&ouml;dinger equation in order to study the feasibility of a quantum
+computer based on extremely-cold neutral alkali-metal atoms.  Qubits are
+implemented as motional states of an atom trapped in a single well of
+an optical lattice of counter-propagating laser beams.  Quantum gates
+are constructed by bringing two atoms together in a single well leaving
+the interaction between the atoms to cause entanglement.  For special
+geometries of the optical lattices and thus shape of the wells, quantifying
+the entanglement reduces to solving for eigenfunctions of a Schr&ouml;dinger
+equation that contains a two-dimensional Laplacian, a trapping potential
+that describes the optical well, and a short-ranged interaction potential.
+ 
+<p>
+Length and energy scales of the trapping potential and interaction
+potential are too disparate to allow for a naive discretization of
+the differential operator. The size of the resulting linear systems would
+prohibit reasonable calculations. An adaptive grid approach automatically
+finds a spatial representation that is refined when the atoms are close
+together and the interaction potential is very strong and is coarse
+at larger separation where the trapping potential is the largest
+energy scale.  The finite element discretization of the Schr&ouml;dinger
+equation on this grid produces an eigenproblem with the matrix
+<em>A</em><SUP>-1</SUP><em>B</em> where <em>A</em> is the usual finite
+element discretization of a second order linear elliptic operator and
+<em>B</em> contains the <em>L</em><SUB>2</SUB> inner products of the
+finite element basis functions.  Selected eigenvalues and eigenvectors
+are computed by an iterative method that requires only multiplication
+of a vector by the matrix.  Multiplication by <em>A</em><SUP>-1</SUP>
+is achieved by solving a linear system with the matrix <em>A</em> by a
+multigrid method.
+
+</body>
+</html>
+ 
