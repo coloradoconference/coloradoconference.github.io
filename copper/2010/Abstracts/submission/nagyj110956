@@ -1,0 +1,67 @@
+===affil2:
+
+===firstname:
+James
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Nagy
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+nagy@mathcs.emory.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Mathematics and Computer Science Department
+Emory University
+400 Dowman Drive, Suite W401
+Atlanta, GA 30322
+===firstname6:
+
+===ABSTRACT:
+In this talk we consider large-scale separable nonlinear least squares
+problems that arise in image processing applications.  We use a
+Gauss-Newton method for the nonlinear solver, and LSQR for the
+associated linear systems.  Two important issues need to be
+considered: how to incorporate regularization (the underlying
+continuous problem is ill-posed), and how to efficiently handle large
+scale linear solvers with the Jacobian matrix.  This latter issue is
+essential to making it worth using a Gauss-Newton method.  We discuss
+these issues in the context of a specific imaging application called
+multi-frame blind deconvolution.  We show that the Jacobian,
+though dense, has an interesting structure that allows for very
+efficient matrix-vector multiplications, as well as for construction
+of effective preconditioners.
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Efficient Iterative Solvers for Nonlinear Least Squares Problems in Imaging Applications
+===firstname2:
+

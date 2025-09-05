@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kadio112677</TITLE>
+<META NAME="description" CONTENT="kadio112677">
+<META NAME="keywords" CONTENT="kadio112677">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kadio112677.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Samet Y. Kadioglu 
+<BR><B>ANALYSIS OF A SELF-CONSISTENT IMEX METHOD FOR TIGHTLY COUPLED NON-LINEAR SYSTEMS</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Fuels Modeling and Simulation Department 
+<BR>
+Idaho National Laboratory 
+<BR>
+P O Box 1625 
+<BR>
+MS 3840 
+<BR>
+Idaho Falls 
+<BR>
+ID 
+<BR>
+83415
+
+<BR><TT>samet.kadioglu@inl.gov</TT>
+<BR>
+Dana  A. Knoll
+<BR>
+Robert  B.  Lowrie
+</DIV>
+
+<P>
+We introduce a mathematical analysis for our self-consistent
+Implicit/Explicit (IMEX) algorithm. This algorithm is designed to produce
+second order time convergent solutions to multi-physics
+and multiple time scale fluid problems. The algorithm is a combination of
+an explicit block that solves the non-stiff
+part and an implicit block that solves the stiff part of the problem. The
+explicit block is always solved inside the implicit block as part of the
+non-linear function evaluation making use of the Jacobian-Free Newton
+Krylov (JFNK) method. In this way, there is a continuous interaction
+between the implicit and explicit blocks meaning that the improved
+solutions (in terms of time accuracy) at each non-linear iteration are
+immediately felt by the explicit block and the improved explicit
+solutions are
+readily available to form the next set of non-linear residuals. This
+continuous interaction between the two algorithm blocks results in an
+implicitly balanced algorithm in that all the non-linearities due to
+coupling of different time terms are converged. In other words, we obtain
+a self-consistent
+IMEX method that eliminates the order reduction in time accuracy for
+certain type of problems that a classical IMEX method can suffer from. We
+note that the classic IMEX method splits the operators such a way that
+the implicit and explicit blocks are executed independent of each other,
+and this may lead to non-converged non-linearities therefore time
+inaccuracies for certain models. In this study, we provide a mathematical
+analysis (modified equation analysis) that examines and compares the time
+behavior of our self-consistent IMEX method versus the classic IMEX
+method. We also provide computational results to verify our analytical
+findings.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

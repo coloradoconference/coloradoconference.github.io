@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Abdul Hanan Sheikh \\
+{\bf An efficient iterative scheme for the Helmholtz equation with deflation.}}
+
+Room # HB 07 050 \\ EWI Building Makelweg 4 \\ 2628 CD \\ Delft \\ The Netherlands
+\\
+{\tt hanangul12@yahoo.co.uk}\\
+Kees Vuik\\
+Domenico Lahaye\end{center}
+
+The Helmholtz equation arises in many physical problems involving steady
+state (mechanical, acoustical, thermal, electromagnetic) oscillations.
+The complexity of the physical problem leaves no choices except to solve
+the equation numerically. The finite difference discretization leads to
+sparse, complex symmetric coefficient matrices that become indefinite for
+sufficient large wave number. The size of the problem increases with the
+wave number as a minimum number of grid points per wavelength is required
+to represent the physics correctly. Krylov subspace and Multigrid
+techniques have been succesfully applied in a wide range of applications.
+For symmetric positive definite problems, the conjugate gradient (CG) is
+the method of choice. For indefinite problems, more general Krylov
+subspace solvers are to be applied. The fast convergence of these methods
+requires some form of preconditioning. The straightforward application of
+multigrid as a preconditioner is hampered by slow convergence causes by
+eigenmodes corresponding to eigenvalues with a negative real part. To
+overcome this difficulty, Shifted-Laplace preconditioners have been
+developed by Yogi A. Erlangga [Tech. Report 03-18, DIAM Delft Univ. Tech.
+The Netherlands, 2003].The idea of shifted-Laplace preconditioners is to
+base the precondioner of the discrete Helmholtz operator with a modified
+shift (coefficient before the first order term) for with the multigrid
+preconditioner can be shown to satisfaction. It was shown that the
+resulting preconditioned GMRES solver has favourable convergence
+properties in the sense the required number of iterations only depends
+mildly on the wavenumber. Allowing some damping in the shifted Laplace
+operator in particalur proves to benefical for speeding up overall
+convergence. In more recent work by Yogi and Nabben[On a ultilevel Krylov
+method for the Helmholtz equation preconditioned by shifted Laplacian, In
+Press], the combined use of deflation and the shifted-Laplace
+precondioner was shown to result in a on more performant solver.In this
+paper we study the combined use of the shifted-Laplace precondioner with
+multigrid deflation. We show that deflation allows to remove unfavourable
+modes in the spectrum of the precondioned operator. This allows us to
+that the Krylov solver is close to optimal in the sense that the required
+number of iterations is almost independent of the wavenumber. Also the
+deflation matrix is sparse. Experimental results to support the claims
+are presented for a 2-D Helmholtz problem.
+
+
+\end{document}

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>svyat113008</TITLE>
+<META NAME="description" CONTENT="svyat113008">
+<META NAME="keywords" CONTENT="svyat113008">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="svyat113008.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Daniil Svyatskiy 
+<BR><B>Adaptive strategies in the multilevel multiscale mimetic (M<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^3$">) method for two-phase flows in porous media.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mail Stop B284 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545 
+<BR>
+U S A
+
+<BR><TT>dasvyat@lanl.gov</TT>
+<BR>
+Konstantin Lipnikov
+<BR>
+David Moulton
+</DIV>
+
+<P>
+Efficient modeling of multiscale system is a <I>must</I> for numerous subsurface
+applications such as contaminant flow in aquifers, enhanced oil recovery, power
+generation in fission reactors, carbon dioxide sequestration in complex geological
+formations, and fluid flow and heat transfer in geothermal systems.
+In all these applications, the key complicating factor is that system
+response is measured at engineering length-scales (meters to kilometers) yet depend
+crucially on information about microscopic length-scales (e.g. the rock pore geometry
+at sub-micron length-scales). On one hand, a simulation fully resolving all microscopic
+details of three-dimensional problems is beyond the capability of modern
+supercomputers. On the other hand, a naive simulation that does not address the
+influence of the fine-scales is terribly inaccurate.
+
+<P>
+In this work we study the simulation of two-phase flows in porous media
+driven by the well production.
+The governing equations for this model are
+the elliptic equation for the reservoir pressure and the hyperbolic equation for
+the water saturation. Many different model upscaling approaches have been
+proposed to address this problem.
+The methods using multiscale basis functions are two-level methods with unnecessary
+rigid distinction between the resolved and unresolved scales, i.e. fine and coarse
+scales. This domain decomposition style partitioning is what places the demands
+on accurate boundary conditions for local problems, because as the coarsening factor
+increases these artificial internal boundary conditions become increasingly important.
+Most two-level methods achieve a coarsening factor of approximately
+10 in each coordinate direction, while the trends in fine-scale realizations of
+large reservoirs requires a coarsening factor more than 100.
+
+<P>
+In M<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^3$"> method the multigrid ideas are used to build recursively a problem-dependent
+<B>multilevel hierarchy of models</B>. Each model preserves
+important physical properties of the system, such as local mass
+conservation. In contrast with classical two-level methods that
+the multilevel hierarchal approach facilitates very large
+total coarsening factors, such 100 or more.
+The method combines two subgrid modeling technique.
+The first technique is the
+algebraic coarsening developed by Y.Kuznetsov that reduces the degrees
+of freedom inside a coarse-grid cell. The
+second is a problem dependent approach to conservative coarsening of
+velocities on the edges of a coarse-grid cell. These complimentary
+strategies ensure that the coarse-scale system has the same sparsity
+structure as the fine-scale system, which naturally leads to a
+multilevel algorithm.
+
+<P>
+The mimetic finite difference discretization on the fine scale is
+a basis of multilevel hierarchy of discrete models. This allow us to handle
+unstructured polyhedral meshes, including locally refined meshes, and
+full tensor permeability fields.
+Due to the algebraic nature of the method it can bee easily adapted to
+other mixed-type discretizations,
+such as mixed finite elements method, finite volume method, <I>etc</I>.
+
+<P>
+A robust and reliable error control is active research area in multiscale modeling.
+The flexibility of the hierarchical approach allow us to incorporate different
+adaptive strategies in a very efficient manner and to be closer to the
+optimal trade-off between accuracy of the method and the computation cost.
+In this work we present several adaptive techniques that reduce the cost
+of the M<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^3$"> method,
+including solution-based mesh coarsening and adaptive space and time
+updates of the multilevel hierarchy of models.
+Maintenance of the hierarchy of models incurs only a modest
+computational overhead due to the efficiency of recursive
+coarsening and adaptive update strategies.
+Numerical experiments show that the new adaptive strategy allows us to
+control the error in
+water saturation. Compared uniform updates in time, the adaptive strategy gives
+three times more accurate solution for the same computation cost.
+
+<P>
+The <IMG
+ WIDTH="29" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ M^3$"> method was developed and tested in two-dimensions; however, it
+can be readily extended
+to polyhedral meshes by leveraging recent developments in mimetic finite difference
+methods.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

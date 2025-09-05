@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>birke112728</TITLE>
+<META NAME="description" CONTENT="birke112728">
+<META NAME="keywords" CONTENT="birke112728">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="birke112728.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Philipp Birken 
+<BR><B>Matrix-free preconditioned Newton-Krylov methods for nodal discontinous Galerkin schemes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Kassel 
+<BR>
+Department of Mathematics 
+<BR>
+Heinrich-Plett-Str 40 
+<BR>
+34132 Kassel 
+<BR>
+Germany
+
+<BR><TT>birken@mathematik.uni-kassel.de</TT>
+<BR>
+Mark Haas
+</DIV>
+
+<P>
+In recent years, discontinuous Galerkin (DG) methods have received ever
+increasing interest in the context of computational fluid dynamics, both
+for incompressible and compressible flows. Here, we will focus on
+unsteady compressibble flows. DG methods can be seen as generalizations
+of first order finite volume schemes, that extend to higher orders in a
+natural way. However, they have more severe stability restrictions for
+explicit time integration and thus, implicit schemes are necessary for a
+large set of applications. Of interest for unsteady flows are higher
+order schemes and we will apply diagonally implicit Runge-Kutta (DIRK)
+methods. This means that on each stage, a nonlinear equation system has
+to be solved. However, so far efficient solution schemes in the context
+of DG methods are lacking and the design of such algorithms is currently
+one of the most important challenges for the successful application of DG
+schemes.
+
+<P>
+In this talk, we will consider preconditioned Newton-Krylov schemes for
+the solution of the resulting linear equation systems. The system
+matrices are nonnormal block matrices, with block sizes of 16-120 for two
+dimensional flows, which makes special treatment of these blocks
+necessary and storing the whole matrix impossible for large problems.
+Therefore, we consider matrix-free methods that circumvent storing the
+Jacobian by approximating <IMG
+ WIDTH="26" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax$"> via difference quotients. Furthermore,
+this allows to approximate the impact of the Jacobian by a cheap low
+order operator in a straight forward way. Several preconditioners
+suitable for matrix-free schemes will be considered, in particular Jacobi
+and SGS.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

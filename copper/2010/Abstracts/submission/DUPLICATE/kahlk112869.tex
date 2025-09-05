@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Karsten Kahl \\
+{\bf Bootstrap Algebraic Multigrid}}
+
+Gauﬂstraﬂe 20 \\ 42119 Wuppertal \\ Germany
+\\
+{\tt kkahl@math.uni-wuppertal.de}\\
+Achi Brandt\\
+James Brannick\\
+Karsten Kahl\\
+Ira Livshits\end{center}
+
+We develop an Algebraic Multigrid (AMG) cycling scheme based on the
+adaptive Bootstrap AMG
+framework. The approach we present adaptively computes a set of test vectors and then
+uses them to define interpolation.
+
+The setup of the method consists of two parts. First, we introduce concept of
+Least Squares Interpolation which allows us to define interpolation in an algebraic
+multigrid context that is solely based on a set of test vectors. In addition, we propose
+and analyze a Bootstrap process to enhance the set of test vectors used in the
+definition of Least Squares Interpolation in a multigrid fashion. We demonstrate
+that this setup procedure allows us to iteratively improve the multigrid hierarchy
+until suitable performance of the resulting method is achieved while
+retaining control over
+the complexity of the multigrid hierarchy and overall setup costs. We present tests for
+a variety of applications that show the flexibility and robustness of this approach.
+
+
+\end{document}

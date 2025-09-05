@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dana Knoll \\
+{\bf Physics-based Preconditioning of JFNK for Free-surface Ocean Modeling}}
+
+Los Alamos National Laboratory \\ PO BOX 1663 \\ MS B216 \\ Los Alamos \\ NM 87545
+\\
+{\tt nol@lanl.gov}\\
+Samet Kadioglu\\
+Wilbert Weijer\end{center}
+
+Global ocean model equation systems contain a variety of normal modes and thus
+a variety of time-scales. The 3-D hydrostatic free-surface model with
+salinity and temperature contains: external gravity waves and Rossby
+waves, internal gravity waves and Rossby waves, dissipation, and
+advection. The Parallel Ocean Program (POP) uses knowledge of these
+various normal modes to execute an operator split, semi-implicit, time
+integration of this system. There is motivation to develop a fully
+implicit, unsplit, version of POP, imPOP. The JFNK method
+is currently used for the nonlinear solution required at each time step.
+
+In this study we consider a reduced 2-D hydrostatic system of three
+equations for surface height, horizontal momentum, and temperature. This
+system contains external and internal gravity waves, dissipation, and
+advection. We develop and study operator split semi-implicit methods as a
+preconditioner to JFNK. These preconditioners are developed from the
+normal mode time scale knowledge embedded within the current POP time
+integration process.
+
+
+\end{document}

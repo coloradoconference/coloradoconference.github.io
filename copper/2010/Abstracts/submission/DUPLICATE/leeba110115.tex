@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Barry Lee \\
+{\bf A Space-Angle-Energy Multigrid Method for Sn Discretizations of the Multi-Energetic Boltzmann Equation}}
+
+Computational Sciences and Mathematics Division \\ Pacific Northwest National Laboratory \\ Richland \\ WA 99354 \\ USA
+\\
+{\tt barry.lee@pnl.gov}\end{center}
+
+The multi-energetic Boltzmann equation is used to model neutron/photon
+transport. It is 7-dimensional in spatial
+3-dimensions, and 6-dimensional in spatial 2-dimensions (1 in time, 1 in
+energy, 2 in angle, and 3 or 2 in space).
+Development of a fast multigrid solver for this multi-energetic equation
+has been rather slow, particularly because
+the energy coupling is described through scattering cross-sections that
+are highly oscillatory in energy. Thus, robust and
+efficient homogenization techniques for coarsening these cross-sections
+have been difficult, if not impossible,
+to develop. In this talk, we describe a multi-energetic extension of the
+space-angle semi-coarsening method for the
+mono-energetic Boltzmann equation. The resulting method is also a
+semi-coarsening scheme: semi-coarsening
+first in energy, then in space or angle. Coarsening in energy is
+algebraically based (i.e., it is based on the
+energy features of the near nullspace component of the multi-energetic
+Boltzmann operator), which permits simple
+and efficient handling of the highly oscillatory scattering
+cross-sections. In fact, the energy restriction
+operator is constant, and the coarse energy-grid selection is based on a
+simple bining of the original energy groups.
+At each energy level of the energy hierarchy, relaxation
+consists of a few sweeps of a space-angle semi-coarsening V-cycle, with
+the angles considered collectively over
+all the energy groups at that energy level. Spectral analysis and
+numerical results will be given.
+
+
+\end{document}

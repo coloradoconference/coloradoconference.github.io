@@ -1,0 +1,74 @@
+===affil2:
+Georgia Tech
+===firstname:
+George
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Chaillat
+===lastname:
+Biros 
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+gbiros@acm.org
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+266 Ferst Dr,
+Georgia Tech
+Atlanta, GA 30332
+===firstname6:
+
+===ABSTRACT:
+We consider the inverse medium problem for the time-harmonic
+wave equation with broadband and multi-point illumination in the low
+frequency regime. Such a problem finds many applications in
+geosciences (e.g. ground penetrating radar), non-destructive
+evaluation (acoustics), and medicine (optical tomography).  We use an
+integral-equation (Lippmann-Schwinger) formulation, which we
+discretize using a quadrature method. We consider only small
+perturbations (Born approximation). To solve this inverse problem, we
+use a least-squares formulation. We present a new fast algorithm for
+the efficient solution of this particular least-squares problem.
+
+If $N_{\fr}$ is the number of excitation frequencies, $N_{s}$ the
+number of different source locations for the point illuminations,
+$N_{d}$ the number of detectors, and $N$ the parametrization for the
+scatterer, a dense singular value decomposition for the overall
+input-output map will have $ [\min(N_{s} N_{\fr}N_{d}, N)]^{2}
+\times \max(N_{s} N_{\fr}N_{d}, N) $ cost. We have developed a fast
+SVD-based preconditioner that brings the cost down to $O( N_{s}N_{\fr} N_{d}
+N)$ thus, providing orders of magnitude improvements over a black-box
+dense SVD and an unpreconditioned linear iterative solver.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+FaIMS: A fast algorithm for the inverse medium problem in acoustic scattering
+===firstname2:
+Stephanie

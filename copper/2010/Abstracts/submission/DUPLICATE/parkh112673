@@ -1,0 +1,59 @@
+===affil2:
+Los Alamos National Laboratory
+===firstname:
+HyeongKae
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Knoll
+===lastname:
+Park
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+Ryosuke.Park@inl.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Idaho National Laboratory
+P.O. Box 1625, M.S. 3840
+Idaho Falls, ID 83415
+===firstname6:
+
+===ABSTRACT:
+There is a growing trend in nuclear reactor simulation to consider multiphysics problems.  For example, analysts are interested in coupled flow, heat transfer and neutronics in reactor analysis.  Many of the coupling efforts to date have been based on the some form of linearization such as simple code coupling or first-order operator splitting.  This approach is often referred to as loose coupling.  While these approaches can produce answers, they usually leave questions of accuracy and stability unanswered. Additionally, the different physics often reside on separate grids which are coupled via simple interpolation, again leaving open questions of stability and accuracy.
+  
+Recent advancement of Newton-based solution schemes, specifically Jacobian-free Newton Krylov method, enables a robust solution scheme of tightly coupled problems without operator-splitting. Consequently, this approach can accurately capture the nonlinear coupling among physics and achieve second-order convergence in time. Convergence of the system can be further accelerated in two ways. First, convergence of a Krylov method can be achieved via utilization of physics-based preconditioning (PBP).  The efficiency of PBP has been demonstrated in many field of computational physics. Second, the size of Jacobian matrix can be reduced using the nonlinear elimination method.  With the nonlinear elimination method, we redefine the nonlinear system with fewer dependent variables, then advance the removed variables with new function evaluation. This reduces complexity of system Jacobian and increases complexity of function evaluations.
+
+In this talk, we present our recent development of advanced applications of Newton-based nonlinear solver in computational nuclear engineering context.  This includes efficient physics-based preconditioning of coupled flow, heat and neutronics transient simulation, and examples of nonlinear elimination method.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Development and Application of Nonlinear Methods in Computational Nuclear Engineering
+===firstname2:
+Dana A.

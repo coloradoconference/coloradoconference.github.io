@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yuqi Wu \\
+{\bf Schwarz Preconditioning for Incompressible Navier-Stokes Equations with Resistive Boundary Conditions}}
+
+Department of Applied Mathematics \\ University of Colorado \\ Boulder \\ CO 80309-0526
+\\
+{\tt yuqi.wu@colorado.edu}\\
+Xiao-Chuan  Cai\end{center}
+
+We study a parallel algorithm for the simulation of blood flows in
+arteries using a fully coupled system of PDEs consisting of
+incompressible Navier-Stokes equations and a linear elastic equation. The
+system is discretized implicitly with a finite element method on
+unstructured moving meshes. Because of the branching geometry in the
+artery tree, the outflow boundary condition plays an interesting role in
+the accuracy of the blood flow model. In this talk, we discuss a Schwarz
+type preconditioner for solving the linearized Navier-Stokes equations
+with resistive outflow condition and we compare its accuracy and
+performance with the standard pressure type boundary condition.
+
+
+\end{document}

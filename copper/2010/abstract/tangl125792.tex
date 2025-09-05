@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lei Tang \\
+{\bf Parallel Efficiency Based Adaptive Local Refinement}}
+
+Dept of Applied Math \\ 526 UCB \\ Boulder \\ CO 80309
+\\
+{\tt tangl@colorado.edu}\\
+Marian Brezina\\
+Jose Garcia\\
+Tom Manteuffel\\
+Steve McCormick\\
+John Ruge\end{center}
+
+We propose a new adaptive local refinement (ALR) strategy, the goal of
+which is to reach a given error
+tolerance with the least amount of computational cost. This strategy is
+especially attractive in the setting
+of a first-order system least-squares (FOSLS) finite element formulation
+in conjunction with algebraic multigrid
+(AMG) methods in the context of nested iteration (NI). To accomplish
+this, the refinement decisions are determined
+based on minimizing the predicted `accuracy-per-computational-cost'
+efficiency (ACE). The nested iteration approach
+produces a sequence of refinement levels in which the error is equally
+distributed across elements on a
+relatively coarse grid. Once the solution is numerically resolved,
+refinement becomes nearly uniform.
+
+This talk will first describe the algorithm and demonstrate its
+efficiency on a simple test problem. Then,
+modifications that yield an efficient parallel algorithm will be
+discussed. These involve a geometric binning
+strategy to reduce communication cost. Load balancing begins at coarse
+levels using a parallel quad-tree and a space filling curve. We show that
+this automatically ameliorates load balancing issues at finer levels.
+
+
+\end{document}

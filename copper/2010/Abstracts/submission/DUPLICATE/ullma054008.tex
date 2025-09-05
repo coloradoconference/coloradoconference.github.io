@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Elisabeth Ullmann \\
+{\bf Iterative solvers for Stochastic Galerkin discretizations of PDEs with random data}}
+
+Institut fuer Numerische Mathematik und Optimierung \\ TU Bergakademie Freiberg \\ 09596 Freiberg \\ Germany
+\\
+{\tt ullmann@math.tu-freiberg.de}\end{center}
+
+We study efficient iterative solvers for Galerkin equations associated
+with finite element discretizations of second-order elliptic partial
+differential equations (PDEs) with random coefficient functions. Such
+systems arise, for example, from discretized stochastic diffusion
+problems. The Galerkin matrix is a sum of Kronecker products of pairs of
+matrices associated with the physical and stochastic discretization,
+respectively. Due to the coupling of (standard) finite element
+discretizations in the physical space and global polynomial chaos
+approximations on a probability space, the number of unknowns is huge.
+Moreover, depending on the models employed for the random coefficient
+function, the Galerkin matrix can be block-dense, and the cost of a
+matrix-vector product is non-trivial.
+
+We review a recently proposed Kronecker product preconditioner for the
+Galerkin matrix which - in contrast to the popular mean-based
+preconditioner - makes use of the entire information contained in the
+Galerkin matrix. Furthermore, we extend the idea of Kronecker product
+preconditioning to the discretized mixed formulation of the stochastic
+diffusion equation. We demonstrate numerically the improved robustness of
+Kronecker product preconditioners compared to the mean-based approach
+with respect to key statistical parameters of lognormal diffusion
+coefficients.
+
+Finally we discuss perspectives for multilevel techniques for the
+Galerkin equations. In contrast to previous works, where many researchers
+have applied multilevel methods exclusively to the deterministic finite
+element spaces, we focus on multilevel decompositions for the stochastic
+variational space and combined deterministic/stochastic multilevel
+approaches.
+
+
+\end{document}

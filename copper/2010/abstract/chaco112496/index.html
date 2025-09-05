@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chaco112496</TITLE>
+<META NAME="description" CONTENT="chaco112496">
+<META NAME="keywords" CONTENT="chaco112496">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chaco112496.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Luis Chac&#243;n 
+<BR><B>On scalable solvers for extended magnetohydrodynamics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">PO Box 2008 
+<BR>
+MS 6169 
+<BR>
+Oak Ridge 
+<BR>
+TN 37830
+
+<BR><TT>chaconl@ornl.gov</TT>
+</DIV>
+
+<P>
+Recently, a fully implicit Newton-Krylov-based solver for resistive
+MHD has been developed [1,2], which features remarkable properties
+both in terms of algorithmic and parallel efficiency. Algorithmically,
+the solver was shown to be optimal, demonstrating a computational
+complexity which is linearly increasing with the number of degrees
+of freedom. In parallel, the approach demonstrated excellent scaling
+up to 4096 processors and 0.13 billion unknowns. The approach rests
+on a novel preconditioning strategy (oft-called ``physics-based''),
+which achieves, via a Schur-complement-based factorization of the
+linearized system, an effective parabolization of the otherwise hyperbolic
+MHD equations, thereby making them amenable to a classical multigrid
+treatment.
+
+<P>
+While such a development represents an important milestone in long-frequency
+computational MHD, it still suffers from various limitations which
+need to be addressed, both from the physics and from the implementation
+standpoints. From the physics point of view, the demonstration in
+Ref. 1 was performed on the well-known visco-resistive MHD model,
+which, while useful in many important applications, falls short of
+the requirements in modern MHD simulation tools. In particular, ``extended
+MHD'' effects such as electron Hall physics, parallel electron transport,
+and ion gyroviscosities are known to play an important role in certain
+regimes of interest (notably, hot, moderate-density plasmas, such
+as those found in the solar corona, the Earth's magnetosphere, and
+in thermonuclear magnetic-confinement fusion devices). However, numerically,
+the inclusion of such physical effects is highly nontrivial. Both
+electron Hall physics and ion gyroviscosities introduce strongly hyperbolic
+couplings, resulting in dispersive normal modes (waves) with frequencies
+<IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \omega$"> scaling with the square of the wavenumber <IMG
+ WIDTH="20" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ k^{2}$">. On the
+other hand, parallel electron transport, while parabolic in nature,
+suffers in the discrete from an array of numerical problems stemming
+from the exceedingly large parallel-to-perpendicular transport coefficient
+ratios, <!-- MATH
+ $\chi_{\parallel}/\chi_{\perp}\sim10^{8}$
+ -->
+<IMG
+ WIDTH="95" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \chi_{\parallel}/\chi_{\perp}\sim10^{8}$">. Such problems
+include the near-singularity of the resulting matrices, the lack of
+positivity of the discrete formulation (even though the continuum
+features a maximum principle), and the need for high-order spatial
+discretizations to avoid numerical pollution of the perpendicular
+dynamics by the parallel one.
+
+<P>
+Implementation-wise, and with some of the applications of interest
+in mind, the multigrid strategy used in Ref. 1 needs to be extended
+to handle general curvilinear geometries, and in particular those
+featuring a pole (e.g., cylindrical and toroidal). Such singular geometries
+stress our geometric multigrid implementation, and require special
+care for a viable multigrid solver.
+
+<P>
+In this talk, we will describe our progress in addressing some of
+these limitations. In particular, we will describe our efforts to
+include electron Hall physics (partially described in [2]) and
+parallel electron transport effects. We will also describe our strategy
+for a viable multigrid solver in polar coordinate systems. We will
+demonstrate the effectiveness of our approach with numerical examples.
+
+<P>
+[1] L. Chac&#243;n, ``An optimal, parallel, fully
+implicit Newton-Krylov solver for three-dimensional visco-resistive
+magnetohydrodynamics,'' <I>Phys. Plasmas</I>, <B>15</B>,
+056103 (2008)
+
+<P>
+[2] L. Chac&#243;n, ``Scalable solvers for
+3D magnetohydrodynamics,'' <EM>J. Physics: Conf. Series</EM>,
+<B>125</B>, 012041 (2008)
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,147 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Baptiste Poirriez \\
+{\bf Domain decomposition methods applied to flow simulation in 3D Discrete Fracture Networks}}
+
+IRISA \\ Campus de Beaulieu \\ 35042 Rennes Cedex \\ France
+\\
+{\tt baptiste.poirriez@irisa.fr}\\
+Geraldine Pichot\\
+Jocelyne Erhel\end{center}
+
+Numerical simulations in fractured media are an essential tool for
+studying hydraulic properties. Discrete Fracture Networks are composed of
+many multiscale plane fractures intersecting each other, leading to
+complex geometries. We assume that the rock surrounding the fractures is
+impervious and aim at simulating the flow in the fractures. Governing
+equations are Darcy's law and mass continuity, with continuity conditions
+at the intersections. Mesh generation is rather difficult in this
+context, because of the geometry, and requires a specific method
+\cite{erhe09b}. We apply a Mixed Hybrid Finite element method and get a
+large sparse symmetric positive definite (spd) linear system to solve.
+Direct methods are efficient but become time- and memory- consuming for
+large systems. Algebraic multigrid method combined with Preconditioned
+Conjugate Gradient (PCG) converges in few iterations but is also
+time-consuming. The linear system has a specific structure since the
+problem is elliptic, but the geometry is neither 2D nor 3D. Domain
+decomposition methods are attractive because there is a natural
+geometrical decomposition. In this paper, we explore a preconditioned
+Schur complement approach.
+
+A first step is to define a partition of the domain. A subdomain is here
+a set of fractures, and the interface is the set of intersections with
+fractures of other subdomains. With $n$ subdomains, the matrix $A$ has a
+block-structure with non singular diagonal blocks $A_{ii},i=1,\ldots,n+1$
+and nonzero blocks $A_{i,n+1},i=1,\ldots,n$. We define the local Schur
+complement matrix $S_{ii}=A_{n+1,n+1}^{(i)}-A_{i,n+1}^T A_{ii}^{-1}
+A_{i,n+1}$, the Schur matrix $S=\sum_{i=1}^{n} S_{ii}$ and the associated
+right-hand side $b$. Since the matrix $S$ is spd, we apply PCG to solve
+the linear system $Sx=b$.
+
+We use the classical Neumann-Neumann (NN) preconditioner
+\cite{carv01,tos05}. Since the partition generates floating subdomains,
+some local Schur complements $S_{ii}$ are rank-deficient. In order to
+ensure a kernel of dimension 1, we build a partition such that a
+subdomain is composed of connected fractures. Then we apply an artificial
+Dirichlet boundary condition at one edge of the interface to get a non
+singular matrix $\tilde{S}_{ii}$. The NN preconditioner is then defined
+by $M^{-1}=\frac{1}{n}\sum_{i=1}^{n} \tilde{S}_{ii}^{-1}$. To gain in
+efficiency, we use the Cholesky factorization of $A_{ii}$ to complete the
+Cholesky factorization of $\tilde{S}_{ii}$, by adapting algorithms aiming
+at reducing fill-in.
+
+We run numerical experiments with two fracture networks, containing
+respectively 32 and 128 fractures. These networks are randomly generated,
+with some large fractures, by using software MP-FRAC-D3 \cite{erhe09b};
+the domain is partitioned into connected subdomains using the software
+SCOTCH \cite{pell08}. The Schur method is implemented in Matlab.
+In Tables \ref{tab:NN1} and \ref{tab:NN2}, we give convergence results
+for CG and PCG(NN) applied to the Schur system. Clearly, NN
+preconditioner reduces drastically the number of iterations Niter for a
+small number of subdomains Ndom but is not efficient with many
+subdomains, as expected.
+
+We use coarse-grid and deflation preconditioners to overcome this
+difficulty \cite{erhe00b,nab04}. However, currently, these
+preconditioners are not efficient. This might be due to the specific
+structure of the linear system. We further investigate this approach.
+
+\begin{table}[h]
+\begin{tabular}{|l|c|c|}
+\hline
+Ndom & Niter using CG & Niter using PCG(NN) \\ \hline
+2 & 108 & 18 \\ \hline
+4 & 122 & 52 \\ \hline
+8 & 126 & 80 \\ \hline
+16 & 129 & 108 \\ \hline
+\end{tabular}
+\caption{\label{tab:NN1} Number of iterations, solving the Schur system
+by CG and PCG with Neumann-Neumann preconditioner. The network has 32
+fractures.}
+\end{table}
+\begin{table}[h]
+\begin{tabular}{|l|l|l|}
+\hline
+Ndom & Niter using CG & Niter using PCG(NN) \\ \hline
+2 & 153 & 37 \\
+\hline
+4 & 164 & 75 \\
+\hline
+8 & 166 & 96 \\
+\hline
+16 & 165 & 149 \\
+\hline
+32 & 165 & 211 \\
+\hline
+56 & 165 & 275 \\
+\hline
+128 & 165 & 373 \\
+\hline
+\end{tabular}
+\caption{\label{tab:NN2}Number of iterations, solving the Schur system by
+CG and PCG with Neumann-Neumann preconditioner. The network has 128
+fractures.}
+\end{table}
+
+\begin{thebibliography}{1}
+
+\bibitem{carv01}
+L.~Carvalho, L.~Giraud, and P.~Le Tallec.
+\newblock Algebraic two-level preconditioners for the schur complement method.
+\newblock {\em SIAM J. Sci. Comput.}, 22:1987--2005, 2001.
+
+\bibitem{erhe09b}
+J.~Erhel, J.-R. de~Dreuzy, and B.~Poirriez.
+\newblock flow simulations in three-dimensional discrete fracture networks.
+\newblock {\em SIAM Journal on Scientific Computing}, 31(4):2688--2705, 2009.
+
+\bibitem{nab04}
+R.~Nabben and C.~Vuik.
+\newblock A comparison of {D}eflation and {C}oarse {G}rid {C}orrection applied
+to porous media flow.
+\newblock {\em SIAM J. Numer. Anal.}, 42:1631--1647, 2004.
+
+\bibitem{pell08}
+F.~Pellegrini.
+\newblock Scotch 5.1 user's guide.
+\newblock Technical report, LaBRI, 2008.
+
+\bibitem{erhe00b}
+Y.~Saad, M.~Yeung, J.~Erhel, and F.~Guyomarc'h.
+\newblock A deflated version of the conjugate gradient algorithm.
+\newblock {\em SIAM Journal on Scientific Computing}, 21(5):1909--1926, 2000.
+
+\bibitem{tos05}
+A.~Toseli and O.~Widlund.
+\newblock {\em Domain decomposition methods-algorithms and theory}.
+\newblock springer series in computational mathematics, 2005.
+
+\end{thebibliography}
+
+
+\end{document}

@@ -1,0 +1,58 @@
+===affil2:
+Systems Optimization Laboratory, Department of Management Science and Engineering, Stanford University
+===firstname:
+David C.-L.
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Saunders
+===lastname:
+Fong
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+clfong@stanford.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+121 Campus Dr., Apt. 1109B
+Stanford, CA 94305
+===firstname6:
+
+===ABSTRACT:
+\newcommand{\T}{^T\!}
+\newcommand{\norm}[1]{\|#1\|}
+
+
+An iterative method is presented for solving linear systems $Ax=b$ and $\min \norm{Ax-b}_2$, with $A$ being large and sparse, or a fast linear operator. The method is based on the Golub-Kahan bidiagonalization process. It is analytically equivalent to the standard method of MINRES applied to the normal equation $A\T Ax = A\T b$, so that the quantities $\norm{A\T r_k}$ are monotonically decreasing (where $r_k = b - Ax_k$ is the residual for the current iterate $x_k$). In practice we observe that $\norm{r_k}$ also decreases monotonically. Compared to LSQR, for which only  \norm{r_k}$ is monotonic, it is safer to terminate LSMR early.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+LSMR: An iterative algorithm for least-squares problems
+===firstname2:
+Michael A.

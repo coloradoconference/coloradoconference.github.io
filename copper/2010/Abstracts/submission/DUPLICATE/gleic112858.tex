@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David, F. Gleich \\
+{\bf Weakly intrusive methods for uncertainty quantification and parameterized matrix problems}}
+
+74 Barnes Ct #100 \\ Stanford \\ CA 94305
+\\
+{\tt dgleich@stanford.edu}\\
+Paul G. Constantine\\
+Gianluca Iaccarino\end{center}
+
+A recurring debate exists amongst practitioners of uncertainty
+quantification over whether black-box techniques are sufficient for
+meaningful uncertainty quantification or whether existing solvers should
+be modified to apply so-called intrusive methods. In the context of
+spectral methods, advocates of intrusive methodologies favor techniques
+such as Galerkin for their flexibility and smaller number of unknowns,
+while non-intrusive proponents prefer collocation and pseudo-spectral
+methods because they require only existing solvers and exhibit comparable
+asymptotic convergence rates. In this talk, we propose a middle ground: a
+weakly intrusive paradigm. From a parameterized matrix perspective, a
+weakly intrusive method needs a matrix-vector product at a point in the
+parameter space. Methods in this paradigm are easy to implement and
+promote software reuse and algorithmic design. We show how the spectral
+Galerkin technique fits into the weakly intrusive framework in a method
+dubbed Galerkin with Numerical Integration (G-NI). This method depends
+crucially on a factorization of the Galerkin matrix. This factorization
+also yields bounds on the eigenvalues and suggests preconditioning
+strategies including the popular mean based preconditioner.
+
+
+\end{document}

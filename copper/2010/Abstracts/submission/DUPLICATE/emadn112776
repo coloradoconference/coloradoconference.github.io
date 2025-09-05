@@ -1,0 +1,120 @@
+===affil2:
+
+===firstname:
+Nahid
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Emad
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+Nahid.Emad@prism.uvsq.fr
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Laboratoire PRiSM,
+Université de Versailles,
+45, avenue des États-unis
+78035 Versailles cedex
+
+===firstname6:
+
+===ABSTRACT:
+The restarted Arnoldi methods (RAMs) allow to compute some
+eigenpairs of large sparse non Hermitian matrices. However, the size
+of the subspace in these methods is chosen empirically.  A poor
+choice of this size could lead to the non-convergence of the method.
+We propose a technique to remedy to this problem. This approach,
+called multiple restarted Arnoldi method (MRAM) is based on the
+projection of the problem on several Krylov subspaces instead of a
+single one. MRAM allows to update the restarting subspace of a RAM
+by taking into account the interesting eigen-information obtained in
+all subspaces. We present a general framework for this kind of
+methods and an adaptation of its concept to the
+explicitly/implicitly restarted Arnoldi method (ERAM/IRAM). We focus
+then on a particular case of MIRAM with nested subspaces (MIRAMns).
+
+The subspaces in MIRAMns defer by their size while the subspaces in
+the general context of the MRA can defer by their size and their
+initial vectors. MIRAMns makes use of Arnoldi method to compute the
+Ritz elements of a large matrix $A$ in a set of $\ell$ nested Krylov
+subspaces. If the accuracy of the desired Ritz elements calculated
+in none of these subspaces is not satisfactory, MIRAMns selects the
+"best" of these subspaces. This subspace is one that contains the
+"best" Ritz elements. Then a QR shifted algorithm will be applied to
+the $m_{best}\times m_{best}$ matrix which represents $A$ in this
+$m_{best}$-size projection subspace. As these are the non desired
+eigenvalues which are chosen for shifts, the leading submatrix
+issued from QR algorithm concentrates the information corresponding
+to the desired eigenvalues. MIRAMns completes Arnoldi projections on
+$\ell$ nested Krylov subspaces starting with this submatrix whose
+size is the number of wanted eigenvalues. This approach can be
+considered as an IRAM with the largest subspace size in which to
+update the restarting vector the results of the projection on some
+smaller nested subspaces are taken into account.
+
+One of the well known problems of the restarted iterative methods is
+the sensibility of the convergence in the small perturbation on the
+subspace size. Indeed, they can not converge with a subspace and
+converge with the same reduced/extended subspace with nearby sizes.
+MIRAMns allows to remedy to this problem by making choose of the
+"best" size between these subspace sizes. Another advantage of this
+technique is the better property of convergence with almost the same
+complexity relative to IRAM. We present some experiment results
+which show a very good acceleration of convergence with respect to
+the implicitly restarted Arnoldi method.
+
+In point of view of computation, the MRA methods also called hybrid
+methods can be considered as synchronous or asynchronous methods.
+They are well suited to recent large-scale multi-level distributed
+systems. These methods allow to couple synchronously or
+asynchronously several instances of a RAM (also known as co-methods)
+in order to decrease the number of iterations required to compute
+the solution. For a co-method of an asyncrounous hybrid method it is
+still possible to continue the computation even if the results of
+the other co-methods are not available. Moreover asynchronus methods
+are also interesting because they provide built-in fault tolerance.
+As long as one of the co-methods is still running, the application
+will generate a result. Lastly, these methods can improve the
+convergence speed thanks to the heterogeneity of processors.
+Different architectures or processors can lead to different round
+errors due to differences in floating point operations hardware.
+Each method can use the result obtained from the others to decrease
+the effect of round errors. We will see how we can exploit the
+hybrid methods in the context of large scale distributed systems. We
+present then the results of some experiments Grid'5000 which is a
+French national testbed dedicated to large scale distributed system
+experiments.
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Multiple Restarted Arnoldi Methods to Solve Eigenproblem
+===firstname2:
+

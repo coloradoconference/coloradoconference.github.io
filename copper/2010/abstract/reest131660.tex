@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tyrone Rees \\
+{\bf Preconditioning Iterative Methods for the Optimal Control of the Stokes Equations}}
+
+Mathematical Institute \\ 24-29 St Giles' \\ Oxford \\ OX1 3LB \\ UK
+\\
+{\tt tyrone.rees@maths.ox.ac.uk}\end{center}
+
+Solving problems regarding the optimal control of partial differential
+equations (PDEs) -- also known as PDE-constrained optimization -- is a
+frontier area of numerical analysis. Of particular interest is the
+problem of flow control, where one would like to effect some desired flow
+by exerting, for example, an external force. The bottleneck in many
+current algorithms is the solution of the optimality system -- a system
+of equations in saddle point form that is usually very large and
+ill-conditioned. In this talk I will describe a block-diagonal
+preconditioner for the minimal residual method which can be applied to
+such problems where the PDEs are the Stokes equations. We will consider
+only distributed control here, although other problems -- for example
+boundary control -- can be solved in a similar way. I will present
+numerical results, and compare these with those obtained by solving the
+equivalent forward problem using similar techniques.
+
+
+\end{document}

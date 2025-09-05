@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sheik112506</TITLE>
+<META NAME="description" CONTENT="sheik112506">
+<META NAME="keywords" CONTENT="sheik112506">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sheik112506.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Abdul Hanan Sheikh 
+<BR><B>An efficient iterative scheme for the Helmholtz equation with deflation.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Room # HB 07 050 
+<BR>
+EWI Building Makelweg 4 
+<BR>
+2628 CD 
+<BR>
+Delft 
+<BR>
+The Netherlands
+
+<BR><TT>hanangul12@yahoo.co.uk</TT>
+<BR>
+Kees Vuik
+<BR>
+Domenico Lahaye
+</DIV>
+
+<P>
+The Helmholtz equation arises in many physical problems involving steady
+state (mechanical, acoustical, thermal, electromagnetic) oscillations.
+The complexity of the physical problem leaves no choices except to solve
+the equation numerically. The finite difference discretization leads to
+sparse, complex symmetric coefficient matrices that become indefinite for
+sufficient large wave number. The size of the problem increases with the
+wave number as a minimum number of grid points per wavelength is required
+to represent the physics correctly. Krylov subspace and Multigrid
+techniques have been succesfully applied in a wide range of applications.
+For symmetric positive definite problems, the conjugate gradient (CG) is
+the method of choice. For indefinite problems, more general Krylov
+subspace solvers are to be applied. The fast convergence of these methods
+requires some form of preconditioning. The straightforward application of
+multigrid as a preconditioner is hampered by slow convergence causes by
+eigenmodes corresponding to eigenvalues with a negative real part. To
+overcome this difficulty, Shifted-Laplace preconditioners have been
+developed by Yogi A. Erlangga [Tech. Report 03-18, DIAM Delft Univ. Tech.
+The Netherlands, 2003].The idea of shifted-Laplace preconditioners is to
+base the precondioner of the discrete Helmholtz operator with a modified
+shift (coefficient before the first order term) for with the multigrid
+preconditioner can be shown to satisfaction. It was shown that the
+resulting preconditioned GMRES solver has favourable convergence
+properties in the sense the required number of iterations only depends
+mildly on the wavenumber. Allowing some damping in the shifted Laplace
+operator in particalur proves to benefical for speeding up overall
+convergence. In more recent work by Yogi and Nabben[On a ultilevel Krylov
+method for the Helmholtz equation preconditioned by shifted Laplacian, In
+Press], the combined use of deflation and the shifted-Laplace
+precondioner was shown to result in a on more performant solver.In this
+paper we study the combined use of the shifted-Laplace precondioner with
+multigrid deflation. We show that deflation allows to remove unfavourable
+modes in the spectrum of the precondioned operator. This allows us to
+that the Krylov solver is close to optimal in the sense that the required
+number of iterations is almost independent of the wavenumber. Also the
+deflation matrix is sparse. Experimental results to support the claims
+are presented for a 2-D Helmholtz problem.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

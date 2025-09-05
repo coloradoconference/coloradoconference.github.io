@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bj\"orn Gmeiner \\
+{\bf Validation and Optimization of the Convergence Rate on Semi-structured Meshes using the LFA}}
+
+Department of Computer Science \\ System Simulation \\ Cauerstr 6 \\ 91058 Erlangen \\ Germany
+\\
+{\tt bjoern.gmeiner@informatik.uni-erlangen.de}\\
+Tobias Gradl\\
+Francisco Gaspar\\
+Ulrich R\"ude\end{center}
+
+The local Fourier analysis (LFA) is an excellent tool to estimate
+asymptotic convergence factors for iterative solvers. The assumptions for
+the LFA incorporate structured grids, which makes the LFA hard to apply
+for arbitrary Finite Element (FE) meshes. Semi-structured meshes at least
+partly fulfill this requirement. In this talk we compare measured
+convergence rates from the Finite Element program Hierarchical Hybrid
+Grids (HHG) with predictions of the LFA for a two-grid multigrid cycle.
+HHG operates on 15-point stencils resulting from a Finite Element
+discretization on semi-structured three-dimensional tetrahedral meshes.
+Using these stencils the accordance for four iterative smoothers between
+a structured region of HHG and the LFA for differently shaped
+tetrahedral elements will be discussed. Representatives for the
+point-wise relaxation schemes are the Jacobi, a lexicographic and a
+four-color Gauss-Seidel smoother. Also results of a lexicographic line
+smoother are presented.
+
+Further we want to have a look how predictions of structured regions can
+improve the overall convergence by redistributing the smoothing steps
+over the domain. The convergence rates of the structured regions will
+control this redistribution procedure. To determine the convergence
+rates, we compare two approaches, one based on a look-up table, the other
+one based on a direct LFA prediction, in a numerical experiment.
+
+Key words: multigrid, local fourier analysis, convergence rates, smoothers
+
+
+\end{document}

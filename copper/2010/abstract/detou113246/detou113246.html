@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>detou113246</TITLE>
+<META NAME="description" CONTENT="detou113246">
+<META NAME="keywords" CONTENT="detou113246">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="detou113246.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Sylvie Detournay 
+<BR><B>Multigrid methods for stochastic games</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sylvie Detournay 
+<BR>
+INRIA Saclay and CMAP 
+<BR>
+CMAP 
+<BR>
+Ecole Polytechnique 
+<BR>
+Route de Saclay 
+<BR>
+91128 Palaiseau Cedex France
+
+<BR><TT>sylvie.detournay@inria.fr</TT>
+<BR>
+Marianne Akian
+</DIV>
+
+<P>
+We develop a fast numerical algorithm for large scale zero-sum stochastic
+games with perfect information, which combines policy iteration and
+algebraic multigrid methods.
+
+<P>
+Consider a game on a finite state space <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ X$">
+with discounted infinite horizon payoff.
+Each pair of strategies of the two players determines a Markov chain on <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ X$">.
+The value <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v$"> of the game satisfies the following dynamic programing equation:
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq1"></A><!-- MATH
+ \begin{equation}
+v (x) = \max_{\alpha \in \mathcal{A}(x)}\min_{\beta \in \mathcal{B}(x,\alpha)}\left( \sum_{y \in X}
+\gamma P(y|x, \alpha, \beta) v(y) + r(x,\alpha, \beta) \right)\quad \forall x \in X
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="489" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle v (x) = \max_{\alpha \in \mathcal{A}(x)}\min_{\beta \in \mathcal{...
+...y\vert x, \alpha, \beta) v(y) + r(x,\alpha, \beta) \right)\quad \forall x \in X$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="34" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ v(x)$"> is the value of the game starting from the state <IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ x \in
+X$">, <!-- MATH
+ $r(x,\alpha,\beta)$
+ -->
+<IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ r(x,\alpha,\beta)$"> is the paiment made by the second player to the
+first player when the Markov chain is
+in state <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ x$">, if the players choose the actions
+<IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \alpha$"> and <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \beta$"> respectively at the current
+time, <!-- MATH
+ $P(y | x, \alpha, \beta)$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ P(y \vert x, \alpha, \beta)$"> is the transition probability of
+the Markov Chain from state <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ x$"> to state <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ y$">, given
+the actions <IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \alpha$"> and <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \beta$"> at the current time,
+and <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \gamma&lt;1$"> is the discount factor.
+
+<P>
+Equation&nbsp;(<A HREF="#eq1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) may also be obtained after a suitable discretization
+of Hamilton-Jacobi-Bellman or Isaacs partial differential equations :
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq2"></A><!-- MATH
+ \begin{equation}
+\max_{\alpha \in \mathcal{A}(x)}\min_{\beta \in \mathcal{B}(x,\alpha)}\left[ \sum_{ij} a_{ij}(x, \alpha, \beta)
+\frac{ \partial^2 v(x)}{\partial x_i \partial x_j}
++ \sum_{i} g_i(x, \alpha, \beta) \frac{ \partial v(x)}{\partial x_i} - \lambda v(x) +
+r(x,\alpha, \beta) \right] = 0
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="608" HEIGHT="73" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle \max_{\alpha \in \mathcal{A}(x)}\min_{\beta \in \mathcal{B}(x,\al...
+...c{ \partial v(x)}{\partial x_i} - \lambda v(x) + r(x,\alpha, \beta) \right] = 0$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which are dynamic programing equations of zero-sum stochastic differential games.
+
+<P>
+One can solve classically (<A HREF="#eq1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) by applying
+the fixed point method which is
+known as the value iteration algorithm.
+The iterations are cheap but their convergence
+slows considerably
+as <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \gamma$"> approaches one, which holds
+when the discretization step <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ h$"> for&nbsp;(<A HREF="#eq2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is small,
+since then <!-- MATH
+ $\gamma=1-O(\lambda h^2)$
+ -->
+<IMG
+ WIDTH="113" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \gamma=1-O(\lambda h^2)$">.
+Another approach consists in the following
+algorithm called policy iteration, initially introduced by Howard
+(60) for one player games.
+
+<P>
+A policy <!-- MATH
+ $\bar{\alpha}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \bar{\alpha}$"> for the first player
+maps any <IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ x \in
+X$"> to an action <!-- MATH
+ ${\bar{\alpha}}(x)\in \mathcal{A}(x)$
+ -->
+<IMG
+ WIDTH="90" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ {\bar{\alpha}}(x)\in \mathcal{A}(x)$">.
+Given an initial policy <!-- MATH
+ $\bar{\alpha}_0$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \bar{\alpha}_0$">, the
+policy iteration applies successively the two following
+steps:
+
+<OL>
+<LI>Compute the value <IMG
+ WIDTH="38" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ v^{n+1}$"> of the game with fixed policy
+<!-- MATH
+ $\bar{\alpha}_n$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \bar{\alpha}_n$">, that is the solution of
+<!-- MATH
+ $v^{n+1}(x) = F(v^{n+1}; x,\bar{\alpha}_n(x))$
+ -->
+<IMG
+ WIDTH="202" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ v^{n+1}(x) = F(v^{n+1}; x,\bar{\alpha}_n(x))$">, <IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ x \in
+X$">, where
+<!-- MATH
+ \begin{displaymath}
+F(v; x, \alpha) = \min_{\beta \in \mathcal{B}(x,\alpha)}\left( \sum_{y \in X}
+\gamma P(y|x, \alpha, \beta) v(y) + r(x,\alpha, \beta) \right).
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="415" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$\displaystyle F(v; x, \alpha) = \min_{\beta \in \mathcal{B}(x,\alpha)}\left( \sum_{y \in X}
+\gamma P(y\vert x, \alpha, \beta) v(y) + r(x,\alpha, \beta) \right).
+$">
+</DIV><P></P>
+
+<P>
+</LI>
+<LI>Find an optimal policy <!-- MATH
+ $\bar{\alpha}_{n+1}$
+ -->
+<IMG
+ WIDTH="39" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \bar{\alpha}_{n+1}$"> for <IMG
+ WIDTH="38" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ v^{n+1}$">:
+<!-- MATH
+ $\bar{\alpha}_{n+1}(x)$
+ -->
+<IMG
+ WIDTH="61" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \bar{\alpha}_{n+1}(x)$"> is optimizing <!-- MATH
+ $F (v^{n+1};x,\alpha)$
+ -->
+<IMG
+ WIDTH="96" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ F (v^{n+1};x,\alpha)$">.
+</LI>
+</OL>
+
+<P>
+The first step is performed itself using the policy iteration
+algorithm for a one-player game.
+The sequence <!-- MATH
+ $(v^n)_{n\geq 1}$
+ -->
+<IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ (v^n)_{n\geq 1}$"> of the external loop (resp. the sequence of values
+of the internal
+loop) is non decreasing (resp. non increasing) and stops after a
+finite time when the sets of actions are finite.
+Under regularity assumptions, the policy
+iteration algorithm for a one player game with infinite action spaces
+is equivalent to Newton's method, thus can have a
+super-linear convergence in the neighborhood of the solution.
+
+<P>
+In all cases, this method converges faster than the
+value iterations and in practice it ends in few steps
+(see for instance large scale random examples for deterministic games
+in Dhingra, Gaubert, 2006).
+In each internal iteration of the policy iterations, one needs to
+solve a linear system of equations,
+the dimension of which is equal to the cardinality <IMG
+ WIDTH="28" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \vert X\vert$"> of the state space
+<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ X$">.
+When (<A HREF="#eq1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is coming from the discretization of the
+Isaacs partial differential equation
+(<A HREF="#eq2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>), these linear systems correspond to discretizations of linear
+elliptic equations, hence may be solved in the
+best case in a time in the order of <IMG
+ WIDTH="28" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \vert X\vert$">,
+by using multigrid methods.
+In general, using the nice monotonicity properties of these linear
+systems, one may expect the same complexity when solving
+them by an algebraic multigrid method.
+
+<P>
+We have implemented (in C) the policy iteration algorithm in which linear
+systems are solved using a fixed or adapted number of iterations of the
+algebraic multigrid method of Ruge and St&#252;ben (86).
+This algorithm can be applied either to a true finite state space
+zero-sum two player game or to the discretization of an Isaacs equation.
+Such an association of multigrid methods with policy iteration has
+already been used and studied in the case of one player, that is in the case
+of discounted stochastic control problems (see the ancient works
+of Hoppe (86,87) and Akian (88, 90) on Hamilton-Jacobi-Bellman equations,
+and the recent work of Ziv and Shimkin (05)
+on algebraic multigrid methods associated to learning methods).
+However, the association with the policy iteration for games is new.
+We shall present numerical tests
+on discretizations of Isaacs or Hamilton-Jacobi-Bellman equations
+or variational inequalities.
+
+<P>
+The complexity of policy iteration algorithms is still unsettled.
+Recall that the number of iterations is bounded by the
+number of possible strategies, which is exponential in <IMG
+ WIDTH="28" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \vert X\vert$">.
+Moreover, in some reachability (or pursuit-evasion) games,
+the number of iterations is typically of the order of the diameter of the
+domain.
+As for Newton's algorithm,
+convergence can be improved by starting the
+policy iteration with a good initial guess, close to
+the solution. In this
+way, we developed a full multi-level scheme, similar to FMG.
+It consists in solving the problem at each grid level
+by performing policy iterations (combined with algebraic multigrid method)
+until a convergence criterion is verified,
+then to interpolate the strategies and
+value to the next level, in order to initialize the policy iterations
+of the next level, until the finest level is attained.
+Numerical examples on variational inequalities show that the execution time
+can be much improved using this full multi-level scheme.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

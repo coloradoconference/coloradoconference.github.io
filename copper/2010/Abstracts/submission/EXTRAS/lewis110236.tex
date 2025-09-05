@@ -1,0 +1,87 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert M. Lewis \\
+{\bf Properties determining performance of a multilevel optimization scheme}}
+
+Department of Mathematics \\ College of William and Mary \\ P O Box 8795 \\ Williamsburg \\ VA 23187-8795
+\\
+{\tt rmlewi@wm.edu}\\
+Stephen G Nash\end{center}
+
+We present a multilevel optimization approach (termed ML/Opt).
+The approach assumes that one has a hierarchy of models, ordered from fine to
+coarse, of an underlying optimization problem, and that one is interested in
+finding solutions at the finest level of detail. In this hierarchy
+of models calculations on coarser levels are less expensive, but also are of
+less fidelity, than calculations on finer levels. The intent of ML/Opt is to
+use calculations on coarser levels to accelerate the progress of the
+optimization on the finest level.
+
+Global convergence (i.e., convergence to a Karush--Kuhn--Tucker point from an
+arbitrary starting point) is ensured in a straightforward way by requiring a
+single step of a convergent method on the finest level plus a line-search (or
+other globalization technique) for incorporating the coarse level corrections.
+The multilevel approach thus serves primarily as an acceleration technique and
+practical performance is of central interest.
+
+Performance of the multilevel approach, we argue, is a function of four
+properties: the nonlinearity of the problem, the consistency of the models
+across the different levels, complementarity of the problems on different
+levels, and the degree of separability of the problem across the different
+model levels. Some of these are features of the hierarchy of models, while
+others are features of the interaction between the model hierarchy and the
+methods being used to solve the optimization problems at the various levels.
+We present inexpensive self-diagnostic tests that shed light on the
+suitability of the multilevel approach to the problem under consideration,
+tests that can be performed in the course of applying ML/Opt.
+
+In addition, ML/Opt may be an effective acceleration technique at some stages
+of the optimization but not at others. For instance, the conditions under
+which ML/Opt is an effective acceleration technique may not be satisfied when
+far from a solution. On the other hand, as we explain, we expect these
+conditions to be satisfied near an optimizer. The self-diagnostic tests can
+be used to obtain guidance on whether or not to use ML/Opt at different stages
+of the optimization.
+
+By the nonlinearity of the problem, or, more precisely, the nonquadraticity of
+the problem, we mean the extent to which the quadratic models used in the
+optimization fail to capture important features of the problem at any level.
+This can be judged by checking whether the quadratic model finds approximate
+minimizers for the subproblems that are solved to compute optimization steps.
+This test is akin to the mechanisms used to ensure global convergence.
+
+The consistency across levels refers to the extent to which improvements
+in the merit function computed on a coarser level are manifest in the merit
+function at a finer level. This can be measured by comparing reduction in the
+merit function predicted by a coarse level step with the actual reduction
+attained on a finer grid. This test is similar in spirit to the comparison
+of predicted and actual decrease in model trust region methods, though the
+idea is not to regulate the length of the step, but, rather, to judge the
+efficacy of the model being used to generate steps.
+
+The choice of coarser models is similar to the notion in algebraic multigrid
+of a coarse grid corresponding to the near nullspace of a fine grid operator.
+In the optimization context we seek a degree of complementarity of the
+contributions to the solution that are computed on different levels. The
+degree of complementarity can be tested via a generalized Rayleigh quotient
+calculation involving the Hessian of the merit function.
+
+The multilevel approach also requires a degree of separability of the problem
+across different model levels in order to be effective. Separability can be
+estimated by comparing corresponding coarse grid and fine grid Hessian-vector
+products.
+
+We present numerical tests of the approach on a set of synthetic problems
+involving optimization of systems governed by partial differential equations.
+Some of these problems are designed to be amenable to the multilevel approach,
+while others are designed to be resistant. We apply the self-diagnostics to
+these optimization problems and discuss how the self-diagnostic tests reflect
+the extent to which the multilevel approach is appropriate for the problems.
+
+
+\end{document}

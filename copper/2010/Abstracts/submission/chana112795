@@ -1,0 +1,121 @@
+===affil2:
+CEA/DAM/CESTA
+===firstname:
+Mathieu
+===firstname4:
+Jean
+===firstname3:
+Jean-jacques
+===lastname2:
+Goudin
+===lastname:
+Chanaud
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Pesque
+===email:
+mathieu.chanaud@inria.fr
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Roman
+===affil4:
+INRIA bordeaux Sud-Ouest 
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+INRIA Bordeaux Sud-Ouest,
+351 cours de la liberation,
+Bat. A29,
+33405 Talence CEDEX
+France
+===firstname6:
+
+===ABSTRACT:
+Large 3D electromagnetic problems require high
+performance parallel solvers as a huge amount of
+processing power and memory are needed.  In this
+talk we will present a new parallel solver applied
+to time harmonic Maxwell equations discretized by
+Nedelec first order finite elements. Considering
+large 3D objects simulations, this formulation
+leads to large sparse symmetric linear systems
+with complex coefficients. Classical iterative
+methods do not behave well for this kind of
+problems due to ill-conditioned and indefinite
+matrices. Moreover, iteratively computed solutions
+are not accurate enough to evaluate the object's
+radar cross section (RCS). As a consequence,
+actual production software rely on PaStiX parallel
+direct solver which major drawback resides in
+memory consumption.
+
+The aim of the presented method is to manage
+problems with hundreds of million unknowns with
+both direct method accuracy and iterative method
+memory efficiency. The developed solver uses a
+full-multigrid and direct method coupling: a
+parallel direct factorization-solve (LDL$^T$) is
+performed on coarsest level (with a relaxed
+edge-wavelength restriction) while fine mesh
+solves are carried out by a parallel matrix-free
+Jacobi.
+
+As direct solves are performed only on coarsest
+level, memory is bounded by the coarse problem
+size ($n_c$) and more precisely by the Number of
+Non-Zeros ($nnz$) coefficients in the factorized
+matrix. Besides this relatively low memory
+consumption, coarse linear system remains the same
+all along the resolution where multiple coarse
+solves are required. As a result, the
+factorization may be computed once ($O({n_c}^2)$
+flops), and reused each time a coarse solve occurs
+($O(nnz)$ flops). On the other hand, we choose a
+matrix-free method for fine solves that do not
+require any storage, except for solution and right
+hand side vectors ($O(n_f)$).
+
+In order to obtain a scalable parallel solver,
+both load and communication must be balanced. As
+classical direct solver, PaStiX preprocessing step
+consists in renumbering unknowns and mapping them
+over processors reducing communication. Regarding
+fine level solves, this coarse distribution may be
+useful: using an homogeneous refinement step, both
+load balance and communication scheme are
+preserved. The whole method is then fully driven
+by the direct method.
+
+Results obtained on simple material problems show
+that this method works and gives good quality
+solution. On the other hand, problems involving
+complex materials lead to low accuracy
+solution. Using this same method as a
+preconditioner of a parallel matrix free conjugate
+gradient show good results in terms of memory
+consumption and accuracy. Moreover, this
+Preconditioned Conjugate Gradient leads to a very
+fast convergence.
+
+===affil3:
+CEA/DAM/CESTA
+===lastname5:
+
+===affilother:
+
+===title:
+Parallel hybrid multigrid-direct solver applied to large 3D electromagnetism problems. 
+===firstname2:
+David

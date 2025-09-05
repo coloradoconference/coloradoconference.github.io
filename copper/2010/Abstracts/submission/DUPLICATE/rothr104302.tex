@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rolf Roth \\
+{\bf Discrete adjoint techniques for flow optimization}}
+
+Dolivostrasse 15 \\ 64293 Darmstadt \\ Germany
+\\
+{\tt rroth@mathematik.tu-darmstadt.de}\\
+Stefan Ulbrich\end{center}
+
+We describe a systematic way to generate adjoint code by applying an
+efficient sparsity exploiting forward mode of Automatic Differentiation
+to the original code. The result is a linear system for the adjoint that
+can be solved by taking advantage of the original code.
+The structure of a parallel solver can be used for the AD. This gives
+rise to a parallel distribution of the adjoint linear system. Reusage of
+a multigrid structure is also possible.
+
+This procedure has been applied to the finite volume, parallel,
+block-structured, multigrid flow solver FASTEST, which can also run Large
+Eddy Simulations and is written in Fortran. Numerical results of
+engineering applications will be presented.
+
+
+\end{document}

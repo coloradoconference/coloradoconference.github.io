@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Misha Kilmer \\
+{\bf Preconditioners for Image Deblurring from Low-rank Tensor Approximations }}
+
+Tufts University \\ 503 Boston Ave \\ Medford \\ MA 02155
+\\
+{\tt misha.kilmer@tufts.edu}\\
+Carla Martin\end{center}
+
+
+In this talk, we consider the construction of preconditioners for
+two-dimensional image deblurring.
+First, we make an approximation that allows us to model the blurring as a special
+product between a third order tensor and a two-dimensional image.
+Building on a new notion
+of tensor SVD, we express the tensor as a sum of so called {\it matrix
+outer products}. To build the preconditioner
+with the appropriate level of noise filtering, we truncate the expansion.
+The preconditioner is then defined by
+computing the tensor left inverse of the truncated expansion. Some of the
+computations can be interleaved
+for greater processing efficiency. We will give preliminary results
+illustrating the potential of this approach.
+
+
+\end{document}

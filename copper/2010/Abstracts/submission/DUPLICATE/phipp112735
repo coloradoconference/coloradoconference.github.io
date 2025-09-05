@@ -1,0 +1,58 @@
+===affil2:
+
+===firstname:
+Eric T
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Phipps
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+etphipp@sandia.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Sandia National Laboratories
+Optimization and Uncertainty Quantification Department
+PO Box 5800 MS-1318
+Albuquerque, NM  87185
+===firstname6:
+
+===ABSTRACT:
+A critical component of predictive computational simulation is the ability to effectively characterize uncertainties in simulation input data and quantify the effects of those uncertainties on simulation results.  Frequently the system of interest is modeled by the solution to one or more partial differential equations (PDEs) where random variables or fields with known probability distributions model data uncertainties.  In this setting, stochastic Galerkin methods are a powerful family of methods for quantifying uncertainties in PDE solutions when they exhibit a high-degree of regularity with respect to uncertain input data.   However implementing these methods in large-scale computational engineering codes is hampered by the fact that they require formulating and solving a fully coupled spatial-stochastic nonlinear system that is distinctly different from the deterministic nonlinear system they were originally designed for.  Usually this requires rewriting the simulation code to compute the stochastic Galerkin nonlinear residuals and employing specialized solver methods for solving the resulting fully coupled systems, and thus these methods are typically referred to as intrusive.
+
+Even with these challenges, good performance has been obtained with these methods for linear stochastic PDEs due to the many fewer stochastic degrees-of-freedom required for a given level of accuracy compared to non-intrusive methods such as stochastic collocation.  Unfortunately for nonlinear stochastic PDEs, the method becomes much more computationally expensive for problems with large stochastic dimension.  In this talk we investigate the application of these methods to representative nonlinear stochastic PDEs by quantifying the increased computational cost nonlinear problems present for both evaluating nonlinear residual equations and solving the linearized equations in a Newton-type nonlinear solver scheme using iterative, Krylov-based linear solvers.   For problems with large stochastic dimension, we find the matrix-vector multiplies required by the iterative solver dominate the total computational cost.  We then present approaches for reducing the cost of the matrix-vector multiplies based on random field modeling techniques.  
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Analysis of Intrusive Stochastic Galerkin Methods for Uncertainty Quantification of Nonlinear Stochastic PDEs
+===firstname2:
+

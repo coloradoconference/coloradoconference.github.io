@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large D. Lahaye \\
+{\bf Solving Large Scale Imaging Problems Using Manifold-Mapping Combined With Adjoint Sensitivity }}
+
+Delft Institute for Applied Mathematics \\ Delft University of Technology \\ Mekelweg 4 \\ 2628 CD Delft \\ The Netherlands
+\\
+{\tt d.j.p.lahaye@tudelft.nl}\\
+W.  Mulckhuyse\end{center}
+
+Measuring the electro-magnetic field caused by different
+current paths in a work piece allows for a non-invasive
+imaging of corrosion spots. Solving this inverse problem
+on an industrial scale by a black box still represents
+several computational challenges. We formulate the problem
+as a PDE-constrained optimization in which one aims at
+minimizing the discrepancy between measured and simulated
+data in an appropriate norm. The straightforward inclusion
+of a finite element procedure in a derivative-free optimization
+is prohibitively expensive. The space-mapping technique is a family of
+surrogate-based optimization methods that aim at alleviating this
+bottleneck. The manifold-mapping technique in particular is an output
+space-mapping technique in which the mapping between the fine and coarse
+model is constructed in
+such a way to guarantee the converge the convergence to a
+(local) minimizer of the fine model. In this work we attempt to combine
+the manifold-mapping algorithm with adjoint sensitivity hoping to combine
+the best of both worlds. We envisage to arrive that an hybrid algorithm
+that is faster to convergence (due to
+the inclusion of gradient information) while at the same being able to
+escape from local minimizers (inclusion of coarse model information).
+Preliminary numerical results will illustrate some of the salient points
+discussed.
+
+
+\end{document}

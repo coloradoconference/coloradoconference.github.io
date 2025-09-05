@@ -1,0 +1,66 @@
+===affil2:
+Graduate School of Information Science and Technology, Aichi Prefectural University, Japan
+===firstname:
+DU
+===firstname4:
+YAMAMOTO
+===firstname3:
+YU
+===lastname2:
+Tomohiro
+===lastname:
+Lei
+===firstname5:
+ZHANG
+===affil6:
+
+===lastname3:
+Bo
+===email:
+lei-du@na.cse.nagoya-u.ac.jp
+===lastname6:
+
+===affil5:
+Department of Computational Science and Engineering, 
+Graduate School of Engineering, Nagoya University, Japan
+===otherauths:
+
+===lastname4:
+Yusaku
+===affil4:
+Department of Computer Science and Systems Engineering, Graduate School of Engineering, Kobe University, Japan.
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Department of Computational Science and Engineering, 
+Graduate School of Engineering, Nagoya University, Furo-cho, Chikusa-ku, Nagoya 464-8603, Japan
+===firstname6:
+
+===ABSTRACT:
+The problem for solving several linear systems of equations with the same coefficient matrix and different right-hand sides, which can be written as
+\begin{equation}
+Ax_i=b_i, A\in R^{n\times n}, b_i\in R^n, i=1,...,m
+\end{equation}
+appears in many applications, such as in electromagnetic scattering and structural mechanics.
+
+Many methods have been proposed to solve this kind of problem. One main class of these methods is the block solvers, including the block CG, block QMR, block GMRES, block Bi-CGSTAB, etc.
+Recently, Based on the induced dimension reduction theorem, the IDR(s) was developed by Sonneveld and Gijzen[1]. This new family of algorithms has some distinguishing features, for example, IDR(s) may converge the solution using at most n+n/s matrix-vector products, IDR(1) is equivalent to Bi-CGSTAB at the even residuals and IDR(s) with s>1 is competitive with most Bi-CG based methods. 
+
+For these reasons, we proposed the block IDR(s): a block version of IDR(s) for solving linear systems of equation with multiple right-hand sides.  To define our algorithm, we first gave the block IDR theorem, which is a generalization of the IDR theorem and proved that the maximum number of matrix-vector products for block IDR(s) to reach the exact solution in exact arithmetic is n+n/s , the same as IDR(s) for single right-hand side. Numerical experiments show the effectiveness of our proposed method.
+
+Reference:
+[1]P. Sonneveld and M. van Gijzen, IDR(s): a family of simple and fast algorithms for solving large nonsymmetric systems of linear equations, SIAM J. Sci Comput., 31(2008), pp. 1035-1062.
+===affil3:
+School of Mathematical Sciences, Dalian University of Technology, P.R. China
+===lastname5:
+Shao-Liang
+===affilother:
+
+===title:
+A block IDR(s) method for nonsymmetric linear equations with multiple right-hand sides
+===firstname2:
+SOGABE

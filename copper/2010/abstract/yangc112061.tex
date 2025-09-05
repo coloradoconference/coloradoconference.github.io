@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chao Yang \\
+{\bf Heuristics for Accelerating Electronic Structure Calculations}}
+
+Lawrence Berkeley National Lab \\ MS-50F \\ 1 Cyclotron Rd \\ Berkeley \\ CA 94720
+\\
+{\tt cyang@lbl.gov}\\
+Chao Yang\\
+Juan Meza\end{center}
+
+Under the Kohn-Sham density functional theory framework, the electron
+density (rho) associated with a ground state atomistic system can be
+obtained by solving the nonlinear equation rho=diag(f(H(rho))) where f is
+the Fermi-Dirac distribution function and H is the Kohn-Sham Hamiltonian.
+One way to solve this nonlinear equation is to apply a Broyden type of
+method. I will discuss a number of heuristics for constructing an
+effective Jacobian approximation and efficient ways to evaluate
+diag(f(H(rho))).
+
+
+\end{document}

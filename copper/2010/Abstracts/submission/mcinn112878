@@ -1,0 +1,61 @@
+===affil2:
+Tech-X Corporation
+===firstname:
+Lois Curfman
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Cary
+===lastname:
+McInnes
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+mcinnes@mcs.anl.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Mathematics and Computer Science Division
+Argonne National Laboratory
+9700 South Cass Avenue
+Argonne, IL  60439
+===firstname6:
+
+===ABSTRACT:
+Construction of large test fusion reactors such as the International Thermonuclear Experimental Reactor (ITER) will require comprehensive full-device modeling to answer key design questions that are far too expensive to solve through direct experimentation. Full-device modeling will require the self-consistent coupling of codes simulating different physical processes. The regions that develop are distinct in time scales and the physics needed to model them: (1) the core region is a high-temperature, magnetically con&#64257;ned plasma where the fusion reactions take place; (2) the edge region is a colder plasma where the parallel transport competes with the perpendicular transport and the material wall interactions cause atomic and chemical processes to be important; and (3) the material wall contains approximately 90 percent of the fuel in the entire system because of absorption of the plasma fueling gas by the material lattice. Researchers have developed models with varying degrees of accuracy for describing the physics of a region. These different mathematical models subsequently have led to different codes being written, each with many varying implementations and numerical techniques.
+
+To enable modeling from the material wall to the plasma core, the Framework Application for Core-Edge Transport Simulations (FACETS) project is developing a multiphysics, parallel application. An integral aspect of this work is the coupling of core and edge simulations, along with transport and wall interactions. The simplest model for the core eliminates the fast parallel time scale analytically and models only the transport of the plasma across the &#64257;eldlines, a slow process. The models for this transport are stiff because the &#64258;ux transport increases rapidly past a critical threshold. Modern tokamaks operate in the regime where the boundary is near this threshold and thus displays a sensitivity to the core-edge boundary for the regimes of interest.
+
+This presentation will discuss the approach used in FACETS for core-edge coupling, including issues involved in managing concurrent component parallelism. We will provide an overview of the components that model the core and edge regions, and we will explain the role of preconditioned Newton-Krylov methods in this context.  We will present preliminary results using the FACETS framework for coupled core-edge simulations of H-mode pedestal buildup in the DIII-D tokamak.
+
+In addition, we will explain how this fusion research is motivating new capabilities in the PETSc library to better handle strong coupling between two or more distinct mathematical models based on partial differential equations.  Two complementary aspects of research are multimodel algebraic system solution, or how to solve the resulting coupled nonlinear algebraic systems, using Newton-based methods with multiphysics-based linear and/or nonlinear preconditioning, and multimodel algebraic system specification, or how to provide the application programmer the flexibility to specify subsets of physics from which the subsolvers may be efficiently constructed. 
+===affil3:
+FACETS Project Team
+===lastname5:
+
+===affilother:
+
+===title:
+Coupled Core-Edge Fusion Simulations
+===firstname2:
+John

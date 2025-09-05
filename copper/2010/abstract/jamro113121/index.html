@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>jamro113121</TITLE>
+<META NAME="description" CONTENT="jamro113121">
+<META NAME="keywords" CONTENT="jamro113121">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="jamro113121.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Ben Jamroz 
+<BR><B>Jacobian-free Newton-Krylov methods in Production Level Magnetohydrodynamic Codes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tech-X Corporation 
+<BR>
+5621 Arapahoe Ave 
+<BR>
+Suite A 
+<BR>
+Boulder 
+<BR>
+CO 80303
+
+<BR><TT>jamroz@txcorp.com</TT>
+<BR>
+Travis M. Austin
+<BR>
+Scott Kruger
+<BR>   
+<BR>   
+<BR>   
+<BR>   
+</DIV>
+
+<P>
+NIMROD is one of the key MHD simulation tools supported by the DOE's
+Office of Fusion Energy Sciences through the Center for Extended
+Magnetohydrodynamic Modeling (CEMM) SciDAC. NIMROD has successfully
+explained the key heat loss physics mechanisms occurring during tokamak
+disruptions, the onset of tearing modes during tokamak discharges, and
+the confinement times of spheromaks. Although NIMROD is a
+production-level code producing realistic physics results, improvements
+that would enable greater accuracy and faster execution are needed to
+reduce the turnaround time of a simulation.
+
+<P>
+Although, semi-implicit methods are generally successful for enabling
+many of the simulations that NIMROD performs, NIMROD still has a
+time-step limitation due to the nonlinear advection terms in the
+equations. Although there are implicit operators for these terms which
+are often comparably small for simulated cases, there still exists a
+CFL-like condition that depends on the flow velocities of the MHD fluid
+in the plasma. Simulation time constraints can arise from this condition,
+thus overcoming these constraints would extend the capability of NIMROD.
+In addition, the operator splitting introduces discretization errors in
+the NIMROD algorithms. Moving to an algorithm that is fully-centered
+would improve the accuracy of NIMROD, especially for long-time
+simulations.
+
+<P>
+Using the PETSc computational framework, we examine the use of
+fully-centered Jacobian-free Newton-Krylov (JFNK) methods in the NIMROD
+code via the SNES package. Previous approaches in NIMROD to incorporate
+nonlinear terms only considered their addition in an ad hoc manner. We
+report on the first fully nonlinear solve of the velocity equations and
+present current progress on solving the fully nonlinear system for
+velocity, temperature, magnetic field, and density. We will also discuss
+the preconditioning strategy that will be required to efficiently solve
+the linear systems within the JFNK iterations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

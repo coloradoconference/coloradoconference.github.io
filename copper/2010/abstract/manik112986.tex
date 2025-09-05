@@ -1,0 +1,119 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Karthik Mani \\
+{\bf Time-implicit approach using spatially non-uniform time-step adaptation driven by a-posteriori adjoint error estimates}}
+
+University of Wyoming \\ 1000 E University Ave \\ Dept 3295 \\ Laramie WY 82071
+\\
+{\tt kmani@uwyo.edu}\\
+Dimitri Mavriplis\end{center}
+
+We present a space-time finite-volume formulation for the unsteady Euler
+equations, which allows the use of spatially non-uniform time-step sizes
+in the context of an implicit time discretization on dynamically
+deforming meshes. The space and time dimensions are treated in a unified
+manner by integrating the equations over control volumes spanning both
+space and time. The space-time control volumes for the two-dimensional
+example problems presented in this work are prismatic in nature and are
+constructed by connecting the vertices of triangular spatial elements at
+two different time-steps. The triangular spatial elements that form the
+top and bottom bounding surfaces of the prismatic space-time element are
+termed temporal faces and have normal vector components that are zero in
+the spatial dimensions. The space-time element is bounded on the sides by
+space-time faces and can have either zero or non-zero temporal normal
+vector components. The normal vectors of the space-time faces have
+non-zero temporal components in the presence of spatial mesh motion and
+have zero temporal components when spatial mesh motion is absent. The
+space-time finite-volume formulation inherently accounts for the effect
+of dynamically deforming computational meshes. It is shown that
+discretizing the Euler equations in space-time finite-volume form is
+identical to discretizing the Euler equations written in the
+Arbitrary-Lagrangian-Eulerian form.
+
+The primary goal of using the space-time framework is to maintain
+solution accuracy while reducing the number of unknowns in the overall
+solution process and potentially lower computational expense. While the
+formulation presented is capable of simultaneously handling non conformal
+meshes in both space and time, the scope of this work is limited to
+conformal spatial meshes with non conformal temporal meshes. At any slice
+in time, the number of spatial elements remains the same, but across any
+slice in space, the number of time-steps is allowed to vary. In
+traditional terms, this translates to non-uniform temporal advancement of
+spatial elements in an unsteady problem.
+
+The solution process involves first dividing the time domain of interest
+into slabs of some predetermined temporal thickness that is sufficient to
+capture the essential nonlinearities in the problem. Then, an
+a-posteriori error indicator is employed to identify spatial elements
+within each temporal slab that have to be advanced with more time-steps
+of smaller size. In contrast to traditional implicit time-stepping
+methods where the solution for all spatial elements at a time-step is
+unknown and solved for implicitly, the implicit system in the space-time
+framework assumes an unknown solution for all space-time elements within
+each temporal slab. Compared to advancing on a time-step by time-step
+basis, the space-time framework is advanced in time on a slab-by-slab
+basis. A single implicit system of equations within a slab has to be
+solved for before proceeding to the next temporal slab. It should be
+noted that the proposed solution method is distinctly different from
+adapting the time-step size on-the-fly during the nonlinear solution
+process for each spatial element. While there have been attempts to solve
+the governing equations in space-time integral form [1-3], advancing
+spatial elements non-uniformly in time has mostly been limited to
+explicit time-integration schemes.
+
+For the work here, both local error-based and goal-based a-posteriori
+error indicators are investigated for use in the space-time framework.
+The local error-based indicator is constructed by re-evaluating the time
+derivative term in the governing equations based on a higher order
+discretization but using the obtained solution. Goal-based error
+estimates are achieved by solving the adjoint equations in the space-time
+framework and weighting the non-zero implicit residual with it. Previous
+work on adapting the time-step size in different parts of the time domain
+but uniformly for all spatially elements has shown savings in
+computational expense and total degrees-of-freedom [4]. The proposed
+method attempts to take this one step further by adapting not only the
+time-step size in the time domain but additionally adapt the time-step
+size locally for each spatial element.
+
+
+Two unsteady problems, one where an isentropic vortex is convected
+through a rectangular domain and one of a pitching NACA64A010 airfoil in
+transonic conditions are presented to demonstrate the algorithm. In the
+vortex convection problem, the local temporal error indicator is used to
+identify space-time elements which require higher resolution in the time
+dimension, thus marking them for temporal refinement. In the case of the
+transonic pitching airfoil, the adjoint-weighted residual method
+targeting the lift is used as the error indicator. The results indicate
+that significant reduction in the overall degrees-of-freedom required to
+solve an unsteady problem can be achieved using the proposed algorithm.
+Modest improvements in computational expense for specific problems are
+also observed.
+
+
+[1] van der Vegt, J. J. W. and van der Ven, H., "Space-time discontinuous
+Galerkin finite element method with dynamic grid motion for inviscid
+compressible flows: I. general formulation," Journal of Computational
+Physics, Vol. 182-2, 2002, pp. 546--585.
+
+[2] Barth, T. J., "Space-Time Error Representation and Estimation in
+Navier-Stokes Calculations," Lecture Notes in Computational Science and
+Engineering, Vol. 56, 2007.
+
+[3] Abedi, R., Chung, S.-H., Erickson, J., Fan, Y., Garland, M., Guoy,
+D., Haber, R., Sullivan, J. M., Thite, S., and Zhou, Y., "Spacetime
+meshing with adaptive refinement and coarsening," Annual Symposium on
+Computational Geometry, Proceedings of the twentieth annual symposium on
+Computational geometry Brooklyn, New York, USA, 2004.
+
+[4] Mani, K., Mavriplis, D.J., "Error estimation and adaptation for
+functional outputs in time-dependent flow problems", Journal of
+Computational Physics. Vol. 229-2, January 2010, pp. 415-440,
+doi:10.1016/j.jcp.2009.09.034
+
+
+\end{document}

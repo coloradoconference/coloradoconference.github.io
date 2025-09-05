@@ -1,0 +1,75 @@
+===affil2:
+Umea University, Sweden
+===firstname:
+Xiaoye S.
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Shao
+===lastname:
+Li
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+xsli@lbl.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Lawrence Berkeley National Laboratory
+MS 50F-1650
+1 Cyclotron Rd, Berkeley, CA 94720-8139  
+===firstname6:
+
+===ABSTRACT:
+We present a new supernode-based incomplete LU factorization method
+to construct a preconditioner for solving sparse nonsymmetric linear
+systems with iterative methods.  The new algorithm is primarily based
+on the ILUTP approach by Saad, and we incorporate a number of
+techniques to improve the robustness and performance of the
+traditional ILUTP method. We present numerical experiments to
+demonstrate that our new method is competitive with the other ILU
+approaches and is well suited for today's high performance architectures.
+
+Our contributions can be summarized as follows. We adapt the classic
+dropping strategies of ILUTP in order to incorporate supernode
+structures and to accommodate dynamic supernodes due to partial
+pivoting. For the secondary dropping strategy, we propos an
+area-based fill control method, which is more flexible and numerically
+robust than the traditional column-based scheme.  Furthermore, we
+incorporate several heuristics for adaptively modifying various
+threshold parameters as the factorization proceeds, which improves
+the robustness of the algorithm.  Finally, the implementation of the 
+algorithm has already been incorporated in the SuperLU version 4.0
+release, downloadable at
+http://crd.lbl.gov/~xiaoye/SuperLU/superlu_4.0.tar.gz
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+A Supernodal Approach to ILU with Partial Pivoting
+===firstname2:
+Meiyue

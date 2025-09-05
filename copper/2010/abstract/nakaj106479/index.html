@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>nakaj106479</TITLE>
+<META NAME="description" CONTENT="nakaj106479">
+<META NAME="keywords" CONTENT="nakaj106479">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nakaj106479.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kengo NAKAJIMA 
+<BR><B>Parallel Multigrid Solvers using OpenMP/MPI Hybrid Programming Models on Multi-Core/Multi-Socket Clusters</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Information Technology Center 
+<BR>
+The University of Tokyo 
+<BR>
+2-11-16 Yayoi 
+<BR>
+Bunkyo-ku 
+<BR>
+Tokyo 113-8658 
+<BR>
+JAPAN
+
+<BR><TT>nakajima@cc.u-tokyo.ac.jp</TT>
+</DIV>
+
+<P>
+In order to achieve minimal parallelization overheads on SMP (symmetric
+multiprocessors) and multi-core clusters, a multi-level hybrid parallel
+programming model is often employed. In this method, coarse-grained
+parallelism is achieved through domain decomposition by message passing
+among nodes, while fine grained parallelism is obtained via loop-level
+parallelism inside each node using compiler-based thread parallelization
+techniques, such as OpenMP. Another often used programming model is the
+single-level flat MPI model, in which separate single-threaded MPI
+processes are executed on each core. In the previous work [1], author
+applied OpenMP/MPI hybrid parallel programming models to finite-element
+based simulations of linear elasticity problems. The developed code has
+been tested on the T2K Open Supercomputer using up to 512 cores.
+Performance of OpenMP/MPI hybrid parallel programming model is
+competitive with that of flat MPI using appropriate command lines for
+NUMA control. Furthermore, reordering of the mesh data for contiguous
+access to memory with first touch data placement provides excellent
+improvement on performance of OpenMP/MPI hybrid parallel programming
+models. Generally speaking, OpenMP/MPI hybrid parallel programming model
+provides excellent performance for strong scaling cases where problems
+are less memory-bound. In the present work, OpenMP/MPI hybrid parallel
+programming models were implemented to 3D finite-volume based simulation
+code for groundwater flow problems through heterogeneous porous media
+using parallel iterative solvers with multigrid preconditioning.
+Multigrid is a scalable method and expected to be a promising approach
+for large-scale computations, but there are no detailed research works
+where multigrid methods are evaluated on multi-core/multi-socket clusters
+using OpenMP/MPI hybrid parallel programming models. In this work,
+developed code has been evaluated on the "T2K Open Super Computer (Todai
+Combined Cluster) (T2K/Tokyo)"at the University of Tokyo, and "Cray-XT4"
+at National Energy Research Scientific Computing Center (NERSC) of
+Lawrence Berkeley National Laboratory using up to 1,024 cores, and
+performance of flat MPI and three kinds of OpenMP/MPI hybrid parallel
+programming models are evaluated. Optimization procedures for OpenMP/MPI
+hybrid parallel programming models originally developed for 3D FEM
+applications, such as appropriate command lines for NUMA control, first
+touch data placement and reordering of the mesh data for contiguous
+access to memory, provided excellent improvement of performance on
+multigrid preconditioners with OpenMP/MPI hybrid parallel programming
+models. OpenMP/MPI hybrid demonstrated better performance and robustness
+than flat MPI, especially with large number of cores for illconditioned
+problems. Thus, hybrid parallel programming model could be a reasonable
+choice for large-scale computing on multi-core/multi-socket clusters.
+
+<P>
+References
+
+<P>
+[1] Nakajima, K.: Flat MPI vs. Hybrid: Evaluation of Parallel Programming
+Models for Preconditioned Iterative Solvers on "T2K Open Supercomputer",
+IEEE Proceedings of the 38th International Conference on Parallel
+Processing (ICPP-09), pp.73-80 (2009)
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

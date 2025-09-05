@@ -1,0 +1,92 @@
+===affil2:
+Mathematics and Computer Science Division, Argonne National Laboratory
+===firstname:
+Stefan
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Mor\'{e}
+===lastname:
+Wild
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+wild@mcs.anl.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Mathematics and Computer Science Division, 
+Argonne National Laboratory, 
+9700 S Cass Ave, 
+Argonne Illinois 60439-4844.
+===firstname6:
+
+===ABSTRACT:
+%uses packages{url,amsmath,amssymb} 
+
+Computational noise in deterministic simulations is as ill-defined a concept as can be found in scientific computing.  The effects (see e.g.,  \cite{Higham2002}) of finite precision arithmetic, discretizations, numerical solutions to systems of equations, and adaptive techniques are typically swept under the rug of most modern simulation codes, the outputs of which we tacitly assume are smooth. 
+
+We are motivated by simulation-based optimization problems of the form
+\begin{equation}
+\min\left\{ f(x)=F[s(x)] : x\in \Omega\subseteq \mathbb{R}^n\right\},
+\label{eq:spopt}
+\end{equation}
+where the objective is determined by the output, $s:\mathbb{R}^n\rightarrow \mathbb{R}^m$, of a numerical simulation. While the function $F$ and the process approximated by $s$ are typically smooth, the computed $f$ is often noisy.  In addition to hampering optimization techniques, this computational noise can complicate sensitivity analysis and other applications, which depend on a smooth simulation output.
+
+In this talk we present an algorithm, \textsf{ECNoise}, for quantifying computational noise based on the work of Hamming \cite{hamming1971ian}. Our theoretical framework is based on a model of stochastic noise in univariate functions, 
+but requires only relatively few function evaluations and relies on very few assumptions.  In particular, we do not assume any specific distribution forms for the cumulative errors.  Our numerical tests suggest the algorithm is also effective for deterministic and multivariate functions. 
+
+Given a univariate stochastic $f: \mathbb{R} \rightarrow \mathbb{R}$, we estimate the \underline{noise level} $\epsilon_f:=\left(\mbox{Var}\{f(t)\}\right)^{1/2}$ by a weighted root-mean-square of $k$-th order differences:
+\begin{equation}
+\sigma_k = \left(\frac{1}{m-k+1}\frac{(k!)^2}{(2k)!} \sum_{i=0}^{m-k} \left[\Delta^k f(t+ih) \right]^2\right)^{1/2}.
+\label{eq:est}
+\end{equation}
+Given a set of $m+1$ function values, \textsf{ECNoise} determines whether the sampling distance $h$ is sufficiently small, and an order $k\leq m$ to estimate $\epsilon_f \approx \sigma_k$.  Numerical tests on stochastic functions show that \textsf{ECNoise} generally produces consistent results using as few as $m=6$ additional function evaluations, independent of the dimension. 
+
+We illustrate the potential for using \textsf{ECNoise} to gain insight into complex deterministic numerical simulations by considering the fundamental problem of solving a sparse linear system.  
+\begin{itemize}
+ \item When is the computational noise more than simple round off? 
+ \item Is the noise level a property of the solver's operations or the underlying (continuous)  function?  
+ \item Does demanding a tighter tolerance reduce the noise? 
+\end{itemize}
+Using the Krylov solvers in \texttt{MATLAB} \cite{linearsys} and the symmetric positive definite matrices in the Florida Sparse Matrix collection \cite{ufmatrices}, we find surprising answers to these and other questions.
+
+\begin{thebibliography}{1}
+\bibitem{linearsys}  R. Barrett, M. Berry, T. F. Chan, J. Demmel, J. Donato, J. Dongarra, V. Eijkhout, R. Pozo, C. Romine, and H. Van der Vorst. {\em Templates for the Solution of Linear Systems: Building Blocks for Iterative Methods, 2nd Edition}. SIAM, Philadelphia, PA, 1994.
+
+  \bibitem{ufmatrices}  T.A. Davis. {\em The University of Florida Sparse Matrix Collection.} Available at \url{http://www.cise.ufl.edu/research/sparse/matrices},  2009.
+
+  \bibitem{hamming1971ian} R.W. Hamming. {\em Introduction to Applied Numerical Analysis.} McGraw-Hill, 1971.
+
+\bibitem{Higham2002} N.J. Higham. {\em Accuracy and Stability of Numerical Algorithms}. SIAM, Philadelphia, PA, 1996.
+\end{thebibliography}
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Estimating Computational Noise in Iterative Solvers
+===firstname2:
+Jorge

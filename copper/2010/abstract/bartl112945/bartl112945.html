@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bartl112945</TITLE>
+<META NAME="description" CONTENT="bartl112945">
+<META NAME="keywords" CONTENT="bartl112945">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bartl112945.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Roscoe Bartlett 
+<BR><B>Technical and Software Challenges for Integrating Embedded Optimization Algorithms in Production Application Codes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">PO Box 5800 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1318
+
+<BR><TT>rabartl@sandia.gov</TT>
+<BR>
+Roscoe Bartlett
+</DIV>
+
+<P>
+Embedded gradient-based optimization algorithms can out perform
+non-invasive black-box optimization algorithms by large margins in speed,
+accuracy and robustness in many cases. However, incorporating an embedded
+optimization algorithm in a complex production application code is very
+difficult to achieve, especially after a large simulation code already
+exists. Different heroic efforts to get embedded optimization algorithms
+into production codes have ultimately failed to achieve any real impact
+because the interface and capabilities were not maintained as the code
+was continued to be developed. There are many obstacles to getting
+embedded optimization into production applications and maintaining the
+capability (so that I can be used when it is really needed). Production
+codes may not use sufficiently smooth mathematical formulations or
+numerical approaches to provide smooth function derivatives. Even if the
+functions are smooth, the production code may not be able to efficiently
+compute accurate derivatives (e.g. using an automatic differentiation
+tool). The structure of the application code may be very inflexible and
+not allow the exposure of basic model functions and derivative operators
+or allow control by the embedded optimization algorithm. Related to this,
+when an embedded optimization algorithm is incorporated into an
+production application, if it is not intimately integrated into the basic
+infrastructure of the application, then the “hooks” will be lost through
+atrophy. Lastly, if the software for the complex embedded optimization
+algorithms and the production application are not kept integrated on a
+frequent schedule, then the integrated embedded optimization capability
+can disappear as the two codes continue to be developed independently.
+
+<P>
+In this presentation, I will describe experience at Sandia National Labs
+in trying to incorporate embedded optimization algorithms in the MOOCHO
+(once called rSQP++) package into several different semi-production
+application codes. Early failures of the form described above will be
+mentioned as well as current efforts to address the problems. The core
+problems are being addressed on all fronts and there are now examples of
+integrated embedded optimization capabilities that are being maintained
+over many years, even over long periods where active embedded
+optimization work is being done. The primary approaches that will be
+discussed are the concept of Abstract Numerical Algorithms and the Thyra
+interface layer, automatic differentiation of C++ codes using
+Trilinos/Sacado, the Trilinos/Thyra ModelEvaluator interface to define
+the application infrastructure, and formalized frequent software
+integration strategies to maintain integrated embedded optimization
+capabilities.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

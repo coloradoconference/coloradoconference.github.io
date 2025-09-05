@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vuduc093801</TITLE>
+<META NAME="description" CONTENT="vuduc093801">
+<META NAME="keywords" CONTENT="vuduc093801">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vuduc093801.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Richard W. Vuduc 
+<BR><B>Model-driven autotuning of sparse matrix-vector multiply on GPUs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Georgia Institute of Technology 
+<BR>
+College of Computing 
+<BR>
+Computational Science and Engineering Division 
+<BR>
+266 Ferst Drive 
+<BR>
+Atlanta 
+<BR>
+GA 30332-0765 
+<BR>
+USA
+
+<BR><TT>richie@cc.gatech.edu</TT>
+<BR>
+Jee Whan Choi
+<BR>
+Amik Singh
+</DIV>
+
+<P>
+We present a performance model-driven framework for automated
+performance tuning (autotuning) of sparse matrix-vector multiply
+(SpMV) on systems accelerated by graphics processing units (GPU). Our
+study consists of two parts.
+
+<P>
+First, we describe several carefully hand-tuned SpMV implementations
+for GPUs, identifying key GPU-specific performance limitations,
+enhancements, and tuning opportunities. These implementations, which
+include variants on classical blocked compressed sparse row (BCSR) and
+blocked ELLPACK (BELLPACK) storage formats, match or exceed
+state-of-the-art implementations. For instance, our best BELLPACK
+implementation achieves up to 29.0 Gflop/s in single-precision and 15.7
+Gflop/s in double-precision on the NVIDIA T10P multiprocessor (C1060),
+enhancing prior state-of-the-art unblocked implementations (Bell and Garland, 2009)
+by up to 1.8<IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \times$"> and 1.5<IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \times$"> for single- and double-precision respectively.
+
+<P>
+However, achieving this level of performance requires input
+matrix-dependent parameter tuning. Thus, in the second part of this
+study, we develop a performance model that can guide tuning. Like
+prior autotuning models for CPUs (e.g., Im, Yelick, and Vuduc, 2004),
+this model requires offline measurements and run-time estimation, but
+more directly models the structure of multithreaded vector processors
+like GPUs. We show that our model can identify the implementations
+that achieve within 15% of those found through exhaustive search.
+
+<P>
+This paper appeared in the 15th ACM SIGPLAN Annual Symposium on
+Principles and Practice of Parallel Programming (PPoPP), January 2010.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

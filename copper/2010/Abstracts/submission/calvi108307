@@ -1,0 +1,55 @@
+===affil2:
+CNRS, LIFL, France
+===firstname:
+Christophe
+===firstname4:
+Erell
+===firstname3:
+J\'er\ôme
+===lastname2:
+Petiton
+===lastname:
+Calvin
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Dubois
+===email:
+christophe.calvin@cea.fr
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Jamelot
+===affil4:
+CEA/DEN/DANS/DM2S/SERMA
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+CEA/DEN/DANS/DM2S/SERMA
+CEA Saclay, 91191 Gif-sur-Yvette cedex, FRANCE
+===firstname6:
+
+===ABSTRACT:
+Iterative solvers for eigenvalue computation are widely used in physics and numerical applications. As for linear solvers, it usually represents a major computing time in the overall application performance. Thus for many years now, these kind of numerical kernels have been optimized on different architectures like massively parallel computers. For a few years now, new emerging technologies arised based on accelerators, like CELL or GPGPU. But with these new multicore and hybrid architectures, new problems emerged like arithmetic accuracy, efficient programming and hybrid parallelization.
+In this talk, we will study the numerical behavior of heterogeneous systems such as CPU with GPU or IBM Cell processors for some orthogonalization processes for the Arnoldi method, which are crucials for eigensolvers. We focus on the influence of the different floating arithmetic handling of these accelerators with Gram-Schmidt orthogonalizations (classical, modified or re-orthogonalized versions) using single and double precision. We will present performance results on dense and sparse matrices and will discuss about hybrid parallelization mixing classical message passing with GPGPU highly multithreaded parallelization.
+
+===affil3:
+CEA/DEN/DANS/DM2S/SERMA - CNRS, LIFL
+===lastname5:
+
+===affilother:
+
+===title:
+Iterative Eigenvalue Computation on multicore and hybrid architecture
+===firstname2:
+Serge

@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Samet Y. Kadioglu \\
+{\bf ANALYSIS OF A SELF-CONSISTENT IMEX METHOD FOR TIGHTLY COUPLED NON-LINEAR SYSTEMS}}
+
+Fuels Modeling and Simulation Department \\ Idaho National Laboratory \\ P O Box 1625 \\ MS 3840 \\ Idaho Falls \\ ID \\ 83415
+\\
+{\tt samet.kadioglu@inl.gov}\\
+Dana  A. Knoll\\
+Robert  B.  Lowrie\end{center}
+
+We introduce a mathematical analysis for our self-consistent
+Implicit/Explicit (IMEX) algorithm. This algorithm is designed to produce
+second order time convergent solutions to multi-physics
+and multiple time scale fluid problems. The algorithm is a combination of
+an explicit block that solves the non-stiff
+part and an implicit block that solves the stiff part of the problem. The
+explicit block is always solved inside the implicit block as part of the
+non-linear function evaluation making use of the Jacobian-Free Newton
+Krylov (JFNK) method. In this way, there is a continuous interaction
+between the implicit and explicit blocks meaning that the improved
+solutions (in terms of time accuracy) at each non-linear iteration are
+immediately felt by the explicit block and the improved explicit
+solutions are
+readily available to form the next set of non-linear residuals. This
+continuous interaction between the two algorithm blocks results in an
+implicitly balanced algorithm in that all the non-linearities due to
+coupling of different time terms are converged. In other words, we obtain
+a self-consistent
+IMEX method that eliminates the order reduction in time accuracy for
+certain type of problems that a classical IMEX method can suffer from. We
+note that the classic IMEX method splits the operators such a way that
+the implicit and explicit blocks are executed independent of each other,
+and this may lead to non-converged non-linearities therefore time
+inaccuracies for certain models. In this study, we provide a mathematical
+analysis (modified equation analysis) that examines and compares the time
+behavior of our self-consistent IMEX method versus the classic IMEX
+method. We also provide computational results to verify our analytical
+findings.
+
+
+\end{document}

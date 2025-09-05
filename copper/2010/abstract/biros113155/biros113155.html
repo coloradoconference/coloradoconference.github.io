@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>biros113155</TITLE>
+<META NAME="description" CONTENT="biros113155">
+<META NAME="keywords" CONTENT="biros113155">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="biros113155.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">George Biros 
+<BR><B>FaIMS: A fast algorithm for the inverse medium problem in acoustic scattering</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">266 Ferst Dr 
+<BR>
+Georgia Tech 
+<BR>
+Atlanta 
+<BR>
+GA 30332
+
+<BR><TT>gbiros@acm.org</TT>
+<BR>
+Stephanie Chaillat
+</DIV>
+
+<P>
+We consider the inverse medium problem for the time-harmonic
+wave equation with broadband and multi-point illumination in the low
+frequency regime. Such a problem finds many applications in
+geosciences (e.g. ground penetrating radar), non-destructive
+evaluation (acoustics), and medicine (optical tomography). We use an
+integral-equation (Lippmann-Schwinger) formulation, which we
+discretize using a quadrature method. We consider only small
+perturbations (Born approximation). To solve this inverse problem, we
+use a least-squares formulation. We present a new fast algorithm for
+the efficient solution of this particular least-squares problem.
+
+<P>
+If <IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ N_{\fr}$"> is the number of excitation frequencies, <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ N_{s}$"> the
+number of different source locations for the point illuminations,
+<IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ N_{d}$"> the number of detectors, and <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ N$"> the parametrization for the
+scatterer, a dense singular value decomposition for the overall
+input-output map will have <!-- MATH
+ $[\min(N_{s} N_{\fr}N_{d}, N)]^{2}
+\times \max(N_{s} N_{\fr}N_{d}, N)$
+ -->
+<IMG
+ WIDTH="271" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ [\min(N_{s} N_{\fr}N_{d}, N)]^{2}
+\times \max(N_{s} N_{\fr}N_{d}, N) $"> cost. We have developed a fast
+SVD-based preconditioner that brings the cost down to <!-- MATH
+ $O( N_{s}N_{\fr} N_{d}
+N)$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ O( N_{s}N_{\fr} N_{d}
+N)$"> thus, providing orders of magnitude improvements over a black-box
+dense SVD and an unpreconditioned linear iterative solver.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

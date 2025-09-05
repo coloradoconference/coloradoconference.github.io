@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>cyrer110281</TITLE>
+<META NAME="description" CONTENT="cyrer110281">
+<META NAME="keywords" CONTENT="cyrer110281">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cyrer110281.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Eric C. Cyr 
+<BR><B>Approximate Block Factorization and Physics-based Preconditioning: Application to CFD and MHD</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+MS 1320 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1320
+
+<BR><TT>eccyr@sandia.gov</TT>
+<BR>
+John N. Shadid
+<BR>
+Ray S. Tuminaro
+</DIV>
+
+<P>
+Multiphysics applications are characterized by strongly-nonlinear coupled
+physical mechanisms that produce a solution with a wide-range of length
+and time scales. As a result, developing effective preconditioners for
+these systems can be a formidable challenge. One approach, which has
+demonstrated some success in a range of multiphysics applications (low
+Mach number CFD, reacting flow, drift-diffusion simulations and low Mach
+number resistive MHD), is a multigrid method with incomplete
+factorization smoothing. The coarsening is an aggressive graph-based
+aggregation applied to the nonzero block structure of the Jacobian
+matrix. These techniques have been shown to have favorable scaling
+properties for a number of nearly-elliptic systems. However, it is an
+open question on how robust and efficient these methods will be as the
+physics increases in complexity or progresses towards the hyperbolic
+limit.
+
+<P>
+An alternative approach is to use approximate block factorizations for
+preconditioning of multiphysics systems. These methods segregate the
+linear operator into different sub-matrices based on the components of
+the physics. These individual components are typically more amenable to
+black-box AMG technology. The difficulty with this approach is that an
+effective approximation of the physical coupling embodied in the Schur
+complement operator is required. For the Navier-Stokes equations this has
+been a very active area of study. The approaches have included the basic
+physics-based SIMPLE solution method to more sophisticated techniques
+based on commuting arguments, such as the pressure-convection diffusion
+or least-squares commutator preconditioners.
+
+<P>
+In this talk performance results for both preconditioning techniques are
+compared. Several applications are considered, including Navier-Stokes
+and compressible and incompressible Magnetohydrodyanamics. The specific
+Schur complement approximations as well as the implementation of these
+methods in the recently developed Trilinos software package ``Teko'' will
+be discussed.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wilds110261</TITLE>
+<META NAME="description" CONTENT="wilds110261">
+<META NAME="keywords" CONTENT="wilds110261">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wilds110261.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Stefan Wild 
+<BR><B>Estimating Computational Noise in Iterative Solvers</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 S Cass Ave 
+<BR>
+Argonne Illinois 60439-4844
+
+<BR><TT>wild@mcs.anl.gov</TT>
+<BR>
+Jorge Mor&#233;
+</DIV>
+
+<P>
+Computational noise in deterministic simulations is as ill-defined a
+concept as can be found in scientific computing. The effects (see e.g.,
+[<A
+ HREF="node1.html#Higham2002">4</A>]) of finite precision arithmetic, discretizations,
+numerical solutions to systems of equations, and adaptive techniques are
+typically swept under the rug of most modern simulation codes, the
+outputs of which we tacitly assume are smooth.
+
+<P>
+We are motivated by simulation-based optimization problems of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:spopt"></A><!-- MATH
+ \begin{equation}
+\min\left\{ f(x)=F[s(x)] : x\in \Omega\subseteq \mathbb{R}^n\right\},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="254" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min\left\{ f(x)=F[s(x)] : x\in \Omega\subseteq \mathbb{R}^n\right\},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the objective is determined by the output,
+<!-- MATH
+ $s:\mathbb{R}^n\rightarrow \mathbb{R}^m$
+ -->
+<IMG
+ WIDTH="94" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ s:\mathbb{R}^n\rightarrow \mathbb{R}^m$">, of a numerical simulation.
+While the function <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ F$"> and the process approximated by <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ s$"> are typically
+smooth, the computed <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f$"> is often noisy. In addition to hampering
+optimization techniques, this computational noise can complicate
+sensitivity analysis and other applications, which depend on a smooth
+simulation output.
+
+<P>
+In this talk we present an algorithm, <I>ECNoise</I>, for quantifying
+computational noise based on the work of Hamming [<A
+ HREF="node1.html#hamming1971ian">3</A>].
+Our theoretical framework is based on a model of stochastic noise in
+univariate functions,
+but requires only relatively few function evaluations and relies on very
+few assumptions. In particular, we do not assume any specific
+distribution forms for the cumulative errors. Our numerical tests suggest
+the algorithm is also effective for deterministic and multivariate
+functions.
+
+<P>
+Given a univariate stochastic <!-- MATH
+ $f: \mathbb{R} \rightarrow \mathbb{R}$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ f: \mathbb{R} \rightarrow \mathbb{R}$">, we
+estimate the <U>noise level</U>
+<!-- MATH
+ $\epsilon_f:=\left(\mbox{Var}\{f(t)\}\right)^{1/2}$
+ -->
+<IMG
+ WIDTH="146" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \epsilon_f:=\left(\mbox{Var}\{f(t)\}\right)^{1/2}$"> by a weighted
+root-mean-square of <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ k$">-th order differences:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:est"></A><!-- MATH
+ \begin{equation}
+\sigma_k = \left(\frac{1}{m-k+1}\frac{(k!)^2}{(2k)!} \sum_{i=0}^{m-k}
+\left[\Delta^k f(t+ih) \right]^2\right)^{1/2}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="342" HEIGHT="77" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle \sigma_k = \left(\frac{1}{m-k+1}\frac{(k!)^2}{(2k)!} \sum_{i=0}^{m-k} \left[\Delta^k f(t+ih) \right]^2\right)^{1/2}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Given a set of <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ m+1$"> function values, <I>ECNoise</I> determines whether
+the sampling distance <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ h$"> is sufficiently small, and an order <IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ k\leq m$">
+to estimate <!-- MATH
+ $\epsilon_f \approx \sigma_k$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \epsilon_f \approx \sigma_k$">. Numerical tests on stochastic
+functions show that <I>ECNoise</I> generally produces consistent
+results using as few as <IMG
+ WIDTH="48" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ m=6$"> additional function evaluations,
+independent of the dimension.
+
+<P>
+We illustrate the potential for using <I>ECNoise</I> to gain insight
+into complex deterministic numerical simulations by considering the
+fundamental problem of solving a sparse linear system.
+
+<UL>
+<LI>When is the computational noise more than simple round off?
+</LI>
+<LI>Is the noise level a property of the solver's operations or the
+underlying (continuous) function?
+</LI>
+<LI>Does demanding a tighter tolerance reduce the noise?
+</LI>
+</UL>
+Using the Krylov solvers in <TT>MATLAB</TT> [<A
+ HREF="node1.html#linearsys">1</A>] and the
+symmetric positive definite matrices in the Florida Sparse Matrix
+collection [<A
+ HREF="node1.html#ufmatrices">2</A>], we find surprising answers to these and
+other questions.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html5"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html6"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

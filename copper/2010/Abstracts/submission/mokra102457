@@ -1,0 +1,59 @@
+===affil2:
+North Carolina State University
+===firstname:
+David
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Kelley
+===lastname:
+Mokrauer
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+mokrauerd@gmail.com
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+2431 Condor Court
+Raleigh, NC
+27615
+===firstname6:
+
+===ABSTRACT:
+The potential energy of a molecule is a function of its geometry.  Many molecules exist in multiple stable geometric conformations which correspond to local minima on a potential energy surface (PES).  These molecules can be excited by the introduction of light to discrete higher energy states from that initial "ground" state.  These higher energy states have completely different potential energy surfaces.  A conformation that was a local minimum on the ground state may no longer be a local minimum once it's energy has increased to an excited state.  Having become unstable the molecule will relax to a new stable geometry in this state.  Either by emitting energy or by gaining more energy the molecule can once again transfer states.  By selecting a specific set of excited states it is possible to find a path that will lead from one stable minimum on the ground state to a different one.  
+
+A molecule is determined by 3N-6 coordinates where N is the number of atoms thus the subspace in which we solve this problem is only a subset of those coordinates.  Each point on these level surfaces is a minimum energy conformation with the values of the subset of chosen coordinates as constraints.   Evaluating the energy at gridpoints on the surface requires interfacing with computational chemistry software.  Function evaluations using this software can take up to an hour with the test molecules that we have been using.  Generating portions (or all) of these potential energy surfaces is a significant computational burden. Unfortunately, the software can only adequately compute the energy with a good initial guess at the geometry due to the function itself being a constrained optimization.  This necessity of good initial geometries for function evaluation prevents us from casting a net and evaluating all of the gridpoints at once in a trivially parallel scheme.  We adapted to this problem by using initial iterates from successfully evaluated neighboring points on the grid.  An algorithm which manages the desired gridpoints in a dependant manner so as to ensure that the function evaluations recieve good initial iterates and that takes advantage of as many computing resources as are available was developed. 
+
+These surfaces are continuously differentiable and can be interpolated accurately by polynomial splines through a set of gridpoints.  Since we are mimicking the natural process of relaxation on these interpolated level surfaces, continuous steepest descent is the proper optimization method.  The transitions between states requires selection rules before the optimization on the next state.  There are many choices for selection rules including user interface, largest gradient, or largest angle between the gradient and the vector between the current and initial point.  By integrating the algorithm for generating surfaces with an ode solver and a set of selection rules we can simulate the natural transformation processes undergone by molecules.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Generating a Feasible Path Between Stable Molecular Geometries with Continuous Steepest Descent
+===firstname2:
+C. T.

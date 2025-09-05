@@ -1,0 +1,439 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>audou112743</TITLE>
+<META NAME="description" CONTENT="audou112743">
+<META NAME="keywords" CONTENT="audou112743">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="audou112743.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christophe Audouze 
+<BR><B>GMRES algorithm for nonsymmetric linear random algebraic equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Computational Engineering and Design Group 
+<BR>
+School of Engineering Sciences 
+<BR>
+University of Southampton 
+<BR>
+Southampton SO17 1BJ 
+<BR>
+United Kingdom
+
+<BR><TT>c.audouze@soton.ac.uk</TT>
+<BR>
+Prasanth B. Nair
+</DIV>
+
+<P>
+This paper is concerned with Krylov methods for solving linear random
+algebraic equations of the
+form
+<!-- MATH
+ \begin{displaymath}
+{A}(\xi)x(\xi)={b}(\xi) \eqno{(1)}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="134" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle {A}(\xi)x(\xi)={b}(\xi) \eqno{(1)}
+$">
+</DIV><P></P>
+where <!-- MATH
+ $\xi\in \mathbb{R}^M$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \xi\in \mathbb{R}^M$"> denotes a vector of random variables with
+specified probability density function <!-- MATH
+ $\mathcal{P}(\xi): \mathbb{R}^{M}
+\mapsto \mathbb{R}^{+}$
+ -->
+<IMG
+ WIDTH="123" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathcal{P}(\xi): \mathbb{R}^{M}
+\mapsto \mathbb{R}^{+}$">, <!-- MATH
+ $A(\xi): \mathbb{R}^M \mapsto
+\mathbb{R}^{n\times n}$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A(\xi): \mathbb{R}^M \mapsto
+\mathbb{R}^{n\times n}$"> is an invertible matrix for all values of <IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \xi$">
+drawn from <!-- MATH
+ $\mathcal{P}(\xi)$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{P}(\xi)$"> (<EM>a.s.</EM> invertible) and <!-- MATH
+ $b(\xi):
+\mathbb{R}^{M} \mapsto \mathbb{R}^{n}$
+ -->
+<IMG
+ WIDTH="115" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ b(\xi):
+\mathbb{R}^{M} \mapsto \mathbb{R}^{n}$">.
+<!-- MATH
+ $x(\xi): \mathbb{R}^M \mapsto \mathbb{R}^{n}$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ x(\xi): \mathbb{R}^M \mapsto \mathbb{R}^{n}$"> is the solution vector
+whose statistics are sought to be computed.
+
+<P>
+Our focus is on the particular case when <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A(\xi)$"> and <IMG
+ WIDTH="31" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ b(\xi)$"> are
+provided in a polynomial chaos (PC) basis, i.e., <!-- MATH
+ $A(\xi) =
+\sum_{i=0}^{P_{A}} A_{i} \varphi_{i}(\xi)$
+ -->
+<IMG
+ WIDTH="152" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A(\xi) =
+\sum_{i=0}^{P_{A}} A_{i} \varphi_{i}(\xi)$"> and <!-- MATH
+ $b(\xi) =
+\sum_{i=0}^{P_{b}} b_{i} \varphi_{i}(\xi)$
+ -->
+<IMG
+ WIDTH="141" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ b(\xi) =
+\sum_{i=0}^{P_{b}} b_{i} \varphi_{i}(\xi)$">, where <!-- MATH
+ $\varphi_{i}(\xi)$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \varphi_{i}(\xi)$"> are
+multivariate Hermite, Legendre or general monomial basis functions that
+are constructed to be orthonormal with respect to <!-- MATH
+ $\mathcal{P}(\xi)$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{P}(\xi)$">
+(<!-- MATH
+ $\langle \varphi_{i} \varphi_{j} \rangle = \int \varphi_{i} \varphi_{j}
+{\rm d}\mathcal{P}=\delta_{ij}$
+ -->
+<IMG
+ WIDTH="178" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \langle \varphi_{i} \varphi_{j} \rangle = \int \varphi_{i} \varphi_{j}
+{\rm d}\mathcal{P}=\delta_{ij}$">). Parametrized linear random algebraic
+equations of this form are routinely encountered in numerical solution of
+stochastic (or randomly parametrized) partial differential equations
+(SPDEs)&nbsp;[1-3]. A well known method for solving this class of problems is
+the Ghanem-Spanos projection scheme&nbsp;[1], wherein the solution is
+approximated as <!-- MATH
+ $\widehat{x}_{P}(\xi) = \sum_{i=0}^{P} x_{i}
+\varphi_{i}(\xi)$
+ -->
+<IMG
+ WIDTH="157" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \widehat{x}_{P}(\xi) = \sum_{i=0}^{P} x_{i}
+\varphi_{i}(\xi)$">, where <!-- MATH
+ $x_{i} \in \mathbb{R}^{n}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ x_{i} \in \mathbb{R}^{n}$"> are undetermined
+coefficient vectors. The
+undetermined coefficient vectors are estimated via Galerkin projection as follows:
+<!-- MATH
+ \begin{displaymath}
+A(\xi) \sum_{i=0}^{P} x_{i} \varphi_{i}(\xi) - b(\xi)\perp
+\varphi_{k}(\xi),~~\text{for}~k=0,1,\ldots,P. \eqno{(2)}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="239" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle A(\xi) \sum_{i=0}^{P} x_{i} \varphi_{i}(\xi) - b(\xi)\perp
+\varphi_{k}(\xi),~~$">for<IMG
+ WIDTH="134" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle ~k=0,1,\ldots,P. \eqno{(2)}
+$">
+</DIV><P></P>
+Using the standard Hilbert space inner product for random vectors, the
+above conditions lead to a structured deterministic matrix system of
+equations for the undetermined coefficient
+vectors&nbsp;[2]. The sparsity structure of these equations can be exploited
+to design efficient preconditioned Krylov subspace algorithms.
+
+<P>
+For the case when <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A(\xi)$"> is symmetric positive definite (SPD), it can
+be easily shown that the above conditions are equivalent to directly
+minimizing the <IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A-$">norm error <!-- MATH
+ $||x^{*}(\xi) -
+\sum_{i=0}^{P}x_{i}\varphi_{i}(\xi)||_{A(\xi)}$
+ -->
+<IMG
+ WIDTH="196" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \vert\vert x^{*}(\xi) -
+\sum_{i=0}^{P}x_{i}\varphi_{i}(\xi)\vert\vert _{A(\xi)}$">, where <!-- MATH
+ $x^{*}(\xi)$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ x^{*}(\xi)$"> is
+the exact solution of (1). In order to study which error norm is
+minimized for the case when <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A(\xi)$"> is nonsymmetric, it is instructive
+to write the residual error
+corresponding to the approximation <!-- MATH
+ $\widehat{x}_{P}(\xi)$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \widehat{x}_{P}(\xi)$"> in the form
+<!-- MATH
+ \begin{displaymath}
+||r(\xi)||_2^2 = \sum_{i=0}^{P} r_{i}^Tr_{i} \langle \varphi_i^2\rangle +
+\sum_{i=P+1}^{P_r} r_i^{T} r_{i} \langle \varphi_i^2
+\rangle,\eqno{(3)}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="true_r"></A>
+<IMG
+ WIDTH="314" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$\displaystyle \vert\vert r(\xi)\vert\vert _2^2 = \sum_{i=0}^{P} r_{i}^Tr_{i} \l...
+...ngle +
+\sum_{i=P+1}^{P_r} r_i^{T} r_{i} \langle \varphi_i^2
+\rangle,\eqno{(3)}
+$">
+</DIV><P></P>
+where <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ r_{i}$"> is the <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ i$">th term in the PC expansion of the residual error
+<!-- MATH
+ $r(\xi) = b(\xi) - A(\xi) \widehat{x}_{P}(\xi)$
+ -->
+<IMG
+ WIDTH="172" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ r(\xi) = b(\xi) - A(\xi) \widehat{x}_{P}(\xi)$">, i.e., <!-- MATH
+ $r_i = b_{i} -
+\frac{1}{\langle \varphi_i^2 \rangle}
+\sum_{j=0}^{P_{A}}\sum_{l=0}^{P} \langle
+\varphi_{i}\varphi_{j}\varphi_{l} \rangle A_{j}x_{l}$
+ -->
+<IMG
+ WIDTH="274" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ r_i = b_{i} -
+\frac{1}{\langle \varphi_i^2 \rangle}
+\sum_{j=0}^{P_{A}}\sum_{l=0}^{P} \langle
+\varphi_{i}\varphi_{j}\varphi_{l} \rangle A_{j}x_{l}$">. It can be shown
+that when the Ghanem-Spanos method is applied to solve nonsymmetric
+linear random algebraic equations, only the first term (i.e., the
+residual error projected onto the first <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ P$"> basis functions) is
+minimized&nbsp;[3]. This can potentially lead to numerical instabilities due
+to increase in the <EM>true</EM> residual
+when the number of PC expansion terms (<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ P$">) is increased. One way to
+circumvent this problem would be to employ a Petrov-Galerkin projection
+scheme, i.e., orthogonalize the residual with respect to
+<!-- MATH
+ $A(\xi)\varphi_{k}(\xi)$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ A(\xi)\varphi_{k}(\xi)$"> in (2) - this would ensure minimization of the
+true residual error norm. However, this condition essentially means we
+now need to solve the normal equations <!-- MATH
+ $A(\xi)^{T}A(\xi) x(\xi) =
+A(\xi)^{T} b(\xi)$
+ -->
+<IMG
+ WIDTH="198" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ A(\xi)^{T}A(\xi) x(\xi) =
+A(\xi)^{T} b(\xi)$">, which
+makes this approach numerically unattractive.
+
+<P>
+In the present work, we propose a numerically stable Krylov method based
+on the GMRES algorithm&nbsp;[4] (which we refer to as the sGMRES algorithm)
+for minimizing the stochastic residual error norm corresponding to the
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ P$"> term approximation <!-- MATH
+ $x_{P}(\xi)$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ x_{P}(\xi)$">.The sGMRES algorithm combines the
+ideas developed in&nbsp;[3] in the context of conjugate gradient methods with
+the standard GMRES algorithm for deterministic nonsymmetric linear
+algebraic equations. The key idea is to iteratively minimize the residual
+error norm over a Krylov subspace whose basis are constructed using the
+Arnoldi procedure. We present a general derivation of the sGMRES
+algorithm, while pointing out the similarities and differences with the
+deterministic GMRES algorithm. We also provide a theoretical convergence
+analysis of the sGMRES algorithm and show how restarting procedures in
+conjunction with function decomposition schemes can be employed to
+significantly reduce the computational cost and memory requirements for
+high-dimensional problems (<!-- MATH
+ $M\sim \mathcal{O}(100)$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ M\sim \mathcal{O}(100)$">).
+
+<P>
+We present numerical results for two different test-cases. As a first
+validation, we consider a structured random perturbation of a fixed
+nonsymmetric matrix. We then consider a more realistic situation where
+the linear equations arise from semi-discretization of the stochastic
+convection-diffusion equation. Detailed comparison studies are made with
+the standard Ghanem-Spanos method to illustrate the advantages of the
+sGMRES algorithm.
+
+<P>
+
+<EM>Acknowledgements:</EM> This research is supported by the United Kingdom
+Engineering and Physical Sciences Research Council (EPSRC) Grant No.
+EP/F006802/1.
+
+<P>
+<DIV ALIGN="CENTER">
+<B>REFERENCES</B>
+
+</DIV>
+
+<P>
+
+[1] R. Ghanem and P. Spanos, <I>``Stochastic finite elements: A
+spectral approach''</I>, Springer Verlag, New York, 1991.
+
+<P>
+
+[2] C. E. Powell and H. C. Elman, <I>``Block-diagonal preconditioning
+for spectral stochastic finite-element systems''</I>, IMA Journal of
+Numerical Analysis 2009 29(2):350-375.
+
+<P>
+
+[3] P. Hakansson, P. B. Nair, <I>``Conjugate gradient methods for
+parametrized linear random algebraic equations''</I>, submitted.
+
+<P>
+
+[4] Y. Saad, M. H. Schultz, <I>``GMRES: a generalized minimal residual
+algorithm for solving nonsymmetric linear systems''</I>,
+SIAM Journal on Scientific and Statistical Computing, Vol. 7, Issue 3 (1986), 856-869.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

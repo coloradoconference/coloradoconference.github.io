@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eric de Sturler \\
+{\bf A Convergence Analysis for Recycling Krylov Methods}}
+
+Department of Mathematics \\ 460 McBryde Hall \\ Virginia Tech \\ Blacksburg \\ VA 24061-0123 \\ USA
+\\
+{\tt sturler@vt.edu}\end{center}
+
+In many computational science and engineering problems, we have
+to solve a sequence of large, sparse, linear systems, in which
+the matrix changes slowly from one system to the next or
+changes in an algebraically structured way. The right hand side
+can change more drastically, although in many applications this
+is not the case. We have developed several methods that
+significantly improve the convergence of iterative solvers by
+recycling from one system to the next an approximate invariant
+subspace. For efficiency and because the system matrix changes
+continually, we do not expect the approximate invariant
+subspaces to be accurate. Nevertheless, this technique has
+proved very successful in reducing total iteration counts for a
+range of applications. In this presentation, we provide a
+convergence analysis for iterative linear solvers recycling an
+approximate invariant subspace. An important result of the
+analysis is that significant improvement of convergence results
+for very modest accuracy of the invariant subspace
+approximation.
+
+This is joint work with Michael L. Parks
+
+
+\end{document}

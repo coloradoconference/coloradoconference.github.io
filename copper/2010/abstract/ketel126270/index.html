@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ketel126270</TITLE>
+<META NAME="description" CONTENT="ketel126270">
+<META NAME="keywords" CONTENT="ketel126270">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ketel126270.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christian Ketelsen 
+<BR><B>A Gauge Invariant Discretization of Quantum Electrodynamics by Least-Squares Finite Elements.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Mathematics 
+<BR>
+526 UCB 
+<BR>
+University of Colorado 
+<BR>
+Boulder 
+<BR>
+CO 80309-0526
+
+<BR><TT>ketelsen@colorado.edu</TT>
+<BR>
+Tom Manteuffel
+<BR>
+Steve McCormick
+</DIV>
+
+<P>
+The two-dimensional Dirac equation of quantum electrodynamics (QED)
+describes the interaction between electrons and photons. Large scale
+numerical simulations of the theory require repeated solution of the
+two-dimensional Dirac equation, a system of two &amp;#64257;rst-order partial
+differential equations coupled to a background gauge &amp;#64257;eld.
+Traditional discretizations of this system are sparse and highly
+structured, but contain random complex entries introduced by the
+background &amp;#64257;eld. For even mildly disordered gauge &amp;#64257;elds the
+near kernel components of the system are highly oscillatory, rendering
+standard multilevel methods ineffective.
+
+<P>
+Recently, least-squares finite element methods have been used to
+discretize the governing equations of QED. The resulting linear systems
+are ideal because they agree spectrally with the continuum equations, are
+amenable to solution by multilevel iterative methods, and satisfy
+important properties of the continuum theory, including chiral symmetry,
+the absence of species doubling, and gauge invariance. The most important
+of these properties is gauge invariance. It states simply that an
+arbitrary transformation of the unknown, <IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \psi$">, by a member of the gauge
+group (U(1) in the case of QED) does not change the physics of the model.
+Traditional covariant finite-difference discretizations of the Dirac
+equation capture the property of gauge invariance in a trivial manner.
+While previous least-squares discretizations do retain gauge invariance,
+they do so through a complicated gauge fixing process.
+
+<P>
+The objective of this paper is to present a new least-squares
+discretization that naturally avoids the need for gauge fixing. This is
+done by assuming that the finite element solution takes the polar form
+<!-- MATH
+ $\psi^h = r^h \hspace{1mm} e^{i \theta^h}$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \psi^h = r^h \hspace{1mm} e^{i \theta^h}$"> , where <IMG
+ WIDTH="20" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ r^h$"> and <IMG
+ WIDTH="21" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \theta^h$">
+are chosen from an appropriate bilinear finite element space. In the
+finite element setting, a U(1) gauge transformation of QED can be written
+as <!-- MATH
+ $\Omega^h = e^{i \omega^h}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \Omega^h = e^{i \omega^h}$">. Choosing <IMG
+ WIDTH="23" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \omega^h$"> from the same
+bilinear finite element space ensures that the transformed unknown,
+<!-- MATH
+ $\Omega^h \psi^h$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \Omega^h \psi^h$">, has the assumed polar form. Then, applying the
+least-squares finite element methodology results in a discretization for
+which gauge invariance is straight forward.
+
+<P>
+The trivial gauge invariance of the method comes at a price, however,
+since the polar representation on the unknown makes the governing
+equations inherently nonlinear. To carry out the discretization we first
+linearize the governing equations and apply the least-squares methodology
+to the resulting linear system. The subsequent matrix equation is then
+solved via an algebraic multilevel method. To obtain a good initial guess
+on the finest grid a nested-iteration approach is used. The computational
+performance and physical properties of resulting solution methodology are
+discussed.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

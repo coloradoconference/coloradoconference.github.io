@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>canni112831</TITLE>
+<META NAME="description" CONTENT="canni112831">
+<META NAME="keywords" CONTENT="canni112831">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="canni112831.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrew Canning 
+<BR><B>Accelerating Parallel Iterative Eigensolvers for Large Scale First-Principles Materials Science Calculations </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Laboratory 
+<BR>
+One Cyclotron Road 
+<BR>
+Berkeley CA94720
+
+<BR><TT>ACanning@lbl.gov</TT>
+</DIV>
+
+<P>
+The most widely used approach in first-principles materials science
+calculations involves the solution of some form of the Schrodinger
+Equation, typically the Kohn-Sham form based on density functional
+theory. The resulting eigenfunction problem involves the solution of the
+lowest eigenpairs of a very large dense matrix which is typically solved
+using an iterative approach such as conjugate gradient. In this talk we
+will look at different methods to speedup the solution on large parallel
+computers, including the investigation of collective compared to
+point-to-point methods for reducing the communication costs as well as
+algorithms to block the communications and reduce latency. We have also
+investigated mixed MPI and OpenMP programming models to improve
+performance on multicore computer architectures. We are also studying the
+use of multilevel methods in Fourier space whereby the eigenvalue problem
+is solved initially on a coarser grained Fourier grid which is then used
+as a starting point for the solution on a finer grid.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,100 @@
+===affil2:
+Universitat Politecnica de Valencia
+===firstname:
+José
+===firstname4:
+Miroslav
+===firstname3:
+José
+===lastname2:
+Bru
+===lastname:
+Mas
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Marin
+===email:
+jmasm@mat.upv.es
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Tuma
+===affil4:
+Institute of Computer Science, Academy of
+Sciences of the Czech Republic
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Cami de Vera, 14
+Edifici 3I
+Universitat Politecnica de Valencia
+Valencia
+46022 SPAIN
+===firstname6:
+
+===ABSTRACT:
+ 
+The Inverse Sherman-Morrison factorization of an 
+invertible matrix $A$, for a positive parameter $s$, is given by
+\begin{equation*} 
+s^{-1}I - {A}^{-1} =  s^{-2} Z_s D_s^{-1} V_s^T
+\end{equation*}
+where
+\begin{equation*} 
+z_k=e_k-\sum_{i=1}^{k-1}\frac{v_i^T e_k}{s r_i} z_i 
+\ v_k=y_k-\sum_{i=1}^{k-1}\frac{y^T_k z_i}{sr_i}v_i,
+\ \text{and} \ r_k=1+y^T_kz_k/s=1+v^T_k e_k/s
+\end{equation*}
+for $k=1,2,\ldots,n$, where
+$e_k$ and $y_k$ are
+the columns of the identity matrix $I$ and $Y=A^T-sI$, respectively.
+
+It is known that from this factorization some factors of the LDU factorization
+can be recovered, at the same time the inverse factors of the LDU factorization
+are already computed, as can be deduced from the following relations
+\begin{equation*} 
+ {D}=s^{-1}D_s, \quad  {U}= Z^{-1},
+\quad V_s =  {U}^T  {D} - s {L}^{-T},
+\end{equation*}
+
+Since the ISM factorization is 
+highly parametrizable we analyze also some relations of the factors for 
+different choices of the parameter $s$, and relations with scaling of $A$.
+
+
+We also present an algorithm (NBIF) to compute a preconditioner using the ISM factorization and
+the dropping strategies of Bollh\"ofer, taking advantage of more deep relations between both factorizations.
+We also prove existence properties of these preconditioners and present some numerical 
+results.
+
+\bigskip
+\hrule 
+\vspace*{3pt}
+\begin{footnotesize} 
+This work was supported by Spanish grant MTM 2007-64477,
+also by the project No. IAA100300802 of the Grant Agency of the Academy of Sciences of the Czech Republic
+and partially by the international collaboration support M100300902
+of AS CR.
+\end{footnotesize}
+
+===affil3:
+Universitat Politecnica de Valencia
+===lastname5:
+
+===affilother:
+
+===title:
+Inverse Sherman-Morrison factorization and the NBIF preconditioner
+===firstname2:
+Rafael

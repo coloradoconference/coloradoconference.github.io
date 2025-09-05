@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert D. Falgout \\
+{\bf Multigrid Smoothers for Ultra-Parallel Computers}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ P O Box 808 \\ L-561 \\ Livermore \\ CA 94551 \\ USA
+\\
+{\tt rfalgout@llnl.gov}\\
+Allison Baker\\
+Tzanio Kolev\\
+Ulrike Yang\end{center}
+
+Multigrid methods are often critical for solving huge linear systems
+efficiently, and they have demonstrated scalability on hundreds of thousands of
+processors. However, the petascale architectures on the horizon are expected to
+have millions of processors, and future exascale machines could have even more.
+The immense degree of parallelism on these machines requires a similar level of
+concurrency in the algorithms that run on them. One major component of
+multigrid is the smoother, but many of the most effective smoothers used today
+unfortunately don't exhibit this degree of concurrency without losing their good
+smoothing properties. In this talk, we will discuss several approaches for
+doing effective smoothing in highly concurrent settings and we will also present
+supporting numerical results.
+
+
+\end{document}

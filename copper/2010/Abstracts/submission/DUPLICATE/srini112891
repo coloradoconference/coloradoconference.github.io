@@ -1,0 +1,99 @@
+===affil2:
+Institute for Advanced Computer Studies, University of Maryland, College Park, MD 20742
+===firstname:
+Balaji Vasan
+===firstname4:
+
+===firstname3:
+Nail
+===lastname2:
+Duraiswami
+===lastname:
+Srinivasan
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Gumerov
+===email:
+balajiv@umiacs.umd.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+3368 AV Williams Bldg,
+University of Maryland,
+College Park, MD 20742
+===firstname6:
+
+===ABSTRACT:
+Algorithms based on kernel methods play a central role in statistical machine learning. At their core are a number of linear algebra operations on matrices of kernel functions which take as arguments the training and testing data. A kernel function $\Phi(x_i,x_j)$ generalizes the notion of the similarity between a test and training point. Given a set of data points, $\mathbf{X}=\{x_1,x_2,\ldots,x_N\}, x_i\in R^d$, the kernel matrix is given by,
+\begin{equation}
+\mathbf{K} = \left(
+  \begin{array}{ccc}
+    k_{11} & \ldots & k_{1N}\\
+    \vdots & \ddots & \vdots\\
+    k_{N1} & \ldots & k_{NN}\\
+  \end{array}
+\right),
+\end{equation}
+where $k_{ij}=\Phi(x_i,x_j)$. Kernel matrices are symmetric and satisfy the M\'ercer conditions, $a^T\mathbf{K}a\geq0$, for any $a$; and hence $\mathbf{K}$ is positive semi-definite. In many algorithms, it might be necessary to solve a linear system with the matrix $\mathbf{K}$,
+\begin{equation}\mathbf{K}x=b.\end{equation}
+Iterative Krylov approaches are often used with fast matrix vector products for efficient solution of such systems (de Freitas et al., $2005$).
+
+When the underlying system is ill-conditioned, there is a degradation of the performance of iterative approaches, necessitating the use of a preconditioner for the Krylov iterations. Popular preconditioners like Jacobi, SSOR, ILU can be used to improve the convergence, however, these preconditioners have an O($N^2$) space and computation requirement for dense matrices, which would ruin any advantage gained by the fast matrix-vector products. The preconditioner must have a representation that allows for a fast matrix-vector product just like the kernel matrix. We propose a \emph{Tikhonov regularized kernel matrix }solved with a truncated conjugate gradient algorithm as a preconditioner for the kernel matrix, which can be accelerated using the aforementioned approaches. Because the symmetry of this preconditioner cannot be guaranteed, we use a flexible GMRES (Saad, $1993$) algorithm.
+
+A good preconditioner will improve the convergence of the iterative approach at the expense of an increased cost per iteration. The convergence with proposed preconditioner is shown to be an order of magnitude better than the unpreconditioned approach. But, for a preconditioner to be useful, the total time taken by the preconditioned approach should be less than the unpreconditioned approach. This is achieved by using the the fast matrix-vector product algorithms, resulting in a computationally efficient solver with faster convergence. We use two classes of fast matrix vector products, approximation-based acceleration (eg. FIGTREE (Morariu et al., $2008$) for Gaussian kernel) and GPU-based parallelization (Srinivasan et al, $2009$). Each of these two approaches have their own advantages and disadvantages. We propose a strategy to choose the appropriate acceleration in the light of the desired accuracy.
+
+The performance is further illustrated in popular learning approaches namely, radial basis function interpolation, Gaussian process regression and kernel classification. There is an improvement of upto $\sim8$X in the number of iterations to converge and $\sim3.5$X in the total time taken compared to a conjugate gradient based approach. The core preconditioning strategy proposed here will soon be released as an open source package.
+
+\bibliographystyle{siam}
+\begin{thebibliography}{1}
+
+\bibitem{NandoKrylov}
+{\sc N.~de~Freitas, Y.~Wang, M.~Mahdaviani, and D.~Lang}, {\em Fast
+  \uppercase{k}rylov methods for n-body learning}, in Advances in Neural
+  Information Processing Systems, 2005.
+
+\bibitem{FIGTREE}
+{\sc V.~Morariu, B.~Srinivasan, V.~Raykar, R.~Duraiswami, and L.~Davis}, {\em
+  Automatic online tuning for fast \uppercase{G}aussian summation}, in Advances
+  in Neural Information Processing Systems, 2008.
+\newblock Available at http://sourceforge.net/projects/figtree/.
+
+\bibitem{FGMRES}
+{\sc Y.~Saad}, {\em A flexible inner-outer preconditioned \uppercase{GMRES}
+  algorithm}, SIAM J. Sci. Comput., 14 (1993), pp.~461--469.
+
+\bibitem{GPUML}
+{\sc B.~Srinivasan and R.~Duraiswami}, {\em Scaling kernel machine learning
+  algorithm via the use of \uppercase{GPU}s}, in GPU Technology Conference,
+  \uppercase{NVIDIA} Research Summit.
+\newblock Available at http://www.umiacs.umd.edu/~balajiv/GPUML.htm.
+
+\end{thebibliography}
+
+===affil3:
+Institute for Advanced Computer Studies, University of Maryland, College Park, MD 20742
+===lastname5:
+
+===affilother:
+
+===title:
+Fast matrix-vector product based FGMRES for kernel machines
+===firstname2:
+Ramani

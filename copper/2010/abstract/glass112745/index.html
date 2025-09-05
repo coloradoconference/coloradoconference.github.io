@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>glass112745</TITLE>
+<META NAME="description" CONTENT="glass112745">
+<META NAME="keywords" CONTENT="glass112745">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="glass112745.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Alan H. Glasser 
+<BR><B>A Scalable Parallel Extended MHD Solver: Application of Physics-Based Preconditioning to High-Order Spectral Elements</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">PSI Center 
+<BR>
+University of Washington 
+<BR>
+Box 352250 
+<BR>
+Seattle 
+<BR>
+WA 98195-2250
+
+<BR><TT>ahg5@u.washington.edu</TT>
+<BR>
+V. S. Lukin
+</DIV>
+
+<P>
+
+<P>
+We describe an application of physics-based preconditioning
+[L. Chac&#243;n, L., Phys. Plasmas <B>15</B>, 056103 (2008)] to a nonlinear
+initial-value extended MHD code using high-order spectral elements for
+spatial discretization.
+
+<P>
+HiFi is a 2D and 3D nonlinear fluid simulation code, written in Fortran
+95, with principal emphasis on extended MHD and magnetic fusion energy.
+The code is separated into a large solver library and a much smaller
+application module which links to the library, using flux-source form
+for the physics equations. Realistic nonlinear and time-dependent
+boundary conditions have been developed.
+
+<P>
+Spatial discretization uses high-order <IMG
+ WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ C^0$"> spectral elements on a
+curvilinear grid. Grid cells are logically rectangular, with spectral
+elements a Cartesian product of 1D polynomial modal basis functions.
+Time discretization uses fully implicit Newton-Krylov method with
+adaptive time steps for efficient treatment of multiple time scales.
+
+<P>
+Computer time and storage are dominated by solution of large, sparse,
+ill-conditioned linear systems, arising from the implicit time step and
+multiple time scales. Static condensation is used to eliminate
+amplitudes of higher-order spectral elements in terms of linear
+elements. HiFi is built on the PETSc library
+[http://www.mcs.anl.gov/petsc/petsc-as/index.html] for efficient
+parallel operation and easy access to many advanced methods for linear
+and nonlinear system solution.
+
+<P>
+To achieve a weakly scalable parallel solution, we apply physics-based
+preconditioning, in which the physical dependent variables are
+partitioned into two sets as the basis of further reducing the order and
+increasing the diagonal dominance. In visco-resistive MHD, set 1
+consists of density, pressure, magnetic flux function, and current,
+while set 2 consists of the momentum densities, The linear system is
+expressed in block form as
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\t{L} \v{u} = \v{r}, \quad
+\t{L} \equiv \left( \begin{matrix} \t{L}_{11} & \t{L}_{12} \\
+\t{L}_{21} & \t{L}_{22} \end{matrix} \right), \quad
+\v{u} = \left( \begin{matrix} \v{u}_1 \\\v{u}_2 \end{matrix} \right), \quad
+\v{r} = \left( \begin{matrix} \v{r}_1 \\\v{r}_2 \end{matrix} \right).
+\nonumber
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="388" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \t{L} \v{u} = \v{r}, \quad \t{L} \equiv \left( \begin{matrix}\t{L...
+...t), \quad \v{r} = \left( \begin{matrix}\v{r}_1 \\ \v{r}_2 \end{matrix} \right).$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Any matrix of this block form can be formally factored to give
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\t{L} = \left( \begin{matrix} \t{I} & \t{0} \\
+\t{L}_{21} \t{L}_{11}^{-1} & \t{I} \end{matrix} \right)
+\left( \begin{matrix} \t{L}_{11} & \t{0} \\\t{0} & \t{S} \end{matrix} \right)
+\left( \begin{matrix} \t{I} & \t{L}_{11}^{-1} \t{L}_{12}
+\\\t{0} & \t{I} \end{matrix} \right),
+\nonumber
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="313" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \t{L} = \left( \begin{matrix}\t{I} &amp; \t{0} \\ \t{L}_{21} \t{L}_{1...
+...atrix}\t{I} &amp; \t{L}_{11}^{-1} \t{L}_{12} \\ \t{0} &amp; \t{I} \end{matrix} \right),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with Schur complement matrix defined by
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\t{S} \equiv \t{L}_{22} - \t{L}_{21} \t{L}_{11}^{-1} \t{L}_{12}.
+\nonumber
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="154" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \t{S} \equiv \t{L}_{22} - \t{L}_{21} \t{L}_{11}^{-1} \t{L}_{12}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+It is then straightforward to write the solution as
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\v{s}_1 = \t{L}_{11}^{-1} \v{r}_1, \quad
+\v{s}_2 = \v{r}_2 - \t{L}_{21} \v{s}_1, \quad
+\v{u}_2 = \t{S}^{-1} \v{s}_2, \quad
+\v{u}_1 = \v{s}_1 - \t{L}_{11}^{-1} \t{L}_{12} \v{u}_2.
+\nonumber
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="480" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle \v{s}_1 = \t{L}_{11}^{-1} \v{r}_1, \quad \v{s}_2 = \v{r}_2 - \t{L...
+...{S}^{-1} \v{s}_2, \quad \v{u}_1 = \v{s}_1 - \t{L}_{11}^{-1} \t{L}_{12} \v{u}_2.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+solving only the reduced matrices <!-- MATH
+ $\t{L}_{11}$
+ -->
+<IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \t{L}_{11}$"> and <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ S$">. We can
+introduce an approximation <!-- MATH
+ $\t{P} \approx \t{L}^{-1}$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \t{P} \approx \t{L}^{-1}$">, use it as a
+preconditioner, and finish the solution with a preconditioned Krylov
+iteration, <!-- MATH
+ $\left( \t{L} \t{P} \right) \left( \t{P}^{-1} \v{u} \right) =
+\v{r}$
+ -->
+<IMG
+ WIDTH="122" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \left( \t{L} \t{P} \right) \left( \t{P}^{-1} \v{u} \right) =
+\v{r}$">. As long as the preconditioner <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \t{P}$"> constitutes a
+sufficiently accurate approximate inverse, the preconditioned Krylov
+iteration should converge rapidly, in just a few iterations, resulting
+in an effectively exact solution of the full problem.
+
+<P>
+The principal difficulty is that, while the block matrices <!-- MATH
+ $\t{L}_{ij}$
+ -->
+<IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \t{L}_{ij}$">
+matrices are sparse, the presense of <!-- MATH
+ $\t{L}_{11}^{-1}$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \t{L}_{11}^{-1}$"> makes <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \t{S}$">
+matrix dense. To avoid this, we approximate <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \t{S}$"> by reversing the
+order of discretization and substition, giving it the form of the
+well-known ideal MHD force operator. This leads to the approximate
+Schur complement
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\t{S} \approx \t{L}_{22}
+- h^2 \theta^2 \left< \nabla \cdot \t{T} \right>
+\nonumber
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="160" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \t{S} \approx \t{L}_{22} - h^2 \theta^2 \left&lt; \nabla \cdot \t{T} \right&gt;$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ h$"> is the time step, <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \theta$"> is the time-centering parameter, <!-- MATH
+ $<
+\cdots >$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ &lt;
+\cdots &gt;$"> represents spectral element discretization; and we express the
+force operator as
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray}
+\t{T} = \left( \v{B} \cdot \frac{\partial \v{B}}{\partial t}
++ \frac{\partial p}{\partial t} \right) \t{I}
+- \v{B} \frac{\partial \v{B}}{\partial t}
+- \frac{\partial \v{B}}{\partial t} \v{B} \nonumber \\
+= \left[ \v{B} \cdot \nabla \times \left(\v{v} \times \v{B} \right)
+- \gamma p \nabla \cdot \v{v} - \v{v} \cdot \nabla p \right]
+\t{I} \nonumber \\
+- \v{B} \nabla \times \left(\v{v} \times \v{B} \right)
+- \nabla \times \left(\v{v} \times \v{B} \right) \v{B}. \nonumber
+\nonumber
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="277" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle \t{T} = \left( \v{B} \cdot \frac{\partial \v{B}}{\partial t}
++ \f...
+...{B} \frac{\partial \v{B}}{\partial t}
+- \frac{\partial \v{B}}{\partial t} \v{B}$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="283" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$\displaystyle = \left[ \v{B} \cdot \nabla \times \left(\v{v} \times \v{B} \right)
+- \gamma p \nabla \cdot \v{v} - \v{v} \cdot \nabla p \right]
+\t{I}$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="244" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle - \v{B} \nabla \times \left(\v{v} \times \v{B} \right)
+- \nabla \times \left(\v{v} \times \v{B} \right) \v{B}.
+\nonumber$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+in flux-source form, as required by our spectral element discretization.
+
+<P>
+The matrices <!-- MATH
+ $\t{L}_{11}$
+ -->
+<IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \t{L}_{11}$"> and <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \t{S}$"> which must be solved have reduced
+order and are more diagonally dominant than the full Jacobian. They are
+further reduced by static condensation and then solved by GMRES,
+preconditioned by additive-Schwarz blockwise LU. This physics-based
+preconditioning is then followed by Newton-Krylov iteration on the full
+nonlinear system, using matrix-free GMRES. The convergence rate is
+measured by the number of KSP iterations required for the block solves,
+reflecting the condition number of the preconditioning matrices, and by
+the number of iterations in the final Newton-Krylov solve, reflecting
+the accuracy of the approximate Schur complement. Inaccuracy in the
+Schur complement influences the rate of convergence but not the final
+solution.
+
+<P>
+Future efforts will be devoted to weak scaling tests on large parallel
+computers; exploration of other methods of solution for the reduced
+preconditioning equations; and extending the approximate Schur
+complement to include two-fluid effects.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

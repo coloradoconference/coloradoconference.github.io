@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Travis, M. Austin \\
+{\bf A Comparison of Some Sparse Preconditioners for High-Order Finite Element Systems}}
+
+26951 La Alameda Apt 1212 \\ Mission Viejo \\ CA 92691
+\\
+{\tt austin@txcorp.com}\\
+Marian Brezina\\
+Thomas, A.  Manteuffel\\
+John Ruge\\
+   \\
+   \\
+   \end{center}
+
+High-order finite elements have been observed to achieve a level of
+accuracy per degree of freedom that exceeds that achieved for low-order
+linear finite elements. Furthermore, high-order finite elements have been
+used in climate modeling for problems involving long time integrations
+and in MHD simulations to capture physics that standard low-order finite
+elements fail to capture. Solving these systems efficiently and with a
+low-memory overhead is thus beneficial to a number of research fields. We
+present results for preconditioning these systems with an approximate
+inversion of a matrix with the same rank as the high-order finite element
+matrix. The preconditioning matrix is sparse as it is derived from a
+matrix with a stencil size that is equivalent to using low-order finite
+elements. This sparse matrix is approximately inverted using a single
+V-cycle of algebraic multigrid. We consider both 2D and 3D problems and
+also various nodal arrangements on an element for the high-order degrees
+of freedom.
+
+This research is supported by US DOE SBIR Phase II DE-FG02-08ER85154.
+
+
+\end{document}

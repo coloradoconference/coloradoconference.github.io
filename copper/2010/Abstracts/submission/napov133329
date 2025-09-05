@@ -1,0 +1,66 @@
+===affil2:
+Université Libre de Bruxelles, Service de Métrologie Nucléaire
+===firstname:
+Artem
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Notay
+===lastname:
+Napov
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+anapov@ulb.ac.be
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Université Libre de Bruxelles 
+Service de Métrologie Nucléaire (CP 165/84)    	
+Avenue F.D. Roosevelt 50 	
+B-1050 Bruxelles - Belgique
+===firstname6:
+
+===ABSTRACT:
+Algebraic multigrid techniques based on coarsening by aggregation \cite{bul93,br85} have gained in popularity over the last years \cite{no09,muno08}. The growing interest for such approaches is motivated by their low setup cost and memory requirements, combined with a (close to) optimal convergence when used with K-cycle \cite{nova07}.
+
+In this talk, we present a convergence analysis of two-grids methods based on aggregation \cite{agganl}. For diagonally dominant symmetric (M-)matrices, we show that the analysis can be conducted locally; that is, the convergence factor can be bounded above by computing separately for each aggregate a parameter which in some sense measures its quality. The procedure is purely algebraic and can be used to control the quality of automatic coarsening algorithms. Assuming the aggregation pattern sufficiently regular, we show that the resulting bound is asymptotically sharp for a large class of elliptic boundary value problems, including problems with variable and discontinuous coefficients. In particular, the analysis of typical examples reveals that the convergence rate is insensitive to discontinuities under some reasonable assumptions on the aggregation scheme.
+
+\begin{thebibliography}{6}
+\bibitem{bul93}\textsc{V. E. Bulgakov}, \textit{Multi-level iterative technique and aggregation concept with semi-analytical preconditioning for solving boundary-value problems}, Comm. Numer. Methods  Engrng., 9(1993), {pp. 649--657}.
+\bibitem{br85}\textsc{D. Braess}, \textit{Towards algebraic multigrid for elliptic problems of second order}, {Computing}, {55}(1995), {pp. 379--393}.
+\bibitem{no09}\textsc{Y. Notay}, \textit{An aggregation-based algebraic multigrid method}, Electronic Transactions on Numerical Analysis, to appear, 2009.
+\bibitem{muno08} \textsc{A. C. Muresan} and \textsc{Y. Notay}, \textit{Analysis of aggregation-based multigrid}, SIAM J. Sci. Comp., 30(2008), pp. 1082-1103.
+\bibitem{nova07} \textsc{Y. Notay} and \textsc{P.S. Vassilevski}, \textit{Recursive Krylov-based multigrid cycles}, Numer. Lin. Alg. Appl., 15(2008), pp. 473-487.   
+\bibitem{agganl} \textsc{A. Napov} and\textsc{ Y. Notay}, \textit{Algebraic analysis of aggregation-based multigrid}, Tech. Report GANMN 09-04, Universit\'e Libre de Bruxelles, Brussels, Belgium, 2009. \url{http://homepages.ulb.ac.be/~anapov}.
+\end{thebibliography}
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Algebraic analysis of aggregation-based multigrid 
+===firstname2:
+Yvan

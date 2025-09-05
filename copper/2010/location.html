@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>CMCIM10: Location</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAyuniVn6ae46D-jsB6e0U9xRfQPQ9PnMKXJxwEArnXSuRjCQRahTBW7_RIXHNDZ8BBHjLG7DSf9QnxA"></script>
+
+<script type="text/javascript">
+
+  google.load("maps", "2.x");
+  
+  var map;
+ 
+  // Call this function when the page has been loaded
+  function initialize() {
+    map = new google.maps.Map2(document.getElementById("CopperLocation"));
+    // map.setCenter(new google.maps.LatLng(39.50069625156184,-106.15689754486084), 9);
+    map.setCenter(new google.maps.LatLng(39.50069625156184,-105.25689754486084), 9);
+    var mapControl = new GMapTypeControl();
+    map.addControl(mapControl);
+    map.addControl(new GLargeMapControl());
+    // var point = new GLatLng(39.50069625156184,-106.15689754486084);	
+    var point = new GLatLng(39.49999725156184,-106.15709754486084);	
+    var marker = new GMarker(point);  
+    var message = ["Copper Conference Center", "Other Copper Location"]; 
+    GEvent.addListener(marker, "click", function() {
+      var myHtml = message[0];
+      map.openInfoWindowHtml(point, myHtml);  
+    });
+    map.addOverlay(marker);  
+    map.setUIToDefault();
+ }
+  google.setOnLoadCallback(initialize);
+</script>
+
+</head>
+<!-- body bgcolor="#7fffff" link=blue alink=blue vlink=blue -->
+<!-- body bgcolor="#efefef" link=blue alink=blue vlink=blue -->
+<!-- body bgcolor="#DA8849" link=blue alink=blue vlink=blue -->
+<body bgcolor="#ccccbf" link="333333" alink="fdf87f" vlink="#333333">
+
+<table cellpadding=12 width="90%" align=center>
+<tr valign=top>
+
+<th width="25%" bgcolor="#ffffcf">
+	<h3><a href="./"><font color="#005f00"><i>CMCIM 2010</i></font></a></h3>
+	<table><tr><td>
+	<ul>
+	<p><li><font size="+1" color=red><b>Location</b></font>
+	<p><li><a href="accommodation.html">Accommodation</a>
+	<p><li><a href="transportation.html">Transportation</a>
+	<p><li><a href="registration.html">Registration</a>
+	</ul>
+	</td></tr></table>
+	</th>
+
+
+<!-- td width="75%" bgcolor="#00ffdf" -->
+<!-- td width="75%" bgcolor="#DA9859" -->
+<td width="75%" bgcolor="#ffbf7f">
+<h2>LOCATION</h2>
+The conference will be held at 
+<a href="http://www.coppercolorado.com/mountain/">Copper Mountain</a>,
+Colorado, located 75 miles west of Denver.
+They have current weather pictures
+(<a href="http://www.coppercolorado.com/mountain/cams/">mountain cams</a>)
+that you might want to view as the conference approaches!
+<p>
+Accomodations are at various condominium complexes
+at the base of the ski mountain.  The Copper Conference
+facility will be the location of daily meetings
+as well as the reception and banquet. 
+</td>
+</tr></table>
+
+<!-- ------------------------------------------------------------------------------- -->
+<div id="CopperLocation" style="margin:auto; margin-top:25px;  width:88%; height:550px; border:1px solid #000">
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+</body>
+</html>

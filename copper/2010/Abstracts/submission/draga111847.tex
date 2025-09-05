@@ -1,0 +1,56 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrei Draganescu \\
+{\bf Multigrid preconditioning of linear systems for interior point methods applied to a class of box-constrained optimal control problems}}
+
+Department of Mathematics and Statistics \\ University of Maryland Baltimore County \\ Baltimore MD 21250
+\\
+{\tt draga@umbc.edu}\\
+Cosmin Petra\end{center}
+
+In this work we construct and analyze multigrid preconditioners for
+operators of the form \mbox{${\mathcal D}_{\lambda}+{\mathcal
+K}_h^*{\mathcal K}_h$}, where $D_{\lambda}$ is the multiplication with a
+relatively ``smooth'' discrete function $\lambda>0$ and ${\mathcal K}_h$
+is a discretization of a compact linear operator ${\mathcal K}$. These
+systems arise when applying interior point methods to the distributed
+optimal control problem \mbox{$\min_u\frac{1}{2}(|\!|{\mathcal K}
+u-f|\!|^2 +\beta|\!|u|\!|^2)$} with box constraints
+$\underline{u}\leqslant u\leqslant\overline{u}$ on the control $u$. The
+presented preconditioning technique is related to the one developed by
+Dr{\u a}g{\u a}nescu and Dupont in~\cite{dradup} for the associated
+unconstrained problem, and is intended for large-scale problems. As
+in~\cite{dradup}, the quality of the resulting preconditioners is shown
+to increase as the resolution $h\downarrow 0$ at a rate that is optimal
+with respect to $h$ if the meshes are uniform, but decreases as the
+smoothness of $\lambda$ declines. We test this algorithm first on a
+Tikhnov-regularized backward parabolic equation with $[0,1]$ constraints
+and then on the elliptic-constrained optimization problem
+\begin{eqnarray*}
+\begin{array}{cc}\vspace{7pt}
+\textnormal{minimize}& \frac{1}{2}|\!|y-f|\!|^2 +
+\frac{\beta}{2}|\!|u|\!|^2 \\ \textnormal{subj. to\ \ } &\Delta
+y=u\ ,\ y\in H_0^1(\Omega),\ \underline{u} \leqslant u \leqslant \overline{u}\
+\ a.e.
+\end{array}
+\end{eqnarray*}
+In both cases it is shown that the number of linear iterations per
+optimization step, as well as the total number of fine-scale
+matrix-vector multiplications is decreasing with increasing resolution,
+thus showing the method to be potentially very efficient for truly
+large-scale problems.
+
+This is joint work with Cosmin Petra from the Argonne National Laboratory.
+
+\begin{thebibliography}{99}
+\bibitem{dradup} Andrei Dr{\u a}g{\u a}nescu and Todd F.~Dupont.
+\emph{Optimal order multilevel preconditioners for regularized ill-posed
+problems}, Math. Comp., 77 (2008), pp. 2001--2038.
+
+
+\end{document}

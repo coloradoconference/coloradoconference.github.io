@@ -1,0 +1,52 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eric C. Cyr \\
+{\bf Approximate Block Factorization and Physics-based Preconditioning: Application to CFD and MHD}}
+
+Sandia National Laboratories \\ P O Box 5800 \\ MS 1320 \\ Albuquerque \\ NM 87185-1320
+\\
+{\tt eccyr@sandia.gov}\\
+John N. Shadid\\
+Ray S. Tuminaro\end{center}
+
+Multiphysics applications are characterized by strongly-nonlinear coupled
+physical mechanisms that produce a solution with a wide-range of length
+and time scales. As a result, developing effective preconditioners for
+these systems can be a formidable challenge. One approach, which has
+demonstrated some success in a range of multiphysics applications (low
+Mach number CFD, reacting flow, drift-diffusion simulations and low Mach
+number resistive MHD), is a multigrid method with incomplete
+factorization smoothing. The coarsening is an aggressive graph-based
+aggregation applied to the nonzero block structure of the Jacobian
+matrix. These techniques have been shown to have favorable scaling
+properties for a number of nearly-elliptic systems. However, it is an
+open question on how robust and efficient these methods will be as the
+physics increases in complexity or progresses towards the hyperbolic
+limit.
+
+An alternative approach is to use approximate block factorizations for
+preconditioning of multiphysics systems. These methods segregate the
+linear operator into different sub-matrices based on the components of
+the physics. These individual components are typically more amenable to
+black-box AMG technology. The difficulty with this approach is that an
+effective approximation of the physical coupling embodied in the Schur
+complement operator is required. For the Navier-Stokes equations this has
+been a very active area of study. The approaches have included the basic
+physics-based SIMPLE solution method to more sophisticated techniques
+based on commuting arguments, such as the pressure-convection diffusion
+or least-squares commutator preconditioners.
+
+In this talk performance results for both preconditioning techniques are
+compared. Several applications are considered, including Navier-Stokes
+and compressible and incompressible Magnetohydrodyanamics. The specific
+Schur complement approximations as well as the implementation of these
+methods in the recently developed Trilinos software package ``Teko'' will
+be discussed.
+
+
+\end{document}

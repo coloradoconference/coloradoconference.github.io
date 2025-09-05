@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Scott MacLachlan \\
+{\bf A Non-Hermitian Coarsening Strategy for Algebraic Multigrid}}
+
+Department of Mathematics \\ Tufts University \\ 503 Boston Ave \\ Medford \\ MA 02155
+\\
+{\tt scott.maclachlan@tufts.edu}\end{center}
+
+In recent years, there has been a significant renewed interest in the
+development of optimally efficient algebraic multigrid solvers and
+preconditioners for the non-symmetric and non-Hermitian matrices that
+arise in applications such as fluid dynamics. While much of this work
+has evolved, either directly or indirectly, from multigrid algorithms
+for Hermitian problems, not all non-Hermitian matrices can be
+effectively addressed in this way. In this talk, I will introduce a
+new inherently non-Hermitian algebraic coarsening algorithm, adapted
+from multilevel block factorization preconditioners, and the
+corresponding algebraic multigrid algorithm. While the proposed
+strategy requires no assumptions on, for example, the diagonal
+dominance of the matrix, it reduces to a reasonable multigrid method
+for such problems. The resulting algorithm is, then, more robust
+than traditional AMG approaches; however, it is also less efficient
+for the HPD problems for which classical AMG excels.
+
+
+\end{document}

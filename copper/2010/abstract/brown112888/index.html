@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>brown112888</TITLE>
+<META NAME="description" CONTENT="brown112888">
+<META NAME="keywords" CONTENT="brown112888">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="brown112888.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jed Brown 
+<BR><B>Implicit integration of 3D ice sheet flow using hybrid factorization/relaxation block preconditioning</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Versuchsanstalt f&#252;r Wasserbau 
+<BR>
+Hydrologie und Glaziologie 
+<BR>
+ETH Zentrum 
+<BR>
+8092 Z&#252;rich 
+<BR>
+Switzerland
+
+<BR><TT>brown@vaw.baug.ethz.ch</TT>
+</DIV>
+
+<P>
+Ice sheets are non-Newtonian free-surface flows with nonlinear slip
+boundary conditions. Their
+most dynamic coupling to other climate components is the point where ice
+becomes floating as it
+flows into the ocean, known as the grounding line. Grounding line
+stability is unknown for many
+important regions, thus introducing great uncertainty in sea level
+forecasts. Since this regime
+is fundamentally non-shallow, we present an ALE formulation in which the
+velocity is governed by
+Stokes equations with power-law rheology, and the mesh satisfies surface
+kinematic equations with
+elasticity in the interior to prevent tangling.
+
+<P>
+Semidiscretizaton using a high-order finite element method produces
+differential algebraic
+equations where only surface location and enthalpy are differential. Integrating this DAE
+implicitly using general linear methods, and solving the resulting algebraic system with
+Jacobian-free Newton-Krylov, necessitates an effective preconditioner for
+the coupled indefinite
+system. Since this system contains physics operating on multiple scales
+with very different
+spectral properties, we apply relaxation field splitting to separate the
+loosely coupled parts,
+and a factorization split for the heterogeneous Stokes problem, with
+preconditioners for the Schur
+complement derived from approximate commutators.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-03
+</ADDRESS>
+</BODY>
+</HTML>
