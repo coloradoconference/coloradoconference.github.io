@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rafael Bru \\
+{\bf Convergence of Additive Schwarz Iterations for Singular Systems}}
+
+Instituto de Matematica Multidisciplinar \\ Dept. Matematica Aplicada \\ Univ. Politecnica de Valencia \\ 46022 Valencia \\ Spain
+\\
+{\tt rbru@mat.upv.es}\\
+Francisco Pedroche\\
+Daniel B Szyld\end{center}
+
+A convergence analysis is presented for additive Schwarz iterations
+when applied to consistent singular systems of equations $Ax=b$.
+The theory applies to singular $M$-matrices with one-dimensional
+null space, and is applicable in particular to systems representing
+ergodic Markov chains.
+The results are based on an algebraic formulation of Schwarz methods.
+Let $R_i$ be the restriction operator so that $A_i = R_i A R_i^T$
+is a symmetric permutation of a principal submatrix of $A$
+(and thus nonsingular).
+Given an initial vector $x^0$,
+additive Schwarz iterations consist of the process
+$x^{k+1}=T_{\theta}x^k+c$, $ k=0,1,\ldots ,$
+where
+$$% \begin{equation}
+T_{\theta} = I - \theta \sum_{i=1}^{p} R_i^{T} A_i^{-1} R_i A,
+$$% \end{equation}
+$c = \theta \sum_{i=1}^{p} R_i^{T} A_i^{-1} R_i b$,
+and $ 0 < \theta < 1$ is a damping parameter.
+The key here is of course that one assumes that there is
+overlap, i.e., that the restriction operators restrict to
+subspaces with nontrivial intersection.
+If there is no overlap, the method reduces to block Jacobi.
+
+As $A$ is singular, one has $\rho(T_\theta)=1$.
+It is shown that if $\theta < 1/p$ (or more generally
+$\theta < 1/q$, with $q$ the measure of the overlap), then
+$\gamma(T_\theta) =
+max\{ | \lambda |, \lambda \in \sigma(T), \lambda \neq 1 \} < 1 $,
+and that the index $ind(T)=1$.
+Therefore
+additive Schwarz iterations converge for any initial vector.
+Furthermore, there exists a splitting $A=M-N$ such that
+$M^{-1}N = T_\theta$.
+Our results imply in particular that
+zero is an isolated point of
+the spectrum of the
+preconditioned matrix $\sigma(M^{-1}A)$
+and
+the rest is inscribed in a circle
+centered at one with radius $\gamma = \gamma(T_\theta) <1$.
+
+This work complements the results of [Marek and Szyld,
+{\em LAA}, in press], where multiplicative Schwarz iterations
+are shown to converge for singular systems.
+
+(joint work with Francisco Pedroche, Univ. Politecnica de Valencia,
+Spain, and Daniel B Szyld, Temple University, Philadelphia)
+
+
+\end{document}

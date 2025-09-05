@@ -1,0 +1,71 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marinos, N. Vouvakis \\
+{\bf A Fast DP-FETI like Domain Decomposition Algorithm for the solution of Large Electromagnetic Problems}}
+
+Marinos N Vouvakis \\ The Ohio State University \\ ElectroScience Lab \\ 1320 Kinnear Rd  \\ Room 121 \\ Columbus \\ OH 43212 \\ Tel: (614) 292-7981 \\ Fax: (614) 292-7297
+\\
+{\tt vouvakis.1@osu.edu}\\
+Jin-Fa Lee\end{center}
+
+This paper introduces an efficient domain decomposition
+algorithm of a class of time-harmonic Maxwell problems in $\bf{R}^3$. The
+present domain decomposition method is a non-overlapping one; it
+utilizes a set of Lagrange multipliers on the inter-domain interfaces.
+In addition, the method allows for non-conforming/non-matching
+triangulations across the interfaces. The proposed algorithm resembles
+the well known Dual-Primal Finite Element Tearing and Interconnecting
+(DP-FETI); since both methods eliminate the primal variables, and
+solve the dense Lagrange multiplier block for the dual unknowns. To
+achieve convergence of the outer iteration loop, the Robin
+transmission condition is used to communicate information across
+interfaces. Using the FETI like algorithm, the present method solves,
+in the preprocessing step, for the Robin primal sub-domain problems
+multiple times, by exciting one dual unknown each time. This step
+generates an iteration matrix that is used to update the dual unknowns
+in the outer-loop iteration. The present method becomes extremely
+efficient for problems with geometric repetitions, such as antenna
+arrays, photonic and electromagnetic band gap structures (PBG/EBGs),
+frequency selective surfaces (FSSs) etc.
+
+The analysis of electrically large electromagnetic (EM) problems with
+spatial repetitions are of vital importance in practical industrial
+and engineering applications. Of particular interest is the wave
+radiation from large finite arrays, since such radiators are the
+cornerstone of every modern RADAR, satellite communication system or
+mobile phone base station. Yet another important class of problems
+that excibits spatial repetitions optics with the photonic
+crystals and photonic band gap structures. Using ``traditional'' PDE
+or even fast IE methods, most of the above-mentioned problems can be
+quite challenging or even impossible to solve, without using mainframe
+and parallel computer architectures. In this paper, we propose a
+domain decomposition methodology based on the Finite Element (FE)
+approximation that enables the solution of such large scale problems
+in single a PC.
+
+In this paper a dual primal domain decomposition formulation is
+developed for the three dimensional Maxwell problem. The method is
+based on three core ingredients: first an optimized Robin type
+transmission condition, second a mortar type formulation, and thirdly
+an efficient FETI solution algorithm. The optimized Robin type
+transmission condition employed herein are a 3-D vector wave extension
+of the optimal conditions proposed in the literature. The
+non-conforming mortar formulation is implemented to relax the mesh
+generation, and avoid periodic meshes constrains in each domain. In this
+work, the primal unknowns are eliminated in
+the prepossessing step, without the use of the Schur
+complement. Unlike FETI, the dual
+problem is solved with a computational cheap Gauss-Seidel solver. The
+Gauss-Seidel iteration matrix is constructed in the preprocessing
+step, by eliminating of the primal variables.
+
+Numerical results on complex large scale real life industrial
+problems are used to illustrate the efficiency of the method.
+
+
+\end{document}

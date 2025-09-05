@@ -1,0 +1,60 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Konstantin Lipnikov \\
+{\bf Error Minimization Based Rezone Strategy for ALE Methods}}
+
+Los Alamos National Laboratory \\ T-7 \\ MS B284 \\ Los Alamos \\ NM 87545
+\\
+{\tt lipnikov@lanl.gov}\\
+Mikhail Shashkov\end{center}
+
+The philosophy of the Arbitrary Lagrangian-Eulerian (ALE)
+methodology for solving multidimensional fluid flow problems
+is to move the computational mesh, using the flow as a guide,
+to improve the robustness, accuracy and efficiency of the simulation. The
+main elements in the ALE simulation are an
+explicit Lagrangian phase, a rezone phase in which a new mesh
+is defined, and a remap phase in which a Lagrangian solution
+is transferred to the new mesh. In the talk we shall address
+different computational aspects of the rezone phase.
+
+
+In most ALE codes, the main goal of the rezone phase is to
+maintain geometrical quality of the mesh. The example of such
+a strategy is the Reference Jacobian Matrix (RJM) method.
+Recently we have developed a new Error-Minimization-Based (EMB)
+rezone strategy which minimizes a global error and maintains
+smoothness of the mesh. The global error on new time level
+$t=t^{n+1}$ is a superposition of an interpolation error, an
+error due to the time advancing method, and the space
+discretization error. It is clear that if the mesh is not rezoned,
+then the interpolation error is zero; however, the mesh at time
+level $t=t^n$ may not be the best mesh to represent solution features at
+time $t=t^{n+1}$. The goal of the EMB rezone strategy is to achieve
+balance (if possible) between the errors which will minimize the global
+error at time $t=t^{n+1}$. The numerical experiments demonstrate the
+superiority of the EMB rezone strategy over the RJM rezone strategy.
+
+
+The rezoned mesh is sought as a minimizer of a non-convex functional. The
+essential part of the talk will be devoted to comparison of efficiency of
+different non-linear optimization strategies for hyperbolic problems. In
+particular, we shall consider a few global methods (e.g., a Polak-Ribiere
+nonlinear conjugate gradient method with inexact line search, a truncated
+Newton method) and a few local Gauss-Seidel type methods. We shall
+present numerical results for 1D Burgers' equation and 1D system of gas
+dynamics equations. The numerical experiments show that the rezone
+methods perform well even if the rezoned mesh is a local
+minimum of the functional. It allow us to use inexpensive optimization methods.
+
+
+Generalization of the EMB rezone strategy for two and three dimensions is
+a challenging task. It will be addressed quickly in the talk.
+
+
+\end{document}

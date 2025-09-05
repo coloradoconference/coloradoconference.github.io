@@ -1,0 +1,137 @@
+===firstname:
+Anna
+===firstname3:
+
+===lastname2:
+
+===postal:
+ CCS-3, Los Alamos National Laboratory
+ P.O. Box 1663, MS B256, Los Alamos, NM 87544, USA
+===lastname:
+Matsekh
+===lastname3:
+
+===ABSTRACT:
+We present a new fast implementation of inverse iteration without
+reorthogonalization for real symmetric tridiagonal matrices.
+We achieve this by choosing initial vectors from well-defined
+subspaces generated using Godunov's two-sided Sturm sequence-based spectral
+deflation. We apply spectral deflation to the 
+tridiagonal matrix $T \in R^{n\times n},\, T = T^T$ to find a 
+sequence of Givens rotations to obtain matrices $T_{n-1} \in R^{n-1 \times
+n-1}, T_{n-2} \in R^{n-2 \times n-2},\ldots, T_{1} \in R^{1\times
+1}$, such that $\Lambda(T_{1}) \subset \Lambda(T_{2})\ldots
+\Lambda(T_{n-1}) \subset \Lambda(T)$, where $\Lambda(\cdot)$
+denotes matrix spectrum. Instead of computing eigenvectors
+of the matrix $T$ directly from the corresponding sequences of
+rotation parameters, as it is done in the Godunov et al.\
+version of the method (which in our studies fails to give
+satisfactory residuals because of rounding errors), we compute
+eigenvector approximations $\tilde{x}_n(T_n) \in R^{n},
+\tilde{x}_{n-1}(T_{n-1}) \in R^{n-1}, \ldots \tilde{x}_1(T_1) \in
+R^{1}$ corresponding to the eigenvalues
+$\lambda_n(T)=\lambda_n(T_n) \geq
+\lambda_{n-1}(T)=\lambda_{n-1}(T_{n-1}) \geq
+\lambda_1(T)=\lambda_1(T_1)$. We construct initial vectors
+${y^0_k},\, k = 1, 2, \ldots, n$ for inverse iteration by padding
+the vector $\tilde{x}_k(T_{k})$ with $n-k$ zeros.  Even if two
+consecutive eigenvalues $\lambda_k$ and $\lambda_{k-1}$ are very
+close or coincident, the corresponding vectors ${y^0_k}$ and
+${y^0_{k-1}}$ differ in at least one component, while
+$\tilde{x}_k$ and $\tilde{x}_{k-1}$ approximately solve the
+respective eigenproblems $T_{k} \tilde{x}_{k} \approx
+\tilde{\lambda}_{k} \tilde{x}_k$ and $T_{k} \tilde{x}_{k-1}
+\approx \tilde{\lambda}_{k} \tilde{x}_{k-1}$.  This approach appears 
+sufficient to produce an accurate orthogonal eigensystem
+in two steps of inverse iteration without reorthogonalization.  We
+call this method \emph{Iteratively Refined Spectral Deflation (IRSD)}.
+If a few extra digits of orthogonality are desired, IRSD eigenvector
+may be reorthogonalized once. We call this variation of the method
+\emph{Reorthogonalized Iteratively Refined Spectral Deflation (RIRSD)}.
+
+We implemented IRSD and RIRSD along with an interval version of
+the eigenvalue bisection (which we use in both algorithms)
+in ANSI~C (GNU~C compiler, version~3.2) using IEEE
+double-precision arithmetic.  In the table below we present
+computational times and residuals for the test eigenproblem with 
+tridiagonal matrix $T$ of size $n=2500$ with main diagonal $(0,
+0, 0, \ldots)$ and codiagonals $(10, 0.1, 10, 0.1, 10, 0.1,
+...\ldots)$.  This matrix has two very tight eigenvalue clusters. 
+We solve this test problem using IRSD (\textbf{irsd}), RIRSD (\textbf{rirsd}), 
+Godunov--Inverse Iteration (\textbf{gii}) and
+LAPACK dste\emph{xx} routines on the 1800 MHz
+Intel\textregistered{} Pentium~4 Mobile\textregistered{} CPU\@.
+We used the following LAPACK routines in our tests:
+\textbf{dstein}, an implementation of inverse iteration which
+uses a bisection procedure \textbf{dstebz}; 
+\textbf{dsteqr}, an implementation of the QR algorithm; and, 
+\textbf{dstedc}, an implementation of the Divide and Conquer algorithm.
+
+In the table below we report the following characteristics for
+the computed eigenpairs
+$(\tilde{\lambda_i},\,\tilde{y_i}),\,i=1,\ldots, n$: the maximum
+residual $\mathcal{R}(\tilde{\lambda}, \tilde{Y}) = \max_i \| (T
+- \tilde{\lambda}_i I) \tilde{y}_i \|_\infty$; the maximum
+deviation $\mathcal{O}(\tilde{Y})$ of the approximate eigensystem
+$\tilde{Y} = \{\tilde{y_i}\},\, i = 1, 2, \ldots, n$ from the unit basis 
+$I = \{e_i\},\, i = 1, 2,\ldots, n$, where
+$\mathcal{O}(\tilde{Y})=(\max_i \|(\tilde{Y}^T \tilde{Y} - I)
+e_i\|_\infty$; $\mathcal{T}( \tilde{\lambda})$, the time in seconds spent computing all eigenvalue
+approximations; $\mathcal{T}( \tilde{Y})$, the time in seconds
+spent computing all eigenvector approximations; and, the
+cumulative time, $\Sigma_{\mathcal{T}} \equiv
+\mathcal{T}(\tilde{\lambda}) + \mathcal{T}( \tilde{Y})$.
+
+\begin{table}[hbtp]
+\centering
+\makebox[0pt]{%
+\begin{tabular}{@{}lrrrrr@{}}\hline
+& \multicolumn{1}{c}{$\mathcal{R}(\tilde{\lambda},\,\tilde{Y})$}
+& \multicolumn{1}{c}{$\mathcal{O}(\tilde{Y})$}
+& \multicolumn{1}{c}{$\mathcal{T}( \tilde{\lambda}),\text{s}$}
+& \multicolumn{1}{c}{$\mathcal{T}( \tilde{Y}),\text{s}$}
+& \multicolumn{1}{c}{$\Sigma_{\mathcal{T}},\text{s}$} \\\hline 
+irsd
+&$2.03e-15$
+&$4.16e-11$
+&$16.21$
+&$\bf{4.40}$
+&$\bf{20.61}$\\
+rirsd
+&$7.66e-15 $
+&$\bf{5.05e-15} $
+&$16.21$
+&$46.09$
+&$62.30$\\
+dstein
+&$9.77e-15 $
+&$5.06e-15  $
+&$11.76$
+&$119.33$
+&$131.09$\\
+dstedc
+&$1.07e-13   $
+&$6.32e-15  $
+&$\bf{0.76}$
+&$52.30$
+&$53.06 $\\
+dsteqr
+&$2.35e-13 $
+&$9.10e-15  $
+&$1.21 $
+&$249.57 $
+&$250.78$\\
+\hline 
+\end{tabular}
+}
+\label{tbl:TestNew}
+\end{table}
+
+===email:
+matsekh@lanl.gov
+===otherauths:
+
+===title:
+Using Spectral Deflation to Accelerate Convergence of Inverse Iteration for Symmetric Tridiagonal Eigenproblems.
+===firstname2:
+

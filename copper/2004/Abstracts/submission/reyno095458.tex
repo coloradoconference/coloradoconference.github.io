@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel R. Reynolds \\
+{\bf Numerical Modeling of Nonlinear Thermodynamics in SMA Wires}}
+
+Lawrence Livermore National Lab \\ P O Box 808 \\ L-551 \\ Livermore \\ CA 94551
+\\
+{\tt reynoldd@llnl.gov}\\
+Petr Kloucek\end{center}
+
+In this talk I present a mathematical model designed to describe the
+thermodynamic behavior of shape memory alloy wires, as well as a
+computational technique to solve the resulting system of partial
+differential equations.
+
+The material physics for such shape-changing materials may be modeled by
+a system of conservation equations based on a nonconvex free energy
+potential. To deal with this model, we first discretize the resulting
+system of equations implicitly in time, using a piecewise linear
+space-time Galerkin method to satisfy discrete conservation principles.
+This discretization results in a nonlinear, nonconvex root-finding
+problem for the time-evolved finite element expansion coefficients. To
+solve this system, we introduce a computational technique that combines a
+standard Newton-Krylov nonlinear solver with a viscosity-based
+continuation method.
+
+We find that the proposed solution method allows the model to better
+handle dynamic applications where the temporally local behavior of
+solutions is desired, as compared with previous solution techniques that
+required the addition of large viscous effects to stabilize the nonlinear
+system. Moreover, computational experiments document that this
+combination of modeling and solution techniques appropriately predicts
+the thermally- and stress-induced material phase transformations, as well
+as the hysteretic behavior and production of latent heat associated with
+such materials.
+
+
+\end{document}

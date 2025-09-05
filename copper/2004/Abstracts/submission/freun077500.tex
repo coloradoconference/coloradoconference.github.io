@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Roland W. Freund \\
+{\bf Getting transpose-free Lanczos-type iterative methods to work inside of Newton-Krylov methods for nonlinear systems}}
+
+Roland W. Freund \\ Bell Laboratories \\ Room 2C-525 \\ 700 Mountain Avenue \\ Murray Hill \\ NJ 07974-0636
+\\
+{\tt freund@research.bell-labs.com}\\
+Jane K. Cullum\end{center}
+
+Newton-Krylov methods for nonlinear PDEs employ Krylov-subspace
+solvers for the linear systems generated at each Newton iteration.
+The matrix-vector products required by the linear solver are
+frequently obtained via finite-difference approximations to
+directional derivatives, without ever generating the matrix.
+The common experience is that these Jacobian-free methods only work
+for computationally expensive linear solvers, such as GMRES, but fail
+for Lanczos-based iterations, such as TFQMR.
+In this talk, we discuss the reasons for the failure of
+Lanczos-based iterations, propose remedies, and present the
+results of some numerical experiments.
+
+
+\end{document}

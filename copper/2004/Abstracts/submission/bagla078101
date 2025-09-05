@@ -1,0 +1,32 @@
+===firstname:
+James
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Mathematics 
+University of Rhode Island
+Kingston, Rhode Island 02881 
+
+===lastname:
+Baglama
+===lastname3:
+
+===ABSTRACT:
+Augmenting the Krylov subspace with Ritz vectors has proven 
+to be an efficient and equivalent implementation of Sorensen's 
+(1992)Implicitly Restarted Arnoldi (IRA) method for solving 
+eigenvalue problems. We have applied the method of augmenting 
+to develop a block Householder eigenvalue algorithm and a SVD 
+algorithm. For the eigenvalue problem, we have developed a 
+block Householder implicitly restarted Arnoldi method. This method maintains strong orthogonality and utilizes level 3 BLAS 
+matrix-matrix products. Restarting is implemented by augmentation of Krylov subspaces. The SVD algorithm computes a sequence of partial Lanczos bidiagonalizations of A with judiciously chosen initial vectors. Restarting is also implemented by augmentation of Krylov subspaces. Both methods were derived by adapting Wu and Simon's (2001) approach for solving symmetric eigenvalue problems. MATLAB codes are available for both methods.
+===email:
+jbaglama@math.uri.edu
+===otherauths:
+
+===title:
+Solving Eigenvalue and SVD Problems with Augmented Krylov Subspaces
+===firstname2:
+

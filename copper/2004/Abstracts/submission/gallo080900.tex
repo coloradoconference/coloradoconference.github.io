@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Efstratios Gallopoulos \\
+{\bf Computing pseudospectra of parameter-dependent matrices}}
+
+Department of Computer Engineering & Informatics \\ University of Patras \\ 26500 Patras \\ Greece
+\\
+{\tt stratis@ceid.upatras.gr}\\
+Costas Bekas\\
+Kyriakos Petrakos\end{center}
+
+The motivation for studying the matrix pseudospectrum is that it
+frequently provides information regarding matrix modeled processes that
+is not readily available from the spectrum. Only a few years ago,
+computing pseudospectra was considered to be very expensive even for
+moderately sized matrices. Recent research, however, has brought down the
+cost considerably and makes their computation feasible even for
+relatively large matrices. A general assumption in these efforts was that
+the matrix under study does not change. In this presentation we relax
+this constraint and consider the pseudospectrum of matrices that depend
+on parameters, such as time. Typical applications in which such matrices
+arise include the numerical solution of PDEs with time varying
+coefficients and bifurcation problems in dynamical systems using
+Newton-Krylov schemes. The objective is to design methods that follow the
+evolution, with $t$, of the pseudospectrum $\Lambda_\epsilon(A(t))$ of
+some matrix function $A(t)$. A recently designed method for the parallel
+computation of pseudospectra, called {\sc psdm}, will serve as a primary
+tool of these investigations.
+
+
+(Work conducted in the context of and supported in part by a University
+of Patras CARATHEODORY grant.)
+
+
+\end{document}

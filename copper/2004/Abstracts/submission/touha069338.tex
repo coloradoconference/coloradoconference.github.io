@@ -1,0 +1,102 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ahmed TOUHAMI \\
+{\bf A comparative study of iterative solvers exploiting spectral information for SPD systems}}
+
+ENSEEIHT-IRIT \\ 2 rue C. Camichel \\ 31071 Toulouse Cedex \\ France
+\\
+{\tt Ahmed.Touhami@enseeiht.fr}\\
+Luc GIRAUD\\
+Daniel RUIZ\end{center}
+
+When solving the Symmetric Positive Definite (SPD) linear system
+$${\bf A x}= {\bf b} $$
+with the Conjugate Gradient (CG) method, the smallest eigenvalues of the
+matrix $A$ often slow down the convergence.
+This is highlighted by the bound on the rate of convergence of CG given by
+$$ ||{\bf e}^{(k)}||_{\bf A} \le {\bf 2}\,||{\bf e}^{(0)}||_{\bf A}
+\displaystyle\Bigg(\frac{\sqrt \kappa -1}{\sqrt \kappa + 1}\Bigg)^k,$$
+where ${\bf e}^{(n)}= {\bf x}^* - {\bf x}^{(n)}$ denotes the forward
+error associated with the iterate at step $k$, $\displaystyle \kappa =
+\kappa({\bf A}) = \lambda_{max} / \lambda_{min}$ denotes the condition
+number of ${\bf A}$ and $||{\bf x}||_{{\bf A}} = ({\bf x}^T{\bf A}{\bf
+x})^{1/2}$ denotes the ${\bf A-}$norm of ${\bf x}$. \\
+From this bound, it can be seen that increasing the size of the smallest
+eigenvalues will improve the convergence rate of CG.
+Consequently if the smallest eigenvalues of ${\bf A}$ could be somehow
+``removed'' the convergence will be improved.
+This observation is still of course true when a preconditioner is used and some
+extra techniques might be investigated to improve the convergence rate of
+CG on the preconditioned system.
+Several techniques have been proposed in the literature that either consists of
+updating the preconditioner or enforcing CG to work in the orthogonal of
+invariant subspace associated with small eigenvalues.
+The aim of this work it to compare several of these techniques in terms
+of numerical efficiency and computational complexity.
+Among these approaches we consider first the two-phase algorithm recently
+proposed in~\cite{arru:02}.
+In a first stage this algorithm computes a partial spectral decomposition
+simply using matrix-vector products.
+More precisely it combines Chebyshev iterations with a block Lanczos
+procedure to accurately compute an orthogonal basis of the invariant
+subspace associated with the smallest eigenvalues of $\Am$.
+Then, the solution on this small subspace is computed using a direct
+solver while the solution in the orthogonal complement is obtained with
+Chebyshev iterations that benefits from the reduced condition number.\\
+For sake of comparison this eigen-information is used in combination with
+other techniques.
+In particular we consider the deflated version of conjugate gradient
+described in~\cite{syeg:00}.
+This algorithm exploits the link between the Lanczos algorithm and the
+standard conjugate gradient algorithm, and is mathematically equivalent
+to Nicolaide's algorithm which is derived from a ``deflated'' Lanczos
+procedure~\cite{nico:87}.\\
+As representative of techniques exploiting the spectral information to
+update the preconditioner we consider the approaches proposed
+in~\cite{cadg:03a}~and~\cite{navu:03} that attempts to shift the smallest
+eigenvalues close to one where most of the eigenvalues of the
+preconditioned matrix should be located.
+In this talk, we will describe theses various variants as well as the
+observed numerical behaviour on a set of model problems from Matrix
+Market or arising from the discretization via finite element technique of
+some heterogeneous diffusion PDEs.
+We will discuss their numerical efficiency, computational complexity and
+sensitivity to the accuracy of the eigencalculation.
+Perspectives for future work will also be debated.
+\begin{thebibliography}{99}
+\bibitem{arru:02}
+{M.~Arioli and D.~Ruiz}.
+{A {C}hebyshev-based two-stage iterative method as an alternative to the
+direct solution of linear systems}.
+{Technical Report RAL-TR-2002-021, Rutherford Appleton Laboratory, Atlas
+Center, Didcot, Oxfordshire, OX11 0QX, England, 2002}.
+
+\bibitem{cadg:03a}
+{B.~Carpentieri,~I.~S.~Duff and L.~Giraud}.
+{A class of spectral two-level preconditioners}.
+{\em SIAM {J}ournal on {S}cientific {C}omputing}, 25:{749--765}, 2003.
+
+\bibitem{navu:03}
+{R. Nabben and C. Vuik}.
+{A comparison of deflation and coarse grid correction applied to porous media flow}.
+{Delft University of Technology, Department of Applied Mathematical
+Analysis}, {Report 03-10}, {Delft}, 2003.
+
+\bibitem{nico:87}
+{R.~Nicolaides}.
+{Deflation of conjugate gradients with applications to boundary value problems}.
+{\em SIAM Journal on Numerical Analysis}, 24:{355-365}1987.
+
+\bibitem{syeg:00}
+{Y.~Saad,~ M.~Yeung,~J.~Erhel~and~F.~Guyomarc'h}.
+{A deflated version of the conjugate gradient algorithm}.
+{\em SIAM Journal on Scientific Computing}, 21:{1909-1926}, 2000.
+\end{thebibliography}
+
+
+\end{document}

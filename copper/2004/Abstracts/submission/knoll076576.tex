@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large D. A. Knoll \\
+{\bf Jacobian-Free Newton-Krylov Methods for the Accurate Time Integration of Stiff Wave Systems}}
+
+M.S. B216 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545
+\\
+{\tt nol@lanl.gov}\\
+L Chacon\\
+V.A. Mousseau\\
+	Reisner, J.\end{center}
+
+Stiff wave systems are systems which exhibit
+a slow dynamical time scale while possesing fast wave phenomena.
+The physical effects of this fast wave may be important to the
+system, but resolving the fast time scale may not be required. When
+simulating such phenomena one would like to use time steps on the
+order of the dynamical scale for time integration. Historically,
+Semi-Implicit (SI) methods have been developed to step
+over the stiff wave time scale in a stable fashion. However,
+SI methods require some linearization and time splitting, and
+both of these can produce additional time integration errors.
+In this presentation, the concept of using SI methods as preconditioners
+to Jacobian-Free Newton-Krylov (JFNK) methods is developed.
+This algorithmic approach results in an
+implicitly balanced method (no linearization or time splitting).
+We provide an overview of SI methods in
+a variety of applications, and a brief background on JFNK methods.
+We will present details of our new algorithmic approach. Finally,
+we provide an overview of results coming from problems in
+geophysical fluid dynamics (GFD) and magnetohydrodynamics (MHD).
+
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Feng-Nan Hwang \\
+{\bf Reducing Nonlinear Complexity of Two-level Nonlinear Additive Schwarz Preconditioned Inexact Newton Method}}
+
+Department of Applied Mathematics \\ University of Colorado at Boulder \\ Boulder \\ CO 80309
+\\
+{\tt hwangf@colorado.edu}\\
+Xiao-Chuan Cai\end{center}
+
+We propose and test a new two-level nonlinear additive Schwarz
+preconditioned inexact Newton algorithm(ASPIN). The two-level
+nonlinear preconditioner combines a local nonlinear additive
+Schwarz preconditioner and a global {\it linear} coarse
+preconditioner. This approach is more attractive than the
+two-level method introduced in Cai et al. (2002), which is nonlinear on
+both levels. Since the coarse mesh function evaluation only requires the
+solution of a linear coarse system rather than a nonlinear coarse system
+derived from the discretization of original partial differential
+equations, the overall computational cost can be reduced considerably.
+Our parallel numerical results
+based on a driven cavity incompressible flow problem show that the
+new two-level ASPIN is nearly scalable with respect to the number
+of processors, the fine mesh size, and Reynolds number, provided
+that the coarse mesh size is fine enough.
+
+
+\end{document}

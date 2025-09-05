@@ -1,0 +1,304 @@
+===firstname:
+Kent-Andre
+===firstname3:
+
+===lastname2:
+Tveito
+===postal:
+Kent-Andre Mardal
+P.O. Box 134
+NO-1325 Lysaker, Norway
+===lastname:
+Mardal 
+===lastname3:
+
+===ABSTRACT:
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{epsfig}
+\usepackage{amscd}
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{corollary}{Corollary}[section]
+\renewcommand{\AA}{\mathcal{A}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\xx}{\mathcal{x}}
+\newcommand{\bb}{\mathcal{b}}
+
+
+\long\def\COMMENT#1{\par\vbox{\hrule\vskip1pt#1\vskip1pt\hrule}}
+
+
+
+\section{Introduction}
+
+In this abstract we will study three different (block) preconditioners for 
+two alternative formulations of the Bidomain model. 
+The Bidomain model describes the electrical activity in 
+the heart and is of importance to understand cardiac 
+diseases, which are a major problem in particular in 
+the western world. Here, we will study preconditioners
+for the following linearized version of the Bidomain model, 
+\begin{eqnarray}
+\label{first:1}
+v_t &=& \nabla\cdot(M_i\nabla v)+\nabla\cdot(M_i\nabla u),\\
+\label{first:2}
+0 &=& \nabla\cdot(M_i\nabla v)+\nabla\cdot((M_i+M_e)\nabla u),  
+\end{eqnarray}
+where $u$ and $v$ are the extracellular potential and the transmembrane potential, respectively, 
+and $M_i$  and $M_e$ are conductivity tensors in the heart.  
+An alternative formulation can be obtained by expressing the
+equations with the  intracellular potential, $w = u +v $ instead of $v$. 
+These equations are, 
+\begin{eqnarray}
+\label{second:1}
+w_t &=& \nabla\cdot(M_i\nabla w)+ u_t ,\\
+\label{second:2}
+u_t &=& w_t+\nabla\cdot(M_e\nabla u).  
+\end{eqnarray}
+The problems \eqref{first:1}-\eqref{first:2} 
+and \eqref{second:1}-\eqref{second:2} must
+be equipped with suitable boundary and initial
+conditions.   
+More details on these equations can 
+be found in, e.g. \cite{Pennacchio} and \cite{block-mg}.  
+
+
+
+The two alternative formulations have the
+same solution, but give rise to two different
+linear systems to be solved. The first one
+reads, 
+\begin{equation}
+\begin{pmatrix}
+I+\frac{\Delta t}{2}A_i & \frac{\Delta t}{2}A_i\\
+\frac{\Delta t}{2}A_i &\frac{\Delta t}{2}A_{i+e}
+\end{pmatrix}
+\begin{pmatrix}
+v^n \\ u^n 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+b^{n-1} \\  c^{n-1} 
+\end{pmatrix} .
+\label{first:matrix}
+\end{equation}
+And the second linear system is,  
+\begin{equation}
+\begin{pmatrix}
+I+\frac{\Delta t}{2}A_i & -I \\
+-I & I + \frac{\Delta t}{2}A_{e}
+\end{pmatrix}
+\begin{pmatrix}
+w^n \\ u^n 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+b^{n-1} \\  c^{n-1} 
+\end{pmatrix} .
+\label{second:matrix}
+\end{equation}
+We have used a Crank-Nicholson scheme in time and
+a finite element discretization in space.  
+Hence, $I$ is the mass matrix, while the various versions of $A_\alpha$, 
+where $\alpha=i,e,i+e$, 
+are "similar" to a discrete Laplacian, because the $M$ tensors
+are positive definite and bounded. Notice further that
+preconditioners for $I$, $A_\alpha$ and 
+$I + \frac{\Delta t}{2}A_\alpha$ are off-the-shelves 
+preconditioners that are order optimal 
+(with respect to both $h$ and $\Delta t$).  These preconditioner can be made by e.g., multigrid
+or domain decomposition. 
+
+
+
+We will investigate the efficiency of the three following (block) preconditioners for
+both formulations of the Bidomain model, 
+\begin{eqnarray*}
+\BB_J^{-1} &=& 
+\begin{pmatrix}
+A & 0\\
+0 & D
+\end{pmatrix}, \quad \mbox{block Jacobi},  \\ 
+\BB_{GS}^{-1} &=& 
+\begin{pmatrix}
+A & 0\\
+C & D
+\end{pmatrix}, \quad \mbox{block Gauss-Seidel (GS)},  \\ 
+\BB_{SGS}^{-1} &=& 
+\begin{pmatrix}
+A & 0\\
+C & D
+\end{pmatrix} 
+\begin{pmatrix}
+A^{-1} & 0\\
+0 & D^{-1}
+\end{pmatrix} 
+\begin{pmatrix}
+A & B\\
+0 & D
+\end{pmatrix}, \ \mbox{symmetric block GS}.  
+\end{eqnarray*}
+
+To check the efficiency of the preconditioner we measure the condition
+number of the preconditioned matrix,  $\BB \AA$ .
+The condition number is computed via singular value decomposition.  
+
+
+\section{Numerical Experiments.}
+In all the experiments we have partioned the unit square into  
+bilinear elements with size $h$ and used the standard 
+Galerkin finite element method to generate the matrices. 
+
+In Table \ref{first:exact} and \ref{second:exact} the three different
+exact preconditioners are checked for the two alternative formulations. 
+It seems that the preconditioners for the second formulation \eqref{second:matrix}
+are the best.  
+However, the condition numbers seem to increase as $\Delta t$ decreases. In contrast, 
+the condition numbers for the first formulation \eqref{first:matrix} seem
+to be bounded independent of both $h$ and $\Delta t$. 
+In Table \ref{first:mg} and \ref{second:mg} we investigate this behavior further, 
+but we use a multigrid preconditioner instead of the exact preconditioner, 
+due to the large number of 
+unknowns. The condition number is estimated as a bi-product of the
+Conjugate-Gradient method as described in [where-ever-this-was]. 
+The Conjugate-Gradient method is stopped when the relative residual 
+is less than $10^{-18}$. 
+The condition number for the preconditioned matrix using the second formulation
+is clearly dependent on $\Delta t$. Therefore, it seems that the first formulation 
+should be applied if $\Delta t$ is small, while the second formulation is better when $\Delta t$ 
+is large. 
+ 
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c||c|c|c|c||c|c|c|c||c|c|c|c||} \hline
+Prec & \multicolumn{4}{c|}{$\BB_J$}& \multicolumn{4}{c|}{$\BB_{GS} A $} & \multicolumn{4}{c|}{$\BB_{SGS} A $}\\ \hline 
+ $h\backslash \Delta t $ & 
+ $2^{-2}$ & $2^{-3}$ & $2^{-4}$ &  $2^{-5}$ &   
+ $2^{-2}$ & $2^{-3}$ & $2^{-4}$ &  $2^{-4}$ & 
+ $2^{-2}$ & $2^{-3}$ & $2^{-4}$ &  $2^{-5}$    \\ \hline \hline 
+ $2^{-1}$ & 5.0 & 4.3 & 3.4 & 2.7 &     2.3 & 2.2 & 2.0 & 1.9     & 1.9 &  1.7 & 1.5  & 1.3   \\ 
+ $2^{-2}$ & 6.2 & 6.0 & 5.7 & 5.3 &     2.6 & 2.6 & 2.6 & 2.5     & 2.1 & 2.1  & 2.0  & 1.9   \\ 
+ $2^{-3}$ & 6.3 & 6.3 & 6.2 & 6.1 &     2.6 & 2.7 & 2.7 & 2.7     & 2.2 & 2.1  & 2.1  & 2.1   \\ 
+ $2^{-4}$ & 6.3 & 6.3 & 6.3 & 6.3 &     2.6 & 2.7 & 2.7 & 2.7     & 2.2 & 2.2  & 2.2  & 2.2   \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Condition numbers for  the exact preconditioners, using the 
+first formulation.}
+\label{first:exact}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c||c|c|c|c||c|c|c|c||c|c|c|c||} \hline
+Prec & \multicolumn{4}{c|}{$\BB_J$}& \multicolumn{4}{c|}{$\BB_{GS} A $} & \multicolumn{4}{c|}{$\BB_{SGS} A $}\\ \hline 
+%Prec &  $\BB_J A $ &&&&  $\BB_{GS} A $ &&&&   $\BB_{SGS} A $ &&& \\ \hline 
+ $h\backslash \Delta t $ & 
+ $2^{-2}$ & $2^{-3}$ & $2^{-4}$ &  $2^{-5}$ &   
+ $2^{-2}$ & $2^{-3}$ & $2^{-4}$ &  $2^{-4}$ & 
+ $2^{-2}$ & $2^{-3}$ & $2^{-4}$ &  $2^{-5}$    \\ \hline \hline 
+ $2^{-1}$ & 1.3 & 1.7 & 2.3 & 3.7 & 1.2 & 1.3 & 1.6 & 2.2 & 1.0 & 1.1 & 1.2 & 1.6  \\ 
+ $2^{-2}$ & 1.4 & 1.8 & 2.5 & 4.1 & 1.2 & 1.3 & 1.7 & 2.4 & 1.0 & 1.1 & 1.3 & 1.7  \\ 
+ $2^{-3}$ & 1.4 & 1.8 & 2.6 & 4.2 & 1.2 & 1.4 & 1.7 & 2.4 & 1.0 & 1.1 & 1.3 & 1.7  \\ 
+ $2^{-4}$ & 1.4 & 1.8 & 2.6 & 4.2 & 1.2 & 1.4 & 1.7 & 2.4 & 1.0 & 1.1 & 1.3 & 1.8  \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Condition numbers for  exact preconditioners, using the second
+formulation.}
+\label{second:exact}
+\end{table}
+
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|} \hline
+ $h\backslash \Delta t $ & $2^{-2}$ & $2^{-3}$ & $2^{-4}$ & $2^{-5}$ & $2^{-6}$ & $2^{-7}$   \\ \hline 
+ $2^{-2}$ & 5.7 & 5.6 & 5.4 & 5.0  & 4.4 & 3.7  \\ 
+ $2^{-3}$ & 5.8 & 5.8 & 5.7 & 5.6  & 5.5 & 5.2  \\   
+ $2^{-4}$ & 5.9 & 5.9 & 5.8 & 5.8  & 5.7 & 5.6  \\   
+ $2^{-5}$ & 6.1 & 6.0 & 5.9 & 5.9  & 5.8 & 5.8  \\  
+ $2^{-6}$ & 6.2 & 6.1 & 6.1 & 6.0  & 5.9 & 5.9  \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Condition numbers for  Jacobi preconditioner with
+multigrid, first version.  }
+\label{first:mg}
+\end{table}
+
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|} \hline
+ $h\backslash \Delta t $ & $2^{-2}$ & $2^{-3}$ & $2^{-4}$ & $2^{-5}$ & $2^{-6}$ & $2^{-7}$   \\ \hline 
+ $2^{-2}$ & 1.4 & 1.8 & 2.5 & 4.1  & 7.2 & 13.3 \\    
+ $2^{-3}$ & 1.4 & 1.8 & 2.6 & 4.2  & 7.4 & 13.8 \\
+ $2^{-4}$ & 1.4 & 1.8 & 2.6 & 4.2  & 7.5 & 13.9 \\ 
+ $2^{-5}$ & 1.4 & 1.8 & 2.6 & 4.2  & 7.5 & 14.0 \\ 
+ $2^{-6}$ & 1.4 & 1.8 & 2.6 & 4.2  & 7.5 & 14.0 \\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Condition numbers for  Jacobi preconditioner with
+multigrid, second version.  }
+\label{second:mg}
+\end{table}
+
+
+This study is an extension of the work in \cite{Pennacchio} and \cite{block-mg}. 
+The above block algorithms are described in e.g., \cite{Hackbusch}.
+
+
+\begin{thebibliography}{1}
+
+\bibitem{Hackbusch}
+W.~Hackbusch.
+\newblock {\em Iterative Solution of Large Sparse Systems of Equations}.
+\newblock Springer-Verlag, 1994.
+
+\bibitem{Pennacchio}
+M.~Pennacchio and V.~Simoncini.
+\newblock Efficient algebraic solution of reaction-diffusion systems for the
+  cardiac excitation process.
+\newblock {\em Journal of Computational and Applied Mathematics}, 145:49--70,
+  2002.
+
+\bibitem{block-mg}
+J.~Sundnes, G.T. Lines, K.-A. Mardal, and A.~Tveito.
+\newblock Multigrid block preconditioning for a coupled system of partial
+  differential equations modeling the electrical activity of the heart.
+\newblock {\em Computer Methods in Biomechanics and Biomedical Engineering},
+  5:397--409, 2002.
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+===email:
+kent-and@simula.no
+===otherauths:
+
+===title:
+Block Preconditioners for PDEs Arising from 
+the Bidomain Model of the Electrical Activity in the Heart}
+===firstname2:
+Aslak

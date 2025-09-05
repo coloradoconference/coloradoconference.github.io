@@ -1,0 +1,48 @@
+===firstname:
+Hans
+===firstname3:
+
+===lastname2:
+Meier Yang
+===postal:
+Department of Applied Mathematics
+Campus Box 526
+University of Colorado at Boulder
+Boulder, Colorado 80309-0526
+
+===lastname:
+De Sterck
+===lastname3:
+
+===ABSTRACT:
+Algebraic multigrid is a very efficent algorithm for 
+solving large linear problems on unstructured grids. 
+Use of coarsening schemes such as parallel variants of the
+standard coarsening algorithm by Ruge and Stueben [1] or CLJP coarsening [2], a method based on parallel maximal independent set algorithms, can lead to high complexities with regard to memory usage as well as computation time, which adversely affect scalability.
+Aggressive coarsening techniques [3], which require long range interpolation techniques, significantly reduce complexities. While use of these methods often leads to worse convergence rates, overall savings in total time due to the reduced complexity can be significant.
+
+In this talk, we investigate some new aggressive coarsening techniques, multipass interpolation and their implementation on a parallel computer. The resulting AMG methods are applied to first-order system least-squares (FOSLS) discretizations of elliptic PDE systems. To this end, John Ruge's serial FOSLS code FOSPACK was parallelized and coupled to the hypre solver library [4]. Parallel scalability of the combined FOSLS-AMG method is
+investigated for large-scale three-dimensional applications.
+
+\vspace{0.25in}
+
+*This work was performed under the auspices of the U.S. Department of Energy by University of California Lawrence Livermore National Laboratory under contract number W-7405-Eng-48. 
+
+\vspace{0.5in}
+
+[1] J. Ruge, K. Stueben, Algebraic multigrid (AMG), in: S. McCormick, ed., {\em Multigrid Methods, vol. 3 of Frontires in Applied Mathematics} (SIAM, 1987) 73-130.
+
+[2] V. E. Henson, U. M. Yang, BoomerAMG: a Parallel Algebraic Multigrid Solver and Preconditioner, {\em Applied Numerical Mathematics}, 41 (2002) 155-177.
+
+[3] K. Stueben, Algebraic multigrid (AMG): an introduction with applications, in: U. Trottenberg, C. Osterlee and A. Schueller, eds., {\em Multigrid} (Academic Press, 2000) 413-532.
+
+[4] R. Falgout, U. M. Yang, hypre: a Library of High Performance Preconditioners, in {\em Computational Science - ICCS 2002 Part III}, P. Sloot, C. Tan, J. Dongarra and A. Hoekstra, eds., Lecture Notes in Computer Science, 2331 (Springer, 2002) 632-641.
+
+===email:
+desterck@colorado.edu
+===otherauths:
+
+===title:
+Reducing Complexity in Algebraic Multigrid
+===firstname2:
+Ulrike

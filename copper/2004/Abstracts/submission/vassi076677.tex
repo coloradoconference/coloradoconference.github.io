@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Panayot, S. Vassilevski \\
+{\bf Nullspace preserving multigrid for saddle--point problems}}
+
+Center for Applied Scientific Computing \\ UC Lawrence Livermore National Laboratory \\ 7000 East Avenue \\ Mail stop L-560 \\ Livermore \\ CA 94550 \\ U.S.A
+\\
+{\tt panayot@llnl.gov}\end{center}
+
+Consider the saddle point problem
+$$
+A \left [
+\begin{array}{c}
+{\mathbf u}\\
+{\mathbf x}
+\end{array} \right ] \equiv
+\left [
+\begin{array}{cc}
+{\mathcal A} & {\mathcal B}^T\\
+{\mathcal B} & 0
+\end{array} \right ] \left [
+\begin{array}{c}
+{\mathbf u}\\
+{\mathbf x}
+\end{array} \right ] = \left [
+\begin{array}{c}
+{\mathbf f}\\
+0
+\end{array} \right ].
+$$
+Assuming that ${\mathcal A}$ is s.p.d.,
+this problem is transformed, by a (computable) projection $\pi$ ($\pi^2
+= \pi$)
+such that
+${\mathcal B}\pi = {\mathcal B}$,
+to an equivalent
+s.p.d. problem for ${\mathbf u}$,
+$$
+\left [
+(I-\pi^T){\mathcal A}(I-\pi) + \pi^T {\mathcal A} \pi \right ]
+{\mathbf u} = (I-\pi^T){\mathbf f}.
+$$
+We present a set of conditions for a smoother
+${\mathcal M}^{-1}$ and an interpolation matrix $\Pi$, such that
+if a current iterate in the resulting two--grid method
+belongs to the subspace $\text{Null}({\mathcal B})$,
+then after smoothing
+the iterate stays
+in $\text{Null}({\mathcal B})$,
+and finally,
+the (interpolated) coarse--grid correction also stays in the subspace
+$\text{Null}({\mathcal B})$.
+Thus a multigrid method can be devised without
+explicit knowledge of a computable basis
+of $\text{Null}({\mathcal B})$.
+The tools needed are: computable projections $\pi_k$, such that
+$\pi^T_k$ are also
+computable, interpolation matrices ${\mathcal P}_k$ for the
+${\mathbf u}$--variable and interpolation matrices ${\mathcal Q}_k$ for
+the
+second unknown ${\mathbf x}$, at all levels $k \ge 0$.
+Let ${\mathcal B}_0 = {\mathcal B}$ and
+${\mathcal A}_0 = {\mathcal A}$ (i.e., $k=0$ stands for the finest
+level).
+The projections $\pi_k$ have the form ${\mathcal R}_k{\mathcal B}_k$
+and
+satisfy ${\mathcal B}_k \pi_k ={\mathcal B}_k$.
+
+There is a common ``{\it null--space preserving}'' assumption on
+${\mathcal Q}_k$, ${\mathcal P}_k$, and
+${\mathcal B}_{k+1} \equiv {\mathcal Q}^T_k {\mathcal B}_k {\mathcal
+P}_k$:
+$$
+{\mathcal B}_{k+1} {\mathbf v}_c =0
+\text{ implies }
+{\mathcal B}_k {\mathcal P}_k {\mathbf v}_c = 0.
+$$
+
+Define a standard multigrid method based on the s.p.d. matrices
+$$
+(I-\pi^T_k){\mathcal A}_k(I-\pi_k) + \pi^T_k {\mathcal A}_k \pi_k,
+\quad {\mathcal A}_k =
+{\mathcal P}^T_{k-1} {\mathcal A}_{k-1} {\mathcal P}_{k-1},\;
+{\mathcal A}_0 = {\mathcal A},
+$$
+smoothers (for given s.p.d. matrices ${\overline {\mathcal M}}^{-1}_k$),
+
+$$
+{\mathcal M}^{-1}_k = (I-\pi_k){\overline {\mathcal M}}^{-1}_k
+(I-\pi^T_k)+ \pi_k {\overline {\mathcal M}}^{-1}_k\pi^T_k,
+$$
+and (modified)
+interpolation matrices
+$$
+\Pi_k={\mathcal P}_k (I-\pi_{k+1}).
+$$
+The resulting multigrid method (with zero initial iterate)
+keeps all iterates in
+$\text{Null}({\mathcal B})$ since the initial residual is
+$(I-\pi^T){\mathbf f}$ and all successive residuals also have the form
+$(I-\pi^T){\mathbf r}$.
+
+We provide a specific construction of the (computable) projections
+$\pi$ as well as
+alternative choices of the null--space preserving smoothers
+${\mathcal M}^{-1}$
+for some mixed finite element saddle--point matrices $A$.
+\vspace{0.5cm}
+This work was performed under the auspices of the U. S.
+Department of
+Energy by University of California Lawrence Livermore National
+Laboratory
+under contract W-7405-Eng-48.
+
+
+\end{document}

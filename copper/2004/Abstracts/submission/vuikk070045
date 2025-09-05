@@ -1,0 +1,83 @@
+===firstname:
+Kees, C.
+===firstname3:
+Jarno, J.
+===lastname2:
+Nabben
+===postal:
+Delft University of Technology
+Department of Applied Mathematical Analysis
+Mekelweg 4
+2628 CD Delft
+The Netherlands
+===lastname:
+Vuik
+===lastname3:
+Verkaik
+===ABSTRACT:
+It is well known that the convergence rate of the Conjugate Gradient
+method
+is bounded as a function of the condition number of the system matrix to
+which
+it is applied.
+Let $A\in\mathbb{R}^{n\times n}$ be symmetric positive definite.
+We assume that the vector $b\in\mathbb{R}^n$ represents a discrete
+function on a
+grid $\Omega$ and that we are searching for the vector
+$x\in\mathbb{R}^n$
+on $\Omega$ which solves the linear system
+\[
+   Ax = b.
+\]
+Such systems are encountered, for example, when a finite
+volume/difference/element method is used to discretize an elliptic
+partial differential equation defined on the continuous analog of
+$\Omega$.
+
+If the condition number of $A$ is large it is advisable to solve,
+instead, a preconditioned system
+$M^{-1}Ax=M^{-1}b$, where the symmetric positive definite
+preconditioner $M$ is
+chosen such that $M^{-1}A$ has a more clustered spectrum
+or a smaller condition number than that
+of $A$.  Furthermore, $M$ must be cheap to solve relative to the
+improvement it provides in convergence rate.
+With respect to the known preconditioners at least two problems remain:
+\begin{itemize}
+\item if there are large jumps in the coefficients of the discretized
+PDE the convergence of PCG becomes very slow,
+\item if a block preconditioner is used in a domain decomposition
+algorithm the condition number of the preconditioned matrix deteriorates
+if the number of blocks increases.
+\end{itemize}
+Both problems can be solved by a deflation technique or a suitable (additive)
+coarse grid correction. In this paper we describe and compare both methods. We
+also compare deflation with the multiplicative coarse grid correction and the
+balanced Neumann-Neumann method.
+
+It appears that for the convergence speed of
+all methods, the choice of the projection vectors is very
+important. Some well known choices are: (approximate) eigenvectors and
+subdomain deflation vectors. In the second choice we assume that the
+computational domain is subdivided into $m$ subdomains. The $m$ deflation vectors are
+equal to one in one subdomain and zero in the other subdomains. Recently
+a generalization of this approach has been investigated. In this
+generalization, deflation vectors on each subdomain are added,
+which are linear in a coordinate direction. We
+observe that the number of iterations and the CPU time decreases considerably,
+if these deflation vectors are used.
+The reasons are: the norm of the initial residual is much smaller
+and the rate of convergence is higher. 
+
+Finally, problems can occur if the matrix $A$ is symmetric positive semidefinite (this
+happens if only Neumann boundary conditions are used).
+In this case subdomain deflation vectors lead to a singular coarse grid matrix.
+In this paper we compare two approaches to solve this problem.
+===email:
+c.vuik@math.tudelft.nl
+===otherauths:
+
+===title:
+Deflation acceleration of the preconditioned Conjugate Gradient method
+===firstname2:
+Reinhard, R.

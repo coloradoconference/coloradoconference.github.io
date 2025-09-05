@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Xue Wang \\
+{\bf Preconditioned Solenoidal Basis Method for Saddle-Point Problems}}
+
+Department of Computer Science \\ Texas A\&M University \\ College Station \\ TX 77843-3112
+\\
+{\tt wangx@cs.tamu.edu}\\
+Vivek Sarin\end{center}
+
+Saddle-point systems arise in a number of applications where conservation laws are enforced through discrete linear constraints.
+For incompressible fluids,
+a divergence-free constraint forces the fluid velocity to lie in the null space of a constraint matrix.
+This talk describes the solenoidal basis method for solving saddle-point problems.
+The solenoidal basis method is a projection technique that uses a discrete divergence-free basis to satisfy the linear constraints.
+A reduced system in the projected space is solved by an iterative method.
+The main challenges in this approach include construction of the discrete solenoidal basis and preconditioning the reduced system.
+In this talk,
+we present algebraic schemes to construct sparse and dense bases for the null space of the constraint matrix.
+These bases can be used to represent the discrete divergence-free subspace.
+We also outline preconditioning techniques for the reduced system and discuss the performance of the preconditioned solenoidal method.
+
+\end{document}

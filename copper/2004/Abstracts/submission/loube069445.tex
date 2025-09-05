@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Raphael Loubere \\
+{\bf ALE INC.: a 2d Arbitrary-Lagrangian-Eulerian code on polygonal staggered grids for compressible hydrodynamic problems}}
+
+Los Alamos National Laboratory \\ T7 Group  \\ MS B284 \\ Los Alamos \\ NM \\ 87545
+\\
+{\tt loubere@lanl.gov}\\
+Mikhail Shashkov\end{center}
+
+Classical ALE code are constructed with a Lagrangian scheme (to increment
+the fluid variables and the mesh position),
+a Rezoner (to improve the quality of the mesh) and a Remapper (to
+interpolate between the Lagrangian and the rezoned grids).
+
+ALE INC. deals with polygonal grid in 2d in order to treat complex
+geometries. Moreover staggered grids are used to define
+fluid variables (nodal velocity, cell-centered internal energy, subcell
+densities) and to remap/interpolate with a high-order
+accuracy.
+
+Such a code is conservative (mass, momenta and total energy), linear and
+bound preserving, positivity preserving,
+and material interfaces are preserved during the rezone/remap stages.
+
+Validation test cases and more complex fluid flow simulations
+will be presented in 2d for polygonal grids.
+
+
+\end{document}

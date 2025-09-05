@@ -1,0 +1,88 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Catherine E. Powell \\
+{\bf Efficient preconditioning for saddle-point systems arising in mixed finite element approximation of Darcy flow}}
+
+UMIST Maths Dept. \\  \\ P.O.Box 88 Sackville Street \\ \\ Manchester M60 1QD UK.
+\\
+{\tt cp@fire.ma.umist.ac.uk}\end{center}
+
+The main focus of this work is the design of optimal and
+computationally efficient preconditioning strategies for a particular
+saddle-point system that arises in the mathematical modelling of flow in
+porous media. Specifically, we are solving a mixed formulation of a
+standard scalar diffusion problem, derived from Darcy's law:
+\begin{equation}
+\nonumber
+\begin{array}{rcl}
+\mathcal{A}^{-1}\vec {u}-\nabla p &= & 0,\\
+\nabla \cdot \vec {u} &=& -f \quad \, \, \mbox{in } \Omega,\\
+p &=& g
+\quad\quad \mbox{on } \partial\Omega_{D},\\
+\vec {u}\cdot\vec {n} &=& 0
+\quad\quad \mbox{on } \partial\Omega_{N}.
+\end{array}
+\end{equation}
+
+\noindent
+Discretisation via the lowest-order Raviart-Thomas finite
+element method yields a saddle-point system matrix,
+$$ C = \left(\begin{array}{cc} A & B^{T} \\ B & 0
+\end{array}\right),$$
+
+\noindent that is highly ill-conditioned with respect to the
+discretisation parameter \textit{and}, more importantly, to the
+coefficients embedded in the permeability tensor $\mathcal{A}.$
+
+The system can be solved in a multitude of different ways. However,
+permeability coefficients frequently exhibit anisotropies and
+discontinuities and several previously suggested preconditioning schemes
+are known to lose robustness in such cases. Further, many authors comment
+on the difficulties of solving indefinite systems, and have developed
+methodologies to convert the system in question to a positive definite
+one. We demonstrate that solving the original unmodified saddle-point
+system using minimal residual schemes is not problematic provided
+sufficient attention is paid to the coefficient term.
+
+It is well known that the underlying variational problem is well-posed in
+two pairs of function spaces, $H(div)\times L^{2}$ and $L^{2} \times
+H^{1}$, leading to the possibility of two distinct types of
+block-diagonal preconditioners. We evaluate the efficiency of both types
+of approach when anisotropic and discontinuous diffusion coefficients are
+present. The
+first of these incorporates a known `specialised' multigrid approximation
+to a weighted $H(div)$ operator. For the second, we propose a simpler
+black-box method, the key tools for which are diagonal scaling for a
+weighted mass matrix and an algebraic multigrid V-cycle applied to a
+sparse approximation to a generalised diffusion operator.
+
+Eigenvalue bounds and numerical results are presented to illustrate not
+only the optimality of both preconditioners with respect to the
+discretisation parameter but also the superior robustness of the
+black-box scheme with respect to the PDE coefficients. Today, the
+existence of freely available algebraic multigrid codes makes it a
+feasible preconditioning strategy for tackling saddle-point problems
+arising in mixed finite element formulations of a wide range of other
+second-order elliptic problems.
+
+\begin{enumerate}
+\item[1.] Powell, C.E., Silvester, D., Optimal preconditioning for
+Raviart-Thomas mixed formulation of second-order elliptic PDEs.
+\textit{To appear in SIAM J. Matrix Anal., 2004.}
+
+\item[2.] Powell, C.E., Silvester, D., Black-box preconditioning for
+mixed formulation of self-adjoint elliptic PDEs. \textit{Lecture Notes in
+Computer Science, 35, `Challenges in Scientific Computing,' 2003.}
+
+\item[3.] Powell C.E., Optimal preconditioning for mixed finite element
+formulation of second-order elliptic problems, \textit{Ph.D. thesis,
+UMIST, (England), 2003.}
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ruth M Holland \\
+{\bf Sparse Approximate Inverses and Target Matrices}}
+
+Oxford University Computing Laboratory \\ Wolfson Building \\ Parks Road \\ Oxford \\ OX1 3QD
+\\
+{\tt ruth@comlab.ox.ac.uk}\\
+Andy J Wathen\\
+Gareth J Shaw\end{center}
+
+Sparse approximate inverses are a popular choice of preconditioner
+especially for use in a parallel environment, due to the high degree of
+parallelizability in both their construction and application. This is
+certainly true when the preconditioner, $P$, is calculated by minimizing
+$\|I-PA\|_{F}$ via the solution of independent linear least squares
+problems for the rows separately.
+
+In this talk we will consider generalizations of such preconditioners,
+which maintain this attractive feature: firstly through use of an
+alternative norm, and secondly via the use of `target matrices'. The
+former has been discussed previously though it appears not to have been
+exploited. The second and main focus here will be on readily inverted
+target matrices, $T$, which form part of a preconditioner when $\|T-PA\|$
+is minimized. We will discuss two varieties of target matrices, and show
+results when a target matrix is used in the solution of
+advection-diffusion problems.
+
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marko Huhtanen \\
+{\bf Real Linear Iterations}}
+
+Institute of Mathematics \\ \\ Helsinki University of Techhnology \\ \\ Box 1100 \\ FIN-02015 \\ \\ Finland
+\\
+{\tt marko.huhtanen@hut.fi}\end{center}
+
+Any linear system
+\begin{equation}\label{yht1}
+Ax=b,
+\end{equation}
+with $A\in {\bf R}^{n \times n}$ and $b\in {\bf R}^{n}$,
+can be rewritten as an equivalent complex
+real linear system
+\begin{equation}\label{yht2}
+Mz+ N\overline{z}=c,
+\end{equation}
+of halved size, i.e., we have
+$M,N\in {\bf C}^{ \frac{n}{2}\times \frac{n}{2}}$ and $c\in {\bf C}^{\frac{n}{2}}$.
+
+We give examples of
+applications where this latter formulation (\ref{yht2}) arises.
+We introduce methods to solve the system
+directly and iteratively. We discuss preconditioning
+ideas for the formulation (\ref{yht2}).
+
+
+\end{document}

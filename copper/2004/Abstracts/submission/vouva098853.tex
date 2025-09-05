@@ -1,0 +1,152 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marinos, N. Vouvakis \\
+{\bf  A Fast DP-FETI like Domain Decomposition Algorithm for the solution of Large Electromagnetic Problems}}
+
+Marinos N Vouvakis \\ The Ohio State University \\ ElectroScience Lab \\ 1320 Kinnear Rd  \\ Room 121 \\ Columbus \\ OH 43212 \\ Tel: (614) 292-7981 \\ Fax: (614) 292-7297
+\\
+{\tt vouvakis.1@osu.edu}\\
+Jin-Fa
+ Lee\end{center}
+
+This paper introduces an efficient domain decomposition
+algorithm of a class of time-harmonic Maxwell problems in $\bf{R}^3$. The
+present domain decomposition method is a non-overlapping one; it
+utilizes a set of Lagrange multipliers on the inter-domain interfaces.
+In addition, the method allows for non-conforming/non-matching
+triangulations across the interfaces. The proposed algorithm resembles
+the well known Dual-Primal Finite Element Tearing and Interconnecting
+(DP-FETI); since both methods eliminate the primal variables, and
+solve the dense Lagrange multiplier block for the dual unknowns. To
+achieve convergence of the outer iteration loop, the Robin
+transmission condition is used to communicate information across
+interfaces. Using the FETI like algorithm, the present method solves,
+in the preprocessing step, for the Robin primal sub-domain problems
+multiple times, by exciting one dual unknown each time. This step
+generates an iteration matrix that is used to update the dual unknowns
+in the outer-loop iteration. The present method becomes extremely
+efficient for problems with geometric repetitions, such as antenna
+arrays, photonic and electromagnetic band gap structures (PBG/EBGs),
+frequency selective surfaces (FSSs) etc.
+
+The analysis of electrically large electromagnetic (EM) problems with
+spatial repetitions are of vital importance in practical industrial
+and engineering applications. Of particular interest is the wave
+radiation from large finite arrays, since such radiators are the
+cornerstone of every modern RADAR, satellite communication system or
+mobile phone base station. Yet another important class of problems
+that excibits spatial repetitions optics with the photonic
+crystals and photonic band gap structures. Using ``traditional'' PDE
+or even fast IE methods, most of the above-mentioned problems can be
+quite challenging or even impossible to solve, without using mainframe
+and parallel computer architectures. In this paper, we propose a
+domain decomposition methodology based on the Finite Element (FE)
+approximation that enables the solution of such large scale problems
+in single a PC.
+
+Despite their great popularity in elliptic differential equations,
+domain decomposition (DD) methods have found limited application on
+Maxwell problems. Among the first to consider the non-overlapping
+alternating Schwarz DD algorithm for the solution of Maxwell
+problems was Despr\'{e}s in \cite{DESPRES91}. During the years, a
+number of interface conditions have been proposed to ensure and speed
+up the convergence of the non-overlapping alternating Schwarz
+algorithm in both harmonic and Maxwell regime
+\cite{COLLINO97},\cite{STUPFEL00}.
+
+In this paper a dual primal domain decomposition formulation is
+developed for the three dimensional Maxwell problem. The method is
+based on three core ingredients: first an optimized Robin type
+transmission condition, second a mortar type formulation, and thirdly
+an efficient FETI solution algorithm. The optimized Robin type
+transmission condition employed herein is a 3-D vector wave extension
+of the optimal conditions proposed in \cite{GANDER02}. The
+non-conforming mortar formulation is implemented to relax the mesh
+generation, and avoid periodic meshes constrains in each domain. The
+formulation is similar to these described in \cite{WOHLMUTH01} for
+elliptic problems. In this work, the primal unknowns are eliminated in
+the prepossessing step, without the use of the Schur
+complement. Unlike FETI \cite{FARHAT91},\cite{PAVARINO02}, the dual
+problem is solved with a computational cheap Gauss-Seidel solver. The
+Gauss-Seidel iteration matrix is constructed in the preprocessing
+step, by eliminating of the primal variables.
+
+Numerical results on complex large scale real life industrial
+problems are used to illustrate the efficiency of the method.
+
+
+References
+
+@PHDTHESIS{ DESPRES91 ,
+AUTHOR = { Despr\'{e}s, Bruno },
+TITLE = { M\'{e}thodes de d\'{e}composition de domaine pour
+les probl\'{e}mes de propagation d'ondes en r\'{e}gime
+harmonique},
+SCHOOL = { Paris },
+TYPE = "{Ph.D.} dissertation",
+LOCATION = { Bound },
+YEAR = { 1991}}
+
+
+@ARTICLE{ COLLINO97 ,
+AUTHOR = { Collino, F. and Delbue, G. and Joly, P. and
+Piacentini, A. },
+TITLE = { A new interface condition in the non-overlapping
+domain decomposition method for the {M}axwell equations},
+JOURNAL = { Comput. Methods Appl. Mech. Eng.},
+VOLUME = { 136},
+PAGES = { 68--82},
+YEAR = { 1997 }}
+
+@ARTICLE{ STUPFEL00,
+AUTHOR = { Stupfel, Bruno and Mognot, Martine },
+TITLE = { A domain decomposition method for the vector
+wave equation },
+JOURNAL = { IEEE Trans. Antennas Propagat.},
+VOLUME = { AP-48, no. 5,},
+PAGES = { 653--660},
+MONTH = may,
+YEAR = { 2000 }}
+
+@ARTICLE{ GANDER02,
+AUTHOR = { Gander, M. and Magoul\'{e}s F. and Nataf, F.},
+TITLE = { Optimized {S}chwarz methods without overlap for the
+{H}elmholtz equation },
+JOURNAL = { SIAM J. Scir. Comput.},
+VOLUME = { 24, no. 1,},
+PAGES = { 38--60},
+YEAR = { 2002 }}
+
+@ARTICLE{ FARHAT91,
+AUTHOR = { Farhat, C. and Raux, F.-X.},
+TITLE = { A method of finite element tearing and
+interconnecting and its parallel solution algorithm },
+JOURNAL = { Int. J. Numer. Meth. Eng.},
+VOLUME = { 32},
+PAGES = { 1205--1227},
+YEAR = { 1991 }}
+
+
+@BOOK{ WOHLMUTH01 ,
+AUTHOR = { Wohlmuth, B. I. },
+TITLE = { Discretization Methods and Iterative Solvers Based
+on Domain Decomposition },
+YEAR = { 2001 },
+PUBLISHER = { Springer-Verlag },
+ADDRESS = { Berlin }}
+
+
+@BOOK{ PAVARINO02 ,
+AUTHOR = { Pavarino, L. F. and Toselli, A },
+TITLE = { Recent Developments in Domain Decomposition Methods },
+YEAR = { 2002 },
+PUBLISHER = { Springer-Verlag },
+ADDRESS = { Berlin }}
+
+
+\end{document}

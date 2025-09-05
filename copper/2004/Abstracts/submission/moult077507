@@ -1,0 +1,28 @@
+===firstname:
+J. David
+===firstname3:
+Benjamin K.
+===lastname2:
+Austin
+===postal:
+MS B284
+Los Alamos National Laboratory
+Los Alamos, NM 87545
+===lastname:
+Moulton
+===lastname3:
+Bergen
+===ABSTRACT:
+  The algorithmic scaling of robust variational multigrid methods has generated significant interest in the development of efficient and scalable parallel implementations, particularly on distributed memory architectures.  However, the hierarchical nature of these systems presents significant challenges for both efficiency and scalability. In particular, we are interested in both high-end proprietary clusters, such as the Q supercomputer at LANL, and in commodity based Beowulf clusters.  In both cases the structure of the hierarchy is very similar (i.e, node interconnect, local memory, local cache design, CPU pipelining) although the performance of a particular component may vary significantly.  Thus, in both cases, the objective is to employ various techniques to minimize the impact of this hierarchy on the overall performance of the code.
+
+  To this end we have implemented an MPI-based parallel version of the Dendy's Black Box Multigrid Code (BoxMG) for structured grids in both two and three dimensions.  This code utilizes a customized version of the Message Passing for Structured Grid Toolkit (MSG) from netlib, and computational kernels from the serial BoxMG code. In this presentation we will discuss profiling the serial components (e.g., with PAPI and DCPI), focusing on the influence of data and loop structures that increase cache-awareness.  Also, we will discuss profiling the message passing components of the code (e.g., with Vampir), focusing on implementation issues that should improve parallel performance.
+
+
+===email:
+moulton@lanl.gov
+===otherauths:
+Markus Berndt and Joel E. Dendy
+===title:
+Performance Tuning of Parallel Structured Multigrid
+===firstname2:
+Travis

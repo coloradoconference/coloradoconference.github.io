@@ -1,0 +1,55 @@
+===firstname:
+Jim E.
+===firstname3:
+Barry
+===lastname2:
+Alber
+===postal:
+Center for Applied Scientific Computing
+Lawrence Livermore National Laboratory
+Box 808, L-561
+Livermore, CA 94551
+===lastname:
+Jones
+===lastname3:
+Lee
+===ABSTRACT:
+In this talk, we consider the curl-curl formulation of the
+Maxwell's equations,
+$\nabla\times \mu \nabla\times E + \sigma E = f,$
+discretized using Nedelec edge elements.
+Previous researchers' work (Reitzinger and Schoeberl [2002];
+Bochev, Garasi, Hu, Robinson and  Tuminaro [2003]) on developing
+fast algebraic multigrid
+solvers for this equation have used aggregation techniques
+and carefully designed interpolation to preserve the null-space
+of the curl operator.
+
+In this talk we describe a new multigrid solver based on
+element agglomeration (Jones and Vassilevski [2001]).
+A key component of the method is the notion of a cycle:
+a closed path of edges in the grid. Coarse grid cycles can be constructed
+which are a union of fine grid cycles. The multigrid
+solver then uses an interpolation
+operator with the property that functions with zero circulation
+on a coarse cycle are interpolated to have zero circulation on
+the corresponding fine cycles. This property guarantees that the
+null-space of the curl operator is preserved (for simply
+connected domains).
+
+The property of preserving zero circulation functions
+does not uniquely determine the interpolation operator.
+Further, this property alone is not enough to yield efficient
+multigrid solvers. We discuss various methods for defining a unique
+interpolation operator and present numerical results exploring
+their effectiveness.
+
+===email:
+jjones@llnl.gov
+===otherauths:
+
+===title:
+A Multigrid Solver for Maxwell's Equations Based on
+Zero Circulation Functions
+===firstname2:
+David

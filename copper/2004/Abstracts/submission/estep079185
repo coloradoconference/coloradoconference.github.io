@@ -1,0 +1,35 @@
+===firstname:
+Donald
+===firstname3:
+John
+===lastname2:
+Ropp
+===postal:
+Department of Mathematics
+Colorado State University
+Fort Collins, CO  80523
+===lastname:
+Estep
+===lastname3:
+Shadid
+===ABSTRACT:
+One of the most effective approaches to the numerical solution of reaction-diffusion equations are the operator splitting or split-step methods. To obtain a numerical solution of the full problem over a time step, the diffusion and reaction components are integrated independently in an crudely iterative fashion, with the results from the solution of one component being supplied as data for the solution of the other component. By combining the solutions of the two components properly, accuracy can be achieved at a relatively low computational cost. In particular, splitting the diffusion and reaction components allows a more efficient treatment of the differences in scale of behavior and in stability properties that are commonly found between the two components. The prototypical example is a problem with a slow, stabilizing diffusion component, which is best integrated with a implicit, stable scheme, and a fast, de-stabilizing reaction component, which is best integrated with an efficient, adaptive solver using 
+many time steps.
+
+Several popular split-step integrators for reaction-diffusion 
+equations exhibit an interesting, and often dangerous, form of 
+instability when used on problems in which the reaction tends to cause instability in the solution. Such conditions are 
+commonplace, with examples ranging from the Brusselator model in chemical dynamics to chaotic problems to equations exhibiting blow-up behavior. This instability, which can result in nonphysical chaotic behavior and even blowup, does not arise 
+because of inaccuracy or instability in the integration schemes. Rather, it is a direct consequence of the operator splitting itself. Roughly speaking, in the full problem, the instability of the reaction is balanced at every instance by the stabilizing effects of the diffusion. However, in a split-step method, this balance occurs only at discrete time nodes, and this can give rise to instability. 
+
+In many instances, this instability can be difficult to detect by standard error estimators. In this paper, we develop a relatively inexpensive method for detecting this kind of instability using  a posteriori error estimates based on generalized Green's functions. We provide a quantitative measure of the instability in the reaction component that can then be compared to the stabilizing effects of the diffusion. We also discuss mechanisms for reducing the effects of this instability through step size adjustment in a variety of situations. This leads to new step selection mechanisms 
+based on stability, rather than accuracy. Finally, we explain how these new step size selection mechanisms can be combined with a standard error control mechanism based on accuracy.
+
+===email:
+estep@math.colostate.edu
+===otherauths:
+Travis King
+===title:
+DETECTING AND COUNTERING INSTABILITIES ARISING FROM OPERATOR SPLITTING IN THE NUMERICAL SOLUTION OF REACTION-DIFFUSION EQUATIONS
+===firstname2:
+David 

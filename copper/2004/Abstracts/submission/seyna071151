@@ -1,0 +1,62 @@
+===firstname:
+Bert W.
+===firstname3:
+Bart
+===lastname2:
+Vandewalle
+===postal:
+Departement Computerwetenschappen
+Celestijnenlaan 200 A
+3001 Heverlee
+Belgium
+===lastname:
+Seynaeve
+===lastname3:
+Nicolai
+===ABSTRACT:
+We consider the numerical solution of elliptic or parabolic 
+partial differential equations with stochastic coefficients. 
+Such equations appear in reliability problems. Various 
+approaches exist for dealing with the uncertainty propagation 
+question: Monte Carlo methods, perturbation techniques, variance 
+propagation, etc. Here, we deal with the stochastic finite 
+element method (SFEM) [1]. This method transforms a system of 
+PDEs with stochastic parameters into a stochastic linear system 
+$Ku = f$, by means of a finite element Galerkin discretization. 
+In the classical SFEM-approach, the finite element solution 
+vector $u$ is approximated by a linear combination of 
+deterministic vectors; the coefficients are orthogonal 
+polynomials in the random variables that occur in $K$ and $f$. 
+Unlike commonly used methods such as the perturbation method, 
+SFEM gives a result that contains all stochastic characteristics 
+of the solution. It also improves Monte Carlo methods 
+significantly because sampling can be done after solving the 
+system of PDEs.
+
+Here, we will show that applying a linear iterative solver 
+(e.g. Gauss-Seidel) to the discretized stochastic system also 
+allows rational instead of polynomial approximations. The 
+computational efficiency can then be improved by using the 
+chosen iterative method as a smoother within a multigrid 
+context, adapting classical ingredients of multigrid methods to 
+the case of rational expressions in random variables. The 
+coefficients in the resulting expressions can differ slightly, 
+however, depending on the amount of information, concerning the 
+random variables, that is taken into account. We will also show 
+how the method can be used efficiently in the case of large 
+stencil discretizations.
+
+
+References:
+
+[1] R.G. Ghanem and P.D. Spanos. Stochastic finite elements: 
+a spectral approach. Springer-Verlag, New York, 1991.
+
+===email:
+bert.seynaeve@cs.kuleuven.ac.be
+===otherauths:
+
+===title:
+Stochastic iterative methods for PDEs with random parameters
+===firstname2:
+Stefan

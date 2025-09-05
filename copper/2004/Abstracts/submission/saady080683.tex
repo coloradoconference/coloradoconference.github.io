@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yousef Saad \\
+{\bf PHIDAL: A Parallel ILU factorization based on a Hierarchical Interface Decomposition}}
+
+University of Minnesota  \\ Dept. of Computer Science and Engineering \\ 200 Union st. SE \\ Minneapolis \\ MN 55455
+\\
+{\tt saad@cs.umn.edu}\\
+Pascal Henon\end{center}
+
+
+Ideas from domain decomposition have often been adapted and
+extended to derive parallel solution algorithms for sparse
+linear systems. The Parallel Hierarchical Interface
+Decomposition ALgorithm presented in this talk is in this
+category. The method is reminescent of the the 'wirebasket'
+techniques of domain decomposition methods \cite{SMITH} and
+can also be viewed as a variation and an extension of the
+pARMS algorithm \cite{pARMS} in which the independent sets
+and levels are defined from a hierarchical decomposition of
+the interface structure of the graph.
+
+The algorithm is based on defining a 'hierarchical interface
+structure'. The hierarchy consists of classes with the
+property that Class $k$ nodes, with $k>0$, are separators
+for class $k-1$ nodes. In each class, nodes are grouped in
+independent sets. Class $0$ nodes are simply interior nodes
+of a domain in the graph partitioning of the problem. These
+are naturally grouped in group-independent sets. Nodes that
+are adjacent to more subdomains will be part of the higher
+level classes and are ordered last. The factorization uses
+dropping strategies which attempt to preserve the
+independent set structure.
+
+One the hierarchical interface decomposition is defined, the
+Gaussian elimination process proceeds by levels: nodes of
+the first level are eliminated first, followed by those of
+the second level etc. All nodes of the first level can be
+eliminated independently - since there is no fill-in between
+nodes $i$ and $j$ of two different connectors of level 1. On
+the other hand fill-ins may appear between connectors at
+higher levels.
+
+\begin{thebibliography}{1}
+
+\bibitem{pARMS}
+Z.~Li, Y.~Saad, and M.~Sosonkina.
+\newblock {pARMS}: a parallel version of the algebraic recursive multilevel
+solver.
+\newblock {\em Numerical Linear Algebra with Applications}, 10:485--509, 2003.
+
+\bibitem{SMITH}
+B.~Smith, P.~Bj{\o}rstad, and W.~Gropp.
+\newblock {\em Domain decomposition: Parallel multilevel methods for elliptic
+partial differential equations}.
+\newblock Cambridge University Press, New-York, NY, 1996.
+
+\end{thebibliography}
+
+
+\end{document}

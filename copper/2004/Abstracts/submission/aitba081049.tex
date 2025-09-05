@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rakhim Aitbayev \\
+{\bf Multilevel Preconditioners for Nonselfadjoint or Indefinite Orthogonal Spline Collocation Problems}}
+
+Dept of Mathematics \\ New Mexico Tech \\ Socorro \\ NM 87801
+\\
+{\tt aitbayev@nmt.edu}\\
+Bernard Bialecki\end{center}
+
+\newcommand{\GP}{\mbox{${\cal G}$}}\newcommand{\SH}{\mbox{$\scriptscriptstyle H^{2}(\Omega)$}}\newcommand{\SL}{\mbox{$\scriptscriptstyle L^{2}(\Omega)$}}We develop and study symmetric multilevel preconditionersfor thecomputation of the orthogonal spline collocation (OSC)solution of aDirichlet boundary value problem (BVP) with a nonselfadjointor anindefinite operator.
+The OSC solution is sought in the spaceofpiecewise Hermite bicubic spline functions defined on auniformpartition.
+We consider an additive and a multiplicative multilevelpreconditioners that are used with the preconditionedconjugategradient (PCG) method.Let $\Omega$ be a unit square $(0,1)\times(0,1)$ withthe boundary$\partial\Omega$,
+and let $x=(x_1,x_2)$.
+We consider aBVP\begin{equation}\label{eq:bvp}Lu\equiv\sum_{i,j=1}^{2} a_{ij}(x)u_{x_ix_j}+\sum_{i=1}^{2}b_i(x)u_{x_i} +c(x)u = f(x),\;\;x\in\Omega,\quad u=0 \;\;\mbox{on}\;\;\partial\Omega.\end{equation}Operator $L$ could be non-selfadjoint or indefinite in $L^2$inner product.
+We assume that the principal part of$L$ satisfies theuniform ellipticity condition and that BVP (\ref{eq:bvp})has a unique solution in $H^2(\Omega)$.Let $\pi_0$ be a uniform coarsest rectangular partitionof $\Omega$.We obtain a set of partitions $\{\pi_k\}_{k=0}^{K}$ bystandardcoarsening,
+and let $V_0\subset V_1\subset\ldots\subsetV_K\equiv V_h$be the set of corresponding nested spaces of piecewiseHermitebicubics that vanish on $\partial\Omega$.
+Let $\sum$denotethetwo-dimensional composite Gauss quadrature correspondingto partition$\pi_h$ with 4 nodes in each element.
+Let $\GP_h$ denotethecorresponding set of Gauss points.
+The OSC discretizationof BVP(\ref{eq:bvp}) is defined by\begin{equation}\label{eq:osc}u_h\in V_h,\quad Lu_h(\xi)=f(\xi),\quad\xi\in\GP_h,\end{equation}and it can be written as the operator equation$L_hu_h=f_h$in theHilbert space $V_h$ with the inner product$(v,w)_h=\sum vw$.Let $\{\psi_{k,j}\}_{j=1}^{N_k}$ be the standard finiteelement basisof $V_k$ consisting of products of one-dimensional valueand slopebasis functions.
+Using space decomposition\[V_h=V_0+\sum_{k=1}^{J}\sum_{j=1}^{N_k}V_{k,j},\quad V_{k,j}= \mbox{span}(\psi_{k,j}),\]we define and study multilevel additive$B_{\textup{\scriptsize a}}$and multiplicative $B_{\textup{\scriptsize m}}$preconditionersfor solving the normal equation $L_h^*L_hu_h=L_h^*f_h$,where $L_h^*$ isthe adjoint to $L_h$.
+The implementation of$B_{\textup{\scriptsizea}}$ and$B_{\textup{\scriptsize m}}$ is based onrelationshipsbetween basis functions for two consecutive partitionsand the implementation of $B_{\textup{\scriptsize m}}$is similar to that forV(1,1)-cycle with the Gauss-Seidel smoothing.
+A problemon the coarsest partition is assumed sufficiently small,and it is solved exactly.
+The computational cost of thepreconditioning algorithms is$\mbox{O}(N_K)$.
+The following is our main result.\textbf{Theorem.}{\em There are positive independent of $h$ and $K$constants$\alpha_{\textup{\scriptsize a}}$,$\beta_{\textup{\scriptsize a}}$,$\alpha_{\textup{\scriptsize m}}$,and$\beta_{\textup{\scriptsize m}}$,such that}\begin{eqnarray}\label{eq:spectral_equiv}&&\alpha_{\textup{\scriptsize a}}\,(B_{\textup{\scriptsize a}}v,v)_h\leq (L_h^*L_hv,v)_h \leq\beta_{\textup{\scriptsize a}}\,(B_{\textup{\scriptsize a}}v,v)_h,\quad v\in V_h,\\\nonumber&&\alpha_{\textup{\scriptsize m}}\,(B_{\textup{\scriptsize m}}v,v)_h\leq (L_h^*L_hv,v)_h \leq\beta_{\textup{\scriptsize m}}\,(B_{\textup{\scriptsize m}}v,v)_h,\quad v\in V_h.\end{eqnarray}We present numerical results that demonstrate theefficiency of our preconditioning algorithms.
+
+\end{document}

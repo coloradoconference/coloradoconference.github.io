@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jun Zhang \\
+{\bf A Class of Truly Parallel Multilevel ILU Preconditioning Techniques}}
+
+Department of Computer Science \\ \\ University of Kentucky \\ \\ 773 Anderson Hall \\ \\ Lexington \\ KY 40506-0046
+\\
+{\tt jzhang@cs.uky.edu}\\
+Chi Shen\end{center}
+
+We present a class of parallel preconditioning techniques built on
+a multilevel block incomplete LU (ILU) factorization strategy to
+solve large sparse linear systems on distributed memory parallel
+computers. The preconditioners are constructed by using the concept
+of block independent sets, block incomplete LU factorization,
+and Schur complement matrix. The most important step in building
+such a preconditioner is the construction of the
+block independent set. Two algorithms for constructing
+block independent sets of a sparse matrix in a distributed
+memory environment are proposed.
+
+The new feature of this parallel multilevel preconditioner
+is the fully parallel construction of the block independent
+set in a distributed environment. Previous multilevel
+preconditioners are either using a pseudo-multilevel
+strategy or limited to two levels, due to the difficulty
+in constructing the block independent set in a distributed
+environment.
+
+We compare a few implementations of the parallel multilevel ILU
+preconditioners with different block independent set construction
+strategies and different coarse level solution strategies.
+For stability purpose, we utilize a diagonal thresholding strategy
+both for the block independent set construction
+and for the local block Schur complement ILU factorization.
+
+We will comment on the advantages and disadvantages of
+different strategies in constructing the block independent
+set, and possible future research directions along this
+line.
+
+Numerical experiments indicate that our domain based
+fully parallel multilevel block ILU preconditioners
+are robust and efficient.
+
+This research was supported in part by the U.S.
+National Science Foundation under grants CCR-9902022,
+CCR-9988165, CCR-0092532, and ACI-0202934, by
+the U.S. Department of Energy Office of Science under
+grant DE-FG02-02ER45961, by the
+Japanese Research Organization for Information Science
+\& Technology, and by the University of Kentucky
+Research Committee.
+
+
+\end{document}

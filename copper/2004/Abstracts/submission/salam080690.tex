@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marzio Sala \\
+{\bf Algebraic Multilevel Preconditioners Based on Aggregation Procedures: A demonstration for the Navier-Stokes Equations with Associated Heat and Mass Transfer}}
+
+Sandia National Laboratories \\ PO BOX 5800 MS 1110 \\ Albuquerque \\ NM
+\\
+{\tt msala@sandia.gov}\\
+John Shadid\\
+Ray Tuminaro\\
+	Paul Lin\end{center}
+
+In this talk a class of algebraic preconditioners, based on the concept
+of (smoothed) aggregation, is introduced. The resulting
+procedure, that does not require geometric information, is completely
+algebraic and well-suited for parallel computations on unstructured grids
+in two and three dimensions. This technique is described in the context
+of a simple elliptic model problem with convergence estimates and
+numerical experiments presented. The procedure is then applied as a
+preconditioner to our coupled systems of interest in a Newton-Krylov
+solution procedure.
+
+In the context of Navier-Stokes with coupled heat and mass transfer, we
+present parallel and algorithmic scaling studies on large-scale
+distributed memory parallel computers. Comparisons are reported with
+1-level domain decomposition preconditioners, and with two-level domain
+decomposition preconditioners with coarse grids.
+
+Sandia is a multiprogram laboratory operated by Sandia Corporation, a
+Lockheed Martin Company for the United States Department of Energy's
+National Nuclear Security Administration under contract
+DE-AC04-94AL85000.
+
+
+\end{document}

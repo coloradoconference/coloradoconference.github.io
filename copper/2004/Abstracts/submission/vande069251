@@ -1,0 +1,29 @@
+===firstname:
+Stefan
+===firstname3:
+
+===lastname2:
+Gander
+===postal:
+Katholieke Universiteit Leuven
+Department of Computer Science
+Celestijnenlaan 200A
+B-3001 Leuven, Belgium
+===lastname:
+Vandewalle
+===lastname3:
+
+===ABSTRACT:
+Parabolic delay partial differential equations model physical systems for which the evolution does not only depend on the present state of the system but also on the past history. Such models are found, for example, in population dynamics and epidemiology, where the delay is due to a gestation or maturation period, or in numerical control, where the delay arises from the processing in the controller feedback loop.
+In the first part of the talk we will study the analytical properties of the solutions of parabolic delay PDEs. Two model problems will be considered in particular: the heat equation with a fixed delay term, and the heat equation with a distributed delay in the form of an integral over the past. It will be shown that the dynamics of delay PDEs is fundamentally different from that of regular time-dependent PDEs without time delay.
+
+Next, we will study the numerical solution of the above model problems with overlapping Schwarz methods. The considered methods are of waveform relaxation type: they compute the local solution in each subdomain over many time-levels before exchanging boundary information to neigbouring subdomains. We analyse the effect of the overlap width and we derive optimized transmission boundary conditions of Robin type. The theoretical results and convergence estimates are verified through some numerical experiments. 
+
+===email:
+Stefan.Vandewalle@cs.kuleuven.ac.be
+===otherauths:
+
+===title:
+Optimized Overlapping Schwarz Methods for Parabolic PDEs with Time-Delay
+===firstname2:
+Martin  J.

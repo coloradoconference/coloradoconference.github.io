@@ -1,0 +1,94 @@
+===firstname:
+Erik
+===firstname3:
+
+===lastname2:
+Neytcheva
+===postal:
+Department of Information Technology,Box 337,SE-751 05 Uppsala,Sweden 
+===lastname:
+B{\"a}ngtsson
+===lastname3:
+
+===ABSTRACT:
+We consider the problem to compute the stress ($\sigma$) and
+displacement ($\bf{u}$) fields in a (visco)elastic inhomogeneous layered media, in response to a surface load.
+The underlying physical phenomenon, which is modeled, is glacial advance and recession, and the post-glacial rebound caused by the latter, which reflects the viscoelastic properties of the mantle. The nowadays observed residual rebound
+implies that the lithosphere might not completely reach equilibrium within itself before another glacial period.
+Therefore post-glacial rebound has to be taken into account
+in the context of other problems, such as for example predicting safety of nuclear waste repositories.
+
+The material incremental momentum equation for quasi-static infinitesimal perturbations of a stratified, compressible fluid Earth, initially in hydrostatic equilibrium, subject to gravitational forces but neglecting internal forces (cf. $[5]$) is
+%
+$$
+\underset{(A)}{\underbrace{\nabla\cdot\sigma}} + 
+\underset{(B)}{\underbrace{\nabla(\bf{u}\cdot\nabla p^{(0)})}} +
+\underset{(C)}{\underbrace{\rho^{(\Delta)}\bf{g}^{(0)}}} +
+\underset{(D)}{\underbrace{\rho^{(0)}\nabla\bf{g}^{(\Delta)}}} = \bf{0}.
+$$
+%
+Here,  term $(A)$ describes the force from spatial gradients in stress. If a large elastic solid is put in a gravitational field, it becomes gravitationally pre-stressed with pressure $p^{(0)}$.  This pressure can be regarded as an initial condition imposed on the problem and does not cause deformations.  Term $(B)$ represents the advection of
+this pre-stress and describes how it is carried by the moving
+material. Terms $(C)$ and $(D)$ describe perturbations of the gravitational force and gravitational acceleration due to changes of density. 
+
+In the present study, an incompressible non-selfgravitating (flat) Earth model is used, which implies constant gravity field and constant density, so that these two terms vanish. Term (B) 
+is further simplified assuming that the advection term describes the advection in the direction of the gravity field only.
+
+Incorporating the above simplifications with respect to terms 
+$(B)$, $(C)$ and $(D)$, we obtain the following form of the governing equilibrium equation
+\begin{equation}	
+\begin{array}{l}	
+\nabla\cdot \sigma + 	
+\rho^{(0)}g^{(0)} \nabla(u_d) = \mathbf{0} \quad \mathbf{x}\in\Omega\subset\mathbb{R}^d, d=2,3
+\end{array}
+\label{eq_rebound2}
+\end{equation}
+with suitable boundary conditions.
+
+In its full complexity, the model includes viscoelastic constitutive relations. In this work we discuss a purely elastic material behavior only, as  is analyzed in $[5]$, for instance.
+
+Problem (\ref{eq_rebound2}) is discretized using stable mixed finite element pairs or a suitable stabilized formulation,
+which lead to a system of linear equations with a nonsymmetric
+two-by-two block matrix of a saddle point form. 
+
+Results from numerical experiments solving the so-arising algebraic system  with preconditioned iterative solution methods are presented. Several preconditioning strategies are tested, based on the techniques and experience described in $[4]$,
+$[3]$, $[1]$, $[2]$ and other authors.  
+%
+The performance of the tested preconditioned iterative solution methods is compared with that of a commercial FEM package solver.
+
+\begin{table}[htb]
+\begin{tabular}{c p{12.5cm}}
+$[1]$&Axelsson O, Neytcheva M.
+Preconditioning methods for linear systems arising in constrained 
+optimization problems, 
+{\em Num. Lin. Alg. Appl.}, 10 (2003), 3-31.
+\\
+$[2]$ &
+Axelsson O, Neytcheva M. 
+Preconditioning methods for for constrained optimization problems
+with applications for the linear elasticity equations 
+Report 0302, January 2003, Department of Mathematics,
+University of Nijmegen, The Netherlands.
+\\
+$[3]$ &
+Elman H, Silvester D, Wathen A. Performance and analysis of saddle
+point preconditioners for the discrete steady-state Navier-Stokes equations.
+\textit{Num. Mat.}, {\bf 90} (2002) 665-688.
+\\
+$[4]$& Klawonn A. Block-triangular preconditioners for saddle point problems with a penalty term. {\em SIAM J. Sci. Comp.} 1998;
+19:172-184.
+\\
+$[5]$&
+Klemann V, Wu P, Wolf D. Compressible viscoelasticity: stability of solutions for homogeneous plane-Earth models,
+\textit{Geophys. J.}, 2003; \textbf{153}:569-585.\\
+\end{tabular}
+
+\end{table}
+===email:
+erikba@it.uu.se
+===otherauths:
+
+===title:
+Numerical simulation of glacial rebound using preconditioned iterative solution methods
+===firstname2:
+Maya

@@ -1,0 +1,71 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eldad Haber \\
+{\bf Preconditioners for volume preserving image registration}}
+
+400 Dowman Dr. \\ Mathcs dept. \\ Atlanta GA \\ 30033
+\\
+{\tt haber@mathcs.emory.edu}\\
+Jan Modersinski\end{center}
+
+We consider the registration of two images, $R(x)$ and $T(x)$, that is,
+our goal is to find a reasonable transformation $u$ such that
+\begin{eqnarray}
+\label{disteq}
+D(u; T,R) = \hf \| T(x + u) - R(x) \|^2
+\end{eqnarray}
+is small.
+
+The problem is ill-posed and therefore, in order to obtain a reasonable
+transformation we need to integrate prior information about the problem.
+Some of this information is in the form of the smoothness of the field; such
+information can be integrated into the regularization of the problem.
+Thus it is common to find the transformation $u$ by solving
+the following optimization problem
+\begin{eqnarray}
+\label{opt1}
+\hf \|T(u)-R\|^2 + \alpha S(u)\ =\ {\rm min}
+\end{eqnarray}
+where $S(u)$ is usually a quadratic regularization
+operator and $\alpha$ is a regularization
+parameter. For example in elastic registration
+$$ S(u) = \int\ (\lambda ({\bf curl} u)^2
++ \mu ({\bf div} u)^2)\ dV $$
+but many other differential operators can be chosen.
+
+In this work we also assume that the transformation is Volume Preserving (VP).
+This makes sense in cases when objects may deform but we want
+to have the same overall volume.
+
+From a mathematical point of view this implies that the transformation also satisfies
+\begin{eqnarray}
+\label{con1}
+C(u) = {\rm det} (1+ \grad u) -1\, =\, {\rm div} u + N(u) \, =\, 0
+\end{eqnarray}
+where $N(u)$ is some nonlinear operator
+with terms which depend on the
+derivatives of $u$.
+Thus the optimization problem \eqref{opt1} becomes an equality
+constraint optimization problem of the form
+\begin{subequations}
+\begin{eqnarray}
+\label{opt11}
+{\rm min} && \hf \|T(u)-R\|^2 + \alpha S(u)\\
+\label{st}
+{\rm s.t} && {\rm div} u + N(u)= 0
+\end{eqnarray}
+\label{copt}
+\end{subequation}
+
+
+In this talk we will discuss the KKT systems which evolve from this
+problem and their numerical solutions. We will show how to use
+effective multigrid preconditioners for the solution of these systems.
+
+
+\end{document}

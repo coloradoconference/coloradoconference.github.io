@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Vincent A. Mousseau \\
+{\bf A Comparison Between an Implicitly Balanced Solution and a Linearized and Operator Split Solution of the Thermal Hydraulic Equations.}}
+
+T-3 \\ Fluid Dynamics \\ MS B216 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM  87545
+\\
+{\tt vmss@lanl.gov}\\
+Dana A. Knoll\end{center}
+
+In this presentation we study time integration and solver requirements
+for a simplified model of the cooling system of a nuclear power reactor.
+The model includes a one-dimensional, two-phase flow model (six
+equations) coupled to a two-dimensional nonlinear heat conduction model
+(one equation). This physical model includes fast time scales that
+account for the mass, momentum, and energy exchange between the two
+phases (water and steam), and for the momentum and energy exchange
+between both phases and the wall. The two-dimensional nonlinear heat
+conduction in the wall accounts for the slow time scale in the problem
+which is related to the rate that the wall accepts or rejects energy from
+the water and steam.
+
+Results will be presented that will show that the traditional linearized
+and operator split solution method can be employed as an effective and
+efficient preconditioner to an implicitly balanced solution method
+(Jacobian-Free Newton-Krylov). Results will also compare the accuracy of
+these two approaches when the rates of the fast time scales and the slow
+time scales are varied.
+
+The traditional linearized and split solution methods employ time step
+control algorithms based on the stability of the algorithm. Since the
+implicitly balanced approach is unconditionally stable, a new time step
+control algorithm will be presented for this approach that is designed to
+address the accuracy of the solution.
+
+
+\end{document}

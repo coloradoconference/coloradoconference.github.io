@@ -1,0 +1,47 @@
+===firstname:
+Jeonghwa
+===firstname3:
+Cai-Cheng
+===lastname2:
+Zhang
+===postal:
+Department of Computer Science
+University of Kentucky
+773 Anderson Hall
+Lexington, KY 40506-0046, USA
+
+===lastname:
+Lee
+===lastname3:
+Lu
+===ABSTRACT:
+A coupled surface-volume integral equation approach is used for the
+calculation of electromagnetic scattering with composite
+conducting and dielectric materials. This approach has
+high accuracy in solutions and can be accelerated by the multilevel
+fast multipole algorithm (MLFMA) to reduce the CPU time and memory.
+By using the method of moments (MoM), the coupled surface-volume
+integral equations are converted into discrete matrix equations.
+The near part of the resulting matrix consists
+of four block components.  Due to this specific data pattern, we
+can construct two-level (TL) preconditioners to treat the
+conducting and dielectric parts more efficiently.
+The main purpose of this study is to show that
+the TL preconditioning is effective with the MLFMA and
+can reduce the number of
+Krylov iterations substantially by using subdivided domain of
+the near part matrix for each level.
+Our experimental results indicate that the
+TL preconditioning maintains the computational complexity of
+the MLFMA, but converges a lot faster, thus effectively reduces
+the overall simulation time for the coated material objects.
+
+===email:
+leejh@engr.uky.edu
+===otherauths:
+
+===title:
+Two-level Preconditioning for Electromagnetic Scattering
+from Composite Conducting and Dielectric Objects
+===firstname2:
+Jun

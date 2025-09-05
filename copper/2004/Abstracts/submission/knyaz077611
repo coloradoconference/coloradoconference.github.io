@@ -1,0 +1,35 @@
+===firstname:
+Andrew
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Mathematics, University of Colorado at Denver 
+P.O. Box 173364, Campus Box 170, Denver, CO 80217-3364. 
+===lastname:
+Knyazev
+===lastname3:
+
+===ABSTRACT:
+Let us consider a problem of computing a number of eigenvectors of a symmetric matrix by simultaneous iterations. When computing several eigenvectors simultaneously it is often observed that some eigenvectors converge faster than the others. To avoid unnecessary computational work, it is common to “lock” the eigenvectors that have already converged within a required tolerance while continue iterating other eigenvectors. A typical locking technique is a deflation by restriction, where the locked eigenvectors are no longer changed, at the same time as the eigenvectors that are still iterating are kept orthogonal to the locked ones. We call this technique “hard locking.” 
+
+A different technique, called “soft locking” has been suggested by the author earlier, e.g., [1], but it apparently went largely unnoticed. The soft locking is for simultaneous iterations combined with the Rayleigh—Ritz method. The core idea of the hard and soft locking is the same: the locked vectors do not participate in the main iterative step. The soft locked vectors, however, fully participate in the Rayleigh—Ritz method and thus are allowed to be changed by the Rayleigh—Ritz method. The orthogonality of the soft locked vectors to iterative vectors follows from the well-known fact that the Ritz vectors can be chosen to be orthogonal automatically. 
+
+The soft locking is computationally more expensive compared to the hard locking. The advantage of the soft locking is that it provides more accurate results. First and foremost, adding more vectors to the hard locking procedure decreases the accuracy of the orthogonal complement to their span, which may prevent the iterative vectors from reaching the required tolerance. This effect seems less problematic for soft locking. 
+Second, the soft locked vectors tend to become more accurate from participating in the Rayleigh—Ritz method even though they are removed from the main iterative step. 
+
+In the present talk, we give a detailed description of soft locking and present preliminary theoretical and numerical results demonstrating the effectiveness of the soft locking compared to the traditional hard locking and discuss peculiarities of possible implementations of the hard and soft locking in preconditioned block eigenvalue solvers such as the Locally Optimal Block Preconditioned Conjugate Gradient Method [1-2].  
+
+[1] A. V. Knyazev, Preconditioned eigensolvers. In Templates for the Solution of Algebraic Eigenvalue Problems: A Practical Guide. Editors: Zhaojun Bai, James Demmel, Jack Dongarra, Axel Ruhe, and Henk Van der Vorst, SIAM, pp. 337-368, 2000. 
+http://www.cs.utk.edu/$\,\tilde{}\,$dongarra/etemplates/node410.html
+
+[2] A. V. Knyazev, Toward the Optimal Preconditioned Eigensolver: Locally Optimal Block Preconditioned Conjugate Gradient Method. SIAM Journal on Scientific Computing 23 (2001), no. 2, pp. 517-541.
+===email:
+andrew.knyazev@cudenver.edu
+===otherauths:
+
+===title:
+Hard and soft locking in iterative methods for symmetric eigenvalue problems 
+===firstname2:
+

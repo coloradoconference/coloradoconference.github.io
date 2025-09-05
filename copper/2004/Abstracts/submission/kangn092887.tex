@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ning Kang \\
+{\bf Parallel Preconditioning in the Analysis of Anisotropic Diffusion Simulation with the Human Brain Diffusion Tensor MRI Data}}
+
+Department of Computer Science \\ University of Kentucky \\ 773 Anderson Hall \\ Lexington \\ KY 40506-0046
+\\
+{\tt nkang2@cs.uky.edu}\\
+Jun Zhang\\
+Eric S. Carlson\end{center}
+
+We conduct simulations for the 3D unsteady state anisotropic diffusion process in
+the human brain by discretizing the governing diffusion
+equation on Cartesian grid and adopting a high performance
+differential-algebraic
+equation (DAE) solver, the parallel version of
+implicit differential-algebraic (IDA) solver,
+to tackle the resulting large scale system of DAEs.
+Parallel preconditioning techniques
+including sparse approximate inverse and banded-block-diagonal preconditioners
+are used with the GMRES method to accelerate the
+convergence rate of the iterative
+solution. We then investigate and compare the efficiency and
+effectiveness
+of the two parallel preconditioners. The computational results of the
+diffusion simulations on a parallel supercomputer show that the sparse
+approximate inverse preconditioning strategy,
+which is robust and efficient with good scalability,
+gives a much better overall
+performance than the banded-block-diagonal preconditioner.
+
+
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Alison Ramage \\
+{\bf Some Characteristics of Multigrid Performance for the Two-Dimensional Convection-Diffusion Equation}}
+
+Department of Mathematics \\ University of Strathclyde \\ Livingstone Tower \\ 26 Richmond Street \\ Glasgow G1 1XH \\ Scotland
+\\
+{\tt A.Ramage@strath.ac.uk}\\
+Howard C. Elman\end{center}
+
+The development of efficient numerical solution techniques for
+convection-diffusion problems is an important area of current research in
+the field of iterative methods. As well as being of interest in their own
+right, convection-diffusion problems are closely linked to the
+Navier-Stokes equations governing incompressible fluid flow which are
+widely applicable in industrial settings. One possible approach which has
+been successfully applied in practice is to use a multigrid method.
+However, unlike with
+linear self-adjoint elliptic boundary value problems, the development of
+related convergence analysis for the convection-diffusion problem has to
+date been limited. In addition, much of the published theory in the area
+is very technical and can be hard for the non-expert to interpret. The
+aim of this talk is to develop a 'simple to use' analysis of multigrid
+convergence factors
+for the two-dimensional convection-diffusion equation.
+
+We will focus on the two-grid solution of the system of linear equations
+arising from a bilinear finite element discretisation,
+with streamline diffusion added when stabilisation is necessary. Most
+usually, multigrid convergence is examined in terms of the behaviour of
+the norms of matrices obtained by splitting the iteration matrix into two
+parts, representing the approximation property and smoothing property
+respectively. In this work, we follow this approach while incorporating a
+matrix transformation which reduces the underlying discretisation
+matrices to tridiagonal form. This simplifies the analysis, and also
+enables cheaper numerical computation of norm bounds for large problems.
+We will demonstrate this technique using a periodic variant of a model
+problem and use the results obtained to illustrate which trends do and do
+not agree with those seen when solving (more practically relevant)
+Dirichlet problems.
+
+
+\end{document}

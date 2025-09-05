@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tim Boonen \\
+{\bf A multigrid method for the 3D magnetostatic Maxwell equations with solenoidal smoothing}}
+
+Celestijnenlaan 200 A \\ B-3001 Leuven \\ BELGIUM
+\\
+{\tt tim.boonen@cs.kuleuven.ac.be}\\
+Stefan Vandewalle\end{center}
+
+We consider magnetostatic problems formulated as the curlcurl-equation
+and discretized using first order edge elements. The corresponding system
+matrix has a very large kernel.
+Components in this kernel disturb the effectiveness of multigrid when
+classical pointwise smoothers are used.
+\\
+The hybrid smoother of R. Hiptmair offers a solution to this problem.
+This smoother performs additional Gauss-Seidel smoothing in the
+nodal-based gradient space, hereby damping the kernel-components.
+Gradient space is accessible as the solution
+space of the Galerkin product matrix $G^TAG$, with $G$ being the discrete
+primal gradient matrix with respect to the topology at hand. If the
+multigrid hierarchy is constructed such that the kernels are nested, then
+application of the hybrid smoother on all levels gives good results. R.
+Hiptmair used this hybrid smoother in a geometric multigrid algorithm
+[1], S. Reitzinger and J. Sch\"oberl integrated it in an algebraic
+multigrid algorithm [2].
+\\
+In this talk, a smoother will be presented that only operates on the
+orthogonal complement of the kernel, leaving the kernel itself untouched.
+This is achieved by Gauss-Seidel smoothing on facet-based solenoidal
+space. Solenoidal space is accessible as the solution space of the
+Galerkin product matrix $\tilde{R}^T A \tilde{R}$, with $\tilde{R}$ being
+the dual curl matrix with respect to the topology of the problem at hand.
+This smoother can be applied succesfully on all levels of a multigrid
+hierarchy, if the orthogonal complements of the kernels are nested.
+\vspace*{5mm}
+\\
+REFERENCES:
+\begin{enumerate}
+\item R. Hiptmair, \emph{Multigrid method for Maxwell's equations}, SIAM
+J.Numer.Anal. 36(1999), no.1,
+204-255.
+\item S. Reitzinger, J. Sch\"oberl, \emph{An algebraic multigrid method
+for finite element discretizations
+with edge elements}, Numer.Lin.Alg., 9(2002), 223-238.
+\end{enumerate}
+
+
+\end{document}

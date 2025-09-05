@@ -1,0 +1,67 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthias Bollhoefer \\
+{\bf Inverse-Based Multilevel ILU Preconditioners --- Theory, Applications and Software}}
+
+Inst. of Mathematics \\ MA 4-5 \\ TU Berlin \\ Str. des 17. Juni 136 \\ 10623 Berlin \\ GERMANY
+\\
+{\tt bolle@math.tu-berlin.de}\\
+Yousef Saad\end{center}
+
+We will present multilevel ILU strategies for large scale
+problems that are mainly based
+on keeping the inverse triangular factors bounded.
+This approach is based on combining several single components
+that finally form the multilevel algorithm.
+
+\begin{enumerate}
+\item
+The components cover reordering strategies like RCM, independent
+sets or a more recent strategy ddPQ \cite{Saa03a}, which partially reorders
+the matrix with respect to diagonal dominance and fill.
+\item
+In the ILU part of the algorithm, the preprocessed matrix is partially
+factored using
+an inverse based ILU \cite{Bol03a,LiSC03} with diagonal
+pivoting that keeps the inverse triangular
+factors bounded. From the theoretical point of view this
+can be interpreted as keeping the approximate
+triangular factors $L$ and $U$
+and their inverses close to each other.
+\item The combination of the first two parts leads to a multilevel
+algorithm that repeatedly uses these templates.
+\end{enumerate}
+
+The algorithm has been implemented in a new software package that includes
+treatment of general real and complex matrices as well
+as SPD matrices.
+The effectiveness of this approach using the package is demonstrated.
+
+\begin{thebibliography}{1}
+
+\bibitem{Bol03a}
+M.~Bollh\"ofer.
+\newblock A robust and efficient {I}{L}{U} that incorporates the growth of the
+inverse triangular factors.
+\newblock {\em {SIAM} J. Sci. Comput.}, 25(1):86--103, 2004.
+
+\bibitem{LiSC03}
+N.~Li, Y.~Saad, and E.~Chow.
+\newblock Crout versions of {I}{L}{U} for general sparse matrices.
+\newblock {\em {SIAM} J. Sci. Comput.}, 25(2):716--728, 2004.
+
+\bibitem{Saa03a}
+Y.~Saad.
+\newblock Complete pivoting ilu: a multilevel approach.
+\newblock Research Report UMSI 2003-191, University of Minnesota, Super
+Computing Institute, Minneapolis, Minnesota, 2003.
+
+\end{thebibliography}
+
+
+\end{document}

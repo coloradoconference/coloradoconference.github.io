@@ -1,0 +1,27 @@
+===firstname:
+Victoria
+===firstname3:
+John
+===lastname2:
+Elman
+===postal:
+Sandia National Labs
+PO Box 969, MS9217
+Livermore, CA 94551
+===lastname:
+Howle
+===lastname3:
+Shadid
+===ABSTRACT:
+We consider the $F_p$ preconditioners proposed by Kay \& Loghin and Silvester, Elman, Kay \& Wathen for the linear systems associated with solving the incompressible Navier-Stokes equations. These $F_p$ methods require the construction of a convection-diffusion operator projected onto the pressure space (denoted $F_p$). Numerous theoretical and numerical studies have demonstrated mesh independent convergence and the overall efficacy of the approach.  
+
+In this talk, we address a potential drawback of the $F_p$ preconditioners: the required construction of $F_p$ by the application. While most incompressible flow codes have the primary kernels needed for building $F_p$,  its actual construction can still pose a significant burden to many large scale parallel simulation codes. As an alternative, we consider automatic ways of computing $F_p$ based on sparse approximate inverses and the notion that operators in the Schur complement often nearly commute. An algorithm (SPAC) is given for constructing $F_p$ automatically and numerical comparisons are performed to demonstrate that favorable convergence properties are retained.
+===email:
+vehowle@sandia.gov
+===otherauths:
+Ray Tuminaro
+===title:
+A Block Preconditioner Based on Sparse Approximate Commutators 
+
+===firstname2:
+Howard

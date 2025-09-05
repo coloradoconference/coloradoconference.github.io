@@ -1,0 +1,48 @@
+===firstname:
+Joel E.
+===firstname3:
+
+===lastname2:
+Moulton
+===postal:
+MS-B284
+Los Alamos National Laboratory
+Los Alamos, NM 87545
+===lastname:
+Dendy
+===lastname3:
+
+===ABSTRACT:
+   General geometric multigrid codes, like BOXMG, and algebraic
+multigrid codes, like LAMG, employ Galerkin coarsening to form the
+coarse grid operators. That is, if the fine grid operator is $A$,
+then the coarse gird operator is $RAP$, where $P$ is the
+prolongation, or interpolation, operator, from the coarse grid to
+the fine grid, and where $R$ is the restriction operator from the
+fine grid to the coarse grid.  BOXMG, as well as other such
+structured codes, employs a closed form expression for $RAP$. An
+alternative is to form $RAP$ by placing $1$ at only one coarse grid
+point, and $0$ at all other coarse gird points, then applying $P$,
+$A$, and $R$ recursively; the result is $RAP$ at that coarse grid
+point.  This alternative is useful for some theoretical
+investigations but is obviously too expensive for practical
+calculations. This paper explores the idea of doing this calculation locally using temporary $7\times7$ [in two dimensions] or $7\times7\times7$ [in three dimensions] matrices.  Initial
+investigations have shown this method to be just as fast as the
+original method for compiler-optimized serial computation. The real
+advantage of the new method, however, is its simplicity in
+comparison with the old method. We expect this simplicity to result
+in more flexible and efficient computation on parallel architectures. We will report on the realization of this expectation.
+
+    LAMG, and other algebraic multigrid codes, employ sparse matrix
+multiplication techniques, to form the triple product $RAP$. We are
+currently investigating whether a generalization of the above
+procedure can be applied in this case as well.
+
+===email:
+jed@lanl.gov
+===otherauths:
+
+===title:
+Alternative RAP
+===firstname2:
+J. D.

@@ -1,0 +1,162 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./hawkinspaper2_files/filelist.xml">
+<title>Wavelet based preconditioners for solving the exterior Helmholtz
+equation with low wavenumbers</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Cathy Lee</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Cathy Lee</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:LastPrinted>2004-03-09T18:34:00Z</o:LastPrinted>
+  <o:Created>2004-03-10T22:41:00Z</o:Created>
+  <o:LastSaved>2004-03-10T22:41:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>476</o:Words>
+  <o:Characters>2717</o:Characters>
+  <o:Company>Front Range Scientific Computations</o:Company>
+  <o:Lines>22</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3336</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129023 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoBodyText align=center style='text-align:center'>Wavelet based
+preconditioners for solving the exterior Helmholtz equation with low
+wavenumbers<span style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Stuart Hawkins<span
+style="mso-spacerun: yes">                       </span>Ke Chen</p>
+
+<p class=MsoNormal align=center style='text-align:center'>Department of
+Mathematical Sciences,</p>
+
+<p class=MsoNormal align=center style='text-align:center'>The University of
+Liverpool,</p>
+
+<p class=MsoNormal align=center style='text-align:center'>Liverpool L69 7ZL,</p>
+
+<p class=MsoNormal align=center style='text-align:center'>UK.</p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span>The exterior
+Helmholtz problem in three dimensions can be reformulated as a boundary
+integral equation (BIE) over a closed surface. Boundary element methods (BEMs)
+using multiscale wavelet basis functions give rise to nearly sparse linear
+systems.<span style="mso-spacerun: yes">  </span>This is in contrast to BEMs using
+single scale piecewise polynomial basis functions, which give rise to dense
+linear systems.<span style="mso-spacerun: yes">  </span>Although sparse
+preconditioners can be found from dense single scale BEM matrices, we aim to
+get a better preconditioner from the nearly sparse wavelet BEM matrix because
+the matrix data is compressed by the wavelets.<span style="mso-spacerun: yes"> 
+</span>We present recent work from an ongoing project to develop effective
+sparse preconditioners for nearly sparse linear systems obtained by
+discretisation using a wavelet basis.</p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>Many wavelet families
+are available for one-dimensional problems. Most of these are hard to extend to
+two-dimensional surfaces, which are typically not periodic.<span
+style="mso-spacerun: yes">  </span>We use an approach that is suitable for
+problems over complicated two-dimensional surfaces, utilizing partition of the
+surface into patches, and tensor product wavelets by Harbrect, Schneider,
+Dahmen, Cohen, and Masson, for the Laplace equation.<span style="mso-spacerun:
+yes">  </span>Optimal preconditioners that yield a condition number independent
+of the number of unknowns can be found for elliptic problems represented with a
+wavelet basis. Iterative solution will be efficient for some of these problems.
+In the general case further preconditioning, using off-diagonal entries, may be
+required because the resulting condition number may not be small, or because
+the preconditioned matrix may not be symmetric.<span style="mso-spacerun:
+yes">  </span>Further preconditioning is required when the BIE formulation
+includes the hypersingular operator.<span style="mso-spacerun: yes">  
+</span>Our BIE uses the Burton and milelr formulation, which includes the
+hypersingular operator, so that a unique solution to the BIE exisits for all
+wavenumbers.<span style="mso-spacerun: yes">  </span>Often the product $hk$ of
+the wavenumber $k$ and mesh size $h$ is fixed in BEM computations.<span
+style="mso-spacerun: yes">  </span>This preserves accuracy as the wavenumber
+increases.<span style="mso-spacerun: yes">  </span>We consider fixed, low
+wavenumber problems with small $h$. This gives high accuracy in the solution.</p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span>In the first
+part of our work we apply a basis transformation from a single scale basis to a
+wavelet basis using a discrete wavelet transform defined over a two dimensional
+surface.<span style="mso-spacerun: yes">  </span>The result is that the dense
+non-Hermitian linear system is transformed into a sparse linear system.<span
+style="mso-spacerun: yes">  </span>A preconditioner is obtained by taking a
+sparse approximation to the system matrix, and inverting it by LU
+factorization.<span style="mso-spacerun: yes">  </span>Fill-in the
+factorization is reduced by carefully ordering the unknowns.<span
+style="mso-spacerun: yes">  </span>The preconditioned linear system is solved
+using GMRES.<span style="mso-spacerun: yes">  </span>Other preconditioning
+strategies are applicable.</p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span>In the second
+part of our work the representation of the system matrix in the wavelet basis
+can be obtained directly by applying a BEM using the wavelet basis.<span
+style="mso-spacerun: yes">  </span>The sparsity pattern of the matrix is
+known{\em a-priori} so the cost of the BEM is reduced in terms of both
+complexity and storage. Development of such software is in progress. </p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Per Sundqvist \\
+{\bf Boundary Summation Equations}}
+
+Dept. of Information Technology \\ Scientific Computing \\ Uppsala University \\ Box 337 \\ SE-751 05 Uppsala \\ SWEDEN
+\\
+{\tt per.sundqvist@it.uu.se}\end{center}
+
+The boundary element method (BEM) relies on the fact that a linear
+partial differential equation (PDE) with constant coefficients can be
+reduced to a boundary integral equation (BIE). In this presentation,
+it is shown that a similar reduction is possible for linear difference
+equations with constant coefficients. The reduced equations involve a
+summation operator and are called boundary summation equations (BSE).
+
+There are two key properties that BSE and discretized BIE have in
+common; the number of unknowns is low (compared to methods where the
+interior domain is discretized) and the resulting linear system is
+full. The latter property implies that special techniques are required
+in an iterative solver, especially in higher dimensions. One example
+for BIE is the multipole method, which can be used to apply an
+integral operator. For the BSE, it is possible to apply the summation
+operator efficiently by FFT, provided that the domain is simple
+enough.
+
+The concepts of BSE are illustrated by a two dimensional example. Let
+$Pu=f$ be the linear system that represents the usual five point
+Laplacian with Dirichlet boundary conditions on a rectangular domain
+$\bar{\Omega}=(0,\ldots,n_1)\times(0,\ldots,n_2)$. Let $E$ be a
+discrete fundamental solution, i.e.
+\[
+\hat{P}E_i = \left\{ \begin{array}{ll}
+1, &i=0\\
+0, &i\ne 0 \end{array} \right. ,
+\]
+where $\hat{P}$ represents the discrete Laplacian. Define the
+summation operator $K$ according to
+\[
+Kv_i=\sum_{j\in\bar{\Omega}}E_{i-j}v_j.
+\]
+Now, $P$ can be reordered such that
+\begin{equation}
+\label{eq:Puf}
+\left( \begin{array}{cc} P_{\Gamma}&P_{\Gamma\Omega}\\
+P_{\Omega\Gamma}&P_{\Omega} \end{array} \right)
+\left( \begin{array}{c} u_{\Gamma}\\u_{\Omega} \end{array} \right)
+=\left( \begin{array}{c} f_{\Gamma}\\f_{\Omega} \end{array} \right),
+\end{equation}
+where subscript $\Gamma$ denoted boundary points and $\Omega$ denotes
+interior points. Mixed subscripts denote the couplings. If the same
+ordering is applied when $K$ is represented by a matrix, one can show
+that
+\begin{equation}
+\label{eq:KP}
+\left( \begin{array}{cc} P_{\Gamma}&P_{\Gamma\Omega}\\
+P_{\Omega\Gamma} & P_{\Omega} \end{array} \right)
+\left( \begin{array}{cc} K_{\Gamma}&K_{\Gamma\Omega}\\
+K_{\Omega\Gamma}&K_{\Omega} \end{array} \right)
+=\left( \begin{array}{cc} A&B\\0&I \end{array} \right),
+\end{equation}
+where
+\[
+A=P_{\Gamma}K_{\Gamma} + P_{\Gamma\Omega}K_{\Omega\Gamma}
+\quad\mbox{and}\quad
+B=P_{\Gamma}K_{\Gamma\Omega}+P_{\Gamma\Omega}K_{\Omega}.
+\]
+A new vector $v$ of unknowns is introduced, such that
+\[
+\left(\begin{array}{c} u_{\Gamma}\\u_{\Omega} \end{array}\right)
+=\left( \begin{array}{cc} K_{\Gamma}&K_{\Gamma\Omega}\\
+K_{\Omega\Gamma}&K_{\Omega} \end{array} \right)
+\left(\begin{array}{c} v_{\Gamma}\\v_{\Omega} \end{array} \right).
+\]
+By inserting the new vector into (\ref{eq:Puf}) and using
+(\ref{eq:KP}), it is easy to see that $v_{\Omega}=f_{\Omega}$ and
+then, by elimination, that
+\begin{equation}
+\label{eq:AvBf}
+Av_{\Gamma}=f_{\Gamma}-Bf_{\Omega}.
+\end{equation}
+
+The original problem, with $(n_1+1)(n_2+1)$ unknowns, is hence reduced
+to a system of equations with $2(n_1+n_2)$ unknowns. The additional
+cost for the reduction process lies in the construction of a
+fundamental solution. An algorithm requiring $\mathcal{O}(n_1n_2\log
+n_1n_2)$ arithmetic operations is given in H. Brand\'en and P.
+Sundqvist \emph{An Algorithm for Computing Fundamental Solutions of
+Difference Operators} Tech. Rep. 2003-006 Dept. of Information
+Technology, Uppsala Univ., Uppsala, Sweden, 2003
+
+In this case, where the domain is rectangular, it is possible to apply
+the matrix $A$ by an embedding technique, related to the way in which
+Toeplitz matrices can be applied by embedding them in circulants. The
+complexity for this operation is also $\mathcal{O}(n_1n_2\log
+n_1n_2)$. The same holds for computing the original vector of
+unknowns from the solution of the reduced system. The over all cost
+for solving the original problem is hence $\mathcal{O}(k n_1n_2\log
+n_1n_2)$, where $k$ is the number of iterations needed for the reduced
+system to converge to a desired level. One detail that is worth
+pointing out is that there is no additional cost in determining the
+residual of the original system when performing iterations on the
+reduced system.
+
+The reduction process generalizes to several dimensions and is not
+restricted to any special kind of difference operator, as long as it
+is linear and has constant coefficients. The fast application
+technique requires that the domain is a hyper cuboid. Fast application
+techniques for more complicated domains is a subject for future
+research. Numerical experiments for the solution of~(\ref{eq:AvBf})
+will be presented in the talk. Results for various difference
+equations and various boundary conditions will be shown and
+preliminary results indicate grid independent GMRES iteration counts
+for discretizations of first order PDEs.
+
+
+\end{document}

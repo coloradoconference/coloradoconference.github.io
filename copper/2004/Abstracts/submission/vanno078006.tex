@@ -1,0 +1,112 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large T. L. Van Noorden \\
+{\bf Optimal Time-Dependent Perturbations: A Constraint Optimization Problem}}
+
+Utrecht University \\ Department of Mathematics \\ \\ Budapestlaan 6 \\ 3584 CD \\ Utrecht \\ The Netherlands
+\\
+{\tt noorden@math.uu.nl}\\
+J. Barkmeijer\end{center}
+
+We discuss the efficient numerical solution of the following
+constraint optimization problem.
+Let $N$ be a (high dimensional) positive semi-definite operator, which can
+be thought of in block form
+\begin{eqnarray}
+N=\left(\begin{array}{cccc}N_{11}&N_{12}&\hdots&N_{1p}\\
+N_{21}&N_{22}&\hdots&N_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+N_{p1}&N_{p2}&\hdots&N_{pp}\end{array}\right),
+\end{eqnarray}
+where $N_{ij}\in \mathbb{R}^{n\times n}$. We would like to find the vector
+$x=(x_1,x_2,\hdots,x_p)$ that maximizes $x^TNx$ under the constraint
+\begin{eqnarray}
+||x_1||\leq1,\,\,\,||x_2||\leq1,\hdots,||x_p||\leq1.
+\end{eqnarray}
+Usually we do not have the operator $N$ in matrix form. We can only
+compute the action of the operator on a vector.
+The motivation for studying this optimization problem is the
+sensitivity analysis of large scale
+systems of linear(ized) differential equations with respect
+to time-dependent perturbations.
+
+We show that the optimum is attained on the boundary of the set over which
+is optimized, so that we may replace the constraints in (2) with
+\begin{eqnarray}
+||x_1||=||x_2||=\hdots=||x_p||=1.
+\end{eqnarray}
+These equality constraints allow us to derive an Euler-Lagrange system of
+equations that has many connections with a symmetric eigenvalue problem:
+\begin{eqnarray*}
+\left(\begin{array}{cccc}N_{11}&N_{12}&\hdots&N_{1p}\\
+N_{21}&N_{22}&\hdots&N_{2p}\\
+\vdots&\vdots&\ddots&\vdots\\
+N_{p1}&N_{p2}&\hdots&N_{pp}\end{array}\right)
+\left(\begin{array}{c}x_1\\x_2\\ \vdots\\ x_p \end{array}\right)&=&
+\left(\begin{array}{c}\lambda_1x_1\\ \lambda_2 x_2\\ \vdots\\
+\lambda_p x_p \end{array} \right )\\
+x_1^Tx_1&=&1\\
+&\vdots&\\
+x_p^Tx_p&=&1
+\end{eqnarray*}
+We give a geometric characterization of the solutions to these
+Euler-Lagrange equations and conjecture about the number
+of solutions.
+
+Based on the connections with the symmetric eigenvalue problem,
+we study numerical methods that are variants of their eigenvalue
+counterparts. We show that there exists an analogue of the power method
+for our optimization problem. This power method consists of the iteration
+of the map $G$ defined by
+\begin{eqnarray}
+G\left(\begin{array}{c}x_1\\x_2\\ \vdots\\x_p\end{array}\right)
+=\left ( \begin{array}{c} \frac{N_{11}x_1+N_{12}x_2+ \hdots +N_{1p}x_p}
+{||N_{11}x_1+N_{12}x_2+ \hdots +N_{1p}x_p||} \\
+\frac{N_{21}x_1+N_{22}x_2+ \hdots +N_{2p}x_p}
+{||N_{21}x_1+N_{22}x_2+ \hdots +N_{2p}x_p||} \\
+\vdots \\
+\frac{N_{p1}x_1+N_{p2}x_2+ \hdots +N_{pp}x_p}
+{||N_{p1}x_1+N_{p2}x_2+ \hdots +N_{pp}x_p||}
+\end{array} \right ).
+\end{eqnarray}
+We prove convergence of the iterations of $G$ to local maxima.
+
+Since the power method usually converges slowly, we propose a numerical
+procedure to accelerate the convergence of the power method, which is
+in fact an adopted version of the Arnoldi or Lanczos method for eigenvalue
+problems \cite{golub}.
+
+Using a number of test problems, we show that the proposed procedure is
+effective, particularly for large scale problems.
+Among the test problems is the Marshall and Molteni quasi-geostrophic model
+\cite{molteni} for atmospheric dynamics.
+
+Other numerical methods that could be used to numerically solve the
+constraint optimization problem, are the optimization methods described
+and developed by Smith \cite{smith}.
+These methods are optimization methods that work on Riemannian manifolds.
+The methods mentioned in \cite{smith} do not construct a search
+space. This is advantageous for the computer memory usage.
+However, we would like not only to find the global optimum, but also
+a subspace comprising the most amplifying perturbations.
+This is a feature of the variants of Krylov subspace methods.
+
+\bibitem{golub}
+G. H. Golub and C. F. Van Loan, {\it Matrix Computations}, John Hopkins
+Studies in the Mathematical Sciences, John Hopkins University Press,
+Baltimore, MD, third ed., 1996.
+\bibitem{molteni}
+J. Marshall and F. Molteni, {\it Towards a dynamical understanding of
+planetary-scale flow regimes}, J. Atmos. Sci, {\bf 50}, (1993) 1792--1818.
+\bibitem{smith}
+S. T. Smith, {\it Optimization techniques on {R}iemannian manifolds}, in
+Hamiltonian and gradient flows, algorithms and control, vol. 3 of Fields
+Inst. Commun., Amer. Math. Soc., 1994, pp. 113--136.
+
+
+\end{document}

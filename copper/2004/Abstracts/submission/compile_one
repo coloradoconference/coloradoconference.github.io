@@ -1,0 +1,31 @@
+#!/bin/sh
+#######################################################################
+LD_LIBRARY_PATH=/usr/openwin/lib:/usr/local/X11/lib:/usr/local/lib:/lib
+LIBDIRS=/usr/lib:/usr/local/X11/lib:/usr/local/lib:/lib
+PATH=/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/usr/local/X11/bin
+PATH=${PATH}:/usr/local/tex/bin
+TEXHOME=/usr/local/tex
+export LD_LIBRARY_PATH LIBDIRS PATH TEXHOME
+PDFLATEX="/usr/local/tex/bin/pdflatex"
+#######################################################################
+
+if [ $# -ne 1 ]; then
+	echo "USAGE: $0  file.tex"
+	exit 0;
+	fi
+
+texfile=$1
+if [ ! -r $texfile ]; then
+	echo "cannot read file \"$texfile\""
+	exit 0;
+	fi
+
+name=`echo $texfile | sed 's/.tex$//'`
+
+#	run three times, to fix references.
+#	pipe "q" into process as batch job
+
+echo q | $PDFLATEX ${name}.tex > /dev/null 2>&1
+echo q | $PDFLATEX ${name}.tex > /dev/null 2>&1
+echo q | $PDFLATEX ${name}.tex > /dev/null 2>&1
+/bin/ls -l ${name}.pdf

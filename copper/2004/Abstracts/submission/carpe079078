@@ -1,0 +1,83 @@
+===firstname:
+Bruno
+===firstname3:
+Serge
+===lastname2:
+Giraud
+===postal:
+CERFACS.
+42, Avenue Gaspard Coriolis. 
+31057 Toulouse Cedex 01. 
+France.
+===lastname:
+Carpentieri
+===lastname3:
+Gratton
+===ABSTRACT:
+
+It is well known that the convergence of the Conjugate Gradient algorithm for solving  
+symmetric positive definite systems $Ax=b$ depends on 
+the eigenvalue distribution of the iteration matrix. 
+For a wide class of problems, 
+the presence of isolated eigenvalues at the extreme of the spectrum slows down the convergence
+significantly. In this circumstance, the rate of convergence of CG can be greatly improved 
+if components of the
+residual in the directions of eigenvectors associated to the isolated eigenvalues
+are deflated by means of a suitable preconditioner.
+Several adaptive preconditioning techniques have been proposed in the past few years 
+that attempt to tackle this problem efficiently~[3,~4]. The preconditioner $M$
+has generally the form of a low-rank matrix update, and is constructed using spectral information
+extracted from the coefficient matrix;
+the spectral information can be computed in advance, prior to the
+iterative solution, or gathered over the iterations from the Lanczos process.
+
+
+In this talk, we perform a preliminary study on the effect of the accuracy
+of the eigencomputation on the quality of the spectral preconditioning;
+in our study, we consider in particular the spectral preconditioner 
+proposed in~[1,~2].
+The analysis is based on the perturbation theory, and leads us to
+proposing a  criterion for screening
+the spectral information in the design of the preconditioner.
+In particular, we extend this analysis to the case
+of solving a sequence of linear systems involved in a non-linear process, like those
+arising in Gauss-Newton process.
+We show results of numerical experiments from data assimilation 
+problems in oceanography to illustrate the effectiveness of our approach 
+in a real-life application.
+
+
+\begin{enumerate}
+  \item[{[}1{]}] B.~Carpentieri, I.~S.~Duff and L.~Giraud. 
+A class of spectral two-level preconditioners. 
+{\em SIAM Journal of Scientific Computing}, 
+25(2):749-765,
+2003. 
+
+\item[{[}2{]}] M.~Fisher. Minimization Algorithms for Variational Data Assimilation.
+In {\em Proc. ECMWF Seminar "Recent Developments in Numerical Methods for Atmospheric Modelling", 
+7-11 Sept. 1998},
+pages~364-385,
+1998.
+
+\item[{[}3{]}] J.~Frank and C.~Vuik. On the construction of deflation-based preconditioners.
+{\em SIAM Journal of Scientific Computing},
+23(2):442-462,
+2001.
+
+\item[{[}4{]}] Y.~Saad, M.~Yeung, J.~Erhel and F.~Guyomarc'h.
+A deflated version of the conjugate gradient algorithm.
+{\em SIAM Journal of Scientific Computing},
+21(5):1909-1926,
+2000.
+
+\end{enumerate}
+
+===email:
+carpenti@cerfacs.fr
+===otherauths:
+
+===title:
+Screening spectral information in preconditioning design
+===firstname2:
+Luc

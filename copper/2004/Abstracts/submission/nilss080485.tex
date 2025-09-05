@@ -1,0 +1,106 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large T. K. Nilssen \\
+{\bf On the Reuse of Standard Preconditioners for Higher Order Time Discretizations of Parabolic PDEs}}
+
+Simula Research Laboratory \\ Martin Linges vei 17 \\ Fornebu \\ P.O. Box 134 \\ N-1325 Lysaker \\ Norway
+\\
+{\tt trygvekn@simula.no}\\
+K.-A. Mardal\end{center}
+
+\newtheorem{lemma}{Lemma}
+
+In this abstract we will describe a preconditioner for some higher
+order time discretizations of parabolic problems.
+The preconditioner is optimal with respect to the spatial
+discretization parameters, that typically are the characteristic mesh
+size parameter $h$ and the polynomial degree $p$.
+The preconditioner is also order optimal with respect to $\Delta t$.
+The only assumption is that there exists a preconditioner for the low
+order time
+discretization schemes such as Crank-Nicholson or implicit Euler.
+Such preconditioners are standard, c.f. e.g., \cite{BD},
+\cite{olshanskii00convergence} and \cite{Thomee}.
+
+We study the model problem
+\begin{eqnarray*}
+\frac{\partial u}{\partial t} &=& \Delta u, \quad \mbox{ in } \Omega, t > 0 \\
+u &=& 0, \quad \mbox{ on } \partial \Omega, t>0 \\
+u &=& u_0, \quad \mbox{ in } \Omega, t=0.
+\end{eqnarray*}
+
+This equation is discretized in space and time to give the
+following linear system to be solved for each time level
+\begin{equation*}
+Q_{kj} (\Delta t A) u^n = P_{kj} (\Delta t A) u^{n-1},
+\end{equation*}
+where $\Delta t $ is the time stepping parameter, the two polynomials
+$Q_{kj}$ and $P_{kj}$ are the $(k,j)-$ Pad\'{e} approximation to the
+exponential function and $A$ is a discrete Laplacian.
+The polynomials are given by (c.f. \cite{Thomee}):
+\begin{eqnarray*}
+P_{kj}(\Delta t A )&=&
+\sum_{i=0}^k \left( \begin{array}{c c}
+k \\
+i
+\end{array} \right) \frac {(k+j-i)!}{(k+j)!} (\Delta t A)^i \\
+Q_{kj}(\Delta t A )&=&P_{jk}(-\Delta t A ).
+\end{eqnarray*}
+
+The proposed (exact) preconditioner is
+\begin{eqnarray*}
+R_{kj} (\Delta t A) =\left( I- \sqrt[j]{\frac {j!}{(j+k)!}}\Delta t A \right)^j.
+\end{eqnarray*}
+Hence, $R_{kj}$ is a standard preconditioner for a low
+order time discretization of a parabolic PDE, used
+$j$ times.
+The coefficient before $\Delta t A$ is choosen such that the
+highest order term of $R^{-j}_c(\Delta t A)$
+and $Q_{kj} (\Delta t A)$ are equal.
+
+In Table \ref{cond} we show an upper bound on the condition
+number of the preconditioned system, using an exact preconditioner
+for $R_{kj}$. Further we proove the following lemma.
+
+\begin{lemma}\label{lem1}
+The condition number of
+the preconditioned system is bounded by
+\begin{equation*}
+\kappa \left( \left( R_{kj}(\Delta t A) \right)^{-1} Q_{kj}(\Delta t
+A) \right) < 1.8 \cdot 1.09^j.
+\end{equation*}
+\end{lemma}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$j\backslash k$& $j$ & $j-1$ & $j-2$ \\ \hline
+$2$ & 1.07 & 1.10 & 1.17 \\ \hline
+$6$ & 1.49 & 1.56 & 1.66 \\ \hline
+$10$ & 2.08 & 2.20 & 2.34 \\ \hline
+\end{tabular}
+\end{center}
+\caption{Upper bound on the condition number for various values of $j$ and $k$.}
+\label{cond}
+\end{table}
+
+\begin{thebibliography}{99}
+\bibitem{BD} R. E. Bank and T. Dupont, An optimal order process for
+solving finite element equations, Math. Comp., Vol. 36, pp. 35--51,
+1981.
+\bibitem{olshanskii00convergence} Maxim A. Olshanskii and Arnold
+Reusken, On the Convergence of a Multigrid Method for Linear
+Reaction-Diffusion Problems, Computing, Vol. 65(3), pp. 193--202,
+2000.
+\bibitem{Thomee} V. Thom\'{e}e, Galerkin Finite Element Methods for
+Parabolic Problems, Springer-Verlag, 2nd edition, 1997.
+\end{thebibliography}
+
+
+\end{document}

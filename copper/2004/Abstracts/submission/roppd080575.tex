@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David L. Ropp \\
+{\bf On the Instability of Operator Splitting Methods: Diffusion/Reaction Systems*}}
+
+P.O. Box 5800 \\ MS 1110 \\ Sandia National Labs \\ Albuquerque \\ NM 87185
+\\
+{\tt dlropp@sandia.gov}\\
+John N. Shadid\end{center}
+
+Recently numerical experiments have demonstrated the instability of some common
+second-order operator splitting methods when applied to the Brusselator system.
+In this talk we demonstrate that this instability can be related to the
+stability properties of the method used to integrate the diffusion operator. We
+then consider the stability of operator splitting methods applied to a
+model diffusion/reaction system that exhibits decay (a negative definite
+operator) but has a
+reaction operator which allows growth (a positive semi-definite or indefinite?).
+Using this equation we consider the A-stability of the
+operator split schemes and derive conditions on the
+diffusion integrator to achieve A-stability. We demonstrate consequences of this theorem
+for this model problem and demonstrate the result in the case of the Brusselator
+system as well.
+
+
+*This work was partially supported by the ASCI program and the DOE Office
+of Science MICS program at Sandia National Laboratory under contract
+DE-AC04-94AL85000.
+
+
+\end{document}

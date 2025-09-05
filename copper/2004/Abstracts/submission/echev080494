@@ -1,0 +1,87 @@
+===firstname:
+D.
+===firstname3:
+
+===lastname2:
+Hemker
+===postal:
+Centrum voor Wiskunde en Informatica (CWI)
+P.O. Box 94079
+1090 GB Amsterdam
+The Netherlands
+===lastname:
+Echeverria Ciaurri
+===lastname3:
+
+===ABSTRACT:
+The Space-Mapping (SM) [1] technique was introduced as an efficient design optimization
+tool for microwave circuits. The underlying idea however is quite general
+and applicable to a broader class of minimization problems.
+
+Optimization procedures in practice are based on high accuracy models that typically
+have an excessive computational cost. Within SM terminology, these models are called
+{\it fine models} and we will denote them as ${\mathbf f}({\mathbf x})$,
+${\mathbf x} \in X$ being the design parameters. A finite element solution of Maxwell's
+equations is an example of a model of this type. SM needs a second and computationally
+cheaper model. This is called the {\it coarse model} and acts as a surrogate
+for the fine one. We will denote it as ${\mathbf c}({\mathbf z})$, ${\mathbf z} \in Z$
+being the design parameters. An equivalent electromagnetic circuit can for instance be
+used as a coarse model.
+
+The SM method relies on the coarse model to speed up the fine model optimization. The key
+element in this technique is the {\it SM function} ${\mathbf p}:X \rightarrow Z$, also
+known as {\it parameter extraction}. Its purpose is to obtain a relation between the design
+parameters of the fine and coarse models. With this relation both models become
+as similar as possible by aligning their two responses:
+${\mathbf f}({\mathbf x}) \approx {\mathbf c}({\mathbf p}({\mathbf x}))$.
+The SM algorithms come in two usually equivalent brands. On one hand, the {\it original SM}
+minimizes the coarse model cost function and translates afterwards the result to the
+fine one via the SM function. On the other hand, the {\it dual SM} optimizes the mapped coarse
+model ${\mathbf c}({\mathbf p}({\mathbf x}))$. None of these two algorithms is consistent
+in the sense that the fine model optimal solution is always achieved. In order to do that,
+some other classical minimization methods must be combined with SM [2]. The SM technique
+can be then either used as a solver or as a preconditioner, depending on the desired accuracy.
+
+In the first part of the talk, SM theory will be analyzed from the well understood
+Defect Correction (DC) [3] framework. DC uses the same multiscale principles that SM
+in order to solve an operator equation. This alternative perspective of SM explains
+its reported success in optimization tasks [1,4]. Moreover, DC suggests the multilevel
+SM generalization in a manner analogous to the multigrid philosophy. If a hierarchy
+of models with respect to computational cost and precision is available, the multilevel
+SM approach can be applied like full multigrid.
+
+In the second part of the talk we will show results of SM applied to electromagnetic shape
+optimization. The first design problem is a C-shaped magnetic circuit in which a given
+flux density is desired in a certain region in space. In the second problem we optimize the
+force response in a linear actuator. For this actuator a hierarchy of models is available,
+allowing then the use of the multilevel SM approach. For both problems the fine model
+is a vector potential formulation discretized by finite elements. The results give
+evidence of the promising nature of the SM technique for optimization in electromagnetics.
+
+\section*{References}
+\begin{description}
+
+\item[1] J.W. Bandler, R.M. Biernacki, S.H. Chen, P.A. Grobelny and R.H. Hemmers,
+"{\it Space mapping technique for electromagnetic optimization}", IEEE Trans. Microwave
+Theory Tech, vol. 42, pp. 2536-2544, 1994.
+
+\item[2] K. Madsen and J. S\o ndergaard, "{\it Convergence of hybrid space mapping algorithms}",
+submitted, Optimization and Engineering, 2003.
+
+\item[3] K. B\"{o}hmer, P.W. Hemker and J. Stetter, "{\it The defect correction approach}", in Defect
+Correction Methods: Theory and Applications, K. B\"{o}hmer and H.J. Stetter eds., Computing Suppl. 5,
+Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, pp. 1-32, 1984.
+
+\item[4] M. Bakr, J. Bandler, K. Madsen and J. S\o ndergaard, "{\it Review of the space mapping
+approach to engineering optimization and modeling}", Optimization and Engineering, vol. 1,
+pp. 241-276, 2000.
+
+===email:
+D.Echeverria@cwi.nl
+===otherauths:
+
+===title:
+Optimization in Electromagnetics 
+with the Space-Mapping Technique 
+===firstname2:
+P.W.

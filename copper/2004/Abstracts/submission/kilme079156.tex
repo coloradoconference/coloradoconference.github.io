@@ -1,0 +1,62 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Misha Kilmer \\
+{\bf Fast Forward Solvers in 3D Diffuse Optical Tomographic Imaging}}
+
+Mathematics Dept. \\ Bromfield-Pearson Bldg. \\ Tufts University \\ Medford \\ MA 02155
+\\
+{\tt misha.kilmer@tufts.edu}\\
+Eric de Sturler\end{center}
+
+\begin{document}
+Diffuse optical tomographic (DOT) medical imaging makes
+use of modulated, near-infrared light transmitted into
+tissue from photodiodes placed on the body.
+Optical detectors then measure the photon fluence
+resulting from the scattering and absorption of
+photons within the region of interest. The goal is to reconstruct three-dimensional
+images of the scattering and absorption within the tissue.
+In the case of breast tissue imaging, for example,
+anomalous regions of absorption and scattering may indicate the presence of a tumor.
+
+We utilize a frequency-domain diffusion equation model
+for data generation. We parameterize the diffusion (related to the
+scattering) and absorption
+in terms of a small number of unknown parameters, represented by the
+entries in the vector $p$.
+Under the diffusion model, the synthetic data, $h(p)$,
+is a non-linear function of
+absorption and scattering. If $y$ represents our measured data
+then the problem we wish to solve is the weighted, non-linear least squares problem
+\[ \min_p \| R^{-\frac{1}{2}}( y - h(p)) \|_2 ,\]
+where $R$ is related to the noise in the measured data.
+
+We use a damped Gauss-Newton method to solve the optimization problem.
+The major difficulty
+is that computing $h(p)$ and the entries in the Jacobian
+requires the solution of several large-scale linear systems. The size
+of each system depends on the number of voxels in the 3D image.
+If $N_s$ denotes the number of sources, $N_d$ denotes the number of detectors and
+$N_w$ is the number of frequencies, the total number of linear systems
+that must be solved is
+$O((N_s + N_d) N_w)$ per Gauss-Newton step.
+Thus the linear solves are a huge computational bottleneck for the imaging problem.
+
+In this talk, we analyze characteristics of our matrices and discuss
+techniques for reducing the computational
+complexity of the forward solves. We consider preconditioned and
+unpreconditioned Krylov-subspace methods for
+solving the systems at every outer (i.e. Gauss-Newton) iteration.
+In particular, we focus on exploiting relationships among
+the systems that help minimize the computational effort at a
+fixed iteration as well as over successive outer iterations.
+
+\end{document}
+
+
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Emeric MARTIN \\
+{\bf Using spectral low rank preconditioners for large electromagnetic calculations.}}
+
+CERFACS \\ 42 Avenue G. Coriolis \\ 31057 Toulouse Cedex \\ France.
+\\
+{\tt emartin@cerfacs.fr}\\
+Iain DUFF\\
+Luc GIRAUD\\
+	LANGOU Julien\end{center}
+
+We focus on the solution of a sequence of linear systems arising in
+electromagnetic radar cross section, and having the same
+coefficient matrix but different right-hand sides.
+The problem consists in solving $M_{1}AX=M_{1}B$, where $M_{1}$ is a left
+preconditioner, $A$ a large dense complex symmetric matrix that arises
+from boundary element method, $X$ the blocks of unknowns vectors, and $B$
+the right-hand sides.\\
+\\
+Our study starts from the observation that when the matrix $M_{1}A$ has
+some eigenvalues near zero, the convergence
+of the Krylov methods is often slow. The following proposition from [1]
+shows that we can construct an update ${\tilde{M}}_c$ from spectral
+information of $M_1A$ to correct $M_1$ such as the new preconditioned
+system $M_{2}Au = M_{2}b$ no longer has eigenvalues in a certain
+neighbourhood of zero.
+Assume that $M_1A$ is diagonalizable:
+\begin{center}
+$M_1A = V\Lambda V^{-1},$
+\end{center}
+with $\Lambda$ the diagonal matrix formed by the eigenvalues
+${\{\lambda_i\}}_{i\in\{1,n\}}$ ordered by increasing magnitude, and
+$V$ the associated right eigenvectors. We consider the $k$ smallest
+eigenvalues and $V_k$ the associated right eigenvectors.\\
+{\bf Proposition 1.~~~}
+{\it Let $W$ be such that
+$\tilde{A}_c = W^H A V_k $ has full rank,
+$ {\tilde{M}}_c = V_k \tilde{A}_c^{-1} W^{H} $ and
+$ M_2 = M_1 + {\tilde{M}}_c.$
+Then $M_{2}A$ is similar to a matrix whose eigenvalues are
+$$
+\left \{
+\begin{array}{l l l}
+\eta_i = \lambda_i & \mbox{\rm if } & i > k , \\
+\eta_i = 1 + \lambda_i & \mbox{\rm if } & i \leq k . \\
+\end{array}
+\right .
+$$
+}
+The matrix ${\tilde{M}}_c$ is defined as the Spectral Low Rank Update
+(SLRU) for the left preconditioner $M_1$.\\
+\\
+To illustrate the efficiency of this approach we consider a set of large
+and challenging real life industrial problems.
+We perform experiments with a parallel fast multipole code [2] to compute
+the matrix-vector products involving A.
+For $M_1$ we choose the preconditioner developed in [3], suitable for
+implementation in a multipole framework on parallel distributed
+platforms.
+It is based on a sparse approximate inverse using a Frobenius norm
+minimization with an a priori sparsity pattern selection strategy.
+The spectral information is computed in a preprocessing phase by an
+external eigensolver: ARPACK [4].\\
+\\
+In this talk, we present the gain in terms of times and matrix-vector
+products, for the complete monostatic calculations [6].
+We also illustrate the effects on the convergence rate of GMRES [5] of
+parameters such as the dimension of the update, the accuracy
+of the spectral information, the quality of the original preconditioner
+or the size of the restart.
+We conclude with some comments on our on-going work where we combine the
+SLRU preconditioner and the Seed-GMRES or the GMRES-DR [7] solver.\\
+\\
+\\
+This work has been developed in collaboration with G. All{\'e}on from
+EADS-CCR and G. Sylvand from CERMICS-INRIA.\\
+\\
+\\
+\begin{description}
+\item{[1].}
+B. Carpentieri and I. S. Duff and L. Giraud. A class of spectral
+two-level preconditioners.
+{\it SIAM J. Scientific Computing,} 25(2):749-765, 2003.
+\item{[2].}
+G. Sylvand. {\it La M\'ethode Multip\^ole Rapide en Electromagn\'etisme :
+Performances, Parall\'elisation, Applications.}
+Th\`{e}se, 2002, Ecole {N}ationale des {P}onts et {C}hauss\'ees.
+\item{[3].}
+G. All{\'e}on and M. Benzi and L. Giraud. Sparse Approximate Inverse
+Preconditioning for Dense Linear Systems Arising in Computational
+Electromagnetics.
+\textit{Numerical Algorithms}, Vol. 16, 1997, pp 1-15.
+\item{[4].}
+R. B. Lehoucq and D. C. Sorensen and C. Yang. ARPACK User's guide: ARPACK
+Users' Guide: Solution of Large-Scale Eigenvalue Problems with Implicitly
+Restarted Arnoldi Methods.
+\textit{SIAM}, 1997.\\
+http://www.caam.rice.edu/software/ARPACK/
+\item{[5].}
+Y. Saad and M. H. Schultz. GMRES: A Generalized minimal residual
+algorithm for solving nonsymmetric linear systems.
+\textit{SIAM J. Scientific and Statistical Computing}, 1986, Vol. 7, pp 856-869.
+\item{[6].}
+I. S. Duff and L. Giraud and J. Langou and E. Martin. Using spectral low
+rank preconditioners for large electromagnetic calculations.
+Technical Report TR/PA/03/95, 2003, CERFACS.
+\item{[7].}
+R. B. Morgan. GMRES with Deflated Restarting.
+\textit{SIAM J. Scientific Computing}, 2002, Vol. 24(1), pp 20-37.
+\end{description}
+
+
+\end{document}

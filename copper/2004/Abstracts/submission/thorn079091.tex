@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Heidi K. Thornquist \\
+{\bf Fixed-Polynomial Approximate Spectral Transformations for Preconditioning the Eigenvalue Problem}}
+
+P.O. Box 5800 \\ MS 1110 \\ Albuquerque \\ NM  87185-1110
+\\
+{\tt hkthorn@sandia.gov}\\
+Danny C. Sorensen\end{center}
+
+Arnoldi's method is often used to compute the eigenvalues
+and eigenvectors of large, sparse matrices. Various
+techniques can by employed to improve the convergence of
+this method, some resulting in considerable expense.
+We will present an efficient preconditioning scheme that
+accelerates the convergence of Arnoldi's method to the
+eigenvalues of smallest magnitude for Hermitian and
+non-Hermitian matrices. This scheme uses a fixed-polynomial
+operator to approximate the spectral transformation.
+When used with the Implicitly Restarted Arnoldi (IRA) method,
+this achieves the effect of a spectral transformation without
+factoring a matrix.
+
+Numerical results indicate that this employing this
+preconditioning scheme with IRA is very effective. It
+is just as accurate as IRA in regular mode, more accurate
+than using preconditioned GMRES started anew for each
+linear solve, and considerably less expensive than either.
+Furthermore, using a fixed-polynomial operator with IRA
+compares favorably with two other current methods:
+Jacobi-Davidson and Locally Optimal Block Preconditioned
+Conjugate Gradient.
+
+
+\end{document}

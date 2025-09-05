@@ -1,0 +1,29 @@
+===firstname:
+Scott
+===firstname3:
+Steve
+===lastname2:
+Manteuffel
+===postal:
+Department of Applied Mathematics,
+University of Colorado at Boulder,
+UCB 526,
+Boulder, CO,
+80309-0526
+===lastname:
+MacLachlan
+===lastname3:
+McCormick
+===ABSTRACT:
+Our ability to numerically simulate physical processes is severely constrained by our ability to solve the complex linear systems that are often at the core of the computation.  Multigrid methods offer an efficient solution technique for many such problems.  However, fixed multigrid processes are based on an overall assumption of smoothness that may not be appropriate for a given problem.  Adaptive multigrid methods, such as the adaptive AMG and SA algorithms have proven effective in achieving efficient multigrid solutions for problems where the needed algebraically smooth components are not available a priori.
+
+In this talk, we present progress to date on using the adaptive AMG method as a preconditioner for the conjugate gradient algorithm.  In the setting of the Lanczos process, approximations of the lowest energy modes of the preconditioned system are easily computed.  These same modes are the slowest converging ones of the multigrid process.  We examine the use of these modes in the adaptive AMG process as representatives of the algebraically smooth modes needed for optimal multigrid performance.
+
+===email:
+maclachl@colorado.edu
+===otherauths:
+
+===title:
+Preconditioning with Adaptive AMG
+===firstname2:
+Tom
