@@ -1,0 +1,73 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Adaptive mesh refinement: in the presence of discontinuities}}
+
+	Alfonso Limon \\
+	School of Mathematical Sciences, Claremont Graduate University \\
+	710 N.~College Ave., Claremont CA 91711 \\
+	{\tt alfonso.limon@cgu.edu} \\
+	Hedley Morris
+\end{center}
+Classical multiresolution wavelet techniques have been used
+successfully to simplify the computation of PDEs by
+concentrating resources in places where the solution varies
+quickly. However, classical techniques tend to fail near
+solution discontinuities, as Gibb's effects contaminate the
+wavelet coefficients used to refine the solution. Non-linear
+adaptive stencil methods, such as the ENO scheme, can
+reconstruct the solution accurately across jumps, but
+possess neither the compression capabilities nor the
+well-understood stability properties of wavelets. Expanding
+on Harten's ideas, we construct an alternative to wavelets,
+a multiresolution method that does not suffer from Gibb's
+effects and has good compression properties. We will present
+this alternative multiresolution method and compare its
+performance to other methods by means of several examples.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

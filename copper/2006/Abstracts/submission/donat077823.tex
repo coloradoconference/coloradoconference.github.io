@@ -1,0 +1,67 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marco Donatelli \\
+{\bf Regularization by multigrid-type algorithms}}
+
+Universit\`{a} dell'Insubria \\ Dipartimento di Fisica e Matematica \\ Via Valleggio 11 \\ 22100 Como (CO) - Italy
+\\
+{\tt marco.donatelli@uninsubria.it}\\
+Stefano Serra-Capizzano\end{center}
+
+We consider the de-blurring problem of noisy and blurred images in
+the case of space invariant point spread functions. The use of
+appropriate boundary conditions leads to linear systems with
+structured coefficient matrices related to space invariant
+operators like Toeplitz, circulants, trigonometric matrix algebras
+etc. We combine an algebraic multigrid (which is designed ad hoc
+for structured matrices) with the low-pass projectors typical of
+the classical geometrical multigrid employed in a PDEs context.
+Thus, using an appropriate smoother, we obtain an iterative
+regularizing method (see \cite{mgmreg, Dphd}) based on: projection
+in a subspace where it is easier to distinguish between the signal
+and the noise and then application of an iterative regularizing
+method in the projected subspace. Therefore any iterative
+regularizing method like conjugate gradient (CG), conjugate
+gradient for normal equation (CGNE), Landweber etc., can be used
+as smoother in our multigrid algorithm. The projector is chosen in
+order to maintain the same algebraic structure at each recursion
+level and having a low-pass filter property, which is very useful
+in order to reduce the noise effects. In this way, we obtain a
+better restored image with a flatter restoration error curve and
+also in less time than the auxiliary method used as smoother. As
+direct consequence the choice of the exact iteration where to stop
+is less critical than in other regularizing iterative methods.
+Furthermore, we can choose multigrid procedures which are
+extremely more efficient than classical techniques without losing
+accuracy in the restored image. Several numerical experiments show
+the effectiveness of our proposal.
+
+A Theoretical analysis of multigrid methods is usually a difficult
+task and a first largely used approach considers a two grid
+method. In the same way, to proving the regularizing properties of
+our multigrid methods, we provide some estimations on the filter
+factor of the two level strategy.
+
+Finally, it can be easily (by using a simple projection at every
+step) combined with nonnegativity constraints. Moreover we propose
+a possible generalization where the multigrid regularization is
+applied as a one-step method: now the only parameter to choose is
+the number of recursive calls.
+
+\begin{thebibliography}{biblio}
+\bibitem{Dphd}
+{\sc M. Donatelli}. {\em Image Deconvolution and Multigrid Methods},
+PhD Thesis in Applied and Computational Mathematics, Univ. of Milano, December 2005.
+\bibitem{mgmreg}
+\textsc{M. Donatelli and S. Serra Capizzano},
+\emph{On the regularizing power of multigrid-type algorithms},
+SIAM J. Sci. Comput., in press.
+\end{thebibliography}
+
+
+\end{document}

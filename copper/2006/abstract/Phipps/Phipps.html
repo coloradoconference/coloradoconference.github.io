@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phipps</TITLE>
+<META NAME="description" CONTENT="Phipps">
+<META NAME="keywords" CONTENT="Phipps">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Phipps.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Solving bordered systems of linear equations for large-scale 
+<BR>
+continuation and bifurcation analysis</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Eric T Phipps 
+<BR>
+Sandia National Laboratories, Applied Computational Methods Dept. 
+<BR>
+P.O.&nbsp;Box 5800, MS-0316, Albuquerque NM 87185 
+<BR>	<TT>etphipp@sandia.gov</TT> 
+<BR>
+Andrew G Salinger
+
+</DIV>
+Solving bordered systems of linear equations where the
+matrix is augmented by a small number of additional rows and
+columns is ubiquitous in continuation and bifurcation
+analysis. Examples include pseudo-arclength continuation,
+constraint following, and turning point location. However
+solving these systems in a large-scale setting where the
+original matrix is large and sparse is difficult. Directly
+augmenting the matrix destroys the sparsity structure of the
+original matrix since the additional rows and columns are
+usually dense, while block elimination methods have
+difficulty when the original matrix is nearly singular and
+result in additional linear solves.
+
+<P>
+In this talk we
+discuss a simple method for solving systems of this form
+using Krylov iterative linear solvers based on computing the
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ QR$"> factorization of the augmented rows, and is an
+extension of the Householder pseudo-arclength continuation
+method developed by H.&nbsp;Walker. It allows solutions of the
+bordered system to be computed with a cost roughly
+equivalent to solving the original matrix and is
+well-conditioned even when the original matrix is singular.
+
+<P>
+We then apply this technique to the problem of computing
+turning point bifurcations in large-scale nonlinear systems.
+The <IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ QR$"> approach allows turning point algorithms that are
+faster, more robust and scale better to millions of unknowns
+compared to traditional block elimination schemes. Examples
+of applying these techniques to large-scale structural and
+fluid mechanics problems will be presented. These techniques
+have been implemented in a continuation and bifurcation
+software package called LOCA, short for The Library of
+Continuation Algorithms, developed by the authors and
+publicly available as a part of Trilinos, a set of scalable
+linear and nonlinear solvers.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

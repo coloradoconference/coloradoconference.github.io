@@ -1,0 +1,16 @@
+#!/bin/sh
+
+for file in */index.html
+do
+
+./spacer $file
+
+tr=`echo $file | sed 's/index/indexTR/'`
+/bin/ls -l $file $tr
+
+mv $tr $file
+chmod 644 $file
+/bin/ls -l $file
+echo
+
+done

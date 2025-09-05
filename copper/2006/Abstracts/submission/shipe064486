@@ -1,0 +1,73 @@
+===firstname:
+Peter  L.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Dept of Math and Statistics, Oakland University, Rochester, MI 48323
+===lastname:
+Shi
+===lastname3:
+
+===ABSTRACT:
+The speaker will present a new theory, the related algorithmic and programming architecture for solving nonlinear boundary value problems with {\it optimal speed and robustness}  by using large numbers of finite elements.
+
+
+The new methodology will achieve the desired optimality
+over  a singularly large spectrum of nonlinear finite element models on  bounded domains of $R^n$ with $n=2$ and 3.
+For example, the algorithm will cover  the Galerkin formulation
+of well-posed nonlinear elliptic systems whose principle part is
+Lipschitz continuous and strongly monotone in a Sobolev space and certain problems that lack unique solutions such as stationary Navier-Stokes equations. Large variations of stiffness will also be  permitted in both magnitude and frequency.
+
+
+The merit of the new algorithm is not only its speed and scope,
+but also its mathematically rigorous theory,
+the elegance in algorithmic design, and  simplicity
+in implementation. The approach will be
+based on the proven success of the speaker's long time effort starting from early 1990s, recently reported in the article\footnote{This article
+is submitted to Advances in Computational Mathematics in August, 2005 (95 pages). } titled ``Foundation of
+nonlinear finite element solvers, Part I", which successfully establishes the corresponding result for
+second order {\it quasi-linear} elliptic systems
+with non-negative lower order terms.
+Central to the algorithm, the speaker will reformulate a finite element model by generalized Wiener-Hopf equations. This will
+make element-wise conditioning an  inexpensive  process,
+whereby  reducing the solution procedure to the  straightforward
+ Banach contraction mapping principle: given $f$, $y_0$ and $m$, compute
+$$
+  y_{k+1} = (I-R^* T R) y_k+ R^*f,
+\quad k=0,1,2\dots m.
+$$
+Here the operator $I- R^* T R$ is strictly contractive with
+the contraction constant
+independent of the number of unknowns in the system; $T$
+is a  scaled direct sum of the local stiffness operators;
+$R$ and $R^*$ are linear operators conjugate to each other,
+and I is the identity mapping.  Computing $Ry$ and $R^* y^*$
+for arbitrary $y$ and $y^*$ is equivalent  to solving a linear system defined by a fixed class of sparse $M$-matrices and their close variants, which
+ can be accomplished by  algebraic multi-grid method (AMG) in linear computational count. For a large class of practical problems, they can also be
+accomplished  by a variety of other linear solver techniques,
+showing the robustness of
+the algorithm. From the numerical point of view, $R$ and $R^*$
+are optimal conditioners of $T$ in terms of  cost, efficiency and robustness. They depend only on a discrete function space  modulo the kernel of an appropriate linear analog of $T$.
+Throughout the algorithmic design and analysis,
+non-traditional tools such as
+topological spaces  and discrete measures will be systematically deployed for representing and handling the
+data structure. This is another novelty of the speaker's approach from the standard methodology.
+
+
+The speaker's new approach is related neither to Newton-Krylov method and its variants, nor to FAS.
+At the philosophical level, it is a natural extension of AMG
+to its fully nonlinear analog without using FAS. It can also be viewed as an extreme  exercise
+of the {\it finite element tearing and inter-connection} (FETI)
+philosophy coupled with
+a novel treatment of degrees of freedom.
+
+===email:
+pshi@oakland.edu
+===otherauths:
+
+===title:
+A Large Scale Nonlinear Finite Element Solver Algorithm with Optimal Speed and Robustness
+===firstname2:
+

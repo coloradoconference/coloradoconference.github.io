@@ -1,0 +1,70 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Spatial multigrid for transport}}
+
+	Brendan Sheehan \\
+	Dept. of Applied Mathematics \\
+	Univ. of Colorado, Boulder CO 80309-0526 \\
+	{\tt ulmo22@yahoo.com}
+\end{center}
+A spatial multigrid algorithm for isotropic neutron
+transport is presented in $x$-$y$ geometry. The problem is
+discretized with discrete ordinates in angle and corner
+balance finite differencing in space. Spatial smoothing is
+accomplished by a four color block Jacobi relaxation, where
+the diagonal blocks correspond to four cell blocks on the
+spatial grid. A bilinear interpolation operator and its
+transpose are used for the grid transfer operators.
+Encouraging preliminary results are presented for
+homogeneous domains. Heterogeneous domains are also
+discussed, especially the case of a vacuum region surrounded
+by a diffusive region.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

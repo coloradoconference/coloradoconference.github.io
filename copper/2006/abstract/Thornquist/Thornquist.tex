@@ -1,0 +1,86 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Fixed-polynomial approximate spectral transformations for \\
+	preconditioning the eigenvalue problem}}
+
+	Heidi K.~Thornquist \\
+	Sandia National Laboratories, P.O.~Box 5800, MS 0316 \\
+	Albuquerque NM 87185-0316 \\
+	{\tt hkthorn@sandia.gov} \\
+	Danny C.~Sorensen
+\end{center}
+Arnoldi's method is often used to compute a few eigenvalues
+and eigenvectors of large, sparse matrices. When the
+eigenvalues of interest are not dominant or well-separated,
+this method may suffer from slow convergence. Spectral
+transformations are a common acceleration technique that
+address this issue by introducing a modified eigenvalue
+problem that is easier to solve than the original. This
+modified problem accentuates the eigenvalues of interest,
+but requires solving a linear system, which is
+computationally expensive for large-scale eigenvalue
+problems.
+
+In this talk we will show how this expense can
+be reduced through a preconditioning scheme that uses a
+fixed-polynomial operator to approximate the spectral
+transformation. Three different constructions for a
+fixed-polynomial operator are derived from some common
+iterative methods for non-Hermitian linear systems. The
+implementation details and numerical behavior of these three
+operators are compared. Numerical experiments will be
+presented demonstrating that this preconditioning scheme is
+a competitive approach for solving large-scale eigenvalue
+problems. The results illustrate the effectiveness of this
+technique using several practical eigenvalue problems from
+science and engineering ranging from hundreds to more than a
+million unknowns.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

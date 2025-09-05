@@ -1,0 +1,63 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michael W Gee \\
+{\bf Nonlinear Adaptive Smoothed Aggregation Multigrid}}
+
+Sandia National Laboratories \\ Org 1414 \\ PO Box 5800 \\ MS 1110 \\ Albuquerque \\ NM \\ 87185-1110
+\\
+{\tt mwgee@sandia.gov}\\
+Ray S Tuminaro\end{center}
+
+The increasing demands of large-scale complex solid mechanics simulations
+areplacing greater emphasis on the challenges associated with the
+efficient solution of the set of nonlinear equations. Here, the solution
+of large systems of equations with material, geometric and contact
+nonlinearities in a parallel
+framework is adressed. Instead of applying widely used Newton- or
+Newton-Krylov type methods that involve the derivation of a stiffness
+matrix and a sequence of linear solves, the presented work details the
+implementation of a variational nonlinear algebraic multigrid algorithm
+based on the full approximation scheme (FAS) applied to solve this set of
+nonlinear equations [2]. The multigrid hierachy is constructed using an
+adaptive smoothed aggregation multigrid approach [1],[5] applied to a
+fine grid Jacobian that will also be used to construct nonlinear
+smoothers on all grids. As the variational evaluation of the
+nonlinear residual function plays a crucial role for the cost of the
+overall method, reducing the number of residual evaluations by
+encountering the extra effort of a (linear) adaptive smoothed aggregation
+procedure can reduce overall solution times significantly. The algorithm
+is implemented within Sandia National Laboratories' freely available
+parallel 'Trilinos' linear algebra framework[3] and makes use of it's
+smoothed aggregation multigrid library 'ML' [4] and it's nonlinear solver
+library 'NOX'.
+The outline of the algorithm and implementation are given together with
+examples demonstrating the advantages of this new approach. Several
+variants of the algorithm will be discussed and compared.
+
+
+References
+
+[1] Brezina, M. et al., R., "Adatpive Smoothed Aggregation (aSA)
+Multigrid", SIAM Review, 47, 317-346, 2005.
+
+[2] Gee, M.W., Tuminaro, R.S. , "Nonlinear algebraic multigrid for
+constrained solid mechanics problems using Trilinos", technical report,
+Sandia National Laboratories. 2006, to appear.
+
+[3] Heroux, M.A., Willenbring, J.M., "Trilinos Users Guide", Sandia
+Report SAND2003-2952, 2003.
+
+[4] Sala, M., Hu, J.J., Tuminaro, R.S., Gee, M.W., "ML 4.0 Smoothed
+Aggregation User's Guide", Sandia Report SAND2004-2195, 2004.
+
+[5] Vanek, P., Mandel, J., Brezina, M., "Algebraic Multigrid by Smoothed
+Aggregation for Second and Fourth Order Elliptic Problems", Computing, v.
+56, p. 179-196, 1996.
+
+
+\end{document}

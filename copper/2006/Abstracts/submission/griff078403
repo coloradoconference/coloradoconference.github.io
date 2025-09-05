@@ -1,0 +1,28 @@
+===firstname:
+Josh, D
+===firstname3:
+Anders
+===lastname2:
+Gill
+===postal:
+P.O. Box 969
+MS 9159
+LIvermore, CA 94551
+===lastname:
+Griffin
+===lastname3:
+Forsgren
+===ABSTRACT:
+Interior methods for constrained minimization simplify constraint handling by removing the need to distinguish between active and inactive constraints.  This is possible because the resulting linear systems naturally emphasize nearby constraints, dampening the effects of those farther away.  The price for this simplification is that the linear systems are: (i) indefinite, (ii)
+inevitably ill-conditioned,  and (iii) have dimension determined by every constraint in the problem.  If the underlying problem is nonconvex, the need to know the inertia of each linear system creates further complications.  We present a class of preconditioners that eliminate the inevitable ill-conditioning and are asymptotically exact at vertex solutions.  Further benefits arise from the ability to drop inactive constraints from the preconditioner without effecting the convergence of the interior method.  Inertia information is obtained by working with an equivalent transformed linear system that is known to be positive
+definite in the neighborhood of a minimizer.
+
+===email:
+jgriffi@sandia.gov
+===otherauths:
+
+===title:
+A parameterized family of preconditioners for linear systems
+in the context of interior-point methods for nonconvex problems
+===firstname2:
+Philip, E

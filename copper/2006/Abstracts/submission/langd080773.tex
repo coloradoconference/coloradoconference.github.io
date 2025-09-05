@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stephen Langdon \\
+{\bf Coupled Gauss-Seidel algorithm in multigrid mode for the thin film equation}}
+
+Department of Mathematics \\ University of Reading \\ Whiteknights \\ PO Box 220 \\ Reading RG6 2AX \\ United Kingdom
+\\
+{\tt s.langdon@reading.ac.uk}\\
+John W Barrett\end{center}
+
+In this talk we consider the iterative solution of a nonlinear
+system arising from a finite element discretisation of the fourth
+order equation
+\[ \frac{\partial u}{\partial t} + \nabla \cdot (|u|^{\gamma}\nabla\Delta u) =
+0, \] where $\gamma>0$. This equation models a thin liquid film
+spreading on a solid surface, with $u$ the height of the film. It is
+well known that for nonnegative initial data, the solution $u$
+remains nonnegative for all time. However, this nonnegativity of
+$u$ is not guaranteed if the equation is discretised in a naive way.
+Imposing the nonnegativity of $u$ as a constraint leads to a
+discrete variational inequality to be solved at each time step.
+Specifically defining $S^h$ to be the space of piecewise linear
+functions on a uniform mesh and $K^h\subset S^h$ to be the space of
+nonnegative functions in $S^h$, given $U^{n-1}\in K^h$ we seek
+$U^{n} \in K^h$ and $W^n \in S^h$ such that
+\begin{eqnarray*}
+&(U^{n},\chi)^h + \tau\,(|U^{n-1}|^{\gamma}\nabla W^n,\nabla \chi) = (U^{n-1},\chi)^h
+\qquad \forall \ \chi \in S^h,& \\
+&(\nabla U^{n},\nabla (\chi-U^{n})) \geq (W^{n},
+\chi-U^n)^h \qquad \forall \ \chi \in K^h,&
+\end{eqnarray*}
+where $\tau$ represents the time step, and $(\cdot,\cdot)$ and
+$(\cdot,\cdot)^h$ represent the $L^2$ inner product and its
+trapezoidal rule discretisation respectively.
+
+Well-posedness, stability, unique solvability, and convergence of
+$U^n$ to $u$ and $W^n$ to $w=-\Delta u$ were established by Barrett,
+Blowey and Garcke in 1998. To solve the nonlinear system they used
+an Uzawa algorithm, for which they were able to demonstrate
+convergence of $U^{n,p}\rightarrow U^n$ and of $\int_{\Omega}
+|U^{n-1}|^{\gamma} |\nabla(W^n-W^{n,p})|^2 dx \rightarrow 0$, as the
+number of iterations $p\rightarrow\infty$. However, the convergence
+of this algorithm was found to be extremely slow. Here, we propose
+instead a coupled Gauss-Seidel algorithm in multigrid mode for the
+iterative solution of the nonlinear system. Proving convergence for
+the multigrid algorithm remains an open question, but numerical
+results indicate mesh independent convergence to the same solution
+as that achieved with the Uzawa algorithm in most cases tested, with
+a greatly reduced computational cost compared to iterating on a
+single grid.
+
+
+\end{document}

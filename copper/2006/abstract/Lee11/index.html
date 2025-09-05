@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Lee11</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Incomplete LU preconditioning enhancement strategies for sparse matrices</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Eun-Joo Lee 
+<BR>
+Laboratory for High Performance Scientific Computing
+		&amp; Computer Simulation 
+<BR>
+Dept. of Computer Science, University of Kentucky 
+<BR>
+Lexington KY 40506-00046 
+<BR>	<TT>elee3@csr.uky.edu</TT>
+<BR>
+Jun Zhang
+</DIV>
+<p>
+Several preconditioning enhancement strategies for improving
+inaccurate preconditioners produced by the incomplete LU
+factorizations of sparse matrices are presented.  The strategies
+employ the elements that are dropped during the incomplete LU
+factorization and utilize them in different ways by separate
+algorithms.
+<P>
+The first strategy (error compensation) applies the
+dropped elements to the lower and upper parts of the LU
+factorization to computer a new error compensated LU factorization.
+Another strategy (inner-outer iteration), which is a variant of the
+incomplete LU factorization, embeds the dropped elements in its
+iteration process.
+<P>
+Experimental results show that the presented
+enhancement strategies improve the accuracy of the incomplete LU
+factorization when the initial factorizations found to be
+inaccurate.  Furthermore, the convergence cost of the preconditioned
+Krylov subspace methods is reduced on solving the original sparse
+matrices with the proposed strategies.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

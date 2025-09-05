@@ -1,0 +1,78 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A scalable preconditioner for the Wigner-Poisson equations}}
+
+	C.~T.~Kelley \\
+	Dept of Mathematics, NC State University \\
+	Box 8025, Raleigh NC 27695-8205 \\
+	{\tt tim\_kelley@ncsu.edu} \\
+	M.~I.~Lasater, A.~G.~Salinger,
+	D.~L.~Woolard, G.~Recine, P.~Zhao
+\end{center}
+In this paper we propose and analyze a scalable
+preconditioner for the Wigner-Poisson equations for a
+resonant tunneling diode (RTD), and apply that
+preconditioner to a matrix-free continuation study of the
+dependence of the current through the device on the applied
+voltage.
+
+The equations are a integro-partial differential
+equation for the distribution of the electrons in the device
+couples with Poisson's equation for the electrostatic
+potential. Our preconditioner is the inverse of the kinetic
+energy operator. We prove that, after elimination of the
+Poisson equation, the equation after left preconditioning is
+a compact fixed point problem for the Wigner distribution.
+We then apply that compactness to show mathematical
+scalability of the inner Krylov iteration, and use that to
+show scalability of the continuation. We present numerical
+results that support the theory.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

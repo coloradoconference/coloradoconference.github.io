@@ -1,0 +1,99 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Block locally optimal preconditioned eigenvalue xolvers (BLOPEX)}}
+
+	Andrew Knyazev \\
+	Dept.~of Mathematics, University of Colorado at Denver \\
+	P.O.~Box 173364, Campus Box 170, Denver CO 80217-3364 \\
+	{\tt andrew.knyazev@cudenver.edu} \\
+	Ilya Lashuk, Merico Argentati, Evgueni Ovtchinnikov
+\end{center}
+Block Locally Optimal Preconditioned Eigenvalue Xolvers
+(BLOPEX) is a package, written in C, that at present
+includes only one eigenxolver, Locally Optimal Block
+Preconditioned Conjugate Gradient Method (LOBPCG). BLOPEX
+supports parallel computations through an abstract layer.
+BLOPEX is incorporated in the HYPRE package from LLNL and is
+available as an external block to the PETSc package from ANL
+as well as a stand-alone serial library. HYPRE and PETSc
+packages provide high quality multigrid and domain
+decomposition preconditioning on parallel clusters with
+distributed or shared memory.
+
+ The LOBPCG method,
+suggested and developed by Andrew Knyazev [1] in the past
+decade, recently attracts an increasing attention as a
+potential alternative to the shift-and-invert Lanczos and
+preconditioned Davidson methods due to its simplicity,
+robustness and fast convergence. Several MATLAB, C, C++ and
+FORTRAN implementations of the LOBPCG are developed by
+different groups, e. g., for such applications areas as
+structured mechanics and electronic structure calculations.
+Main LOBPCG features: a matrix-free iterative method for
+computing several extreme eigenpairs of symmetric positive
+generalized eigenproblems; a user-defined preconditioner;
+robustness with respect to random initial approximations,
+variable preconditioners, and ill-conditioning of the
+stiffness matrix; apparently optimal convergence speed.
+Numerical comparisons suggest that LOBPCG may be a genuine
+block analog for eigenproblems of the standard
+preconditioned conjugate gradient method for symmetric
+linear systems.
+
+We present initial scalability results
+using BLOPEX with HYPRE and PETSc on one BlueGene/L box
+solving eigenvalue problems of record sizes.
+
+[1] A.~V.~Knyazev, {\em Toward the Optimal Preconditioned
+Eigensolver: Locally Optimal Block Preconditioned Conjugate
+Gradient Method}, SIAM J.~Sci. Comp. {\bf 23}(2) (2001)
+517--541.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

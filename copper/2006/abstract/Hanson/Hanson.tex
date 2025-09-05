@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Multilevel algorithms for large scale interior point methods \\
+	in bound constrained optimization}}
+
+	Lauren Hanson \\
+	Emory University, Dept.~of Mathematics and Computer Science \\
+	400 Dowman Drive, Atlanta GA 30322 \\
+	{\tt lrhanso@mathcs.emory.edu} \\
+	Michele Benzi, Eldad Haber
+\end{center}
+We develop and compare multilevel algorithms for solving
+bound constrained nonlinear variational problems via
+interior point methods. Several equivalent formulations of
+the linear systems arising at each iteration of the interior
+point method are compared from the point of view of
+conditioning and iterative solution. Furthermore, we show
+how a multilevel continuation strategy can be used to obtain
+good initial guesses (``hot starts'') for each
+nonlinear iteration. A minimal surface problem is used to
+illustrate the various approaches.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

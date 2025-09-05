@@ -1,0 +1,933 @@
+
+
+      Theory of Molecular Fluids
+
+      B. Montgomery Pettitt
+      University of Houston
+
+
+         A quantitative theory of the structure of molecular fluids
+          described by atoms or sites has remained elusive in soft
+           condensed matter theory. Many-body and field theoretic
+        approaches to the correlations liquids have advanced slowly
+            since the 1930~Rs. The qualitative and quantitative
+       inconsistencies of the many-body integral equation theory for
+       predicting the structure and thermodynamic properties of model
+        molecular fluids have been understood for some time. Several
+         means have been proposed to correct these inconsistencies,
+          many concentrating on the Goldstone theorem. A formally
+         distinct method for constructing a diagrammatically proper
+        theory eliminates terms in the expansion which correspond to
+          unphysical intramolecular interactions, or so-called bad
+         graphs. Unfortunately, while certain qualitative advances
+       using the proper theory have been successful the quantitative
+       results appear to be uniformly disappointing in comparison to
+         simulation. We present a new derivation from a topological
+       expansion of a model for the single atom activity followed by
+        a topological reduction and low order truncation. This leads
+           to an approximate numerical value for the new density
+          coefficient. The resulting equations give a substantial
+         improvement over the standard construction as shown with a
+                series of simple diatomic model simulations.
+
+
+
+
+      Cathy Lee wrote:
+            Hi Tim,
+            I need the abstract by March 2. We have a
+            deadline to get to the printer.
+            Cathy
+
+            On Sat, 25 Feb 2006, C. T. Kelley wrote:
+
+                  Hi Monte,
+
+                  I'm just back from a month Hong
+                  Kong, and am leaving for Germany
+                  today. You get 25 mins + 5 for
+                  questions. Overview + current
+                  stuff is fine, if you can talk
+                  about the issues with stability
+                  under picard iteration, that'd be
+                  good. Beardmore will be there.
+
+                  Cathy + Panayot, please keep
+                  Monte's slot open and wait until
+                  next week for the abstract?
+
+                  -- Tim
+
+                  Monte Pettitt wrote:
+                        Uh, I guess I was
+                        waiting to see what
+                        you wanted. I am in
+                        Beijing this week but
+                        I return Monday. Do
+                        you want an overview
+                        + current stuff? or
+                        what? How long do I
+                        have?
+                        mp
+
+                        C. T. Kelley wrote:
+                              Did you
+                              submit an
+                              abstract?
+                              You're
+                              MIA.
+
+                              -- Tim
+
+                              Monte
+                              Pettitt
+                              wrote:
+                                    OK,
+                                    I'm
+                                    registered
+                                    for
+                                    the
+                                    meeting.
+                                    Can't
+                                    say
+                                    I
+                                    can
+                                    stay
+                                    the
+                                    whole
+                                    time
+                                    however.
+                                    If
+                                    I
+                                    miss
+                                    Monday
+                                    will
+                                    it
+                                    kill
+                                    the
+                                    intent?
+                                    Also
+                                    I'd
+                                    like
+                                    to
+                                    talk
+                                    about
+                                    1)
+                                    the
+                                    addition
+                                    of
+                                    bridge
+                                    graphs
+                                    which
+                                    changes
+                                    the
+                                    possible
+                                    solution
+                                    set
+                                    (sometimes
+                                    a
+                                    lot
+                                    from
+                                    HNC)
+                                    and
+                                    2)
+                                    our
+                                    newest
+                                    theory
+                                    for
+                                    molecular
+                                    fluids
+                                    which
+                                    is
+                                    really
+                                    pretty
+                                    good
+                                    if
+                                    I
+                                    do
+                                    say
+                                    so
+                                    myself! 
+                                    I
+                                    can
+                                    put
+                                    'em
+                                    both
+                                    in
+                                    the
+                                    same
+                                    talk
+                                    if
+                                    I
+                                    have
+                                    time. 
+                                    What 
+                                    do
+                                    you
+                                    think?
+                                    The
+                                    sort
+                                    of
+                                    stuff
+                                    people
+                                    might
+                                    want
+                                    to 
+                                    see
+                                    (and
+                                    help
+                                    analyze?).
+
+                                    mp
+
+                                    C.
+                                    T.
+                                    Kelley
+                                    wrote:
+
+                                          You
+                                          just
+                                          got
+                                          that
+                                          invitation.
+                                          The
+                                          Copper
+                                          Mt
+                                          meetings
+                                          do
+                                          not
+                                          have
+                                          invited 
+                                          talks;
+                                          all
+                                          speakers
+                                          submit
+                                          an
+                                          abstract
+                                          and
+                                          the
+                                          organizing
+                                          committee
+                                          figures
+                                          out
+                                          what
+                                          to
+                                          do.
+
+                                          I'm
+                                          on
+                                          the
+                                          organizing
+                                          committee
+                                          for
+                                          this
+                                          meeting.
+                                          You'd
+                                          have
+                                          some
+                                          fun.
+
+                                          --
+                                          Tim
+
+                                          Monte
+                                          Pettitt
+                                          wrote:
+
+                                                If
+                                                I
+                                                could
+                                                get
+                                                an
+                                                invitation
+                                                to
+                                                speak
+                                                I'd
+                                                go
+                                                and
+                                                show
+                                                them
+                                                PROGRESS
+                                                on
+                                                OZ
+                                                style
+                                                theories.
+                                                mp
+
+                                                C.
+                                                T.
+                                                Kelley
+                                                wrote:
+
+                                                      FYI
+
+                                                      Wanna
+                                                      give
+                                                      a
+                                                      talk
+                                                      at
+                                                      this
+                                                      meeting
+
+                                                      http://amath.colorado.edu/faculty/copper/2006/
+
+                                                      and
+                                                      meet
+                                                      this
+                                                      guy?
+                                                      If
+                                                      you're
+                                                      a
+                                                      skier,
+                                                      this
+                                                      is
+                                                      the
+                                                      conference
+                                                      for
+                                                      you.
+
+                                                      --
+                                                      Tim
+
+                                                      --------
+                                                      Original
+                                                      Message
+                                                      --------
+                                                      Subject:    
+                                                      RE:
+                                                      ornstein-zernike
+                                                      equation
+                                                      Date:    
+                                                      Mon,
+                                                      19
+                                                      Dec
+                                                      2005
+                                                      15:18:50
+                                                      -0000
+                                                      From:    
+                                                      Beardmore,
+                                                      Robert
+                                                      E
+                                                      <r.beardmore@imperial.ac.uk>
+                                                      To:    
+                                                      C.
+                                                      T.
+                                                      Kelley
+                                                      <tim_kelley@ncsu.edu>
+
+
+
+                                                      Dear
+                                                      Tim,
+
+                                                      many
+                                                      thanks
+                                                      for
+                                                      the
+                                                      reply,
+                                                      I'm
+                                                      going
+                                                      to
+                                                      attend
+                                                      both
+                                                      Copper
+                                                      Mountain
+                                                      and
+                                                      Bulgaria
+                                                      and
+                                                      look
+                                                      forward
+                                                      to
+                                                      meeting
+                                                      you
+                                                      then.
+
+                                                      I
+                                                      noticed
+                                                      that
+                                                      Andrew
+                                                      Salinger
+                                                      at
+                                                      Sandia
+                                                      is
+                                                      using
+                                                      Loca
+                                                      to
+                                                      compute
+                                                      phase
+                                                      transition
+                                                      regions
+                                                      using
+                                                      continuation
+                                                      methods
+                                                      for
+                                                      density
+                                                      functional
+                                                      theory.
+                                                      I
+                                                      wondered
+                                                      if
+                                                      you
+                                                      knew
+                                                      him
+                                                      at
+                                                      all?
+
+                                                      It's
+                                                      just
+                                                      that
+                                                      many
+                                                      of
+                                                      the
+                                                      physicists
+                                                      I
+                                                      know
+                                                      here
+                                                      believe
+                                                      the
+                                                      OZ
+                                                      equation
+                                                      to
+                                                      be
+                                                      all
+                                                      but
+                                                      dead,
+                                                      largely,
+                                                      perhaps,
+                                                      because
+                                                      of
+                                                      the
+                                                      lack
+                                                      of
+                                                      analysis
+                                                      and
+                                                      real
+                                                      understanding
+                                                      of
+                                                      the
+                                                      computations
+                                                      that
+                                                      have
+                                                      been
+                                                      performed.
+                                                      Before
+                                                      your/TMP
+                                                      Comp
+                                                      Phys
+                                                      paper
+                                                      in
+                                                      2004(?),
+                                                      I
+                                                      could
+                                                      find
+                                                      nobody
+                                                      that
+                                                      had
+                                                      even
+                                                      identified
+                                                      fold
+                                                      bifurcations
+                                                      in
+                                                      the
+                                                      OZ
+                                                      problem;
+                                                      there
+                                                      are
+                                                      many
+                                                      references
+                                                      to
+                                                      'disconnected
+                                                      phase
+                                                      diagrams',
+                                                      'complex
+                                                      solutions',
+                                                      'no
+                                                      solution
+                                                      regions','large,
+                                                      but
+                                                      not
+                                                      infinite
+                                                      compressibility'
+                                                      and
+                                                      so
+                                                      on,
+                                                      but
+                                                      no
+                                                      analysis.
+
+                                                      I
+                                                      just
+                                                      thought
+                                                      that
+                                                      similar
+                                                      problems
+                                                      will
+                                                      occur
+                                                      in
+                                                      any
+                                                      integral
+                                                      equation
+                                                      that
+                                                      undergoes
+                                                      a
+                                                      'critical'
+                                                      bifurcation,
+                                                      meaning
+                                                      that
+                                                      a
+                                                      solution
+                                                      sequence
+                                                      is
+                                                      bounded
+                                                      in
+                                                      say,
+                                                      L^p,
+                                                      but
+                                                      is
+                                                      diverging
+                                                      in
+                                                      L^q
+                                                      for
+                                                      p
+                                                      \neq
+                                                      q.
+                                                      Discretisations
+                                                      based
+                                                      on
+                                                      a
+                                                      finite-section
+                                                      operation
+                                                      cannot
+                                                      cope
+                                                      with
+                                                      this
+                                                      behaviour
+                                                      and
+                                                      so
+                                                      I
+                                                      imagine
+                                                      that
+                                                      computations
+                                                      for
+                                                      density-functional
+                                                      problems
+                                                      may
+                                                      also
+                                                      contain
+                                                      spurious
+                                                      bifurcations.
+
+                                                      Many
+                                                      thanks
+                                                      again
+                                                      for
+                                                      your
+                                                      response;
+                                                      I
+                                                      have
+                                                      attached
+                                                      a
+                                                      talk
+                                                      by
+                                                      Salinger
+                                                      and
+                                                      an
+                                                      updated
+                                                      version
+                                                      of
+                                                      my
+                                                      preprint
+                                                      with
+                                                      fewer
+                                                      annoying
+                                                      typos.
+
+                                                      Rob
+
+
+                                                      ------------------------------------------------------------------------
+                                                      -------------
+                                                      Dr
+                                                      Robert
+                                                      Beardmore,
+                                                      Lecturer
+                                                      in
+                                                      Numerical
+                                                      Analysis,
+                                                      Department
+                                                      of
+                                                      Mathematics,
+                                                      Imperial
+                                                      College
+                                                      London.
+                                                      South
+                                                      Kensington,
+                                                      SW7
+                                                      2AZ.
+                                                      020
+                                                      7594
+                                                      1146
+
+
+                                                      -----Original
+                                                      Message-----
+                                                      From:
+                                                      C.
+                                                      T.
+                                                      Kelley
+                                                      [mailto:tim_kelley@ncsu.edu]
+                                                      Sent:
+                                                      07
+                                                      December
+                                                      2005
+                                                      14:34
+                                                      To:
+                                                      Beardmore,
+                                                      Robert
+                                                      E
+                                                      Cc:
+                                                      tim_kelley@ncsu.edu;
+                                                      BMP
+                                                      Subject:
+                                                      Re:
+                                                      ornstein-zernike
+                                                      equation
+
+
+                                                      Hi
+                                                      Robert,
+
+                                                      I
+                                                      have
+                                                      been
+                                                      seeing
+                                                      tons
+                                                      of
+                                                      what
+                                                      I
+                                                      think
+                                                      are
+                                                      spurious
+                                                      bifurcations,
+                                                      and
+                                                      an
+                                                      analysis
+                                                      of
+                                                      that
+                                                      would
+                                                      be
+                                                      really
+                                                      interesting.
+                                                      I'd
+                                                      be
+                                                      delighted
+                                                      if
+                                                      you'd
+                                                      submit
+                                                      this
+                                                      to
+                                                      the
+                                                      Copper
+                                                      Mt
+                                                      conference.
+                                                      I'll
+                                                      be
+                                                      organizing
+                                                      a
+                                                      session
+                                                      on
+                                                      continuation,
+                                                      and
+                                                      this
+                                                      is
+                                                      a
+                                                      perfect
+                                                      thing
+                                                      to
+                                                      present.
+
+                                                      May
+                                                      I
+                                                      share
+                                                      you
+                                                      preprint
+                                                      with
+                                                      Monte
+                                                      Pettitt,
+                                                      who
+                                                      is
+                                                      collaborating
+                                                      with
+                                                      me
+                                                      on
+                                                      this
+                                                      problem.
+
+                                                      Thanks,
+                                                      and
+                                                      we'll
+                                                      talk
+                                                      at
+                                                      Copper
+                                                      and
+                                                      in
+                                                      Bulgaria.
+
+                                                      --
+                                                      Tim
+
+                                                      Beardmore,
+                                                      Robert
+                                                      E
+                                                      wrote:
+
+                                                            Dear
+                                                            Prof.
+                                                            Kelley,
+
+                                                            I
+                                                            hope
+                                                            you
+                                                            do
+                                                            not
+                                                            mind
+                                                            my
+                                                            contacting
+                                                            you
+                                                            out
+                                                            of
+                                                            the
+                                                            blue,
+                                                            but
+                                                            I
+                                                            have
+                                                            attached
+                                                            a
+                                                            preprint
+                                                            that
+                                                            I
+                                                            think
+                                                            may
+                                                            be
+                                                            of
+                                                            interest
+                                                            to
+                                                            you.
+                                                            I
+                                                            am
+                                                            soon
+                                                            going
+                                                            to
+                                                            submit
+                                                            it
+                                                            to
+                                                            SIAM
+                                                            Sci
+                                                            Comp
+                                                            and
+                                                            it
+                                                            concerns
+                                                            bifurcations
+                                                            in
+                                                            the
+                                                            Ornstein-Zernike
+                                                            equation.
+
+                                                            We
+                                                            have
+                                                            analysed
+                                                            various
+                                                            aspects
+                                                            of
+                                                            the
+                                                            problem
+                                                            and
+                                                            can
+                                                            show
+                                                            the
+                                                            existence
+                                                            of
+                                                            infinitely
+                                                            many
+                                                            solution
+                                                            branches
+                                                            with
+                                                            persistant
+                                                            transcritical
+                                                            bifurcations
+                                                            for
+                                                            repulsive,
+                                                            homogeneous
+                                                            potentials,
+                                                            but
+                                                            that's
+                                                            in
+                                                            another
+                                                            preprint.
+
+                                                            My
+                                                            feeling
+                                                            is
+                                                            that
+                                                            many
+                                                            bifurcations
+                                                            are
+                                                            spurious
+                                                            and
+                                                            may
+                                                            arise
+                                                            because
+
+
+
+
+
+                                                            of
+                                                            an
+                                                            underlying
+                                                            spinodal
+                                                            or
+                                                            phase
+                                                            transition.
+                                                            In
+                                                            the
+                                                            UK
+                                                            it
+                                                            has
+                                                            become
+                                                            apparent
+                                                            that
+                                                            physicists
+                                                            don't
+                                                            really
+                                                            believe
+                                                            in
+                                                            these
+                                                            closure
+                                                            relations
+                                                            any
+
+
+
+
+                                                      more
+
+                                                            and
+                                                            are
+                                                            quite
+                                                            negative
+                                                            about
+                                                            OZ
+                                                            in
+                                                            general.
+                                                            Chemists
+                                                            I've
+                                                            spoken
+                                                            to
+                                                            are
+                                                            more
+                                                            positive,
+                                                            however.
+
+                                                            I
+                                                            wondered
+                                                            if
+                                                            this
+                                                            would
+                                                            be
+                                                            a
+                                                            suitable
+                                                            topic
+                                                            for
+                                                            the
+                                                            2006
+                                                            Copper
+                                                            Mountain
+                                                            conference?
+                                                            I
+                                                            also
+                                                            notice
+                                                            that
+                                                            you
+                                                            are
+                                                            down
+                                                            to
+                                                            go
+                                                            to
+                                                            an
+                                                            Applied
+                                                            Maths
+                                                            conference
+                                                            in
+                                                            Bulgaria,
+                                                            perhaps
+                                                            we
+                                                            could
+                                                            talk
+                                                            about
+                                                            the
+                                                            problem
+                                                            there?
+
+                                                            I'd
+                                                            very
+                                                            much
+                                                            like
+                                                            your
+                                                            opinion
+                                                            on
+                                                            the
+                                                            preprint.
+
+                                                            Robert
+
+
+                                                            -----------------------------------------------------------------------
+                                                            -
+                                                            -------
+                                                            Dr
+                                                            Robert
+                                                            Beardmore,
+                                                            Lecturer
+                                                            in
+                                                            Numerical
+                                                            Analysis,
+                                                            Department
+                                                            of
+                                                            Mathematics,
+                                                            Imperial
+                                                            College
+                                                            London.
+                                                            South
+                                                            Kensington,
+                                                            SW7
+                                                            2AZ.
+                                                            020
+                                                            7594
+                                                            1146
+
+
+
+
+                  --
+                  C. T. Kelley
+                  Department of Mathematics, Box
+                  8205
+                  North Carolina State University
+                  Raleigh, NC 27695-8205
+                  (919) 515-7163, (919) 515-3798
+                  (FAX)
+                  Tim_Kelley@ncsu.edu
+                  http://www.math.ncsu.edu/~ctk/
+
+      Panayot S.
+      Vassilevski                                      phone(
+      925) 423-5685
+      Center for Applied Scientific Computing               FAX
+      (925) 422-6287
+      UC Lawrence Livermore National Laboratory         e-mail
+      panayot@llnl.gov
+      P.O. Box 808, L-560, Livermore, CA 94550 USA
+      http://www.llnl.gov/CASC/people/vassilevski/
+
+

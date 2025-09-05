@@ -1,0 +1,81 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Splittings for iterative solution of linear systems}}
+
+	Marko Huhtanen \\
+	Institute of Mathematics, Helsinki University of Technology \\
+	Box 1100, FIN-02015, Finland \\
+	{\tt marko.huhtanen@tkk.fi} \\
+	Mikko Byckling
+\end{center}
+Consider iteratively solving a
+linear system
+$Ax=b$,
+with invertible $A\in \Cplex^{n \times n}$ and
+$b\in \Cplex^n$, by splitting the matrix $A$ as
+$A=L+R$, where $L$
+and $R$ are both readily invertible. In such a case the
+recently introduced residual minimizing Krylov subspace
+method [1] can be executed, allowing, in a certain
+sense, preconditioning simultaneously with $L$ and $R$.
+
+Splittings satisfying $A=L+R$ result either form the
+structure of the problem, or are algebraic. Splittings of
+Gauss-Seidel type belong to the latter category. In this
+talk we discuss such splittings of $A$.
+
+[1] M.~Huhtanen and O.~Nevanlinna,
+{\em A minimum residual algorithm for
+solving linear systems},
+submitted manuscript available at
+\verb9www.math.hut.fi/~mhuhtane/index.html9.
+% \texttt{www.math.hut.fi/$\sim$mhuhtane/index.html}.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

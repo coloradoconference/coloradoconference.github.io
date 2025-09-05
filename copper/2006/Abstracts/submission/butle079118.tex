@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeff Butler \\
+{\bf Improving coarsening and interpolation for algebraic multigrid}}
+
+Department of Applied Mathematics \\ University of Waterloo \\ Waterloo \\ Ontario \\ Canada \\ N2L 3G1
+\\
+{\tt jsbutler@math.uwaterloo.ca}\\
+Hans De Sterck\end{center}
+
+Algebraic multigrid (AMG) is one of the most efficient algorithms for
+solving large sparse linear systems on unstructured grids. Classical
+coarsening schemes such as the standard Ruge-Steuben method [1] can lead
+to adverse effects on computation time and memory usage that affect
+scalability. Memory and execution time complexity growth is remedied for
+various large three-dimensional (3D) problems using the parallel modified
+independent set (PMIS) coarsening strategy
+developed by De Sterck, Yang, and Heys [2]. However, this
+coarsening strategy often leads to erratic grids without a regular
+structure that diminish convergence. This talk looks at a modification of
+the PMIS algorithm that consistently produces more uniform coarsenings,
+and significantly improves convergence properties over the original PMIS
+algorithm. Improvements of existing interpolation schemes and application
+of the resulting methods to several problems are also examined.
+
+
+[1] J. Ruge, K. Stueben, Algebraic multigrid (AMG), in: S. McCormick,
+ed., Multigrid Methods, vol. 3 of Frontires in Applied Mathematics (SIAM,
+1987) 73-130.
+
+[2] H. De Sterck, U. M. Yang, and J. J. Heys, Reducing Complexity in
+Parallel Algebraic Multigrid Preconditioners, SIAM Journal on Matrix
+Analysis and Applications, to appear, 2006.
+
+
+\end{document}

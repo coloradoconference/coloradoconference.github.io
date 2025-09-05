@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Parameter decomposition for iteratively regularized \\
+	Gauss-Newton solutions in optical tomography}}
+
+	Rosemary Renaut \\
+	Dept.~of Mathematics and Statistics \\
+	Arizona State University,  Tempe AZ 85287-1804 \\
+	{\tt renaut@asu.edu} \\
+	Taufiquar Khan, Alexandra Smirnova
+\end{center}
+We extend evaluation of the iteratively regularized Gauss
+Newton method for the solution of the parameter estimation
+problem in Optical Tomography. The general problem of
+optical tomography requires the estimation of the underlying
+model parameters ${\mathbf q}$, for example the coefficient
+of diffusion $D$ and the coefficient of absorption $\mu_a$,
+(i.e. ${\mathbf q}=(D,\mu_a)^T$) that belong to a parameter
+set $Q$. The conditioning of the problem with respect to
+each parameter set is different. We investigate the use of
+an alternating parameter decomposition approach for solution
+of the nonlinear inverse problem with regularization.
+Contrary to statements on the general nonlinear least
+squares problem in standard references eg Bjorck 1996 , we
+find that decomposition with respect to the parameter set
+allows solution of the regularized problem with the use of
+appropriately chosen weighting schemes.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

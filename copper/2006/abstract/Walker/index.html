@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Walker</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Approximate finite-differences in matrix-free Newton-Krylov methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Homer Walker 
+<BR>
+Mathematical Sciences Department, Worcester Polytechnic Institute 
+<BR>
+100 Institute Road, Worcester MA 01609-2280 
+<BR>	<TT>walker@wpi.edu</TT> 
+<BR>
+Peter N.&nbsp;Brown, Rebecca D.&nbsp;Wasyk, Carol S.&nbsp;Woodward
+</DIV>
+<p>
+Newton-Krylov methods are often implemented in
+``matrix-free'' form, in which the Jacobian-vector products
+required by the Krylov solver are approximated by finite
+differences. We consider using approximate function values
+in these finite differences. We first formulate a
+finite-difference Arnoldi process that uses approximate
+function values and give backward-error results for it. We
+then outline a Newton-Krylov method that uses an
+implementation of the GMRES or Arnoldi method based on this
+process and develop a local convergence analysis for it,
+giving sufficient conditions on the approximate function
+values for desirable local convergence properties to hold.
+We conclude with numerical experiments involving particular
+function-value approximations suitable for nonlinear
+diffusion problems. For this case, conditions are given for
+meeting the convergence assumptions for both lagging and
+linearizing the nonlinearity in the function evaluation.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

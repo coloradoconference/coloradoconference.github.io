@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Knepper</TITLE>
+<META NAME="description" CONTENT="Knepper">
+<META NAME="keywords" CONTENT="Knepper">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Knepper.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A mathematical framework for equivalent real formulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sarah M.&nbsp;Knepper 
+<BR>
+37 N College Ave, Box 787 
+<BR>
+Saint Joseph MN 56374 
+<BR>	<TT>smknepper@csbsju.edu</TT> 
+<BR>
+Michael A.&nbsp;Heroux
+
+</DIV>
+Equivalent real formulations (ERFs) are useful for solving
+complex linear systems using real solvers. Using the four
+ERFs discussed by Day and Heroux [1], each can be
+expressed by multiplying the <I>canonical</I> <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ K$"> form of
+the complex matrix by certain diagonal and permutation
+matrices on either side. This will allow, for instance, one
+ERF to be used as a preconditioner and another ERF to be
+used to iteratively solve the linear system by simply
+switching back and forth between the forms through scaling
+and permuting.
+
+<P>
+Many real world problems result in a
+complex-valued linear system of the form
+<IMG
+ WIDTH="57" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C w = d$">, where <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ C$"> is a known
+<IMG
+ WIDTH="46" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m\times n$"> complex matrix, <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ d$"> is a known <IMG
+ WIDTH="44" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ m\times 1$">
+complex vector, and <IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ w$"> is an unknown <IMG
+ WIDTH="40" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ n\times 1$">
+complex vector. We
+can re-write <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ C$"> as a real matrix of size <!-- MATH
+ $2m\times 2n$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ 2m\times 2n$">
+called the <I>canonical</I> <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ K$"> form. If we let matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ A$">
+contain the real parts of the complex matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ C$"> and let
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ B$"> consist of the corresponding imaginary parts, we
+can write <!-- MATH
+ $A + i B = C$
+ -->
+<IMG
+ WIDTH="86" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ A + i B = C$">.
+The <I>canonical</I> <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ K$"> form is created by
+forming the matrix
+<!-- MATH
+ $K =  \left(
+\begin{array}{cc}
+	A & -B \\
+	B & A
+	\end{array}
+	\right)$
+ -->
+<IMG
+ WIDTH="132" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ K = \left(
+\begin{array}{cc}
+A &amp; -B \\
+B &amp; A
+\end{array}\right) $">.
+
+<P>
+To preserve the sparsity pattern of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ C$">,
+each complex value <!-- MATH
+ $c_{pq} = a_{pq} + ib_{pq}$
+ -->
+<IMG
+ WIDTH="112" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ c_{pq} = a_{pq} + ib_{pq}$"> is converted
+into a <IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ 2\times 2$"> sub-block with the structure
+<!-- MATH
+ $\left(
+	\begin{array}{cc}
+	a_{pq} & -b_{pq} \\
+	b_{pq} & a_{pq}
+	\end{array}
+	\right) .$
+ -->
+<IMG
+ WIDTH="120" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \left(
+\begin{array}{cc}
+a_{pq} &amp; -b_{pq} \\
+b_{pq} &amp; a_{pq}
+\end{array}\right) .$">
+For instance, if
+<!-- MATH
+ \begin{displaymath}
+C =  \left(
+\begin{array}{cc}
+	a_{11} + i b_{11} & a_{12} + i b_{12} \\
+	0 & a_{22} + i b_{22}
+	\end{array}
+	\right)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="226" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle C = \left(
+\begin{array}{cc}
+a_{11} + i b_{11} &amp; a_{12} + i b_{12} \\
+0 &amp; a_{22} + i b_{22}
+\end{array}\right) $">
+</DIV><P></P>
+then the <I>permuted canonical</I> <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ K$"> form is
+<!-- MATH
+ \begin{displaymath}
+K = \left(
+\begin{array}{cccc} a_{11} & -b_{11} & a_{12} & -b_{12} \\
+b_{11} & a_{11} & b_{12} & a_{12} \\0 & 0 & a_{22} &
+-b_{22} \\0 & 0 & b_{22} & a_{22} \end{array} \right).
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="242" HEIGHT="83" BORDER="0"
+ SRC="img18.png"
+ ALT="\begin{displaymath}K = \left(
+\begin{array}{cccc} a_{11} &amp; -b_{11} &amp; a_{12} &amp; -b...
+...{22} &amp;
+-b_{22} \\ 0 &amp; 0 &amp; b_{22} &amp; a_{22} \end{array} \right).
+\end{displaymath}">
+</DIV><P></P>
+
+<P>
+The four ERFs that we will concern
+ourselves with are:
+<!-- MATH
+ $K_1 =  \left(
+\begin{array}{cc}
+	A & -B \\
+	B & A
+	\end{array}
+	\right)$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ K_1 = \left(
+\begin{array}{cc}
+A &amp; -B \\
+B &amp; A
+\end{array}\right) $">,
+<!-- MATH
+ $K_2 =  \left(
+\begin{array}{cc}
+	A & B \\
+	B & -A
+	\end{array}
+	\right)$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ K_2 = \left(
+\begin{array}{cc}
+A &amp; B \\
+B &amp; -A
+\end{array}\right) $">,
+<!-- MATH
+ $K_3 =  \left(
+\begin{array}{cc}
+	B & A \\
+	A & -B
+	\end{array}
+	\right)$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ K_3 = \left(
+\begin{array}{cc}
+B &amp; A \\
+A &amp; -B
+\end{array}\right) $">, and
+<!-- MATH
+ $K_4 =  \left(
+\begin{array}{cc}
+	B & -A \\
+	A & B
+	\end{array}
+	\right)$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ K_4 = \left(
+\begin{array}{cc}
+B &amp; -A \\
+A &amp; B
+\end{array}\right) $">.
+Each of the ERFs can be obtained from the
+<I>permuted canonical</I> <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ K$"> form by multiplying by
+diagonal and permutation matrices on both sides.
+In other words,
+<!-- MATH
+ $K_i = D_l P_l K P_r D_r$
+ -->
+<IMG
+ WIDTH="128" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ K_i = D_l P_l K P_r D_r$">,
+where <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ D_l$">, <IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ P_l$">, <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ P_r$">, and <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ D_r$"> are
+certain matrices depending on the size of the complex matrix
+and which ERF we desire. Three diagonal matrices and two
+permutation matrices (together with their transposes) exist
+for the ERFs we are considering.
+
+<P>
+The talk will describe
+the specific diagonal and permutation matrices needed as
+well as how to transform from one ERF to another.
+
+<P>
+[1] David Day and Michael A.&nbsp;Heroux,
+<EM>Solving Complex-Valued Linear Systems
+via Equivalent Real Formulations</EM>,
+SIAM J.&nbsp;Sci. Comput. <B>23</B>(2) (2001) 480-498.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

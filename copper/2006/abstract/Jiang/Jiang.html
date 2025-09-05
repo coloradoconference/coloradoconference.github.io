@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Jiang</TITLE>
+<META NAME="description" CONTENT="Jiang">
+<META NAME="keywords" CONTENT="Jiang">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Jiang.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A preconditioned L-BFGS algorithm with application to 
+<BR>
+protein structure prediction</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lianjun Jiang 
+<BR>
+Computer Science, University of Colorado 
+<BR>
+Boulder CO 80309-0430 
+<BR>	<TT>lianjunj@gmail.com</TT> 
+<BR>
+Richard Byrd, Elizabeth Eskow, Robert B.&nbsp;Schnabel
+
+</DIV>
+The limited-memory BFGS method has been widely used in large
+scale unconstrained optimization problems, including protein
+structure prediction. A major weakness of the L-BFGS method
+is that it may converge very slowly for ill-conditioned
+problems. We propose a preconditioned L-BFGS method, where
+we form the preconditioner from parts of the partially
+separable objective function.
+
+<P>
+We report results of
+experiments in the context of the protein structure
+prediction problem for four different proteins, using a
+protein energy model as the objective function and multiple
+initial configurations for each protein. The results show
+speed-ups with factors between 3 and 10 in terms of function
+evaluations and with factors between 2 and 7 in terms of CPU
+time. The difference between CPU time and function
+evaluation speed-up is due to the extra overhead of
+calculating and applying the preconditioner. We also compare
+our results to a method from the other competitive class of
+large-scale methods, preconditioned truncated Newton method
+(TNPACK). The limited results indicate that the
+preconditioned L-BFGS method may be more efficient.
+
+<P>
+We
+also tried this approach in a more general context, using
+limited memory with an incomplete Cholesky factorization of
+the Hessian as a preconditioner. We compared the performance
+with the truncated Newton algorithm TRON, which uses a
+similar preconditioner. Tested on a subset of the CUTER test
+problems, our results show that, using this preconditioner,
+the preconditioned LBFGS method is competitive with TRON and
+much better than the LBFGS algorithm without preconditioner.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

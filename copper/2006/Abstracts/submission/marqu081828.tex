@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Osni Marques \\
+{\bf A Comparison of Eigensolvers for Large Electronic Structure Calculations}}
+
+Lawrence Berkeley National Laboratory \\ 1 Cyclotron Road \\ MS 50F-1650 \\ Berkeley \\ CA 94720-8139 \\ USA
+\\
+{\tt oamarques@lbl.gov}\\
+	Andrew Canning
+	Julien Langou
+	Stanimire Tomov
+	Christof Voemel
+	Lin-Wang Wang
+	\end{center}
+
+The solution of the single particle Schroedinger equation that arises in
+electronic structure calculations often requires solving for interior
+eigenstates of a large Hamiltonian. The states at the top of the valence
+band and at the bottom of the conduction band determine the band gap
+that relates to important physical characteristics such as optical or
+transport properties.
+
+In order to avoid the explicit computation of all eigenstates, a folded
+spectrum method has been usually employed to compute only the eigenstates
+near the band gap. In this talk, we compare the conjugate gradient
+minimization and the optimal block preconditioned conjugate gradient
+(LOBPCG) applied to the folded spectrum matrix with the Jacobi-Davidson
+algorithm.
+
+
+\end{document}

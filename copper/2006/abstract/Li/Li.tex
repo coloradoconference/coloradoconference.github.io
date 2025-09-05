@@ -1,0 +1,134 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Towards an automatic and application-based eigensolver selection}}
+
+	Xiaoye S.~Li \\
+	MS 50F-1650, Lawrence Berkeley National Laboratory \\
+	1 Cyclotron Rd, Berkeley CA 94720-8139 \\
+	{\tt xsli@lbl.gov} \\
+	Osni Marques, Yeliang Zhang
+\end{center}
+The computation of eigenvalues and eigenvectors is an
+important and often time-consuming phase in computer
+simulations. Recent efforts in the development of
+eigensolver libraries have given users good algorithm
+implementations without the need for users to spend much
+time in programming. Yet, given the variety of algorithms
+that are available to domain scientists, choosing the
+``optimal'' algorithm for a particular application is a
+daunting task. In addition, as simulations become
+increasingly sophisticated and larger, it becomes infeasible
+for a user to try out every reasonable algorithm
+configuration in a timely fashion. Therefore, there is a
+need for an automated tool that is able to guide the user
+through the maze of various solvers with different
+configurations.
+
+In this talk, we will describe a
+high-end, intelligent sparse eigensolver toolbox, EigAdept,
+which comprises the following components:
+
+\begin{itemize}
+\item A uniform and extensible interface for a collection
+of parallel sparse eigensolvers. The collection focuses on a
+class of solvers based on projection methods which are
+amenable to scalable implementations, which include ARPACK
+(implicitly restarted Arnoldi method), BLZPACK (block
+Lanczos method), TRLan (thick-restart Lanczos method), the
+Jacobi-Davidson method and the multi-level sub-structuring
+(AMLS) method. The Arnoldi/Lanczos-based solvers are
+enhanced with shift-and-invert capabilities using the
+scalable sparse direct linear solvers such as SuperLU and
+MUMPS.
+
+\item An intelligent engine to guide the user
+through the maze of various solvers and to automate the
+process of algorithm selection. To achieve that, a ``history''
+knowledge base (algorithm selection criteria, or decision
+tree) incorporates initial information from our prior
+experience as well as from the literature (e.g., from
+``Templates for the Solution of Algebraic Eigenvalue
+Problems: a Practical Guide'', edited by Bai et al.) The
+contents of the knowledge base are gradually improved as
+more problems are solved, and can be ``adapted'' at runtime
+through the repeated solutions of similar eigensystems from
+a specific application domain. An efficient data analyzer
+takes a user's problem specification at runtime, queries the
+knowledge base, and finds the best match of an algorithm
+configuration with the target problem.
+
+\item Highly-tuned
+performance-critical kernels for high-end architectures. We
+identify and isolate the performance-critical kernels (e.g.,
+parallel sparse matrix-vector multiplication), and provide
+highly-tuned versions for them. The methodology of automatic
+performance tuning consists of both off-line optimization
+guided by detailed performance model, and on-line
+optimization by running the kernels in the pruned space of
+possible implementations. Furthermore, these tuned kernels
+will be made as standard-alone components, so that they can
+be used directly in any new eigensolver technology, or even
+in other areas of matrix computations.
+\end{itemize}
+
+EigAdept is implemented in C++ with Fortran interface. We
+have implemented distinct class structures for eigensolvers,
+linear equation solvers, and matrix types, so that for each
+eigensolver algorithm, we can easily support different
+sparse matrix formats, or use different linear solvers
+internally (e.g., for performing shift-and-invert). We use
+MySQL relational database to facilitate the implementation
+of the intelligent engine. MySQL is a free open source
+database software with a reliable C API. We will illustrate,
+with some case studies, that EigAdept can be a valuable tool
+for users from application domains, as well as for experts
+doing algorithm research.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

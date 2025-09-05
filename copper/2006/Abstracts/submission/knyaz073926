@@ -1,0 +1,30 @@
+===firstname:
+Andrew
+===firstname3:
+Merico
+===lastname2:
+Lashuk
+===postal:
+Department of Mathematics, University of Colorado at Denver. P.O. Box 173364, Campus Box 170, Denver, CO 80217-3364. 
+===lastname:
+Knyazev
+===lastname3:
+Argentati
+===ABSTRACT:
+Block Locally Optimal Preconditioned Eigenvalue Xolvers (BLOPEX) is a package, written in C, that at present includes only one eigenxolver, Locally Optimal Block Preconditioned Conjugate Gradient Method (LOBPCG). BLOPEX supports parallel computations through an abstract layer. BLOPEX is incorporated in the HYPRE package from LLNL and is availabe as an external block to the PETSc package from ANL as well as a stand-alone serial library. Hypre and PETSc packages provide high quality multigrid and domain decomposition preconditioning on parallel clusters with distributed or shared memory architecture.
+
+The LOBPCG method, suggested and developed by Andrew Knyazev [1] in the past decade, recently attracts an increasing attention as a potential alternative to the shift-and-invert Lanczos and preconditioned Davidson methods due to its simplicity, robustness and fast convergence. Several MATLAB, C, C++ and FORTRAN implementations of the LOBPCG are developed by different groups, e. g., for such applications areas as structured mechanics and electronic structure calculations.
+
+Main LOBPCG features: a matrix-free iterative method for computing several extreme eigenpairs of symmetric positive generalized eigenproblems; a user-defined preconditioner; robustness with respect to random initial approximations, variable preconditioners, and ill-conditioning of the stiffness matrix; apparently optimal convergence speed. Numerical comparisons suggest that LOBPCG may be a genuine block analog for eigenproblems of the standard preconditioned conjugate gradient method for symmetric linear systems.
+
+We present initial scalability results using BLOPEX with Hypre and PETSc on one BlueGene/L box solving eigenvalue problems of record sizes.
+
+[1] A.V. Knyazev, "Toward the Optimal Preconditioned Eigensolver: Locally Optimal Block Preconditioned Conjugate Gradient Method." SIAM Journal on Scientific Computing 23 (2001), no. 2, pp. 517-541. 
+===email:
+andrew.knyazev@cudenver.edu
+===otherauths:
+Ovtchinnikov, Evgueni
+===title:
+Block Locally Optimal Preconditioned Eigenvalue Xolvers (BLOPEX)
+===firstname2:
+Ilya

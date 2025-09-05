@@ -1,0 +1,70 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Filter factor analysis of an iterative multilevel regularizing method}}
+
+	Marco Donatelli \\
+	Dipartimento de Fisica e Matematica,
+	Universit\`a dell'Insubria \\
+	Sede di Como, Via Valleggio 11, 22100 Como, Italy \\
+	{\tt marco.donatelli@uninsubria.it}
+\end{center}
+Recent results have shown that iterative methods of multigrid
+type are very effective for regularizing purposes.
+In short, the reconstruction quality is of the same level
+or slightly better than that related to well-known
+regularizing procedures such as Landweber or conjugate
+gradient (CG) for normal equations, but the associated
+computational cost is highly reduced.
+
+Here we analyze the filter features of one of these
+multigrid techniques in order to provide a theoretical
+motivation for the excellent regularizing characteristics
+experimentally observed in the discussed methods.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

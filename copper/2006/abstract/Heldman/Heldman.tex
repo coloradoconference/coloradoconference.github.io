@@ -1,0 +1,79 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Multi-level optimization for image registration using \\
+	local refinement on octrees}}
+
+	Stefan Heldman \\
+	Dept.~of Mathematics and Computer Science, Emory University \\
+	400 Dowman Drive, Atlanta Georgia 30322 \\
+	{\tt heldmann@mathcs.emory.edu}
+	\\ Eldad Haber, Jan Modersitzki
+\end{center}
+We present a new multi-level approach for non-linear image
+registration using local refinement techniques.
+
+Standard multi-level approaches for this problem discretize
+the domain starting with a regular coarse grid and refine
+every cell from level to level. In our approach, we also
+start with a regular coarse grid but its refinement for
+higher levels is done locally. Using local refinement is
+motivated by the observation that changes in the solution at
+higher levels appear mainly locally and large areas stay
+unchanged such that there is no need for a finer resolution.
+The local refinement in our approach is done by subdividing
+cells into four (2D) or eight (3D) resulting quad (2D) and
+octree-grids (3D), respectively.
+
+Compared with the standard multi-level approach, our method
+requires substantially less memory and arithmetic
+operations. Therefore, it is in particular well-suited for
+large-scale problems.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

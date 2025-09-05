@@ -1,0 +1,86 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Optimal additive Schwarz preconditioning for minimal residual \\
+	methods with Euclidean and energy norms}}
+
+	Daniel B Szyld \\
+	Dept.~of Mathematics (038-16) \\
+	Temple University, 1805 N Broad Street \\
+	Philadelphia PA 19122-6094 \\
+	{\tt szyd@temple.edu} \\
+	Marcus Sarkis
+\end{center}
+For the solution of non-symmetric or indefinite linear
+systems arising from discretizations of elliptic problems,
+two-level additive Schwarz preconditioners are known to be
+optimal in the sense that convergence bounds for the
+preconditioned problem are independent of the mesh and the
+number of subdomains. These bounds are based on some kind of
+{\em energy norm}. However, in practice, iterative methods
+which minimize the Euclidean norm of the residual are used,
+despite the fact that the usual bounds are non-optimal,
+i.e., the quantities appearing in the bounds may depend on
+the mesh size; see [1].
+In this paper,
+iterative methods are presented which minimize the same
+energy norm in which the optimal Schwarz bounds are derived,
+thus maintaining the Schwarz optimality. As a consequence,
+bounds for the Euclidean norm minimization are also derived,
+thus providing a theoretical justification for the practical
+use of Euclidean norm minimization methods preconditioned
+with additive Schwarz. Both left and right preconditioners
+are considered, and relations between them are derived.
+Numerical experiments illustrate the theoretical
+developments.
+
+[1] X.-C.~Cai, J.~Zou,
+Numer. Linear Algebra Appl. {\bf 9} (2002) 379--397.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

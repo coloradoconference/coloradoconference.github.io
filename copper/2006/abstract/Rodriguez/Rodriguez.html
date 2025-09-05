@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Rodriguez</TITLE>
+<META NAME="description" CONTENT="Rodriguez">
+<META NAME="keywords" CONTENT="Rodriguez">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Rodriguez.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Krylov-Secant methods for estimating subsidence parameters 
+<BR>
+in hydrocarbon reservoirs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Adolfo Rodriguez 
+<BR>
+Center for Subsurface Modeling 
+<BR>
+The University of Texas,  Austin TX 78712 
+<BR>	<TT>adolfo@ices.utexas.edu</TT> 
+<BR>
+Hector Klie, Mary F.&nbsp;Wheeler
+
+</DIV>
+It is a well known fact that under primary fluid production
+conditions, pore pressures of hydrocarbon reservoirs and
+aquifers tend to decline. This decline may lead to severe
+deformations inside and around the reservoir. The
+deformation observed at the surface is known as subsidence
+and can produce negative environmental effects as well as
+damage to surface facilities and infrastructures. Positively
+speaking, subsidence observations can be combined with
+inverse algorithms in order to assess reservoir behavior and
+detect non-depleted regions that may be subject to further
+exploitation. The estimation of subsidence usually requires
+the performance of flow simulations coupled to mechanical
+deformation. These simulations are computationally intensive
+and, for this reason, they are seldom performed.
+
+<P>
+In this
+work we introduce a Krylov-secant inversion framework for
+estimating the deformation produced as a consequence of pore
+pressure reduction in the reservoir. The formulation is
+based on a solution of the equilibrium equation where
+perturbations due to pore pressure reduction and elastic
+modulus contrasts are introduced. The resulting equation for
+the strain is given in the form of the
+Lippmann-Schwinger integral, i.e.,
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+\qquad
+{\bf {e}}\left( {\bf {x}} \right)
+= - \int\limits_\Omega
+{\Gamma \left( {{\bf {x - x'}}} \right)}
+\left\{ {\Delta {\bf {Ce}}\left( {{\bf {x'}}} \right)
+- {\bf {\alpha }}\Delta p} \right\}d{\bf {x'}},
+\qquad
+\qquad
+\qquad
+\qquad
+(1)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="597" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \qquad
+\qquad
+\qquad
+\qquad
+{\bf {e}}\left( {\bf {x}} \right)
+= -...
+... {\bf {\alpha }}\Delta p} \right\}d{\bf {x'}},
+\qquad
+\qquad
+\qquad
+\qquad
+(1)
+$">
+</DIV><P></P>
+where
+<!-- MATH
+ $\Gamma \left( {{\bf {x - x'}}} \right)$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \Gamma \left( {{\bf {x - x'}}} \right)$">
+is the modified half space Green's function;
+<!-- MATH
+ $\Delta\bf {C}$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \Delta\bf {C}$"> is the elastic module contrast; <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \Delta p$"> is
+the magnitude of the pore pressure drop; and <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \alpha$"> is the
+Biot's poroelastic constant, assumed here to be a tensor.
+Both <!-- MATH
+ $\Delta\bf {C}$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \Delta\bf {C}$"> and <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \Delta p$"> are zero outside the
+reservoir but can be functions of <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \bf {x'}$">. The integration
+in (1) is performed over the reservoir domain.
+
+<P>
+A Born-type approximation is implemented, where the
+total field is assumed to be the incident field by
+analogy to electromagnetic theory.
+
+<P>
+Based on the discretization of
+(1) the resulting inverse problem can be stated as
+the minimization of the following mismatch functional:
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\phi =\frac{1}{2} \|\hat{d}-d\|_W^2,
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+(2)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="583" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle \qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\phi =\frac{1}{2} \Vert\hat{d}-d\Vert _W^2,
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+(2)
+$">
+</DIV><P></P>
+where <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ d$"> and <!-- MATH
+ $\hat{d}\in C^n$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \hat{d}\in C^n$">
+are the predicted and observed data vectors
+respectively, and <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ W$"> is a diagonal weighting matrix, based
+on the inverse of the covariance of the measurements that
+compensates for the noise present in the data. In the
+problem addressed here, the observed data are the subsidence
+observations at some points, while the predicted data vector
+<IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ d$"> is determined through solution of the forward model
+(1).
+The minimization problem (2) is large
+and ill-posed, especially in the event of high
+heterogeneities and few measurements. To perform the
+inversion, a Newton-Krylov procedure based on
+Krylov-secant updates is proposed.
+
+<P>
+The Krylov-secant framework entails
+a recycling or extrapolation of the Krylov information
+generated for the solution of the current Jacobian equation
+to perform a sequence of secant steps restricted to the
+Krylov basis. In other words, the Newton step is recursively
+composed with Broyden updates constrained to the reduced
+Krylov subspace. This is repeated until no further decrease
+of the nonlinear residual can be delivered, in which case a
+new nonlinear step yielding another Jacobian system is
+performed.
+
+<P>
+The proposed framework includes dynamic
+control of linear tolerances (i.e., forcing terms),
+preconditioning, and regularization to achieve both
+efficiency and robustness. Furthermore, this approach may
+optionally accommodate the latest deflation or augmented
+Krylov basis strategies for further efficiency. The
+framework has been previously applied for the solution of
+several nonlinear PDEs under Newton-Krylov implementations,
+but the present work explores further issues with respect to
+inexact Gauss-Newton methods based on Krylov iterative
+solutions such as LSQR.
+
+<P>
+Numerical experiments indicate
+that the current approach is a viable option for performing
+fast inversion implementations. Comparisons are made against
+traditional quasi-Newton and gradient-based implementations.
+It is concluded that the proposed approach has the potential
+for application to electromagnetic, radar, seismic and
+medical technologies.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

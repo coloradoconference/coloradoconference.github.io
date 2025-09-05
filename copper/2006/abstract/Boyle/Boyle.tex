@@ -1,0 +1,82 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Algebraic multigrid and convection diffusion problems}}
+
+	Jonathan W Boyle \\
+	School of Mathematics, The University of Manchester \\
+	Sackville Street, Manchester M60 1QD UK \\
+	{\tt j.boyle@manchester.ac.uk} \\
+	David J Silvester
+\end{center}
+The talk discusses the use of algebraic multigrid (AMG) when
+solving discrete convection diffusion problems. For
+practical applications, e.g. modeling incompressible fluid
+flow, the interest is in using AMG as a preconditioning
+component within a Krylov subspace solver like GMRES. To be
+effective in this role, the AMG method should be 'black
+box', i.e. require no user tuning, and be effective in the
+sense that if applied as a solver for a convection-diffusion
+subproblem then iteration counts are independent of mesh
+size and other problem parameters.
+
+When designing AMG for
+convection diffusion, it is necessary to consider the
+interplay between wind direction and AMG smoothing scheme.
+Numerical test data is presented showing performance for AMG
+applied to streamline diffusion stabilized finite element
+discretizations of model problems. The results demonstrate
+the crucial importance of choosing an appropriate smoothing
+scheme. The performance of a ``well-chosen'' AMG method in the
+context of pressure-convection diffusion preconditioning of
+the Navier-Stokes equations will also be discussed.
+
+This is ongoing work.
+It is funded by EPSRC grant EP/C000528/1.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,131 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Adolfo Rodriguez \\
+{\bf Krylov-Secant methods for estimating subsidence parameters in hydrocarbon reservoirs}}
+
+Center for Subsurface Modeling \\ The University of Texas at Austin \\ Texas 78712
+\\
+{\tt adolfo@ices.utexas.edu}\\
+Hector Klie\\
+Mary F. Wheeler\end{center}
+
+It is a well known fact that under primary fluid production
+conditions, pore pressures of hydrocarbon reservoirs and aquifers
+tend to decline. This decline may lead to severe deformations
+inside and around the reservoir. The deformation observed at the
+surface is known as subsidence and can produce negative
+environmental effects as well as damage to surface facilities and
+infrastructures. Positively speaking, subsidence observations can
+be combined with inverse algorithms in order to assess reservoir
+behavior and detect non-depleted regions that may be subject to
+further exploitation. The estimation of subsidence usually
+requires the performance of flow simulations coupled to mechanical
+deformation. These simulations are computationally intensive and,
+for this reason, they are seldom performed.
+
+In this work we introduce a Krylov-secant inversion framework for
+estimating the deformation produced as a consequence of pore
+pressure reduction in the reservoir. The formulation is based on
+a solution of the equilibrium equation where perturbations due to
+pore pressure reduction and elastic modulus contrasts are
+introduced. The resulting equation for the strain is given in the
+form of the Lippmann-Schwinger integral, i.e.,
+
+\begin{equation}
+{\bf{e}}\left( {\bf{x}} \right) = - \int\limits_\Omega {\Gamma
+\left( {{\bf{x - x'}}} \right)} \left\{ {\Delta {\bf{Ce}}\left(
+{{\bf{x'}}} \right) - {\bf{\alpha }}\Delta p} \right\}d{\bf{x'}},
+\label{eq1}
+\end{equation}
+where $\Gamma \left( {{\bf{x - x'}}} \right)$ is the modified half
+space Green's function; $\Delta\bf{C}$ is the elastic module
+contrast; $\Delta p$ is the magnitude of the pore pressure drop;
+and $\alpha$ is the Biot's poroelastic constant, assumed here to
+be a tensor. Both $\Delta\bf{C}$ and $\Delta p$ are zero outside
+the reservoir but can be functions of $\bf{x'}$. The integration
+in (\ref{eq1}) is performed over the reservoir domain.
+
+It is interesting to observe that equation (\ref{eq1}) is a
+modified version of the equations used for electromagnetic
+imaging. These equations describe the total electric field
+produced by the scattering of electromagnetic waves when an
+incident electric field is applied to a dielectric inhomogeneity.
+This analogy suggests that subsidence observations obtained by
+means of satellite observations and other methods may be used,
+along with inversion algorithms, to increase the understanding of
+the subsurface regarding issues such as pore pressure
+distribution.
+
+Due to the fact that integral equations such as (\ref{eq1}) are
+extremely difficult to solve, approximate solutions are usually
+implemented. An example of such approximate solutions is given by
+the so called Born approximation, where the total field it is
+assumed to be the incident field. By analogy to electromagnetic
+theory, the incident field for the problem treated here would be
+
+\begin{equation}
+{\bf{e_{ins}}}\left( {\bf{x}} \right) = \int\limits_\Omega
+{\Gamma \left( {{\bf{x - x'}}} \right)} {\bf{\alpha }}\Delta
+pd{\bf{x'}}. \label{eq2}
+\end{equation}
+
+The first order Born approximation is given by inserting equation
+(\ref{eq2}) in the right hand side of equation (\ref{eq1}). The
+second order approximation is obtained by plugging the first order
+approximation into the right hand side of equation (\ref{eq1}) and
+so on.
+
+Based on the discretization of (\ref{eq2}) the resulting inverse
+problem can be stated as the minimization of the following
+mistmatch functional:
+\begin{equation}
+\phi =\frac{1}{2} \|\hat{d}-d\|_W^2, \label{eq3}
+\end{equation}
+
+where, $d$ and $\hat{d}$ $\in C^n$ are the predicted and observed
+data vectors respectively, and $W$ is a diagonal weighting matrix,
+based on the inverse of the covariance of the measurements that
+compensates for the noise present in the data. In the problem
+addressed here, the observed data are the subsidence observations
+at some points, while the predicted data vector $d$ is determined
+through solution of the forward model (\ref{eq1}). The
+minimization problem (\ref{eq3}) is large and ill-posed,
+especially in the event of high heterogeneities and few
+measurements. To perform the inversion, a Newton-Krylov procedure
+based on krylov-scant updates is proposed.
+
+The Krylov-secant framework entails a recycling or extrapolation
+of the Krylov information generated for the solution of the
+current Jacobian equation to perform a sequence of secant steps
+restricted to the Krylov basis. In other words, the Newton step is
+recursively composed with Broyden updates constrained to the
+reduced Krylov subspace. This is repeated until no further
+decrease of the nonlinear residual can be delivered, in which case
+a new nonlinear step yielding another Jacobian system is
+performed.
+
+The proposed framework includes dynamic control of linear
+tolerances (i.e., forcing terms), preconditioning, and
+regularization to achieve both efficiency and robustness.
+Furthermore, this approach may optionally accommodate the latest
+deflation or augmented Krylov basis strategies for further
+efficiency. The framework has been previously applied for the
+solution of several nonlinear PDE's under Newton-Krylov
+implementations, but the present work explores further issues with
+respect to inexact Gauss-Newton methods based on Krylov iterative
+solutions such as LSQR.
+
+Numerical experiments indicate that the current approach is a
+viable option for performing fast inversion implementations.
+Comparisons are made against traditional quasi-Newton and
+gradient-based implementations. It is concluded that the proposed
+approach has the potential for application to electromagnetic,
+radar, seismic and medical technologies.
+
+
+\end{document}

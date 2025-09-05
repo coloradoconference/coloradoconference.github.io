@@ -1,0 +1,75 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A domain decomposition method that converges in two steps \\
+	for three subdomains}}
+
+	S\'ebastien Loisel \\
+	2~4, rue du Li\`evre, Case postale 64 \\
+	1211 Gen\`eve 4 (Suisse) \\
+	{\tt loisel@math.unige.ch}
+\end{center}
+In Schwarz-like domain decomposition methods, a domain
+$\Omega$ is broken into two or more subdomains and
+Dirichlet, Neumann, Robin or pseudo-differential problems
+are iteratively solved on each subdomain. For certain
+problems, it is well-known that the Dirichlet-Neumann
+iteration for two subdomains will converge in two steps. Let
+$\Omega$ be an open domain and
+$\Omega_{1},\Omega_{2},\Omega_{3}$ a domain decomposition of
+$\Omega$ such that each pair of subdomains shares an
+interface (for instance,
+$\Omega=\{ z\in\Cplex \;|\; |z|<1\}$
+and $\Omega_{j}=\{ re^{i\theta} \;|\; 0<r<1$ and
+$\theta\in(2j\pi/3,2(j+1)\pi/3)\}$,
+$j=1,2,3$).
+We will show a new Schwarz-like domain decomposition
+method that converges in two iterations in this situation.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+if ($#ARGV) { die "Usage: $0 htmlfile\n\n"; }
+
+$fnA=$ARGV[0];
+($fnB=$fnA) =~ s/\./TR./;
+
+open (HTML,$fnA) || die "cannot read $fnA\n\n";
+open (HL,">$fnB") || die "cannot write to $fnB\n\n";
+
+while (<HTML>) {
+			# SKIP THESE LINES!
+
+if (/Converted with LaTeX2HTML/) { next; }
+if (/original\s*version\s*by:\s*Nikos Drakos/) { next; }
+if (/revised and updated by:/) { next; }
+if (/with significant contributions from:/) { next; }
+if (/Jens Lippmann, Marek Rouchal/) { next; }
+if (/META NAME=/) { next; }
+if (/META HTTP-EQUIV=/) { next; }
+if (/LINK REL="next"/) { next; }
+
+			# switch CSS
+if (/REL="STYLESHEET"/) { print HL
+	"<LINK REL=\"STYLESHEET\" HREF=\"../abstr.css\">\n";
+	next;
+	}
+
+if (/--Navigation Panel--/) {
+	while ($line=<HTML>) {
+		if ($line =~ /--End of Navigation Panel--/) {
+			last;
+			}
+		}
+	next;
+	}
+
+if (/--Table of Child-Links--/) {
+	@therest=<HTML>;
+	next;
+	}
+
+	print HL;
+}
+
+print HL "\n</BODY>\n</HTML>\n";
+close HL;
+close HTML;
+system("/bin/ls $fnA $fnB");
+exit 0;
+
+############################################################
+############################################################
+

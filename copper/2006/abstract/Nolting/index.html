@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Nolting</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>HP local refinement using FOSLS</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Josh Nolting 
+<BR>
+2467 E 127th Court,  Thornton CO 80241 
+<BR>	<TT>josh.nolting@colorado.edu</TT> 
+<BR>
+Thomas Manteuffel
+</DIV>
+<p>
+Local refinement enables us to concentrate computational
+resources in areas that need special attention, for example,
+near steep gradients and singularities. In order to use
+local refinement efficiently, it is important to be able to
+quickly estimate local error. FOSLS is an ideal method to
+use for this because the FOSLS functional yields a sharp a
+posteriori error measure for each element. This talk will
+discuss a strategy for determining which elements to refine
+in order to optimize the accuracy/computational cost. Set in
+the context of a full multigrid algorithm, our strategy
+leads to a refinement pattern with nearly equal error on
+each element. Further refinement is essentially uniform,
+which allows for an efficient parallel implementation.
+Numerical experiments will be presented.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

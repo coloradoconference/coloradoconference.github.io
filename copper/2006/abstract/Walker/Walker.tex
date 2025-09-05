@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Approximate finite-differences in matrix-free Newton-Krylov methods}}
+
+	Homer Walker \\
+	Mathematical Sciences Department, Worcester Polytechnic Institute \\
+	100 Institute Road, Worcester MA 01609-2280 \\
+	{\tt walker@wpi.edu} \\
+	Peter N.~Brown, Rebecca D.~Wasyk, Carol S.~Woodward
+\end{center}
+Newton-Krylov methods are often implemented in
+``matrix-free'' form, in which the Jacobian-vector products
+required by the Krylov solver are approximated by finite
+differences. We consider using approximate function values
+in these finite differences. We first formulate a
+finite-difference Arnoldi process that uses approximate
+function values and give backward-error results for it. We
+then outline a Newton--Krylov method that uses an
+implementation of the GMRES or Arnoldi method based on this
+process and develop a local convergence analysis for it,
+giving sufficient conditions on the approximate function
+values for desirable local convergence properties to hold.
+We conclude with numerical experiments involving particular
+function-value approximations suitable for nonlinear
+diffusion problems. For this case, conditions are given for
+meeting the convergence assumptions for both lagging and
+linearizing the nonlinearity in the function evaluation.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

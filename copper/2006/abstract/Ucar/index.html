@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Ucar</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Partitioning sparse matrices for parallel preconditioned 
+<BR>
+iterative methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Bora Ucar 
+<BR>
+Dept. of Mathematics and Computer Science, Emory University 
+<BR>
+Suite W401, 400 Dowman Drive, Atlanta GA 30322 
+<BR>	<TT>ubora@mathcs.emory.edu</TT> 
+<BR>
+Cevdet Aykanat
+</DIV>
+<p>
+We will discuss parallelization techniques for the
+preconditioned iterative methods that use explicit
+preconditioners such as approximate inverses or factored
+approximate inverses. Applications of these preconditioners
+require sparse matrix-vector multiplication (SpMxV)
+operations. Roughly speaking, the problem reduces to
+partitioning two or more matrices together in order to
+efficiently parallelize the computations of the form <!-- MATH
+ $y\gets
+ABCx$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y\gets
+ABCx$">. Note that the computations <!-- MATH
+ $y\gets ABCx$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y\gets
+ABCx$"> are
+performed as successive SpMxV operations, and hence there
+are dependencies among the input and output vectors of these
+SpMxV operations. Additional dependencies are imposed by the
+linear vector operations that take part in a full step of
+the chosen iterative method. We will first discuss how to
+analyze the preconditioned iterative methods to determine
+the dependencies between the inputs and outputs of the SpMxV
+operations. We will give a short account of such
+dependencies for a number of widely used methods including
+BiCGStab, preconditioned conjugate gradients, and GMRES.
+Next, we will develop hypergraph models which capture the
+dependencies among the input and output vectors of the SpMxV
+operations with different matrices. We will show that
+partitioning a single hypergraph amounts to simultaneous
+partitioning of the matrices in <!-- MATH
+ $y\gets ABCx$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y\gets
+ABCx$"> computations
+in such a way that the total volume of communication is
+minimized and an appropriate balance criterion among the
+processor loads is maintained. We will present experimental
+results obtained using a parallel implementation of the
+right preconditioned BiCGStab method on a PC cluster.
+<P>
+This is a joint work with Prof C.&nbsp;Aykanat of Bilkent
+University, Ankara, Turkey.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

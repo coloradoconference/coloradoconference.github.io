@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jia Liu \\
+{\bf Preconditioning Techniques for the Navier-Stokes Equations in Rotation Form}}
+
+Department of Mathematics and Computer Science \\ Emory University \\ Atlanta GA 30322
+\\
+{\tt jliu8@emory.edu}\end{center}
+
+We consider preconditioned iterative methods applied to
+discretizations of the Navier-Stokes equations in 2D and 3D bounded
+domains. Both unsteady and steady flows are considered. The
+equations are linearized by Picard iteration. We make use of the
+rotation form of the momentum equations, which has several
+advantages from the linear algebra point of view.
+
+
+We focus on two classes of preconditioners for the resulting
+nonsymmetric saddle point problems, namely, block triangular
+preconditioners and some variants of the Hermitian/Skew-Hermitian
+splitting (HSS) preconditioner. Both types of preconditioners have
+comparable cost per iteration, and make use of (standard) fast
+solvers for elliptic scalar PDEs (convection-diffusion and
+Poisson-type).
+
+
+We compare the performance of both types of preconditioners with
+regard to the mesh size, the Reynolds number, the time step, and
+other problem parameters. Our experiments indicate that fast
+convergence independent of problem parameters is achieved in many
+cases. We include comparing experiments for both the rotation form
+and convection diffusion form of the Navier-Stokes equations the
+nonlinear iteration.
+
+
+This is joint work with Prof. Michele Benzi.
+
+
+\end{document}

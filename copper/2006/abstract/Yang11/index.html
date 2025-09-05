@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Yang11</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A constrained minimization algorithm for solving nonlinear 
+<BR>
+eigenvalue problems in electronic structure calculation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Chao Yang 
+<BR>
+Lawerence Berkeley National Laboratory 
+<BR>
+1 Cyclotron Rd, MS-50F, Berkeley CA 94720 
+<BR>	<TT>cyang@lbl.gov</TT> 
+<BR>
+Juan Meza, Ling-wang Wang
+</DIV>
+<p>
+One of the fundamental problems in electronic structure
+calculation is to determine electron orbitals associated
+with the minimum total energy of large atomistic systems.
+The total energy minimization problem is often formulated as
+a nonlinear eigenvalue problem and solved by an iterative
+scheme called Self Consistent Field (SCF) iteration. In this
+talk, a new direct constrained optimization algorithm for
+minimizing the Kohn-Sham (KS) total energy functional is
+presented.
+<P>
+The key ingredients of this algorithm involve
+projecting the total energy functional into a sequences of
+subspaces of small dimensions and seeking the minimizer of
+total energy functional within each subspace. The minimizer
+of the projected energy functional not only provides a
+search direction along which the KS total energy functional
+decreases but also gives an optimal ``step-length'' to move
+along this search direction. Due to the small dimension of
+the projected problem, the minimizer of the projected energy
+functional can be computed by several different methods.
+These methods will be examined and compared in this talk.
+Numerical examples will be provided to demonstrate that this
+new direct constrained optimization algorithm can be more
+efficient and robust than the SCF iteration.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

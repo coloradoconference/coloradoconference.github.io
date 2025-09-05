@@ -1,0 +1,54 @@
+===firstname:
+Robert E
+===firstname3:
+F
+===lastname2:
+Peplow
+===postal:
+Department of Mathematics
+Imperial College London
+South Kensington Campus
+London SW7 2AZ
+UK
+===lastname:
+Beardmore
+===lastname3:
+Bresme
+===ABSTRACT:
+The isotropic Ornstein-Zernike (OZ) equation
+\begin{equation}
+\label{eq:oz} h(r) = c(r) + \rho \int_{\mathbb{R}^{3}} h(\|{\bf x}-{\bf y}\|)c(\|{\bf y}\|)d{\bf y},
+\end{equation}
+that is the subject of this paper was presented almost a century ago to model the molecular
+structure of a fluid at varying densities.
+In order to form a well-posed mathematical system of equations from
+(\ref{eq:oz}) that can be solved, at least in principle, we assume
+the existence of a closure relationship. This is an algebraic
+equation that augments (\ref{eq:oz}) with a pointwise constraint
+that is deemed to hold throughout the fluid and it forces a
+relationship between the total and direct correlation functions ($h$ and $c$ respectively).
+
+Some closures have a mathematically appealing structure in the sense that the
+total correlation function is posed as a perturbation of the {\em
+Mayer f-function} given by
+ \[ f(r)=-1+e^{-\beta u(r)}.\]
+This perturbation depends on the potential $u$, temperature (essentially $1/\beta$) and the
+indirect correlation function through a nonlinear function that we
+denote $G$, as follows: \be h = f(r) + e^{-\beta u(r)}G(h-c),\qquad
+(G(0)= 0), \label{eq:G} \ee so that
+(\ref{eq:oz}-\ref{eq:G}) are solved together with $\beta$ and $\rho$
+as bifurcation parameters.
+There are many closures in use and if we
+write $\exp_1(z) = -1+e^z$ then the hyper-netted chain (HNC) closure \be G(\gamma)
+= \exp_1(\gamma) \ee has the form of
+(\ref{eq:G}) and is popular in the physics and chemistry literature.
+
+The purpose of the talk is show that {\em any reasonable} discretisation method applied to (\ref{eq:oz}-\ref{eq:G}) suffers from an inherent defect if the HNC closure is used that can be summarised as follows: phase transitions lead to fold bifurcations. The existence of a phase transition is characterised by the existence of a bifurcation at infinity with respect to $h$ in an $L^1$ norm at a certain density, such that boundedness of $h$ is maintained in a certain $L^p$ norm. This behaviour is difficult to mimic computationally by projecting onto a space of fixed and finite dimension and, as a result, projections of (\ref{eq:oz}-\ref{eq:G}) can be shown to undergo at least one fold bifurcation if such a bifurcation at infinity is present. However, other popular closure relations do not necessarily suffer from the same defect.
+===email:
+r.beardmore@ic.ac.uk
+===otherauths:
+
+===title:
+A Numerical Bifurcation Analysis of the Ornstein-Zernike equation
+===firstname2:
+A

@@ -1,0 +1,28 @@
+===firstname:
+Haim
+===firstname3:
+
+===lastname2:
+Fish
+===postal:
+Scientific Computation Research Center (SCOREC)
+Rensselaer Polytechnic Institute
+Troy, NY 12180-3590
+===lastname:
+Waisman
+===lastname3:
+
+===ABSTRACT:
+We present a novel space-time multigrid method for molecular
+dynamics simulations. It is aimed at bridging discrete scales with either coarse grained discrete or continuum scales. The method consists of the waveform relaxation scheme aimed at capturing the high frequency response of atomistic vibrations and a coarse scale solution in space and time aimed at resolving smooth features of the discrete medium. The formulation of the coarse grained model is based on the
+variational approach derived from Hamilton's principle. The time
+integration is performed in windows using the Newmark
+predictor-corrector method. The method is implicit, possesses superior stability properties and consequently enables larger time steps governed by accuracy considerations of coarse scale quantities of interest. Performance studies on polymer melts have shown significant speed-up compared to the classical explicit methods, in particular on parallel machines.
+===email:
+waismh@rpi.edu
+===otherauths:
+
+===title:
+A space-time multigrid approach for acceleration of molecular dynamics simulations
+===firstname2:
+Jacob

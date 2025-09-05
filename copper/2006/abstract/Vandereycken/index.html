@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Vandereycken</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Multigrid for large scale time-dependent Sylvester equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Bart Vandereycken 
+<BR>
+Katholieke Universiteit Leuven, Computer Science Department 
+<BR>
+Celestijnenlaan 200A, B-3001 Leuven, Belgium 
+<BR>	<TT>bart.vandereycken@cs.kuleuven.be</TT> 
+<BR>
+Stefan Vandewalle
+</DIV>
+<p>
+We will discuss a multigrid solver for the numerical
+solution of the time-dependent Sylvester equation
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\frac{dX}{dt} = A X + X B + F, \qquad
+\text{with $X \in \mathbf{R}^{N\times N}$},
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="158" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \frac{dX}{dt} = A X + X B + F,$">&nbsp; &nbsp;with <!-- MATH
+ $X \in \mathbf{R}^{N\times N}$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ X \in \mathbf{R}^{N\times N}$"><IMG
+ WIDTH="7" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle ,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$"> and <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ B$"> are discretisations of an elliptic PDE
+operator. This type of equation occurs in optimal control
+problems and in uncertainty propagation algorithms for
+partial differential equations with random parameters.
+Common to these applications is the large number of unknowns
+even for problems with a reasonable mesh width.
+<P>
+Our
+multigrid solver is built on a recently developed algorithm
+for the stationary Sylvester equation [1]
+<!-- MATH
+ $A X + X B + F = 0$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A X + X B + F = 0$">.
+We exploit the fact that the iterates can be well compressed
+when the right hand side <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ F$"> has a low-rank structure. If
+this compression is used throughout the multigrid cycle, a
+significant reduction in time and memory can be achieved for
+large scale problems. This is accomplished by approximating
+the unknown <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ X$"> by a low-rank matrix
+<!-- MATH
+ \begin{displaymath}
+X \simeq UV^T,
+\qquad \mbox{with} \qquad
+U,V \in \mathbb{R}^{N\times k}.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="79" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle X \simeq UV^T,$">&nbsp; &nbsp;with<IMG
+ WIDTH="130" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle \qquad
+U,V \in \mathbb{R}^{N\times k}.
+$">
+</DIV><P></P>
+For a certain precision, this low-rank
+multigrid typically requires
+<!-- MATH
+ $\mathcal{O}(Nk^2) = \mathcal{O}(N\log^2(N))$
+ -->
+<IMG
+ WIDTH="177" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \mathcal{O}(Nk^2) = \mathcal{O}(N\log^2(N))$">
+work whereas standard multigrid
+would require <!-- MATH
+ $\mathcal{O}(N^2)$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathcal{O}(N^2)$">. An adaptive strategy that
+gradually enlarges the rank to get better precision is
+explored.
+<P>
+[1]
+L.&nbsp;Grasedyck, W.&nbsp;Hackbusch,
+<EM>A Multigrid Method to Solve Large Scale Sylvester
+Equations</EM>, Technical Report&nbsp;48 (2004),
+Max Planck Institute for Mathematics in the Sciences.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

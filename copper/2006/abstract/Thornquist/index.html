@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Thornquist</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Fixed-polynomial approximate spectral transformations for 
+<BR>
+preconditioning the eigenvalue problem</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Heidi K.&nbsp;Thornquist 
+<BR>
+Sandia National Laboratories, P.O.&nbsp;Box 5800, MS 0316 
+<BR>
+Albuquerque NM 87185-0316 
+<BR>	<TT>hkthorn@sandia.gov</TT> 
+<BR>
+Danny C.&nbsp;Sorensen
+</DIV>
+<p>
+Arnoldi's method is often used to compute a few eigenvalues
+and eigenvectors of large, sparse matrices. When the
+eigenvalues of interest are not dominant or well-separated,
+this method may suffer from slow convergence. Spectral
+transformations are a common acceleration technique that
+address this issue by introducing a modified eigenvalue
+problem that is easier to solve than the original. This
+modified problem accentuates the eigenvalues of interest,
+but requires solving a linear system, which is
+computationally expensive for large-scale eigenvalue
+problems.
+<P>
+In this talk we will show how this expense can
+be reduced through a preconditioning scheme that uses a
+fixed-polynomial operator to approximate the spectral
+transformation. Three different constructions for a
+fixed-polynomial operator are derived from some common
+iterative methods for non-Hermitian linear systems. The
+implementation details and numerical behavior of these three
+operators are compared. Numerical experiments will be
+presented demonstrating that this preconditioning scheme is
+a competitive approach for solving large-scale eigenvalue
+problems. The results illustrate the effectiveness of this
+technique using several practical eigenvalue problems from
+science and engineering ranging from hundreds to more than a
+million unknowns.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

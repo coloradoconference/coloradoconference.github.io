@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Serkan Gugercin \\
+{\bf Inexact Solves in Krylov-based Model Reduction of Large-Scale Systems}}
+
+Department of Mathematics \\ Virginia Tech \\ 460 McBryde Hall \\ Blacksburg \\ VA \\ 24061-0123
+\\
+{\tt gugercin@math.vt.edu}\end{center}
+
+Dynamical systems are the basic framework for modeling and control
+of an enormous variety of complex systems. Direct numerical simulation of
+the associated models
+has been one of the few available means when goals include accurate prediction
+or control of complex physical phenomena. However, the ever
+increasing need for improved accuracy requires the inclusion of ever
+more detail in the modeling stage, leading inevitably to ever
+larger-scale, ever more complex dynamical systems.
+
+Simulations in such large-scale settings can be overwhelming and
+make unmanageably large demands on computational resources, which is
+the main motivation for model reduction. The goal of model reduction is
+to produce a much lower dimensional system having the same
+input/output characteristics as the original. Recently, Krylov-based methods have emerged
+as promising candidates for reduction of large-scale dynamical systems.
+
+
+The main cost in Krylov-based model reduction is due to solving
+a set of linear systems of the form $(s_o \mathbf{I}_n - \mathbf{A})
+\mathbf{v} = \mathbf{b}$
+where $\mathbf{A}$ is an ${n \times n}$ matrix, $\mathbf{b}$ is an $n$-dimensional
+vector, $s_0$ is a complex number called the {\it interpolation point} and $\mathbf{I}_n$
+is the identity matrix of size $n$.
+Since the need for more detail and
+accuracy in the modeling stage causes the system dimension, $n$,
+to reach levels on the order of millions, direct solvers for
+the linear system $(s_o \mathbf{I}_n - \mathbf{A}) \mathbf{v} = \mathbf{b}$ are no longer
+feasible; hence inexact solves need to be employed in Krylov-based model
+reduction.
+
+In this talk, we investigate the use of inexact solves in a Krylov-based
+model reduction setting
+and present the resulting perturbation effects on the underlying model reduction problem.
+We show that for a \emph{good} selection of interpolation points,
+Krylov-based model reduction is robust
+with respect to the perturbations due to inexact solves. On the other
+hand, when the interpolation points are
+\emph{poorly} selected, these perturbations are magnified through the
+model reduction process.
+We also examine stopping criteria, effective preconditioning, and restarting techniques
+in the particular context of model reduction. Finally, we incorporate
+inexact solves for the Krylov-based optimal ${\cal H}_2$ approximation. The result is
+an effective optimal model reduction algorithm applicable in realistic
+large-scale settings.
+
+
+\end{document}

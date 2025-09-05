@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Virnick</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>An algebraic multigrid preconditioner for a class of 
+<BR>
+singular M-matrices</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Elena Virnick 
+<BR>
+Institut fur Mathematik 
+<BR>
+Technische Universitat Berlin 
+<BR>	<TT>virnik@math.tu-berlin.de</TT>
+</DIV>
+<p>
+We will consider the problem of the computation of stationary
+distributions of Markov chains which arises in many different
+application areas. These range from the distribution of drugs
+in the blood circulation systems to the Page Rank computed by
+Google. The task is to compute the left eigenvector
+corresponding to the largest eigenvalue of the transition
+matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ T$"> or alternatively solve the linear system
+<!-- MATH
+ \begin{displaymath}
+(I-T^T)x=0,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="107" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle (I-T^T)x=0,$">
+</DIV><P></P>
+where the matrix <IMG
+ WIDTH="65" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ (I-T^T)$"> is a singular <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M$">-matrix.
+In applications, these matrices are large and sparse.
+Therefore, iterative methods such as GMRES are applied.
+However, the applicability of GMRES depends on whether
+it is possible to find a suitable preconditioner.
+For non-singular, symmetric positive definite M-matrices
+that are obtained from discretisations of boundary
+value problems the algebraic multigrid is well known
+to be a good preconditioner. We show how it is possible
+to apply the algebraic multigrid method to our special
+case of singular non-symmetric <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M$">-matrices and show
+numerical examples that illustrate that this leads to
+significant acceleration of the convergence speed.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel B Szyld \\
+{\bf Optimal Additive Schwarz Preconditioning for Minimal Residual Methods with Euclidean and Energy Norms}}
+
+Department of Mathematics (038-16) \\ Temple University \\ 1805 N Broad Street \\ Philadelphia PA 19122-6094 \\ USA
+\\
+{\tt szyd@temple.edu}\\
+Marcus Sarkis\end{center}
+
+For the solution of non-symmetric or indefinite linear
+systems arising from discretizations of elliptic problems,
+two-level additive Schwarz preconditioners are known
+to be optimal in the sense that convergence bounds
+for the preconditioned problem are
+independent of the mesh and the number of subdomains.
+These bounds are based on some kind of {\em energy norm}.
+However, in practice, iterative methods which
+minimize the Euclidean norm of the residual are used,
+despite the fact that the usual bounds are non-optimal, i.e.,
+the quantities appearing in the bounds may depend on
+the mesh size; see [X.-C.\ Cai and J.\ Zou,
+{\em Numer.\ Linear Algebra Appl.}, 9:379--397, 2002].
+In this paper,
+iterative methods are presented which minimize the same
+energy norm in which the optimal Schwarz bounds are derived,
+thus maintaining the Schwarz optimality.
+As a consequence, bounds for the Euclidean norm minimization
+are also derived, thus providing a theoretical justification
+for the practical use of Euclidean norm minimization methods
+preconditioned with additive Schwarz.
+Both left and right preconditioners are considered, and
+relations between them are derived. Numerical experiments
+illustrate the theoretical developments.
+
+
+\end{document}

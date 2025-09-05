@@ -1,0 +1,93 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Echeverr\'{i}a \\
+{\bf On the Manifold-Mapping \\Optimization Technique}}
+
+Centre for Mathematics and Computer Science (CWI)\\ \\ Kruislaan 413 \\ NL-1098 SJ Amsterdam \\ The Netherlands
+\\
+{\tt david.echeverria@cwi.nl}\\
+Pieter W. Hemker\end{center}
+
+\newcommand{\ff}{{\mathbf f}}
+\newcommand{\pp}{{\mathbf p}}
+\newcommand{\ppb}{\bar{{\mathbf p}}}
+\newcommand{\xx}{{\mathbf x}}
+\renewcommand{\ss}{{\mathbf s}}
+\newcommand{\yy}{{\mathbf y}}
+\newcommand{\cc}{{\mathbf c}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\thispagestyle{empty}
+
+Some optimization problems in practice imply the computation of cost
+functions that rely on models which are very expensive to evaluate.
+An example is any simulation-based design with an accurate finite
+element discretization. As a consequence, many optimizations may
+require very long computing times. The space-mapping (SM) technique
+\cite{smlist010,survey2004} was developed as an alternative in these
+situations.
+
+In SM terminology, the accurate but expensive-to-evaluate models are
+called {\it fine} models \mbox{$\ff:X \subset \RR^n \to \RR^m$}. The
+SM method needs a second and computationally faster model, the {\it
+coarse} model \mbox{$\cc:Z \subset \RR^n \to \RR^m$}, in order to
+speed-up the optimization process. The key element in this technique
+is a right-preconditioning, known as the {\it SM function}
+\mbox{$\pp:X \to Z$}, that aligns the two model responses. The
+function $\cc(\pp(\xx))$ corrects the coarse model and can be used
+as a surrogate for the fine model in the accurate optimization. In
+most cases the SM function is much simpler than the fine model, in
+the sense that it is easier to approximate. This fact endows the SM
+technique its well-reported efficiency. However, it not always
+converges to the right solution.
+
+Defect-correct theory \cite{dcp} helps to see that in order to
+achieve the accurate optimum, the SM function is generally
+insufficient and also left-preconditioning is needed. \mbox{In
+\cite{paper01}} we introduce the mapping \mbox{$\ss:\cc(Z) \to
+\ff(X)$} and the associated manifold-mapping (MM) algorithm. MM
+employs $\ss(\cc(\ppb(\xx)))$ as the fine model surrogate. In that
+context, the function $\ppb:X \to Z$ is not the above SM function
+but an arbitrary (easy-to-compute) bijection. The MM algorithm is as
+efficient as SM but converges to the accurate \mbox{optimal solution
+\cite{paper01,paper02}}.
+
+In the first part of the presentation the MM algorithm will be
+briefly introduced and a proof of convergence will be given. The use
+of more than two models (multi-level approach) and the possibility
+of having a coarse model with a different dimension than the fine
+one ($X \subset \RR^{n_\ff}$ and $Z \subset \RR^{n_\cc}$ with $n_\ff
+\neq n_\cc$) will be the issues dealt in the second part of the
+talk.
+
+\begin{thebibliography}{1}
+\bibitem{smlist010} J.~W.~Bandler, R.~M.~Biernacki,
+C.~H.~Chen, P.~A.~Grobelny and R.~H.~Hemmers,
+{\em Space Mapping Technique for Electromagnetic Optimization},
+pp. 2536--2544, IEEE Trans. on Microwave Theory and Techniques,
+\mbox{42 ({\bf 12}), 1994}.
+\bibitem{survey2004} J.~W.~Bandler, Q.~S.~Cheng, S.~A.~Dakroury,
+A.~S.~Mohamed, M.~H.~Bakr, K.~Madsen and J.~S{\o}ndergaard,
+{\em Space Mapping: The State of the Art}, pp. 337--361, IEEE Trans. on Microwave
+Theory and Techniques, \mbox{52 ({\bf 1}), 2004}.
+\bibitem{dcp} K. B{\"o}hmer and P. W. Hemker and H. J. Stetter, {\em
+Defect Correction Methods: Theory and Applications}, The defect
+correction approach, Computing Suppl. 5, pp. 1--32, K. B{\"o}hmer and H.
+J. Stetter ed., Springer-Verlag, Berlin, Heidelberg, New York, Tokyo,
+1984.
+\bibitem{paper01} D. Echeverr\'{\i}a, and P.W. Hemker, {\em Space mapping
+and defect correction}, Comp. Methods in Appl. Math., 5 ({\bf 2}), pp.
+107--136, 2005.
+\bibitem{paper02} D. Echeverr\'{i}a, D. Lahaye, L. Encica, E.A. Lomonova,
+P.W. Hemker and A.J.A. Vandenput,
+{\em Manifold-Mapping Optimization Applied to Linear Actuator Design},
+IEEE Transactions on Magnetics, 2006. Accepted for publication.
+\end{thebibliography}
+\thispagestyle{empty}
+
+
+\end{document}

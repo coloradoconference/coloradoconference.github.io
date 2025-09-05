@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Schenk</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>On large scale diagonalization techniques for the 
+<BR>
+Anderson model of localization</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Olaf Schenk 
+<BR>
+Dept.&nbsp;of Computer Science, University of Basel 
+<BR>
+Klingelbergstrasse 50, CH-4056, Basel, Switzerland 
+<BR>	<TT>olaf.schenk@unibas.ch</TT> 
+<BR>
+Matthias Bollhoefer, Rudolf Roemer
+</DIV>
+<p>
+One of the hardest challenges in modern eigenvalue
+computation is the numerical solution of large-scale
+eigenvalue problems, in particular those arising from
+quantum physics such as the Anderson model of localization
+[4]. Typically, these problems require the computation of
+some interior eigenvalues and eigenvectors for systems which
+have up to several million unknowns due to their high
+spatial dimensions. Furthermore, their underlying structure
+involves random perturbations of matrix elements which
+invalidates simple preconditioning approaches.
+<P>
+We propose
+an efficient preconditioning algorithm for this Anderson
+model of localization [6]. The model requires the
+computation of a few interior eigenvalues and their
+associated eigenvectors for large scale, sparse, real and
+symmetric indefinite matrices. Our preconditioning approach
+for the associated shift-and-invert systems is based on
+maximum weighted matchings [3,5] and algebraic multilevel,
+inverse-based incomplete <IMG
+ WIDTH="48" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LDL^T$"> factorizations [1,2]. Our
+numerical examples indicate that recent algebraic multilevel
+preconditioning solvers can accelerative the computation of
+the underlying large-scale eigenvalue problem by several
+orders of magnitude compared with previous approaches [4,6].
+<P>
+[1]
+M.&nbsp;Bollh&#246;fer and Y.&nbsp;Saad,
+<EM>Multilevel preconditioners
+constructed from inverse-based ILUs</EM>,
+SIAM J.&nbsp;Sci. Comp.,
+to appear (2006).
+<P>
+[2]
+M.&nbsp;Bollh&#246;fer and O.&nbsp;Schenk,
+<EM>ILUPACK volume 2.0 --
+preconditioning software package for
+symmetrically structured problems</EM> (May 2005).
+<P>
+[3]
+I.&nbsp;S.&nbsp;Duff and S.&nbsp;Pralet,
+<EM>Strategies for scaling and pivoting for
+sparse symmetric indefinite problems</EM>,
+Technical Report TR/PA/04/59,
+CERFACS (2004).
+<P>
+[4]
+U.&nbsp;Elsner, V.&nbsp;Mehrmann,
+F.&nbsp;Milde, R.&nbsp;A.&nbsp;R&#246;mer, M.&nbsp;Schreiber,
+<EM>The Anderson model of localization: a challenge
+for modern eigenvalue methods</EM>,
+SIAM J.&nbsp;Sci. Comp.
+<B>20</B> (1999) 2089-2102.
+<P>
+[5]
+M.&nbsp;Hagemann, O.&nbsp;Schenk,
+<EM>Weighted matchings for the preconditioning
+of symmetric indefinite linear systems</EM>,
+SIAM J.&nbsp;Sci. Comp.,
+to appear (2006).
+<P>
+[6]
+O.&nbsp;Schenk, M.&nbsp;Bollh&#246;fer, R.&nbsp;R&#246;mer,
+<EM>On Large Scale Diagonalization Techniques
+For The Anderson Model Of Localization</EM>,
+SIAM J.&nbsp;Sci. Comp., to appear (2006).
+<P>
+<BR><HR>
+</BODY>
+</HTML>

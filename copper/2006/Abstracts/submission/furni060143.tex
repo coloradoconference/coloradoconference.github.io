@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Darran Furnival \\
+{\bf Solving the Stochastic Steady-State Diffusion Problem using Multigrid}}
+
+University of Maryland \\ A V Williams Bldg 115 \\ College Park \\ MD 20742
+\\
+{\tt furnival@cs.umd.edu}\\
+Howard Elman\end{center}
+
+We study multigrid for solving the stochastic steady-state diffusion
+problem. We operate under the mild assumption that the diffusion
+coefficient takes the form of a finite Karhunen-Lo\'eve expansion. The
+problem is discretized using a finite element methodology using the
+polynomial chaos method to discretize the stochastic part of the problem.
+We apply a multigrid algorithm to the stochastic problem in which the
+spatial discretization is varied from grid to grid while the stochastic
+discretization is held constant. We then show, theoretically and
+experimentally, that the convergence rate is independent of the spatial
+discretization, as in the deterministic case.
+
+
+\end{document}

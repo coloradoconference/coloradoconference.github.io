@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Virnick</TITLE>
+<META NAME="description" CONTENT="Virnick">
+<META NAME="keywords" CONTENT="Virnick">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Virnick.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>An algebraic multigrid preconditioner for a class of 
+<BR>
+singular M-matrices</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Elena Virnick 
+<BR>
+Institut fur Mathematik 
+<BR>
+Technische Universitat Berlin 
+<BR>	<TT>virnik@math.tu-berlin.de</TT>
+
+</DIV>
+We will consider the problem of the computation of stationary
+distributions of Markov chains which arises in many different
+application areas. These range from the distribution of drugs
+in the blood circulation systems to the Page Rank computed by
+Google. The task is to compute the left eigenvector
+corresponding to the largest eigenvalue of the transition
+matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ T$"> or alternatively solve the linear system
+<!-- MATH
+ \begin{displaymath}
+(I-T^T)x=0,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="107" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle (I-T^T)x=0,$">
+</DIV><P></P>
+where the matrix <IMG
+ WIDTH="65" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ (I-T^T)$"> is a singular <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M$">-matrix.
+In applications, these matrices are large and sparse.
+Therefore, iterative methods such as GMRES are applied.
+However, the applicability of GMRES depends on whether
+it is possible to find a suitable preconditioner.
+For non-singular, symmetric positive definite M-matrices
+that are obtained from discretisations of boundary
+value problems the algebraic multigrid is well known
+to be a good preconditioner. We show how it is possible
+to apply the algebraic multigrid method to our special
+case of singular non-symmetric <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M$">-matrices and show
+numerical examples that illustrate that this leads to
+significant acceleration of the convergence speed.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

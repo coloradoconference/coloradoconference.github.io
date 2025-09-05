@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Yang21</TITLE>
+<META NAME="description" CONTENT="Yang21">
+<META NAME="keywords" CONTENT="Yang21">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Yang21.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>On parallel algebraic multigrid preconditioners for systems of PDEs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Ulrike Meier Yang 
+<BR>
+Center for Applied Scientific Computing 
+<BR>
+Lawrence Livermore National Laboratory 
+<BR>
+Box 808, L-560, Livermore CA 94551 
+<BR>	<TT>umyang@llnl.gov</TT>
+
+</DIV>
+Algebraic multigrid (AMG) is a very efficient, scalable
+algorithm for solving large linear systems on unstructured
+grids. When solving linear systems derived from systems of
+partial differential equations (PDEs) often a different
+approach is required than for those derived from a scalar
+PDE. There are mainly two approaches, the function approach
+(also known as the ``unknown'' approach), and the nodal or
+``point'' approach. The function approach defines coarsening
+and interpolation separately for each function. The nodal
+approach uses AMG in a block manner, where all variables
+that correspond to the same grid node are coarsened,
+interpolated and relaxed together. While the function
+approach is much easier to implement and often more
+efficient, there are problems for which this approach is not
+sufficient and the more expensive nodal approach is needed.
+
+<P>
+Several parallel implementations of both approaches using
+various coarsening schemes and interpolation operators are
+investigated. Advantages and disadvantages of both
+approaches are discussed, and numerical results are
+presented.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Gugercin</TITLE>
+<META NAME="description" CONTENT="Gugercin">
+<META NAME="keywords" CONTENT="Gugercin">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Gugercin.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Inexact solves in Krylov-based model reduction of large-scale systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Serkan Gugercin 
+<BR>
+Dept.&nbsp;of Mathematics, Virginia Tech. 
+<BR>
+460 McBryde Hall, Blacksburg VA 24061-0123 
+<BR>	<TT>gugercin@math.vt.edu</TT>
+
+</DIV>
+Dynamical systems are the basic framework for modeling and
+control of an enormous variety of complex systems. Direct
+numerical simulation of the associated models has been one
+of the few available means when goals include accurate
+prediction or control of complex physical phenomena.
+However, the ever increasing need for improved accuracy
+requires the inclusion of ever more detail in the modeling
+stage, leading inevitably to ever larger-scale, ever more
+complex dynamical systems.
+
+<P>
+Simulations in such
+large-scale settings can be overwhelming and make
+unmanageably large demands on computational resources, which
+is the main motivation for model reduction. The goal of
+model reduction is to produce a much lower dimensional
+system having the same input/output characteristics as the
+original. Recently, Krylov-based methods have emerged as
+promising candidates for reduction of large-scale dynamical
+systems.
+
+<P>
+The main cost in Krylov-based model reduction
+is due to solving a set of linear systems of the form
+<!-- MATH
+ $(s_o \mathbf{I}_n - \mathbf{A}) \mathbf{v} = \mathbf{b}$
+ -->
+<IMG
+ WIDTH="120" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ (s_o \mathbf{I}_n - \mathbf{A}) \mathbf{v} = \mathbf{b}$">
+where
+<!-- MATH
+ $\mathbf{A}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{A}$"> is an <!-- MATH
+ ${n \times n}$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {n \times n}$"> matrix, <!-- MATH
+ $\mathbf{b}$
+ -->
+<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathbf{b}$"> is an
+<IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ n$">-dimensional vector, <IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ s_0$"> is a complex number called the
+<I>interpolation point</I> and <!-- MATH
+ $\mathbf{I}_n$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathbf{I}_n$"> is the identity
+matrix of size <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ n$">. Since the need for more detail and
+accuracy in the modeling stage causes the system dimension,
+<IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ n$">, to reach levels on the order of millions, direct
+solvers for the linear system
+<!-- MATH
+ $(s_o \mathbf{I}_n - \mathbf{A}) \mathbf{v} = \mathbf{b}$
+ -->
+<IMG
+ WIDTH="120" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ (s_o \mathbf{I}_n - \mathbf{A}) \mathbf{v} = \mathbf{b}$">
+are no longer feasible;
+hence inexact solves need to be employed in Krylov-based
+model reduction.
+
+<P>
+In this talk, we investigate the use of
+inexact solves in a Krylov-based model reduction setting and
+present the resulting perturbation effects on the underlying
+model reduction problem. We show that for a <I>good</I>
+selection of interpolation points, Krylov-based model
+reduction is robust with respect to the perturbations due to
+inexact solves. On the other hand, when the interpolation
+points are <I>poorly</I> selected, these perturbations are
+magnified through the model reduction process. We also
+examine stopping criteria, effective preconditioning, and
+restarting techniques in the particular context of model
+reduction. Finally, we incorporate inexact solves for the
+Krylov-based optimal <!-- MATH
+ ${\cal H}_2$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ {\cal H}_2$"> approximation. The result
+is an effective optimal model reduction algorithm applicable
+in realistic large-scale settings.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

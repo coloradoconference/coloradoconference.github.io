@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Alber</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Parallel coarse grid selection strategies</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">David Alber 
+<BR>
+Siebel Center for Computer Science 
+<BR>
+University of Illinois at Urbana-Champaign 
+<BR>
+201 North Goodwin Avenue, Urbana IL 61801 
+<BR>	<TT>alber@uiuc.edu</TT> 
+<BR>
+Luke Olson
+</DIV>
+<p>
+Traditional coarse grid selection algorithms for algebraic
+multigrid use a strength of connection measure to select
+coarse degrees of freedom. The strength of connection is a
+heuristic used to determine the influences between degrees
+of freedom in M-matrices. Coarsening algorithms using a
+strength of connection are known to select ineffective
+coarse grids for some cases where the operator is not an
+M-matrix. Additionally, these methods do not consider other
+information such as the smoother to be used in the solve
+phase. Alternatively, compatible relaxation selects coarse
+grids without explicitly using a strength of connection
+measure. Instead, a smoother is applied to identify degrees
+of freedom where the smooth error is large. This information
+is then used to select the coarse grid. Recent work on
+compatible relaxation has produced viable serial
+implementations and useful theoretical results. The goal of
+this work is to produce effective and efficient parallel
+compatible relaxation methods. In this talk, parallel
+compatible relaxation implementations will be introduced and
+discussed, along with results from experiments on both
+structured and unstructured problems.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

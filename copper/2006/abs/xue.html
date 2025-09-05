@@ -1,0 +1,99 @@
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A multilevel Newton's method for a two phase mixture model with nonlinear discontinuous degenerate diffusion coefficient</TITLE>
+<META NAME="description" CONTENT="A multilevel Newton's method for a two phase mixture model with nonlinear discontinuous degenerate diffusion coefficient">
+<META NAME="keywords" CONTENT="guangri_abbreviated">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="guangri_abbreviated.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html6"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html7"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1 ALIGN=CENTER>A multilevel Newton's method for a two phase mixture model with nonlinear discontinuous degenerate diffusion coefficient</H1>
+<P ALIGN=CENTER><STRONG>Guangri Xue<A NAME="tex2html1"
+  HREF="footnode.html#foot8"><SUP>1</SUP></A>,  Jinchao Xu<A NAME="tex2html2"
+  HREF="footnode.html#foot9"><SUP>2</SUP></A>, Chao-Yang Wang<A NAME="tex2html3"
+  HREF="footnode.html#foot10"><SUP>3</SUP></A>, Robert Falgout<A NAME="tex2html4"
+  HREF="footnode.html#foot11"><SUP>4</SUP></A></STRONG></P>
+<P ALIGN=LEFT></P>
+
+<P>
+
+<H3>Abstract:</H3>
+<DIV>
+<I>The traditional Newton's method requires certain smoothness of the coefficients of partial differential equations to get local convergence. In this paper, a multilevel Newton's method is developed for a two phase model with nonlinear discontinuous degenerate diffusion coefficient arising in fuel cell applications. A major finding is that the discrete algebraic function after using linear finite element method is lipschitz continuous. Numerical example shows the robustness of this method.</I>
+</DIV>
+<P>
+
+<P>
+Water management is one of the key issues in designing fuel cell devices. Too much water will block the porous gas diffusion layer(GDL) and the surface of catalyst layer of Proton Exchange Membrane Fuel Cell. Too little water will dry out the proton exchange membrane, so it can not conduct the proton. In both cases, the fuel cell will be dead. For good reviews of fuel cell modeling.
+
+<P>
+Wang and co-workers developed a multiphase mixture model which governs multiphase flow in porous media. Compared to traditional multiphase flow model, different phases are considered a single mixture fluid which shares the same physical properties. The multiphase mixture model is based on mixture variables. One of the main advantage is that the interface between single phase zone and two phase zone is not checked explicitly. On the other hand, the numerical challenges come out because of the nonlinear discontinuous degenerate diffusion coefficient when the single phase zone and two phase zone co-exist.   
+
+<P>
+The main theorem in this paper is that the algebraic equation after linear finite element discretization becomes Lipschitz continuous. Newton's method is developed for this Lipschitz continuous problem. When keep refining the grid, discrete problem becomes more and more closer to the continuous level problem which means more difficult to solve. So we choose initial guess from the coarse grid solution which is easy to get compared with fine grid solution because the algebraic system on coarse level is smoother than the one on fine level. In this way, multilevel Newton's method without damping parameter is developed.
+
+<P>
+The rest of paper is organized as follows. In section 2, we will discuss the multiphase mixture model. the smoothing property of discretization scheme is proved in section 3, and simple Picard iteration and the method based on Kirchhoff transformation are presented in section 4 to illustrate the numerical challenges. Numerical results of Multilevel Newton's method in section 5 shows the robustness of this algorithm.  Finally, the concluding remarks and future work are discussed in section 6.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html8"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html6"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html7"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Guangri Xue
+2006-02-20
+</ADDRESS>
+</BODY>
+</HTML>

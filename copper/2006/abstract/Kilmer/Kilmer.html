@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Kilmer</TITLE>
+<META NAME="description" CONTENT="Kilmer">
+<META NAME="keywords" CONTENT="Kilmer">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Kilmer.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A regularized Gauss-Newton method for nonlinear imaging problems 
+<BR>
+in diffuse optical tomography</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Misha Kilmer 
+<BR>
+Mathematics Dept., Tufts Univ. 
+<BR>
+503 Boston Ave.,  Medford MA 02155 
+<BR>	<TT>misha.kilmer@tufts.edu</TT> 
+<BR>
+Eric de Sturler
+
+</DIV>
+The goal in diffuse optical tomography for medical imaging
+is the joint reconstruction of parameterized images of
+absorption and scattering of light in the body. The
+reconstruction requires the approximate solution of a
+nonlinear least squares problem for the image parameters.
+While traditional approaches such as damped Gauss-Newton
+(GN) and Levenberg-Marquardt (LM) have been shown to be
+effective at solving the imaging problem in its various
+forms, a considerable number of additional function and
+Jacobian evaluations are involved in determining the correct
+step length and/or damping parameter. In 3D imaging
+problems, depending on the particular image model, the cost
+of one function evaluation is, at a minimum, the cost of a
+dense matrix-vector product and in the worst, but more
+realistic, case requires the solution of several large-scale
+PDEs. A Jacobian evaluation is even slightly more
+expensive. Therefore, it is crucial to keep the number of
+function and Jacobian evaluations to a minimum.
+
+<P>
+The
+ill-conditioning of the Jacobian, together with the presence
+of noise in the data, motivates us to devise a regularized,
+trust-region-based Gauss-Newton approach for determining
+search directions. Although LM can be thought of as a
+regularized analogue to determining the GN direction, LM has
+the property of damping possibly important contributions to
+the search direction in spectral components corresponding to
+small singular values. On the other hand, the Gauss-Newton
+direction is too influenced by components due to small
+singular values early on, causing the line search to work
+hard to refine the step length. We propose a method that
+systematically evaluates the potential contribution of each
+of the spectral components corresponding to the GN-direction
+and constructs the new direction relative to this
+contribution within the confines of a trust-region. Examples
+show the success of our method in minimizing function
+evaluations with respect to other well-known methods.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

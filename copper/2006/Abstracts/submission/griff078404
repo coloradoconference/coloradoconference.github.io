@@ -1,0 +1,26 @@
+===firstname:
+Josh D
+===firstname3:
+
+===lastname2:
+Kolda
+===postal:
+P.O. Box 969
+MS 9159
+Livermore, CA 94551
+===lastname:
+Griffin
+===lastname3:
+
+===ABSTRACT:
+We will discuss an asynchronous parallel implementation of a
+derivative-free augmented Lagrangian algorithm for handling general
+nonlinear constraints recently proposed by Kolda, Lewis, and Torczon.  The method solves a series of linearly constrained subproblems, seeking to approximately minimize the augmented Lagrangian which involves the nonlinear constraints.  Each subproblem is solved using a generating set search algorithm capable of handling degenerate linear constraints.  We use APPSPACK to solve the linearly-constrained subproblems, enabling the objective and nonlinear constraint functions to be computed asynchronously in parallel.  A description and theoretical analysis of the algorithm will be given followed by numerical results. 
+===email:
+jgriffi@sandia.gov
+===otherauths:
+
+===title:
+An asynchronous parallel derivative-free algorithm for handling general constraints 
+===firstname2:
+Tamara G

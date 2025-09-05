@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lapenta</TITLE>
+<META NAME="description" CONTENT="Lapenta">
+<META NAME="keywords" CONTENT="Lapenta">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Lapenta.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A preconditioned Newton-Krylov strategy for moving mesh adaptation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Giovanni Lapenta 
+<BR>
+MS: K717, Los Alamos National Laboratory 
+<BR>
+Los Alamos NM 87545 
+<BR>	<TT>lapenta@lanl.gov</TT> 
+<BR>
+Luis Chac&#243;n
+
+</DIV>
+We propose a new approach to adaptive mesh motion based on
+solving a coupled self-consistent system for the physics
+equations and for the grid generation equations. The key
+aspect of the new method is the solution of the non-linear
+coupled system with a preconditioned Newton-Krylov method.
+The present work described the approach and focuses on the
+preconditioning techniques.
+
+<P>
+Adaptive grids are becoming
+an ever more common tool for high performance scientific
+computing. We focus here on the type of adaptation achieved
+by moving a constant number of points according to
+appropriate rules, an approach termed moving mesh adaptation
+(MMA). The approach we consider here is based specifically
+on retaining a finite volume approach but allowing the grid
+to evolve in time according to a grid evolution equation
+obtained from minimization principles. The approach
+originates from the seminal papers by Brackbill and
+Saltzmann [1] and by Winslow [2].
+
+<P>
+In the present paper we
+consider the fundamental question in the application of MMA.
+Is it worth the effort? The literature is very rich and
+considerable results have been obtained in designing MMA
+approaches that provide grids that can indeed present the
+desired properties. But the question of whether once the
+adaptive grids are used the simulations are actually more
+cost effective remains largely unanswered.
+
+<P>
+We have
+revisited the question and have reached the conclusion that
+in order to obtain an effective MMA strategy, three
+ingredients need to be considered.
+
+<P>
+First is the effective
+formulation of the moving grid equations. In 1D the problem
+is benign, as error minimization leads to error
+equidistribution and to a rigorous and simple minimization
+procedure. In 2D and 3D the problem is more challenging but
+we have derived an effective approach based on the classic
+approach by Brackbill-Saltzmann-Winslow [1,2]. The crucial
+ingredients of our approach are the formulation of the
+physics equations in a conservative form and of the
+formulation of the grid generation equations using harmonic
+mapping [3,4]. The independent variables of the physics
+equations are changed from the physical to the logical space
+and the equations are rewritten in the logical space in a
+fully conservative form [4].
+
+<P>
+Second is the solution
+algorithm for the MMA method. Here we bring a new
+development. The moving mesh equations and the physics
+equations, derived by discretizing the problem under
+investigation on a moving grid, form a tightly coupled
+system of algebraic non-linear equations. Traditionally, the
+coupling is broken, the physics and grid equations being
+solved separately in a lagged time-splitting approach. Each
+time step is composed of two alternating steps: the physics
+equations are solved on the current grid, the grid equations
+are then solved using new information from the solution of
+the physics equations. However, in presence of sharp fronts
+or other moving features, breaking such coupling can lead to
+grid lagging with respect of the physics equations, with
+adaptation resulting behind rather than on the moving
+feature.
+
+<P>
+We avoid breaking the coupling and solve the
+full non-linear set of physics and grid equation using the
+preconditioned Newton-Krylov (NK) approach [5].
+
+<P>
+Third
+ingredient in a cost-effective grid adaptation is an
+efficient preconditioning technique. In 1D a simple block
+tridiagonal approach works effectively [6]. Each set of
+equations, for physics and for grid generation, is
+preconditioned with a tridiagonal matrix obtained by
+numerically approximating the corresponding diagonals in the
+Jacobian. In 2D, we rely on a multigrid preconditioning
+strategy where a crucial innovation is how to coarsen the
+information relative to the adaptivity in the harmonic grid
+generation equations [4].
+
+<P>
+In the present paper we
+describe the approach followed and we report a number of
+examples to illustrate the performance of the new approach.
+
+<P>
+[1] J.&nbsp;U.&nbsp;Brackbill, J.&nbsp;S.&nbsp;Saltzmann,
+<EM>Adaptive zoning for singular problems in 2 dimensions</EM>,
+J.&nbsp;Comput. Phys. <B>46</B>(3) (1982) 342-368.
+
+<P>
+[2] A.&nbsp;Winslow,
+<EM>Adaptive mesh zoning by the equipotential method</EM>,
+Tech. Rep. UCID-19062, Lawrence Livermore Laboratory (1981).
+
+<P>
+[3] V.&nbsp;D.&nbsp;Liseikin,
+<EM>Grid generation methods</EM>, Springer, Berlin, New York, 1999.
+
+<P>
+[4] L.&nbsp;Chac&#243;n, G.&nbsp;Lapenta,
+<EM>A fully implicit, nonlinear adaptive grid strategy</EM>,
+J.&nbsp;Comput. Phys. <B>212</B> (2006) 703-717.
+
+<P>
+[5] C.&nbsp;T.&nbsp;Kelley,
+<EM>Iterative methods for linear and nonlinear equations</EM>,
+SIAM, Philadelphia, 1995.
+
+<P>
+[6] G.&nbsp;Lapenta, L.&nbsp;Chac&#243;n,
+<EM>Cost-effectiveness of fully implicit moving mesh
+adaptation: a practical investigation in 1D</EM>,
+J.&nbsp;Comput. Phys., submitted.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

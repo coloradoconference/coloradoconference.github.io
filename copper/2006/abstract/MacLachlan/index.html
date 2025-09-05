@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>MacLachlan</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A greedy strategy for coarse-grid selection</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Scott MacLachlan 
+<BR>
+Dept.&nbsp;of Computer Science and Engineering 
+<BR>
+University of Minnesota, 4-192, EE/CS Building 
+<BR>
+200 Union Street SE, Minneapolis MN 55455 
+<BR>	<TT>maclach@cs.umn.edu</TT> 
+<BR>
+Yousef Saad
+</DIV>
+<p>
+In recent years, substantial effort has been focused on
+developing methods capable of solving the large linear
+systems that arise from the discretization of partial
+differential equations. This research has been driven by
+application scientists' demands of higher accuracy, in both
+mathematical modeling and computational solution. Efficient
+solution of many of these linear systems is possible only
+through the use of multilevel solution techniques. While
+highly optimized algorithms may be developed using knowledge
+about the origins of the matrix problem to be considered,
+much current interest is in the development of purely
+algebraic approaches that may be applied in many situations,
+without extensive problem-specific tuning.
+<P>
+In this talk,
+we present a new algebraic approach to finding the
+fine/coarse partitions needed in multilevel approaches. The
+algorithm is motivated by theoretical analysis of the
+performance of algebraic multigrid (AMG) and algebraic
+recursive multilevel solvers (ARMS). From the AMG point of
+view, the coarsening is consistent with the ideas of
+compatible relaxation, while it may also be motivated by the
+algebraic criteria central to ARMS. While no guarantee on
+the rate of coarsening is given, the splitting is shown to
+always yield an effective preconditioner in the two-level
+sense. Numerical performance of two-level and multilevel
+variants of this approach is demonstrated.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+===firstname:
+Rosemary A
+===firstname3:
+Alexandra
+===lastname2:
+Khan
+===postal:
+Department of Mathematics and Statistics
+871804
+Arizona State University
+Tempe, AZ 85287 1804
+===lastname:
+Renaut
+===lastname3:
+Smirnova
+===ABSTRACT:
+
+We extend evaluation  of the iteratively regularized Gauss Newton method for the solution  of the parameter estimation problem in Optical Tomography. The general problem of optical tomography requires the estimation of the underlying model parameters ${\mathbf q}$, for example the coefficient of diffusion $D$ and the coefficient of absorption $\mu_a$, (i.e. ${\mathbf q}=(D,\mu_a)^T$) that belong to a parameter set $Q$. The conditioning of the problem with respect to each parameter set is different. We investigate the use of an alternating parameter decomposition approach for solution of the nonlinear inverse problem with regularization. Contrary to statements on the general nonlinear least squares problem in standard references eg Bjorck 1996 , we find that decomposition with respect to the parameter set allows solution of the regularized problem with the use of appropriately chosen weighting schemes. 
+
+
+\section{Problem Formulation}
+Suppose that ${\mathbf q}$ is obtained as the solution of  the inverse problem :
+\begin{equation}
+-\nabla\cdot D({\mathbf x})\nabla u({\mathbf x};{\mathbf q}) +\mu_a({\mathbf x})u({\mathbf x};{\mathbf q})=s({\mathbf x}),
+	\label{eq:forwardprob}
+\end{equation} 
+for which data $\mathbf g$ are given on the boundary of  domain $\Omega$,  where for ${\mathbf x}$ defined on the domain $\Omega$, $u({\mathbf q})$ is in an appropriate abstract space $H$, and $s$ represents the forcing function, or source.  To find the model parameters ${\mathbf q}$ we seek to minimize the residuals $F_{ij}=C_{ij}-g_{ij}$ where $C_{ij}$ are approximations to $g_{ij}$ over all sources and measurements. This is a typical nonlinear least squares problem 
+\begin{eqnarray}
+{\mathbf q}^* = {\mathrm argmin}{{\mathbf q}}\frac{1}{2}\|F\|_F^2 ={\mathrm argmin}{{\mathbf q}}\frac{1}{2}\sum \limits_{j=1}^{n_m}\sum \limits_{i=1}^{n_s} (C_{ij}(u({\mathbf q}))-g_{ij})^2.
+	\label{eq:nlscost}
+\end{eqnarray} 
+We consider solution of this nonlinear least squares problem accompanied with regularization
+\begin{equation}
+   {\mathbf q}^*  = {\rm argmin}{{\mathbf q}}\frac{1}{2}\|F\|_F^2 + \tau_1 R_1({\mathbf q}_1) +\tau_2 R_2({\mathbf q}_2  ),
+    \label{eq:decreg}
+\end{equation}
+where $R_1$ and $R_2$ could be any  regularization operator and need not be the same in each case, and regularization parameters $\tau_1, \tau_2$ are allowed to be of different scale. This problem was solved in Babushinsky, Khan and Smirnova ( 2005)  using iteratively regularized Gauss-Newton methods, without separation or investigation of the conditioning of  the parameter components. Our results will show the impact of parameter separation and improvements in the algorithm through use of a parameter decomposition approach, motivated by appropriate theoretical considerations 
+
+
+
+===email:
+renaut@asu.edu
+===otherauths:
+
+===title:
+Parameter Decomposition for Iteratively Regularized Gauss Newton Solutions in Optical Tomography
+===firstname2:
+Taufiquar

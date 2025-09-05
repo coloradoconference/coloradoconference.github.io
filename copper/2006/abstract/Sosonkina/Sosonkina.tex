@@ -1,0 +1,140 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Iterative solution techniques for flexible approximation schemes \\
+	in multiparticle simulations}}
+
+	Masha Sosonkina \\
+	Ames Laboratory DOE, 236 Wilhelm Hall \\
+	Ames IA 50011 \\
+	{\tt masha@scl.ameslab.gov} \\
+	Igor Tsukerman, Elena Ivanova, Sergey Voskoboynikov
+\end{center}
+The paper examines various parallel iterative solvers
+for the new Flexible Local Approximation MEthod (FLAME)
+[5,6] applied to colloidal
+systems. The electrostatic potential in such  systems
+can be described, at least for monovalent salts in the
+solvent, by the Poisson-Boltzmann equation
+(see, e.g., [2]).
+Classical Finite-Difference (FD)
+schemes would require unreasonably fine meshes to
+represent the boundaries of multiple spherical
+particles at arbitrary locations with sufficient
+accuracy. In the Finite Element Method, mesh generation
+for a large number of particles becomes impractical.
+The Fast Multipole Method works well only if the
+particle sizes are neglected and the Poisson-Boltzmann
+equation is linearized [1].  Classical
+FD schemes rely on Taylor expansions that break down
+near material interfaces (such as particle boundaries)
+due to the lack of smoothness  of the field. In FLAME,
+Taylor expansions in the vicinity of the particles  are
+replaced with much more accurate approximations.
+Namely, the local FLAME bases are constructed by
+matching (via the boundary conditions) the spherical
+harmonics for the electrostatic potential inside and
+outside the particle;
+see [5,6] for details.
+
+The system matrices of FLAME and classical FD have the
+same sparsity structure for the same grid stencil on a
+regular Cartesian grid; for example, the standard
+seven-point stencil leads to a seven-diagonal matrix.
+However, the FLAME matrix is generally nonsymmetric.
+Several parallel iterative solution techniques have
+been tested with an emphasis on suitable parallel
+preconditioning for the nonsymmetric system matrix. In
+particular, flexible GMRES [3]
+preconditioned with the distributed Schur Complement
+[4] has been considered and
+compared with Additive Schwarz and global incomplete
+ILU(0) preconditionings.  It has been observed that
+Schur Complement preconditioning with a small amount of
+fill and a few inner iterations scales well and
+exhibits good solution times while attaining almost
+linear speedup. The number of iterations and the
+computational time depends only mildly on the Debye
+parameter of the electrolyte.
+
+[1]
+L.~F.~Greengard, J.~Huang,
+{\em A new version of the {Fast Multipole Method}
+for screened {Coulomb} interactions in three
+dimensions}, J.~Comput. Phys. {\bf 180}(23)
+(2002) 642--658.
+
+[2]
+A.~Yu.~Grosberg, T.~T.~Nguyen, B.~I.~Shklovskii,
+{\em Colloquium: The physics of charge inversion
+in chemical and biological systems},
+Reviews of Modern Physics {\bf 74}(2)
+(2002) 329--345.
+
+[3]
+Y.~Saad, {\em Iterative Methods for Sparse Linear
+Systems, 2nd edition}, SIAM (2002) Philadelphia PA.
+
+[4]
+Y.~Saad, M.~Sosonkina, {\em Distributed
+{Schur Complement} techniques for general sparse
+linear systems}, SIAM J.~Sci. Comp. {\bf 21}(4)
+(1999) 1337--1356.
+
+[5]
+I.~Tsukerman, {\em Electromagnetic applications
+of a new finite-difference calculus},
+IEEE Trans. Magn. {\bf 41}(7) (2005) 2206--2225.
+
+[6]
+I.~Tsukerman, {\em A class of difference schemes with
+flexible local approximation}, J.~Comp. Phys.
+{\bf 211}(2) (2006) 659--699.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

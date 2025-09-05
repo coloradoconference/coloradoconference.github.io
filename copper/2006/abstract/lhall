@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for file in *.tex
+do
+
+/usr/local/bin/latex2html $file
+
+done
+/bin/ls -l | more

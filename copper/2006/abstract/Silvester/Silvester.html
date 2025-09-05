@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Silvester</TITLE>
+<META NAME="description" CONTENT="Silvester">
+<META NAME="keywords" CONTENT="Silvester">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Silvester.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Least squares preconditioners for stabilized mixed 
+<BR>
+approximation of the Navier-Stokes equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">David Silvester 
+<BR>
+School of Mathematics, University of Manchester 
+<BR>
+Manchester M60 1QD, UK 
+<BR>	<TT>d.silvester@manchester.ac.uk</TT> 
+<BR>
+Howard Elman, Victoria Howle, John Shadid, Ray Tuminaro
+
+</DIV>
+We consider the Navier-Stokes equations
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+\begin{array}{rcl} -\nu \nabla^2 {\bf u} + ({\bf
+u} \cdot {\rm grad})\, {\bf u} + {\rm grad}\, p &= &{\bf f}
+\\-{\rm div}\, {\bf u} &= &0 \end{array}
+\qquad
+\qquad
+\qquad
+(1)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="384" HEIGHT="45" BORDER="0"
+ SRC="img1.png"
+ ALT="\begin{displaymath}
+\qquad
+\qquad
+\qquad
+\begin{array}{rcl} -\nu \nabla^2 {\bf u...
+...-{\rm div}\, {\bf u} &amp;= &amp;0 \end{array}\qquad
+\qquad
+\qquad
+(1)
+\end{displaymath}">
+</DIV><P></P>
+on
+<!-- MATH
+ $\Omega \subset \mathbb{R}^d$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \Omega \subset \mathbb{R}^d$">, <IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ d=2$"> or <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ 3$">.
+Here, <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\bf u}$">
+is the <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ d$">-dimensional velocity field, which is assumed to
+satisfy suitable boundary conditions on <!-- MATH
+ $\partial \Omega$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \partial \Omega$">,
+<IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ p$"> is the pressure, and <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \nu$"> is the kinematic viscosity,
+which is inversely proportional to the Reynolds number.
+
+<P>
+Linearization and discretization of (1) by finite
+elements, finite differences or finite volumes leads to a
+sequence of linear systems of equations of the form
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+\left[
+\begin{array}{lc} F & \ B^T \\B & -\frac{1}{\nu}C
+\end{array} \right] \begin{bmatrix} {\bf u}\\p
+\end{bmatrix} = \begin{bmatrix} {\bf f}\\g \end{bmatrix}.
+\qquad
+\qquad
+\qquad
+(2)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="290" HEIGHT="45" BORDER="0"
+ SRC="img10.png"
+ ALT="\begin{displaymath}
+\qquad
+\qquad
+\qquad
+\left[
+\begin{array}{lc} F &amp; \ B^T \\ B...
+...in{bmatrix}{\bf f}\\ g \end{bmatrix}.
+\qquad
+\qquad
+\qquad
+(2)
+\end{displaymath}">
+</DIV><P></P>
+These systems, which are the focus of this
+talk, must be solved at each step of a nonlinear (Picard or
+Newton) iteration. Here, <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ B$"> and <IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ B^T$"> are matrices
+corresponding to discrete divergence and gradient operators,
+respectively and <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ F$"> operates on the discrete velocity
+space. For <EM>div-stable</EM> discretizations, <IMG
+ WIDTH="45" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ C=0$">. For
+mixed approximation methods that do not uniformly satisfy a
+discrete inf-sup condition, the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ C$"> is a nonzero <EM>stabilization operator</EM>. Examples of finite element methods
+that require stabilization are the mixed approximations
+using linear or bilinear velocities (trilinear in
+three dimensions) coupled with constant pressures, as well
+as any discretization in which equal order discrete
+velocities and pressures are specified using a common set of
+nodes.
+
+<P>
+The focus of this talk is the Least Squares
+Commutator (LSC) preconditioner developed by Elman, Howle,
+Shadid, Shuttleworth and Tuminaro, and unveiled at the
+Copper Mountain Conference in 2004. This preconditioning
+methodology is one of several choices that are effective for
+Navier-Stokes equations, and it has the advantage of being
+defined from strictly algebraic considerations. The
+resulting preconditioning methodology is competitive with
+the pressure convection-diffusion preconditioner of Kay,
+Loghin and Wathen, and in some cases its performance is
+superior. However, the LSC approach has so far only been
+shown to be applicable to the case where <IMG
+ WIDTH="45" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ C=0$"> in
+(2). In this talk we show
+that the least squares commutator preconditioner can be
+extended to cover the case of mixed approximation that
+require stabilization. This closes a gap in the derivation
+of these ideas, and a version of the method can be also
+formulated from algebraic considerations, which enables the
+fully automated algebraic construction of effective
+preconditioners for the Navier-Stokes equations by
+essentially using only properties of the matrices in
+(2).
+
+<P>
+Our focus in this
+work is on steady flow problems although the ideas discussed
+generalize in a straightforward manner to unsteady flow.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

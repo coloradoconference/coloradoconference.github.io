@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf An algorithmic framework for convex mixed integer nonlinear programs}}
+
+	Andreas W\"achter \\
+	Dept.~of Mathematical Sciences, IBM T.J.~Watson Research Center \\
+	P.O.~Box 218, Yorktown Heights NY 10598 \\
+	{\tt andreasw@watson.ibm.com} \\
+	Pierre Bonami, Lorenz T.~Biegler, Andrew R.~Conn, \\
+	G\'erard Cornu\'ejols, Ignacio E.~Grossmann, Carl D.~Laird, \\
+	Jon Lee, Andrea Lodi, Fran\c{c}ois Margot, Nicolas Sawaya
+\end{center}
+We present a hybrid framework for convex mixed-integer
+nonlinear programming. In one extreme case, the method
+becomes the branch-and-bound approach, where a nonlinear
+optimization problem is solved in each node of the
+enumeration tree, and in the other extreme it reduces to the
+polyhedral outer approximation algorithm, which alternates
+between the solution of a nonlinear optimization problem and
+a mixed-integer linear program.
+
+Numerical results are
+presented, using an open source software implementation
+available on http://www.coin-or.org.
+
+This work results
+from an on-going research collaboration between IBM and CMU.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

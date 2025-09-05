@@ -1,0 +1,75 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Developments in algebraic multigrid preconditioning for \\
+	high-order spectral elements}}
+
+	Luke Olson \\
+	Siebel Center for Computer Science \\
+	University of Illinois at
+	Urbana-Champaign \\ 201 N.~Goodwin Ave., Urbana IL 61801 \\
+	{\tt lukeo@uiuc.edu}
+\end{center}
+In this talk we highlight recent attempts to solve systems
+of equations arising from high-order spectral element
+discretizations. In particular, we extend the success of
+Algebraic Multigrid (AMG) preconditioning on structured
+grids to the unstructured case (using triangles).
+
+ We
+consider high-order nodal spectral elements based on the
+electrostatic distribution. A low-order finite element
+preconditioner is utilized and accelerated with Conjugate
+Gradient. The elements cause a particular challenge as the
+local grids are also unstructured and suffer from poor
+aspect ratios. We present numerical evidence in support of
+this method and discuss the implications of using this
+approach.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

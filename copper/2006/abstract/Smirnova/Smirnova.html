@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Smirnova</TITLE>
+<META NAME="description" CONTENT="Smirnova">
+<META NAME="keywords" CONTENT="Smirnova">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Smirnova.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A family of generalized Gauss-Newton methods for 2D inverse 
+<BR>
+gravimetry problem</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Alexandra Smirnova 
+<BR>
+Dept. of Mathematics and Statistics 
+<BR>
+Georgia State University, 30 Pryor St.,  Atlanta GA 30303 
+<BR>	<TT>smirn@mathstat.gsu.edu</TT>
+
+</DIV>
+We consider a generalized Gauss-Newton's scheme
+<!-- MATH
+ \begin{displaymath}
+x_{n+1}=\xi-\theta(F^{\prime*}(x_n)F'(x_n),\alpha_n)
+F^{\prime*}(x_n)\{F(x_n)-f-F'(x_n)(x_n-\xi)\}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="497" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle x_{n+1}=\xi-\theta(F^{\prime*}(x_n)F'(x_n),\alpha_n)
+F^{\prime*}(x_n)\{F(x_n)-f-F'(x_n)(x_n-\xi)\} $">
+</DIV><P></P>
+for
+solving nonlinear unstable operator equation
+<!-- MATH
+ $\,F(x)=f\,$
+ -->
+<IMG
+ WIDTH="73" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \,F(x)=f\,$"> in a Hilbert space. In case of noisy data
+we propose a novel a posteriori stopping rule <!-- MATH
+ \begin{displaymath}
+||F(x_N)-f_\delta||^2\le \tau \delta <
+||F(x_n)-f_\delta||^2,\quad 0\le n< N,\quad
+\tau >1,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="430" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \vert\vert F(x_N)-f_\delta\vert\vert^2\le \tau \delta &lt;
+\vert\vert F(x_n)-f_\delta\vert\vert^2,\quad 0\le n&lt; N,\quad
+\tau &gt;1, $">
+</DIV><P></P>
+and
+prove a convergence theorem under a source type
+condition on the solution. As a consequence of this
+theorem we obtain convergence rates for five different
+generating functions,
+<!-- MATH
+ $\,\theta=\theta(\lambda,\alpha),\,$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \,\theta=\theta(\lambda,\alpha),\,$"> of a spectral
+parameter <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \lambda$"> and <IMG
+ WIDTH="42" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \alpha&gt;0$">.
+
+<P>
+The new algorithms are tested on the 2D inverse
+gravimetry problem reduced to a nonlinear integral
+equation of the first kind: <!-- MATH
+ \begin{displaymath}
+F(x):=g \,\triangle
+\sigma \int^b_a\int^d_c\left\{
+\frac{1}{[\,(\xi-t)^2+(\nu-s)^2+x^2(\xi,\nu)\,]^{1/2}}
+\right.  \\\left.  -
+\frac{1}{[\,(\xi-t)^2+(\nu-s)^2+h^2\,]^{1/2}}
+\right\}\,d\xi\,d\nu = f(t,s),
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="741" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle F(x):=g \,\triangle
+\sigma \int^b_a\int^d_c\left\{
+\frac{1}{[\,(\...
+...-
+\frac{1}{[\,(\xi-t)^2+(\nu-s)^2+h^2\,]^{1/2}}
+\right\}\,d\xi\,d\nu = f(t,s), $">
+</DIV><P></P>
+where <IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ g$"> is the
+gravitational constant, <!-- MATH
+ $\triangle \sigma$
+ -->
+<IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \triangle \sigma$"> is the
+density jump on the interface, and <IMG
+ WIDTH="45" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ f(t,s)$"> is the
+gravitational strength anomaly.  The results of
+numerical simulations are presented and some practical
+recommendations on the choice of parameters are given.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

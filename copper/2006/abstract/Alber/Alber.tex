@@ -1,0 +1,82 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{center}
+{\large
+{\bf Parallel coarse grid selection strategies}}
+
+	David Alber \\
+	Siebel Center for Computer Science \\
+	University of Illinois at Urbana-Champaign \\
+	201 North Goodwin Avenue, Urbana IL 61801 \\
+	{\tt alber@uiuc.edu} \\
+	Luke Olson
+\end{center}
+Traditional coarse grid selection algorithms for algebraic
+multigrid use a strength of connection measure to select
+coarse degrees of freedom. The strength of connection is a
+heuristic used to determine the influences between degrees
+of freedom in M-matrices. Coarsening algorithms using a
+strength of connection are known to select ineffective
+coarse grids for some cases where the operator is not an
+M-matrix. Additionally, these methods do not consider other
+information such as the smoother to be used in the solve
+phase. Alternatively, compatible relaxation selects coarse
+grids without explicitly using a strength of connection
+measure. Instead, a smoother is applied to identify degrees
+of freedom where the smooth error is large. This information
+is then used to select the coarse grid. Recent work on
+compatible relaxation has produced viable serial
+implementations and useful theoretical results. The goal of
+this work is to produce effective and efficient parallel
+compatible relaxation methods. In this talk, parallel
+compatible relaxation implementations will be introduced and
+discussed, along with results from experiments on both
+structured and unstructured problems.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,92 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A preconditioned L-BFGS algorithm with application to \\
+	protein structure prediction}}
+
+	Lianjun Jiang \\
+	Computer Science, University of Colorado \\
+	Boulder CO 80309-0430 \\
+	{\tt lianjunj@gmail.com} \\
+	Richard Byrd, Elizabeth Eskow, Robert B.~Schnabel
+\end{center}
+The limited-memory BFGS method has been widely used in large
+scale unconstrained optimization problems, including protein
+structure prediction. A major weakness of the L-BFGS method
+is that it may converge very slowly for ill-conditioned
+problems. We propose a preconditioned L-BFGS method, where
+we form the preconditioner from parts of the partially
+separable objective function.
+
+We report results of
+experiments in the context of the protein structure
+prediction problem for four different proteins, using a
+protein energy model as the objective function and multiple
+initial configurations for each protein. The results show
+speed-ups with factors between 3 and 10 in terms of function
+evaluations and with factors between 2 and 7 in terms of CPU
+time. The difference between CPU time and function
+evaluation speed-up is due to the extra overhead of
+calculating and applying the preconditioner. We also compare
+our results to a method from the other competitive class of
+large-scale methods, preconditioned truncated Newton method
+(TNPACK). The limited results indicate that the
+preconditioned L-BFGS method may be more efficient.
+
+We
+also tried this approach in a more general context, using
+limited memory with an incomplete Cholesky factorization of
+the Hessian as a preconditioner. We compared the performance
+with the truncated Newton algorithm TRON, which uses a
+similar preconditioner. Tested on a subset of the CUTER test
+problems, our results show that, using this preconditioner,
+the preconditioned LBFGS method is competitive with TRON and
+much better than the LBFGS algorithm without preconditioner.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,30 @@
+===firstname:
+Kelly I.
+===firstname3:
+I. C. F.
+===lastname2:
+Kelley
+===postal:
+243 Harrelson Hall 
+Campus Box 8205 
+North Carolina State University 
+Raleigh, NC 27695
+===lastname:
+Dickson
+===lastname3:
+Ipsen
+===ABSTRACT:
+Numerical continuation is the process of solving nonlinear equations of the form 
+\[G(x,\lambda)=0\] 
+for various real number parameter values, $\lambda$.  The obvious approach, called natural parameterization, is to perturb $\lambda$ with each continuation step and find the corresponding solution $x$ via a nonlinear solver (Newton's method).  While this approach is reasonable for paths containing only regular points (points $(x,\lambda)$ where the Jacobian matrix of $G$ is nonsingular), the approach breaks down at simple fold points where the Jacobian matrix of $G$ becomes singular and Newton's method fails.  In order to remedy this, one may implement pseudoarclength continuation (PAC) which introduces a new parameter based on the arclength $s$ of the solution path.  In order to implement PAC, one converts the old problem $G(x,\lambda)=0$ to a new problem 
+\[F(x(s),\lambda(s))=0.\]  
+Using PAC on the new problem requires the Jacobian matrix of $F$, $F'$, which ought to be nonsingular at both regular points and simple folds if we have indeed bypassed the problem that natural parameterization presents.  While the nonsingularity of $F'$ at regular points and simple folds is a known fact, we present a theorem that gives conditions under which $F'$ is uniformly nonsingular for a path containing simple folds.  We do this by bounding the smallest singular value of $F'$ from below.  The theorem justifies the use of PAC in a practical way for solution curves containing nothing ``worse'' than a simple fold.  
+
+===email:
+kidickso@unity.ncsu.edu
+===otherauths:
+I. G. Kevrekidis
+===title:
+Uniformly Well-Conditioned Pseudo-Arclength Continuation
+===firstname2:
+C.T.

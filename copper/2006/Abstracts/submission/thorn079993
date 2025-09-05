@@ -1,0 +1,34 @@
+===firstname:
+Heidi K.
+===firstname3:
+
+===lastname2:
+Sorensen
+===postal:
+Sandia National Laboratories
+P.O. Box 5800, MS 0316
+Albuquerque, NM  87185-0316
+
+===lastname:
+Thornquist
+===lastname3:
+
+===ABSTRACT:
+Arnoldi's method is often used to compute a few eigenvalues and 
+eigenvectors of large, sparse matrices.  When the eigenvalues of interest are not dominant or well-separated, this method may suffer from slow convergence.  Spectral transformations are a common acceleration technique that address this issue by introducing a modified eigenvalue problem that is easier to solve than the original.  This modified problem accentuates the eigenvalues of interest, but requires solving a linear system, which is
+computationally expensive for large-scale eigenvalue problems.
+
+In this talk we will show how this expense can be reduced through a preconditioning scheme that uses a fixed-polynomial operator to approximate the spectral transformation. Three different constructions for a fixed-polynomial operator are derived from some
+common iterative methods for non-Hermitian linear systems.
+The implementation details and numerical behavior of these three operators are compared. Numerical experiments will be presented demonstrating that this preconditioning scheme is a competitive approach for solving large-scale eigenvalue problems.  The results  
+illustrate the effectiveness of this technique using several practical eigenvalue problems from science and engineering ranging from hundreds to more than a million unknowns.
+
+===email:
+hkthorn@sandia.gov
+===otherauths:
+
+===title:
+Fixed-Polynomial Approximate Spectral Transformations for
+Preconditioning the Eigenvalue Problem
+===firstname2:
+Danny C.

@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chad Westphal \\
+{\bf A Least-Squares Finite Element Method for Viscoelastic Flow.}}
+
+Department of Mathematics \\ Wabash College \\ 300 W Wabash Ave \\ Crawfordsville \\ IN 47933
+\\
+{\tt westphac@wabash.edu}\end{center}
+
+The equations describing viscoelastic fluid flow are inherently nonlinear
+and pose a continuing challenge to most numerical approximation methods.
+Even the addition of a small component of elastic behavior to Newtonian
+fluid can introduce instabilities. In this talk we present progress
+toward a multilevel least-squares finite element method for steady
+viscoelastic fluid flow of Oldroyd-B type. Our approach is to combine an
+outer iteration consisting of linearization steps on a nested sequence of
+grids with an inner iteration of a least-squares finite element
+discretization and algebraic multigrid linear solver. One of the
+challenges arising from this system is in treating the convective nature
+of the constitutive equation. We discuss an analogous, but simplified,
+problem that illustrates the difficulties, and suggest a strategy for
+least-squares discretizations to treat equations with strong convective
+terms.
+
+
+\end{document}

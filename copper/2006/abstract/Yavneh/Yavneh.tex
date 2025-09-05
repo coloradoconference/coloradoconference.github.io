@@ -1,0 +1,73 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf New algorithms for vector quantization}}
+
+	Irad Yavneh \\
+	Dept.~of Computer Science \\
+	Technion - Israel Institute of Technology, Haifa 32000, Israel \\
+	{\tt irad@cs.technion.ac.il} \\
+	Yair Koren
+\end{center}
+Vector quantization is the classical problem of representing
+continuum with only a finite number of representatives or
+representing an initially rich amount of discrete data with
+a lesser amount of representatives. This problem has
+numerous applications. The objective of achieving a
+quantization with minimal distortion leads to a hard
+non-convex optimization problem, typically with many local
+minima. The main problem is thus to find an initial
+approximation that is close to a ``good'' local minimum.
+Once such an approximation is found, the well-known
+Lloyd-Max iterative algorithm may be used to converge to the
+nearby a local minimum. In this talk we will describe the
+problem and present two new approaches to its approximate
+solution.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

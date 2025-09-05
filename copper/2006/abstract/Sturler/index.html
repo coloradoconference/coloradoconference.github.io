@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>de Sturler</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>The convergence of Krylov subspaces methods with recycling</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Eric de Sturler 
+<BR>
+Department of Mathematics, 460 McBryde 
+<BR>
+Virginia Tech, Blacksburg VA 24061-0123 
+<BR>        <TT>sturler@vt.edu</TT> 
+<BR>
+Michael L.&nbsp;Parks 
+<BR>
+</DIV>
+<p>
+<p>
+Many problems in science and engineering require the
+solution of a long sequence of linear systems, with small
+changes from one matrix to the next but substantial changes
+over multiple systems.  We are particularly interested in
+cases where both the matrix and the right hand side change
+and systems are not available simultaneously.  Such
+sequences arise in time-dependent iterations, nonlinear
+systems of equations and optimization, (distributed)
+parameter identification and inverse problems, and many
+other problems.
+<P>
+In recent papers [1,2,3] we have proposed methods to
+recycle selected subspaces from the Krylov spaces generated
+for previous linear systems to improve the convergence of
+subsequent linear systems.  In this presentation, we
+discuss several important convergence issues:
+<UL>
+<LI>the convergence of Krylov methods
+that recycle approximate solution spaces, approximate
+invariant subspaces, and other relevant spaces,
+</LI>
+<LI>the relevant perturbation theory for the spaces
+mentioned above for sequences of matrices arising in a
+range of applications,
+</LI>
+<LI>how fast our proposed methods learn to adapt to a
+changing problem.
+</LI>
+</UL>
+We provide experimental
+results for a range of problems from tomography, nonlinear
+mechanics, large-scale design optimization, and statistical
+mechanics.
+<P>
+[1] Michael L. Parks, Eric de Sturler, Greg Mackey, Duane
+D. Johnson, and Spandan Maiti,
+<EM>Recycling Krylov Subspaces for Sequences of Linear
+Systems</EM>, SIAM Journal on Scientific Computing
+(accepted with minor revisions), 2006, available as
+Tech. Report UIUCDCS-R-2004-2421, March 2004, from
+<code>http://www-faculty.cs.uiuc.edu/~sturler</code>.
+<P>
+[2]
+Misha Kilmer and Eric de Sturler,
+<EM>Recycling Subspace Information for Diffuse Optical
+Tomography</EM>,
+SIAM Journal on Scientific Computing (accepted for
+publication),
+2006, available from
+<code>http://www-faculty.cs.uiuc.edu/~sturler</code>.
+<P>
+[3]
+Shun Wang, Eric de Sturler, and Glaucio H. Paulino,
+<EM>Large-Scale Topology Optimization using Preconditioned
+Krylov Subspace Methods with Recycling</EM>,
+International Journal for Numerical Methods in
+Engineering (submitted), 2006,
+available as Technical Report UIUCDCS-R-2006-2678
+from
+<code>http://www-faculty.cs.uiuc.edu/~sturler</code>.
+</BODY>
+</HTML>

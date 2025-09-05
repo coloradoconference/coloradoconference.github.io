@@ -1,0 +1,106 @@
+===firstname:
+Giovanni
+===firstname3:
+
+===lastname2:
+Chac\'on
+===postal:
+MS: K717
+Los Alamos National Laboratory
+Los Alamos NM87545
+===lastname:
+Lapenta
+===lastname3:
+
+===ABSTRACT:
+
+We propose a new approach to adaptive mesh motion based on solving a
+coupled self-consistent system for the physics equations and for the
+grid generation equations. The key aspect of the new method is the
+solution of the non-linear coupled system with a preconditioned
+Newton-Krylov method. The present work described the approach and
+focuses on the preconditioning techniques.
+
+Adaptive grids are becoming an ever more common tool for high performance
+scientific computing. We focus here on the type of adaptation achieved
+by moving a constant number of points according to appropriate rules,
+an approach termed moving mesh adaptation (MMA). The approach we consider
+here is based specifically on retaining a finite volume approach but
+allowing the grid to evolve in time according to a grid evolution
+equation obtained from minimization principles.
+
+In the present paper we consider the fundamental question in the application
+of MMA. Is it worth the effort? The literature is very rich and considerable
+results have been obtained in designing MMA approaches that provide
+grids that can indeed present the desired properties. But the question
+of whether once the adaptive grids are used the simulations are actually
+more cost effective remains largely unanswered.
+
+We have revisited the question and have reached the conclusion that
+in order to obtain an effective MMA strategy, three ingredients need
+to be considered.
+
+First is the effective formulation of the moving grid equations. In
+1D the problem is benign, as error minimization leads to error
+equiditribution and to a rigorous and simple minimization procedure.
+In 2D and 3D the problem is more challenging but we have derived an
+effective approach based on the classic approach by
+Brackbill-Saltzmann-Winslow~\cite{brackbill-jcp-82-adgrid}.
+The crucial ingredients of our approach are the formulation of the
+physics equations in a conservative form and of the formulation of
+the grid generation equations using harmonic
+mapping~\cite{chacon-lapenta}. The independent
+variables of the physics equations are changed from the physical to
+the logical space and the equations are rewritten in the logical
+space in a fully conservative form~\cite{chacon-lapenta}.
+
+Second is the solution algorithm for the MMA method. Here we bring
+a new development. The moving mesh equations and the physics equations,
+derived by discretizing the problem under investigation on a moving
+grid, form a tightly coupled system of algebraic non-linear equations.
+Traditionally, the coupling is broken, the physics and grid equations
+being solved separately in a lagged time-splitting approach. Each
+time step is composed of two alternating steps: the physics equations
+are solved on the current grid, the grid equations are then solved
+using new information from the solution of the physics equations.
+However, in presence of sharp fronts or other moving features, breaking
+such coupling can lead to grid lagging with respect of the physics
+equations, with adaptation resulting behind rather than on the moving
+feature.
+
+We avoid breaking the coupling and solve the full non-linear set of
+physics and grid equation using the preconditioned Newton-Krylov (NK)
+approach.
+
+Third ingredient in a cost-effective grid adaptation is an efficient
+preconditioning technique. In 1D a simple block tridiagonal approach
+works effectively~\cite{lapenta-chacon}. Each set of equations, for
+physics and for grid generation, is preconditioned with a
+tridiagonal matrix obtained by numerically approximating the
+corresponding diagonals in the Jacobian. In 2D, we rely on a
+multigrid preconditioning strategy where a crucial innovation is how
+to coarsen the information relative to the adaptivity in the
+harmonic grid generation equations~\cite{chacon-lapenta}..
+
+In the present paper we describe the approach followed and we report
+a number of examples to illustrate the performance of the new
+approach.
+
+\begin{thebibliography}{10}
+\bibitem{brackbill-jcp-82-adgrid}J.~U. Brackbill, J.~S. Saltzman, Adaptive zoning for singular problems
+in 2 dimensions, J. Comput. Phys. 46~(3) (1982) 342--368.
+\bibitem{chacon-lapenta}L.~Chac\'{o}n, G.~Lapenta, A fully implicit, nonlinear adaptive
+grid strategy, J. Comput. Phys., 212 (2006) 703--717.
+\bibitem{lapenta-chacon}G.~Lapenta, L.~Chac\'{o}n, Cost-e®ectiveness of fully implicit moving
+mesh adaptation: a practical investigation in 1D, J. Comput. Phys.,
+submitted.
+\end{thebibliography}
+
+===email:
+lapenta@lanl.gov
+===otherauths:
+
+===title:
+A Preconditioned Newton-Krylov Strategy for Moving Mesh Adaptation
+===firstname2:
+Luis

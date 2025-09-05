@@ -1,0 +1,71 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Cascadic multigrid algorithms for the solution of Helmholtz equations}}
+
+	Yuriy Gryazin \\
+	Dept.~of Mathematics, Campus Box 8085 \\
+	Idaho State University, Pocatello ID 83209 \\
+	{\tt gryazin@isu.edu} \\
+	Evgueni Gordienko
+\end{center}
+In most scenarios, traditional multigrid methods fail to
+converge in the case of the Helmholtz equation with
+relatively large wave numbers. One approach for tackling
+this problem is to use a Krylov type algorithm both as a
+smoother and as an outer iteration method in the multigrid
+cycles. In this presentation, we extend this methodology to
+the iteration methods based on the cascadic principle. Such
+algorithms are usually referred to as one-way multigrid
+methods. We consider an adaptive control strategy for the
+number of iterations on successive refinement levels and
+present numerical results that illustrate the efficiency of
+the proposed approach.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

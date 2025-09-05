@@ -1,0 +1,78 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Interpolation operators for algebraic multigrid by local optimization}}
+
+	Clark R.~Dohrmann \\
+	Sandia National Laboratories, Mail Stop 0847 \\
+	Albuquerque NM 87185-0847 \\
+	{\tt crdohrm@sandia.gov}
+\end{center}
+An approach is presented to construct the interpolation
+operators of algebraic multigrid (AMG) based on solving a
+series of local optimization problems. Given a set of coarse
+nodes, the approach first attempts to maximize the support
+of these nodes without introducing additional nonzeros in
+the stiffness matrix of the next coarser level. By doing so,
+it is possible to reduce the energy of coarse interpolations
+without increasing operator complexity.
+
+The local
+optimization problems are formulated in such a way that the
+problem null space can be represented exactly at each
+multigrid level. In addition, a condition ensuring
+nonsingularity of a local matrix highlights the need for
+special considerations when the null space dimension exceeds
+the number of unknowns for each node. Numerical examples for
+the Poisson equation and linear elasticity demonstrate the
+effectiveness of the approach and the optimal performance of
+an ensuing AMG preconditioner. Connections with element-free
+AMGe are also described.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michele Benzi \\
+{\bf An Augmented Lagrangian Approach for the Oseen Problem}}
+
+Department of Mathematics and Computer Science \\ Emory University \\ 400 Dowman Drive \\ Atlanta \\ GA 30322
+\\
+{\tt benzi@mathcs.emory.edu}\\
+Maxim A. Olshanskii\end{center}
+
+We describe an effective solver for the discrete Oseen problem
+based on an augmented Lagrangian formulation of the corresponding
+saddle point system. The proposed method is a block triangular
+preconditioner used with a Krylov subspace iteration (BiCGStab).
+The crucial ingredient is a novel multigrid approach for the (1,1)
+block, which extends a technique introduced by Sch\"oberl for
+elasticity problems to nonsymmetric problems. Our analysis indicates
+that this approach results in fast convergence, independent of
+the mesh size and largely insensitive to the viscosity.
+We present experimental evidence for both isoP2-P0 and isoP2-P1
+finite elements in support of our conclusions. We also show
+results of a comparison with a state-of-the-art coupled multigrid
+solver, showing the competitiveness of our approach.
+
+
+\end{document}

@@ -1,0 +1,160 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Craig C. Douglas \\
+{\bf Actually Doing Dynamic Data-Driven Application Simulations (in 4 Parts)}}
+
+University of Kentucky \\ Computer Science Department \\ 773 Anderson Hall \\ Lexington \\ KY 40506-0046 and \\ Yale University \\ Computer Science Department \\ P O Box 208285 \\ New Haven \\ CT 06520-8285
+\\
+{\tt douglas-craig@cs.yale.edu}\\
+Jan Mandel\\
+Janice Coen\\
+	Johnson, Chris R.
+	Parker, Steve G.\end{center}
+
+Actually Doing Dynamic Data-Driven Application Simulations
+
+Craig C. Douglas, University of Kentucky and Yale University\\
+Chris R. Johnson, University of Utah\\
+Janice Coen, National Center for Atmospheric Research\\
+Jan Mandel, University of Colorado at Denver
+
+This is a four part talk to introduce DDDAS concepts before the Wednesday
+night workshop. If it could be scheduled Wednesday afternoon, after the
+ski break, this would be ideal. Two of the speakers have to teach on
+Tuesday afternoon.
+
+Part I: Introduction to DDDAS and Its Impact on High Performance Computing Environments
+
+Craig C. Douglas
+
+DDDAS is a paradigm whereby an application (or simulation) and
+measurements become a symbiotic feedback control system. DDDAS entails
+the ability to dynamically incorporate additional data into an executing
+application, and in reverse, the ability of an application to dynamically
+steer the measurement process. Such capabilities promise more accurate
+analysis and prediction, more precise controls, an d more reliable
+outcomes. The ability of an application to control and guide the
+measurement process and determine when, where, and how it is best to
+gather additional data has itself the potential of enabling more
+effective measurement methodologies. Furthermore, the incorporation of
+dynamic inputs into an executing application invokes new system
+modalities and helps create application software systems that can more
+accurately describe real world, complex systems. This enables the
+development of applications that intelligently adapt to evolving
+conditions and that infer new knowledge in ways that are not
+predetermined by the initialization parameters and initial static data.
+
+DDDAS creates a rich set of new challenges for applications, algorithms,
+systems software, and measurement methods. DDDAS research typically
+requires strong, systematic collaborations between applications domain
+researchers and mathematics, statistics, and computer sciences
+researchers, as well as researchers involved in the design and
+implementation of measurement methods and instruments. Consequently, most
+DDDAS projects involve multidisciplinary teams of researchers.
+
+In addition, DDDAS enabled applications run in a different manner than
+many traditional applications. They place different strains on high
+performance systems and centers. In this talk, we will also categorize
+some of these differences.
+
+
+Part 2: Problem Solving Environments for DDDAS
+
+Chris R. Johnson and Steve Parker
+
+One of the significant challenges for DDDAS is to create software
+infrastructure and tools that help DDDAS researchers tackle the
+multidisciplinary, often large-scale, dynamically coupled problems
+described in the previous presentation.
+
+DDDAS problems often require using multiple software frameworks and
+packages, which leads to the significant software architecture challenge
+of integrating and providing interoperability of different software
+frameworks, packages, and libraries. Our approach to this challenge is to
+create software "bridges" using a meta-component model that allows the
+user to easily connect one software framework or package to another.
+
+The new system (currently called SCIRun2, but that will change very soon)
+support the entire life cycle of scientific applications by allowing
+scientific programmers to quickly and easily develop new techniques,
+debug new implementations, and apply known algorithms to solve novel
+problems. SCIRun2 also contain many powerful visualization algorithms for
+scalar, vector, and tensor field visualization, as well as image
+processing tools.
+
+In this presentation, we will provide examples of DDDAS software integration.
+
+
+Part 3: The Impact of DDDAS on Wildland Fire Modeling and Fire Front Tracking
+
+Janice Coen and Jan Mandel
+
+In this talk, we will describe an application to which DDDAS concepts are
+being applied. Wildland fire modeling involves a numerical weather
+prediction model that is two-way coupled to a fire behavior model, so
+that the fire can create its own weather. This is an extremely
+challenging computational problem with limited predictability because of
+the uncertainty in fire behavior in addition to uncertainties in weather
+modeling. It is also difficult to obtain observations near a wildfire.
+Thus, DDDAS concepts have great potential in advancing this area. In this
+work, we will describe techniques we have been applying to introduce
+DDDAS concepts into what was a traditional modeling approach. We define a
+novel partial differential equation based model for wildland fires
+instead of the usual stochastic based model. We will show where a DDDAS
+approach can provide a breakthrough in fire front tracking that can be
+transmitted to the people on the mountainsides through both computational
+science and high tech advances.
+
+
+Part 4: Out of Time Order Kalman Filtering for DDDAS Data Assimilation
+
+Jan Mandel and Jonathan Beezeley
+
+We present the basic principles of data assimilation by ensemble
+filtering. These methods run a collection of randomly perturbed
+simulations, called an ensemble. From time to time, the ensemble is
+modified by creating linear combinations found by solving a least squares
+problem to match the data. We describe new developments needed to
+accommodate strongly nonlinear wildfire models and sparse data. The new
+methods include Tikhonov-like regularization in a Bayesian probabilistic
+framework and new hybrid deterministic/stochastic ensemble methods for
+non-Gaussian distributions, based on the theory of probability measures
+on Soboles spaces. We also discuss a space-time ensemble approach to
+assimilate data arriving out of order.
+
+
+Wednesday Night, April 5 Workshop on Dynamic Data Driven Liquid Flows
+
+Craig C. Douglas, University of Kentucky and Yale University
+Chris R. Johnson, University of Utah
+Janice Coen, National Center for Atmospheric Research
+Jan Mandel, University of Colorado at Denver
+
+This workshop will be strictly hands on. It will introduce DDDAS
+techniques (see http://www.dddas.org) including dynamic modeling, errors,
+sensor operation, and the symbiotic relations between the sensors and the
+application.
+
+We will simulate the level of a liquid in media that is porous in one
+boundary edge only and design from scratch an algorithm to maintain it at
+a fixed level on average even though the liquid is disappearing through
+the open boundary using a random step function.
+
+We will develop convergence results initially using a semi-direct method,
+but some of the participants may end up with a random walk by the end of
+the workshop. We will iterate on the liquid problem until we develop a
+fast iterative (and convergent) algorithm that we have thoroughly tested.
+We will use the data from experiments to drive the entire methodology and
+the algorithms will drive how and when data is collected.
+
+This workshop will be held in one of the local watering holes, not in the
+conference center. Sensor oversight and correction will be provided at
+the tables.
+
+
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Blue Gene/L impacting computational science and engineering}}
+
+	Kirk E.~Jordan \\
+	IBM Strategic Growth Business/Deep Computing \\
+	1 Rogers St, Cambridge MA 02142 \\
+	http://www-3.ibm.com/software/info/university/people/kjordan.html \\
+	{\tt kjordan@us.ibm.com}
+\end{center}
+One year has passed and Blue Gene has been placed at several
+sites, many of which have a computational science component
+that involves iterative methods. In this talk, I will review
+some of the results obtained at some of these sites. I will
+elaborate on work underway with collaborators and colleagues
+in the area of computational science. For those unfamiliar
+with the Blue Gene System, I will very briefly describe the
+hardware and software environment.
+
+I will describe how
+Blue Gene might be used to tackle multi-scale problems, many
+of which will need good parallel iterative solvers. While
+progress is being made, there remain many challenges for the
+computational science community to apply the Blue Gene
+resource to Big science problems with impact on society that
+until now or in current implementations have fallen short of
+the mark. Finally, I will elaborate on opportunities that
+exist for the community to get access to Blue Gene.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

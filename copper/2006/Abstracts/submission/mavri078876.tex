@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dimitri Mavriplis \\
+{\bf Solution of High-Order Discontinuous Galerkin Methods using a combined h-p Multigrid Approach}}
+
+Department of Mechanical Engineering \\ Dept 3295 \\ University of Wyoming \\ 1000E University Ave \\ Laramie WY 82071
+\\
+{\tt mavripl@uwyo.edu}\\
+Cris Nastase\\
+Li Wang\end{center}
+
+The development of optimal, or near optimal solution strategies for
+higher-order discretizations, including steady-state solutions
+methodologies, and implicit time integration strategies,
+remains one of the key determining factors in devising higher-order
+methods which are not just competitive but superior to lower-order
+methods in overall accuracy and efficiency. The goal of this work is to
+investigate and develop a fast and robust algorithm for the solution of
+high-order accurate discontinuous Galerkin discretizations of non-linear
+systems of conservation laws on unstructured grids.
+We develop a spectral multigrid method, whereby the coarse
+``grid" levels are constructed by reducing the order ($p$)
+of approximation of the discretization using hierarchical basis
+functions($p$-multigrid), keeping the grid elements fixed.
+This approach is coupled with a traditional agglomeration multigrid
+($h$-multigrid) approach for unstructured grids, by constructing
+additional coarse levels at the lowest ($p=0$) spectral level through
+element agglomeration. The overall goal is the
+development of a solution algorithm which delivers convergence rates
+which are independent of ``$p$" (the order of accuracy of the
+discretization) and independent of ``$h$" (the degree of mesh
+resolution), while minimizing the cost of each iteration.
+The investigation of efficient smoothers to be used at each
+level of the multigrid algorithm is also pursued, and comparisons
+between different integration strategies are made as well.
+
+
+\end{document}

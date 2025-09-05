@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew Canning \\
+{\bf New Iterative Eigensolvers and Preconditioners for Electronic Structure Calculations in Nano and Materials Science}}
+
+LBNL MS-50F \\ One Cyclotron Road \\ Berkeley \\ CA94720
+\\
+{\tt acanning@lbl.gov}\\
+Julien Langou\\
+Christof Voemel\\
+	Osni Marques, Stanimire Tomov, Gabriel Bester, Lin-Wang Wang \end{center}
+
+Density functional based electronic structure calculations
+have become the most heavily used approach in materials science to
+calculate materials properties with the accuracy of a full quantum
+mechanical treatment of the electrons. This approach results in a
+single particle form of the Schrodinger equation which is a non-linear
+eigenfunction problem. The standard selfconsistent solution of this problem
+involves solving for the lowest eigenpairs corresponding to the electrons in
+the system. In non-selfconsistent formulations the problem becomes one of
+determining the interior eigenpairs corresponding to the electrons of interest
+which are typically around the gap in the eigenvalue spectrum for non-metallic systems.
+In this talk I will present results for new iterative eigensolvers based on conjugate
+gradients (the LOBPCG method) in the context of plane wave electronic
+structure calculations.
+This new method gives significant speedup over existing conjugate gradient methods
+used in electronic structure calculations. I will also
+present results for a new preconditioner based on first solving the bulk structure
+corresponding to a given nanosystem and then using that as a
+preconditioner to solve the nanosystem.
+This new preconditioner gives significant speedup compared to previously
+used preconditioners
+based on the diagonal of the matrix. These new methods will be demonstrated for
+CdSe quantum dots as well as quantum wires constructed from layers of InP and InAs.
+(This work was supported by the Director, Office of
+Advanced Scientific Computing Research, Division of Mathematical,
+Information and Computational Sciences of the U.S. Department
+of Energy and the Laboratory Directed Research and Development
+Program of Lawrence Berkeley National Laboratory
+under contract number DE-AC03-76SF00098)
+
+
+\end{document}

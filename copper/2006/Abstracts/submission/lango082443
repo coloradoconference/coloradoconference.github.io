@@ -1,0 +1,40 @@
+===firstname:
+Julien 
+===firstname3:
+
+===lastname2:
+
+===postal:
+1122 Volunteer Blvd, Claxton Bldg. Room 233.
+Knoxville, TN 37996-3450
+===lastname:
+LANGOU
+===lastname3:
+
+===ABSTRACT:
+
+The year 2005 have been marked by two new papers on the Classical Gram-Schmidt algorithm (see [1,2]).  These results offer a better understanding of the Classical Gram-Schmidt algorithm.  It is finally proved that the Classical Gram-Schmidt algorithm generates a loss of orthogonality bounded by the square of the condition number of the initial matrix.  In the first part of the talk,
+I will quickly review the proof, explain its key points and its implication in the context of iterative methods. In the second part, I will focus on the new results that we have found related to the Classical Gram-Schmidt algorithm. In particular an a-posteriori reorthogonalization scheme extremely efficient is given in the context of iterative methods. (We borrow ideas developped in [3] in the context of GMRES-MGS.)
+
+
+\begin{itemize}
+\item A. Smoktunowicz and J. Barlow (2005).
+A note on the error analysis of Classical Gram Schmidt.
+Submitted to Numerische Mathematik.
+http://www.cse.psu.edu/~barlow/cgs_numermath.pdf
+\item Luc Giraud, Julien Langou, Miroslav Rozlo\v{z}n\'{\i}k, and Jasper van den Eshof.
+Rounding error analysis of the classical Gram-Schmidt orthogonalization process.
+Numerische Mathematik, 101(1):87-100, July 2005.
+\item Luc Giraud, Serge Gratton, and Julien Langou.
+A rank-$k$ update procedure for reorthogonalizing the orthogonal factor from modified Gram-Schmidt.
+SIAM J. Matrix Analysis and Applications, 25(4):1163-1177, August 2004.
+\end{itemize}
+===email:
+langou@cs.utk.edu
+===otherauths:
+
+===title:
+A fast a-posteriori reorthogonalization scheme for the Classical Gram-Schmidt orthogonalization in the context of iterative methods
+
+===firstname2:
+

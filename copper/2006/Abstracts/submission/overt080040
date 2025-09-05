@@ -1,0 +1,48 @@
+===firstname:
+Michael
+===firstname3:
+
+===lastname2:
+
+===postal:
+Courant Institute
+251 Mercer St
+New York
+NY 10012
+===lastname:
+Overton
+===lastname3:
+
+===ABSTRACT:
+Theory: there are two standard approaches to generalizing derivatives
+to nonsmooth, nonconvex optimization: the Clarke subdifferential (or
+generalized gradient), and the MIRW subdifferential (or subgradient sets),
+as expounded in Rockafellar and Wets (Springer, 1998).  We briefly discuss
+these and mention their advantages and disadvantages.  They coincide for
+an important class of functions: those that are locally Lipschitz and regular,
+which includes continuously differentiable functions and convex functions.
+
+Algorithms: the usual approach is bundle methods, which are complicated.
+We describe some alternatives: BFGS (a new look at an old method), and
+Gradient Sampling (a simply stated method that, although computationally
+intensive, has solved some previously unsolved problems and has a nice
+convergence theory).
+
+Applications: these abound in control, but surely in other areas too.
+Of particular interest to me are applications involving eigenvalues
+and singular values of nonsymmetric matrices.  Sometimes even
+easily stated problems in a few variables are hard.  Our new code
+HIFOO (H-Infinity Fixed-Order Optimization) is intended for use by
+practicing control engineers and has solved some open problems in control.
+
+This is all joint work with James Burke and Adrian Lewis.
+HIFOO is also joint with Didier Henrion.
+
+===email:
+overton@cs.nyu.edu
+===otherauths:
+
+===title:
+Nonsmooth, Nonconvex Optimization: Theory, Algorithms and Applications
+===firstname2:
+

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Li</TITLE>
+<META NAME="description" CONTENT="Li">
+<META NAME="keywords" CONTENT="Li">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Li.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Towards an automatic and application-based eigensolver selection</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Xiaoye S.&nbsp;Li 
+<BR>
+MS 50F-1650, Lawrence Berkeley National Laboratory 
+<BR>
+1 Cyclotron Rd, Berkeley CA 94720-8139 
+<BR>	<TT>xsli@lbl.gov</TT> 
+<BR>
+Osni Marques, Yeliang Zhang
+
+</DIV>
+The computation of eigenvalues and eigenvectors is an
+important and often time-consuming phase in computer
+simulations. Recent efforts in the development of
+eigensolver libraries have given users good algorithm
+implementations without the need for users to spend much
+time in programming. Yet, given the variety of algorithms
+that are available to domain scientists, choosing the
+``optimal'' algorithm for a particular application is a
+daunting task. In addition, as simulations become
+increasingly sophisticated and larger, it becomes infeasible
+for a user to try out every reasonable algorithm
+configuration in a timely fashion. Therefore, there is a
+need for an automated tool that is able to guide the user
+through the maze of various solvers with different
+configurations.
+
+<P>
+In this talk, we will describe a
+high-end, intelligent sparse eigensolver toolbox, EigAdept,
+which comprises the following components:
+
+<P>
+
+<UL>
+<LI>A uniform and extensible interface for a collection
+of parallel sparse eigensolvers. The collection focuses on a
+class of solvers based on projection methods which are
+amenable to scalable implementations, which include ARPACK
+(implicitly restarted Arnoldi method), BLZPACK (block
+Lanczos method), TRLan (thick-restart Lanczos method), the
+Jacobi-Davidson method and the multi-level sub-structuring
+(AMLS) method. The Arnoldi/Lanczos-based solvers are
+enhanced with shift-and-invert capabilities using the
+scalable sparse direct linear solvers such as SuperLU and
+MUMPS.
+
+<P>
+</LI>
+<LI>An intelligent engine to guide the user
+through the maze of various solvers and to automate the
+process of algorithm selection. To achieve that, a ``history''
+knowledge base (algorithm selection criteria, or decision
+tree) incorporates initial information from our prior
+experience as well as from the literature (e.g., from
+``Templates for the Solution of Algebraic Eigenvalue
+Problems: a Practical Guide'', edited by Bai et al.) The
+contents of the knowledge base are gradually improved as
+more problems are solved, and can be ``adapted'' at runtime
+through the repeated solutions of similar eigensystems from
+a specific application domain. An efficient data analyzer
+takes a user's problem specification at runtime, queries the
+knowledge base, and finds the best match of an algorithm
+configuration with the target problem.
+
+<P>
+</LI>
+<LI>Highly-tuned
+performance-critical kernels for high-end architectures. We
+identify and isolate the performance-critical kernels (e.g.,
+parallel sparse matrix-vector multiplication), and provide
+highly-tuned versions for them. The methodology of automatic
+performance tuning consists of both off-line optimization
+guided by detailed performance model, and on-line
+optimization by running the kernels in the pruned space of
+possible implementations. Furthermore, these tuned kernels
+will be made as standard-alone components, so that they can
+be used directly in any new eigensolver technology, or even
+in other areas of matrix computations.
+</LI>
+</UL>
+
+<P>
+EigAdept is implemented in C++ with Fortran interface. We
+have implemented distinct class structures for eigensolvers,
+linear equation solvers, and matrix types, so that for each
+eigensolver algorithm, we can easily support different
+sparse matrix formats, or use different linear solvers
+internally (e.g., for performing shift-and-invert). We use
+MySQL relational database to facilitate the implementation
+of the intelligent engine. MySQL is a free open source
+database software with a reliable C API. We will illustrate,
+with some case studies, that EigAdept can be a valuable tool
+for users from application domains, as well as for experts
+doing algorithm research.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

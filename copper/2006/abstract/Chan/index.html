@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Lung-Chak Chan</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Preconditioning analysis for weighted
+Toeplitz regularized least squares problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lung-Chak Chan
+<BR>
+Dept. of Mathematics, The University of Hong Kong 
+<BR>
+Pokfulam Road, Hong Kong 
+<BR>	<TT>lungchak@graduate.hku.hk</TT>
+
+</DIV>
+
+<P>
+We consider
+preconditioners for weighted
+Toeplitz regularized least squares (WTRLS) problems
+<!-- MATH
+ \begin{displaymath}
+\min_z \| A z - b \|_2^2
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="102" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min_z \Vert A z - b \Vert _2^2
+$">
+</DIV><P></P>
+where the rectangular coefficient matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$"> and the
+right-hand side vector <IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ b$"> are of the form:
+<!-- MATH
+ \begin{displaymath}
+A =
+\left [
+\begin{array}{c}
+W_1 H \\
+\mu W_2 L \\
+\end{array}
+\right ] \in \mathbb{R}^{(m_{1}+m_{2}) \times m_{1}}
+\quad {\rm and}\quad  b =
+\left [
+\begin{array}{c}
+W_1 f \\
+ 0 \\
+\end{array}
+\right ] \in \mathbb{R}^{m_{1}+m_{2}} \,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="454" HEIGHT="45" BORDER="0"
+ SRC="img4.png"
+ ALT="\begin{displaymath}
+A =
+\left [
+\begin{array}{c}
+W_1 H \\
+\mu W_2 L \\
+\end{ar...
+...\
+0 \\
+\end{array}\right ] \in \mathbb{R}^{m_{1}+m_{2}} \,.
+\end{displaymath}">
+</DIV><P></P>
+Here <!-- MATH
+ $H \in \mathbb{R}^{m_{1} \times m_{1}}$
+ -->
+<IMG
+ WIDTH="94" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ H \in \mathbb{R}^{m_{1} \times m_{1}}$"> is a Toeplitz matrix, <!-- MATH
+ $L
+\in \mathbb{R}^{m_{2} \times m_{1}}$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ L
+\in \mathbb{R}^{m_{2} \times m_{1}}$"> is the first-order or second-order
+difference matrix, <!-- MATH
+ $W_1 \in \mathbb{R}^{m_{1} \times m_{1}}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ W_1 \in \mathbb{R}^{m_{1} \times m_{1}}$"> and <!-- MATH
+ $W_2
+\in \mathbb{R}^{m_{2} \times m_{2}}$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ W_2
+\in \mathbb{R}^{m_{2} \times m_{2}}$"> are non-scalar diagonal matrices
+with real positive entries, <!-- MATH
+ $f \in \mathbb{R}^{m_{1}}$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ f \in \mathbb{R}^{m_{1}}$"> is a given
+right-hand side vector and <IMG
+ WIDTH="42" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mu &gt;0$"> is a regularization parameter.
+
+<P>
+Iterative methods using circulant preconditioners has been proposed 
+since 1980's. 
+The efficiency of solving systems are
+greatly enhanced by these indirect methods.  Since then,
+preconditioners based on circulant matrices were suggested for
+solving the WTRLS problems.  However, most of them do not perform
+satisfactorily and the results of convergence rates can be disappointing.
+
+<P>
+Benzi and Ng 
+considered the above system
+where <IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ W_{2}L$"> is replaced by <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ I$">, and proposed a new approach to
+solve it which is based on an augmented system formulation. We now
+adopt a similar approach that transforms the problem into a
+<!-- MATH
+ $3 \times 3$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ 3 \times 3$"> block linear system.
+
+<P>
+The WTRLS problems turn out to be a quadratic minimization problem, which is equivalent to solving the linear system
+<!-- MATH
+ \begin{displaymath}
+%
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="298" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle %\label{new}
+(H^{T}W_{1}^{-2}H + \mu^{2} L^{T}W_{2}^{-2}L)z = H^{T} W_{1}^{-2} f~.
+$">
+</DIV><P></P>
+
+<P>
+The above linear system can overall be rewritten as the following <!-- MATH
+ $3 \times 3$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ 3 \times 3$"> block system:
+<!-- MATH
+ \begin{displaymath}
+\left[ \begin{array}{ccc} W_{1}^{-2} & 0 & H \\0 & W_{2}^{-2} & \mu L \\H^{T} & \mu L^{T} & 0 \end{array} \right] \left[ \begin{array}{c} x \\y \\z \end{array} \right] = \left[ \begin{array}{c} 0 \\0 \\-H^{T} W_{1}^{2} f \end{array} \right]~.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="351" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \left[ \begin{array}{ccc} W_{1}^{-2} &amp; 0 &amp; H \\ 0 &amp; W_{2}^{-2} &amp; ...
+...] = \left[ \begin{array}{c} 0 \\ 0 \\ -H^{T} W_{1}^{2} f \end{array} \right]~.
+$">
+</DIV><P></P>
+
+<P>
+There are not any particular results discussing how
+to solve a general <!-- MATH
+ $3 \times 3$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ 3 \times 3$"> system effectively.  
+The four upper left blocks are considered as one single
+block and the corresponding two upper right blocks
+<!-- MATH
+ $[H^{T} \ \mu L^{T}]^{T}$
+ -->
+<IMG
+ WIDTH="82" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ [H^{T} \ \mu L^{T}]^{T}$"> together
+still attain full rank, so we treat this system as
+a <!-- MATH
+ $2 \times 2$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ 2 \times 2$"> block case 
+and consider methods developed for solving indefinite systems.  
+Here we shall adopt constraint
+preconditioner 
+and Hermitian skew-Hermitian splitting (HSS)
+preconditioner 
+and investigate them in details.
+The formulation and actual preconditioning settings
+for WTRLS problems will be discussed.
+A test problem is performed to demonstrate the convergence behaviour
+using these iterative methods.  We shall see that the number of iterations
+mainly depend on the condition numbers of <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ W_{1}$"> and <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ W_{2}$"> as
+well as some factors related to each preconditioners. 
+In particular, this effect is more significant in
+the case of using HSS preconditioner.  The iteration results and
+the weaknesses for both preconditioners can be explained
+with some analyses on the spectra for them.
+
+</BODY>
+</HTML>

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Draganescu</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>An abstract method for extending two-level preconditioners 
+<BR>
+to multilevel preconditioners of comparable quality</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Andrei Draganescu 
+<BR>
+Sandia National Laboratories,
+        Optimization/Uncertainty Estimation Department 
+<BR>
+P.O. Box 5800, MS. 1110, Albuquerque NM 87185-1110 
+<BR>                         
+        <TT>aidraga@sandia.gov</TT>
+                        index<FONT SIZE="-1"><EM>index</EM></FONT> 
+<BR>
+</DIV>
+<p>
+<P>
+We present an abstract method for designing a
+multilevel
+preconditioner given a two-level preconditioner for
+an
+operator with positive definite symmetric part.
+<P>
+If we denote by <!-- MATH
+ $A_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A_{\mathrm{fine}}$"> and
+<!-- MATH
+ $A_{\mathrm{coarse}}$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A_{\mathrm{coarse}}$"> two discrete versions of a continuous
+operator, then a two-level preconditioner
+<!-- MATH
+ $T_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ T_{\mathrm{fine}}$"> for <!-- MATH
+ $A_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A_{\mathrm{fine}}$"> can be
+described in general by a function
+<!-- MATH
+ $T_{\mathrm{fine}} = {\mathcal F}(A_{\mathrm{coarse}}^{-1}$
+ -->
+<IMG
+ WIDTH="120" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ T_{\mathrm{fine}} = {\mathcal F}(A_{\mathrm{coarse}}^{-1}$">,
+<!-- MATH
+ $A_{\mathrm{fine}})$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A_{\mathrm{fine}})$">,
+where it is assumed that the evaluation of <!-- MATH
+ ${\mathcal F}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\mathcal F}$">
+requires a level-independent  number of applications of
+<!-- MATH
+ $A_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A_{\mathrm{fine}}$"> and <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ k$"> applications of
+<!-- MATH
+ $A_{\mathrm{coarse}}^{-1}$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ A_{\mathrm{coarse}}^{-1}$"> (<IMG
+ WIDTH="41" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k=1$"> or <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ 2$">).  The natural
+extension to a multilevel preconditioner, consisting in
+replacing in <!-- MATH
+ $T_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ T_{\mathrm{fine}}$"> the call to
+<!-- MATH
+ $A_{\mathrm{coarse}}^{-1}$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ A_{\mathrm{coarse}}^{-1}$"> with a recursive call to
+<!-- MATH
+ ${\mathcal F}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\mathcal F}$">, is known to sometimes produce multilevel
+preconditioners of lower quality (e.g., for certain types
+of inverse problems).  Based on the idea that inverting
+<!-- MATH
+ $A_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A_{\mathrm{fine}}$"> essentially means to solve the
+nonlinear  equation <!-- MATH
+ $X^{-1} - A_{\mathrm{fine}}= 0$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ X^{-1} - A_{\mathrm{fine}}= 0$">,
+we define our multigrid preconditioner to be the first
+Newton iterate of the map <!-- MATH
+ $X\mapsto X^{-1} -
+A_{\mathrm{fine}}$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ X\mapsto X^{-1} -
+A_{\mathrm{fine}}$"> starting at the ``natural'' multilevel
+preconditioner.  For <IMG
+ WIDTH="41" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k=1$">, the resulting algorithm has a
+W-cycle structure, and differs only slightly from the
+textbook version of the W-cycle.  Moreover, the method
+guarantees that the resulting preconditioner maintains the
+approximation quality of the initial two-level
+preconditioner.  The quality of approximation is measured
+using a certain distance function, which determines the
+degree to which two operators with positive definite 
+symmetric parts are spectrally equivalent.  We apply this
+method to designing and analyzing a multigrid
+preconditioner for a linear advection-diffusion-reaction
+equation. 
+<P><hr>
+<FONT SIZE="-1">Sandia is a multiprogram laboratory operated by
+Sandia Corporation, a Lockheed-Martin Company, for the
+United States Department of Energy under 
+Contract DE-AC04-94AL85000.</FONT>
+</BODY>
+</HTML>

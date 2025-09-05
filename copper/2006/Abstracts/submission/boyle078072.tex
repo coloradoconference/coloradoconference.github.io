@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jonathan W Boyle \\
+{\bf Algebraic multigrid and convection diffusion problems}}
+
+School of Mathematics \\ The University of Manchester \\ Sackville Street \\ Manchester \\ M60 1QD \\ UK
+\\
+{\tt j.boyle@manchester.ac.uk}\\
+David J Silvester\end{center}
+
+The talk discusses the use of algebraic multigrid (AMG) when solving
+discrete convection diffusion problems. For practical applications, e.g.
+modelling incompressible fluid flow, the interest is in using AMG as a
+preconditioning component within a Krylov subspace solver like GMRES. To
+be effective in this role, the AMG method should be 'black box', i.e.
+require no user tuning, and be effective in the sense that if applied as
+a solver for a convection-diffusion subproblem then iteration counts are
+independent of mesh size and other problem parameters.
+
+When designing AMG for convection diffusion, it is necessary to consider
+the interplay between wind direction and AMG smoothing scheme. Numerical
+test data is presented showing performance for AMG applied to streamline
+diffusion stabilized finite element discretizations of model problems.
+The results demonstrate the crucial importance of choosing an appropriate
+smoothing
+scheme. The performance of a "well-chosen" AMG method in the context of
+pressure-convection diffusion preconditioning of the Navier-Stokes
+equations will also be discussed.
+
+This is ongoing work. It is funded by EPSRC grant EP/C000528/1.
+
+
+\end{document}

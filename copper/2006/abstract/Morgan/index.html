@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Morgan</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Restarted Lanczos for nonsymmetric eigenvalue problems and 
+<BR>
+linear equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Ron Morgan 
+<BR>
+Math Department, Baylor University 
+<BR>
+Waco TX 76798-7328 
+<BR>	<TT>Ronald_Morgan@baylor.edu</TT> 
+<BR>
+Dywayne Nicely
+</DIV>
+<p>
+First, a restarted nonsymmetric Lanczos method will be
+discussed. It can be used to compute both left and right
+eigenvectors even when storage is limited. Approximate
+eigenvectors are retained at the restart as with implicitly
+restarted Arnoldi. It uses a three-term recurrence, but some
+reorthogonalization is needed.
+<P>
+The next topic is a
+related method called BiCG with deflated restarting (QMR
+with deflated restarting may also be discussed). It
+simultaneously solves linear equations and computes left and
+right eigenvectors. For the case of multiple right-hand
+sides, the eigenvector information from solving the first
+right-hand side can help efficiently solve subsequent
+right-hand sides. A deflated BiCGStab can be used for this.
+Deflated BiCGStab has a projection over the eigenvectors
+followed by regular BiCGStab.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

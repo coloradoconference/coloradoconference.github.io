@@ -1,0 +1,89 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Solution of high-order discontinuous Galerkin methods using \\
+	a combined H-P multigrid approach}}
+
+	Dimitri Mavriplis \\
+	Dept.~of Mechanical Engineering, Dept 3295 \\
+	University of Wyoming, 1000E. University Ave., Laramie WY 82071 \\
+	{\tt mavripl@uwyo.edu} \\
+	Cris Nastase, Li Wang
+\end{center}
+The development of optimal, or near optimal solution
+strategies for higher-order discretizations, including
+steady-state solutions methodologies, and implicit time
+integration strategies, remains one of the key determining
+factors in devising higher-order methods which are not just
+competitive but superior to lower-order methods in overall
+accuracy and efficiency. The goal of this work is to
+investigate and develop a fast and robust algorithm for the
+solution of high-order accurate discontinuous Galerkin
+discretizations of non-linear systems of conservation laws
+on unstructured grids.
+
+We develop a spectral multigrid
+method, whereby the coarse ``grid'' levels are constructed by
+reducing the order ($p$) of approximation of the
+discretization using hierarchical basis
+functions($p$-multigrid), keeping the grid elements fixed.
+This approach is coupled with a traditional agglomeration
+multigrid ($h$-multigrid) approach for unstructured grids,
+by constructing additional coarse levels at the lowest
+($p=0$) spectral level through element agglomeration. The
+overall goal is the development of a solution algorithm
+which delivers convergence rates which are independent of
+``$p$'' (the order of accuracy of the discretization) and
+independent of ``$h$'' (the degree of mesh resolution), while
+minimizing the cost of each iteration. The investigation of
+efficient smoothers to be used at each level of the
+multigrid algorithm is also pursued, and comparisons between
+different integration strategies are made as well.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

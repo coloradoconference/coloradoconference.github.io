@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Ucar</TITLE>
+<META NAME="description" CONTENT="Ucar">
+<META NAME="keywords" CONTENT="Ucar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Ucar.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Partitioning sparse matrices for parallel preconditioned 
+<BR>
+iterative methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Bora Ucar 
+<BR>
+Dept. of Mathematics and Computer Science, Emory University 
+<BR>
+Suite W401, 400 Dowman Drive, Atlanta GA 30322 
+<BR>	<TT>ubora@mathcs.emory.edu</TT> 
+<BR>
+Cevdet Aykanat
+
+</DIV>
+We will discuss parallelization techniques for the
+preconditioned iterative methods that use explicit
+preconditioners such as approximate inverses or factored
+approximate inverses. Applications of these preconditioners
+require sparse matrix-vector multiplication (SpMxV)
+operations. Roughly speaking, the problem reduces to
+partitioning two or more matrices together in order to
+efficiently parallelize the computations of the form <!-- MATH
+ $y\gets
+ABCx$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y\gets
+ABCx$">. Note that the computations <!-- MATH
+ $y\gets ABCx$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y\gets
+ABCx$"> are
+performed as successive SpMxV operations, and hence there
+are dependencies among the input and output vectors of these
+SpMxV operations. Additional dependencies are imposed by the
+linear vector operations that take part in a full step of
+the chosen iterative method. We will first discuss how to
+analyze the preconditioned iterative methods to determine
+the dependencies between the inputs and outputs of the SpMxV
+operations. We will give a short account of such
+dependencies for a number of widely used methods including
+BiCGStab, preconditioned conjugate gradients, and GMRES.
+Next, we will develop hypergraph models which capture the
+dependencies among the input and output vectors of the SpMxV
+operations with different matrices. We will show that
+partitioning a single hypergraph amounts to simultaneous
+partitioning of the matrices in <!-- MATH
+ $y\gets ABCx$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y\gets
+ABCx$"> computations
+in such a way that the total volume of communication is
+minimized and an appropriate balance criterion among the
+processor loads is maintained. We will present experimental
+results obtained using a parallel implementation of the
+right preconditioned BiCGStab method on a PC cluster.
+
+<P>
+This is a joint work with Prof C.&nbsp;Aykanat of Bilkent
+University, Ankara, Turkey.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>
