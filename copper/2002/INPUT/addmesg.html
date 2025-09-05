@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Adding a Message to Copper Mnt. Board</title
+</head>
+<body bgcolor="#009ebe">
+<h1 align="center">Adding a Message to the Board</h1>
+<p>Here's where you can write a message and stick it on the
+bulletin board. The message can be anything and we take no
+responsibility for anything posted.
+<hr>
+<p>
+
+<form method="get" action="./addmesg.cgi">
+
+<font size="+1">Name:
+	<input type="text" name="name" size=50>
+	</font>
+	<p>
+
+Email address:
+	<input type="text" name="email"size=50><p>
+
+Home page:
+	<input type="text" name="homepage" size=50><p>
+
+Subject:
+	<input type="text" name="subject" size=50><p>
+
+Message:<br>
+	<textarea rows=6 cols=50 name="message"></textarea>
+	
+<p>
+<input type="submit" value="Post Message"> <input type="reset">
+</form>
+<p>
+
+<hr>
+<a href="./readmesg.cgi?">Scan</a> the messages.<p>
+</body></html>
