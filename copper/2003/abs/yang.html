@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>cm conference abstract: Ulrike M. Yang</title>
+</head>
+
+<body>
+
+<center>
+On the Use of Relaxation Parameters in Hybrid Smoothers <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: umyang@llnl.gov">
+Ulrike Meier Yang</a><br><br>
+Center for Applied Scientific Computing<br>
+Lawrence Livermore National Laboratory <br>
+Box 808, L-560 <br>
+Livermore CA 94551<br><br>
+
+</center>
+
+<p>
+<center><br>Abstract 
+</center> 
+
+<p>
+With the advent of high performance computers with massively parallel
+processors, it has become very important to develop scalable methods
+such as AMG. One of AMG's most important components is the smoother.
+The most effective smoothers, such as Gauss-Seidel or even multiplicative
+Schwarz smoothers are often sequential in nature, whereas Jacobi or
+block Jacobi-like smoothers often fail, unless an appropriate smoothing
+parameter is used and even then their convergence is often slow. Many
+efforts to parallelize Gauss-Seidel have been made. Possible variants
+include the use of multi-coloring techniques or hybrid smoothers. 
+Multi coloring techniques are difficult to implement and can be inefficient, 
+if too many colors are involved, which is often the case on the 
+coarser levels on AMG. Hybrid schemes use a sequential smoother on each 
+processor, but update in a Jacobi like fashion across processor boundaries, 
+and therefore often have similar disadvantages as Jacobi like smoothers.
+<p>
+In this talk, we investigate the use of relaxation parameters in hybrid
+smoothers. We analyze their influence on the smoothing property,
+describe a procedure that automatically determines good parameters
+on each level of AMG and present numerical results that show
+significant improvement over AMG with unrelaxed hybrid smoothers.
+<p>
+
+*This work was performed under the auspices of the U.S. Department of Energy 
+by University of California Lawrence Livermore National Laboratory under 
+contract number W-7405-Eng-48. 
+
+</body>
+</html>

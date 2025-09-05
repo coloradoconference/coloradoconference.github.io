@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>cm conference abstract: Merico E. Argentati, Andrew V. Knyazev</title>
+</head>
+<body>
+
+<p>Implementation of a Scalable Preconditioned Eigenvalue Solver Using Hypre  <!-- TITLE -->
+
+<p><a
+href="mailto:rargenta@math.cudenver.edu">Merico E.
+Argentati</a> 
+
+<p>Center
+for Computational Mathematics <br>
+University of Colorado at Denver <br>
+Campus Box 170, P.O. Box 173364 <br>
+Denver, Colorado 80217-3364
+
+<p><a href="mailto:andrew.knyaazev@cudenver.edu">Andrew
+V. Knyazev</a>
+
+<p>
+Abstract
+
+<p>The goal of this project is to
+develop a Scalable 
+"Preconditioned Eigenvalue Solver"
+for the solution of partial eigenvalue problems for large sparse
+symmetric matrices on massively parallel computers, taking advantage of
+advances in the Scalable Linear Solvers project, in particular in multigrid
+technology and in incomplete factorizations (ILU) developed under the HYPRE
+project, at the
+<a href="http://www.llnl.gov/">Lawrence Livermore
+National Laboratory</a>, <a href="http://www.llnl.gov/CASC/">Center for Applied
+Scientific Computing</a> (LLNL-CASC). The solver
+allows the utilization of HYPRE preconditioners for symmetric eigenvalue
+problems. In this talk we discuss the
+implementation approach for a flexible
+“matrix free” parallel algorithm, and the capabilities of the developed
+software. We also discuss performance on a set of test problems.
+
+<p>The base iterative method that has been implemented is
+the <a href="http://www-math.cudenver.edu/~aknyazev/software/CG/">locally
+optimal block preconditioned conjugate gradient (LOBPCG)</a> method described
+in: A. V. Knyazev, <u>Toward the Optimal Preconditioned Eigensolver: Locally
+Optimal Block Preconditioned Conjugate Gradient Method</u>, <a
+href="http://epubs.siam.org/sam-bin/getfile/SISC/articles/36612.pdf">SIAM
+Journal on Scientific Computing 23 (2001), no. 2, pp. 517-541</a>. The
+LOBPCG solver finds one or more of the smallest eigenvalues
+and the corresponding eigenvectors of
+a symmetric matrix. 
+
+<p>The code is written in MPI based C-language and uses HYPRE and LAPACK libraries. It has been tested
+with HYPRE version 1.6.0. The user interface to the solver is implemented
+using
+HYPRE style object oriented function calls. The matrix-vector multiply and the
+preconditioned solve are done through user supplied functions. This approach
+provides significant flexibility. The implementation illustrates that this
+method can successfully and efficiently use parallel libraries. 
+
+<p>The following HYPRE preconditioners have been tested, AMG-PCG, DS-PCG,
+ParaSails-PCG, Schwarz-PCG
+and Euclid-PCG , in the eigenvalue solver. Partition of processors is
+determined by user input consisting of an initial array of parallel vectors.
+The code has been mainly developed and tested on a <a
+href="http://www-math.cudenver.edu/ccm/beowulf/">beowulf cluster at CU Denver</a>. This system
+includes 36 nodes, 2 processors per node, PIII 933MHz
+processors, 2GB memory per node running Linux Redhat,
+and a 7.2SCI Dolpin interconnect. Lobpcg
+has also been tested on several LLNL
+<a href="http://www.llnl.gov/icc/SCF.resources.html">clusters using Compaq and IBM
+hardware, running Unix and/or Linux.</a>
+
+<p>Keywords: Eigensolvers, parallel preconditioning, sparse matrices, parallel computing, conjugate
+gradients, additive Schwarz preconditioner.
+</body>
+</html>

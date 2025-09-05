@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://amath.colorado.edu/faculty/copper/2003/abstract.txt -->
+<HTML><HEAD><TITLE>cm conference abstract: PUT speaker's lastname HERE</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1255">
+<META content="Microsoft FrontPage 5.0" name=GENERATOR></HEAD>
+<BODY>
+<P align="center">
+&nbsp;<P align="center">
+&nbsp;<P align="center">
+<b><span style="font-family: Courier New"><font size="4">Two M</font></span><span style="font-family: Times New Roman"><font size="4">ultigrid</font></span><span style="font-family: Courier New"><font size="4">
+</font></span><span style="font-family: Times New Roman"><font size="4">
+Algorithms</font></span><span style="font-family: Courier New"><font size="4">
+</font></span><span style="font-family: Times New Roman"><font size="4">for</font></span><span style="font-family: Courier New"><font size="4"> 
+I</font></span><span style="font-family: Times New Roman"><font size="4">nverse</font></span><span style="font-family: Courier New"><font size="4"> 
+P</font></span><span style="font-family: Times New Roman"><font size="4">roblem 
+in Electrical Impedance Tomography</font></span></b><P align="center">
+<P align="center">
+<CENTER>&nbsp;<p style="margin-top: 0">&nbsp;</p>
+<p style="margin-top: 0"><span style="font-family: Times New Roman">
+<a href="mailto:rima@wisdom.weizmann.ac.il"><font size="4">Rima Gandlin</font></a></span></p>
+<p style="margin-top: 0"><BR><span style="font-family: Times New Roman">Faculty 
+of Mathematics and Computer Science</span><span style="font-size: 12.0pt; font-family: Times New Roman">
+</span></p>
+<p style="margin-top: 0">
+<span style="font-size: 12.0pt; font-family: Times New Roman">The Weizmann 
+Institute of Science</span></p>
+<p style="margin-top: 0"><span style="font-family: Times New Roman">POB 26, 
+Rehovot 76100, ISRAEL</span><span style="font-size: 12.0pt; font-family: Times New Roman">
+</span><BR><BR><a href="mailto:achi@wisdom.weizmann.ac.il"><font size="4">Achi 
+Brandt</font></a></p>
+</CENTER>
+<P>
+<CENTER><BR><b>Abstract </b> </CENTER>
+<p class="MsoPlainText" align="justify">&nbsp;&nbsp;&nbsp; A <i>direct</i> partial differential problem involves an 
+interior differential equation and a set of initial and/or boundary conditions 
+which stably determines a unique solution. An<i> inverse</i> problem is one in 
+which the differential equation and/or initial and/or boundary conditions are 
+not fully given and instead the results of a set of solution observations 
+(measurements) are known. They may contain errors, and even without errors the 
+problem is usually ill-posed: the known data may be approximated by widely 
+different solutions, but the ill-posedness of an inverse problem does not 
+necessarily imply  more expensive solution process. On the contrary: once 
+the nature of the ill-posedness has been generally understood, to solve an 
+inverse problem may even be much less expensive than to solve a corresponding 
+direct problem. I am going to demonstrate this methodological point on an 
+example of inverse problem for Electrical Impedance Tomography (EIT).</p>
+<p class="MsoPlainText" dir="ltr" align="justify">&nbsp;&nbsp;&nbsp; An EIT 
+device for medical use consists of a set of electrodes attached to the chest of 
+a patient. A small <i>known</i> current is 
+passed between two&nbsp; driver electrodes. In each measurement a current is passed 
+through a different electrode pair, while the voltage drops at <i>all </i>the 
+electrodes are recorded. The collected data are used in order to compute the 
+conductivity distribution in a part of the patient's chest and then to display 
+it on a screen in order to detect anomalies, such as tumors. The electrical potential satisfies the equation 
+<font face="Symbol">&Ntilde;×(<font color="#000080">s</font>&Ntilde;</font><i><font face="Times New Roman">u</font></i><font face="Symbol">)=0</font>, where 
+<font face="Symbol" color="#000080">s</font> is an electrical conductivity. The 
+set of measurements gives ideally (in the limit of many small electrodes and as 
+many measurements) the <i>Neumann to Dirichlet</i> mapping: the Dirichlet <i>
+<font face="Times New Roman">u</font></i> 
+boundary condition resulting from any Neumann <font face="Symbol">¶</font><i><font face="Times New Roman">u</font></i><font face="Symbol">/¶</font><b><font face="Times New Roman">n</font></b> condition. The inverse problem is to evaluate
+<font color="#000080" face="Symbol">s</font> from this mapping. 
+The conductivity depends on the EIT data in a very weak way. Therefore the 
+inverse problem of EIT is ill-posed.</p>
+<p class="MsoPlainText" align="justify">&nbsp;&nbsp;&nbsp; There exist some works on numerical methods for the 
+relevant problems, but their number is rather sparse and even those papers do 
+not consider the question of numerical efficiency, despite its importance for 
+applications. In this specific inverse EIT problem, employing local Fourier 
+decompositions, we have shown that all conductivity-function components of 
+wavelenght <font face="Symbol" color="#000080">l</font> are ill-posed at distances 
+<i>r</i>&gt;&gt;<font face="Symbol" color="#000080">l</font> from the 
+boundary. Hence there is no need to use at such distances fine solution grids, 
+since all we can know about the solution can be calculated with grids whose meshsizes 
+increase proportionality to <i>r</i>. </p>
+<p class="MsoPlainText" align="justify">&nbsp;&nbsp;&nbsp; Two multigrid solvers 
+for this problem are presented:</p>
+<p class="MsoPlainText" dir="ltr" align="justify">&nbsp;&nbsp;&nbsp; The <b>first multigrid solver</b> uses the Tikhonov 
+regularization technique. The inverse problem is reformulated as a variational 
+minimization problem. The resulting Euler equations form a PDE system (for <i>
+<font face="Times New Roman">u</font></i>, <font color="#000080" face="Symbol">s</font> and&nbsp; Lagrange multipliers), which makes the problem suitable 
+in principle for an effective numerical solution by multigrid methods. The 
+multigrid solver starts with large and then procceds to progressively smaller 
+regularization parameters. Many features of classical multigrid were adapted to 
+this particular problem (such as intergrid communications, boundary condition 
+treatment and coarse grid solution).</p>
+<p class="MsoPlainText" align="justify">&nbsp;&nbsp;&nbsp; In the case of a large regularization parameter, 
+numerical results demonstrate a good convergence of the developed solver, but 
+the obtained solution is too smeared and doesn't approximate the real 
+conductivity too well. At small regularization the final approximation is much 
+better, especially near the boundary. However, in this case the system is no 
+longer elliptic and for efficiency the multigrid solver must use  more 
+sophisticated relaxation scheme, which effectively decomposes the system into 
+its scalar factors. Although the multigrid cycles assymptotically slow down, the 
+final approximation to the <i>conductivity</i> is obtained by just one multigrid 
+cycle per grid refinement even for the smallest regularization for which 
+solution still exists.</p>
+<p class="MsoPlainText" align="justify">&nbsp;&nbsp;&nbsp; In the <b>second multigrid solver 
+</b>a regularization in the 
+classical sense is replaced by <i>a careful choice of grids</i>.
+<span style="font-family: David">In order to avoid introducing ill-posed 
+components into the current approximation, changes to the solution far from the 
+measurements are calculated only on coarse enough grids (with meshsizes at least 
+comparable to the distance from the measurements), which only define large-scale
+<i>averages </i>of the solution. On the other hand, near the boundary of 
+measurements we introduce both high and low oscillatory components to the 
+solution. For this we use semi-coarsening in the direction parallel to the 
+boundary of measurements and full-coarsening in the perpendicular direction.</span></p>
+<p><span style="font-family: David">&nbsp;&nbsp;&nbsp; The algorithm&nbsp; is 
+based on three main principles:</span><font face="David"> 1) </font>due to the 
+ill-posedness,<span style="font-family: David"> the computational work on the 
+grid of meshsize <i>h</i></span><font face="David"> </font>
+<span style="font-family: David">should only be done near the boundary, at 
+distances <i>O(h)</i></span><font face="David"> </font>
+<span style="font-family: David">from it; 2) similar changes introduced into
+</span><font color="#000080" face="Symbol">s </font>
+<span style="font-family: David">at the different <i>O(h)</i> distances from the 
+boundary of measurements cause <i>very different</i> changes in </span><i>
+<font face="Times New Roman">u</font></i><span style="font-family: David"> on 
+this boundary </span><font face="Symbol">&THORN;</font><span style="font-family: David"> 
+for smooth Fourier components in <i>y</i> a full coarsening (both in <i>x</i> 
+and <i>y</i>) does not resolve these differences, hence we must use <i>a semi 
+coarsening</i> in <i>y </i>direction (i.e. without coarsening the meshsize in 
+the <i>x</i> direction); 3) it is necessary to start always from the <i>
+better-posed</i> changes </span><font face="Symbol">&THORN;</font><span style="font-family: David"> 
+in each cycle (FMG, V-cycle, W-cycle, semi-cycle) we introduce changes to the 
+current approximation first on the coarsest (or semi-coarsest) grid, where those 
+changes are well-posed, and only after that changes from the finer grids.</span><font face="David">
+</font></p>
+<p align="justify">&nbsp;&nbsp;&nbsp; Numerical <b>results</b> show that the 
+second algorithm approximates <font color="#000080" face="Symbol">s </font><i>
+<font face="David">better</font></i> than the regularized method with its many 
+artificial parameters (the regularization coefficients, which should change over 
+the domain), for less work 
+(no Lagrange multipliers). <span style="font-family: David">The accuracy of both algorithm, in 
+particular near the boundary of measurements, is nearly the same. But the 
+second algorithm does not use any regularization in a classical 
+sense, and as a result significant space and time saving is achieved. In this 
+algorithm there is no need to solve a large system of discretized differential 
+equations and boundary conditions; also, no Lagrange-multiplier equations need 
+to be treated.</span><font face="David"> </font>
+<span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+</BODY></HTML>

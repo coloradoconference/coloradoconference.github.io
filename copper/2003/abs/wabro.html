@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>cm conference abstract: Markus Wabro</title>
+</head>
+
+<body>
+
+<center>
+Algebraic Multigrid Methods for the Oseen Problem <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: markus.wabro@jku.at">
+Markus Wabro</a><br><br>
+J.K. University Linz<br>
+Institute for Computational Mathematics<br>
+Altenbergerstr. 69<br>
+A-4040 Linz<br>
+Austria
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We present and compare concepts for algebraic multigrid (AMG) solvers for
+the Oseen linearization of the Navier-Stokes equations for incompressible fluids.<p>
+The two main strategies in this area are the following. The first one is the segregated
+approach, where the equations for velocity and pressure are iteratively decoupled, and
+AMG is used for the solution of the resulting scalar problems (examples in this
+direction are Uzawa or SIMPLE schemes, or preconditioners for Krylov-space methods, e.g. as introduced
+by Silvester, Wathen et al., 2001).<p>
+The main topic of the talk will be the second strategy, the coupled approach, where an AMG method is
+developed for the whole saddle-point system. We present the ingredients of this method (smoothers, 
+coarse level construction) and pinpoint a major problem, the stability of the coarse-level systems.<p>
+Finally, we will show how the different methods perform in "real life" situations, i.e. when flows in
+complex 3D domains have to be simulated.
+</body>
+</html>

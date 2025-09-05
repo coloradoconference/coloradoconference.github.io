@@ -1,0 +1,61 @@
+<title>cm conference abstract: Feng-Nan Hwang</title>
+</head>
+
+ <body>
+
+ <center> <H3> A Parallel Nonlinear Additive Schwarz Preconditioned Inexact <!-- TITLE -->
+ Newton Algorithm for Incompressible Navier-Stokes Equations <!-- TITLE --> </H3> </center>
+
+ <center>
+ <a href="mailto: hwangf@colorado.edu">
+ Feng-Nan Hwang</a><br><br>
+ Department of Applied Mathematics,
+ University of Colorado,
+ Boulder, CO 80309
+ </center>
+
+ <p>
+ <center>
+ <a href="mailto: cai@cs.colorado.edu">
+ Xiao-Chuan Cai</a><br><br>
+ Department of Computer Science,
+ University of Colorado,
+ Boulder, CO 80309
+ </center>
+
+ <p>
+ <center>
+ <br>Abstract
+ </center>
+
+ <p>
+ A nonlinear additive Schwarz preconditioned inexact
+ Newton method (ASPIN)
+ was introduced recently for solving large
+ sparse nonlinear systems of equations obtained
+ from the discretization of nonlinear partial differential equations,
+ and the method has proved numerically to be more robust than the
+traditional
+ inexact Newton methods, especially for problems with unbalanced
+nonlinearities.
+ In this talk, we discuss some recent development of ASPIN for
+ solving the steady state
+ incompressible Navier-Stokes equations in the velocity-pressure
+formulation.
+ The sparse nonlinear system is obtained
+ by using a Galerkin least squares finite element discretization on
+ two dimensional unstructured meshes.
+ The key idea of ASPIN
+ is that we find the solution of the original
+ system F(u)=0 by solving a nonlinearly preconditioned system G(u)=0
+ that has the same solution as the original system, but with more
+ balanced nonlinearities. Our numerical results show that
+ ASPIN is more robust than the traditional inexact Newton method
+ when the Reynolds number is high and when the number of processors is
+ large.  In this talk we present some results obtained on
+ parallel computers for high Reynolds number flows and compare our
+ approach with some inexact Newton method with different forcing terms.
+
+ </body>
+ </html>
+

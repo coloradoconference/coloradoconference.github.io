@@ -1,0 +1,68 @@
+
+<html>
+<head>
+<title>cm conference abstract: Ulrich Ruede</title>
+</head>
+
+<body>
+
+<center>
+Multigrid Accelleration of the Horn-Schuck Algorithm for <!-- TITLE -->
+the Optical Flow Problem <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: ruede@informatik.uni-erlangen.de">
+Ulrich Ruede</a><br><br>
+Institute of Computer Science X, Universitaet Erlangen-Nuernberg, Cauerstr.
+6,
+D-91058 Erlangen, Germany<br><br>
+El Mostafa Kalmoun<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+It is currently recognized that optical flow computation has many
+applications
+in image processing, pattern recognition, data compression, and biomedical
+technology. Differential approaches, which estimate velocity vectors from the
+spatial and temporal intensity derivatives are the most common visited
+techniques in the literature. The basic assumption behind that is the
+intensity
+variations are weak and only due to a movement in the image plan.<br>
+
+This constant brightness assumption leads to an ill-posed problem that can
+only be solved by imposing additional assumptions. A standard technique,
+which
+is due to to Horn and Schunck, is to require the flow
+field to be smooth by means of a standard regularization approach.
+This results in a system of elliptic PDEs of reaction diffusion type.
+The second order terms are induced by the regularization and become
+straightforward Laplace operators. The zero order terms are linear
+(but variable) and are computed from the derivatives of the
+image data. Since the image data (and even more so its derivatives)
+are usually nonsmooth, this poses some nontrivial problems.
+The PDEs are usually discretized by standard finite differences.<br>
+
+The Horn-Schuck algorithm is the standard way to discretize and solve
+the PDEs. In multigrid terminology, it is simply a coupled pointwise
+relaxation. As expected, it has acceptable convergence only if the
+zero-order terms dominate but the performance is poor, when the diffusion
+character dominates.
+In this case, a multigrid strategy can be expected to provide a significant
+accelleration by allowing a quick propagation of information from non-zero
+flow
+field regions into homogeneous or untextured image areas. The Horn-Schunck
+algorithm can still be used as a smoother for such a multigrid method. The
+most
+difficult aspect is to deal with the strongly discontinuous coefficients in
+an efficient way.
+This will be discussed in our presentation.
+</body>
+</html>
+

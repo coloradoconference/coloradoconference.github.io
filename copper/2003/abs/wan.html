@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://amath.colorado.edu/faculty/copper/2003/abstract.txt -->
+<HTML><HEAD><TITLE>cm conference abstract: Justin Wan</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 5.50.4919.2200" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>An Energy Minimization Approach to Multigrid <!-- TITLE -->
+for Convection Dominated Problems</CENTER> <!-- TITLE -->
+<P>
+<CENTER><A href="mailto:jwlwan@uwaterloo.ca">Justin Wan</A><BR><BR>
+School of Computer Science, University of Waterloo,
+200 University Avenue West, Waterloo, Ontario N2L 3G1, Canada<BR><BR>
+Randy Bank, University of California, San Diego<BR>
+Zhenpeng Qu, University of Waterloo<BR>
+</CENTER>
+<P>
+<CENTER><BR>Abstract</CENTER>
+<P>
+In this talk, we present an energy minimization approach to constructing
+robust interpolation and restriction operators for multigrid for
+solving convection dominated problems. Numerical results for PDEs in
+1D and 2D, in particular, entering flow and recirculating flow 
+problems will be presented.
+<P>
+Multigrid for solving elliptic partial differential equations (PDEs)
+with smooth coefficients has been proven, both numerically and
+theoretically, to be a successful and powerful techniques. For PDEs 
+whose coefficients are discontinuous or oscillatory, sophisticated
+interpolation techniques have been developed, for instance, algebraic
+multigrid, black box multigrid, etc. Recently, Wan, Chan and Smith
+proposed a robust construction of interpolation operators by
+minimizing the energy norm of the coarse grid basis functions subject
+to the constraint that the coarse grid basis functions preserve the
+null space of the underlying PDE. Fast multigrid convergence is
+resulted for several types of nonsmooth coefficient elliptic PDEs on
+Cartesian as well as general triangular meshes.
+<P>
+In this talk, we extend the energy minimization approach to non-elliptic
+PDEs; specifically, convection diffusion equations. Since the
+discretization matrix is nonsymmetric in general, the energy norm
+induced by the symmetric positive definite matrix in the case of
+elliptic PDEs no longer applicable. In other words, one cannot simply
+take the matrix and construct energy minimizing basis function using the
+induced matrix norm. Our idea is to construct two sets of
+basis functions, one by minimizing the energy norm of the elliptic
+operator, and the other set by minimizing the L2 norm, subject to
+appropriate constraints. In this way, the norms are well-defined so
+that norm minimization makes sense. More importantly, we can capture
+the elliptic and hyperbolic parts of the underlying PDE by these
+two set of basis functions. Then they are used in defining the interpolation
+and restriction operators for multigrid. Numerical results for
+solving the entering and recirculating flow problems are presented
+to demonstrate the effectiveness of the proposed approach.
+
+</P></BODY></HTML>

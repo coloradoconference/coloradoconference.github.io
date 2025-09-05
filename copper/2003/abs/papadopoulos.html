@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>cm conference abstract: Andreas Papadopoulos </title>
+</head>
+
+<body>
+
+<center> Block Smoothed Aggregation Algebraic MultiGrid  <!-- TITLE -->
+for Reservoir Simulation Systems </center>  <!-- TITLE -->
+
+<p>
+<center>
+<a href="mailto:Andreas.Papadopoulos@comlab.ox.ac.uk">
+Andreas Papadopoulos</a><br><br>
+Oxford Univesrity Computing Labaratory,
+Wolfson Building, Parks Road, <br>
+Oxford, England OX1 3QD<br><br>
+Hamdi Tchelepi<br>
+ChevronTexaco Exploration & Production Technology Co. <br>
+htch@chevrontexaco.com
+<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We study the applicability of Smoothed Aggregation Algebraic MultiGrid (SA-AMG) for oil reservoir simulation problems. Previously, application of multigrid methods in reservoir simulation focused on solving the scalar near-elliptic pressure equation, which is obtained by the so-called IMPES (Implicit Pressure, Explicit Saturation) method. Here, we focus on linear systems with multiple degrees of freedom per gridblock, or cell. These systems are Jacobean matrices obtained from fully implicit discretization of the governing nonlinear species conservation equations. We view the given discrete matrix problems as graphs, and we do not make any assumptions about the underlying structure of the grid.  
+ 
+A preprocessing step, which manipulates the discrete system to yield an equation that resembles the standard pressure equation, is performed.  The result is a system of equations of mixed character; a pressure equation that is near elliptic, while the remaining conservation equations are hyperbolic in the limit. All of our computations, including this preprocessing step, take advantage of the natural block structure obtained by grouping the unknowns associated with a gridblock (i.e. vertex in the graph) together. 
+
+Significant modifications to the components that make up the SA-AMG algorithm were necessary to obtain good convergence behavior. We experimented with several aggregation schemes. Aggregation of the cells, or gridblocks, based on a strong graph of the scalar pressure equation yielded the best results, both in terms of robustness and convergence rate. That is, variables associated with a gridblock other than the pressure inherit the pressure-based choice of the aggregates. We report results using different measures of strength to prune the full graph of the pressure equation.  Not surprisingly, we also found it crucial to pay close attention to the anisotropy. This was the case for the aggregation stage, the smoothing of aggregation, and even the smoother used in the V-cycle.  We describe a worm-like aggregation algorithm designed to capture long-range strength of coupling. This new aggregation scheme allows for aggressive coarsening, especially when the finest level (i.e. the given problem) possesses severe anisotropy. It is not uncommon for discretizations of three-dimensional reservoir simulation problems to exhibit extreme preferential directional coupling.
+
+We obtained the best results when smoothing of interpolation was applied only to the pressure coefficients. Attempts to improve the quality of the interpolation by applying multiple smoothing steps proved ineffective. The results were sensitive to the particular threshold for filtering the original matrix, and we use a different parameter to control that threshold. Finally, in conjunction with worm aggregation, we employ block smoothing in the V-cycle, where the blocks are the cells (and their associated degrees of freedom) that make up an aggregate.  We provide detailed performance results using several reservoir simulation examples that are of practical interest. 
+
+</body>
+</html>
+

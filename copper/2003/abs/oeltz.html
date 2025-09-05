@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>cm conference abstract: Daniel Oeltz</title>
+</head>
+
+<body>
+
+<center>
+An Algebraic Multigrid Preconditioner for Topology Optimization <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: oeltz@iam.uni-bonn.de">
+Daniel Oeltz</a><br><br>
+Rheinische Friedrich-Wilhelms-Universit&auml;t Bonn</br>
+Institut f&uuml;r Angewandte Mathematik</br>
+Abteilung Wissenschaftliches Rechnen und Numerische Simulation</br>
+Wegelerstrasse 6</br>
+53115 Bonn<br>
+Germany   <br><br>
+Michael Griebel<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p><div align="justify"> Topology optimization is a relatively new field of structural mechanics
+which tries to find an optimal design of a structure for a given load.  One flexible and
+advantageous FE based method is the so called SIMP approach (Solid Isotropic Microstructures with
+Penalization for intermediate densities, cf. [1], [2]). In this approach the problem is reformulated
+to find an optimal density distribution of the material in the domain. Therefore
+the optimization process leads to elasticity problems with large jumps in the material coefficients
+and linear systems which become nearly singular so that classical iteration schemes for solving the
+linear systems provide only very poor convergence. Since the accuracy of the approximate solution
+plays an essential role for the optimized design (solving the linear system with low accuracy leads
+only to suboptimal designs) direct methods are often used during the optimization process which
+strictly limits the problem size.</br>
+
+To overcome this problem and accelerate the convergence of classical iteration schemes we propose an
+algebraic multigrid preconditioner. Since algebraic multigrid methods can deal with large jumps in
+the coefficient functions and complex geometries, they seem to be well fit for the linear systems
+occuring in the SIMP approach. However, due to the fact that we have linear systems stemming from
+the discretization of a system of PDEs and classical AMG methods are not well suited to solve such
+systems efficiently, we use the so-called point-block approach [3].  We will describe the
+modifications of this method to obtain an efficient preconditioner for the conjugate gradient
+method in our optimization process.  At the end we will present some numerical results which
+underline the efficiency of the method for topology optimization.
+
+</br>
+</br>
+[1] Bendsoe MP "Optimal Shape design as a material distribution problem", Struct. Optim, 1989,1,193-202.</br>
+[2] Rozvany GIN and Zhou M "Applications of COC method in layout optimization". In: Eschenauer H, Mattheck C and Olhoff N (eds.) Proc. Conf. "eng. Opt. in Design Processes", Berlin, Springer-Verlag, 1991, pp 59-70.</br>
+[3] Griebel M, Oeltz D and Schweitzer, MA "An Algebraic Multigrid Method for Linear Elasticity" SIAM J. Sci. Comp., to appear.
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>cm conference abstract: Johannes K. Kraus</title>
+</head>
+
+<body>
+
+<center>
+Algebraic Multilevel Preconditioning Based on Element Agglomeration <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: kraus@unileoben.ac.at">
+Johannes K. Kraus</a><br><br>
+University of Leoben<br>
+Franz Josef Strasse 18<br>
+A-8700 Leoben<br>
+Austria
+
+</center>
+</p>
+<p>
+<center>
+<br>Abstract
+</center>
+</p>
+<p>
+We consider an algebraic multilevel preconditioning method for SPD
+matrices resulting from finite element discretization of elliptic PDEs.
+The method is based on element agglomeration, and, in particular,
+designed for non-M matrices.
+
+Granted that the element matrices at the fine-grid level are given, we
+further assume that we have access to some algorithm that performs a
+reasonable agglomeration of fine-grid elements at any given level.
+The coarse-grid element matrices are simply Schur complements computed
+from the locally assembled fine-grid element matrices, i.e., agglomerate
+matrices. Hence, these matrices can be assembled to a global approximate
+Schur complement.
+The elimination of fine-degrees of freedom in the agglomerate matrices
+is done without neglecting any fill-in.
+This offers the opportunity to construct a new kind of incomplete
+LU factorization of the pivot matrix at every level, which is done
+by means of a slightly modified assembling process.
+
+Based on these components an algebraic multilevel preconditioner
+can be defined for more general SPD matrices. The method can also be
+applied to systems of PDEs. A numerical analysis shows its efficiency
+and robustness.
+</p>
+</body>
+</html>

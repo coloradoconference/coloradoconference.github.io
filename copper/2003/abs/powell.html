@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>cm conference abstract: Powell</title>
+</head>
+
+<body>
+
+<center>
+Black-Box Preconditioning for Mixed Formulation of Second-Order Elliptic Problems 
+</center>
+
+<p>
+<center>
+<a href="mailto: cp@fire.ma.umist.ac.uk">
+C.E. Powell</a>, David Silvester <br><br>
+UMIST, <br>
+Mathematics Department,<br>
+PO Box 88, Sackville Street, <br>
+Manchester, M60 1QD, UK <br>
+<br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Raviart-Thomas mixed finite element approximation to scalar diffusion problems is well understood. The method gives rise to a symmetric and indefinite linear system, that can be solved in a variety of ways. For example, transformations to associated positive definite systems are common. However, solving the original indefinite system using minimal residual schemes is not problematic. Incorporating fast solvers for Laplacian or generalised diffusion operators into block diagonal preconditioners for the mixed system is a simple and highly effective technique. 
+
+<p>
+The existence of freely available black-box algebraic multigrid codes makes this a feasible and unified preconditioning strategy for a wide class of saddle-point problems. Further, it offers the possibility to treat problems with diverse coefficients in the same framework. For variable and discontinuous coefficient problems, known preconditioning strategies can lose robustness.  The linear systems are generally ill-conditioned with repect to both the discretisation parameter and the PDE coefficients.
+
+<p>
+We discuss a robust, black-box approach to preconditioning the mixed diffusion problem, using freely available software. The key tools are diagonal scaling for a weighted mass matrix and an algebraic multigrid V-cycle applied to a sparse approximation to a generalised diffusion operator. Eigenvalue bounds are derived for the preconditioned system matrix. Numerical results are presented to illustrate that the preconditioner is optimal with respect to the discretisation parameter and is robust with respect to the PDE coefficients.
+
+<br>
+<br>
+
+<p>
+[1] Powell, C.E., Silvester, D.,  Optimal preconditioning for
+Raviart-Thomas mixed formulation of second-order elliptic PDEs, <br>
+<em> submitted to SIAM J. Matrix Anal., 2002 </em>
+
+<p>     
+[2] Powell, C.E., Silvester, D.,  <a href="http://www.maths.man.ac.uk/~nareports/narep415.ps.gz"> Black-box preconditioning for
+mixed formulation of self-adjoint elliptic PDEs,</a> <br> <em> Manchester Centre for Computational Mathematics Report 415, 2002. </em>
+</body>
+</html>
+
+
+
