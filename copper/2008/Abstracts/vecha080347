@@ -1,0 +1,38 @@
+===firstname:
+Yaugen
+===firstname3:
+
+===lastname2:
+Langou
+===postal:
+University of Colorado Denver
+===lastname:
+Vecharynski
+===lastname3:
+
+===ABSTRACT:
+While a lot of efforts have been put in the characterization of the convergence of full GMRES, we have noticed that very few efforts have been made in characterizing the convergence of restarted GMRES despite the fact that this latter is the most practically used. Our current research aimed to better understand restarted GMRES.
+
+Our main result proves that the convergence of restarted GMRES for normal matrices is sublinear. That is to say if after one GMRES cycle we have observed a given residual decrease, then the next GMRES cycle will necessarily have a smaller decrease. This writes:
+$$ \| r_k \|_2^2 \leq \| r_{k-1} \|_2 \|r_{k+1} \|_2. $$
+The proof relies on the observation that GMRES(A,m,r_0) and GMRES(A^H,m,r_0) both provide the same residual norm after one cycle. 
+
+From this main theorem flow two corollaries. First, we can characterize the convergence of GMRES(n-1) for normal matrices. In this case, the convergence is:
+$$ \| r_k \| = \| r_1 \| \left( \frac{ \|r_1\| } { \| r_0 \| } \right)^{k-1} .$$
+
+Second, we can rederive a result from Baker, Jessup and Manteuffel (2005) about alternating residuals for GMRES(n-1) applied to Hermitian or Skew-Hermitian matrices. The result of Baker, Jessup and Manteuffel (2005) is
+$$  r_{k+1}  = r_{k-1} \alpha_k,$$
+where $\alpha_k$ is a scalar.
+Our contribution is to present another proof and to fully characterize $\alpha_k$ in term of $r_0$ and $r_1$. This means that, in the Hermitian/Skew-Hermitian case, not only $ \| r_{k+1} \|$ is known from $\|r_0\|$ and $\|r_1\|$ (as in the normal case) but indeed $  r_{k+1} $ is known from $r_0$ and $r_1$.
+
+We note that when the matrix is nonnormal, the main statement is false. (The convergence of restarted GMRES is not necessarily sublinear.)
+ 
+These results are new to our knowledge. We will explain how they can be applied to improve the convergence of restarted GMRES and compare the convergence of truncated GCR and restarted GMRES.
+===email:
+Yaugen.Vecharynski@cudenver.edu
+===otherauths:
+
+===title:
+The convergence of restarted GMRES for normal matrices is sublinear.
+===firstname2:
+Julien

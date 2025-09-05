@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Raya Shindmes \\
+{\bf Efficient methods for image registration with volume constraints}}
+
+400 Dowman Dr \\ Atlanta GA \\ 30322
+\\
+{\tt rshindm@emory.edu}\\
+Eldad Haber\\
+Jan Modersitzki\end{center}
+
+Image registration is a highly ill posed problem.
+We present a mathematically sound formulation that explicitly
+controls the deformation in terms of the determinant of the Jacobian of
+the transformation.
+This approach guaranties
+grid regularity and prevent folding.
+
+To solve the large-scale inequality constrained optimization problem, we
+present a numerical approach based on a multilevel
+primal dual SQP method. We demonstrate
+its efficiency on a few model problems.
+
+
+\end{document}

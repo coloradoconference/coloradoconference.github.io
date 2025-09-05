@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew Knyazev \\
+{\bf Eigensolvers for analysis of microarray gene expression data}}
+
+Department of Mathematical Sciences \\ University of Colorado Denver \\ P O Box 173364 \\ Campus Box 170 \\ Denver \\ CO 80217-3364
+\\
+{\tt andrew.knyazev@cudenver.edu}\end{center}
+
+Microarray data analysis (MDA) has become an important tool in molecular
+biology. Modern microarray data provide vast amounts of useful biological
+information, but their analysis is computationally challenging. Molecular
+biologists need fast, reliable, and advanced MDA software, e.g., to
+locate clusters
+of genes responsible for specific biological processes. Novel
+mathematical algorithms for MDA, including the recently available
+GeneChip tiling arrays, are necessary to widen the bottlenecks of
+existing software, which primarily are slow performance and low accuracy.
+Our core expertise is in development of iterative methods and software
+for numerical solution of eigenvalue problems [1-4]. In this work, we
+develop eigenvalue solvers tailored for MDA, specifically for spectral
+gene clustering.
+
+REFERENCES
+
+[1] A. V. Knyazev. Preconditioned eigensolvers - an oxymoron? ETNA, 7,
+104--123, 1998.
+http://etna.mcs.kent.edu/vol.7.1998/pp104-123.dir/pp104-123.pdf
+
+[2] A. V. Knyazev. Toward the Optimal Preconditioned Eigensolver: Locally
+Optimal Block Preconditioned Conjugate Gradient Method. SISC, 23(2),
+517--541, 2001. http://dx.doi.org/10.1137/S1064827500366124
+
+[3] A. V. Knyazev, I. Lashuk, M. E. Argentati, and E. Ovchinnikov. Block
+Locally Optimal Preconditioned Eigenvalue Xolvers (BLOPEX) in hypre and
+PETSc. SISC 25(5), 2224--2239, 2007. http://dx.doi.org/10.1137/060661624
+
+[4] F. Bottin, S. Leroux, A. Knyazev, and G. Zerah. “Large scale ab
+initio calculations based on three levels of parallelization.”
+Computational Material Science. In print, 2007.
+http://dx.doi.org/10.1016/j.commatsci.2007.07.019
+
+
+\end{document}

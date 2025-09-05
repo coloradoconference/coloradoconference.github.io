@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jari Toivanen \\
+{\bf A domain decomposition method for discontinuous Galerkin discretizations of Helmholtz problems with Lagrange multipliers}}
+
+Institute for Computational and Mathematical Engineering \\ Building 500 \\ Stanford University \\ Stanford \\ CA 94305
+\\
+{\tt toivanen@stanford.edu}\\
+Charbel Farhat\\
+Radek Tezaur\end{center}
+
+A nonoverlapping domain decomposition method is described for Helmholtz
+problems discretized by a discontinuous Galerkin finite element method.
+The discretization uses plane wave basis functions and Lagrange
+multipliers to enforce a weak continuity of solution over element
+interfaces. A system of linear equations is formulated for the Lagrange
+multipliers on the subdomain interfaces. This poorly conditioned system
+is solved iteratively with a local preconditioner after it has been
+projected onto the complement of a coarse space in the same way as in the
+FETI-H method. Numerical experiments study the iterative solution of
+two-dimensional and three-dimensional model problems and compare the
+convergence and accuracy to the FETI-DPH method.
+
+
+\end{document}

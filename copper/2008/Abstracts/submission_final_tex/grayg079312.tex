@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Genetha Gray \\
+{\bf Hybrid Optimization: Combining the Best to Overcome the Worst}}
+
+Sandia National Labs \\ P O Box 969 \\ MS 9159 \\ Livermore \\ CA 94550
+\\
+{\tt gagray@sandia.gov}\\
+Katie Fowler\\
+Josh Griffin\\
+	Taddy, Matt\end{center}
+
+Every optimization technique has inherent strengths and weaknesses.
+Moreover, some optimization algorithms contain characteristics which make
+them better suited to solve particular kinds of problems. Hybridization,
+or the combining of two or more complementary, but distinct approaches,
+allows the user to take advantage of the beneficial elements of multiple
+methods. For example, consider two methods A and B where method A is
+capable of handling noise and undefined points and method B excels in
+smooth regions with small amounts of noise. In this case, method A may be
+unacceptably slow to find a solution while method B may fail in noisy or
+discontinuous regions of the domain. By forming a hybrid,
+method A can help overcome difficult regions of the domain and method B
+can be applied for fast convergence and efficiency.
+
+In this talk, we will examine the application of hybrid optimization to
+water resources management problems. Hybrids are particularly suited to
+these problems as the objective function is often non-smooth or
+discontinuous and the feasible region is usually disconnected. We will
+describe an algorithm which combines statistical emulation via treed
+Gaussian process with pattern search optimization. We will demonstrate
+the applicability of our hybrid method to a plume containment problem
+that was proposed in the literature specifically for benchmarking
+purposes, and has
+already been used for the comparison of a variety of derivative-free
+optimization algorithms. In addition, we will describe how the treed
+Gaussian process can also be used as a post-processing tool to increase
+insight into the problem.
+
+
+\end{document}

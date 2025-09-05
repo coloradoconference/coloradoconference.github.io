@@ -1,0 +1,182 @@
+<html>
+<head
+<title>Evening Workshops, CMCIM 2008</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<!-- body bgcolor="#9fdf9f" -->
+<!-- <body lang=EN-US bgcolor="#DA8849" link=blue alink=blue vlink=purple style='tab-interval:.5in'> -->
+<body lang=EN-US bgcolor="#ccaa7f" link=blue alink=blue vlink=purple style='tab-interval:.5in'>
+
+<!-- <h3 align=center>Evening Workshops, CMCIM 2008</h3> -->
+
+<h1 class="center">
+  Trilinos Workshop<br/>
+  Monday, April 7, 2008<br/>
+  7:30 pm<br/>
+</h1><br/>
+
+<h2>Abstract</h2>
+The Trilinos project at Sandia National Laboratories is an ongoing effort 
+to develop
+high-quality, modern parallel numerical software libraries for the solution of
+large-scale, complex multi-physics engineering and scientific applications
+(http://trilinos.sandia.gov).
+In this workshop we provide an overview of Trilinos and its unique package
+architecture, and highlight some available and upcoming capabilities.
+Following an overview presentation, package developers will discuss in greater
+detail the following Trilinos
+libraries: Sundance (a natural-language parallel finite-element solver),
+Stratimikos (a unified solution linear solver/preconditioning interface),
+Belos (block iterative linear solvers), Meros (segregated preconditioning),
+and ML (algebraic multigrid preconditioning).
+
+
+<h2>Individual talks</h2>
+
+<h3>"A Current Overview of the Trilinos Project"</h3>
+
+Jonathan Hu<br/>
+Scalable Algorithms Department<br/>
+Sandia National Laboratories<br/>
+
+<p>
+<u>Abstract</u><br/>
+In this talk, we give an overview of the Trilinos project.   We'll
+discuss the overall design and available capabilities, as well as future plans.
+Particular emphasis will be on recent additions to the Trilinos package family.
+New and potential users are encouraged to attend.
+</p>
+
+
+<!-- 
+   Kevin Long<br/>
+   Department of Mathematics and Statistics<br/>
+   Texas Tech University<br/>
+   <h3><font color="red">[tentative]</font>
+   "Sundance: a system for rapid development of
+            high-performance parallel finite-element solutions of PDEs"
+   </h3>
+   <p>
+   <u>Abstract</u><br/>
+   <h3><font color="red">TBA</font>
+   </p>
+-->
+
+<h3>"Building parallel multi-physics simulations with Sundance"</h3>
+
+Kevin Long<br/>
+Department of Mathematics and Statistics<br/>
+Texas Tech University<br/>
+
+<p>
+<u>Abstract</u><br/>
+Sundance is a Trilinos package containing components for building parallel PDE
+simulations. This talk will give an overview of Sundance with examples of
+setting up complex multiphysics simulations and accessing Trilinos solvers.
+</p>
+
+
+
+
+<h3>
+"Stratimikos: Unified Access to Trilinos Linear Solver and
+Preconditioner Capabilities"
+</h3>
+
+Roscoe A. Bartlett<br/>
+Department of Optimization and Uncertainty Estimation<br/>
+Sandia National Laboratories 
+
+<p>
+<u>Abstract</u><br/>
+The Trilinos Stratimikos package provides an aggregated,
+parameter-list-driver, "Facade" class for access to many of the
+linear solver and preconditioner capabilities such as in the Trilinos packages
+Amesos, AztecOO, Belos, Ifpack, and ML. All you need is an Epetra_Operator
+and/or (even better) an Epetra_RowMatrix object for the defining matrix,
+Epetra_[Multi]Vector objects for the RHS and LHS, and a parameter list (read in
+from an XML file, from the command line, or set in code) and you can then
+access a significant serial and parallel, direct and iterative, linear solver
+capability.  This talk will describe the real foundation for the Stratimikos
+interface design which is Thyra.  Thyra is a set of abstract interfaces for
+vectors, vector spaces, linear operators, linear solvers, and preconditioners
+that support the development of advanced abstract numerical algorithms (ANAs).
+In addition, Thyra also defines an interface to nonlinear
+simulation-constrained models called the ModelEvaluator that was (and still is)
+a major driver for the development of Stratimikos.  However, Stratimikos can be
+used by less abstract clients by converting to and from Epetra and Thyra
+objects.
+</p>
+
+
+<h3>
+"Belos:  A Framework for Next-generation Iterative Linear Solvers"
+</h3>
+
+Heidi Thornquist<br/>
+Department of Electrical and Microsystems Modeling<br/>
+Sandia National Laboratories<br/>
+
+<p>
+<u>Abstract</u><br/>
+The solution of very large and sparse linear systems with multiple right-hand
+sides is often required in modeling and simulation.  While many numerical
+methods for solving these linear systems have been proposed in the literature,
+Belos provides an iterative linear solver framework for developing and
+delivering these methods to application codes.  In this talk we will discuss
+interacting with Belos, from a user and developer standpoint, and the
+available numerical methods for solving both single and multiple right-hand
+side linear systems.
+</p>
+
+
+<h3>
+"Physics-based preconditioners in Meros"
+</h3>
+
+Victoria E. Howle<br/>
+Department of Mathematics and Statistics<br/>
+Texas Tech University<br/>
+
+<p>
+<u>Abstract</u><br/>
+Meros is a segregated preconditioning package that provides scalable
+block preconditioning for problems that couple simultaneous solution
+variables. Our initial focus has been on methods for solution of the
+incompressible Navier-Stokes equations. Meros is available as part of
+the Trilinos Project. This talk will give
+an overview of the capabilities currently available in Meros as well as
+plans for future development.
+<p>
+
+
+<h3>
+"Recent Algorithmic (and Practical) Developments in ML"
+</h3>
+
+Christopher M. Siefert<br/>
+Scalable Algorithms Department<br/>
+Sandia National Laboratories<br/>
+
+<p>
+<u>Abstract</u><br/>
+We focus on several new algorithmic capabilities introduced in ML,
+Trilinos' multilevel solvers package.  The first capability is a new
+multilevel solver for compatible discretizations (edge elements) of the
+eddy current Maxwell's equations.  This new solver, made available in
+Trilinos 8.0, is based on an algebraic reformulation of the discrete
+system, and has demonstrated successful weak parallel scaling up to 24,000
+processors and 658 million unknowns.
+
+The second capability enhances ML's existing repartitioning routines
+through the hypergraph repartitioning available through Zoltan 3.0.  The
+new algorithm accurately models communication costs in both the setup and
+iterative phases to produce a better processor repartitioning.  This
+feature is currently under development and will be released in Trilinos 9.0
+in the fall.
+
+We will also discuss some practical improvements designed to improve
+the ML user experience, including validation of user input parameters. 
+<p>
+</html>

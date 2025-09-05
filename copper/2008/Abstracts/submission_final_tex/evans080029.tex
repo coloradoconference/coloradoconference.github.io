@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Katherine Evans \\
+{\bf Fully implicit methods for Earth system models}}
+
+Oak Ridge National Laboratory \\ PO Box 2008 \\ MS6016 \\ 1 Bethel Valley Rd \\ Oak Ridge \\ TN 37831
+\\
+{\tt evanskj@ornl.gov}\\
+Damian Rouson\\
+Andrew Salinger\\
+	James B. White III, Mark Taylor, Roger Pawlowski, Roscoe Bartlett, and John Drake\end{center}
+
+Major algorithmic challenges exist for the solution of Earth system problems,
+for example, coupled nonlinear physics, multiple disparate time scales, and
+scalability requirements. To address scaling, temporal parallelism is explored
+through implementation of the parareal method, which utilizes coarse and fine
+time grid operators. The fully implicit (FI) solution method is applied to the
+shallow water equations on a sphere as a coarse grid operator, and early results
+are presented. The FI solution framework allows relatively large time steps to
+be taken stably, within which finer time steps that resolve all the relevant
+physics can occur in parallel. The equations are solved within the High-order
+Method Modeling Environment (HOMME) model, which uses a cubed sphere grid and
+spectral element spatial discretization. The FI solution framework also provides
+a coherent nonlinear solution to all dependent variables. Enhanced accuracy with
+a second order FI method in time and space is illustrated with a simple fluid
+example. The solver implementation is occurring through the development of a
+Fortran interface package for the Trilinos project.
+
+
+\end{document}

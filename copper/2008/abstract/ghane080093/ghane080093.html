@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ghane080093</TITLE>
+<META NAME="description" CONTENT="ghane080093">
+<META NAME="keywords" CONTENT="ghane080093">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html258"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html259"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Roger G Ghanem 
+<BR><B>Parallelization and preconditioning of iterative solvers for linear systems arising in the stochastic finite element method</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Civil and Environmental Engineering 
+<BR>
+University of Southern California 
+<BR>
+3620 S Vermont Street 
+<BR>
+KAP 254C 
+<BR>
+Los Angeles 
+<BR>
+CA 90089-2531 
+<BR>
+Tel: (213) 740-9528 
+<BR>
+Fax: (213) 740-2037
+
+<BR><TT>ghanem@usc.edu</TT>
+<BR>
+Ramakrishna Tipireddy
+<BR>
+Maarten Arnst
+</DIV>
+
+<P>
+This communication investigates the use of preconditioning and
+parallelization methods to improve the computational efficiency of
+iterative solvers for linear systems arising in the Stochastic Finite
+Element Method&nbsp;(SFEM).
+
+<P>
+Linear matrix systems obtained in the SFEM are typically of much larger
+dimension than those obtained in the classical deterministic FEM. Indeed,
+SFEM systems are typically&nbsp;[<A
+ HREF="node1.html#ghanem1991">1</A>] of form:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:sfemsystem"></A><!-- MATH
+ \begin{equation}
+\sum_{i=0}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}=\boldsymbol{f}_{k}\;,\quad\text{for~$k
+= 0,\ldots,N$}\quad,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="169" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \sum_{i=0}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}=\boldsymbol{f}_{k}\;,$">&nbsp; &nbsp;for&nbsp;<!-- MATH
+ $k = 0,\ldots,N$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ k = 0,\ldots,N$"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \quad,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where&nbsp;<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ N$"> is the number of terms retained in the polynomial chaos
+expansion of the random response, <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ L$"> is the number of terms in the
+Karhunen-Loeve expansion of the random material properties, and the
+dimension of all submatrices&nbsp;<!-- MATH
+ $\boldsymbol{K}_{i}$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \boldsymbol{K}_{i}$"> is equal to the number
+of spatial degrees of freedom. Since the coefficients&nbsp;<IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ c_{ijk}$"> vanish
+for certain combinations of the indices&nbsp;<IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ i$">, <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ j$"> and&nbsp;<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ k$">, the system
+matrix derived from the above formulation has a particular block-sparsity
+structure, see e.g.&nbsp;[<A
+ HREF="node1.html#pellisetti2000">3</A>]. Other important properties
+include the dominance of&nbsp;<!-- MATH
+ $\boldsymbol{K}_0$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \boldsymbol{K}_0$"> over the
+other&nbsp;<!-- MATH
+ $\boldsymbol{K}_i$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \boldsymbol{K}_i$">'s, and the fact that all
+matrices&nbsp;<!-- MATH
+ $\boldsymbol{K}_i$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \boldsymbol{K}_i$"> have the same sparsity pattern and are
+usually symmetric.
+
+<P>
+The objective of this communication is to compare several preconditioning
+and parallelization methods which capitalize on the aforementioned
+properties to improve the computational efficiency of iterative solvers
+for SFEM systems of form&nbsp;(<A HREF="#eq:sfemsystem"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). Based on the dominance
+of&nbsp;<!-- MATH
+ $\boldsymbol{K}_0$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \boldsymbol{K}_0$"> over the other&nbsp;<!-- MATH
+ $\boldsymbol{K}_i$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \boldsymbol{K}_i$">'s, a first
+preconditioning method consists in reformulating the problem as a system
+of linear equations with multiple right-hand sides:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+c_{k0k}\boldsymbol{K}_{0}\boldsymbol{u}_{k}=\boldsymbol{f}_{k}-\sum_{i\not=k}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}-\left(\sum_{j\not=0}^{L}c_{kjk}\boldsymbol{K}_{j}\right)\boldsymbol{u}_{k}\;,\quad\text{for~$k
+= 0,\ldots,N$}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="404" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle c_{k0k}\boldsymbol{K}_{0}\boldsymbol{u}_{k}=\boldsymbol{f}_{k}-\s...
+...}-\left(\sum_{j\not=0}^{L}c_{kjk}\boldsymbol{K}_{j}\right)\boldsymbol{u}_{k}\;,$">&nbsp; &nbsp;for&nbsp;<!-- MATH
+ $k = 0,\ldots,N$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ k = 0,\ldots,N$"><IMG
+ WIDTH="9" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle .$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+A second preconditioning method consists in keeping only the diagonal
+block matrices on the left-hand side and moving the remaining blocks to
+the right-hand side:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\sum_{j=0}^{L}c_{kjk}\boldsymbol{K}_{j}\boldsymbol{u}_{k}=\boldsymbol{f}_{k}-\sum_{i\not=k}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}\;,\quad\text{for~$k
+= 0,\ldots,N$}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="284" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \sum_{j=0}^{L}c_{kjk}\boldsymbol{K}_{j}\boldsymbol{u}_{k}=\boldsy...
+...-\sum_{i\not=k}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}\;,$">&nbsp; &nbsp;for&nbsp;<!-- MATH
+ $k = 0,\ldots,N$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ k = 0,\ldots,N$"><IMG
+ WIDTH="9" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle .$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This method is expected to need fewer iterations to converge, but entails
+a higher computational effort at each iteration since the diagonal blocks
+are not identical.
+
+<P>
+The SANDIA developed Trilinos library&nbsp;[<A
+ HREF="node1.html#heroux2007">2</A>] is used to
+implement the framework. The package Epetra for mat-vec operations, and
+the AztecOO, IFPACK and Belos preconditioner packages are used in
+particular. The Belos package provides a solver manager for solving
+linear systems simultaneously on multiple right-hand sides. All packages
+use the Message Passing Interface&nbsp;(MPI) to allow for execution on
+parallel platforms. At the conference, the methods discussed above will
+be presented and then compared based on their application to a case
+history in stochastic structural mechanics.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html260"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html261"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html258"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html259"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

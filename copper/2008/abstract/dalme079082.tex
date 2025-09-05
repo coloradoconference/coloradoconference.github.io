@@ -1,0 +1,93 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Filomena D. d' Almeida \\
+{\bf Multipower Double Iteration for Spectral Computations}}
+
+CMUP - Centro de Matem\'{a}tica da Universidade do Porto \\ Faculdade de Engenharia \\ Universidade do Porto \\ Rua Dr Roberto Frias \\ 4200-465 Porto \\ Portugal
+\\
+{\tt falmeida@fe.up.pt}\\
+Paulo B.  Vasconcelos\end{center}
+
+We will present a method for the computation of eigenpairs of Fredholm
+integral operators on a Banach space $X$.
+
+Let us consider an integral operator $T$ and a sequence
+$(T_n)_{n\geq1}$ of $\nu$-approximations of $T$ obtained by projection
+methods onto a finite dimensional subspace of $X$, $X_n$.
+This kind of convergence, introduced by M. Ahues, A. Largillier and B.V.
+Limaye, is defined by
+$(\left\| T_n \right\|)$
+being bounded, and both $ \left\|(T_n - T)T \right\|$
+and $\left\|(T_n - T)T_n \right\|$ converging to $0$.
+The kernel of the Fredholm integral operators to be treated, may be weakly singular.
+
+The multipower double iteration consists of an inner/outer iteration
+where, inside a defect correction iteration, $p$ steps of a power
+iteration are used.
+The defect correction principle is based in describing the integral
+problem under the form $F(x)=0$ and using an approximate inverse of $F$
+to solve it iteratively.
+The approximate inverse here is based on an approximation to the reduced
+resolvent operator of $T_n$.
+
+
+Numerical experiments with a transfer problem in Astrophysics are presented.
+This problem deals with the emission of photons in stellar atmospheres that can be
+modeled by a strongly coupled system of nonlinear equations.
+We consider only a restriction of the system by taking the temperature
+and pressure constant, thus yielding a simpler model describing the mean
+intensity of radiation.
+The integral operator $T$ involved is
+
+$$
+(T\varphi)(\tau)=\frac{\varpi}{2}\int_{0}^{\tau^{\star}}E_{1}\left(
+\left\vert \tau-\tau^{\prime}\right\vert \right) \varphi\left( \tau^{\prime
+}\right) d\tau^{\prime}, \label{fred_op}
+$$
+
+\noindent where $\varphi$ is the average number of photons.
+The variable $\tau$ represents
+the optical depth, $\tau^{\star}$ is the optical thickness of a stellar
+atmosphere, $z$ is in the resolvent set of $T$ and $\varpi\in\left]
+0,1\right[ $ is the albedo (assumed to be constant in the present work).
+The first exponential-integral function $E_{1},$ defined by
+$E_{1}(\tau)=\int_{1}^{\infty}\frac{\exp(-\tau\mu)}{\mu}d\mu,\quad\tau>0$,
+has a logarithmic behavior in the neighborhood of the origin.
+
+To solve this problem we followed the numerical approach based on the
+projection of the integral operator onto a finite dimensional subspace.
+Without any loss of generality, we consider the Kantorovich method.
+The discretization of this problem by projection methods
+yields non symmetric sparse band matrices, and so appropriate date structures are used.
+
+The numerical tests made with this new method show a considerable
+improvement over the classical double iteration rate of convergence.
+The performance of multipower double iteration is also compared
+successfully to the state-of-the-art methods applied to the discretised
+problem, namely Arnoldi and Jacobi-Davidson methods.
+
+For instance, we compared the CPU time, for the computation
+of the 3 largest eigenpairs, by Multipower, Arnoldi and Jacobi-Davidson methods,
+the first took 22.6 seconds, the second 119.2 seconds and the third 107.1 seconds.
+For the first method, a discretization involving a projecting finite
+dimensional subspace of dimension $400$ was used to solve a matrix
+eigenvalues problem,
+for all of them the functions in $X$ were approximated by their
+interpolants in $X_{4000}$, and the action of the operator $T$ was
+represented by the product by a matrix of order $4000$. The tolerence on
+the residual taken was $tol=1e-6$ and the number of inner power
+iterations $p=20$.
+
+This Multipower method is well adapted to single precison fast
+performance of modern microprocessors, it is very
+performant for coarse error tolerances and competitive with the two mentioned
+state-of-the-art methods, especially when the number of eigenvalues to compute
+is small. For more eigenvalues the multipower method tends to be less competitive.
+
+
+\end{document}

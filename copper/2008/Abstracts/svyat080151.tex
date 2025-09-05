@@ -1,0 +1,92 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniil Svyatskiy \\
+{\bf Nonlinear monotone finite volume method for anisotropic diffusion equation}}
+
+Mathematical Modeling and Analysis \\ Theoretical Division \\ Mail Stop B284 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545 \\ U S A
+\\
+{\tt dasvyat@lanl.gov}\\
+Lipnikov Konstantin\\
+Shashkov Mikhail\\
+	Yuri Vassilevski\end{center}
+
+Predictive numerical simulations of subsurface processes require
+not only more sophisticated physical models but also more accurate
+and reliable discretization methods for these models.
+We study a new monotone finite volume method
+for diffusion problems with a heterogeneous anisotropic material tensor. Examples of
+anisotropic diffusion includes diffusion in geological formations,
+head conduction in structured materials and crystals, image processing,
+biological systems, and plasma physics.
+Development of a new discretization scheme should be based on the
+requirements motivated by both practical implementation and physical
+background. This scheme must
+
+\begin{itemize}
+\item[-] be locally conservative;\\
+\item[-] be monotone, i.e. preserve positivity of the differential solution;\\
+\item[-] be applicable to unstructured, anisotropic, and severely distorted meshes; \\
+\item[-] allow arbitrary diffusion tensors;\\
+\item[-] result in sparse systems with a minimal number of non-zero entries;
+\item[-] have higher than the first-order accuracy for smooth solutions.\\
+\end{itemize}
+
+The discretization
+methods used in existing simulations, such as Mixed Finite Element (MFE)
+method, Finite Volume (FV) method,
+Mimetic Finite Difference (MFD) method, Multi Point Flux Approximation (MPFA) method,
+satisfy most of these requirements except the {\bf monotonicity}. They
+fail to preserve positivity of a
+continuum solution when the diffusion tensor is heterogeneous and
+anisotropic or the computational mesh is strongly
+perturbed.
+Monotonicity is a very important as well as a difficult requirement to satisfy.
+
+The mixed form of the diffusion equation includes the mass conservation equation
+and the constitutive equation:
+\begin{equation}
+{\rm div} \, {\bf q} = Q, \qquad {\bf q} = - D\, {\rm grad}\, C,
+\nonumber
+\end{equation}
+where $ D$ is the diffusion tensor, $Q$ is the source term, and $\bf q$ is the
+flux of concentration $C$.
+
+
+All the methods mentioned above use the same discretization of the mass
+conservation equation
+and differ by their approximation of the flux (constitutive) equation.
+In the nonlinear finite volume scheme a {\it reference} point ${\bf x}_T$ is defined for
+each mesh cell $T$ to approximate the concentration $C$. The position of
+the reference point
+depends on the geometry of $T$ and value of the diffusion tensor.
+For isotropic diffusion tensors and triangular cell $T$, the center of
+the inscribed circle
+is the acceptable position for the reference point.
+
+The flux $\bf q$ is approximated at the middle of each mesh
+edge using a weighted difference of concentrations in two neighboring
+cells. Nonlinearity comes from the fact that these weights
+depend on a solution. Therefore the nonlinear finite volume method
+results in a nonlinear algebraic system.
+This system is very sparse and the dimension is equal to the number of mesh cells $T$.
+For triangular meshes, the matrix of this system has at most four
+non-zero elements in each row.
+To solve the nonlinear algebraic problem we use the Picard iterative
+method which guarantees monotonicity of the
+discrete solution for all iterative steps.
+The computational results demonstrate the flexibility and accuracy of the scheme.
+For sufficiently smooth solutions, we achieve the
+second-order convergence for concentration $C$ and at least the first-order for flux
+${\bf q}$ in a mesh-dependent $L_2$-norm. For non-smooth, highly anisotropic solutions
+we observe at least the first-order convergence for both unknowns.
+The solution remains {\bf non-negative} on different types of meshes and for different
+directions of anisotropy.
+Both $RT_0$ and $P_1$ methods produce {\bf negative} values.
+
+
+\end{document}

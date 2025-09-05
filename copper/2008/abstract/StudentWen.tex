@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Zaiwen Wen \\
+{\bf A Line search Multigrid Method for Nonconvex Optimization.
+}}
+
+Department of Industrial Engineering and Operations Research \\ 
+Columbia University \\
+NY 10027, USA \\
+{\tt zw2109@columbia.edu}\\
+Donald Goldfarb
+% goldfarb@columbia.edu
+\end{center}
+
+We present a  line search multigrid method for solving discretized versions of
+general unconstrained infinite dimensional optimization problems. Introducing a
+new condition to a backtracking line search procedure, the step generated from
+the coarser levels is guaranteed to be a descent direction. This method is
+globally convergent under fairly minimal requirements on the
+minimization method used at all grid levels. In particular, our
+method does not require that these minimizations, or
+so-called ``smoothing'' steps,  be taken at each grid level in
+contrast with multigrid
+algorithms for PDEs, which fail to converge without such steps.
+Preliminary numerical experiments show that our method is promising.
+\end{document}

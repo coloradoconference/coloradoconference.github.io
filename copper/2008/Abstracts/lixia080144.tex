@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Xiaoye, S. Li \\
+{\bf Evaluation of sparse factorization and triangular solution on multicore architectures}}
+
+Lawrence Berkeley National Laboratory \\ MS 50F-1650 \\ 1 Cyclotron Rd \\ Berkeley \\ CA 94720-8139
+\\
+{\tt xsli@lbl.govm}\end{center}
+
+Multicore processors will be the basic building blocks for
+computer systems ranging from laptops to supercomputers.
+New software developments at all levels are needed to fully
+utilize these systems.
+We are conducting performance evaluation of different parallel
+algorithms for sparse LU factorization and triangular solution
+on representative multicore machines, including an eight-core
+Intel Clovertown and an eight-core Sun Niagara2 with
+64-way threading.
+
+In this study, we include both pthreads and MPI implementations,
+and both left-looking (implemented in SuperLU_MT) and
+right-looking (implemented in SuperLU_DIST) algorithm variants.
+The preliminary results showed that the pthreads implementation
+consistently delivers nearly linear speedups for most problems,
+and a left-looking algorithm is usually superior.
+We will present quantitative assessment of performance with
+various algorithmic components. We believe our findings are
+also relevant to the class of preconditioners which are based
+on incomplete factorizations.
+
+
+\end{document}

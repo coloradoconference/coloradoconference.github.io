@@ -1,0 +1,95 @@
+===firstname:
+Jorge
+===firstname3:
+
+===lastname2:
+Wild
+===postal:
+Mathematics and Computer Science Division                            
+Argonne National Laboratory             
+9700 S. Cass Ave.                       
+Argonne, Illinois 60439-4844
+
+===lastname:
+Mor\'e
+===lastname3:
+
+===ABSTRACT:
+
+\newcommand{\Ref}[1]{\mbox{\rm{(\ref{#1})}}} 
+\newcommand{\R}{\mbox{${\mathbb R}$}}        
+\newcommand{\NA}{\textsf{\small NEWUOA}} 
+\newcommand{\NM}{\textsf{\small NMSMAX}} \newcommand{\Apps}{\textsf{\small APPSPACK}} 
+
+\begin {center}
+{\Large\textbf{Derivative-Free Optimization Solvers: A Shootout}}
+
+\bigskip
+
+\textbf{Jorge J. Mor\'e\footnotemark [1] and Stefan M. Wild\footnotemark [2]}
+
+\end {center}
+
+\footnotetext [1] { Mathematics and Computer Science Division, Argonne National Laboratory, Argonne, IL 60439.  This work was supported by the Mathematical, Information, and Computational Sciences Division subprogram of the Office of Advanced Scientific Computing Research, Office of Science, U.S. Department of Energy, under Contract DE-AC02-06CH11357.  }
+
+
+\footnotetext [2] { School of Operations Research and Information Engineering, Cornell University, Ithaca, NY 14853.  Research supported by a DOE Computational Science Graduate Fellowship under grant number DE-FG02-97ER25308}
+
+Derivative-free optimization has experienced a renewed interest over the past decade that has encouraged a new wave of theory and
+algorithms.  While this research includes computational experiments that compare and explore the properties of these algorithms, most of these experiments do not provide useful information for users of derivative-free algorithms with computationally expensive problems. In our experience, these users want solvers that deliver the most reduction in function value within a given computational budget.
+
+We explore benchmarking procedures for derivative-free optimization algorithms when there is a limited computational budget.  The focus of our work is the unconstrained optimization problem
+\[
+\min \left \{ f(x) : x \in \R^n \right \} ,
+\]
+where $ f : \R^n \to \R $ may be noisy or non-differentiable and, in particular, in the case where the evaluation
+of $f$ is computationally expensive. These expensive optimization problems arise in science and engineering because evaluation of the function $ f$ often requires a complex deterministic simulation based on solving the equations (for example, nonlinear eigenvalue problems, ordinary or partial differential equations) that describe the underlying physical phenomena.  The
+computational noise associated with these complex simulations means that obtaining derivatives is difficult and unreliable.  Moreover, these simulations often rely on legacy or proprietary codes and hence must be treated as black-box functions, necessitating a derivative-free optimization algorithm.
+
+
+Several comparisons have been made of derivative-free algorithms on noisy optimization problems that arise in applications. In particular, we mention
+\cite{Shootout07,Gray2004,Torczon2003b,Oeuvray2007,RGRCAS2007}.  The most ambitious work in this direction \cite{Shootout07} is a
+comparison of six derivative-free optimization algorithms on two
+variations of a groundwater problem specified by a simulator.  This work compares algorithms by their trajectories (plot of the best function value against the number of evaluations) until the solver satisfies a convergence test based on the resolution of the simulator.
+
+Benchmarking derivative-free algorithms on selected applications with trajectory plots provides useful information to users with related applications.  In particular, users can find the solver that delivers the largest reduction within a given computational budget.  However, the conclusions in these computational studies do not readily extend to other applications. 
+
+We use data \cite{JJMSW07} and performance profiles \cite{EDD01} to analyze the performance of six derivative-free solvers on benchmark sets of smooth, noisy, and piecewise-smooth problems. We use performance measures that evaluate the progress of the algorithm in terms of the function value, and thus avoid unrealistic convergence tests.  We consider geometry-based solvers (\Apps, for example) and model-based solvers (\NA, for example).  Our results show that on these problems, model-based solvers performs better than geometry-based solvers, even for noisy and piecewise-smooth problems.
+
+Our results also show that data and performance profiles provide
+complementary information that measures the strengths and weaknesses of optimization solvers as a function of the computational budget. Data profiles are useful, in particular, to assess the short-term behavior of the algorithms. 
+
+\begin{thebibliography}{1}
+
+\bibitem{EDD01}
+{\sc E.~D. Dolan and J.~J. Mor\'e}, {\em Benchmarking optimization software with performance profiles}, Math. Programming, 91 (2002), pp.~201--213.
+
+\bibitem{Shootout07}
+{\sc K.~Fowler, J.~Reese, C.~Kees, J.~J.E.~Dennis, C.~Kelley, C.~Miller, C.~Audet, A.~Booker, G.~Couture, R.~Darwin, M.~Farthing, D.~Finkel, J.~Gablonsky, G.~Gray, and T.~Kolda}, {\em A comparison of derivative-free optimization methods for water supply and hydraulic capture community problems}, preprint, 2007. \newblock Submitted to Advances in Water Resources, June 2007.
+
+\bibitem{Gray2004}
+{\sc G.~A. Gray, T.~G. Kolda, K.~Sale, and M.~M. Young}, {\em Optimizing an empirical scoring function for transmembrane protein structure determination}, INFORMS J. on Computing, 16 (2004), pp.~406--418.
+
+\bibitem{Torczon2003b}
+{\sc P.~D. Hough, T.~G. Kolda, and V.~J. Torczon}, {\em Asynchronous parallel pattern search for nonlinear optimization}, SIAM J. Sci. Comp., 23 (2001),
+  pp.~134&#150;--156.
+
+\bibitem{JJMSW07}
+{\sc J.~J. Mor\'e and S.~Wild}, {\em Benchmarking derivative-free optimization algorithms}, Preprint ANL/MCS-P1471-1207, Argonne National Laboratory, Argonne, Illinois, 2007.
+
+\bibitem{Oeuvray2007}
+{\sc R.~Oeuvray and M.~Bierlaire}, {\em A new derivative-free algorithm for the medical image registration problem}, International Journal of Modelling and Simulation, 27 (2007), pp.~115--124.
+
+\bibitem{RGRCAS2007}
+{\sc R.~G. Regis and C.~A. Shoemaker}, {\em A stochastic radial basis function method for the global optimization of expensive functions}, INFORMS Journal of Computing, 19 (2007), pp.~457--509.
+
+\end{thebibliography}
+
+===email:
+more@mcs.anl.gov
+===otherauths:
+
+===title:
+Derivative-Free Optimization Solvers: A Shootout
+===firstname2:
+Stefan

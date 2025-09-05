@@ -1,0 +1,116 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Aleksandar Jemcov \\
+{\bf Application of Vector Sequence Extrapolation to Iterative Algorithms in Computational Fluid Dynamics}}
+
+10 Cavendish Court \\ Lebanon \\ NH \\ 03766 \\ USA
+\\
+{\tt aj@fluent.com}\\
+Joseph P. Maruszewski\end{center}
+
+The vector extrapolation methods are the generalization of the
+Aitken's $\triangle^2$ method for the scalar equations that allow
+a significant acceleration of the monotonic convergence. The idea
+of the convergence acceleration through the extrapolation methods
+is based on the transformation of a slowly converging sequence
+$\{X_i\}$ into a new sequence $\{Y_i\}$ converging to the same
+limit faster than the initial one. The transformation
+\begin{equation}
+T: \{X_i\} \rightarrow \{Y_i\}
+\end{equation}
+is constructed by interpolating a finite number of terms in the
+sequence $\{X_i\}$, thus effectively computing the sequence limit
+through the following linear combination:
+\begin{equation}\label{sum}
+s = \sum_{i=0}^{k} \alpha_i X_i.
+\end{equation}
+The vector extrapolation methods extend this approach to the
+sequences whose elements are vectors in the same way they were
+used in Eq.~(\ref{sum}) to accelerate the scalar sequences.
+Weighting coefficients $\alpha_i$ are determined by minimizing
+the error terms defined as the difference between the limit of
+the sequence $s$ and the arbitrary elements of the sequence
+$X_i$:
+\begin{equation}\label{error}
+\epsilon_i = s - X_i.
+\end{equation}
+For the linear fixed-point functions this is achieved by
+observing that the initial error $\epsilon_0$ can be related to
+the subsequent error $\epsilon_i$ through the powers of the
+iteration matrix of the fixed-point function:
+\begin{equation}\label{recursion}
+\epsilon_i = {\cal R}^i \epsilon_0.
+\end{equation}
+Here the fixed point function is defined by
+\begin{equation}\label{fp}
+X_{i+1} = {\cal R}X_i + b.
+\end{equation}
+If we take the definition of the error, Eq.~(\ref{error}) and
+observing that the arbitrary element of the sequence can be
+expressed as
+\begin{equation}
+X_i = s - {\cal R}^i \epsilon_0,
+\end{equation}
+and if we substitute Eq.~(\ref{fp}), we can arrive to the
+conditions that the weighting coefficients must satisfy in order
+to minimize the error in Eq.~(\ref{sum}):
+\begin{equation}\label{cond}
+\sum_{i=0}^{k} \alpha_i X_i = s \sum_{i = 0}^k \alpha_i -
+\sum_{i=0}^{k} \alpha_i {\cal R}^i \epsilon_0.
+\end{equation}
+Eq.~(\ref{cond}) is equivalent to the following constrained
+minimization problem:
+\begin{equation}\label{min}
+\mathbf{\alpha} = argmin(\alpha_i)
+|| X_0 + \sum_{i=0}^k \alpha_i \triangle X_i ||
+\end{equation}
+such that
+\begin{equation}\label{constr}
+\sum_{i = 0}^k \alpha_i = 1.
+\end{equation}
+In other words, Eq.~(\ref{cond}) corresponds to finding the
+coefficients of the minimal polynomial associated with the
+iteration matrix ${\cal R}$ and this indicates an intimate link
+between vector sequence extrapolation and Krylov subspace
+methods. Another point of view that we will be taking here is
+that the vector sequence extrapolation methods correspond to the
+preconditioned Krylov subspace methods that use the fixed-point
+algorithms as the nonlinear preconditioners.
+
+Strictly speaking, Eq.~(\ref{fp}) is valid for the linear fixed
+point functions but the method can be extended to the nonlinear
+fixed point functions through a local linearization and by the
+inclusion of restarts in the algorithm. The general form of
+the nonlinear fixed-point functions considered here takes the
+following form:
+\begin{equation}
+X_{i+1} = \mathbf{F}\left(X_i\right).
+\end{equation}
+Using the local linearization, the initial and $i$-th error are
+related through the powers of the Jacobian of the fixed point
+function with the second order accuracy, similarly to
+Eq.~(\ref{recursion}):
+\begin{equation}
+\epsilon_i = \partial_X \mathbf{F}^i\left(X_i\right) \epsilon_0
+\end{equation}
+The nonlinearly preconditioned Krylov subspace method algorithm
+can be devised that is similar to the algorithm described in
+Eq.~(\ref{min}) and Eq.~(\ref{constr}) but with the use of
+restarts.
+
+The vector extrapolation method is applied to problems in
+Computational Fluid Dynamics and it is shown that it leads to a
+significant acceleration of the convergence rates. Moreover, the
+method can be applied to the acceleration of any fixed-point
+algorithm with the minimal or no changes to the original
+algorithm. Results are demonstrated for the cases of the
+compressible and incompressible flows as well in conjunction with
+the explicit and implicit algorithms.
+
+
+\end{document}

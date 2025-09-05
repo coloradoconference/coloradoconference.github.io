@@ -1,0 +1,35 @@
+\documentclass[10pt]{siamltex}
+%
+\begin{document}
+
+\title{Multigrid for a Class of System Elliptic Partial Differential Equations}
+\author{B. Lee
+\thanks{Center for Applied Scientific Computing, Lawrence Livermore National Laboratory,
+Livermore, CA. {\it email}: lee123@llnl.gov. This work performed under the auspices of the U.S. Department
+of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.}}
+\date{}
+\maketitle
+
+\begin{abstract}
+This talk presents a new approach for solving a class of strongly coupled system of elliptic partial
+differential equations (pdes) using multigrid strategies. Unlike existing
+multigrid solvers which are constructed directly from the whole system
+operator, this approach builds the solver using an approximate or exact factorization of the
+system operator. This factorization has an algebraic coupling term and a diagonal 
+(decoupled) differential operator. Exploiting the factorization,
+this approach produces decoupled systems on the coarse levels. The corresponding coarse-grid
+operators are in fact the Galerkin variational coarsening of the diagonal differential operator.
+Thus, rather than performing delicate coarse-grid selection and interpolation weight procedures on the
+original strongly coupled system as in some of the existing methods, these procedures are isolated 
+to the diagonal differential operator. Moreover, as the coarse systems are decoupled,
+simple smoothers can be used on the coarse levels even for original systems
+that are strongly non-diagonally dominant. The small payoff for this approach is
+a violation of the Galerkin variational principle on the first coarse grid:
+this method can be viewed somewhat as a re-discretization of the system of
+pdes for the first coarse level, although additional coarser-grid problems are derived
+by applying the Galerkin variational principle to this first coarse-grid equation. This approach is, 
+of course, viable only for systems of pdes that afford a realizable algebraic-differential factorization.
+\end{abstract}
+
+\end{document}
+

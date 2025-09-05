@@ -1,0 +1,39 @@
+===firstname:
+James
+===firstname3:
+
+===lastname2:
+
+===postal:
+2075 Goss St. #11
+Boulder, CO 80302
+===lastname:
+Adler
+===lastname3:
+
+===ABSTRACT:
+Magnetohydrodynamics (MHD) is a single-fluid theory that describes Plasma Physics.  MHD treats the plasma as one fluid 
+of charged particles.  Hence, the equations that describe the plasma form a nonlinear system that couples Navier-Stokes 
+with Maxwell's equations.  To solve this system, a nested-iteration-Newton-FOSLS-AMG approach is taken.  The system is 
+linearized on a coarse grid using a Newton step and is then discretized in a FOSLS functional upon which several AMG 
+V-cycles are performed.  If necessary, another Newton step is taken and more V-cycles are done.  When the linear functional
+has converged "enough," the approximation is interpolated to a finer grid where it is again linearized, FOSLized, and 
+solved for.  The goal is to determine the most efficient algorithm in this context.  One would like to do as much work as 
+possible on the coarse grid including most of the linearization.  Ideally, it would be good to show that at most one 
+Newton step and a few V-cycles are all that is needed on the finest grid.  This talk will develop theory that supports 
+this argument, as well as show experiments to confirm that the algorithm can be efficient for MHD problems.  Currently, 
+two test problems have been studied, both with the use of FOSPACK: a 3D steady state MHD test problem with a manufactured 
+solution, and, for a more realistic problem, a reduced 2D time-dependent formulation.  The latter equations can simulate 
+a "large aspect-ratio" tokamak, with non-circular cross-sections.  Here, the problem was reformulated in a way that is 
+suitable for FOSLS and FOSPACK.  This talk will discuss two stopping criteria.  First, on each refinement level, when 
+should one stop solving the linear system and re-linearize the problem.  Secondly, how does one choose whether to do 
+another Newton step or move to a finer grid.  In addition, different types of h and p refinement will be tested, as well 
+as adaptive mesh refinement.  The goal is to resolve as much physics from the test problem with the least amount of work.
+===email:
+james.adler@colorado.edu
+===otherauths:
+
+===title:
+Nested Iteration FOSLS-AMG for Resistive Magnetohydrodynamics
+===firstname2:
+

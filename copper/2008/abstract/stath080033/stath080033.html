@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>stath080033</TITLE>
+<META NAME="description" CONTENT="stath080033">
+<META NAME="keywords" CONTENT="stath080033">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html862"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html863"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andreas Stathopoulos 
+<BR><B>A new method for computing eigenvectors during unrestarted CG while solving multiple right hand sides</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">College of William and Mary 
+<BR>
+Department of Computer Science 
+<BR>
+P O Box 8795 
+<BR>
+Williamsburg 
+<BR>
+VA 23187-8795
+
+<BR><TT>andreas@cs.wm.edu</TT>
+<BR>
+Konstantinos Orginos
+</DIV>
+
+<P>
+Solving large, Hermitian linear systems with multiple right hand sides (MRHS)
+presents a computational bottleneck for many applications,
+including our target application, Quantum Chromodynamics (QCD).
+We focus on Krylov iterative methods and in particular the Conjugate Gradient (CG).
+Although our results apply also to Preconditioned CG,
+for presentation simplicity we discuss only the unpreconditioned case.
+
+<P>
+For MRHS, the common approach is to use either block or seed Krylov methods.
+We focus on seed methods as the right hand sides may not be all available
+at the same time.
+Seed methods use information computed during the solution of one
+linear system to project subsequent systems.
+However, for QCD problems the right hand sides are statistically
+unrelated which implies that the best information to reuse across systems
+is the approximated extreme eigenspaces.
+Instead of running a separate eigensolver, some methods have arisen that
+attempt to compute these eigenspaces from within the Krylov linear solver.
+A notable example is the GMRESDR method which exploits the relationship
+between implicitly restarted Arnoldi and GMRES for non-Hermitian matrices.
+For Hermitian matrices, GMRESDR is much more expensive than CG and,
+most importantly, its restarting impairs the optimal convergence
+achieved by CG/Lanczos for both the linear system and the eigenvalue problem.
+
+<P>
+One approach that is often tried is to store all CG residual
+iterates (which are the same as the Lanczos vectors) and the tridiagonal
+Lanczos matrix, and once the linear system converges to compute the
+required Ritz vectors and values.
+In theory, this is equivalent to the optimal Lanczos method but
+has several computational shortcomings.
+The Lanczos vectors must be stored or recomputed during a second pass
+and the tridiagonal matrix may become too large.
+More importantly, loss of orthogonality gives rise to
+ghost eigenvalues that must be managed at the end.
+
+<P>
+In this talk, we present an algorithm, eigCG, which computes eigenvalue and
+eigenvector approximations of a Hermitian operator by reusing information
+from the <EM>unrestarted</EM> CG method.
+This is achieved by keeping a search space that includes current eigenvector
+approximations and only the last few CG iteration vectors.
+The crucial step is how we restart this search space to keep computations
+tractable.
+The CG iteration is completely unaffected.
+
+<P>
+The idea is to use the locally optimal restarting strategy from our
+Generalized Davidson+k (GD+k) eigenvalue method to update a window of Ritz
+vectors but without restarting the Lanczos process.
+Consider the CG(Lanczos) method on matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">, and a set of <IMG
+ WIDTH="65" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ m&gt;nev$"> vectors,
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$">, that keep track of the required <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> Ritz vectors and the most recent
+Lanczos vectors.
+Initially, <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> is composed of the first <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ m$"> Lanczos vectors with the usual
+tridiagonal projection matrix <!-- MATH
+ $T_m = V^HAV$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ T_m = V^HAV$"> (this also can be computed
+from the scalar iterates of CG).
+At this point, we apply the Rayleigh-Ritz on <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ T_m$"> and restart <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> with the
+current <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> Ritz vectors <IMG
+ WIDTH="36" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ u_i^{(m)}$">.
+The critical feature of our algorithm is that we also include in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$">
+the <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> Ritz vectors from step <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ m-1$">.
+Thus, the restarted <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> is computed as an orthonormal set of vectors spanning:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:restartedV"></A><!-- MATH
+ \begin{equation}
+[u_1^{(m)}, u_2^{(m)}, \ldots , u_{nev}^{(m)},
+u_1^{(m-1)}, \ldots ,u_k^{(m-1)} ].
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="291" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle [u_1^{(m)}, u_2^{(m)}, \ldots , u_{nev}^{(m)}, u_1^{(m-1)}, \ldots ,u_k^{(m-1)} ].$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+From this point forth, our algorithm deviates from thick restarted Lanczos or
+GD+k because it does not use the residual of <IMG
+ WIDTH="36" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ u_1^{(m)}$"> to build
+a new Lanczos iteration.
+It keeps using the next <IMG
+ WIDTH="83" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ (m-2nev)$"> CG vectors, <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ v_i$">, from the original,
+unrestarted process to append to <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$">:
+<!-- MATH
+ \begin{displaymath}
+[u_1^{(m)}, u_2^{(m)}, \ldots , u_{nev}^{(m)},
+u_1^{(m-1)}, \ldots ,u_k^{(m-1)},
+v_{m+1}, \ldots ,v_{m+m-2nev} ].
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="447" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle [u_1^{(m)}, u_2^{(m)}, \ldots , u_{nev}^{(m)},
+u_1^{(m-1)}, \ldots ,u_k^{(m-1)},
+v_{m+1}, \ldots ,v_{m+m-2nev} ].$">
+</DIV><P></P>
+Note that orthogonality need not be maintained as the Lanczos vectors <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ v_i$">
+are orthogonal (in exact arithmetic) to all previous Lanczos vectors
+and therefore to any Ritz vectors in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$">.
+The projection matrix for the resulting <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> is
+<!-- MATH
+ $H = V^HAV =
+\left[
+\begin{array}{ccl}
+\Theta & C^H\\
+C & T
+\end{array}
+\right],$
+ -->
+<IMG
+ WIDTH="199" HEIGHT="54" BORDER="0"
+ SRC="img15.png"
+ ALT="\begin{displaymath}H = V^HAV =
+\left[
+\begin{array}{ccl}
+\Theta &amp; C^H\\
+C &amp; T
+\end{array}\right],
+\end{displaymath}">
+where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \Theta$"> is a diagonal matrix of size <IMG
+ WIDTH="38" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ 2nev$"> containing the <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$">
+Ritz values, <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ T$"> is the section from <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m+1$"> to <IMG
+ WIDTH="79" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ 2m-2nev$"> of the
+tridiagonal matrix of the unrestarted Lanczos, and only the first row
+of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ C$"> is non-zero.
+Thus, <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ H$"> can be computed from the Lanczos coefficients with negligible
+additional cost.
+At this point, the Rayleigh-Ritz is applied again and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> is restarted
+with the <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> Ritz vectors from <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ H$"> and the previous <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> Ritz vectors
+from <!-- MATH
+ $H(1:m-1,1:m-1)$
+ -->
+<IMG
+ WIDTH="164" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ H(1:m-1,1:m-1)$">.
+Then the update algorithm repeats, while the original CG continues.
+
+<P>
+The use of Rayleigh Ritz and thick restart guarantee monotonic
+convergence of the <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> Ritz values in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$">,
+but not necessarily to any eigenvalues.
+To our surprise, in all of our experiments with <IMG
+ WIDTH="59" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ nev&gt;4$">, the <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> updated
+vectors converge to the required eigenpairs at a rate identical to that of
+unrestarted Lanczos!
+Note that any information that is discarded from <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> when we restart cannot
+be reintroduced in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$"> because future Lanczos vectors <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ v_i$"> are
+orthogonal to it.
+By restarting through eq.&nbsp;(<A HREF="#eq:restartedV"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) almost all Lanczos
+information regarding the <IMG
+ WIDTH="30" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ nev$"> eigenpairs is kept in condensed form in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V$">.
+In fact, with thick restarting alone (i.e., without the <!-- MATH
+ $u_i^{(m-1)}$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ u_i^{(m-1)}$">
+directions as performed in RMINRES) the algorithm stagnates.
+We present experiments that demonstrate this behavior.
+
+<P>
+We have used eigCG to solve large QCD problems where
+the number of right hand sides is in the order of hundreds.
+We apply eigCG with <!-- MATH
+ $nev=10, m=100$
+ -->
+<IMG
+ WIDTH="133" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ nev=10, m=100$"> for the first 12 systems, incrementally
+building more than 40 eigenvectors of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"> computed to machine precision.
+When these eigenvectors are deflated from subsequent systems
+through simple init-CG, factors of 8 speedup are obtained in the
+number of iterations.
+More importantly for QCD, these speedups increase as the quark mass of
+the system approaches a critical mass which gives rise to the so-called
+critical slow-down in these problems.
+Our method completely removes this type of slowdown for any type of matrix
+size.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html864"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html862"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html863"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

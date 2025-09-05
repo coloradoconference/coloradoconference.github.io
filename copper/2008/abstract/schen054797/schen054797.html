@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>schen054797</TITLE>
+<META NAME="description" CONTENT="schen054797">
+<META NAME="keywords" CONTENT="schen054797">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html826"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html827"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Olaf Schenk 
+<BR><B>Inertia Revealing Preconditioning For Large-Scale Nonconvex PDE-Constrained Optimization </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+University of Basel 
+<BR>
+Switzerland
+
+<BR><TT>olaf.schenk@unibas.ch</TT>
+<BR>
+Andreas W&#228;chter
+<BR>
+Martin Weiser
+</DIV>
+
+<P>
+Fast nonlinear programming methods following the all-at-once approach
+usually employ Newton's method for solving linearized Karush-Kuhn-Tucker
+(KKT) systems. In nonconvex problems, the Newton direction is only
+guaranteed to be a descent direction if the Hessian of the Lagrange function
+is positive definite on the nullspace of the active constraints, otherwise
+some modifications to Newton's method are necessary. This condition can be
+verified using the signs of the KKT's eigenvalues (inertia), which are
+usually available from direct solvers for the arising linear saddle point
+problems. Iterative solvers are mandatory for very large-scale problems,
+but in general do not provide the inertia. Here we present a preconditioner
+based on a multilevel incomplete <IMG
+ WIDTH="49" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LBL^T$"> factorization, from which an
+approximation of the inertia can be obtained [1]. The suitability of the
+heuristics for application in optimization methods is verified on an
+interior point method applied to the CUTE and COPS test problems, on
+large-scale 3D PDE-constrained optimal control problems, as well as 3D
+PDE-constrained optimization in biomedical cancer hyperthermia treatment
+planning. The efficiency of the preconditioner is demonstrated on very
+large-scale convex and nonconvex problems with millions of state and control
+variables, both subject to bound constraints.
+
+<P>
+We propose an inertia revealing preconditioning approach for the solution of
+nonconvex PDE-constrained optimization problems. If interior methods with
+second-derivative information are used for these optimization problems, a
+linearized Karush-Kuhn-Tucker system of the optimality conditions has to be
+solved. The main issue addressed is how to ensure that the Hessian is
+positive definite in the null-space of the constraints while neither
+adversely affecting the convergence of Newton's method or incurring a
+significant computational overhead. In the nonconvex case, it is of
+interest to find out the inertia of the current iteration system so that the
+matrix may be modified a posteriori to obtain convergence to a minimum.
+However, in order to not destroy the rapid convergence rate of the interior
+method, the modification has only be performed in the cases where the
+inertia is not correct and factorization methods are very often used in
+order to compute the inertia information [2]. However, in this work we
+propose a new inertia revealing preconditioned Krylov iteration to solve the
+linearized Karush-Kuhn-Tucker system of optimality conditions.
+
+<P>
+For general nonconvex nonlinear programming problems it is therefore of
+utmost importance to modify the method in such a way that no ascent steps
+are taken and finally to check that the delivered solution is indeed a local
+minimum. For both tasks it is necessary to compute the inertia of the
+Karush-Kuhn-Tucker system of the optimality conditions, which is relatively
+easy using direct factorization methods. For very large scale problems, in
+particular discretized 3D partial differential equations, direct
+factorizations are prohibitively expensive both in terms of computing time
+and storage requirements. How to reliably obtain the inertia from iterative
+methods, however, is essentially an open problem.
+
+<P>
+We propose an algebraic multilevel preconditioning technique using maximum
+weighted matchings [3,4] for revealing the inertia to be used in a interior
+point method [2]. Our preconditioning approaches for the symmetric
+indefinite Karush-Kuhn-Tucker systems are based on maximum weighted
+matchings and algebraic multi-level inverse-based incomplete <IMG
+ WIDTH="49" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LBL^T$">
+factorizations [5]. We present numerical results on several large-scale
+three-dimensional examples of PDE-constrained optimizations in the full
+space of states, control and adjoint variables with equality and
+non-equality constraints and test them with artificial as well as clinical
+data from biomedical cancer hyperthermia treatment planning. The largest
+nonconvex optimization problem from three-dimensional PDE-constrained
+optimization with the inertia revealing preconditioning approach has more
+than 30 million state variables and hundred of thousands million control
+variables with both lower and upper bound.
+
+<P>
+[1] O. S<SMALL>CHENK, </SMALL>A. W&#168;<SMALL>ACHTER, AND </SMALL>M. W<SMALL>EISER</SMALL>, <EM>Inertia revealing
+preconditioning for large-scale nonconvex constrained optimization</EM>,
+Technical Report CS-2007-12 (2007), Computer Science Department, University
+of Basel, Switzerland, submitted.
+
+<P>
+[2] A.&nbsp;W&#168;<SMALL>ACHTER AND </SMALL>L.&nbsp;T. B<SMALL>IEGLER</SMALL>, <EM>On the implementation of a
+primal-dual interior point filter line search algorithm for large-scale
+nonlinear programming</EM>, Mathematical Programming, 106 (2006), pp.&nbsp;25-57.
+
+<P>
+[3] I.&nbsp;S. D<SMALL>UFF AND </SMALL>S.&nbsp;P<SMALL>RALET</SMALL>, <EM>Strategies for scaling and pivoting
+for sparse symmetric indefinite problems</EM>, SIAM J. Matrix Analysis and
+Applications, 27 (2005), pp.&nbsp;313-340.
+
+<P>
+[4] O.&nbsp;S<SMALL>CHENK AND </SMALL>K.&nbsp;G&#168;<SMALL>ARTNER</SMALL>, <EM>On fast factorization pivoting
+methods for symmetric indefinite systems</EM>, Elec. Trans. Numer. Anal., 23
+(2006), pp.&nbsp;158-179.
+
+<P>
+[5] O.&nbsp;S<SMALL>CHENK, </SMALL>M.&nbsp;B<SMALL>OLLH&#214;FER, AND </SMALL>R.&nbsp;A. R&#168;<SMALL>OMER</SMALL>, <EM>On large scale
+diagonalization techniques for the Anderson model of localization</EM>, SIAM
+Review, (2008).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html828"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html826"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html827"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

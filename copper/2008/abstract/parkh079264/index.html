@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>parkh079264</TITLE>
+<META NAME="description" CONTENT="parkh079264">
+<META NAME="keywords" CONTENT="parkh079264">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="parkh079264.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">HyeongKae Park 
+<BR><B>Physics-Based Preconditioning of the rDG-JFNK method for All-Speed Fluid Flows with Heat Conduction and Viscosity</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Idaho National Laboratory 
+<BR>
+Advanced Nuclear Energy Systems 
+<BR>
+Multiphysics Methods Group 
+<BR>
+P O Box 1625 
+<BR>
+Idaho Falls 
+<BR>
+ID 83415-3840 
+<BR>
+USA
+
+<BR><TT>ryosuke.park@inl.gov</TT>
+<BR>
+Robert Nourgaliev
+<BR>
+Vincent Mousseau
+<BR>
+Dana Knoll
+</DIV>
+
+<P>
+A novel high-order-accurate, fully-implicit solution algorithm for
+all-speed, Navier-Stokes equations is introduced. It combines the
+``<I>recovery Discontinuous Galerkin</I>'' (rDG) method for spatial
+discretization of the hyperbolic and diffusion operators with the
+``<I>Explicit, Singly Diagonal Implicit Runge-Kutta</I>'' (ESDIRK)
+scheme for time integration. Both algorithms are implemented under the
+``<I>Jacobian-free Newton-Krylov</I>'' (JFNK) framework. Since
+hyperbolic and diffusion operators are fully-coupled, temporal
+discretization errors due to operator-splitting are completely
+eliminated. The algorithm is demonstrated to be high-(up to
+<IMG
+ WIDTH="25" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ 5^{th}$">)-order time-accurate in a wide range of Mach, Reynolds and
+P&#233;clet numbers even when the pressure-gradient, viscous and
+heat-conduction operators become of comparable size. The rDG formulation
+exhibits nearly-spectral accuracy (shown up to the <IMG
+ WIDTH="33" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ 12^{th}$">-order) in
+space. The Newton-Krylov (NK) solution is formulated in conservative
+variables (i.e. density, <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \rho$"> ; total energy, <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ E$">; and momentum, <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ m$">),
+which allows one to stop Newton's iteration any time (if locked in the
+limit cycle) without loosing conservation. The ESDIRK and rDG
+discretizations provide natural utilities to compute a high-order error
+estimate in both time and space, which is especially beneficial for
+Adaptive Mesh Refinement (AMR) and time step control.
+
+<P>
+The main challenge is to ensure the efficiency of the JFNK linear solver,
+for which we employ the Jacobian-free version of the right-preconditioned
+GMRES method. The focus of this paper is the
+<I><U>Physics-Based Preconditioning</U></I> (PBP) of our rDG-JFNK
+algorithm. It is designed to ``cluster'' eigenvalues of the Jacobian
+matrix, ensuring convergence of the GMRES within a few Krylov iterations.
+Two PBP strategies, specifically designed for DG-type of spatial
+discretizations, are introduced and extensively tested.
+
+<P>
+<U>The first PBP</U> capitalizes on explicit availability of the
+higher-order derivatives in the DG local solution vector. The Jacobian
+matrix <!-- MATH
+ $\mathbb{J}$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbb{J} $"> can be rearranged in the block-vector form. Each
+element <!-- MATH
+ $\tilde{\hat{\mathbb{J}}}_{_{km}}$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="46" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \tilde{\hat{\mathbb{J}}}_{_{km}} $"> of the Jacobian matrix
+<!-- MATH
+ $\mathbb{J}$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbb{J} $"> is a <!-- MATH
+ $\left[3 \left(p+1 \right) \times 3 \left(p+1 \right)
+\right]$
+ -->
+<IMG
+ WIDTH="150" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \left[3 \left(p+1 \right) \times 3 \left(p+1 \right)
+\right]$"> matrix, and <I>p</I> is the highest order of the basis
+functions, representing non-local coupling of solutions between <IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k^{th}$">
+and <IMG
+ WIDTH="32" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ m^{th}$"> cells (i.e. <!-- MATH
+ $\delta \mathbb{U}_{_k}$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \delta \mathbb{U}_{_k} $"> and <!-- MATH
+ $\delta
+\mathbb{U}_{_m}$
+ -->
+<IMG
+ WIDTH="35" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \delta
+\mathbb{U}_{_m} $">). <!-- MATH
+ $\delta \mathbb{U}_{_{j}}=\left( \delta
+\rho_{_j}^{^{(0)}}, ...~, \delta \rho_{_j}^{^{(p)}}, \delta
+m_{_j}^{^{(0)}}, ...~, \delta m_{_j}^{^{(p)}}, \delta E_{_j}^{^{(0)}},
+...~, \delta E_{_j}^{^{(p)}} \right)^{^{\sf T}}$
+ -->
+<IMG
+ WIDTH="401" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \delta \mathbb{U}_{_{j}}=\left( \delta
+\rho_{_j}^{^{(0)}}, ...~, \delta \rho_{...
+...(p)}}, \delta E_{_j}^{^{(0)}},
+...~, \delta E_{_j}^{^{(p)}} \right)^{^{\sf T}} $"> is a local solution
+vector at cell <I>j</I>. Elimination of the off-diagonal blocks
+<!-- MATH
+ $\left(\tilde{\hat{\mathbb{J}}}_{_{km}}=0,~ k \neq m \right)$
+ -->
+<IMG
+ WIDTH="134" HEIGHT="46" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \left(\tilde{\hat{\mathbb{J}}}_{_{km}}=0,~ k \neq m \right)$"> can be
+interpreted as freezing the nonlocal coupling at the previous Newton
+iteration. When used for preconditioning, this block-diagonal
+approximation not only provides a tight coupling of the local solution
+vector (which is very effective when the reaction terms are stiff), but
+also takes into account <I>some non-local coupling</I> since the
+spatial derivatives are the part of the local solution vector. We refer
+to this as ``<I>Block-Diagonal</I>''(BD) preconditioner, and its
+efficiency is demonstrated here in terms of <I>a</I>) the patterns of
+eigenvalues for the Jacobian matrix (``<I>Eigenscopy</I>''); and
+<I>b</I>) the number of the Krylov iterations/vectors required to
+converge the GMRES to a given linear tolerance.
+
+<P>
+<U>The second PBP</U> incorporates non-local effects. We split
+preconditioning into three steps, each targeting eigenvalues associated
+with a specific physics (i.e., heat conduction, stiff pressure waves and
+viscous operator). First, we transform the NK solution vector from
+conservative variables to primitive variables (i.e., pressure, <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ P$">;
+velocity, <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ u$">: and internal energy, <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ e$">). A consistent transformation of
+the higher order derivatives is carried out by enforcing the conservation
+in the weak sense. The resulting system can be cast into the following
+block-vector form,
+
+<P>
+<!-- MATH
+ \begin{displaymath}
+\left[ \begin{array}{ccc} \mathbb{J}_{_{P P}} &\mathbb{J}_{_{P u}} &
+\mathbb{J}_{_{P i}} \\\mathbb{J}_{_{u P}} &\mathbb{J}_{_{u u}} &
+\mathbb{J}_{_{u i}} \\\mathbb{J}_{_{i P}} &\mathbb{J}_{_{i u}} &
+\mathbb{J}_{_{i i}} \end{array} \right] \left( \begin{array}{c} \delta
+{\cal P} \\\delta {\cal U} \\\delta {\cal I} \end{array} \right) =-
+\left( \begin{array}{c} {\bf res}_{_{\cal P}} \\{\bf res}_{_{\cal U}} \\
+{\bf res}_{_{\cal I}} \end{array} \right),
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="333" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle \left[ \begin{array}{ccc} \mathbb{J}_{_{P P}} &amp;\mathbb{J}_{_{P u}...
+...al P}} \\ {\bf res}_{_{\cal U}} \\
+{\bf res}_{_{\cal I}} \end{array} \right), $">
+</DIV><P></P>
+
+<P>
+where each element <!-- MATH
+ $\mathbb{J}_{_{km}}$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \mathbb{J}_{_{km}} $"> is a <!-- MATH
+ $N_{_{\rm cells}}
+(p+1)\times N_{_{\rm cells}}(p+1)$
+ -->
+<IMG
+ WIDTH="189" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ N_{_{\rm cells}}
+(p+1)\times N_{_{\rm cells}}(p+1) $"> matrix, representing non-linear
+coupling between the <IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k^{th}$"> and <IMG
+ WIDTH="32" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ m^{th}$"> primitive variables.
+
+<P>
+In order to solve this coupled system, we first decouple the internal
+energy from the pressure-velocity matrix, solving for <!-- MATH
+ $\delta {\cal I}$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \delta {\cal I} $">.
+Step I targets the heat conduction operator. Next, we formulate the
+pressure-Poisson equation as
+
+<P>
+<!-- MATH
+ \begin{displaymath}
+\underbrace{\left( \mathbb{J}_{_{PP}}- \mathbb{J}_{_{Pu}}
+\mathbb{J}_{_{uu}}^{^{-1}}\mathbb{J}_{_{uP}}
+\right)}_{Laplacian,~\mathbb{L}} \delta {\cal P} = \underbrace{-\left(
+{\bf res}_{_{\cal P}}+\mathbb{J}_{_{Pi}} \delta {\cal
+I}-\mathbb{J}_{_{Pu}} \mathbb{J}_{_{uu}}^{^{-1}} \left( {\bf res}_{_{\cal
+U}} +\mathbb{J}_{_{ui}} \delta {\cal I} \right) \right)} _{\bf b},
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="490" HEIGHT="80" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$\displaystyle \underbrace{\left( \mathbb{J}_{_{PP}}- \mathbb{J}_{_{Pu}}
+\mathbb...
+...es}_{_{\cal
+U}} +\mathbb{J}_{_{ui}} \delta {\cal I} \right) \right)} _{\bf b}, $">
+</DIV><P></P>
+
+<P>
+where the Laplacian can be shown to be closely related to the
+Schur complement of the pressure-velocity matrix. This parabolic system
+can be solved efficiently using a multigrid method. Step II targets stiff
+pressure waves. Finally, we solve for velocity, accounting for viscous
+stress terms. In the 1D representation, this Step III can be written as
+
+<P>
+<!-- MATH
+ \begin{displaymath}
+\delta {\cal U} =- \mathbb{J}_{_{uu}}^{^{-1}} \left({\bf res}_{_{\cal
+U}} + \mathbb{J}_{_{uP}} \delta {\cal P}+ \mathbb{J}_{_{ui}} \delta {\cal
+I} \right) .
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="257" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$\displaystyle \delta {\cal U} =- \mathbb{J}_{_{uu}}^{^{-1}} \left({\bf res}_{_{...
+...athbb{J}_{_{uP}} \delta {\cal P}+ \mathbb{J}_{_{ui}} \delta {\cal
+I} \right) . $">
+</DIV><P></P>
+
+<P>
+It can be easily seen that this PBP is closely related to the classical
+``operator-split'' solution algorithms for incompressible and
+weakly-compressible flows (e.g., ICE, SIMPLE, Projection). Therefore, we
+referred to this as ``<I>Operator-Split</I>'' (OS) preconditioner. We
+demonstrate that the OS preconditioner is very effective in clustering
+generally-complex eigenvalues near the real axis. It is also found to be
+very effective in a wide range of Mach (<IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ M$">) and Reynolds (<IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ Re$">) numbers,
+keeping the number of GMRES iterations <IMG
+ WIDTH="37" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \sim10$">, even at the extremes of
+<IMG
+ WIDTH="76" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ M=10^{-4}$"> and very low <IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ Re$"> numbers.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-03-01
+</ADDRESS>
+</BODY>
+</HTML>

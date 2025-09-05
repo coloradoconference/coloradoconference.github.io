@@ -1,0 +1,54 @@
+===firstname:
+F. J.
+===firstname3:
+F.J.
+===lastname2:
+Gracia
+===postal:
+Department of Applied Mathematics
+María de Luna s/n 50018 Zaragoza (Spain)
+
+===lastname:
+Gaspar
+===lastname3:
+Lisbona
+===ABSTRACT:
+The differential operators divergence, gradient and rotor are
+often used to formulate mathematical physics problems. A natural
+way to discretize the differential problem is to define, on a
+given grid, the corresponding discrete operators. When the
+discrete operators satisfy the main properties of the continuous
+operators and also some compatibility relations between them, the associated methods are often called mimetic methods. Staggered grid finite differences used in fluid dynamics, the finite difference time domain in electromagnetic and the
+support--operator method of Samarskii, A. A. are early examples of them.
+
+To approximate solutions  of mathematical physics problems defined on irregular domains, it is convenient to use rough grids to fit better the spatial domain. In a recent paper [2], a specially clear approach, called VAGO (Vector Analysis Grid Operators) method, has been proposed on Delaunay triangulations and the dual Voronoi grids. For this discretization method is not necessary to use a concrete coordinate system which is specially interesting for computations on irregular grids.
+
+A special issue is the efficient solution of the corresponding
+algebraic system of equations which result after the
+discretization process. Although the algebraic multigrid is a
+useful tool to solve problems on unstructured grids, we consider
+in this talk an efficient and robust geometric multigrid method, in a free--matrix version, to solve mimetic finite difference discretizations on triangular grids.
+
+To design these geometric multigrid methods, a Local Fourier
+Analysis  is proposed [1]. This local mode analysis is based on an expression of the Fourier transform in new coordinate systems for space variables and for frequencies. The previous tool permits to study different components of the multigrid method in a very similar way to the rectangular grids case. Different smoothers for scalar and vector problems are studied depending on the shape of the triangles. Numerical test calculations validate the theoretical predictions.
+
+\
+
+ \noindent {References:}
+
+
+\begin{itemize}
+\item[{[1]}] F.J. Gaspar, J.L. Gracia, F.J. Lisbona. {\em Fourier analysis for multigrid methods on triangular
+grids}. Submitted.
+\item[{[2]}] P.N. Vabishchevich. {\em Finite difference approximation of
+mathematical physics problems on irregular grids}, Comp. Meth. Appl.
+Math. {\bf 5} (2005) pp. 294--330.
+\end{itemize}
+===email:
+fjgaspar@unizar.es
+===otherauths:
+Rodrigo C.
+===title:
+Local Fourier Analysis of Multigrid Methods for Mimetic Discretizations on Triangular Grids
+===firstname2:
+J.L.

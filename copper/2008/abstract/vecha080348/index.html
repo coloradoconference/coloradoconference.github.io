@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vecha080348</TITLE>
+<META NAME="description" CONTENT="vecha080348">
+<META NAME="keywords" CONTENT="vecha080348">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vecha080348.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Eugene Vecharynski 
+<BR><B>The convergence of restarted GMRES for normal matrices is sublinear.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Colorado Denver
+
+<BR><TT>Yaugen.Vecharynski@cudenver.edu</TT>
+<BR>
+Julien Langou
+</DIV>
+
+<P>
+While a lot of efforts have been put in the characterization of the
+convergence of full GMRES, we have noticed that very few efforts have
+been made in characterizing the convergence of restarted GMRES despite
+the fact that this latter is the most practically used. Our current
+research aimed to better understand restarted GMRES.
+
+<P>
+Our main result proves that the convergence of restarted GMRES for normal
+matrices is sublinear. That is to say if after one GMRES cycle we have
+observed a given residual decrease, then the next GMRES cycle will
+necessarily have a smaller decrease. This writes:
+<!-- MATH
+ \begin{displaymath}
+\| r_k \|_2^2 \leq \| r_{k-1} \|_2 \|r_{k+1} \|_2.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="177" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \Vert r_k \Vert _2^2 \leq \Vert r_{k-1} \Vert _2 \Vert r_{k+1} \Vert _2. $">
+</DIV><P></P>
+The proof relies on the observation that GMRES(<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">,<IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ m$">,<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ r_0$">) and
+GMRES(<IMG
+ WIDTH="28" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A^H$">,<IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ m$">,<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ r_0$">) both provide the same residual norm after one
+cycle.
+
+<P>
+From this main theorem flow two corollaries. First, we can characterize
+the convergence of GMRES(<IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ n-1$">) for normal matrices. In this case, the
+convergence is:
+<!-- MATH
+ \begin{displaymath}
+\| r_k \| = \| r_1 \| \left( \frac{ \|r_1\| } { \| r_0 \| } \right)^{k-1} .
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="178" HEIGHT="62" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle \Vert r_k \Vert = \Vert r_1 \Vert \left( \frac{ \Vert r_1\Vert } { \Vert r_0 \Vert } \right)^{k-1} .$">
+</DIV><P></P>
+
+<P>
+Second, we can rederive a result from Baker, Jessup and Manteuffel (2005)
+about alternating residuals for GMRES(n-1) applied to Hermitian or
+Skew-Hermitian matrices. The result of Baker, Jessup and Manteuffel
+(2005) is
+<!-- MATH
+ \begin{displaymath}
+r_{k+1} = r_{k-1} \alpha_k,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="111" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle r_{k+1} = r_{k-1} \alpha_k,$">
+</DIV><P></P>
+where <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \alpha_k$"> is a scalar.
+Our contribution is to present another proof and to fully characterize
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \alpha_k$"> in term of <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ r_0$"> and <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ r_1$">. This means that, in the
+Hermitian/Skew-Hermitian case, not only <!-- MATH
+ $\| r_{k+1} \|$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \Vert r_{k+1} \Vert$"> is known from
+<IMG
+ WIDTH="35" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \Vert r_0\Vert$"> and <IMG
+ WIDTH="35" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Vert r_1\Vert$"> (as in the normal case) but indeed <IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ r_{k+1} $"> is
+known from <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ r_0$"> and <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ r_1$">.
+
+<P>
+We note that when the matrix is nonnormal, the main statement is false.
+(The convergence of restarted GMRES is not necessarily sublinear.)
+
+<P>
+These results are new to our knowledge. 
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-03-06
+</ADDRESS>
+</BODY>
+</HTML>

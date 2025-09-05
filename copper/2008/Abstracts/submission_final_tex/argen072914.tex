@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Merico E. Argentati \\
+{\bf Majorization-based convergence rate bounds for subspace iterations and the block Lanczos method}}
+
+Department of Mathematical Sciences \\ University of Colorado Denver \\ P O Box 173364 \\ Campus Box 170 \\ Denver \\ CO 80217-3364
+\\
+{\tt merico.argentati@cudenver.edu}\\
+Andrew V.  Knyazev\end{center}
+
+The Rayleigh-Ritz method finds the stationary values, called Ritz values,
+of the Rayleigh quotient on a given trial subspace as approximations to
+eigenvalues of a Hermitian operator A. If the trial subspace is
+A-invariant, the Ritz values are some of the eigenvalues of A. Given two
+subspaces X and Y of the same finite dimension, such that X is
+A-invariant, the absolute changes in the Ritz values of A with respect to
+X compared to the Ritz values with respect to Y represent the absolute
+eigenvalue approximation error. A recent paper by M. Argentati et al.
+bounds the error in terms of the principal angles between X and Y using
+weak majorization. In this talk we derive a new majorization-type
+convergence rate bound for subspace iterations and combine it with the
+previous result to obtain a similar bound for the block Lanczos method.
+These majorization results imply a very general set of inequalities that
+involve all of the principal angles, not just the largest principal
+angle.
+
+We proceed in two main steps. First, we prove new majorization-type
+convergence rate bounds for subspace iterations in terms of the principal
+angles between subspaces. Second, we assume that the Rayleigh-Ritz method
+is applied in subspace iterations, so we combine the subspace iterations
+convergence rate bounds for angles with our Rayleigh-Ritz method error
+bounds for eigenvalues . We consider polynomial-type subspace iterations
+and show that the Chebyshev polynomials are optimal in this context.
+Finally, we apply the convergence rate bound of the Chebyshev subspace
+iterations to the block Lanczos method. Weak majorization appears to be
+novel in this context.
+
+
+\end{document}

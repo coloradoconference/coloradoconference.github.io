@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert D. Falgout \\
+{\bf Parallel Sweeping Algorithms in SN Transport}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ P O ~Box~808 \\ L-561 \\ Livermore \\ CA 94551 \\ USA
+\\
+{\tt rfalgout@llnl.gov}\end{center}
+
+A potential bottleneck when solving Boltzmann transport equations in parallel is
+the inversion of the streaming operator. The discretized form of this operator
+is a lower triangular matrix or block lower triangular matrix with small blocks.
+The solution of these triangular systems by direct methods is inherently
+sequential. Although various overloading techniques have been used to amortize
+the costs of these lower triangular solves or ``sweeps'', the practicality of
+scaling to massively parallel machines with tens of thousands of processors is
+unclear.
+
+In this talk, we will present new theoretical scaling models for sweeping
+algorithms and compare with experiment. In theory, these algorithms have the
+potential to scale like $O(dP^{1/d} + M)$, where $d$ is the spatial dimension of
+the problem, $M$ is the number of directions, and $P$ is the number of
+processors. When $M$ is fairly large, it masks the effect of the $P$ term,
+whereby delaying the poor asymptotic scaling behavior. This delay may be
+adequate in some cases to get practical performance, even up to tens of
+thousands of processors. However, some popular parallel sweep algorithms may
+scale worse than this best-case theoretical model. This will also be discussed
+in the talk.
+
+
+\end{document}

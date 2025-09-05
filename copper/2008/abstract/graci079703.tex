@@ -1,0 +1,74 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jose Luis Gracia \\
+{\bf Distributive Smoother for Dominating Grad--Div Problems}}
+
+Department of Applied Mathematics \\
+%-mb: Escuela Universitaria de Ingeniería Técnica Industrial \\
+%-mb: Campus Río Ebro Edificio Torres Quevedo \\
+%-mb: María de Luna s/n 50018 Zaragoza (Spain)
+Escuela Universitaria de Ingenier\'{i}a T\'{e}cnica Industrial \\
+Campus R\'{i}o Ebro Edificio Torres Quevedo \\
+Mar\'{i}a de Luna s/n 50018 Zaragoza (Spain)
+\\
+{\tt jlgracia@unizar.es}\\
+Cornelis Oosterlee\\
+Francisco Lisbona\\
+	Gaspar Francisco\end{center}
+
+Some problems in applied mathematics related, for example, to fluid flow,
+solid mechanics, magnetohydrodynamics or electromagnetism problems are
+governed by equations in which a grad--div term is dominant. This
+circumstance makes the corresponding algebraic equations appearing in the
+discrete problem difficult to solve efficiently. In particular, standard
+multigrid algorithms are not effective when applied to grad-div
+dominating problems because the eigenspace associated to the minimal
+eigenvalue of the discrete operator contains many arbitrary oscillatory
+eigenvectors. These can neither be reduced by standard smoothing
+procedures, nor be well represented on coarse grids
+
+
+In the finite element context, multigrid methods for this kind of
+problems were analyzed by Arnold et al. [1], Hiptmair and Hoppe [2] and
+Vassilevski and Wang [3]. In this talk robust distributive smoothers are
+proposed for discrete systems of equations that arise when discretizating
+with finite differences on staggered grids. This kind of discretization
+preserves the main properties of the differential operator in its
+discrete form. Similarly to the continuous case, this property permits to
+reformulate the discrete problems as a decoupled system where the
+Laplacian is the dominant operator.
+
+
+In particular we study the model problem $-\lambda \, {\rm grad \ div\,}
+u +u= f$, where $\lambda$ is a large positive number as well as more
+realistic problems as nearly incompressible elasticity and secondary
+consolidation Biot's model. Some numerical experiments show that
+distributive smoothing methods give small multigrid convergence factors
+that are independent of problem parameters and of the mesh sizes in space
+and time.
+
+
+\
+
+\noindent {References:}
+
+
+\begin{itemize}
+\item[{[1]}] D.N. Arnold, R.S. Falk and R. Winther. Preconditioning in
+H(div) and applications.
+Math. Comput. 1997; 66: 957--984.
+\item[{[2]}] R. Hiptmair, R.H.W. Hoppe. Multilevel methods for mixed
+finite elements in three
+dimensions. Numer. Math. 1999 82: 253--279.
+\item[{[3]}] P.S. Vassilevski, J. Wang. Multilevel iterative methods for
+mixed finite element
+discretizations for elliptic problems. Num. Mathematik 1992; 63; 503-520.
+\end{itemize}
+
+
+\end{document}

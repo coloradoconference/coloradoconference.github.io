@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>griff082416</TITLE>
+<META NAME="description" CONTENT="griff082416">
+<META NAME="keywords" CONTENT="griff082416">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html296"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html297"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Joshua Griffin 
+<BR><B>Hybrid optimization parallel search package</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">SAS Institute Inc 
+<BR>
+Numerical Optimization R&amp;D 
+<BR>
+100 SAS Campus Drive 
+<BR>
+Cary 
+<BR>
+NC 27513
+
+<BR><TT>Joshua.Griffin@sas.com</TT>
+<BR>
+Genetha Gray
+<BR>
+Tamara Kolda
+<BR>
+Herbie Lee, Monica Martinez-Canales, Matt Taddy
+	
+</DIV>
+
+<P>
+Hybrid optimization in a parallel computing environment is attractive for
+several reasons. First, excellent serial algorithms exist that may suffer
+from load imbalance when parallelized; this load imbalance can be
+exploited by other routines if concurrently running. Second, rather than
+stringing a sequence of optimization routines together (in a head to tail
+fashion), by running in parallel, individual routines may dynamically
+exploit new information immediately, and self-correct when desirable; for
+example, a new minimum substantially better than the current best is
+encountered. Third, different routines can simultaneously work on
+different aspects of the optimization problem itself; a local search
+routine may refine the current best point, while a global routine
+continues to explore for promising regions.
+
+<P>
+This talk will focus on the new software package HOPSPACK, developed to
+facilitate hybrid optimization in parallel. HOPSPACK manages a queue of
+optimization routines ran concurrently while sharing a pool of evaluation
+processors. The design is such that existing individual optimization
+routines can easily be incorporated using native source code. Because
+HOPSPACK is dedicated to solving small-dimensional simulation-base
+problems (where evaluations are assumed computationally expensive and
+time consuming), an efficient lexicographically ordered function value
+cache is utilized to avoid redundant evaluations. The evaluation queue
+may be dynamically ordered according to user assigned preferences.
+Completed evaluations are ubiquitous and it is the individual solver's
+prerogative whether or not to incorporate externally generated
+trial-points.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html298"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html296"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html297"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

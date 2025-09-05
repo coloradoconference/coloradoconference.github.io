@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sande080282</TITLE>
+<META NAME="description" CONTENT="sande080282">
+<META NAME="keywords" CONTENT="sande080282">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html808"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html809"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Geoffrey D. Sanders 
+<BR><B>Convergence Theory for Nonsymmetric Smoothed Aggregation Multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Mathematics 
+<BR>
+526 UCB 
+<BR>
+University of Colorado 
+<BR>
+Boulder 
+<BR>
+CO 80309-0526
+
+<BR><TT>sandersg@colorado.edu</TT>
+<BR>
+Thomas A. Manteuffel
+<BR>
+Stephen F. McCormick
+</DIV>
+
+<P>
+Applying smoothed aggregation multigrid (SA) to solve nonsymmetric
+linear systems, <!-- MATH
+ $A {\bf x} = {\bf b}$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A {\bf x} = {\bf b}$">, can be problematic due to a
+lack of minimization principle in the coarse-grid corrections.   We
+propose an approach that is based on approximately applying SA
+to the symmetric
+positive definite matrices <!-- MATH
+ $\sqrt{A^* A}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \sqrt{A^* A}$"> or <!-- MATH
+ $\sqrt{A A^*}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \sqrt{A A^*}$">.   These
+matrices, however, are typically full and difficult to compute, and it
+is therefore not computationally efficient to use these matrices
+directly to form a coarse-grid correction. Our proposed approach
+approximates these coarse-grid corrections by using smoothed
+aggregation to accurately approximate
+the right and left singular vectors of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$"> that
+correspond to the lowest singular value.  These are used
+to construct
+the interpolation and restriction operators, respectively.
+We present some preliminary two-level convergence theory
+and numerical results.
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html810"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

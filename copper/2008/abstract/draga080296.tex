@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrei Draganescu \\
+{\bf A multilevel algorithm for bound-constrained inverse problems}}
+
+Department of Mathematics and Statistics \\ University of Maryland \\ Baltimore County \\ 1000 Hilltop Circle \\ Baltimore \\ MD 21250
+\\
+{\tt draga@math.umbc.edu}\end{center}
+
+\noindent In this work we present some recent results on multilevel
+(ML) algorithms for a class of inverse problems (IPs) with explicit
+non-negativity constraints imposed on the control. The IPs under
+scrutiny are formulated as regularized least-squares minimization
+problems
+$$\mathrm{find}\ \ \min_{u\in X}\ \frac{1}{2}|\!| Ku - f |\!|^2 +
+\frac{\beta}{2}|\!|u|\!|^2,\ \ \ u\ge 0\ ,\ \hspace{2cm}(\dagger)\ $$
+where $K:X\rightarrow Y$ is a compact operator between two Hilbert
+spaces $X$ and $Y$, $f\in Y$, and $\beta>0$ is a regularization
+parameter. If the non-negativity constraints on the control $u$ were
+absent from the IP $(\dagger)$, then the solution would be given by
+the linear system
+$$(\beta I+ K^* K)u = K^* f\ . \hspace{5.4cm}(\ddagger)$$ It is
+shown in~\cite{dradup} that ($\ddagger$) can be solved efficiently by
+using specially designed ML preconditioners. More precisely, it is
+shown that the quality of the ML preconditioning increases with
+resolution $h\downarrow 0$, which results in a number of preconditioned conjugate
+gradient iterations that decreases with $h\downarrow 0$.
+
+${ }$
+
+\noindent For a large number of applications, the explicit presence of
+bound-constraints in the IP-formulation can be critical. For example,
+in the inverse contamination problem~\cite{sc05}, where the control
+represents the initial concentration of an air pollutant,
+non-negativity constraints not only render a physically meaningful
+solution, but are essential for the correct recovery of spatially
+localized solutions. The question addressed in the presented research
+is whether the qualitative behavior established for the unconstrained
+problem ($\ddagger$) can be reproduced in the case of the constrained
+IP ($\dagger$). The problem ($\dagger$) is solved via the semi-smooth Newton
+method described in~\cite{hint_ito_kun} as an outer iteration with an
+ML-preconditioned CG algorithm being used for solving the linear systems
+arising at each outer iteration.
+
+\begin{thebibliography}{99}
+\bibitem{dradup} Andrei Dr{\u a}g{\u a}nescu and Todd F.~Dupont.
+\emph{Optimal order multilevel preconditioners for regularized ill-posed problems}.
+To appear in Math.~Comp.
+\bibitem{sc05} Volkan Ak{\c c}elik, George Biros, Andrei
+Dr{\u{a}}g{\u{a}}nescu, Omar Ghattas, Judith~C. Hill, and Bart~G. van
+Bloemen Waanders.
+Dynamic data driven inversion for terascale simulations: real-time
+identification of airborne contaminants.
+In \emph{Proceedings of SC2005}, Seattle, WA, November 2005. IEEE/ACM.
+\bibitem{hint_ito_kun} M.~Hinterm{\"u}ller, K.~Ito, and K.~Kunisch. The
+primal-dual active set strategy as a semismooth {N}ewton method.
+\emph{SIAM J. Optim.}, 13:865--888, 2002.
+\end{thebibliography}
+
+
+\end{document}

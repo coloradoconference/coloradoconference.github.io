@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kadio079091</TITLE>
+<META NAME="description" CONTENT="kadio079091">
+<META NAME="keywords" CONTENT="kadio079091">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html388"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html389"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Samet Kadioglu 
+<BR><B>Implicit Interface Tracking: Marker-Redistancing Jacobian-Free Newton-Krylov (MR-JFNK) Method</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Idaho National Laboratory 
+<BR>
+Advanced Nuclear Energy Systems 
+<BR>
+Multiphysics Methods Group 
+<BR>
+P O Box 1625 
+<BR>
+Idaho Falls 
+<BR>
+ID 83415-3840 
+<BR>
+USA
+
+<BR><TT>samet.kadioglu@inl.gov</TT>
+<BR>
+Robert   Nourgaliev
+<BR>
+Dana   Knoll
+</DIV>
+
+<P>
+A new algorithm for high-fidelity interface tracking is introduced. It
+combines the <EM>Lagrangian marker tracking</EM> with the <EM>Eulerian
+level-set based implicit re-distancing</EM>, forging advantages of each of
+them in a rather simple and very accurate algorithm. The Lagrangian
+markers are the carriers of the interface information. In difference to
+the front-tracking method, the markers are not explicitly connected,
+which is a significant simplification in three dimensions. The interface
+topology/connectivity and geometry (normals and curvature) are provided
+by the Eulerian field (the signed distance, or the level set function).
+During each time step, the markers are moved with the velocity field
+(defined by either interface topology, in the curvature-driven
+applications; by material velocity, in the fluid-dynamics applications;
+or by their combination, in the phase-change fluid dynamics
+applications). Then, the signed distance function is re-initialized. We
+developed an implicit high-order-accurate HWENO-based
+PDE-reinitialization, which is efficient (stable under any CFL number,
+with adaptive pseudo-time-step control, permitting fast convergence to
+the pseudo-time-steady state), and the <IMG
+ WIDTH="25" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ 5^{th}$">-order-accurate in space,
+with a very compact stencil. The re-initialization procedure is
+formulated as a system of the conservation laws for the normal vector
+(hyperbolic components), coupled with the level set equation (containing
+elliptic components). The Lagrangian field (markers) is
+connected/mapped/anchored to the Eulerian field (signed distance
+functions) using the high-order-accurate Least-Squares interpolation
+procedure. Importantly, we do not operator-split the Lagrangian step
+(marker motion) and the Eulerian steps (fluid dynamics and interface
+topology defined by re-distancing), but instead fully-couple them
+non-linearly using Newton’s iteration method. For time integration, we
+employ implicit Runge-Kutta schemes, which are <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">-stable. Since
+operator-splitting errors are completely avoided, we can demonstrate
+high-order-accurate (shown up to the <IMG
+ WIDTH="25" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ 5^{th}$">-order) solutions of the
+non-linear fully-coupled interface tracking problems. Each linear step of
+the Newton iterations is solved with the Jacobian-free version of the
+Krylov (GMRES) algorithm. We discuss several GMRES preconditioning
+techniques, including the classical ILU-based and the Physics-(PDE)-based
+(PB) preconditionings. In the PB preconditioning, we extract an elliptic
+component of the re-distancing, forming a Poisson equation, to be
+effectively solved with the algebraic multigrid method. The efficacies of
+each preconditioning technique are compared in terms of both the ability
+to effectively cluster eigenvalues (“<EM>Eigenscopy</EM>”) of the Jacobian
+matrices and the number of Krylov steps needed to converge GMRES. As the
+demonstration test-cases, we use <EM>solid-body translation/rotation
+</EM>(“Zalesak disk”, “Crusiform” problems), <EM>moderate and severe
+interface deformation, tearing and stretching</EM> (fluid body in 2D and 3D
+single- and multiple vortices) and 2D/3D curvature-driven flows; showing
+high-order spatiotemporal convergence for each test-case
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html390"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html388"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html389"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+===firstname:
+Ray
+===firstname3:
+
+===lastname2:
+Elman
+===postal:
+MS 9159
+Sandia National Laboratories
+PO Box 969
+Livermore, Ca 94551
+===lastname:
+Tuminaro
+===lastname3:
+
+===ABSTRACT:
+Pressure convection-diffusion preconditioners are based on an approximation to the 
+inverse Schur complement where the true Schur complement is obtained by eliminating 
+velocity variables from the incompressible Navier-Stokes equations. This
+inverse Schur complement is essentially approximated by the product of two 
+matrices: a convection-diffusion operator and an approximation to the inverse 
+Laplacian. These operators follow from commuting properties of certain 
+differential operators away from boundaries.  While these operators are now fairly 
+well understood for the domain interior, appropriate boundary conditions for
+defining the preconditioning operators are significantly less clear. 
+
+In this talk, we look closely at boundary conditions.  We show in particular that 
+for problems with velocities satisfying inflow boundary conditions, the 
+preconditioner can be defined so that discrete commutativity holds exactly at 
+the inflow boundary.  That is, in certain situations the inverse Schur complement 
+approximation is exact, even at domain boundaries.  This exact relationship 
+motivates new boundary conditions which give rise to good preconditioners in more 
+general settings. In addition to examining standard pressure convection-diffusion 
+preconditioners, the analysis motivates a simple and practical modification to the 
+related least squares commutator method (LSC).  We demonstrate that the new boundary
+conditions have a significant impact on the convergence behavior of both the 
+pressure convection-diffusion method and the LSC method. Further, mesh independent
+convergence rates are now obtained for both methods in cases where previously some 
+convergence deterioration occurred as the mesh was refined.
+
+===email:
+rstumin@sandia.gov
+===otherauths:
+
+===title:
+Boundary Conditions for Block Preconditioners Based on Approximate Commutators
+===firstname2:
+Howard

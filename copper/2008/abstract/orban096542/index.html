@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>orban096542</TITLE>
+<META NAME="description" CONTENT="orban096542">
+<META NAME="keywords" CONTENT="orban096542">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html680"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html681"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Dominique Orban 
+<BR><B>Projected Krylov Methods for the Solution of Unsymmetric Augmented Systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">GERAD and Ecole Polytechnique de Montreal 
+<BR>
+Department of Mathematics &amp; Industrial Engineering 
+<BR>
+CP 6079 
+<BR>
+Succ Centre-Ville 
+<BR>
+Montreal H3C 3A7 
+<BR>
+Quebec 
+<BR>
+Canada
+
+<BR><TT>dominique.orban@gerad.ca</TT>
+</DIV>
+
+<P>
+
+<P>
+We consider the iterative solution of systems of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:augmented"></A><!-- MATH
+ \begin{equation}
+{
+\begin{bmatrix}
+A & B^T \\
+B & 0
+\end{bmatrix}
+\left[
+\begin{array}{c}
+u \\p
+\end{array}
+\right]
+ = 
+\left[
+\begin{array}{c}
+b \\d
+\end{array}
+\right]
+,
+}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="187" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle { \begin{bmatrix}A &amp; B^T \\ B &amp; 0 \end{bmatrix} \left[ \begin{arr...
+... p \end{array} \right] = \left[ \begin{array}{c} b \\ d \end{array} \right] , }$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $A \in {\mathbb{R}}^{n \times n}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A \in {\mathbb{R}}^{n \times n}$"> is square but not necessarily symmetric, <!-- MATH
+ $B \in
+{\mathbb{R}}^{m \times n}$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ B \in
+{\mathbb{R}}^{m \times n}$">, <!-- MATH
+ $b \in {\mathbb{R}}^n$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ b \in {\mathbb{R}}^n$"> and <!-- MATH
+ $d \in {\mathbb{R}}^m$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ d \in {\mathbb{R}}^m$">. In a fluid flow context,
+systems such as (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) arise in Navier-Stokes
+iterations when considering the flow of two or more immiscible fluids through a
+cavity and must be solved to compute a correction <IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ (u,p)$"> in the velocity and
+pressure fields. The large size of such problems preclude a direct
+factorization of the coefficient matrix of (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). On the other
+hand, iterative methods applied to (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) usually perform very
+poorly. We are particularly interested in the case where <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> may not be
+assembled explicitly but rather, matrix-vector products with <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> may be
+obtained by calling a function. We assume that <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ B$"> is available explicitly.
+
+<P>
+Whenever <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> is symmetric and positive definite,
+(<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) represents the first-order optimality conditions of the
+equality-constrained quadratic program
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:qp"></A><!-- MATH
+ \begin{equation}
+{
+\setlength{\arraycolsep}{.75em} 
+\begin{array}{ll}
+\displaystyle\mathop{\hbox{minimize}}_{u \in {\mathbb{R}}^n} & -b^T\!u + {\textstyle \frac{1}{2}}u^T\!A u \\
+\mathop{\hbox{subject to}}& B u = d.
+\end{array}
+}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="225" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle { \setlength{\arraycolsep}{.75em} \begin{array}{ll} \displaystyle...
+...tyle \frac{1}{2}}u^T\!A u \\ \mathop{\hbox{subject to}}&amp; B u = d. \end{array} }$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In this type of application, the density of the coefficient matrix is mostly
+due to <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$">. Assuming that <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ B$"> has full row rank, it is often feasible to
+compute a factorization of the <EM>projection matrix</EM>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:projector"></A><!-- MATH
+ \begin{equation}
+{
+\begin{bmatrix}
+G & B^T \\
+B & 0
+\end{bmatrix},
+}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="80" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle { \begin{bmatrix}G &amp; B^T \\ B &amp; 0 \end{bmatrix}, }$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ G$"> is a sparse symmetric approximation to <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> that is positive definite
+over the nullspace of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ B$">. A particularly efficient iterative method for
+(<A HREF="#eq:qp"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is then the projected preconditioned conjugate gradient algorithm
+often used in
+nonlinear optimization contexts. This method typically requires the
+factorization of a single projection matrix and one matrix-vector product with
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> per iteration.
+
+<P>
+We examine similar Krylov-type iterations for the case where <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$">
+is unsymmetric and present a methodology by which to derive projected Krylov
+methods for systems of the form (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). We concentrate on the <SMALL>B</SMALL>i-<SMALL>CGSTAB</SMALL> and <SMALL>TFQMR</SMALL> families of methods. The methods we consider
+are akin to so-called projection methods,
+which are
+sometimes regarded as being too expensive and only effective on systems in
+which <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> is diagonally dominant. We hope that this
+paper will correct that reputation by showing that efficient projections
+combined with the appropriate Krylov iteration make for a very competitive
+numerical method.
+
+<P>
+Let <!-- MATH
+ $Z \in {\mathbb{R}}^{q \times n}$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ Z \in {\mathbb{R}}^{q \times n}$"> be a matrix whose rows form a basis for the
+nullspace of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ B$">. Any solution <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ u^*$"> to (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) may be written <!-- MATH
+ $u^*
+= Z u^*_{{\mbox {\tiny Z}}} + B^T\!u^*_{{\mbox {\tiny B}}}$
+ -->
+<IMG
+ WIDTH="128" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ u^*
+= Z u^*_{{\mbox {\tiny Z}}} + B^T\!u^*_{{\mbox {\tiny B}}}$">, so that (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) yields <!-- MATH
+ $B B^T\!
+u^*_{{\mbox {\tiny B}}} = d$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ B B^T\!
+u^*_{{\mbox {\tiny B}}} = d$">, which uniquely determines <!-- MATH
+ $u^*_{{\mbox {\tiny B}}}$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ u^*_{{\mbox {\tiny B}}}$"> and leaves <!-- MATH
+ $u^*_{{\mbox {\tiny Z}}}$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ u^*_{{\mbox {\tiny Z}}}$">
+as a solution to <!-- MATH
+ $Z^T\!A Z u^*_{{\mbox {\tiny Z}}} = Z^T (b - A B^T\!u^*_{{\mbox {\tiny B}}})$
+ -->
+<IMG
+ WIDTH="196" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ Z^T\!A Z u^*_{{\mbox {\tiny Z}}} = Z^T (b - A B^T\!u^*_{{\mbox {\tiny B}}})$">. Applying
+any Krylov method to the latter system with a preconditioner of the form <!-- MATH
+ $M =
+Z^T\!G Z$
+ -->
+<IMG
+ WIDTH="87" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ M =
+Z^T\!G Z$">, where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ G$"> is such that <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ M$"> is positive definite, is equivalent to
+applying the same Krylov method with <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> as coefficient matrix, with
+preconditioning steps replaced by projections computed via (<A HREF="#eq:projector"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>),
+and without recourse to computing <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ Z$">. Special care must be observed in an
+implementation of this scheme as severe numerical cancellation likely occurs,
+especially in the projection steps. We will present a remedy to this difficulty.
+
+<P>
+In our implementation, factorization of the projection matrix is performed by the
+multi-frontal symmetric indefinite <SMALL>MA57</SMALL> from the Harwell Subroutine
+Library. The stopping test implemented by default is triggered when the
+projected <SMALL>B</SMALL>i-<SMALL>CG</SMALL> residual vector <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ s_k$"> is small or when the residual
+vector <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ r_k$"> satisfies a Galerkin-type condition, or if the total number of
+matrix-vector products exceeds <IMG
+ WIDTH="32" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ 2 n_A$">, where <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ n_A$"> is the order of the <IMG
+ WIDTH="40" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ (1,1)$">
+block matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$">. We compare the projected <SMALL>B</SMALL>i-<SMALL>CGSTAB</SMALL> approach with
+a direct LU factorization of (<A HREF="#eq:augmented"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). The comparison is based on the
+total solution time and memory requirements. The LU factorization is realized
+by means of the <SMALL>UMFPACK</SMALL> package.
+
+<P>
+We present results on systems arising from the discretization of
+Navier-Stokes equations for the flow of one or more immiscible
+incompressible fuilds. Some test cases involve a potentially moving
+obstacle taken into account by the fictitious domains method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html682"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html680"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html681"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

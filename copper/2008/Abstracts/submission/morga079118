@@ -1,0 +1,27 @@
+===firstname:
+Ron
+===firstname3:
+
+===lastname2:
+Nicely
+===postal:
+Math Department
+Baylor University
+Waco, TX 76798-7328
+===lastname:
+Morgan
+===lastname3:
+
+===ABSTRACT:
+This talk will concentrate on symmetric and Hermitian systems with multiple right-hand sides, but work on nonsymmetric problems may also be mentioned.  We first give the Lan-DR method.  It is a restarted Lanczos algorithm that solves a system of linear equations and simultaneously computes both eigenvalues and eigenvectors.  We will discuss the relationship of Lan-DR to other methods such as GMRES-DR (a deflated GMRES approach), implicitly restarted Arnoldi, and thick restart Lanczos.  We will give some reorthogonalization approaches, including a combination of Parlett and Scott’s selective orthogonalization and Simon’s partial orthogonalization.  
+
+For systems of linear equations with multiple right-hand sides, one approach is to solve the first system with Lan-DR and then use the eigenvectors generated to assist solving the other right-hand sides.  A deflated conjugate gradient method can be implemented that has a projection over the eigenvectors followed by CG.  We also consider seed methods for solving multiple right-hand sides and suggest some improvements.  Both deflated CG and the new seed CG will be tested on Hermitian problems from QCD. 
+
+===email:
+Ronald\_Morgan@baylor.edu
+===otherauths:
+
+===title:
+Linear Equations with Multiple Right-hand Sides
+===firstname2:
+Dywayne

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wangl079301</TITLE>
+<META NAME="description" CONTENT="wangl079301">
+<META NAME="keywords" CONTENT="wangl079301">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html970"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html971"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Li Wang 
+<BR><B>Goal-oriented <I>hp</I>-adaptive Discontinuous Galerkin Methods for the Compressible Euler Equations on Unstructured Meshes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mechanical Engineering 
+<BR>
+University of Wyoming 
+<BR>
+Laramie 
+<BR>
+Wyoming 82071-3295
+
+<BR><TT>wangli@uwyo.edu</TT>
+<BR>
+Dimitri J. Mavriplis
+</DIV>
+
+<P>
+High-order accurate Discontinuous Galerkin (DG) methods
+[<A
+ HREF="node1.html#Cockburn::98_1">1</A>,<A
+ HREF="node1.html#Barter::07_1">2</A>,<A
+ HREF="node1.html#Nastase::05_1">3</A>,<A
+ HREF="node1.html#Wang::07_1">4</A>]
+have become a popular approach for solving hyperbolic conservation
+systems over the last decade. The use of adaptive solution strategies via
+the finite element method has also become a more accepted technique
+to guarantee and improve numerical accuracy, particularly for cases
+with complex geometries. The main idea of the adaptive strategies used in
+this work is to start the computation with a relatively coarse mesh associated
+with a uniformly low order of discretization on the computation domain.
+Thereafter, a local or cellwise error indicator arising from an objective
+functional of interest with engineering properties, such as Lift or Drag,
+is estimated using an adjoint-based sensitivity analysis technique.
+This approach results in a spatial error distribution, which is then used
+to drive local mesh subdivision (<I>h</I>-refinement) or
+local modification of discretization orders (<I>p</I>-enrichment),
+in order to improve the accuracy of the objective function and the approximation.
+One of the main benefits of the given method from a finite
+element point of view is that the number of unknowns and thus the computational expense
+are optimized by avoiding excessive resolution
+in areas of little influence on the quantity of interest.
+
+<P>
+The <I>a posteriori</I> error estimates employed in this work to predict the error
+distribution involve the inner product of the finite element residuals with
+the adjoint solution variables.
+In order to approximate the adjoint solution,
+we make use of the discrete adjoint strategy [<A
+ HREF="node1.html#Mavriplis::06_1">5</A>]
+where the governing equations are first
+discretized by the Discontinuous Galerkin method and then linearized,
+thus reproducing the
+exact sensitivity derivatives of the original discretization of the governing equations.
+This approach requires one adjoint solution at each adaptive step, which
+is equivalent to the cost
+of one flow solution, since the coefficient matrix of the linear system of equations
+constructed for the adjoint problem corresponds to the transpose
+of the full-Jacobian matrix of the flow equations.
+The solution of this system is relatively
+straight-forward since many of the entries in the full Jacobian matrix
+are already computed for the implicit element Jacobi scheme used to solve
+the flow equations.
+Moreover,
+a linearized element Gauss-Seidel smoother and an <I>hp</I>-multigrid
+approach [<A
+ HREF="node1.html#Nastase::05_1">3</A>,<A
+ HREF="node1.html#Wang::07_1">4</A>] are exclusively
+used to accelerate the convergence of both the flow and adjoint solvers.
+
+<P>
+The adaptive mesh approach used in this paper consists of a purely <I>h</I>-refinement
+technique, locally subdividing one triangle into four self-similar
+children triangles, while keeping
+the discretization order fixed, as well as a purely <I>p</I>-enrichment
+technique, locally increasing
+the order of interpolation polynomials while keeping the underlying triangulation fixed,
+and a combined scheme known as <I>hp</I>-adaptive refinement.
+However, the principal obstacle towards effective use of <I>hp</I>-adaptation
+lies in making a decision between <I>h</I>- and <I>p</I>-refinement.
+In this work, the choice is made by utilizing a smoothness
+indicator to isolate regions with smooth solution behavior where local
+<I>p</I>-enrichment
+performs more effectively, from areas with singularities or discontinuities where local
+<I>h</I>-refinement is more suitable.
+
+<P>
+In this paper, we show the convergence properties for both the flow
+(primal) and the discrete adjoint (dual)
+problems using <I>hp</I>-multigrid solver driven by the element Gauss-Seidel smoother.
+Then, the overall efficiency and accuracy of the purely
+<I>h</I>-refinement and the purely
+<I>p</I>-enrichment approaches are compared with those of the scheme
+with uniform mesh or order refinement, respectively.
+Next, the performance of the <I>hp</I>-adaptive approach is compared with the purely
+<I>h</I>- and <I>p</I>-refinement. Finally, a case with strong shocks
+or discontinuities is
+employed to demonstrate the shock-capturing properties of both <I>h</I>- and
+combined <I>hp</I>-adaptive strategies. Future work will focus on
+extending this approach
+to unsteady problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html972"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html973"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html970"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html971"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

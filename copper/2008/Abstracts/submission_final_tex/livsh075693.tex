@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ira Livshits \\
+{\bf Multiscale method for finding many eigenfunctions of partial differential operators }}
+
+Department of Mathematical Sciences \\ Ball State University
+\\
+{\tt ilivshits@bsu.edu}\end{center}
+
+In this talk we introduce a new approach of finding a full eigenbasis of
+discretized partial differential equations. The developed method allows
+to calculate $O(N)$ eigenfunctions in $O(N\log N)$ operations, $N$ being
+the size of the problem on the finest scale. The approach allows an
+extremely efficient use of all intermediate scales,
+in particular the coarsest one. There not only all eigenfunctions are
+calculated but also the entire orthogonalization process takes place.
+
+The algorithm determines dynamically when a new set of operators needs to
+be calculated (to guarantee a required accuracy) as well as a vicinity of
+eigenvalues for which this set should be accurate. The algorithm is
+performed in the AMG framework, using prolongation operators each built
+to accurately interpolate, in the least square sense, a set of test
+functions, approximations to eigenfunctions with close eigenvalues.
+
+Numerical experiments for the one-dimensional problems will conclude the
+talk, along with a brief
+discussion of the approach' extension to two dimensions. Joint work with Achi Brandt.
+
+
+\end{document}

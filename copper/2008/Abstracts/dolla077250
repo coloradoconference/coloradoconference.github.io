@@ -1,0 +1,37 @@
+===firstname:
+Sue
+===firstname3:
+Martin
+===lastname2:
+Gould
+===postal:
+Rutherford Appleton Laboratory,
+Chilton,
+Oxfordshire,
+OX11 0QX
+===lastname:
+Dollar
+===lastname3:
+Stoll
+===ABSTRACT:
+Consider symmetric saddle-point problems of the form
+\begin{equation}\label{eqn1}
+\left( \begin{array}{cc} A & B^T \\ B & -C \end{array} \right) \left( \begin{array}{c} x \\ y \end{array} \right) =\left( \begin{array}{c} b \\ d \end{array} \right).
+\end{equation}
+The solution to
+(\ref{eqn1}) also satisfies the symmetric system
+\begin{eqnarray}\label{eqn2}
+ & & \left[  \sigma \left( \begin{array}{cc} A & B^T \\ B & -C \end{array} \right) + \left(\begin{array}{cc} A & B^T \\ B & -C \end{array} \right) \left(\begin{array}{cc} D & F^T \\ F & E \end{array} \right)\left(\begin{array}{cc} A & B^T \\ B & -C \end{array} \right)  \right] \left( \begin{array}{c} x \\ y \end{array} \right) \\ \nonumber
+  & & =  \left( \begin{array}{c} \sigma b + A(Db +  F^T d) + B^T ( F b +  E d) \\ \sigma d + B(D b +  F^T d) - C (F b -  E d) \end{array} \right),
+\end{eqnarray}
+for given real $\sigma,$ arbitrary symmetric matrices $D$ and $E,$ and arbitrary matrix $F.$
+
+We show that many popular conjugate gradient-based methods for solving (\ref{eqn1}) can be reformulated as applying the (preconditioned) conjugate gradient method to (\ref{eqn2}) for some $\sigma,$ $D,$ $E$ and $F.$ We also provide conditions for guaranteeing that (\ref{eqn2}) is positive definite. Using these conditions we propose new conjugate gradient-based methods for solving (\ref{eqn1}).
+===email:
+s.dollar@rl.ac.uk
+===otherauths:
+Andy Wathen
+===title:
+Equivalent SPD systems for saddle-point problems
+===firstname2:
+Nick

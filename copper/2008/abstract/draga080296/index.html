@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>draga080296</TITLE>
+<META NAME="description" CONTENT="draga080296">
+<META NAME="keywords" CONTENT="draga080296">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrei Draganescu 
+<BR><B>A multilevel algorithm for bound-constrained inverse problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Statistics 
+<BR>
+University of Maryland 
+<BR>
+Baltimore County 
+<BR>
+1000 Hilltop Circle 
+<BR>
+Baltimore 
+<BR>
+MD 21250
+
+<BR><TT>draga@math.umbc.edu</TT>
+</DIV>
+
+<P>
+In this work we present some recent results on multilevel
+(ML) algorithms for a class of inverse problems (IPs) with explicit
+non-negativity constraints imposed on the control. The IPs under
+scrutiny are formulated as regularized least-squares minimization
+problems
+<!-- MATH
+ \begin{displaymath}
+\mathrm{find}\ \ \min_{u\in X}\ \frac{1}{2}|\!| Ku - f |\!|^2 +
+\frac{\beta}{2}|\!|u|\!|^2,\ \ \ u\ge 0\ ,\ \hspace{2cm}(\dagger)\
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="420" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \mathrm{find}\ \ \min_{u\in X}\ \frac{1}{2}\vert\!\vert Ku - f \v...
+...{\beta}{2}\vert\!\vert u\vert\!\vert^2,\ \ \ u\ge 0\ ,\ \hspace{2cm}(\dagger)\ $">
+</DIV><P></P>
+where <!-- MATH
+ $K:X\rightarrow Y$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ K:X\rightarrow Y$"> is a compact operator between two Hilbert
+spaces <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ X$"> and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ Y$">, <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f\in Y$">, and <IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \beta&gt;0$"> is a regularization
+parameter. If the non-negativity constraints on the control <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ u$"> were
+absent from the IP <IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ (\dagger)$">, then the solution would be given by
+the linear system
+<!-- MATH
+ \begin{displaymath}
+(\beta I+ K^* K)u = K^* f\ . \hspace{5.4cm}(\ddagger)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="426" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle (\beta I+ K^* K)u = K^* f\ . \hspace{5.4cm}(\ddagger)$">
+</DIV><P></P>
+It is
+shown in&nbsp;[<A
+ HREF="node1.html#dradup">1</A>] that (<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \ddagger$">) can be solved efficiently by
+using specially designed ML preconditioners. More precisely, it is
+shown that the quality of the ML preconditioning increases with
+resolution <!-- MATH
+ $h\downarrow 0$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ h\downarrow 0$">, which results in a number of preconditioned conjugate
+gradient iterations that decreases with <!-- MATH
+ $h\downarrow 0$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ h\downarrow 0$">.
+
+<P>
+<IMG
+ WIDTH="4" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ { }$">
+
+<P>
+For a large number of applications, the explicit presence of
+bound-constraints in the IP-formulation can be critical. For example,
+in the inverse contamination problem&nbsp;[<A
+ HREF="node1.html#sc05">2</A>], where the control
+represents the initial concentration of an air pollutant,
+non-negativity constraints not only render a physically meaningful
+solution, but are essential for the correct recovery of spatially
+localized solutions. The question addressed in the presented research
+is whether the qualitative behavior established for the unconstrained
+problem (<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \ddagger$">) can be reproduced in the case of the constrained
+IP (<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \dagger$">). The problem (<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \dagger$">) is solved via the semi-smooth Newton
+method described in&nbsp;[<A
+ HREF="node1.html#hint_ito_kun">3</A>] as an outer iteration with an
+ML-preconditioned CG algorithm being used for solving the linear systems
+arising at each outer iteration.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html174"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html175"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

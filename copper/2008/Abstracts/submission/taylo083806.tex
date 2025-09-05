@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Mark, A Taylor \\
+{\bf A fully implicit time integration scheme for the global ocean circulation model POP}}
+
+MS 0370 \\ Sandia National Labs \\ Albuquerque NM 87185
+\\
+{\tt mataylo@sandia.gov}\\
+Balu Nadiga\\
+Jens Lorenz\end{center}
+
+We have implemented a fully implicit time integration scheme into a
+version of Los Alamos National Laboratories' popular ocean general
+circulation model POP (Parallel Ocean Program). POP has traditionally
+used a semi-implicit time integration scheme where key linear terms in
+the equations are treated implicitly and the remaining terms are treated
+explicitly. In our fully implicit scheme, we use Crank-Nicholson on all
+terms of the equations and Jacobian free Newton-Krylov iterations to
+solve the resulting system. We substantially reduce the number of
+iterations needed by POP's semi-implicit integration scheme as a
+preconditioner. In idealized geometries, we can achieve timesteps 800
+times larger than allowed by the semi-implicit scheme. For simulations of
+the North Atlantic and the global ocean, we can obtain time steps up to
+25 times larger than allowed by the semi-implicit scheme. These realistic
+simulations use actual topography, continental geometry, initial Levitus
+temperature and salinity, observed annual averaged wind stress and
+restoring boundary conditions at the surface for temperature and
+salinity.
+
+
+\end{document}

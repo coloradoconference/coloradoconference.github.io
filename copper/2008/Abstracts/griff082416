@@ -1,0 +1,30 @@
+===firstname:
+Joshua
+===firstname3:
+Tamara
+===lastname2:
+Gray
+===postal:
+SAS Institute Inc,
+Numerical Optimization R&D
+100 SAS Campus Drive
+Cary, NC 27513 
+
+===lastname:
+Griffin
+===lastname3:
+Kolda
+===ABSTRACT:
+Hybrid optimization in a parallel computing environment is attractive for several reasons.  First, excellent serial algorithms exist that may suffer from load imbalance when parallelized; this load imbalance can be exploited by other routines if concurrently running.  Second, rather than stringing a sequence of optimization routines together (in a head to tail fashion), by running in parallel, individual routines may dynamically exploit new information immediately, and self-correct when desirable; for example, a new minimum substantially better than the current best is encountered.  Third, different routines can simultaneously work on different aspects of the optimization problem itself; a local search routine may refine the current best point, while a global routine continues to explore for promising regions.  
+
+This talk will focus on the new software package HOPSPACK, developed to facilitate hybrid optimization in parallel.  HOPSPACK manages a queue of optimization routines ran concurrently while sharing a pool of evaluation processors.  The design is such that existing individual optimization routines can easily be incorporated using native source code.  Because HOPSPACK is dedicated to solving small-dimensional simulation-base problems (where evaluations are assumed computationally expensive and time consuming), an efficient lexicographically ordered function value cache is utilized to avoid redundant evaluations.  The evaluation queue may be dynamically ordered according to user assigned preferences.  Completed evaluations are ubiquitous and it is the individual solver's prerogative whether or not to incorporate externally generated trial-points.
+
+===email:
+Joshua.Griffin@sas.com
+===otherauths:
+Herbie Lee, Monica Martinez-Canales, Matt Taddy
+
+===title:
+Hybrid optimization parallel search package
+===firstname2:
+Genetha

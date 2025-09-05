@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Carol Woodward \\
+{\bf Introducing Multilevel Preconditioning to an Existing Variably Saturated Subsurface Flow Code}}
+
+P O Box 808 \\ L-561 \\ Livermore \\ CA 94551
+\\
+{\tt cswoodward@llnl.gov}\\
+Daniel Osei-Kuffuor\\
+Glenn Hammond\end{center}
+
+Variably saturated subsurface flow is modeled with a scalar, highly
+nonlinear equation. After spatial and temporal discretization, the
+nonlinearities in this equation are often solved by application of
+Newton’s method within each time step. For large-scale problems, the
+Newton method is combined with a preconditioned Krylov method for
+solution of the linear systems within each nonlinear iteration. In this
+talk, we discuss both software and mathematical issues related to
+transitioning the variably saturated flow module within the PNNL
+subsurface simulation code, STOMP, from use of a block ILU preconditioner
+to use of a multigrid preconditioner. Results related to tuning the
+multigrid preconditioner will be shown as well as weak scaling studies.
+
+
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Julien LANGOU \\
+{\bf Block MGS orthogonalization.}}
+
+University of Colorado Denver
+\\
+{\tt julien.langou@cudenver.edu}\end{center}
+
+We combine two ideas. First some new 'tall-skinny' algorithms have been
+rediscovered, they enable to orthogonalize a block of vectors very
+efficiently. Those algorithms are latency-tolerant. We consider the MGS
+variant of those algorithms. Second, we apply the same blocking as for
+Householder reflection for MGS, this idea is presented in Bjorck, 1997.
+These two ideas combined together give an efficient orthogonalization
+scheme for eigensolvers and block iterative methods. We note that
+blocking in MGS is worthwhile to be considered in the case of GMRES.
+
+
+\end{document}

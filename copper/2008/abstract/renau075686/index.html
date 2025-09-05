@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>renau075686</TITLE>
+<META NAME="description" CONTENT="renau075686">
+<META NAME="keywords" CONTENT="renau075686">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html770"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html771"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Rosemary A Renaut 
+<BR><B>Efficiently estimating the Regularization Parameter for Least Squares problems: a Newton algorithm using the <IMG
+ WIDTH="22" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \chi^2$"> distribution of the cost functional </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Statistics 
+<BR>
+871804 Arizona State University 
+<BR>
+Tempe 
+<BR>
+AZ 85287-1804 
+<BR>
+USA
+
+<BR><TT>renaut@asu.edu</TT>
+<BR>
+Jodi Mead
+</DIV>
+
+<P>
+We consider the ill-posed system of equations <!-- MATH
+ $A\mathbf{b}=\mathbf{b}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A\mathbf{b}=\mathbf{b}$">,
+<!-- MATH
+ $A \in \mathcal{R}^{m\times n}$
+ -->
+<IMG
+ WIDTH="79" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A \in \mathcal{R}^{m\times n}$">, <!-- MATH
+ $\mathbf{b} \in \mathcal{R}^m$
+ -->
+<IMG
+ WIDTH="60" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathbf{b} \in \mathcal{R}^m$">,
+<!-- MATH
+ $\mathbf{b} \in \mathcal{R}^n$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathbf{b} \in \mathcal{R}^n$"> for which an approximate solution is to be
+obtained by solving the regularized weighted least squares problem
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:rls"></A><!-- MATH
+ \begin{equation}
+\hat{\mathbf{x}} = \mathrm{argmin}\, J(\mathbf{x}) =\mathrm{argmin} \{
+\|A\mathbf{x}-\mathbf{b}\|^2_{W_\mathbf{b}} +
+\|\mathbf{x}-\mathbf{x}_0\|^2_{W_\mathbf{x}}\}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="398" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle \hat{\mathbf{x}} = \mathrm{argmin}\, J(\mathbf{x}) =\mathrm{argmi...
+...}\Vert^2_{W_\mathbf{b}} + \Vert\mathbf{x}-\mathbf{x}_0\Vert^2_{W_\mathbf{x}}\}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+A new approach for determining the weighting matrix <!-- MATH
+ $W_\mathbf{x}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ W_\mathbf{x}$"> was
+discussed in [<A
+ HREF="node1.html#mead:07">2</A>] and is based on the following observation,
+presented originally in [<A
+ HREF="node1.html#Rao:73">4</A>]:
+<BR>
+<P>
+<B>Theorem</B>
+Let <!-- MATH
+ $J(\mathbf{x}) = (\mathbf{b}-A\mathbf{x})^TW_\mathbf{b}
+(\mathbf{b}-A\mathbf{x}) + (\mathbf{x} - \mathbf{x}_0)^TW_\mathbf{x}
+(\mathbf{x}-\mathbf{x}_0)$
+ -->
+<IMG
+ WIDTH="389" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ J(\mathbf{x}) = (\mathbf{b}-A\mathbf{x})^TW_\mathbf{b}
+(\mathbf{b}-A\mathbf{x}) + (\mathbf{x} - \mathbf{x}_0)^TW_\mathbf{x}
+(\mathbf{x}-\mathbf{x}_0)$">, where the elements
+in <!-- MATH
+ $\mathbf{x}$
+ -->
+<IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \mathbf{x}$"> and the elements in <!-- MATH
+ $\mathbf{b}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbf{b}$"> are each independent and
+identically distributed. If <!-- MATH
+ $W_\mathbf{b}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ W_\mathbf{b}$"> and <!-- MATH
+ $W_\mathbf{x}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ W_\mathbf{x}$"> are
+symmetric positive definite (SPD) weighting matrices on the data and
+model errors, resp., then for large <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ m$">, the minimium value of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ J$"> is a
+random variable which follows a <IMG
+ WIDTH="22" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \chi^2$"> distribution with <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ m$"> degrees of
+freedom.
+
+<P>
+Specifically, the result suggests that in the limit, for statistical
+measurements, the minimum value of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ J$"> should be a <IMG
+ WIDTH="22" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \chi^2$"> random
+variable with approximately <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ m$"> degrees of freedom. In
+[<A
+ HREF="node1.html#meadrenaut:07">3</A>] we extended this result for the more general
+Tikhonov regularization term <!-- MATH
+ $\|D(\mathbf{x}-\mathbf{x}_0)\|_2^2$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \Vert D(\mathbf{x}-\mathbf{x}_0)\Vert _2^2$">,
+obtaining that the functional has fewer degrees of freedom,
+<!-- MATH
+ $\tilde{m}=m-n+p$
+ -->
+<IMG
+ WIDTH="110" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \tilde{m}=m-n+p$">, where <!-- MATH
+ $D \in \mathcal{R}^{p\times n}$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ D \in \mathcal{R}^{p\times n}$">. Mead used the
+first result to design an algorithm in which one finds the regularization
+weighting matrix such that the obtained minimum of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ J$"> has <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ m$"> degrees of
+freedom within some given confidence interval. But in the special case
+where the inverse covariance matrix <!-- MATH
+ $W_{\mathbf{x}}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ W_{\mathbf{x}}$"> on the model
+parameters <!-- MATH
+ $\mathbf{x}$
+ -->
+<IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \mathbf{x}$"> is limited to be a diagonal scaling of the
+identity <!-- MATH
+ $\sigma_{\mathbf{x}}^{-2}I$
+ -->
+<IMG
+ WIDTH="39" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \sigma_{\mathbf{x}}^{-2}I$">, the problem simplifies to the
+determination of the scalar regularization parameter
+<!-- MATH
+ $\lambda=1/\sqrt{\sigma_{\mathbf{x}}}$
+ -->
+<IMG
+ WIDTH="82" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \lambda=1/\sqrt{\sigma_{\mathbf{x}}}$">. For this case <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$"> can be
+found using a scalar Newton method for solving
+<!-- MATH
+ $F(\lambda)=J-\tilde{m}=0$
+ -->
+<IMG
+ WIDTH="133" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ F(\lambda)=J-\tilde{m}=0$">. Moreover, using the generalized singular
+value decomposition, Mead and Renaut [<A
+ HREF="node1.html#meadrenaut:07">3</A>] showed that <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ F$">
+is monotonic in <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$">, and thus when a solution exists, it is unique.
+Their results validated the viability of the use of the Newton method to
+obtain good estimates for <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$">, completely consistent with values
+obtained by generalized cross-validation, and unbiased predictive risk
+algorithms, see for example [<A
+ HREF="node1.html#Vogel:02">5</A>]. Indeed the method is far
+cheaper than these methods, only requiring a few steps of the Newton
+iteration, as compared to these other methods and to the L-curve, all of
+which usually involve evaluating the relevant functionals for many more
+values of <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$">. All of these methods, however, are limited in
+applicability for large scale problems, if they are based on the use of
+the generalized singular value decomposition (GSVD) ( of singular value
+decomposition when appropriate) for obtaining updates of the solutions
+for varying <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$">. Additionally, the <IMG
+ WIDTH="22" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \chi^2$"> approach appears to not
+be relevant when there is no information on covariance structure on the
+data <!-- MATH
+ $\mathbf{b}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbf{b}$">.
+
+<P>
+In this work we address these issues. The difficulty with lack of
+statistical information on <!-- MATH
+ $\mathbf{b}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbf{b}$">, is easily addressed by the
+realization that the lack of the covariance matrix prevents the whitening
+of the noise in the data, so that the number of degrees of freedom is
+reduced. Fortunately, the implementation of the algorithm explicitly
+provides the number of degrees of freedom so that <IMG
+ WIDTH="18" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \tilde{m}$"> can be
+reestimated. For the development of efficient implementations of the
+<IMG
+ WIDTH="22" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \chi^2$"> estimate for the regularization parameter <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$">, so as to
+extend the approach for large scale problems, we consider two directions
+which avoid the GSVD. For image deblurring applications, operations with
+the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ A$"> are equivalent to convolutions which are more efficiently
+handled in the Fourier domain than in space. For a given <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda$"> an
+<I>exact</I> minimization of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ J$"> is found using the benefits of fast
+Fourier transforms, see for example [<A
+ HREF="node1.html#Vogel:02">5</A>]. The Newton algorithm
+also requires then the evaluation of the derivative <!-- MATH
+ $(d/d\lambda)(J)$
+ -->
+<IMG
+ WIDTH="73" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ (d/d\lambda)(J)$">
+which for exact solutions <!-- MATH
+ $\mathbf{x}(\lambda)$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \mathbf{x}(\lambda)$"> can be seen to easily
+simplify, and the GSVD is avoided. For more general problems, where the
+FFT approach is not relevant, it is appropriate to consider the use of
+inexact solves for minimizing <!-- MATH
+ $J(\lambda)$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ J(\lambda)$">, and to replace the Newton
+method by the secant algorithm for rootfinding. Theoretical
+considerations and numerical validations describing the new algorithms
+will be discussed. We will use not only examples from the test set of
+Hansen [<A
+ HREF="node1.html#hansen:94">1</A>], but also restoration of real seismic deep
+earthquake signals.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html772"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html773"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html770"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html771"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

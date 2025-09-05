@@ -1,0 +1,46 @@
+===firstname:
+Matthias
+===firstname3:
+
+===lastname2:
+
+===postal:
+Institute for Advanced Simulation (IAS)
+IAS-1: Juelich Supercomputing Centre (JSC)
+Research Centre Juelich
+52425 Juelich
+Germany
+===lastname:
+Bolten
+===lastname3:
+
+===ABSTRACT:
+Most algebraic multigrid methods use the Galerkin operator
+\begin{equation*}
+A_{C} = R A R^{H}
+\end{equation*}
+as approximation of the linear system on the coarse level. This originates from finite element discretizations of the PDEs, where it is natural to demand this property from the coarse level approximation. The choice of the Galerkin operator is not mandatory, but it is optimal in the sense that it fulfills a variational property and a lot of the theory depends on this fact, which results in the coarse grid correction being an orthogonal projector.
+
+Nevertheless the use of the Galerkin operator has one big downside. As it is essentially formed by applying the fine level operator to the prolongated vector and restricting the result back to the coarse level, the stencil describing the operator grows. Consider the 5-point approximation of the Laplacian on a uniform grid in two dimensions. In that case the Galerkin operator on the coarser level will be represented by 9 points, resulting in a higher complexity per unknown on that level. While this is not a big problem for stencils involving only nearest neighbors, the problem gets more severe for very large and sparse stencils. We were interested in replacing the Galerkin operator by some similar operator, which does not posses this behaviour.
+
+For that purpose we analyzed the convergence proofs for algebraic multigrid methods by Ruge and St\"uben and derived some sufficient conditions for convergence of multigrid methods not using the Galerkin operator on the coarse level. It turns out that it is actually possible to use another operator, that is close to the Galerkin operator and fulffills some other purely algebraic conditions. We replace the original coarse grid correction
+\begin{equation*}
+T = I - R^{H} A_{C}^{-1} R A
+\end{equation*}
+by another one, that is using an approximation to the Galerkin operator, namely
+\begin{equation*}
+\hat{T} = I - R^{H} \hat{A}_{C}^{-1} R A.
+\end{equation*}
+While it is relatively simple to derive sufficient conditions that $\hat{A}_{C}$ has to fulfill in order to achieve W-cycle convergence, more attention is required in the V-cycle case. We modified the general estimate of the V-cycle convergence factor in the work of Ruge and St\"uben, which goes back to the work of Mandel and McCormick.
+
+In the the talk an outline over the altered convergence analysis including a discussion of the sufficient conditions will be given and some examples will be presented.
+
+
+===email:
+m.bolten@fz-juelich.de
+===otherauths:
+
+===title:
+Algebraic considerations regarding the replacement of the Galerkin operator in multigrid methods
+===firstname2:
+

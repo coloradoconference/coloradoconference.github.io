@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>falgo080125</TITLE>
+<META NAME="description" CONTENT="falgo080125">
+<META NAME="keywords" CONTENT="falgo080125">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html240"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html241"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Robert D. Falgout 
+<BR><B>Parallel Sweeping Algorithms in SN Transport</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Center for Applied Scientific Computing 
+<BR>
+Lawrence Livermore National Laboratory 
+<BR>
+P O&nbsp;Box&nbsp;808 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94551 
+<BR>
+USA
+
+<BR><TT>rfalgout@llnl.gov</TT>
+</DIV>
+
+<P>
+A potential bottleneck when solving Boltzmann transport equations in parallel is
+the inversion of the streaming operator. The discretized form of this operator
+is a lower triangular matrix or block lower triangular matrix with small blocks.
+The solution of these triangular systems by direct methods is inherently
+sequential. Although various overloading techniques have been used to amortize
+the costs of these lower triangular solves or ``sweeps'', the practicality of
+scaling to massively parallel machines with tens of thousands of processors is
+unclear.
+
+<P>
+In this talk, we will present new theoretical scaling models for sweeping
+algorithms and compare with experiment. In theory, these algorithms have the
+potential to scale like <!-- MATH
+ $O(dP^{1/d} + M)$
+ -->
+<IMG
+ WIDTH="107" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ O(dP^{1/d} + M)$">, where <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ d$"> is the spatial dimension of
+the problem, <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ M$"> is the number of directions, and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ P$"> is the number of
+processors. When <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ M$"> is fairly large, it masks the effect of the <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ P$"> term,
+whereby delaying the poor asymptotic scaling behavior. This delay may be
+adequate in some cases to get practical performance, even up to tens of
+thousands of processors. However, some popular parallel sweep algorithms may
+scale worse than this best-case theoretical model. This will also be discussed
+in the talk.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html242"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html240"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html241"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

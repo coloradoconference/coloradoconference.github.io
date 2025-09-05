@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Fei Xue \\
+{\bf Convergence Analysis of Iterative Solvers in Inexact Rayleigh Quotient Iteration.
+}}
+
+{\tt petrinet@math.umd.edu}\\
+Howard C. Elman
+\end{center}
+
+We present a detailed convergence analysis of preconditioned
+MINRES for approximately solving the linear
+systems that arise when Rayleigh Quotient Iteration is used to compute the
+lowest eigenpair of a symmetric positive definite
+matrix. We provide insight into the "slow start" of MINRES iteration in
+both a qualitative and quantitative way, and show
+that the convergence of MINRES mainly depends on how quickly the unique
+negative eigenvalue of the preconditioned shifted
+coefficient matrix is approximated by its corresponding harmonic Ritz
+value. By exploring when the negative Ritz value
+appears in MINRES iteration, we obtain a better understanding of the
+limitation of preconditioned MINRES in this context
+and the virtue of a new type of preconditioner with "tuning". Finally we
+show that tuning based on a rank-2 modification
+can be applied with little additional cost to guarantee positive
+definiteness of the tuned preconditioner.
+\end{document}

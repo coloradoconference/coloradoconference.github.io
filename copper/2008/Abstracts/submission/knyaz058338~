@@ -1,0 +1,40 @@
+===firstname:
+Andrew
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Mathematical Sciences
+University of Colorado Denver
+P.O. Box 173364, Campus Box 170, Denver, CO 80217-3364
+===lastname:
+Knyazev
+===lastname3:
+
+===ABSTRACT:
+Microarray data analysis (MDA) has become an important tool in molecular biology. Modern microarray data provide vast amounts of useful biological information, but their analysis is computationally challenging. Molecular biologists need fast, reliable, and advanced MDA software, e.g., to locate clusters
+of genes responsible for specific biological processes. Novel mathematical algorithms for MDA, including the recently available GeneChip tiling arrays, are necessary to widen the bottlenecks of existing software, which primarily are slow performance and low accuracy.
+
+Our core expertise is in development of iterative methods and software for numerical solution of eigenvalue problems [1-4]. In this work, we develop eigenvalue solvers tailored for MDA, specifically for spectral gene clustering and bi-clustering. Our particular case study is finding functional gene clusters
+responsive to the novel regulation of growth and development of an organism through the fatty acid signaling using Affimetrix microarray chip technology data from [5] in collaboration with Marina Kniazeva of Howard Hughes Medical Institute and University of Colorado at Boulder.
+
+REFERENCES
+
+[1] A. V. Knyazev. “Preconditioned eigensolvers - an oxymoron?” ETNA, Vol. 7, 104–123, 1998. http://etna.mcs.kent.edu/vol.7.1998/pp104-123.dir/pp104-123.pdf
+
+[2] A. V. Knyazev. “Toward the Optimal Preconditioned Eigensolver: Locally Optimal Block Preconditioned Conjugate Gradient Method.” SIAM Journal on Scientific Computing, Vol. 23 , No. 2, 517–541, 2001. http://dx.doi.org/10.1137/S1064827500366124
+
+[3] A. V. Knyazev, I. Lashuk, M. E. Argentati, and E. Ovchinnikov. “Block Locally Optimal Preconditioned Eigenvalue Xolvers (BLOPEX) in hypre and PETSc.” SIAM Journal on Scientific Computing, Vol. 25 , No. 5, 2224-2239, 2007. http://dx.doi.org/10.1137/060661624
+
+[4] F. Bottin, S. Leroux, A. Knyazev, and G. Zerah. “Large scale ab initio calculations based on three levels of parallelization.” Computational Material Science. In print, 2007. http://dx.doi.org/10.1016/j.commatsci.2007.07.019
+
+[5] M. Kniazeva, Q. T. Crawford, M. Seiber, C. Y. Wang, M. Han. “Monomethyl branchedchain fatty acids play an essential role in Caenorhabditis elegans development.” PLoS Biology, Vol. 2, E257, 2004. http://dx.doi.org/10.1371/journal.pbio.0020257
+===email:
+andrew.knyazev@cudenver.edu
+===otherauths:
+
+===title:
+Eigensolvers for analysis of microarray gene expression data
+===firstname2:
+

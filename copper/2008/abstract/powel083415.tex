@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Catherine, E Powell \\
+{\bf H(div) preconditioning for a mixed finite element formulation of the stochastic diffusion problem}}
+
+School of Mathematics \\ University of Manchester \\ Alan Turing building \\ Oxford Road \\ Manchester \\ M13 9PL \\ UK
+\\
+{\tt c.powell@manchester.ac.uk}\\
+Darran, G. Furnival\\
+Howard, C. Elman\end{center}
+
+We study $H(div)$ preconditioning for the saddle-point systems that arise
+in a stochastic Galerkin mixed formulation of the steady-state diffusion
+problem with random data. The key ingredient is a multigrid V-cycle for a
+weighted, stochastic
+$H(div)$ operator, acting on a certain tensor product space of random
+fields with finite variance. The traditional deterministic
+Arnold-Falk-Winther multigrid algorithm is exploited by varying the
+spatial discretization from grid to grid whilst keeping the stochastic
+discretization fixed. We extend the deterministic analysis to accommodate
+the modified $H(div)$ operator and establish spectral equivalence bounds
+with a new multigrid V-cycle operator that are independent of the
+discretization parameters. We then implement multigrid within a
+block-diagonal preconditioner for the full stochastic saddle-point
+problem, summarize eigenvalue bounds for the preconditioned system
+matrices and investigate the impact of all the discretization parameters
+on the convergence rate of preconditioned \textsc{minres}.
+
+
+\end{document}

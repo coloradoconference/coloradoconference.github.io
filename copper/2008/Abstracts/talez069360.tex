@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hillel Tal-Ezer \\
+{\bf Computing Matrix Exponentials Arising in Markov Chains by Restarted Krylov Algorithm}}
+
+4 Antokolsky st \\ Tel-Aviv 64044 \\ Israel
+\\
+{\tt hillel@mta.ac.il}\end{center}
+
+It has been shown that Krylov space approach can result in an efficient
+algorithm for computing the transient solution of Markov Chains.
+Implementing Krylov algorithm, all the vectors which span the Krylov
+space have to stored. Due to storage restrictions, the common approach is
+based on marching in time-steps. The size of the time step is dictated by
+the the accuracy required and the amount of Krylov vectors which can be
+stored. In this talk we will present an algorithm which eliminates the
+need to divide the time interval into time steps. It treats the time
+domain as one unit even though the Krylov space is of low dimension. The
+solution vector, at any intermediate time level, can be computed for
+free. The new algorithm is based on restart approach similar to the one
+used for solving linear systems. Using the restarted Krylov algorithm,
+the total number of matrix-vector multiplications is reduced
+significantly.
+
+
+\end{document}

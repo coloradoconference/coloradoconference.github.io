@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stefan M. Wild
+ \\
+{\bf MNH: A Derivative-Free Optimization Algorithm Using Minimal Norm Hessians.}}
+
+School of Operations Research & Information Engineering, Cornell
+University \\ Ithaca, New York 14853
+\\
+{\tt smw58@cornell.edu}
+\end{center}
+
+We introduce MNH, a new algorithm for unconstrained optimization when
+derivatives are unavailable, primarily targeting applications that require
+running computationally expensive deterministic simulations. MNH relies on
+a trust-region framework with an underdetermined quadratic model that
+interpolates the function at a set of data points.  We show how to
+construct this interpolation set to yield computationally stable
+parameters for the  model and, in doing so, obtain an algorithm which
+converges to first-order critical points. Preliminary results are
+encouraging and show that MNH makes effective use of the points evaluated
+in the course of the optimization.
+\end{document}

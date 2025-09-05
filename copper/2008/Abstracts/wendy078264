@@ -1,0 +1,38 @@
+===firstname:
+P.
+===firstname3:
+
+===lastname2:
+Nagy
+===postal:
+Emory University
+Math & Science Center
+400 Dowman Dr., W401
+Atlanta, GA 30322
+===lastname:
+Wendykier
+===lastname3:
+
+===ABSTRACT:
+Image deblurring, or deconvolution, is the process of using computational
+methods to reconstruct an image that has been degraded by blurring
+and noise. I will describe \emph{Parallel Iterative Deconvolution}
+Java software for image deblurring. It is a fully multithreaded implementation
+of three iterative methods: Modified Residual Norm Steepest Descent
+(MRNSD), Conjugate Gradient for Least Squares (CGLS) and Hybrid Bidiagonalization
+Regularization (HyBR). Two key components of the software are \emph{JTransforms}
+- the first, open source, multithreaded FFT library written in Java,
+and \emph{Parallel Colt} - a multithreaded version of a Java library
+for high performance scientific computing. Benchmarks show that Parallel
+Iterative Deconvolution is highly scalable and efficient on SMP machines.
+Image deblurring examples, including performance comparisons with
+other existing software, will also be given.
+
+===email:
+piotr.wendykier@emory.edu
+===otherauths:
+
+===title:
+Large-Scale Iterative Image Deblurring in Java
+===firstname2:
+J.

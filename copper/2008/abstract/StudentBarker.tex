@@ -1,0 +1,21 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew T. Barker \\
+{\bf A parallel implicitly coupled fluid-structure interaction algorithm for blood flow in arteries.
+}}
+
+Department of Applied Mathematics \\ University of Colorado, Boulder \\ 
+CO 80309-0526
+\\
+{\tt andrew.barker@colorado.edu}\\
+Xiao-Chuan Cai
+\end{center}
+
+We develop a scalable parallel finite element solver for the simulation of blood flow in compliant arteries.  The incompressible Navier-Stokes equations are solved for the fluid and coupled to a linear elastic model for the blood vessel walls.  Our solver features an unstructured dynamic mesh capable of modeling complicated geometries, an arbitrary Lagrangian-Eulerian framework that allows for large displacements of the fluid domain, and fully implicit monolithic coupling between the fluid and structure equations.  A scalable and robust parallel Newton-Krylov-Schwarz method is used to solve the resulting systems of coupled nonlinear equations.
+
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large J. Mas \\
+{\bf A Balanced Incomplete Factorization preconditioner}}
+
+Institut de Matem\`atica Multidisciplinar \\ Universitat Polit\`ecnica de Val\`encia \\ Cam\'{\i} de Vera \\ 14 \\ 46022 Val\`encia \\ Spain
+\\
+{\tt jmasm@imm.upv.es}\\
+R. Bru\\
+J. Mar\'{\i}n\\
+	T\accent23uma, M.\end{center}
+
+In~\cite{bcmm:03} a factorized approximate inverse preconditioner
+(AISM) based on the Sherman-Morrison formula is presented. In this work
+the structure of the factors is analyzed and it is proved that the $L$ and
+$D$ factors of the $LDU$ factorization of a matrix are easily retrieved from
+one of them.
+Moreover columns of $L$ and $L^{-1}$ are computed in the same step which makes
+the application of dropping strategies proposed in~\cite{bs:02} straightforward
+in the case of a symmetric positive definite coefficient matrix.
+
+Numerical experiments on a set of symmetric positive definite matrices are done
+showing that this strategy, that we called Balanced Incomplete Factorization
+(BIF for short), is very robust for preconditioning very ill--conditioned
+problems using iterative methods.
+In addition BIF exhibits shorter setup times than RIF \cite{betu:03},
+a method
+of a similar and very high level of robustness.
+
+
+\begin{thebibliography}{99}
+\bibitem{betu:03}
+M.\ Benzi and M.\ T\accent23uma.
+{\em A robust incomplete factorization preconditioner for positive definite
+matrices}, Numer.\ Linear Algebra Appl., 10(5-6), (2003) 385--400, .
+\bibitem{bs:02}
+M.\ Bollh\"ofer and Y.\ Saad.
+{\em On the relations between ILUs and factored approximate inverses}.
+SIAM J.\ Matrix Anal.\ Appl., 24(1) (2002) 219--237.
+\bibitem{bcmm:03}
+R.\ Bru, J.\ Cerd\'an, J.\ Mar\'{\i}n and J.\ Mas, {\em Preconditioning
+sparse nonsymmetric linear systems
+with the Sherman-Morrison formula}, SIAM J.\ Sci.\ Comput., 25(2) (2003),
+701--715.
+
+\end{thebibliography}
+
+
+\end{document}

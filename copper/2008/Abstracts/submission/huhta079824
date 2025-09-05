@@ -1,0 +1,78 @@
+===firstname:
+Marko
+===firstname3:
+
+===lastname2:
+
+===postal:
+Institute of Mathematics,
+Helsinki University of Technology, 
+Box 1100
+FIN-02015
+Finland
+===lastname:
+Huhtanen
+===lastname3:
+
+===ABSTRACT:
+\def\setC{\mathbb{C}}
+
+Let $\mathcal{W}$ and $\mathcal{V}_1$ be sparse matrix subspaces
+of $\setC^{n \times n}$ containing  
+invertible elements such that those 
+of $\mathcal{V}_1$ are  readily invertible.
+To precondition a large linear system involving
+a sparse nonsingular  matrix $A\in \setC^{n \times n}$,
+in this talk we consider %the approximation problem 
+\begin{equation}\label{aproksi}
+AW\approx V_1
+\end{equation}
+with non-zero matrices $W \in \mathcal{W}$ and $V_1 \in \mathcal{V}_1$
+both regarded as variables. 
+The attainability of the possible equality 
+can be 
+verified by inspecting the nullspace of 
+\begin{equation}\label{jser}
+W\longmapsto (I-P_1)AW,\, \mbox{ with }\, W\in \mathcal{W},
+\end{equation}
+where $P_1$ is the orthogonal 
+projection onto $\mathcal{V}_1$ \cite{HR}.  
+
+Corresponding to the smallest singular values of \eqref{jser},
+we have $(I-P_1)AW \approx 0$ if and only if $AW\approx V_1=P_1AW$.  
+This gives rise to the criterion 
+$$\min_{W\in \mathcal{W}, \left|\left|W\right|\right|_F=1}
+\left|\left|(I-P_1) AW\right|\right|_F
+$$
+for a starting point to generate approximate 
+factors $W$ and $V_1=P_1AW$. Then 
+$$\frac{\left| \left| AWV_1^{-1} -I\right|\right| }
+{\left| \left| V_1^{-1} \right|\right| }\leq
+\left| \left| AW-V_1 \right|\right|
+\leq \left| \left| AWV_1^{-1} -I\right|\right|  
+\left| \left| V_1 \right|\right|
+$$
+in the 2-norm,  
+whenever $V_1$ is invertible.
+Consequently, 
+the  maximum gap between these two approximation problems 
+is determined the condition number of $V_1$.  
+In the special case $\mathcal{V}_1=\setC I$
+the equalities hold in general.  This corresponds 
+to the criterion
+$$\min_{W\in \mathcal{W}}\left|\left| AW-I\right|\right|_F$$
+which constitutes a starting point for constructing
+sparse approximate inverses.
+
+\begin{thebibliography}{1}
+
+\bibitem{HR} {\sc M. Huhtanen}, {\em Factoring matrices into the product of two matrices}, BIT, 47 (2007), pp. 793--808.
+\end{thebibliography}
+===email:
+marko.huhtanen@tkk.fi
+===otherauths:
+
+===title:
+APPROXIMATE FACTORS FOR THE INVERSE
+===firstname2:
+

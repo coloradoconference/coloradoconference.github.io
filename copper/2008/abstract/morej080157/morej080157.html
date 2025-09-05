@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>morej080157</TITLE>
+<META NAME="description" CONTENT="morej080157">
+<META NAME="keywords" CONTENT="morej080157">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html588"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html589"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jorge Mor&#233; 
+<BR><B>Derivative-Free Optimization Solvers: A Shootout</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 S Cass Ave 
+<BR>
+Argonne 
+<BR>
+Illinois 60439-4844
+
+<BR><TT>more@mcs.anl.gov</TT>
+<BR>
+Stefan Wild
+</DIV>
+
+<P>
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+2"><B>Derivative-Free Optimization Solvers: A Shootout</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER"></DIV>
+<P><P>
+<BR>
+<DIV ALIGN="CENTER"></DIV>
+<P>
+<DIV ALIGN="CENTER"><B>Jorge J. Mor&#233;<A NAME="footfnm1"
+ HREF="footnode.html#fnm1"><SUP>1</SUP></A>and Stefan M. Wild<A NAME="footfnm2"
+ HREF="footnode.html#fnm2"><SUP>2</SUP></A></B>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+
+<P>
+
+<P>
+Derivative-free optimization has experienced a renewed interest over the
+past decade that has encouraged a new wave of theory and
+algorithms. While this research includes computational experiments that
+compare and explore the properties of these algorithms, most of these
+experiments do not provide useful information for users of
+derivative-free algorithms with computationally expensive problems. In
+our experience, these users want solvers that deliver the most reduction
+in function value within a given computational budget.
+
+<P>
+We explore benchmarking procedures for derivative-free optimization
+algorithms when there is a limited computational budget. The focus of our
+work is the unconstrained optimization problem
+<!-- MATH
+ \begin{displaymath}
+\min \left \{ f(x) : x \in \mbox{${\mathbb{R}}$}^n \right \} ,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="150" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min \left \{ f(x) : x \in \mbox{${\mathbb{R}}$}^n \right \} ,
+$">
+</DIV><P></P>
+where <!-- MATH
+ $f : \mbox{${\mathbb{R}}$}^n \to \mbox{${\mathbb{R}}$}$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ f :$">&nbsp; &nbsp;<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mbox{${\mathbb{R}}$}$"><IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ ^n \to$">&nbsp; &nbsp;<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mbox{${\mathbb{R}}$}$"> may be noisy or non-differentiable and, in
+particular, in the case where the evaluation
+of <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f$"> is computationally expensive. These expensive optimization
+problems arise in science and engineering because evaluation of the
+function <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f$"> often requires a complex deterministic simulation based on
+solving the equations (for example, nonlinear eigenvalue problems,
+ordinary or partial differential equations) that describe the underlying
+physical phenomena. The
+computational noise associated with these complex simulations means that
+obtaining derivatives is difficult and unreliable. Moreover, these
+simulations often rely on legacy or proprietary codes and hence must be
+treated as black-box functions, necessitating a derivative-free
+optimization algorithm.
+
+<P>
+Several comparisons have been made of derivative-free algorithms on noisy
+optimization problems that arise in applications. In particular, we
+mention
+[<A
+ HREF="node1.html#Shootout07">2</A>,<A
+ HREF="node1.html#Gray2004">3</A>,<A
+ HREF="node1.html#Torczon2003b">4</A>,<A
+ HREF="node1.html#Oeuvray2007">6</A>,<A
+ HREF="node1.html#RGRCAS2007">7</A>]. The most
+ambitious work in this direction [<A
+ HREF="node1.html#Shootout07">2</A>] is a
+comparison of six derivative-free optimization algorithms on two
+variations of a groundwater problem specified by a simulator. This work
+compares algorithms by their trajectories (plot of the best function
+value against the number of evaluations) until the solver satisfies a
+convergence test based on the resolution of the simulator.
+
+<P>
+Benchmarking derivative-free algorithms on selected applications with
+trajectory plots provides useful information to users with related
+applications. In particular, users can find the solver that delivers the
+largest reduction within a given computational budget. However, the
+conclusions in these computational studies do not readily extend to other
+applications.
+
+<P>
+We use data [<A
+ HREF="node1.html#JJMSW07">5</A>] and performance profiles [<A
+ HREF="node1.html#EDD01">1</A>] to
+analyze the performance of six derivative-free solvers on benchmark sets
+of smooth, noisy, and piecewise-smooth problems. We use performance
+measures that evaluate the progress of the algorithm in terms of the
+function value, and thus avoid unrealistic convergence tests. We consider
+geometry-based solvers (<I><FONT SIZE="-1">APPSPACK</FONT></I>, for example) and model-based solvers (<I><FONT SIZE="-1">NEWUOA</FONT></I>,
+for example). Our results show that on these problems, model-based
+solvers performs better than geometry-based solvers, even for noisy and
+piecewise-smooth problems.
+
+<P>
+Our results also show that data and performance profiles provide
+complementary information that measures the strengths and weaknesses of
+optimization solvers as a function of the computational budget. Data
+profiles are useful, in particular, to assess the short-term behavior of
+the algorithms.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html590"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html591"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html588"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html589"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

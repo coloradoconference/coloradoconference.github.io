@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Roger P. Pawlowski \\
+{\bf Fully-Implicit / Direct-to-steady-state Solution of FE Formulations for Resistive Magneto-Hydrodynamic Systems*}}
+
+Sandia National Labs \\ P O Box 5800 \\ MS-1318 \\ Albuquerque \\ NM 87185-1318
+\\
+{\tt rppawlo@sandia.gov}\\
+John N. Shadid\\
+Jeffery W. Banks\end{center}
+
+Ionized fluids with strong electromagnetic effects occur frequently in
+nature and are critical for many important technological applications.
+Examples include stellar interiors, gaseous nebula, the earth's
+magnetoshpere, and Tokamak and Z-pinch physics. These systems are
+described by a set of partial differential equations that conserve
+momentum, mass, charge, and energy along with magnetic flux for the
+electric and magnetic fields (Maxwell's equations). The resulting
+magnetohydrodynamics (MHD) equations are strongly coupled, highly
+nonlinear, and span a large range of time and length scales, making the
+scalable, robust, and accurate solution of such systems extremely
+challenging.
+
+In this presentation, we will briefly discuss the development of multiple
+MHD formulations based on unstructured stabilized finite element methods.
+The formulations are designed for weak enforcement of the solenoidal
+constraint, $\nabla \cdot {\mathbf B}=0$. The formulations include a 2D
+vector potential formulation, a 3D ${\mathbf B}$-field formulation using
+projection and a 3D ${\mathbf B}$-field formulation using variational
+multi-scale stabilization. The resulting set of nonlinear equations are
+solved using a fully-coupled Newton-Krylov solver with nonlinear
+globalization techniques. Linear systems are solved using a multi-level
+preconditioned GMRES iterative technique. We will present numerical
+performance, accuracy, and initial scalability studies of the
+formulations. Additionally we will present an application of our solvers
+to perform a stability and bifurcation analysis of the hydromagnetic
+Rayleigh-Bernard problem.
+
+*This work was partially funded by the DOE Office of Science AMR Program,
+and was carried out at Sandia National Laboratories operated for the U.S.
+Department of Energy under contract no. DE-ACO4-94AL85000
+
+
+\end{document}

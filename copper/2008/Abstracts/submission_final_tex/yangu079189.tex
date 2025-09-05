@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ulrike Meier Yang \\
+{\bf Parallel algebraic multigrid for systems of PDEs }}
+
+Lawrence Livermore National Laboratory \\ Center for Applied Scientific Computing \\ Box 808 - L560 \\ Livermore \\ CA 94551
+\\
+{\tt umyang@llnl.gov}\\
+Allison H. Baker\end{center}
+
+Algebraic multigrid (AMG) methods are popular for solving large sparse
+linear systems, particularly those resulting from the discretization of a
+scalar elliptic PDE. When solving linear systems derived from systems of
+PDEs involving multiple unknowns, modifications to classical AMG are
+typically required. In particular, two accepted approaches are treating
+variables corresponding to the same unknown separately (the "unknown"
+approach) and treating variables corresponding to the same physical node
+together (the "nodal" approach). We discuss the applicability and
+parallel performance of these two approaches as well that of a "hybrid"
+approach that combines aspects of each. In addition, because we are
+interested in the efficient parallel solution of large systems of PDEs
+arising from elasticity applications, we also discuss improving
+interpolation of the rigid body modes.
+
+
+\end{document}

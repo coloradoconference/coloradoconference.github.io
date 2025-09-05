@@ -1,0 +1,28 @@
+===firstname:
+Csaba
+===firstname3:
+
+===lastname2:
+Bader
+===postal:
+Institut fuer Informatik V, TU Muenchen
+Boltzmannstr. 3 
+85748 Garching 
+Germany
+===lastname:
+Vigh
+===lastname3:
+
+===ABSTRACT:
+This paper presents an approach to efficiently generate and dynamically refine and coarsen triangular grids for the numerical simulation of dynamically adaptive problems. The intended application is the simulation of oceanic wave propagation 
+(Tsunami simulation, e.g.) based on the shallow water equations. This special problem requires strong refinement of the grid along the propagating wavefront and along the domain boundaries (coastline). Our grid generation approach for this 2D problem is based on the recursive bisection of triangles along marked edges. The recursive scheme may be described with a binary refinement tree, which is then traversed (sequentialized) in depth-first order, such that the traversal follows (geometrically) a Sierpinski space-filling curve. Refinement and coarsening is implemented with the use of stack- and stream-like data structures and can be performed by accessing the linearized refinement tree, only. Even after refinement and coarsening, the traversal order of the updated grid still matches the order implied by the Sierpinski curve. This allows a storage scheme that requires only a minimal amount of memory (less than 10 bytes per grid cell), and leads to a simulation process that is inherently cache-efficient. We demonstrate the computational efficiency of the approach by showing performance results for several test scenarios. For the numerical simulation we have implemented explicit and implicit time-stepping schemes, as well as efficient multilevel solvers for linear systems 
+arising from implicit time discretization. We will also present an approach for parallelization and load distribution with space-filling curves, and show first results of parallel refinement and coarsening for our test problems.
+
+===email:
+vigh@in.tum.de
+===otherauths:
+
+===title:
+Efficient 2D Grid Generation for Dynamically Adaptive Problems
+===firstname2:
+Michael
