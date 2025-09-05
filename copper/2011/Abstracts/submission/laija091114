@@ -1,0 +1,59 @@
+===affil2:
+University of Illinois at Urbana-Champaign
+===firstname:
+James
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Olson
+===lastname:
+Lai
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+jhlai2@illinois.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+
+Siebel Center for Computer Science 
+University of Illinois at Urbana-Champaign 
+201 N. Goodwin Ave. 
+Urbana, IL 61801 
+USA
+===firstname6:
+
+===ABSTRACT:
+High-order finite elements have become increasing popular in scientific applications due to their spectral convergence properties.  More accurate solutions can be achieved using fewer degrees of freedom.  However, the resulting matrices suffer from large condition number and reduced sparsity -- both detrimental to the performance of the iterative solver.   Many widely used packages (Trilinos, FEniCS, etc) implement high-order bases of interpolatory type.  However, there has not been much research on efficient solvers for such bases.  In this talk we overview high-order interpolatory bases for $H^1$ (nodal) and $H(curl)$ (edge) spaces, and we present an AMG based method for solving systems discretized by high-order $H(curl)$ bases of interpolatory type.
+
+Efficient solvers based on multigrid techniques have been developed to tackle $H(curl)$ problems successfully.  For the lowest-order elements, these methods require hybrid smoothers which perform additional block relaxation on the gradient space.  The given matrix is projected onto the gradient space using a discrete gradient operator.   In addition, the intergrid transfer operators are induced by aggregates in an auxiliary nodal problem.  We extend these ideas to high-order compatible finite elements of interpolatory type.  We will show how to construct discrete gradient operators for such high-order bases and how to utilize $p$-multigrid coarsening techniques to produce an amenable solver for these problems.
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+High-order interpolatory bases for compatible finite elements and efficient solvers.
+===firstname2:
+Luke

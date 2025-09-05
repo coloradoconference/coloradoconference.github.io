@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wiesn087752</TITLE>
+<META NAME="description" CONTENT="wiesn087752">
+<META NAME="keywords" CONTENT="wiesn087752">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wiesn087752.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tobias, A. Wiesner 
+<BR><B>An improved AMG transfer operator for nonsymmetric positive-definite systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Technical University of Munich 
+<BR>
+Institute for Computational Mechanics 
+<BR>
+Boltzmannstrasse 15 
+<BR>
+85748 Garching 
+<BR>
+Germany
+
+<BR><TT>wiesner@lnm.mw.tum.de</TT>
+<BR>
+Michael, W. Gee
+<BR>
+Raymond, S. Tuminaro
+<BR>
+Wolfgang, A. Wall
+</DIV>
+
+<P>
+Algebraic multigrid methods are well-known and well-established for
+symmetric positive-definite problems as they arise in many applications
+in the area of engineering and applied sciences. However, nonsymmetric
+positive definite systems are still challenging even though they have
+received more attention in recent years ([<A
+ HREF="node1.html#sala2008">1</A>],
+[<A
+ HREF="node1.html#notay2010">2</A>], [<A
+ HREF="node1.html#BrMaMcRuSa2010">3</A>]).
+
+<P>
+This talk is devoted to the design of AMG preconditioners for
+nonsymmetric (positive-definite) systems. In this case, the crucial point
+is the construction of appropriate nonsymmetric multigrid transfer
+operators. We extend the ideas of ``smoothed aggregation'' and ``energy
+minimization'' (e.g. [<A
+ HREF="node1.html#mandel1999">4</A>], [<A
+ HREF="node1.html#brannick2006">5</A>] and
+[<A
+ HREF="node1.html#brannick20062">6</A>]) that are often used for symmetric positive-definite
+systems. A new class of AMG transfer operators is proposed for
+nonsymmetric
+problems based on a constrained descent algorithm which is utilized to
+iteratively improve prolongation and restriction operators while allowing
+one to prescribe an optimized sparsity pattern.
+
+<P>
+A key feature of this talk is the algorithm for the effective
+determination of prolongator and restrictor sparsity patterns.  Initial
+patterns are obtained from either classical (nonsymmetric) aggregation
+approaches or are based on an incomplete block LU decomposition within a
+two level domain
+decomposition method.  A heuristic filtering method is proposed which can
+be applied to these initial patterns. Our filtering approach uses a
+strong pattern filter for finer multigrid levels and a very weak pattern
+filter for coarser levels.  We illustrate how an appropriate sparsity
+pattern choice
+results in a noticeable gain in convergence speed.
+
+<P>
+We compare our new transfer operator strategy with existing techniques
+(e.g. Petrov-Galerkin from [<A
+ HREF="node1.html#sala2008">1</A>]) by means of examples arising
+from finite element discretization of the convection-diffusion and
+Navier-Stokes equations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

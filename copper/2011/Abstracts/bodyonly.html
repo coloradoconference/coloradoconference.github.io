@@ -1,0 +1,124 @@
+<title>body of the abstract ONLY</title>
+<!-- body bgcolor="#cfdfdf" -->
+<body bgcolor="#ccaa7f">
+<h3>body of the abstract ONLY</h3>
+<center>
+
+	When submitting your abstract, use only plain text
+	with plain LaTeX macros for any mathematical notation
+	or other special characters, including accented/foreign
+	letters.  You can use macros defined in the
+	<b><tt>amsmath</tt></b> and <b><tt>amssymb</tt></b>
+	packages, since they will be used by default.  However,
+	don't use other packages, and don't use your own macros
+	-- unless you include the definition first!
+	<p>
+	To illustrate, here are examples of what <i>will</i>
+	and <i>won't</i> work in the ``<b>ABSTRACT:</b>'' box
+	of the <a href="Submit.php">Submission Page</a>;
+
+<p>
+<table cellpadding=4 width="97%">
+<tr bgcolor=orange>
+<th width="35%">LaTeX code</th>
+<th width="10%" bgcolor=yellow>OK?</th>
+<th width="55%">why not</th>
+</tr>
+
+<tr bgcolor="#ffbfcf"><td><tt>\begin{document}</tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	This will be inserted automatically.  You should
+	input only the portion <i>between</i>
+	\begin{document} and \end{document}.
+	</font></td></tr>
+
+
+<tr bgcolor="#cfdfdf"><td><tt>\begin{eqnarray}<br>
+	... <br>\end{eqnarray}</tt></td>
+	<td align=center>Yes</td><td></td></tr>
+
+
+<tr bgcolor="#ffbfcf"><td><tt>\begin{abstract}</tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	Redundant.  This site is for the submission of abstracts
+	<i>only</i>, and everybody's abstracts will be formatted
+	the same way, in the collected document.
+	</font></td></tr>
+
+
+<tr bgcolor="#cfdfdf"><td><tt>
+	\newcommand{\be}{\begin{equation}}
+	</tt></td>
+	<td align=center>Yes</td><td>
+	<font size="-1">
+	(as long as the definition itself doesn't
+	depend on some special package)
+	</font></td></tr>
+
+
+<tr bgcolor="#ffbfcf"><td><tt>\title{...}<br>\author{...}</tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	Enter title/authors/addresses in the appropriate
+	boxes on the <a href="Submit.php">submission page</a>,
+	<b><i>not</i></b> in the Abstract box.
+	</font></td></tr>
+
+
+<tr bgcolor="#ffbfcf"><td><tt>\maketitle</tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	This command never comes in the body of a document.
+	</font></td></tr>
+
+
+<tr bgcolor="#cfdfdf"><td><tt>\begin{tabular}{|c|c|c|}<br>
+	xx &amp; xx &amp; xx \\ ...<br>
+	\end{tabular}</tt></td>
+	<td align=center>Yes</td><td><font size="-1">
+	tables and matrices are basic LaTeX items
+	</font></td></tr>
+
+
+<tr bgcolor="#ffbfcf"><td><tt>\usepackage{amsthm}</tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	This web-serving computer does not have your package.
+	Stick to <i>standard</i> LaTeX.
+	</font></td></tr>
+
+<tr bgcolor="#cfdfdf"><td><tt>
+	<font size="-1">\newcommand{\Gcal}{\mbox{${\cal&nbsp;G}$}}</font>
+	</tt></td>
+	<td align=center>Yes</td><td>
+	<font size="-1">
+	(as long as the definition itself doesn't
+	depend on some special package)
+	</font></td></tr>
+
+
+<tr bgcolor="#ffbfcf"><td><tt>\section{...}</tt>
+	<i>or</i>
+	<tt>\subsection{...}</tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	The <b>abstract</b> is supposed to be short and simple;
+	don't structure your abstract or make it longer
+	than 1000 words.
+	</font></td></tr>
+
+<tr bgcolor="#cfdfdf"><td><tt>\begin{enumerate}<br>
+	\item ...<br>
+	\end{enumerate}</tt></td>
+	<td align=center>Yes</td><td><font size="-1">
+	numbered and unnumbered lists are great
+	</font></td></tr>
+
+
+<tr bgcolor="#ffbfcf"><td><tt>&nbsp &nbsp <b>"</b></tt></td>
+	<th><i>NO</i></th><td><font size="-1">
+	Usually in LaTeX you denote double quotes using
+	&nbsp;<b><tt>``</tt></b>&nbsp before and
+	&nbsp;<b><tt>''</tt></b>&nbsp after
+	</font></td></tr>
+
+
+</table>
+</center>
+</body>

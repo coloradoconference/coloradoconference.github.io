@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>weinz090935</TITLE>
+<META NAME="description" CONTENT="weinz090935">
+<META NAME="keywords" CONTENT="weinz090935">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="weinz090935.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tobias Weinzierl 
+<BR><B>Space-time Parallelisation of a Multiscale Solver for the Heat Equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Technische Universitaet Muenchen 
+<BR>
+Institut fuer Informatik V 
+<BR>
+Boltzmannstr 3 
+<BR>
+85748 Garching 
+<BR>
+Germany
+
+<BR><TT>weinzier@in.tum.de</TT>
+</DIV>
+
+<P>
+We study the simple heat equation
+<!-- MATH
+ \begin{displaymath}
+\partial _t u - \kappa \Delta u = f \qquad \mbox{on } \Omega = (0,1)^d,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="109" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \partial _t u - \kappa \Delta u = f$">&nbsp; &nbsp;on <IMG
+ WIDTH="84" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \Omega = (0,1)^d,
+$">
+</DIV><P></P>
+where a hypercube <IMG
+ WIDTH="47" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ (0,1)^d$"> is cooled down at the boundary to constant
+temperature, i.e.&nbsp;<!-- MATH
+ $u|_{\partial \Omega}=0$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ u\vert _{\partial \Omega}=0$">.
+Inside the hypercube, a rotating heat source <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f$"> causes a constant stimulus to
+the overall system.
+<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f$"> is modelled by a time-dependent Dirac distribution with periodicity <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ T$">,
+i.e.&nbsp;<IMG
+ WIDTH="89" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ f(T)=f(0)$">.
+With the initial state <IMG
+ WIDTH="90" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ u(t=0)=0$">, such a system heats up due to the heat
+source stimulus before it enters into a periodic phase.
+This phase is to be found.
+
+<P>
+We solve the given setting on an adaptive Cartesian space-time grid
+described by a <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">-spacetree.
+<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">-spacetrees are a generalisation of the well-known octree idea, and they
+yield a multiscale space-time grid that naturally supports dynamic adaptivity.
+Multiscale here implies coarsening both in space and time.
+On this multiscale grid, we formulate a geometric multigrid full approximation
+storage scheme with a simple adaptivity criterion, and solve the periodic,
+time-dependent problem with a FMG cycle.
+
+<P>
+An implicit Euler for the time derivative is one building block of this FMG.
+It yields one elliptic subproblem per time slice.
+We tackle the elliptic problem with a standard Jacobi solver acting as pre-
+and postsmoother.
+For the two-grid algorithm, we apply the standard geometric coarsening for both
+time and space, while the restriction operator acts solely spatially.
+Only every <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">th time slice is studied on the coarser grid at all.
+The remaining fine grid time slices are neglected.
+With such a restriction operator acting solely spatially,
+the coarse grid correction part of the coarse grid equation equals the
+standard Poisson equation's coarse grid formulation.
+Throughout the prolongation of the coarse grid correction, we prolongate the
+correction both to the finer grid in space and to the time slices ``sorted
+out'' by the time coarsening, i.e.&nbsp;updates on coarser time slices affect time
+slices stemming from a finer time discretisation.
+The <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ V$">-cycle underlying our FMG cycle finally results from recursion.
+
+<P>
+Our spacetree storage scheme comes along with a small memory
+footprint and, thus, allows us to hold the complete space-time discretisation of
+our simulation.
+Our multigrid algorithm benefits this in
+several ways:
+
+<UL>
+<LI>First, the formulation of the periodic boundary conditions is
+straightforward.
+</LI>
+<LI>Second, the multiscale formulation in time gives a rough guess of the
+overall solution quickly.
+</LI>
+<LI>Third, the space-time formulation in combination with a domain
+decomposition enables the algorithm to exploit parallel systems
+efficiently.
+</LI>
+</UL>
+The combination of a domain decomposition in both space and time with a
+multiscale time integration scheme yields an approach similar to
+parareal-type algorithms where different computers solve the solution on
+different time chunks simultaneously.
+This parallelisation effect is studied, and well-suited multiscale time coupling
+operators are dicussed.
+
+<P>
+The overall project is a first step towards a computational fluid dynamics code
+for incompressible fluids that simulates scenarios with periodic
+pressure boundary conditions applied to tube-like geometries.
+For such settings, it often is an obvious idea to restrict the solver to one
+small chunk of this tube and to prescribe periodic boundary conditions.
+The exact inflow and outflow conditions then result from a computation similar
+to the setting above.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

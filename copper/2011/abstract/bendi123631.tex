@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marion Bendig \\
+{\bf Factor-Three-Coarsening Nonsymmetric Black Box Multigrid }}
+
+Chair of Scientific Computing \\ Technische Universit\"at M\"unchen \\ Fakult\"at f\"ur Informatik \\ Boltzmannstra\ss{}e 3 \\ 85748 Garching \\ Germany
+\\
+{\tt bendig@in.tum.de}\\
+Irad Yavneh\end{center}
+
+The classical Petrov-Galerkin approach to Black Box multigrid for
+nonsymmetric problems due to Dendy is combined with the recent
+factor-three-coarsening Black Box algorithm due to Dendy and Moulton,
+along with a powerful symmetric line Gauss-Seidel
+smoother, resulting in an efficient and robust multigrid solver.
+Focusing on the convection-diffusion operator, the algorithm is tested
+and shown to achieve fast and reliable convergence with both first-order
+and second-order accurate upstream discretizations of the convection
+operator for a wide range of diffusion coefficients. The solver also
+exhibits robust behavior with respect to discontinuous jumps in the
+diffusion coefficient, and performs well for recirculating flows over a
+wide range of diffusion coefficients. The efficiency of the solver is
+supported by results of an analysis for the case of constant
+coefficients.
+
+
+\end{document}

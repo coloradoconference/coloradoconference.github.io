@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Scott MacLachlan \\
+{\bf Robust Solution of Singularly Perturbed Systems of Reaction-Diffusion Equations}}
+
+Department of Mathematics \\ Tufts University \\ 503 Boston Ave \\ Medford \\ MA 02155 \\ USA
+\\
+{\tt scott.maclachlan@tufts.edu}\\
+Niall Madden\end{center}
+
+Coupled systems of singularly perturbed reaction-diffusion equations
+arise in many applications areas, from chemical engineering to
+modelling of turbulent flows. The numerical solution of these
+equations is complicated by the need to properly resolve boundary
+layers, even in the simplest, linear cases. While there have been
+significant advances in the development of robust discretizations,
+much less attention has been given to the problem of solving the
+associated linear systems.
+
+In this talk, we present the development of geometric and algebraic
+multigrid approaches for these problems that are robust with respect
+to the perturbation parameter(s). Starting from uniformly convergent
+finite-difference discretizations on meshes chosen to adequately and
+efficiently resolve both the boundary layers and interior region, we
+demonstrate robust multigrid performance with respect to both mesh
+resolution and the singular perturbation parameters. While algebraic
+multigrid approaches offer excellent scaling performance, we show that
+geometric approaches can achieve similar scaling with much lower
+computational overhead.
+
+
+\end{document}

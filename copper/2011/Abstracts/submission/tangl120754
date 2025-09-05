@@ -1,0 +1,56 @@
+===affil2:
+University of Colorado
+===firstname:
+Lei
+===firstname4:
+Steve
+===firstname3:
+Tom
+===lastname2:
+Brezina
+===lastname:
+Tang
+===firstname5:
+John
+===affil6:
+
+===lastname3:
+Manteuffel
+===email:
+tangl@colorado.edu
+===lastname6:
+
+===affil5:
+University of Colorado
+===otherauths:
+
+===lastname4:
+McCormick
+===affil4:
+University of Colorado
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Department of Applied Math
+526 UCB
+Boulder CO, 80309-0526
+===firstname6:
+
+===ABSTRACT:
+This talk introduces new adaptive mesh refinement (AMR) strategies for first-order system
+least-squares (FOSLS) finite elements in conjunction with algebraic multigrid (AMG) methods in the context of nested iteration (NI). The goal is to reach a certain error tolerance with the least amount of computational cost and nearly uniform distribution of the error over all elements. To accomplish this, the refinement decisions at each refinement level are determined based on minimizing the ``accuracy-per-computational-cost" (ACE) efficiency measure that take into account both error reduction and computational cost. The NI-FOSLS-AMG-ACE approach
+produces a sequence of refinement levels in which the error is equally distributed across elements on a relatively coarse grid. Once the solution is numerically resolved, refinement becomes nearly uniform. Accommodations of the ACE approach to massively distributed memory architectures involve a geometric binning strategy to reduce communication cost. Load balancing begins at very coarse levels. Elements and nodes are redistributed using parallel quadtree structures and a space filling curve. This automatically ameliorates load balancing issues at finer levels. Numerical results show that the NI-FOSLS-AMG-pACE approach is able to provide highly accurate approximations to rapidly varying solutions using a small number of work units. Excellent weak and strong scalability are demonstrated on 4,096 processors for problems with 15 million biquadratic elements. 
+===affil3:
+University of Colorado
+===lastname5:
+Ruge
+===affilother:
+
+===title:
+Parallel Adaptive Mesh Refinement for FOSLS-AMG
+===firstname2:
+Marian

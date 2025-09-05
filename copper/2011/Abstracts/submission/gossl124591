@@ -1,0 +1,79 @@
+===affil2:
+TU Berlin, Germany
+===firstname:
+Florian
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Nabben
+===lastname:
+Gossler
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+gossler@math.tu-berlin.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Technische Universitaet Berlin
+Sekretariat MA 3-3
+Strasse des 17. Juni 136
+D-10623 Berlin
+===firstname6:
+
+===ABSTRACT:
+In this talk we consider the inheritance of different types of spectral equivalence in algebraic multilevel methods. 
+
+In detail we obtain a two level preconditioner 
+\begin{equation}
+ C_{2L}=\left[\begin{array}{cc}D^{-1}+ D^{-1}A_{12}{S}^{-1}A_{21}D^{-1} & - D^{-1}A_{12}{S}^{-1}\\
+-{S}^{-1}A_{21}D^{-1} & {S}^{-1}\end{array}\right]\label{twolevel}
+\end{equation}
+for a symmetric positive definite matrix $$A=\left[\begin{array}{cc}A_{11}&A_{12}\\A_{21}&A_{22}\end{array}\right].$$
+
+Here $D$ and $S$ are approximations of $A_{11}$ and $A_{22}-A_{21}D^{-1}A_{12}$ respectively.
+
+\bigskip
+
+In the talk we assume that $D$ and $S$ have some spectral property related to $A_{11}$ and $A_{22}-A_{21}D^{-1}A_{12}$ respectively and show that $C_{2L}$ defined by (\ref{twolevel}) has the same property related to $A$.
+
+This leads also to 
+new condition number bounds for two level methods applied as preconditioner. 
+
+\bigskip
+
+These can be used to obtain new bounds for the multilevel preconditioner and the so called \emph{AMLI} preconditioner
+
+\bigskip
+
+At the end of the talk we will see that for specific C.B.S. constants  the new bounds improve well-known bounds.
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Inheritance of spectral equivalence in algebraic multilevel methods
+===firstname2:
+Reinhard

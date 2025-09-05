@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>tangl120754</TITLE>
+<META NAME="description" CONTENT="tangl120754">
+<META NAME="keywords" CONTENT="tangl120754">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tangl120754.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Lei Tang 
+<BR><B>Parallel Adaptive Mesh Refinement for FOSLS-AMG</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Math 
+<BR>
+526 UCB 
+<BR>
+Boulder CO 
+<BR>
+80309-0526
+
+<BR><TT>tangl@colorado.edu</TT>
+<BR>
+Marian Brezina
+<BR>
+Tom Manteuffel
+<BR>
+Steve McCormick
+<BR>
+John Ruge
+</DIV>
+
+<P>
+This talk introduces new adaptive mesh refinement (AMR) strategies for first-order system
+least-squares (FOSLS) finite elements in conjunction with algebraic
+multigrid (AMG) methods in the context of nested iteration (NI). The goal
+is to reach a certain error tolerance with the least amount of
+computational cost and nearly uniform distribution of the error over all
+elements. To accomplish this, the refinement decisions at each refinement
+level are determined based on minimizing the
+``accuracy-per-computational-cost" (ACE) efficiency measure that take
+into account both error reduction and computational cost. The
+NI-FOSLS-AMG-ACE approach
+produces a sequence of refinement levels in which the error is equally
+distributed across elements on a relatively coarse grid. Once the
+solution is numerically resolved, refinement becomes nearly uniform.
+Accommodations of the ACE approach to massively distributed memory
+architectures involve a geometric binning strategy to reduce
+communication cost. Load balancing begins at very coarse levels. Elements
+and nodes are redistributed using parallel quadtree structures and a
+space filling curve. This automatically ameliorates load balancing issues
+at finer levels. Numerical results show that the NI-FOSLS-AMG-pACE
+approach is able to provide highly accurate approximations to rapidly
+varying solutions using a small number of work units. Excellent weak and
+strong scalability are demonstrated on 4,096 processors for problems with
+15 million biquadratic elements.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,179 @@
+<html>
+<head>
+<?php
+        # Get this year's details:
+        include("/home/copper/public_html/2011/INFO.php");
+?>
+<title>
+   <?php
+      print("$Year: Transportation");
+   ?>
+</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<!-- --------------------------------------------------------------------- -->
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAyuniVn6ae46D-jsB6e0U9xRfQPQ9PnMKXJxwEArnXSuRjCQRahTBW7_RIXHNDZ8BBHjLG7DSf9QnxA"></script>
+
+<script type="text/javascript">
+
+  google.load("maps", "2.x");
+
+  var map;
+
+  // Call this function when the page has been loaded
+  function initialize() {
+    map = new google.maps.Map2(document.getElementById("CopperLocation"));
+    // map.setCenter(new google.maps.LatLng(39.50069625156184,-106.15689754486084), 9);
+    map.setCenter(new google.maps.LatLng(39.50069625156184,-105.25689754486084), 9);
+    var mapControl = new GMapTypeControl();
+    map.addControl(mapControl);
+    map.addControl(new GLargeMapControl());
+    // var point = new GLatLng(39.50069625156184,-106.15689754486084);
+    var point = new GLatLng(39.49999725156184,-106.15709754486084);
+    var marker = new GMarker(point);
+    var message = ["Copper Conference Center", "Other Copper Location"];
+    GEvent.addListener(marker, "click", function() {
+      var myHtml = message[0];
+      map.openInfoWindowHtml(point, myHtml);
+    });
+    map.addOverlay(marker);
+    map.setUIToDefault();
+ }
+  google.setOnLoadCallback(initialize);
+</script>
+<!-- --------------------------------------------------------------------- -->
+
+</head>
+<!-- body bgcolor="#7fffff" link=blue alink=blue vlink=blue -->
+<!-- body bgcolor="#DA8849" link=blue alink=blue vlink=blue -->
+<body bgcolor="#ccccbf" link=blue alink=blue vlink=blue>
+
+<table cellpadding=12 width="90%" align=center>
+<tr valign=top>
+
+<th width="25%" bgcolor="#ffffcf">
+	<h3>
+            <a href="./"><font color="#005f00">
+               <i>
+                  <?php
+                     # CMCMM 2011
+                     print("$AcronymYear");
+                  ?>
+               </i></font></a>
+        </h3>
+
+<!-- 
+	<table><tr><td>
+	<ul>
+	<p><li><a href="location.html">Location</a>
+	<p><li><a href="accommodation.html">Accommodation</a>
+	<p><li><font size="+1" color=red><b>Transportation</b></font>
+	<p><li><a href="registration.html">Registration</a>
+	</ul>
+	</td></tr></table>
+	</th>
+-->
+
+<!-- Image links: ----------------------------------------------------------------- -->
+        <center>
+        <table>
+        <br>
+        <tr><td>
+        <a href="location.php">
+                 <img style="border:2px" alt="Location info" src="../image/Copper_tile_location_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+        <a href="accommodation.php">
+                 <img style="border:2px" alt="Accommodation info" src="../image/Copper_tile_accommodation_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+        <a href="transportation.php">
+                 <img style="border:2px" alt="Transportation info" src="../image/Copper_tile_transportation_b.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+        <a href="registration.php">
+               <img style="border:2px" alt="Registration info" src="../image/Copper_tile_registration_w.png" height=25>
+        </a>
+        </td></tr>
+        </table>
+        </center>
+        </th>
+<!-- Image links. ----------------------------------------------------------------- -->
+
+
+
+<!-- td bgcolor="#00ffdf" -->
+<!-- td bgcolor="#DA9859" -->
+<td bgcolor="#ffbf7f">
+<h2>TRANSPORTATION</h2>
+
+Copper Mountain is located 75 miles west of Denver via
+Interstate 70, at exit 195.  Please make your airline
+reservation destination Denver International Airport.
+All major car rental agencies have counters at the airport.
+
+<!-- VERYOLD:
+<p>
+We will be arranging for group discounted rates
+with Resort Express shuttle service.
+You must identify yourself as attending the
+``CU Math Conference''
+to receive whatever group rates are arranged.
+
+<p>
+Reservations should be made by calling:
+		1-800-334-7433 or
+direct		  970-468-7600,
+or fax:		  970-468-0364.
+Resort Express is located on level 5,
+the baggage claim level, in the center of the main terminal.
+-->
+
+<!-- VALID FOR 2008:
+<p>
+We have arranged for shuttle service from the Denver International Airport at 
+group discounted rates with Colorado Mountain Express.
+Be sure to mention that you are traveling with the "CU Math Group" to receive 
+the 10% discount on your fare.
+Colorado Mountain Express can be reached by phone at 
+<br> <li>(800) 525-6363 
+<br> <li>(970) 926-9800 <br>
+For additional information, please visit  <a href=http://www.ridecme.com>
+www.ridecme.com</a>
+-->
+
+<!--
+Here is some more info:
+
+www.resort-express.com
+(970) 468-7600
+(800) 334-7433
+-->
+
+<p> 
+Up-to-date information on ground transportation from Denver International 
+Airport to Copper Mountain resort can be found 
+<a href=http://www.coppercolorado.com/Directions/Groundtravel/index.htm>
+here.
+</a>
+
+<p>
+In order to receive a full refund for a cancellation,
+cancellations must be received more than 24 hours
+in advance of scheduled trip.
+
+</td>
+</tr></table>
+
+<!-- --------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------- -->
+<div id="CopperLocation" style="margin:auto; margin-top:25px;  width:88%; height:550px; border:1px solid #000">
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------- -->
+</body>
+</html>

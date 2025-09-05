@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert Strzodka \\
+{\bf Parallel Preconditioners for GPU-Multigrid Solvers}}
+
+Max Planck Institute \\ Saarbrücken
+\\
+{\tt strzodka@mpi-inf.mpg.de}\end{center}
+
+GPUs perform best on regular, independent work-loads while effective
+preconditioners ask for complex, serially coupled computations. The
+extreme cases of best hardware performance on slowly converging
+numerical schemes or quickly converging schemes with slow serial
+execution are poor choices. The talk discusses how to find the middle
+ground by challenging the hardware with more complex data dependencies
+and at the same time relaxing purely serial dependencies with parallel
+variants. For structured matrices, we can now solve very ill-conditioned
+linear equation systems that were intractable with
+GPU hardware before.
+
+
+\end{document}

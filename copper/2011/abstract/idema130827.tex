@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Reijer Idema \\
+{\bf Convergence of inexact Newton methods in the number of linear iterations}}
+
+Delft University of Technology \\ Mekelweg 4 \\ 2628 CD Delft \\ The Netherlands
+\\
+{\tt r.idema@tudelft.nl}\\
+Domenico Lahaye\\
+Kees Vuik\end{center}
+
+In our research on iterative methods for the power flow problem in large
+power systems, we have been using inexact Newton methods with
+preconditioned GMRES for the linear solves. We observed that the Newton
+convergence was often approximately linear in the total number of GMRES
+iterations, independent of the number of GMRES iterations used in each
+Newton iteration. This inspired us to further research the theoretical
+convergence of the inexact Newton method.
+
+We present a convergence theorem that relates the reduction in the Newton
+error to the reduction in the residual error in the GMRES iterations.
+Using this theorem we show that under certain circumstances Newton
+convergence is indeed linear in the total number of GMRES iterations, and
+independent of the number of GMRES iterations used in each Newton
+iteration. Experiments illustrate the practical use of the convergence
+theorem, and visualize how GMRES convergence influences the Newton
+convergence.
+
+
+\end{document}

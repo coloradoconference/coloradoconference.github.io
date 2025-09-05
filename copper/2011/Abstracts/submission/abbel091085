@@ -1,0 +1,62 @@
+===affil2:
+Department of Computerscience, K.U.Leuven, Belgium
+===firstname:
+Dirk
+===firstname4:
+Moritz
+===firstname3:
+Michael
+===lastname2:
+Vandewalle 
+===lastname:
+Abbeloos
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Hinze
+===email:
+dirk.abbeloos@cs.kuleuven.be
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Diehl
+===affil4:
+Electrical Engineering Department ESAT, K.U.Leuven, Belgium
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+K.U. Leuven
+Celestijnenlaan 200A
+3001 Heverlee
+===firstname6:
+
+===ABSTRACT:
+We present a nested multigrid method to optimize time-periodic, parabolic, partial differential equations (PDE). We consider a quadratic tracking objective with a linear parabolic PDE constraint. The goal of the optimization is to find the optimal control which minimizes the objective over a set of admissible controls and in addition induces a prescribed cyclic state with the correct period. More precisely the state of the system at a certain instance of time should be identical to the one a fixed period of time later. We do not assume the existence of autonomous periodic behavior of the PDE and as a consequence the time-periodicity should be enforced by the applied control. Our problem differs from the initial value problem, where the goal is to find the optimal control to steer the system from a given state to a final state. 
+
+The proposed method relies on the reduction of the first order optimality conditions to a Fredholm integral equation of the second kind. The resulting equation will be solved by a multigrid method of the second kind. The cost of this method is dominated by the evaluation of the kernel of the integral, which involves solving the state and the corresponding adjoint equation. For the evaluation of these two subproblems a space-time multigrid approach of the first kind will be applied. Combining both multigrid methods results in a nested multigrid algorithm where an outer method is used for solving the integral equation and an inner method to evaluate the integral kernel.
+
+
+
+
+
+
+===affil3:
+Fachbereich Mathematik, Universitat Hamburg, Germany
+===lastname5:
+
+===affilother:
+
+===title:
+Nested multigrid methods for time-periodic, parabolic optimal control problems.
+===firstname2:
+Stefan

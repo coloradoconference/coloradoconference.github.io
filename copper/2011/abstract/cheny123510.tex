@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yao Chen \\
+{\bf An Algebraic Multilevel Method for Anisotropic Elliptic Equations Based on Subgraph Matching}}
+
+012 McAllister Building \\ Penn State University \\ University Park \\ PA 16802
+\\
+{\tt chen_y@math.psu.edu}\\
+James  Brannick \\
+Ludmil  Zikatanov  \end{center}
+
+We present a strength of connection measure for algebraic multilevel
+algorithms for a class of linear systems corresponding to the graph
+Laplacian on a general graph. The coarsening in the multilevel algorithm
+is based on matching in the underlying graph. Our main new idea is to
+define a local measure of the quality of the matching whose maximum gives
+an upper bound on the stability (energy norm) of the projection on the
+coarse space. As an application, we focus on utilizing this measure as a
+tool for constructing coarse spaces for anisotropic diffusion problems.
+With appropriate boundary conditions, the discretized systems are
+positive semidefinite but not necessarily M-matrices. Specifically, we
+consider the diffusion equation with grid aligned as well as non-grid
+aligned anisotropies in the diffusion coefficient and show that the
+strength of connection measure is able to capture the correct anisotropic
+behavior in both cases. We then study a coarsening algorithm that uses
+this measure in a greedy strategy to find the subgraph matching (set of
+aggregates). The process forms an initial set of subgraphs, each
+consisting of a single vertex, and then adds vertices to these subgraphs
+corresponding to the local direction of the anisotropy as determined by
+the proposed measure.
+
+
+\end{document}

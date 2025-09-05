@@ -1,0 +1,95 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Nico Schl\"omer \\
+{\bf Preconditioning the Jacobian~system of the extreme~type--II~Ginzburg--Landau~problem}}
+
+Universiteit Antwerpen \\ Campus Middelheim \\ Gebouw G \\ Middelheimlaan 1 \\ 2020 Antwerpen \\ Belgium
+\\
+{\tt nico.schloemer@ua.ac.be}\\
+Wim Vanroose\end{center}
+
+The nonlinear Schr\"odinger equation is used in many areas of science
+and technology and describes, for example, the propagation of
+solutions in fiber optics or Bose-Einstein condensates in ultra cold
+traps. The Ginzburg--Landau equations is a prototype of such an
+equation that is used to model the state and the magnetic field inside
+superconducting nanodevices. To understand the dynamics of these
+systems, it is critical to have an efficient solver such
+that the solution space of can be efficiently explored by, for
+example, numerical continuation.
+
+For an open, bounded domain $\Omega\subseteq\mathbb{R}^n$ with a
+piecewise smooth boundary
+$\partial\Omega$, the Ginzburg--Landau equations for extreme type--II
+superconductors read
+\begin{equation}\label{eq:GL}
+\begin{cases}
+0 = \left(-\text{i}\nabla - \mathbf{A}\right)^2 \psi - \psi \left(1 -
+|\psi|^2\right) \quad \text{on } \Omega \\[3mm]
+0 = \mathbf{n} \cdot ( -\text{i}\nabla - \mathbf{A}) \psi \quad \text{on } \partial\Omega
+\end{cases}
+\end{equation}
+The unknown $\psi\in H^2_{\mathbb{C}}(\Omega)$ is commonly referred to as
+\emph{order parameter}.
+As opposed to the general case, where the magnetic vector potential
+$\mathbf{A}\in H_{\mathbb{R}^n}^2(\Omega)$ is an
+unknown of the system, $\mathbf{A}$ is given here by an external magnetic field
+$\mathbf{H}_0$ via
+\[
+\begin{cases}
+\nabla\times(\nabla\times \mathbf{A}) = 0,\\
+\lim\limits_{\|x\|\to\infty} \nabla\times\mathbf{A} = \mathbf{H}_0;
+\end{cases}
+\]
+the magnetic field fully penetrates the whole domain and is not altered
+by the supercurrent.
+The physical observables are the Cooper-pair density
+$\rho_{\text{C}}=|\psi|^2$ and the induced magnetic field
+$\mathbf{B}=\nabla\times\mathbf{A}$.
+
+Extreme type--II superconductors are common in the domain of high-tem\-per\-a\-ture
+superconductors, for example.
+
+The trivial solution, $\psi=0$, is the normal non-superconducting
+state which is the lowest energy state for fields above the critical
+magnetic field strength. For weak magnetic fields, however, there are
+non-zero solutions that have a lower energy. These are the famous vortex
+solutions where the magnetic fields penetrate the sample.
+
+This talk will be concerned with the numerical solution of~(\ref{eq:GL}). Applying
+Newton's method, the focus will be on to solve linear equation systems with the
+Jacobian operator of~(\ref{eq:GL}),
+\begin{equation}\label{eq:jacobian}
+\begin{cases}
+\mathcal{J}(\psi)\varphi = \left( (-\text{i} \nabla - \mathbf{A})^2 - 1 +
+2|\psi|^2 \right) \varphi + \psi^2 \overline{\varphi},\\
+0 = \mathbf{n} \cdot ( -\text{i}\nabla - \mathbf{A}) \varphi \quad
+\text{on } \partial\Omega.
+\end{cases}
+\end{equation}
+Properties of $\mathcal{J}(\psi)$ will be outlined that restrict the use
+of classical solvers.
+For preconditioning those linear solves, special focus will be on the
+first part of the operator
+\begin{equation}\label{eq:keo}
+\begin{cases}
+\mathcal{K}\varphi = (-\text{i} \nabla - \mathbf{A})^2 \varphi,\\
+0 = \mathbf{n} \cdot ( -\text{i}\nabla - \mathbf{A}) \varphi \quad
+\text{on } \partial\Omega,
+\end{cases}
+\end{equation}
+and, connected with that, multigrid strategies. Appropriate discretizations will
+introduced briefly.
+
+Eventually, a solver for $\mathcal{J}(\psi)$ will be constructed which allows
+for a constant number of linear solver iterations independent of the problem size.
+Numerical evidence will be presented along with scalability studies to provide
+insight on the performance of the solver in high-performance computing environments.
+
+
+\end{document}

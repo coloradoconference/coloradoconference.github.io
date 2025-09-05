@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yvan Notay \\
+{\bf An algebraic multigrid method with guaranteed convergence rate II: The nonsymmetric case}}
+
+Service de Metrologie Nucleaire (CP 165/84) \\ 50 av F D Roosevelt \\ 1050 Brussels \\ Belgium
+\\
+{\tt ynotay@ulb.ac.be}\end{center}
+
+We consider aggregation-based algebraic multigrid
+and focus on the class of
+M-matrices with both nonnegative row and column sum. This includes matrices
+arising from (stabilized) low order finite difference or finite element
+discretizations of convection diffusion equations with divergence free
+convective flow.
+
+We first consider a simplified two-grid method with just one damped Jacobi
+post-smoothing step. We show that the corresponding convergence factor
+can be bounded as a function of the convergence factor of the same scheme
+applied to the symmetric part of the matrix.
+Hence we can essentially reuse the methodology developed for the symmetric
+case in
+[1]; that is, form aggregates
+in such a way that a prescribed (user defined) bound holds on
+the convergence factor.
+
+Nonsymmetric problems raise however several issues that are not yet
+covered by a proper
+theoretical analysis: the use of more efficient smoothing schemes such as Gauss-Seidel;
+the influence of non-normality;
+the recursive use of the method in a truly multilevel algorithm.
+These aspects will be discussed in detail with the help of illustrative
+numerical experiments.
+
+
+[1] A. Napov and Y. Notay, {\em An algebraic multigrid method with
+guaranteed convergence rate},
+Report GANMN 10-03, \\
+\verb+http://mntek3.ulb.ac.be/pub/docs/reports/pdf/ganmn1003.pdf+\,
+
+
+
+\end{document}

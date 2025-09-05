@@ -1,0 +1,211 @@
+<html>
+<head>
+
+<?php
+  # Get this year's details:
+  include("/home/copper/public_html/2011/INFO.php");
+?>
+
+<title>
+   <?php
+      print("$Year: Registration");
+   ?>
+</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<!-- body bgcolor="#7fffff" link=blue alink=blue vlink=blue -->
+<!-- body bgcolor="#ccaa7f" link=blue alink=blue vlink=blue -->
+<!-- body bgcolor="#DA8849" link=blue alink=blue vlink=blue -->
+<body bgcolor="#ccccbf" link=blue alink=blue vlink=blue>
+
+<table cellpadding=12 width="90%" align=center>
+<tr valign=top>
+
+<th width="25%" bgcolor="#ffffcf">
+	<h3>
+           <a href="./"><font color="#005f00">
+               <i>
+                 <?php
+                   # CMCMM 2011
+                   print("$AcronymYear");
+                 ?>
+               </i></font></a>
+        </h3>
+
+<!-- Text-only links: ----------------------------------------------------------------- -->
+<!--
+	<table><tr><td>
+	<ul>
+	<p><li><a href="location.html">Location
+               </a>
+	<p><li><a href="accommodation.html">Accommodation
+               </a>
+	<p><li><a href="transportation.html">Transportation
+               </a>
+	<p><li>
+               <font size="+1" color=red><b>Registration</b></font>
+	</ul>
+	</td></tr></table>
+	</th>
+-->
+
+<!-- Image links: ----------------------------------------------------------------- -->
+        <center>
+	<table>
+        <br>
+        <tr><td>
+	<a href="location.php">
+                 <img style="border:2px" alt="Location info" src="../image/Copper_tile_location_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+	<a href="accommodation.php">
+                 <img style="border:2px" alt="Accommodation info" src="../image/Copper_tile_accommodation_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+	<a href="transportation.php">
+                 <img style="border:2px" alt="Transportation info" src="../image/Copper_tile_transportation_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+               <img style="border:2px" alt="Registration info" src="../image/Copper_tile_registration_b.png" height=25>
+	</td></tr>
+        </table>
+        </center>
+	</th>
+<!-- Image links. ----------------------------------------------------------------- -->
+
+<!-- td bgcolor="yellow" -->
+<td bgcolor="#eaea6a">
+<h2>
+<?php
+    # CONFERENCE REGISTRATION
+    print("$Year CONFERENCE REGISTRATION");
+?>
+</h2>
+<!-- OLD: 
+   Either <a href="Register/"><b>register online</b></a>,
+   or print and complete the
+   <a href="Register/mailfax.php">registration form</a>
+   to submit by postal mail.
+   <i><b>
+   In either case, your payment must be received
+   on or before 25 February, 2011 to receive the discounted rates.
+   </b></i>
+-->
+<i><b>
+To receive the discounted rates, 
+your payment must be received
+on or before 
+<?php
+  # 25 February, 2011.
+  print("$DeadlineEarlyReg, $Year.");
+?>
+</b></i>
+
+<p>
+Sending your name by using the on-line registration
+will get you on the registration list,
+but your fee depends on whether or not you make
+the early registration deadline of 
+<?php
+# February 25, 2011.
+  print("$DeadlineEarlyReg, $Year.");
+?>
+ 
+If you are paying by check, please mail it with your form.
+You will receive a discounted rate if your payment 
+is 
+<?php
+#  <em>postmarked before February 25</em>.
+   print("<em> postmarked before $DeadlineEarlyReg</em>. ");
+?>
+The only types of payments accepted will be
+VISA, MASTER CARD, or CHECK (money order).
+<em> We DO NOT accept American Express or Discover.</em>
+
+<p>
+Registration fees include a registration packet, 
+the Handbook of Abstracts,
+a reception on Sunday evening,
+continental breakfast each day,
+coffee breaks each morning and afternoon,
+and a banquet on Thursday evening.
+ 
+<p><b>Register in one of these three ways:</b>
+<ul>
+<li> <a href="Register/">Register online</a>
+<p><li> Print and complete a
+	<a href="Register/mailfax.php">registration form</a>
+	and <b>mail</b> (with payment) to
+<!--
+	<table align=center cellpadding=8><tr><td bgcolor=white><b>
+		COPPER MT. CONFERENCE<br>
+		UNIVERSITY OF COLORADO<br>
+		DEPARTMENT OF APPLIED MATH<br>
+		526 UCB<br>
+		BOULDER CO  80309-0526
+	</b></td></tr></table>
+<p><li> print and complete a
+	<a href="Register/mailfax.php">registration form</a>
+	and <b>fax</b> it to
+	<table align=center cellpadding=8><tr>
+		<td></td>
+		<th bgcolor=white>
+		COPPER MT. &nbsp Attn: Tom Manteuffel<br>
+		303-492-4066
+		</th>
+		<td></td>
+	</tr><tr>
+		<td colspan=3>(be sure to submit payment, separately)</td>
+	</tr></table>
+-->
+	<table align=center cellpadding=8><tr><td bgcolor="ffffcf"><b>
+		COPPER MT. CONFERENCE<br>
+		FRONT RANGE SCIENTIFIC COMPUTATIONS<br>
+		8865 E. CALLE BUENA VISTA<BR>
+                SCOTTSDALE, AZ 85255
+	</b></td></tr></table>
+<p><li>
+        Print and complete a
+        <a href="Register/mailfax.php">registration form</a>, 
+        then <b>scan and email</b> as a PDF document to 
+	<table align=center cellpadding=8><tr>
+		<td></td>
+		<th bgcolor="#ffffcf">
+		copper@colorado.edu<br>
+		</th>
+		<td></td>
+	</tr><tr>
+		<td colspan=3>(be sure to submit payment, separately)</td>
+	</tr>
+        </table>
+</ul>
+
+No refunds will be given for cancellations after 
+<?php
+#  March 1.
+   print("$DeadlineRefund. ");
+?>
+<br>
+Full refunds less a $50 service charge will be given
+<b>if notified before 
+<?php
+#  March 1, 2011
+   print("$DeadlineRefund");
+?>
+</b>.
+
+<!-- EXTRA INFO ON FUNDING FRO 2011 CONFERENCE -->
+<p>
+Travel support is available for students, postdocs, women, minorities, 
+and the disabled. 
+<a href="funding.php">Click here</a> for more information.
+
+</td>
+</tr>
+</table>
+</body>
+</html>

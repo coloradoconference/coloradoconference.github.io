@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eran Treister \\
+{\bf A multilevel approach for $\textit{L}_1$ penalized least-squares minimization}}
+
+Computer Science Department \\ Technion \\ Haifa \\ 32000 \\ Israel
+\\
+{\tt eran@cs.technion.ac.il}\\
+Irad Yavneh\end{center}
+
+The area of sparse representation of signals is drawing tremendous
+attention in recent years. The idea behind the model is that a
+signal can be approximated as a linear combination of a few
+``atoms'' from a prespecified and over-complete ``dictionary''.
+The sparse representation of a signal is often achieved by
+minimizing an $l_1$ penalized least squares functional. Various
+iterative-shrinkage algorithms have recently been developed and
+are quite effective for handling these problems, surpassing
+traditional optimization techniques. In this paper, we suggest a
+new simple multilevel approach that reduces the computational cost
+of existing solvers for these inverse problems. The new method
+takes advantage of the typically sparse representation of the
+signal and coarsens by reducing the dimension of the problem by
+gradually ignoring ostensibly irrelevant data from the
+over-complete dictionary. Analytical observations suggest, and
+numerical results confirm, that this new approach may
+significantly enhance the performance of existing iterative
+shrinkage algorithms in cases where the dictionary is an explicit
+matrix.
+
+
+\end{document}

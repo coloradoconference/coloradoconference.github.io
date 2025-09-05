@@ -1,0 +1,91 @@
+===affil2:
+University of Catania
+===firstname:
+Armando
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Russo
+===lastname:
+Coco
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+coco@dmi.unict.it
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Via Procida, 54
+96012 Avola (SR)
+Italy
+===firstname6:
+
+===ABSTRACT:
+Poisson equation in arbitrary domain (possibly with moving boundary) is central to many applications, such as diffusion phenomena,fluid dynamics, charge transport in semiconductors, crystal growth, electromagnetism and many others. 
+We present a rather simple iterative method~\cite{CocoRusso:Elliptic} to solve the Poisson equation in arbitrary domain $\Omega$, identified by a
+level set function $\phi$ in such a way $\Omega=\left\{ x \in \mathbb{R}^d \colon \phi(x)<0 \right\}$, and mixed boundary conditions.
+Such iterative scheme is just the building-block for a proper multigrid approach~\cite{CocoRusso:MG}.
+
+The method is based on ghost-cell technique for finite difference discretization on a regular Cartesian grid. The structure of ghost points is complex and elimination of discrete boundary conditions from the system is hard to perform. In addition, a simple Gauss-Seidel scheme for the whole system does not converge. Therefore, in order to provide a good smoother for the multigrid approach, we relax the whole problem introducing a fictitious time and looking for the steady-state solution. The iterations on the boundary are performed in order to provide smooth errors. The iterative scheme is proved to converge, at least for first order accurate discretization.
+
+Multigrid techniques for ghost points are well-studied in literature, especially in the case of rectangular domain, where the restriction of the boundary is performed using a restriction operator of codimension $1$, since ghost points are aligned with the Cartesian axis.
+In the case of arbitrary domain, ghost points have an irregular structure and we provide a reasonable definition of the restriction operator for the boundary.
+
+We also show that a proper treatment of the boundary iterations can improve the rate of convergence of the multigrid and the cost of this extra computational work is negligible~\cite{Brandt:analysis}.
+
+The method can also be extended to the interesting case of discontinuous coefficients across an interface. Some preliminary numerical results~\cite{CocoRusso:DiscoCoeff1D} are provided in this talk.
+
+\begin{thebibliography}{100}
+
+\bibitem{Brandt:analysis}
+A.~Brandt, Rigorous quantitative analysis of multigrid, I: constant coefficients two-level cycle with L2-norm,
+{\em SIAM Journal on Numerical Analysis}, 31 (1994), pp.~1695-1730.
+
+\bibitem{CocoRusso:Elliptic}
+A.~Coco and G.~Russo, A fictitious time method for the solution of poisson equation in an arbitrary domain embedded in a square grid, submitted to {\em Journal of Computational Physics}.
+
+\bibitem{CocoRusso:MG}
+A.~Coco and G.~Russo, Multigrid approach for poisson's equation with mixed boundary condition in an arbitrary domain, {\em in preparation}.
+
+\bibitem{CocoRusso:DiscoCoeff1D}
+A.~Coco and G.~Russo, Second order multigrid methods for elliptic problems with discontinuous coefficients on an arbitrary interface, I: one dimensional problems, submitteed to {\em Numerical Mathematics: Theory, Methods, Application}, proceedings to European Multi-grid Conference EMG2010.
+
+\bibitem{Gibou:second}
+F.~Gibou and R.~Fedkiw, A second-order-accurate symmetric discratization of the poisson equation on irregular domains,
+{\em Journal of Computational Physics}, 176 (2002), pp.~205-227.
+
+\bibitem{Gibou:Robin}
+J.~Papac, F.~Gibou and C.~Ratsch, Efficient Symmetric Discretization for the Poisson, Heat and Stefan-Type Problems with Robin Boundary Conditions,
+{\em Journal of Computational Physics}, 229 (2010), pp.~875-889.
+
+\end{thebibliography}
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Multigrid technique for non-eliminated boundary conditions in arbitrary domain
+===firstname2:
+Giovanni

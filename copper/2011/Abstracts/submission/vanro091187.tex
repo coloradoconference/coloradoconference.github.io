@@ -1,0 +1,134 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Wim, I Vanroose \\
+{\bf A polynomial multigrid smoother for the iterative solution of the heterogeneous Helmholtz problem}}
+
+Dept Mathematics and Computer Science \\ Universiteit Antwerpen \\ Middelheimlaan 1 \\ 2020 Antwerpen \\ Belgium
+\\
+{\tt wim.vanroose@ua.ac.be}\\
+Bram Reps\\
+Hisham bin Zubair\end{center}
+
+This contribution is focused on the numerical solution of the
+indefinite Helmholtz equation
+\begin{equation}\label{eq:helmholtz}
+Hu \equiv -(\Delta+k^2(x,y))u= f \mbox{ in } \Omega
+\end{equation}
+with a space a space dependent wave number $k$ and exterior complex
+stretching as absorbing boundary conditions. The solution method is
+based on a preconditioned Krylov subspace, however, the preconditioner
+operator is the Helmholtz equation discretized on a grid with a
+complex grid distance, which is approximately inverted with one
+multigrid cycle.
+
+The failure of multigrid on the Helmholtz problem have been widely
+documented and is caused by the indefinite spectrum of the operator
+$H$. Discretized on a grid with grid distance $h$, the negative
+Laplacian, $-\Delta$, leads to a spectrum that is spread between $0$ and
+$\mathcal{O}(1/h^2)$ on the real axis. However, the wave number will
+shift this spectrum in the negative direction. This leads to an
+indefinite matrix for wave numbers $k$ larger than a certain
+threshold. This means that the spectrum is spread over both the
+positive real part as the negative real part of the complex plane, not
+necessarily excluding zero as an eigenvalue. Realistic problems have
+absorbing boundary conditions, that move the eigenvalues slightly below
+the real axis.
+
+Two difficulties emerge when multigrid is applied. First, typical
+smoothers like weighted Jacobi or Gauss-Seidel become unstable for
+indefinite problems. However, the unstable modes are the smoothest
+modes and should be stabilized by the coarse grid correction, for
+problems that are slightly indefinite. The second problem is the
+appearance of diverging coarse grid corrections for certain wave
+numbers. This has been analyzed in detail by [1]. The peaks
+in the convergence plots can be interpreted as resonances.
+
+These difficulties are avoided when multigrid is applied to a complex
+shifted Laplacian [2,3]. Then the wave number is complex
+valued which cannot cause resonances in the coarse grid correction.
+In [4], we show that the complex shifting is equivalent with
+discretizing the Laplacian with a complex valued grid distance.
+
+It is important to stress that introducing the complex shift
+suppresses and broadens the resonances during the coarse grid
+correction, but it leaves the possibility that the smoother is
+unstable. In this contribution we report on our analysis of replacing
+the standard smoother such as weighted Jacobi or Gauss-Seidel with a
+polynomial smoother.
+
+In particular we have analysed the performance of polynomial
+smoothers [5] on Helmholtz problems discretized with finite
+difference and an exterior complex scaling as an absorbing boundary
+conditions. The spectrum of the operator is bounded by a
+triangle [4] where the first corner lies in $-k^2$ and
+the second in $-k^2+4/h^2$ and a third corner lies in down in the
+complex plane. This triangle lies entirely in the lower half of the
+complex plane. The eigenvalues of the smooth modes lie near $-k^2$ while
+in the other corners the modes are rapidly oscillating.
+
+The smoothers we have studied have the form
+\begin{equation}
+f(t) = (1 -\omega_1 t) (1 -\omega_2 t)(1 -\omega_3 t),
+\end{equation}
+where the weights are choosen such that the error iteration,
+$e^{(k+1)} = f(A) e^{(k)}$, fits the following requirements. It
+satisfies the fixed point property since $f(0)=1$. The smoothest
+modes near $-k^2$ are mapped close to the unit cirlcle since $f$ is
+such that $f(-k^2)=e^{\imath\varphi}$ with $\varphi \in [0,2\pi[$. The
+two other corners are
+mapped to zero such that the oscillatory modes are
+smoothed. In [5] we show that the coefficients $\omega_1$,
+$\omega_2$ en $\omega_3$ can be choosen such that the $f$ is stable and
+behaves as a smoother given certain conditions on the complex grid of
+the preconditioner operator.
+
+In practice, however, this hand tuned particular polynomial can be
+replaced by GMRES(3), which optimizes the coefficients $\omega_i$ each
+iteration. Since the particular polynomial provides a upper bound the
+GMRES(3) convergence, the GMRES(3) smoother inherits all the
+properties from the hand tuned polynomials. Note that since we use a
+complex grid, we only need a restart of three, while [1]
+requires a complicated smoothing strategy.
+
+We have extensively tested this solution strategy and it gives a
+satisfactory multigrid convergence that is independent of the wave
+number. However, the krylov convergence is increases linearly in the
+wave number.
+
+
+\textbf{References}
+[1]
+H.C. Elman, O.G. Ernst, and D.P. O'Leary, \emph{{A multigrid method enhanced by
+Krylov subspace iteration for discrete Helmholtz equations}}, SIAM Journal of
+Scientific Computing \textbf{23} (2002), no.~4, 1291--1315.
+
+[2]
+Y.A. Erlangga, CW~Oosterlee, and C.~Vuik, \emph{{A novel multigrid based
+preconditioner for heterogeneous Helmholtz problems}}, SIAM Journal on
+Scientific Computing \textbf{27} (2006), no.~4, 1471--1492.
+
+[3]
+YA~Erlangga, C.~Vuik, and CW~Oosterlee, \emph{{On a class of preconditioners
+for solving the Helmholtz equation}}, Applied Numerical Mathematics
+\textbf{50} (2004), no.~3-4, 409--425.
+
+[4]
+B.~Reps, W.~Vanroose, and H.~Zubair, \emph{{On the indefinite Helmholtz
+equation: Complex stretched absorbing boundary layers, iterative analysis,
+and preconditioning}}, Journal of Computational Physics \textbf{229} (2010),
+no.~22, 8384--8405.
+
+[5]
+W.~Vanroose, B.~Reps, and H.~Zubair, \emph{The discrete helmholtz equation
+preconditioned with multigrid with a polynomial smoother}, Submitted to SIAM
+journal of Numerical Analysis, http://arxiv.org/abs/1012.5379. (2010).
+
+\end{thebibliography}
+
+
+\end{document}

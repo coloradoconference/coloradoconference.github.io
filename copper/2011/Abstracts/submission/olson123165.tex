@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Luke Olson \\
+{\bf Algebraic Multigrid on the GPU: Exposing Fine-Grained Paallelism}}
+
+Department of Computer Science \\ University of Illinois
+\\
+{\tt lukeo@illinois.edu}\\
+Nathan Bell\\
+Steven Dalton\end{center}
+
+Computational simulation in environments with dedicated computing units such
+as the GPU (or an APU) is becoming more practical as software and algorithms
+mature. In this this talk, we focus on the ability of algebraic multigrid
+(AMG) to adapt to the parallelism of the GPU.
+
+Our approach is to build on the well developed sparse matrix-vector multiply
+(SpMV) on the GPU, as well as more general operations such as sort, gather,
+scatter, and scan. We focus on a smoothed-aggregation based AMG approach
+and concentrate on the core elements of the setup phase namely strength,
+aggregation, the triple-matrix product, etc., and on the performance of the
+cycling phase. We highlight tangible speed-ups with an implementation that
+adheres to the computing kernels on the GPU, and expose several directions
+for increasing performance in a more general setting.
+
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Axel Gerstenberger \\
+{\bf Algebraic Multi-Grid techniques for the eXtended Finite Element Method }}
+
+P O Box 5800 \\ MS-1320 \\ Albuquerque \\ NM 87185-1320 \\ USA
+\\
+{\tt agerste@sandia.gov}\\
+Axel Gerstenberger\\
+Raymond S. Tuminaro\end{center}
+
+After more than a decade of research on the eXtended Finite Element
+Method (XFEM), the method has developed into a valuable tool for
+simulating crack propagation, fluid-structure interaction and
+multiphase/multimaterial problems. As problem sizes grow, the wish to
+apply iterative Algebraic Multi-Grid (AMG) methods to XFEM problem
+arises. However, the introduction of additional degrees of freedom with
+special approximation functions, which is the main ingredient of XFEM,
+poses a number of challenges that hamper the straight forward application
+of AMG. Examples of such difficulties are increased condition numbers of
+the system matrix, varying number of unknowns per node, and matrix
+graphs, that do not reflect physical properties of the system.
+
+This presentation will illustrate the main difficulties of using AMG
+methods for XFEM and will propose a number of strategies that eventually
+allow one to reach the performance that one expects from using AMG for
+standard Finite Element Methods.
+
+
+\end{document}

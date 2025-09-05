@@ -1,0 +1,64 @@
+===affil2:
+Tech-X Corporation
+===firstname:
+Chetan
+===firstname4:
+Marian
+===firstname3:
+Ben
+===lastname2:
+Austin
+===lastname:
+Jhurani
+===firstname5:
+Thomas
+===affil6:
+Dept. of Applied Mathematics, University of Colorado, Boulder, CO 80309
+===lastname3:
+Jamroz
+===email:
+jhurani@txcorp.com
+===lastname6:
+Ruge
+===affil5:
+Dept. of Applied Mathematics, University of Colorado, Boulder, CO 80309
+===otherauths:
+
+===lastname4:
+Brezina
+===affil4:
+Dept. of Applied Mathematics, University of Colorado, Boulder, CO 80309
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Tech-X Corporation
+5621 Arapahoe Ave.
+Suite A
+Boulder, CO 80303
+===firstname6:
+John
+===ABSTRACT:
+High-order finite elements provide better accuracy per degree of freedom than the canonical first-order finite elements.  However, their implementation uses more computer memory because of denser element stiffness matrices, which in turn also leads to longer run-times when solving these systems with preconditioned Krylov methods.  To reduce the run-times, researchers have considered preconditioners based on matrices assembled from sparser element stiffness matrices built from low-order elements on a separate and finer discretization [1,2].  This leads to higher accuracy due to high-order basis functions while avoiding the high cost associated with dense operations.
+
+In a similar vein, we introduce a fast algebraic method of constructing sparse preconditioners for high-order finite element problems.  This method creates preconditioners on individual elements by approximately solving a constrained quadratic optimization problem for non-zero entries of the preconditioner matrix.  Assembly of these local preconditioner matrices results in the global preconditioner.  The sparsity pattern is chosen automatically in an algebraic manner and does not use any geometric information.  Our earlier work on this topic used the eigenvalue decomposition of element stiffness matrix [3].  We have now generalized the method and made it faster by using a set of randomized orthogonal test vectors instead of eigenvectors.  We present numerical results on multiple mesh types and for stationary and transient problems that show that using these preconditioners results in faster run-times and less memory requirements.  
+
+1. S. ORSZAG. Spectral methods for problems in complex geometries. J. Comp. Phys. 37 (1980), pp. 70-92.\\
+2. J. HEYS, T. MANTEUFFEL, S. MCCORMICK, L. OLSON. Algebraic multigrid for higher-order finite elements. J. Comp. Phys. 204 (2005), pp. 520-532.\\
+3. T. AUSTIN, M. BREZINA, T. MANTEUFFEL, J. RUGE. Automatic construction of sparse preconditioners for high-order finite element problems. accepted for publication in Bentham eBook: Efficient Preconditioned Solution Methods for Elliptic Partial Differential Equations.
+
+
+
+===affil3:
+Tech-X Corporation
+===lastname5:
+Manteuffel
+===affilother:
+
+===title:
+Fast Construction of Sparse Preconditioners for High-Order Finite Element Problems
+===firstname2:
+Travis

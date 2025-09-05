@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jonathan Hu \\
+{\bf Coarse Grid Representations of the Near Nullspace in an Energy Minimizing Multigrid}}
+
+Sandia National Labs \\ P O Box 969 MS 9159 \\ Livermore \\ CA 94551
+\\
+{\tt jhu@sandia.gov}\\
+Jeremie Gaidamour\\
+Chris Siefert\\
+Ray Tuminaro\end{center}
+
+Solving linear systems arising from multi-physics simulations is
+challenging, especially when the underlying model has boundary layers,
+stretching, or discontinuities. We have developed an algebraic multigrid
+method to address such issues. This method can be viewed as solving a
+constrained optimization problem. {\it A priori} sparsity patterns and
+interpolation of low-energy error modes are constraints in an energy
+minimization process that can yield an AMG preconditioner with low
+operator complexity and good convergence properties. This method allows
+for considerable freedom in choosing the number of coarse degrees of
+freedom per node as well as the coarse representation of the low-energy
+modes. This gives rise to certain questions, such as how to compress
+near-nullspace information and how to enforce coarse near-nullspace
+orthogonality in order to have an amenable minimization problem. We
+discuss various answers to these questions and their implications for the
+solver, and illustrate with numerical experiments that the resulting
+multigrid methods can be effective, especially for linear equations
+arising from systems of PDEs.
+
+
+\end{document}

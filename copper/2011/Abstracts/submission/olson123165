@@ -1,0 +1,64 @@
+===affil2:
+Nvidia
+===firstname:
+Luke
+===firstname4:
+
+===firstname3:
+Steven
+===lastname2:
+Bell
+===lastname:
+Olson
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Dalton
+===email:
+lukeo@illinois.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Department of Computer Science, University of Illinois
+===firstname6:
+
+===ABSTRACT:
+Computational simulation in environments with dedicated computing units such
+as the GPU (or an APU) is becoming more practical as software and algorithms
+mature.  In this this talk, we focus on the ability of algebraic multigrid
+(AMG) to adapt to the parallelism of the GPU.
+
+Our approach is to build on the well developed sparse matrix-vector multiply
+(SpMV) on the GPU, as well as more general operations such as sort, gather,
+scatter, and scan.  We focus on a smoothed-aggregation based AMG approach
+and concentrate on the core elements of the setup phase namely strength,
+aggregation, the triple-matrix product, etc., and on the performance of the
+cycling phase.   We highlight tangible speed-ups with an implementation that
+adheres to the computing kernels on the GPU, and expose several directions
+for increasing performance in a more general setting.
+===affil3:
+Department of Computer Science, University of Illinois
+===lastname5:
+
+===affilother:
+
+===title:
+Algebraic Multigrid on the GPU: Exposing Fine-Grained Paallelism
+===firstname2:
+Nathan

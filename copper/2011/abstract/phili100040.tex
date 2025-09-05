@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bobby Philip \\
+{\bf Multilevel Block Preconditioned Methods for Multi-Domain Quasistatic Thermomechanics}}
+
+Oak Ridge National Laboratory \\ Oak Ridge \\ TN 37831
+\\
+{\tt philipb@ornl.gov}\end{center}
+
+The source-term for most of the physics in nuclear fuel is the heat
+generated from nuclear fission and the resulting transmutation (which
+includes fission) of the materials due to irradiation. The heat,
+primarily generated in the fuel, is transported through the fuel, across
+a gap, through a cladding material, and removed by a coolant. The
+irradiation and temperature change in turn produce a mechanical response
+in the solid bodies (fuel and cladding). This problem is described by a
+multi-domain (pellet, gap, and clad) multi-physics (nonlinear
+thermomechanics) nonlinear system of PDE's. This talk will describe
+recent work on fully coupled quasistatic nonlinear thermomechanics
+simulations for this problem. The solution method used is a Jacobian free
+Newton-Krylov method preconditioned by a block diagonal preconditioner
+consisting of thermal diffusion and mechanics. The talk will describe the
+solution process, comparison to experiment, and implementation within a
+new multi-physics framework being jointly developed by ORNL, LANL, and
+INL.
+
+
+
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+%-mb: {\large Markus Stürmer \\
+{\large Markus St\"{u}rmer \\
+{\bf How to optimize geometric multigrid methods on GPUs}}
+
+University of Erlangen \\ Germany
+\\
+{\tt markus.stuermer@informatik.uni-erlangen.de}\\
+%-mb:Harald Köstler
+Harald K\"{o}stler
+\end{center}
+
+GPUs have established an alternative to get high performance in a
+cheap and power-efficient way for a variety of scientific applications. We
+present optimization techniques for geometric multigrid methods, evaluate
+their benefit on recent GPGPUs, show how they relate to optimization
+techniques on other platforms and compare their performance.
+
+
+\end{document}

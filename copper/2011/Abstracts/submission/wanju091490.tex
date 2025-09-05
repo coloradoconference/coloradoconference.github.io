@@ -1,0 +1,52 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Justin, W.L. Wan \\
+{\bf Multigrid Methods for Solving Hamilton-Jacobi-Bellman and Isaacs Equations Arising from Nonlinear Option Pricing Problems}}
+
+200 University Avenue West \\ University of Waterloo \\ Cheriton School of Computer Science \\ Waterloo \\ Ontario N2L 3G1 \\ Canada
+\\
+{\tt jwlwan@uwaterloo.ca}\\
+Dong Han\end{center}
+
+Many financial pricing problems can be formulated as optimal control
+problems, leading to nonlinear Hamilton-Jacobi-Bellman (HJB) partial
+differential equations (PDEs) or Hamilton-Jacobi-Bellman-Isaacs (HJBI)
+equations. In general, the HJB equations can be written as:
+\begin{eqnarray*}
+V_\tau = \sup_{q \in Q} \left\{
+a(S,\tau,q) V_{SS} + b(S,\tau,q) V_S - c(S,\tau,q) V \right\},
+\end{eqnarray*}
+where $V$ typically represents the value of an option, $S$ is the
+underlying asset price, $\tau$ is the time to expiry, and $q$ is a
+control parameter. In the case of HJBI equations, they can be written as:
+\begin{eqnarray*}
+V_\tau = \sup_{q \in Q} \inf_{p \in P} \left\{
+a(S,\tau,q,p) V_{SS} + b(S,\tau,q,p) V_S - c(S,\tau,q,p) V \right\},
+\end{eqnarray*}
+where $p$ is an additional control parameter. These two types of equations
+are highly nonlinear.
+
+An implicit discretization yields a nonlinear set of equations which must
+be solved at each time step. Standard methods such as fixed point
+iterations can be very slow for fine grids. In the case of HJB equations,
+a Newton-type iteration scheme, often known as the Policy iteration in
+stochastic control, has been proposed. Quadratic convergence is observed
+when close to solution. However, in the case of HJBI equations, Policy
+iteration may not necessarily converge.
+
+In this talk, we present multigrid methods for solving the HJB and HJBI
+equations. The use of Policy iteration and FAS multigrid will be
+discussed. The proposed multigrid methods are based on a relaxation
+scheme as smoother which is convergent for both HJB and HJBI equations.
+We show by Fourier analysis the smoothing property of the relaxation
+scheme. Linear interpolation and full weighting are used for intergrid
+transfer. We demonstrate numerically the effectiveness of the multigrid
+methods by examples of financial pricing problems.
+
+
+\end{document}

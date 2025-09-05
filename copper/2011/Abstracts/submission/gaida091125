@@ -1,0 +1,60 @@
+===affil2:
+Sandia National Laboratories
+===firstname:
+Jeremie
+===firstname4:
+Raymond S.
+===firstname3:
+Christopher M.
+===lastname2:
+Hu
+===lastname:
+Gaidamour
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Siefert
+===email:
+jngaida@sandia.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Tuminaro
+===affil4:
+Sandia National Laboratories
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Sandia National Laboratories
+Mailstop 1320
+P.O. Box 5800
+Albuquerque, NM, 87185-1320
+===firstname6:
+
+===ABSTRACT:
+As part of the Sandia Trilinos project, we are developing a new object-oriented multigrid solver. This new library allows for great flexibility on the choice of inter-grid operators (geometric, aggregate-based, F/C) and can be tuned to choose strategies that are tailored for specific problems. In particular, the library is intended to make available new multigrid methods based on energy minimization. These methods extend the applicability of AMG methods to challenging problems like those arising from systems of PDEs. For instance, the sparsity pattern of the intergrid operator can be explicitly specified to control the cost and robustness of the method.
+
+To take advantage of the flexibility of such algorithms, control over all the components of the algorithm must be available via the high-level interface. We want to enable advanced users to customize deeply all the components of a multigrid solver in an easy way. Special attention was paid to the code design during development to provide a large and straight-forward extensibility.
+
+In this talk, we first discuss the underlying design philosophies. We then give an overview of the framework. We discuss how and why modern programming concepts facilitate the development of such framework. We illustrate how various multigrid methods can be assembled, with a particular focus on energy minimization. We will conclude with some numerical examples that demonstrate the new capabilities. Finally, we discuss future plans.
+
+===affil3:
+Sandia National Laboratories
+===lastname5:
+
+===affilother:
+
+===title:
+MueLu: Designing an extensible framework for multigrid algorithm research.
+===firstname2:
+Jonathan J.

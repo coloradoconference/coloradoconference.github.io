@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wanju091490</TITLE>
+<META NAME="description" CONTENT="wanju091490">
+<META NAME="keywords" CONTENT="wanju091490">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wanju091490.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Justin, W.L. Wan 
+<BR><B>Multigrid Methods for Solving Hamilton-Jacobi-Bellman and Isaacs Equations Arising from Nonlinear Option Pricing Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">200 University Avenue West 
+<BR>
+University of Waterloo 
+<BR>
+Cheriton School of Computer Science 
+<BR>
+Waterloo 
+<BR>
+Ontario N2L 3G1 
+<BR>
+Canada
+
+<BR><TT>jwlwan@uwaterloo.ca</TT>
+<BR>
+Dong Han
+</DIV>
+
+<P>
+Many financial pricing problems can be formulated as optimal control
+problems, leading to nonlinear Hamilton-Jacobi-Bellman (HJB) partial
+differential equations (PDEs) or Hamilton-Jacobi-Bellman-Isaacs (HJBI)
+equations. In general, the HJB equations can be written as:
+<!-- MATH
+ \begin{displaymath}
+V_\tau = \sup_{q \in Q} \left\{
+a(S,\tau,q) V_{SS} + b(S,\tau,q) V_S - c(S,\tau,q) V \right\},
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="368" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle V_\tau = \sup_{q \in Q} \left\{
+a(S,\tau,q) V_{SS} + b(S,\tau,q) V_S - c(S,\tau,q) V \right\},$">
+</DIV><P></P>
+where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ V$"> typically represents the value of an option, <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ S$"> is the
+underlying asset price, <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \tau$"> is the time to expiry, and <IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ q$"> is a
+control parameter. In the case of HJBI equations, they can be written as:
+<!-- MATH
+ \begin{displaymath}
+V_\tau = \sup_{q \in Q} \inf_{p \in P} \left\{
+a(S,\tau,q,p) V_{SS} + b(S,\tau,q,p) V_S - c(S,\tau,q,p) V \right\},
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="441" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle V_\tau = \sup_{q \in Q} \inf_{p \in P} \left\{
+a(S,\tau,q,p) V_{SS} + b(S,\tau,q,p) V_S - c(S,\tau,q,p) V \right\},$">
+</DIV><P></P>
+where <IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ p$"> is an additional control parameter. These two types of equations
+are highly nonlinear.
+
+<P>
+An implicit discretization yields a nonlinear set of equations which must
+be solved at each time step. Standard methods such as fixed point
+iterations can be very slow for fine grids. In the case of HJB equations,
+a Newton-type iteration scheme, often known as the Policy iteration in
+stochastic control, has been proposed. Quadratic convergence is observed
+when close to solution. However, in the case of HJBI equations, Policy
+iteration may not necessarily converge.
+
+<P>
+In this talk, we present multigrid methods for solving the HJB and HJBI
+equations. The use of Policy iteration and FAS multigrid will be
+discussed. The proposed multigrid methods are based on a relaxation
+scheme as smoother which is convergent for both HJB and HJBI equations.
+We show by Fourier analysis the smoothing property of the relaxation
+scheme. Linear interpolation and full weighting are used for intergrid
+transfer. We demonstrate numerically the effectiveness of the multigrid
+methods by examples of financial pricing problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+===affil2:
+
+===firstname:
+Markus
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Blatt
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+Markus.Blatt@iwr.uni-heidelberg.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Interdisziplinäres Zentrum für wissenschaftliches Rechnen
+Ruprecht-Karls-Universität Heidelberg
+Im Neuenheimer Feld 368
+69120 Heidelberg
+Germany
+===firstname6:
+
+===ABSTRACT:
+We present a parallel algebraic multigrid method based on aggregation. The parallel aggregation algorithm is based on a greedy heuristic. It allows for aggressive coarsening while keeping the stencil size of the coarse level matrices at a minimum. The method is very robust when solving elliptic problems on bounded domains $\Omega$ in 2D and 3D
+$$
+  -\nabla \cdot (K \nabla u) = f \text{ on } \Omega
+$$
+with highly variable or discontinuous coefficients $K(x)$.
+
+We will discuss challenges we overcame while porting our method to the Blue Gene / P.
+
+Finally we  will show the good scalability of the method for solving subsurface flow problems on Europe's fasted supercomputer JUGENE (an IBM Blue Gene / P). For the largest problem we solve a system with 150 billion unknowns using more than 187K processors.
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Scaling Algebraic Multigrid to over 287K processors
+===firstname2:
+

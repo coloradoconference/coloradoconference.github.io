@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hormozd Gahvari \\
+{\bf Addressing Challenges to Scalability in Parallel Algebraic Multigrid}}
+
+Department of Computer Science \\ University of Illinois at Urbana-Champaign \\ 201 N Goodwin Avenue \\ Urbana \\ IL 61801
+\\
+{\tt gahvari@illinois.edu}\\
+Allison H. Baker\\
+William Gropp\\
+Kirk Jordan\\
+Luke Olson\\
+Martin Schulz\\
+Ulrike Meier Yang\end{center}
+
+With single-core performance no longer increasing, future performance
+gains in computers will need to come from increased parallelism. The same
+applies for applications, including algebraic multigrid solvers. As a
+result, scalability on larger parallel machines is critical. In this
+talk, we review the current state of parallel algebraic multigrid and
+present performance models to highlight the challenges it is currently
+facing, which center around an increasing communication burden and an
+increasing number of idle processors on coarse grids. We then discuss how
+these problems might be overcome by utilizing redundant data distribution
+across otherwise inactive processors and through the use of additive
+multigrid.
+
+
+\end{document}

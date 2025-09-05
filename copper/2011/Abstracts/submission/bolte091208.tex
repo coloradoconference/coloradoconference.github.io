@@ -1,0 +1,59 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthias Bolten \\
+{\bf Parallelization of a multigrid method for PDEs with open boundary conditions}}
+
+Department of Mathematics and Science \\ University of Wuppertal \\ D-42097 Wuppertal \\ Germany
+\\
+{\tt bolten@math.uni-wuppertal.de}\end{center}
+
+The solution of PDEs with so-called open boundary conditions plays an
+important role in different areas, e.g.~in the simulation of molecules or
+in aerospace engineering. An example is the Poisson equation
+\begin{align*}
+- \Delta u(x) & = f(x), \text{ for all } x \in \mathbb{R}^3, \text{ where}\\
+u(x) & \stackrel{\| x \|_2 \rightarrow \infty}{\longrightarrow} 0,
+\end{align*}
+as it is needed in molecular dynamics simulation. In~\cite{art:BOLT07} we
+extended the method developed by Washio and Oosterlee
+in~\cite{art:WASH00}. In contrast to the original method the modification
+guarantees that the number of levels depends on the grid size of the
+finest level, only. The optimality of the method w.r.t.~the number of
+unknowns was proven in~\cite{phd:BOLT08}.
+
+For large-scale simulations, as they are carried out e.g.~in the chemical
+industry, a highly scalable method is needed. The parallelization of the
+method is not straightforward, as either an imbalance of the work occurs
+on some levels, or a sophisticated communication scheme is required.
+
+In the talk the multigrid method is described, the two parallelization
+approaches are outlined and a comparison of the two is presented.
+
+\begin{thebibliography}{1}
+
+\bibitem{phd:BOLT08}
+M.~Bolten.
+\newblock {\em Multigrid methods for structured grids and their application in
+particle simulation}.
+\newblock PhD thesis, Bergische Universit{\"a}t Wuppertal, Wuppertal, 2008.
+
+\bibitem{art:BOLT07}
+M.~Bolten.
+\newblock Hierarchical grid coarsening for the solution of the poisson equation
+in free space.
+\newblock {\em Electron. Trans. Numer. Anal.}, 29:70--80, 2007.
+
+\bibitem{art:WASH00}
+T.~Washio and C.~W. Oosterlee.
+\newblock Error analysis for a potential problem on locally refined grids.
+\newblock {\em Numer. Math.}, 86(3):539--563, 2000.
+
+\end{thebibliography}
+
+
+\end{document}

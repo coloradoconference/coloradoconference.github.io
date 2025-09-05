@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>schlo091428</TITLE>
+<META NAME="description" CONTENT="schlo091428">
+<META NAME="keywords" CONTENT="schlo091428">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="schlo091428.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Nico Schl&#246;mer 
+<BR><B>Preconditioning the Jacobian&nbsp;system of the extreme&nbsp;type-II&nbsp;Ginzburg-Landau&nbsp;problem</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Universiteit Antwerpen 
+<BR>
+Campus Middelheim 
+<BR>
+Gebouw G 
+<BR>
+Middelheimlaan 1 
+<BR>
+2020 Antwerpen 
+<BR>
+Belgium
+
+<BR><TT>nico.schloemer@ua.ac.be</TT>
+<BR>
+Wim Vanroose
+</DIV>
+
+<P>
+The nonlinear Schr&#246;dinger equation is used in many areas of science
+and technology and describes, for example, the propagation of
+solutions in fiber optics or Bose-Einstein condensates in ultra cold
+traps. The Ginzburg-Landau equations is a prototype of such an
+equation that is used to model the state and the magnetic field inside
+superconducting nanodevices. To understand the dynamics of these
+systems, it is critical to have an efficient solver such
+that the solution space of can be efficiently explored by, for
+example, numerical continuation.
+
+<P>
+For an open, bounded domain <!-- MATH
+ $\Omega\subseteq\mathbb{R}^n$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Omega\subseteq\mathbb{R}^n$"> with a
+piecewise smooth boundary
+<!-- MATH
+ $\partial\Omega$
+ -->
+<IMG
+ WIDTH="25" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \partial\Omega$">, the Ginzburg-Landau equations for extreme type-II
+superconductors read
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:GL"></A><!-- MATH
+ \begin{equation}
+\begin{cases}
+0 = \left(-\text{i}\nabla - \mathbf{A}\right)^2 \psi - \psi \left(1 -
+|\psi|^2\right) \quad \text{on } \Omega \\[3mm]
+0 = \mathbf{n} \cdot ( -\text{i}\nabla - \mathbf{A}) \psi \quad \text{on } \partial\Omega
+\end{cases}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="291" HEIGHT="75" BORDER="0"
+ SRC="img3.png"
+ ALT="\begin{displaymath}\begin{cases}0 = \left(-\text{i}\nabla - \mathbf{A}\right)^2 ...
+... - \mathbf{A}) \psi \quad \text{on } \partial\Omega \end{cases}\end{displaymath}"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The unknown <!-- MATH
+ $\psi\in H^2_{\mathbb{C}}(\Omega)$
+ -->
+<IMG
+ WIDTH="81" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \psi\in H^2_{\mathbb{C}}(\Omega)$"> is commonly referred to as
+<I>order parameter</I>.
+As opposed to the general case, where the magnetic vector potential
+<!-- MATH
+ $\mathbf{A}\in H_{\mathbb{R}^n}^2(\Omega)$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathbf{A}\in H_{\mathbb{R}^n}^2(\Omega)$"> is an
+unknown of the system, <!-- MATH
+ $\mathbf{A}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{A}$"> is given here by an external magnetic field
+<!-- MATH
+ $\mathbf{H}_0$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathbf{H}_0$"> via
+<!-- MATH
+ \begin{displaymath}
+\begin{cases}
+\nabla\times(\nabla\times \mathbf{A}) = 0,\\
+\lim\limits_{\|x\|\to\infty} \nabla\times\mathbf{A} = \mathbf{H}_0;
+\end{cases}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="153" HEIGHT="73" BORDER="0"
+ SRC="img8.png"
+ ALT="\begin{displaymath}
+\begin{cases}
+\nabla\times(\nabla\times \mathbf{A}) = 0,\\
+...
+...rt\to\infty} \nabla\times\mathbf{A} = \mathbf{H}_0;
+\end{cases}\end{displaymath}">
+</DIV><P></P>
+the magnetic field fully penetrates the whole domain and is not altered
+by the supercurrent.
+The physical observables are the Cooper-pair density
+<!-- MATH
+ $\rho_{\text{C}}=|\psi|^2$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \rho_{\text{C}}=\vert\psi\vert^2$"> and the induced magnetic field
+<!-- MATH
+ $\mathbf{B}=\nabla\times\mathbf{A}$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbf{B}=\nabla\times\mathbf{A}$">.
+
+<P>
+Extreme type-II superconductors are common in the domain of high-temperature
+superconductors, for example.
+
+<P>
+The trivial solution, <IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \psi=0$">, is the normal non-superconducting
+state which is the lowest energy state for fields above the critical
+magnetic field strength. For weak magnetic fields, however, there are
+non-zero solutions that have a lower energy. These are the famous vortex
+solutions where the magnetic fields penetrate the sample.
+
+<P>
+This talk will be concerned with the numerical solution of&nbsp;(<A HREF="#eq:GL"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). Applying
+Newton's method, the focus will be on to solve linear equation systems with the
+Jacobian operator of&nbsp;(<A HREF="#eq:GL"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>),
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:jacobian"></A><!-- MATH
+ \begin{equation}
+\begin{cases}
+\mathcal{J}(\psi)\varphi = \left( (-\text{i} \nabla - \mathbf{A})^2 - 1 +
+2|\psi|^2 \right) \varphi + \psi^2 \overline{\varphi},\\
+0 = \mathbf{n} \cdot ( -\text{i}\nabla - \mathbf{A}) \varphi \quad
+\text{on } \partial\Omega.
+\end{cases}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="324" HEIGHT="64" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{displaymath}\begin{cases}\mathcal{J}(\psi)\varphi = \left( (-\text{i} \na...
+...mathbf{A}) \varphi \quad \text{on } \partial\Omega. \end{cases}\end{displaymath}"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Properties of <!-- MATH
+ $\mathcal{J}(\psi)$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \mathcal{J}(\psi)$"> will be outlined that restrict the use
+of classical solvers.
+For preconditioning those linear solves, special focus will be on the
+first part of the operator
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:keo"></A><!-- MATH
+ \begin{equation}
+\begin{cases}
+\mathcal{K}\varphi = (-\text{i} \nabla - \mathbf{A})^2 \varphi,\\
+0 = \mathbf{n} \cdot ( -\text{i}\nabla - \mathbf{A}) \varphi \quad
+\text{on } \partial\Omega,
+\end{cases}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="211" HEIGHT="64" BORDER="0"
+ SRC="img14.png"
+ ALT="\begin{displaymath}\begin{cases}\mathcal{K}\varphi = (-\text{i} \nabla - \mathbf...
+...mathbf{A}) \varphi \quad \text{on } \partial\Omega, \end{cases}\end{displaymath}"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and, connected with that, multigrid strategies. Appropriate discretizations will
+introduced briefly.
+
+<P>
+Eventually, a solver for <!-- MATH
+ $\mathcal{J}(\psi)$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \mathcal{J}(\psi)$"> will be constructed which allows
+for a constant number of linear solver iterations independent of the problem size.
+Numerical evidence will be presented along with scalability studies to provide
+insight on the performance of the solver in high-performance computing environments.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>laija091114</TITLE>
+<META NAME="description" CONTENT="laija091114">
+<META NAME="keywords" CONTENT="laija091114">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="laija091114.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">James Lai 
+<BR><B>High-order interpolatory bases for compatible finite elements and efficient solvers.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Siebel Center for Computer Science 
+<BR>
+University of Illinois at Urbana-Champaign 
+<BR>
+201 N Goodwin Ave 
+<BR>
+Urbana 
+<BR>
+IL 61801 
+<BR>
+USA
+
+<BR><TT>jhlai2@illinois.edu</TT>
+<BR>
+Luke Olson
+</DIV>
+
+<P>
+High-order finite elements have become increasing popular in scientific
+applications due to their spectral convergence properties. More accurate
+solutions can be achieved using fewer degrees of freedom. However, the
+resulting matrices suffer from large condition number and reduced
+sparsity - both detrimental to the performance of the iterative solver.
+Many widely used packages (Trilinos, FEniCS, etc) implement high-order
+bases of interpolatory type. However, there has not been much research on
+efficient solvers for such bases. In this talk we overview high-order
+interpolatory bases for <IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H^1$"> (nodal) and <IMG
+ WIDTH="60" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ H(curl)$"> (edge) spaces, and we
+present an AMG based method for solving systems discretized by high-order
+<IMG
+ WIDTH="60" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ H(curl)$"> bases of interpolatory type.
+
+<P>
+Efficient solvers based on multigrid techniques have been developed to
+tackle <IMG
+ WIDTH="60" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ H(curl)$"> problems successfully. For the lowest-order elements,
+these methods require hybrid smoothers which perform additional block
+relaxation on the gradient space. The given matrix is projected onto the
+gradient space using a discrete gradient operator. In addition, the
+intergrid transfer operators are induced by aggregates in an auxiliary
+nodal problem. We extend these ideas to high-order compatible finite
+elements of interpolatory type. We will show how to construct discrete
+gradient operators for such high-order bases and how to utilize
+<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">-multigrid coarsening techniques to produce an amenable solver for
+these problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+===affil2:
+University of Minnesota, Minneapolis 
+===firstname:
+Andrew
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Vecharynski
+===lastname:
+Knyazev
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+Andrew.Knyazev@ucdenver.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+University of Colorado Denver
+Campus Box 170
+PO Box 173364
+Denver, CO 80217-3364
+===firstname6:
+
+===ABSTRACT:
+For a given matrix $A$, its polar decomposition is $A=U|A|$, where $|A|=\sqrt{A^*A}$ and $U$ is unitary. Let $A$ be real symmetric and nonsingular, than the matrix absolute value $|A|$ is also nonsingular and $U$ is the matrix sign of $A$, having only two distinct eigenvalues, plus and minus one. The matrix $T=|A|^{-1}$ is the \emph{ideal} symmetric positive definite preconditioner for the linear system $Ax=b$, making the preconditioned MINRES to converge in at most two steps. We call $T$  the \emph{absolute value preconditioner}, if it is spectrally equivalent to $|A|^{-1}$. 
+
+If the matrix $A$ is (block) strictly diagonally dominant, the preconditioner $T$ can be chosen as the inverse to the absolute value of the (block) diagonal of $A$. Such a choice can, e.g., be efficient in plain-wave electronic structure calculations. 
+
+For a model problem, where  $A$ is a finite difference approximation of the shifted negative Laplacian, we construct an efficient geometric multigrid  absolute value preconditioner, in which the smoothing is done using the action of $A$ and $|A|^{-1}$ appears only on the coarsest grid. Our numerical tests demonstrate the effectiveness of such a preconditioning. 
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Multigrid absolute value preconditioning
+===firstname2:
+Eugene

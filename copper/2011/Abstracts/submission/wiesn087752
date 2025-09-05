@@ -1,0 +1,80 @@
+===affil2:
+Institute for Computational Mechanics, Techical University of Munich, Germany
+===firstname:
+Tobias, A.
+===firstname4:
+Wolfgang, A.
+===firstname3:
+Raymond, S.
+===lastname2:
+Gee
+===lastname:
+Wiesner
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Tuminaro
+===email:
+wiesner@lnm.mw.tum.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Wall
+===affil4:
+Institute for Computational Mechanics, Techical University of Munich, Germany
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Technical University of Munich
+Institute for Computational Mechanics
+Boltzmannstrasse 15
+85748 Garching
+Germany
+===firstname6:
+
+===ABSTRACT:
+Algebraic multigrid methods are well-known and well-established for symmetric positive-definite problems as they arise in many applications in the area of engineering and applied sciences. However, nonsymmetric positive definite systems are still challenging even though they have received more attention in recent years (\cite{sala2008}, \cite{notay2010}, \cite{BrMaMcRuSa2010}).
+
+This talk is devoted to the design of AMG preconditioners for nonsymmetric (positive-definite) systems. In this case, the crucial point is the construction of appropriate nonsymmetric multigrid transfer operators. We extend the ideas of ``smoothed aggregation'' and ``energy minimization'' (e.g.  \cite{mandel1999}, \cite{brannick2006} and \cite{brannick20062}) that are often used for symmetric positive-definite systems. A new class of AMG transfer operators is proposed for nonsymmetric
+problems based on a constrained descent algorithm which is utilized to iteratively improve prolongation and restriction operators while allowing one to prescribe an optimized sparsity pattern.
+
+A key feature of this talk is the algorithm for the effective determination of prolongator and restrictor sparsity patterns.  Initial patterns are obtained from either classical (nonsymmetric) aggregation approaches or are based on an incomplete block LU decomposition within a two level domain
+decomposition method.  A heuristic filtering method is proposed which can be applied to these initial patterns. Our filtering approach uses a strong pattern filter for finer multigrid levels and a very weak pattern filter for coarser levels.  We illustrate how an appropriate sparsity pattern choice
+results in a noticeable gain in convergence speed.
+
+We compare our new transfer operator strategy with existing techniques (e.g. Petrov-Galerkin from \cite{sala2008}) by means of examples arising from finite element discretization of the convection-diffusion and Navier-Stokes equations.
+
+\begin{thebibliography}{100}
+\bibitem{sala2008}
+M.~Sala and R. S.~Tuminaro, {\em A new Petrov-Galerkin smoothed aggregation preconditioner for nonsymmetric linear systems}, SIAM Journal on Scientific Computing, 31 (2008), pp.~143--166.
+\bibitem{notay2010}
+Y.~Notay, {\em Algebraic analysis of two-grid methods: the nonsymmetric case}, Numer. Linear Algebra Appl., 17 (2010), pp.~73-96
+\bibitem{BrMaMcRuSa2010}
+M.~Brezina, T.~Manteuffel, S.~Mc{C}ormick, J.~Ruge and G.~Sanders, {\em Towards Adaptive Smoothed Aggregation ($\alpha$SA) for Nonsymmetric Problems}, SIAM Journal on Scientific Computing, 32 (2010), pp.~14--39
+\bibitem{mandel1999}
+J.~Mandel, M.~Brezina and P. Van\v{e}k, {\em Energy optimization of algebraic multigrid bases}, Computing, 62 (1999), pp.~205--228
+\bibitem{brannick2006}
+J.~Brannick, M.~Brezina, S.~MacLachlan, T.~Manteuffel, S.~McCormick, J.~Ruge, {\em An energy-based AMG coarsening strategy}, Num. Lin. Alg. Appl., 13 (2006), pp.~133--148
+\bibitem{brannick20062}
+J.~Brannick, L.~Zikatanov, {\em Algebraic Multigrid Methods Based on Compatible Relaxation and Energy Minimization}, Lecture Notes in Computational Science and Engineering: Domain Decomposition Methods in Science and Engineering XVI, 55 (2007), pp.~15--26
+\end{thebibliography}
+===affil3:
+Sandia National Laboratories, Livermore, CA, USA
+===lastname5:
+
+===affilother:
+
+===title:
+An improved AMG transfer operator for nonsymmetric positive-definite systems
+===firstname2:
+Michael, W.

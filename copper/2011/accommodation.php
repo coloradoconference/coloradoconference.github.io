@@ -1,0 +1,210 @@
+<html>
+<head>
+<?php
+        # Get this year's details:
+        include("/home/copper/public_html/2011/INFO.php");
+?>
+
+<title>
+   # CMCMM11: Accommodation
+   <?php
+      print("$Year: Accommodation");
+   ?>
+</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<!-- body bgcolor="#7fffff" link=blue alink=blue vlink=blue -->
+<!-- body bgcolor="#DA8849" link=blue alink=blue vlink=blue -->
+<body bgcolor="#ccccbf" link=blue alink=blue vlink=blue>
+
+<table cellpadding=12 width="90%" align=center>
+<tr valign=top>
+
+<th width="25%" bgcolor="#ffffcf">
+	<h3>
+            <a href="./"><font color="#005f00">
+               <i>
+                 <?php
+                   # CMCMM 2011
+                   print("$AcronymYear");
+                 ?>
+               </i>
+            </font></a></h3>
+
+<!--    OLD:
+	<table><tr><td>
+	<ul>
+	<p><li><a href="location.html">Location</a>
+	<p><li><font size="+1" color=red><b>Accommodation</b></font>
+	<p><li><a href="transportation.html">Transportation</a>
+	<p><li><a href="registration.html">Registration</a>
+	</ul>
+	</td></tr></table>
+	</th>
+-->
+
+
+<!-- Image links: ----------------------------------------------------------------- -->
+        <center>
+        <table>
+        <br>
+        <tr><td>
+        <a href="location.php">
+                 <img style="border:2px" alt="Location info" src="../image/Copper_tile_location_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+        <a href="accommodation.php">
+                 <img style="border:2px" alt="Accommodation info" src="../image/Copper_tile_accommodation_b.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+        <a href="transportation.php">
+                 <img style="border:2px" alt="Transportation info" src="../image/Copper_tile_transportation_w.png" height=25>
+               </a>
+        </td><tr>
+        <tr><td>
+        <a href="registration.php">
+               <img style="border:2px" alt="Registration info" src="../image/Copper_tile_registration_w.png" height=25>
+        </a>
+        </td></tr>
+        </table>
+        </center>
+        </th>
+<!-- Image links. ----------------------------------------------------------------- -->
+
+
+
+
+<!-- td bgcolor="#dfdfff" -->
+<td bgcolor="#ffbf7f">
+<h2>ACCOMMODATION AT COPPER MOUNTAIN</h2>
+A lodge room has one or two queen beds, and a two-bedroom
+condominium has one or two queen beds in each bedroom,
+two baths, a kitchen, a dining area, and fireplace.  Please
+be sure to verify the number of beds with your reservationist.
+ 
+<!-- MANUAL INPUT: --------------------------------------->
+<h3>Per night rates are as follows:</h3>
+<pre>
+	Hotel room        $152/night
+        Silver one bedroom condo $200/night
+	Silver two bedroom condo $286/night
+	Gold one bedroom condo $213/night
+</pre>
+Make your room reservation directly with Copper Mountain
+before or on 
+<?php
+   # February 23, 2011. 
+   print("$DeadlineGuaranteedLodging. ");
+?>
+<strong> Availability of rooms cannot 
+be guaranteed after 
+<?php
+    # February 23 
+   print("$DeadlineGuaranteedLodging. ");
+?>
+-- Copper Mountain reserves the
+right to release part of our room block if 50% of our block
+is not reserved at this time.</strong>  
+After 
+<?php
+   # February 23, 
+   print("$DeadlineGuaranteedLodging. ");
+?>
+all
+remaining unreserved rooms will be released from our group.
+In previous years, we have indeed run out of rooms.
+<p align=center>
+	<blink>
+	Please reserve your lodging as soon as possible!
+	</blink>
+	</p>
+ 
+<p>
+State and local taxes (13.275%) will be added to the cost of the room.
+If available, group rates will be given 2 days before and after the 
+conference.  Identify yourself with the 
+<?php
+   # 2011 
+   print("$Year ");
+?>
+CU Math 
+Conference Group code number 
+<b>
+  <?php
+     # 3GB2II
+     printf("$GroupCode");
+   ?>
+</b> 
+to get group rates.
+<p> 
+
+<h2>Here are Copper Mountain's call in policies:</h2>
+ 
+<h3> Individual Lodging Deposit Policy: </h3>
+
+<!-- 
+At time of reservation, a credit card number can hold the room, or
+you will be asked to send in 1 night's deposit within 14 days.
+-->
+ 
+A 15% lodging deposit will be required upon making reservations.
+The balance on the room reservation will be billed to the credit card number on file 21 days prior to arrival. 
+ 
+<h3> Individual Lodging Cancellation Policy: </h3>
+ 
+For individual attendees who cancel their lodging reservations, the following will be in effect:
+ 
+<li>
+If cancelled 21 days or more prior to arrival date, refund on the deposit amount received will be made less 10%.
+ 
+<li>
+If cancelled less than 21 days prior to arrival date, the individual is subject to full forfeiture of the reservation value.
+
+<li> We recommend inquiring about  traveler's insurance at the time of reservation. 
+ 
+<h3>Copper Mountain Resort Reservations</h3>
+To order by phone: Please reference group code 
+<b>
+  <?php
+     # 3g73j0
+     # 3GB2II
+     printf("$GroupCode");
+   ?>
+</b> <br>
+<li>North America Toll Free Phone Number: 866-837-2996  <br>
+                                     <!-- or 866-841-2481 <br> -->
+<li>Direct Phone Number: +1-970-968-2882  <br>
+Website: 
+<!-- 2010:
+<a href="http://www.inntopia.travel/aspnet/2.0/packageselect07.aspx?salesid=914637&packagecode=3G73J0"> 
+-->
+<a href="http://www.inntopia.travel/aspnet/2.0/packageselect07.aspx?salesid=914637&packagecode=3gb2ii">
+Book your room, get information on lift ticket prices, etc.</a><br>
+<!--
+General Website:  <a href=http://www.coppercolorado.com> www.coppercolorado.com</a><br>
+-->
+Email:    <a href="mailto:reservations@coppercolorado.com">reservations@coppercolorado.com</a>
+<!--
+&amp
+-->
+ 
+<h3>Room sharing bulletin board</h3>
+ 
+If you are interested in sharing a room
+(the two bedroom condos are especially nice for that
+because they sleep up to two per room
+and they have kitchens and livingrooms),
+you may
+	<!-- a href="Messages/read.cgi">scan</a> -->
+	<a href="/cgi-bin/copper2011/read.cgi">scan</a>
+current contents and/or 
+	<a href="Messages/add.html">post</a>
+your own message.
+
+</td>
+</tr></table>
+</body>
+</html>
