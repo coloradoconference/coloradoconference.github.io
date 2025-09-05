@@ -1,0 +1,31 @@
+<h2>Multigrid on Unstructured Grids Using an Auxiliary Set of Structured Grids
+</h2>
+<pre>
+Craig C. Douglas
+Sachit Malhotra
+Martin H. Schultz
+
+Yale University
+Department of Computer Science
+P.O. Box 208285
+New Haven, CT 06520-8285
+USA
+
+
+Unstructured grids do not have a convenient and natural multigrid framework
+for actually computing and maintaining a high floating point rate on standard
+computers.  In fact, just the coarsening process is expensive for many
+applications.  Since unstrucutured grids play a vital role in many scientific
+computing applications, many modifications have been proposed to solve this
+problem.  One suggested solution is to map the original unstructured grid onto
+a structured grid.  This can be used as a fine grid in a standard multigrid
+algorithm to precondition the original problem on the unstructured grid.  We
+show that unless extreme care is taken, this mapping can lead to a system with
+a high condition number which eliminates the usefulness of the multigrid
+method.
+
+Theorems with lower and upper bounds are provided.  Simple examples show that
+the upper bounds are sharp.
+
+
+</pre>

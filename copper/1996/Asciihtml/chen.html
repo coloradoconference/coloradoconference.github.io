@@ -1,0 +1,58 @@
+
+<h2>On preconditioning techniques for dense linear systems
+  arising from singular boundary integral equations</h2>
+
+<h2>  Ke CHEN, The University of Liverpool</h2>
+<pre>
+      (email: k.chen@liverpool.ac.uk)
+
+The numerical solution of boundary integral equations gives rise to
+dense linear systems that often have unsymmetric matrices. As all
+boundary integral equations posses some kind of singularity, iterative
+methods (two-grid and multi-grid type, CG-type) generally do require
+preconditioning for any convergence. Only in the case of weak 
+singularities, has preconditioning been found non-essential.
+
+Recently various practical preconditioning techniques have been proposed
+for the difficult case of strong singularities that include [1-4] among
+others. Such preconditioners or their inverses are sparse. They were
+mostly proposed based on efficiency considerations and heuristic arguments
+and have not been fully justified in theory.
+
+Here we present two new contributions towards understanding and designing
+such sparse preconditioners. 
+
+Firstly we have generalized the work of [5] on singular integral equations
+to singular boundary integral equations and have shown that
+operator splitting offers a new way of regularizations into compact
+operators. Essentially, by studying the discretization process, we can
+identify part of an integral operator representing all singularities and
+follow its corresponding discretization leading to part of the full matrix,
+that is usually sparse. Then such a sparse matrix is used to construct a
+suitable preconditioner. With this approach, we can see the close link between
+matrix splitting and integral operator splitting. More importantly the
+preconditioned matrix like the preconditioned integral operator can be
+shown to have its eigenvalues clustered at a fixed point.
+
+Secondly we have investigated the possibility of constructing an approximate
+inverse preconditioner [2,4,6] that may involve the solution of a least
+squares problem. We show that the method of [1], while approximately
+solving such a least squares problem, possesses the nice property of
+singularity separation and leads to a robust preconditioner that clusters
+eigenvalues.
+
+Numerical experiments that support the theoretical results are reported.
+For comparison purpose, we also report results on using the fast wavelet
+transform (FWT) as a preconditioner. Our conclusion is that singularity
+separation based preconditioners perform better than approximate inverse 
+based while it is desirable to have both features.
+
+
+
+[1] Vavasis, S. (1992)  SIAM J. Matr. Anal. Appl., V.13.
+[2] Cosgrave at al, (1992), Int. J. Comp. Math., V.44.
+[3] Amini, S. and Maines, N. (1994) Proceedings of BEM 14.
+[4] Yan, Y. (1994)      SIAM J. Sci. Comp., V.15.
+[5] Chen, K. (1994) Elec. Tran. Numer. Anal. (ETNA), V.2.
+[6] Huckle T. and Grote M. (1994) Preprint.
+</pre>

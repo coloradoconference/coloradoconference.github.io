@@ -1,0 +1,53 @@
+<h2> 
+A NUMERICAL METHOD FOR FINDING SIGN-CHANGING SOLUTIONS OF 
+SUPERLINEAR DIRICHLET PROBLEMS</h2>
+<pre>
+(to appear in Nonlinear World)
+
+                          John M. Neuberger
+
+In a recent result 
+(See Castro-Cossio-Neuberger, to appear in Rocky Mountain J. of Math.), 
+it was shown via a variational argument that a class of 
+superlinear elliptic boundary value problems has
+at least three nontrivial solutions,
+a pair of one sign and one which sign changes exactly once.
+These three and all other nontrivial solutions are saddle points 
+of an action functional, 
+and are characterized as local minima of that functional 
+restricted to a codimension one submanifold of the Hilbert space
+H-0-1-2, or an appropriate higher codimension subset of that manifold.
+
+In this paper we present a numerical Sobolev steepest descent algorithm
+for finding these three solutions.
+Of primary interest is the method of projecting
+iterates of elements in our Hilbert space onto the submanifold and
+its subsets.
+When applied to the ordinary differential equation,
+the algorithm is extended to find additional solutions
+possessing a greater number of internal zeroes,
+and in that case the solutions are compared to independent numerical
+calculations obtained by Euler's method.
+We further test the algorithm on partial differential equations
+on the unit square. 
+With or without a symmetric nonlinearity, 
+numerical computations for PDEs on the square yield
+four exactly-once sign-changing solutions of Morse Index 2
+and supply evidence that suggests that there may exist four more of MI 3.
+
+In modifying the code to run on arbitrary regions such as the disk, 
+annulus, and dumbell, we are obtaining numerical evidence complementary to
+our current analysis.  
+In particular, as we show in a current paper (in submittion), the minimal
+action function valued sign-changing solution on the disk is nonradial.
+This also holds on the annulus.
+
+This algorithm can be used to investigate the nodal structure of a wide
+range of superlinear elliptic PDEs and should be modifiable to include 
+Neumann boundary conditions.  Accuracy and convergence are quite 
+satisfactory though improvements and refinements are clearly possible.
+Particularly gratifying are the ways we can use the algorithm to
+visualize the infinite dimensional submanifold's structure and its relation
+to the eigenfunctions of the negative Laplacian.
+
+</pre>

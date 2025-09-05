@@ -1,0 +1,34 @@
+<h2>
+        AZTEC: A parallel iterative package for the solving linear systems 
+</h2>
+<pre>
+        Authors: Scott A. Hutchinson, John N. Shadid, Ray S. Tuminaro
+
+        Speaker: Scott A. Hutchinson
+
+        MS 1110
+        Sandia National Labs
+        PO Box 5800
+        Albuquerque, NM 87185
+
+We describe a parallel linear system package, AZTEC.  The package 
+incorporates a number of parallel iterative methods (e.g.  GMRES, biCGSTAB, 
+CGS, TFQMR) and preconditioners (e.g. Jacobi, Gauss-Seidel, polynomial, 
+domain decomposition with LU or ILU within subdomains).  Additionally, AZTEC 
+allows for the reuse of previous preconditioning factorizations within 
+Newton schemes for nonlinear methods.  Currently, a number of different 
+users are using this package to solve a variety of PDE applications.
+
+In this talk we emphasize the parallel programming ease and the overall
+efficiency of AZTEC. Ease-of-use is attained using the notion of a global 
+distributed matrix. The global distributed matrix allows a user to specify
+pieces (different rows for different processors) of an application matrix 
+exactly as in the serial setting.  Efficiency is achieved by using a 
+transformation function which rewrites the user supplied matrix into
+one more convenient for efficient distributed memory computing (locally
+numbered entries, ghost variables, grouped messages). Additional performance
+is attained using efficient dense matrix algorithms for block sparse matrices.
+
+AZTEC can be used on the Intel Paragon, nCUBE 2, IBM SP2, individual
+workstations (e.g. SUN and SGI) and uses the MPI message passing system.
+</pre>

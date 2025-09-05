@@ -1,0 +1,54 @@
+<h2>
+
+	
+	Library Designs for Generic C++ 
+	Sparse Matrix Computations of Iterative Methods
+</h2>
+<pre>
+
+	Roldan Pozo
+	National Institute of Standards and Technology
+
+
+	A new library design is presented for generic sparse matrix
+	C++ objects for use in iterative algorithms and preconditioners.
+	This design extends previous work on C++ numerical libraries 
+	(SparseLib++[3], IML++[4], Lapack++[5]) by providing a framework 
+	in which efficient algorithms can be written *independent* of the 
+	matrix layout or format. That is, rather than supporting different 
+	codes for each (element type) / (matrix format) combination,  
+	only one version of the algorithm need be maintained.  This not only 
+	reduces the effort for library developers, but also simplifies the 
+	calling interface seen by library users.  Furthermore, the underlying 
+	matrix library can be naturally extended to support user-defined 
+	objects, such as hierarchical block-structured matrices, or 
+	application-specific preconditioners.  Utilizing optimized 
+	kernels[1,7] whenever possible, the resulting performance of 
+	such framework can be shown to be competitive with optimized Fortran 
+	programs.
+
+
+[1] S. Carney, M. A. Heroux, G. Li, K. Wu, "A Revised Proposal for a Sparse
+BLAS Toolkit", Army High Performance Computing Research Center Technical
+Report 94-034, June 1994. 
+
+[2] Barrett, et. al, "Templates for the Solution of Linear Systems: Building
+Blocks for Iterative Methods," SIAM Press, 1994.
+
+[3] J. Dongarra, A. Lumsdaine, R. Pozo, K. Remington,  "A Sparse
+Matrix Library in C++ for High Performance Linear Algebra," Proceedings
+of the Object Oriented Numerics Conference, 1994, pp. 214-218.
+
+[4] J. Dongarra, A. Lumsdaine, R. Pozo, K. Remginton,  "IML++: Iterative
+Methods Library Reference Guide", 1995, available from 
+http://math.nist.gov/pozo/iml++.html.
+
+[5] J. Dongarra, R. Pozo, D. Walker, "Lapack++: A Design Overview
+of Object-Oriented Extensions for High Performance Linear Algebra",
+Proceedings of Supercomputing '93. 
+
+[6] R. Pozo, K. Remington, "C Sparse BLAS", source code available from 
+http://math.nist.gov/pozo/sparse_blas/sparse_blas.html
+
+
+</pre>

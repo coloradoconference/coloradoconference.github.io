@@ -1,0 +1,26 @@
+             <h2>A Block Variant of the GMRES Method on 
+                 Massively Parallel Processors</h2>
+<pre>
+    
+                         Guangye Li
+                      Cray Research, Inc.
+                      655E Lone Oak Drive
+                      Eagan, MN 55121
+                      e-mail: gli@cray.com
+
+Abstract: This paper presents a block variant of the GMRES method 
+for solving general unsymmetric linear systems. This algorithm 
+generates a transformed Hessenberg matrix by solely using block 
+matrix operations and block data communications. It is shown that 
+this algorithm with block size s, denoted by BVGMRES(s,m), is 
+theoretically equivalent to the GMRES(s*m) method. The numerical 
+results show that this algorithm can be more efficient than the 
+standard GMRES method on a cache based single CPU computer with 
+optimized BLAS kernels. Furthermore, the gain in efficiency is 
+more significant on MPPs due to both efficient block operations 
+and efficient block data communications. Our numerical results also 
+show that in comparison to the standard GMRES method, the more PEs 
+that are used on an MPP, the more efficient the BVGMRES(s,m) algorithm is. 
+
+
+</pre>

@@ -1,0 +1,53 @@
+<h2>A COMBINED MODIFICATION OF THE NEWTON'S METHOD FOR SYSTEMS OF NONLINEAR
+EQUATIONS</h2>
+<pre>
+
+
+M.T. Monteiro and Edite M.G.P. Fernandes
+
+Universidade do Minho, Braga, Portugal
+
+
+ABSTRACT
+
+
+For relatively small problems Newton's method seems to be a good choice for
+solving systems of nonlinear equations, F(x)=0. Quadratic convergence can be
+proved from good starting approximations. When the jacobian matrix, J, is 
+singular or badly conditioned, the Newton equations do not give a reliable
+step and need not converge. Secant methods use secant approximations to the
+jacobian and although singularity is not present in general, two fundamental
+problems can occur in implementing the iterative process. It is not easy to
+get a good initial approximation to the jacobian and less satisfactory points
+can be generated if the step happens to be an uphill direction for f(x), a
+function defined by 1/2 ||F(x)||^2. The objective function, f(x), of the
+related minimum problem takes on its absolute minimum 0 at a solution of
+F(x)=0. To improve the performance of Newton's method on general problems,
+the Newton step is modified and safeguards are included so that the
+corresponding step, d, is pointing towards the root of F(x)=0, in the sense
+that (J^T F)^T d < 0, where J^T F is the gradient of f(x). 
+
+We motivate our approach by using the same simple analysis that we used in 
+analysing nonlinear optimization problems, Fernandes (1995). The direction d 
+is then taken as a suitable linear combination of Newton and steepest descent
+directions,
+
+d = - [ w (J^T J)^(-1) + (1-w) I ] J^T F.
+
+In this paper we describe how the coefficients of the linear combination can
+be generated to make effective use of the two component steps. Finally we
+show some numerical results that demonstrate the usefulness of the
+combined modification presented in the paper.
+
+
+Edite M.G.P. Fernandes, Newton based exact penalty techniques for nonlinear
+optimization with constraints, Operations Research Proceedings 1994, 
+(39 - 44), Springer-Verlag, 1995.
+
+
+
+-----------------------------------------
+
+
+The speaker will be: Edite M.G.P. Fernandes
+</pre>

@@ -1,0 +1,25 @@
+<pre>
+Authors:  C. T. Kelley, C. T. Miller, and M. D. Tocci
+
+Speaker: M. D. Tocci
+</pre>
+<h2>
+Method of Lines Solution of Richards' Equation
+</h2>
+<pre>
+
+We consider the method of lines solution of Richards' equation, which 
+models flow through porous media, as an example of a situation in which 
+the method can give incorrect results because of premature termination of the
+nonlinear corrector iteration. This premature termination arises when
+the solution has a sharp moving front and the Jacobian is ill-conditioned.
+While this problem can be solved by tightening the tolerances provided
+to the ODE or DAE solver used for the temporal integration, it is more
+efficient to modify the termination criteria of the nonlinear solver
+and/or recompute the Jacobian more frequently. In this paper we continue
+previous work on this topic by analyzing the modifications in more detail
+and giving a strategy on how the modifications can
+be turned on and off in response to changes in the character of the solution.
+
+
+</pre>

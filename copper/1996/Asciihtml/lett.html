@@ -1,0 +1,32 @@
+
+<h2>
+"An Adaptive Nonlinear Solution Scheme for Reservoir Simulation."
+</h2>
+<pre>
+                        G. Scott Lett
+
+Numerical reservoir simulation involves solving large, nonlinear systems
+of PDE with strongly discontinuous coefficients.  Because of the large
+demands on computer memory and CPU, most users must perform simulations
+on very coarse grids.  The average properties of the fluids and rocks
+must be estimated on these grids.  These coarse grid "effective" 
+properties are costly to determine, and risky to use, since their 
+optimal values depend on the fluid flow being simulated.  Thus, they 
+must be found by trial-and-error techniques, and the more coarse the 
+grid, the poorer the results.
+
+This paper describes a numerical reservoir simulator which accepts fine
+scale properties and automatically generates multiple levels of coarse
+grid rock and fluid properties.  The fine grid properties and the coarse
+grid simulation results are used to estimate discretization errors with
+multilevel error expansions.  These expansions are local, and identify
+areas requiring local grid refinement.  These refinements are added
+adaptively by the simulator, and the resulting composite grid equations
+are solved by a nonlinear Fast Adaptive Composite (FAC) Grid method, with
+a damped Newton algorithm being used on each local grid.  The nonsymmetric
+linear system of equations resulting from Newton's method are in turn
+solved by a preconditioned Conjugate Gradients-like algorithm.
+
+The scheme is demonstrated by performing fine and coarse grid simulations
+of several multiphase reservoirs from around the world.
+</pre>
