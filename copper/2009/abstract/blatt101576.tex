@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Markus Blatt \\
+{\bf A h-p Algebraic Multigrid Method for Discontinuous Galerkin Methods }}
+
+Interdisciplinary Center for Scientific Computing (IWR) \\ University Heidelberg \\ Im Neuenheimer Feld 368 \\ D-69120 Heidelberg \\ Germany
+\\
+{\tt Markus.Blatt@iwr.uni-heidelberg.de}\end{center}
+
+Recently the application of discontinuous Galerkin methods to elliptic
+problems has gained renewed interest. Consequently, efficient solution
+methods for the arising discrete problem are a field of active research.
+
+In this talk an algebraic multigrid method for discontinuous Galerkin
+discretizations will be discussed. The coarsening approach used is a
+hybrid one. For the first coarse level an auxiliary (less complex)
+function space is used, namely, the space of piecewise linear functions.
+At this level the coarsening scheme is switched and aggregation algebraic
+multigrid is used to construct the other coarser levels.
+
+
+\end{document}

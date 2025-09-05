@@ -1,0 +1,38 @@
+===firstname:
+Andrew
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Mathematical and Statistical Sciences
+University of Colorado Denver 
+P.O. Box 173364, Campus Box 170
+Denver, CO 80217-3364
+===lastname:
+Knyazev
+===lastname3:
+
+===ABSTRACT:
+Known spectral methods for graph bipartition and graph-based image segmentation require computation of Fiedler vectors, i.e., numerical solution of eigenvalue problems with a graph Laplacian.
+The ultimate goal is to find a method with a linear complexity, i.e. a method with computational costs that scale linearly with the problem size, e.g., with the number of pixels in the image for the image segmentation problem. Multigrid approaches seem natural for image segmentation, where different image resolution scales are easily available. 
+
+We numerically analyze multigrid-based eigensolvers, e.g., [1-2], for computation of the Fiedler vectors. Multigrid can be used for multi-resolution segmentation as well as for preconditioning . We test both such approaches. We find that the multiresolution segmentation can be tricky as the low-resolution image bisection may be qualitatively inaccurate; and we explain the mathematical reason for such a behavior. A direct bisection of the highest-resolution image may thus produce better quality segmentations compared to the multiresolution segmentation.
+
+Our tests demonstrate that the multigrid preconditioning gives the ideal linear complexity and produces high quality image segmentation applied directly to the highest-resolution image. We describe our PETSc-BLOPEX, see [3], driver for computing the Fiedler vector with Hypre preconditioning, which can be used for segmentation of practical-size megapixel images on parallel computers. E.g., it computes the Fiedler vector for 24 megapixel images in seconds on our BlueGene/L 1024 CPU box using the algebraic multigrid. Further speed-up can be obtained by employing geometric multigrid and a lower precision arithmetic. 
+
+References:
+
+[1] A.V. Knyazev, Toward the Optimal Preconditioned Eigensolver: Locally Optimal Block Preconditioned Conjugate Gradient Method. SIAM Journal on Scientific Computing 23 (2001), 517-541. 
+
+[2] A.V. Knyazev and K. Neymeyr, Efficient solution of symmetric eigenvalue problems using multigrid preconditioners in the locally optimal block conjugate gradient method. ETNA, 15 (2003), 38-55. 
+
+[3] A. V. Knyazev, I. Lashuk, M. E. Argentati, and E. Ovchinnikov, Block Locally Optimal Preconditioned Eigenvalue Xolvers (BLOPEX) in hypre and PETSc. SIAM Journal on Scientific Computing 25 (2007), 2224-2239. 
+===email:
+Andrew.Knyazev@ucdenver.edu
+===otherauths:
+
+===title:
+Multigrid Eigensolvers for Image Segmentation
+===firstname2:
+

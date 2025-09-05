@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Allison H. Baker \\
+{\bf Algebraic Multigrid for Elasticity}}
+
+Lawrence Livermore National Laboratory \\ Box 808 \\ L-560 \\ Livermore \\ CA 94551-0808
+\\
+{\tt abaker@llnl.gov}\\
+Allison H. Baker\\
+{\em Lawrence Livermore National Laboratory}\\
+Tzanio V. Kolev\\
+{\em Lawrence Livermore National Laboratory}\\
+Ulrike Meier Yang \\
+{\em Lawrence Livermore National Laboratory}\end{center}
+
+We are interested in the efficient solution of large systems of PDEs
+arising from elasticity applications. When solving linear systems
+derived from systems of PDEs with AMG, two accepted approaches are
+treating variables corresponding to the same unknown separately (the
+"unknown" approach) and treating variables corresponding to the same
+physical node together (the "nodal" approach). While the unknown
+approach is typically chosen for elasticity problems, convergence is
+often far from ideal.
+
+In this talk, we investigate improving the interpolation of the rigid
+body modes. In particular, we propose extending the AMG interpolation
+operator to exactly interpolate the rotational rigid body modes by
+adding additional degrees of freedom (dofs) at each node. Our approach
+is an unknown-based approach that builds upon any existing AMG
+interpolation strategy and requires nodal coarsening. The approach
+fits easily into the AMG framework and does not require any matrix
+inversions. We demonstrate the effectiveness on several 2D and 3D
+elasticity problems.
+
+
+\end{document}

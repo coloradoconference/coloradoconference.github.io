@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Moulton \\
+{\bf Challenges for Multilevel Sampling in Statistical Inference}}
+
+Applied Mathematics and Plasma Physics \\ MS B284 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545
+\\
+{\tt moulton@lanl.gov}\\
+Dave Higdon\\
+{\em Statistical Sciences, Los Alamos National Laboratory}\\
+Jasper Vrugt\\
+{\em Center for Nonlinear Studies, Los Alamos National Laboratory}\end{center}
+
+Statistical inference through the Bayesian framework provides a
+powerful probabilistic approach to characterizing the solution of
+inverse problems. A canonical example is the recovery of the
+electrical conductivity of an object from measurements of potential
+and flux at the boundary, often called electrical impedance tomography
+(EIT). The mathematical model that maps the state (e.g.,
+conductivity) to the measured data (e.g., potential and flux) is
+refered to as the forward model. In this statistical framework,
+solving the inverse problem corresponds to quantifying statistics
+about the posterior distribution of the state (e.g., conductivities)
+conditioned on measurements. Although this formulation is very
+flexible, the calculation of integrals with respect to the posterior
+distribution is typically done through Markov Chain Monte Carlo (MCMC)
+sampling, and hence it is a significant computational burden for
+complex multiscale forward models. To alleviate this burden
+applications often restrict their analysis to oversimplified forward
+models, in turn limiting the utility of their analysis.
+
+To avoid these undesirable simplifications and additional uncertainty,
+considerable research has focused on schemes that improve the
+efficiency of the MCMC work horse, single-site Metropolis. In fact, a
+variety of approaches have been proposed to improve the efficiency of
+this rudimentary MCMC sampling scheme for high-dimensional posteriors.
+Multivariate updating approaches have been introduced that adjust
+multiple parameters simultaneously to construct a new proposal, while
+two-level delayed acceptance schemes rigorously allow the use of an
+approximate forward map (or approximate solve) in an initial screening
+step. In addition, high-level or templated-based priors (i.e.,
+distributions of blobs or layers of conductivity) have been used to
+effectively reduce the dimensionality of the problem. Each of these
+techniques have demonstrated significant gains in efficiency for some
+problems, but achieving a significant improvement in scalability over
+a broad class of inverse problems seems to remain tied to reducing the
+dimensionality.
+
+This desire to reduce the dimensionality creates an allure to leverage
+concepts from multilevel iterative solvers, which achieve their
+optimal scaling through the recursive use of coarser grids, with MCMC
+sampling. In this talk we highlight key issues in pursing this
+connection, such as the interpretation of the hierarchy of
+coarse-scale models, as well as the scale-dependent interpretation of
+the model parameters and their distributions. Specifically, we
+explore the use of multilevel solvers within a delayed acceptance
+scheme, and discuss the potential speedup of this approach. Then to
+combine the strengths of this approach with concepts from high-level
+proposals we explore a framework that directly samples the discrete
+hierarchy of models.
+
+
+\end{document}

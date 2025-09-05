@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew Barker \\
+{\bf Multilevel Schwarz preconditioning for fluid-structure interaction with application to blood flow}}
+
+Department of Applied Mathematics \\ 526 UCB \\ University of Colorado \\ Boulder \\ CO 80309-0526
+\\
+{\tt andrew.barker@colorado.edu}\\
+Xiao-Chuan Cai\\
+{\em Department of Computer Science
+University of Colorado, Boulder}\end{center}
+
+Simulation of fluid-structure interaction is a complex problem that
+involves modeling different physics for the fluid and the structure and
+coupling them together in a stable and efficient manner, and developing
+scalable numerical methods for this highly nonlinear problem is a
+computational challenge. Here we develop and test parallel, scalable
+techniques in the multilevel Newton-Krylov-Schwarz family for solving the
+nonlinear, monolithically coupled fluid-structure interaction system on
+dynamic moving finite element meshes in the arbitrary Lagrangian-Eulerian
+framework. We develop and numerically evaluate parallel nonlinear and
+linear grid-sequencing techniques and linear multilevel preconditioners
+for the monolithically coupled problem with fully implicit time-stepping,
+compare these results to the corresponding one-level algorithm, and
+present applications of the method to the simulation of blood flow.
+
+
+\end{document}

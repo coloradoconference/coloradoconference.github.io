@@ -1,0 +1,71 @@
+===affil2:
+Los Alamos National Laboratory
+===firstname:
+Daniil 
+===firstname4:
+
+===firstname3:
+David
+===lastname2:
+Lipnikov
+===lastname:
+Svyatskiy
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Moulton
+===email:
+dasvyat@lanl.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Applied Mathematics and Plasma Physics
+Theoretical Division
+Mail Stop B284
+Los Alamos National Laboratory
+Los Alamos, NM 87545, U.S.A. 
+===firstname6:
+
+===ABSTRACT:
+We present a multiscale method which builds recursively a problem-dependent multilevel hierarchy of models for flow in heterogeneous porous media. Each model preserves important physical properties, such as local mass conservation.  In contrast with classical two-level methods that achieve a total coarsening factor of approximately 10, in each coordinate direction, the multilevel hierarchal approach facilitates large total coarsening factors of 100 or more. 
+Maintenance of the hierarchy of models incurs only a modest
+computational overhead due to the efficiency of recursive
+coarsening and adaptive update strategies.  The method supports full diffusion tensors on unstructured polyhedral meshes and accommodates general coarsening strategies. Due to its algebraic nature, the method can be adapted to different types of discretization methods, such as the Mixed Finite
+Element, Finite Volume  and Mimetic Finite Differences methods.
+
+
+To efficiently maintain fine-scale accuracy in the multiscale
+solution, the method incorporates two adaptive
+strategies.  First, the hierarchy of models is updated locally when
+the relative permeability, which depends on the water saturation,
+changes significantly.  Second, an efficient error indicator which
+ controls the temporal updates of the flux coarsening parameters.  This new strategy concentrates updates around critical times when the invading fluid (water) first enters key features of the reservoir.
+
+To discretize this system in time we use the IMPES time  discretization scheme (IMplicit Pressure and Explicit Saturation).  The saturation is updated using the Darcy velocities provided by the pressure solver. The permeability fields with long correlation lengths are  challenging problems for multiscale methods. Numerical simulations for these type of fields show that even with large coarsening factors, such as 256  in the vicinty of wells, in each coordinate direction the multiscale solution remains within 5\% of the finescale solution.
+
+===affil3:
+Los Alamos National Laboratory
+===lastname5:
+
+===affilother:
+
+===title:
+An Adaptive Hierarchy of Discretizations for Two-Phase Flows in Porous Media
+===firstname2:
+Konstantin

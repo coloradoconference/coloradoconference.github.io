@@ -1,0 +1,75 @@
+===affil2:
+Department of Computer Science 10, University of Erlangen-Nuremberg, Germany
+===firstname:
+Roman
+===firstname4:
+
+===firstname3:
+Irad
+===lastname2:
+Koestler
+===lastname:
+Wienands
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Yavneh
+===email:
+wienands@math.uni-koeln.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Mathematical Institute, University of Cologne
+Weyertal 86-90, 50931 Cologne, Germany
+===firstname6:
+
+===ABSTRACT:
+\def\bfP{{\bf P}}
+\def\bfS{{\bf S}}
+\def\bfv{{\bf v}}
+\def\bfb{{\bf b}}
+%
+The quality of multigrid methods crucially depends on an efficient interplay between the smoothing operator $\bfS$ and prolongation $\bfP$. More precisely, the range of $\bfS$ should be sufficiently well represented in the range of $\bfP$. In the limit case of an optimal (but usually impractical) choice of $\bfP$ and $\bfS$ this means that
+%
+\begin{equation}
+\bfS \bfv = \bfP \bfv_{C} \qquad \text{with} 
+\qquad \bfv = \left( \begin{matrix} \bfv_{F} \\ \bfv_{C}
+\end{matrix} \right) \label{eq:basiseq}
+\end{equation}
+%
+must hold for an arbitrary vector $\bfv$ where the variables and
+equations have been permuted such that F-variables come first.
+(Those variables which are to be contained in the coarse grid are commonly referred to as C-variables whereas the complementary set is related to the F-variables.)
+
+In this talk we present a formalism for the construction of proper prolongation operators in order to accomplish the transfer from coarse to fine grids within a multigrid algorithm. The main idea is to force relation 
+(\ref{eq:basiseq}) only locally (i.e. at each coarse variable $i$) for a certain subset of (algebraically) smooth basis vectors $\bfb^{k(i)}$ $(k(i) = 1,\dots,n(i))$. Following this
+idea, classical operator-dependent prolongations or prolongation
+operators based on smoothed aggregation can be recovered. Moreover, this rather general framework gives rise to many other variants whose complexity and accuracy can be controlled by a careful selection of basis vectors and smoothing operators, which are applied to construct $\bfP$. For example, geometric or other problem-dependent information can be easily exploited to tailor the prolongation to the particular application at hand.
+
+At the end of the talk we will present numerical results for several two- and three-dimensional diffusion problems including jumping coefficients. In particular a real-world three-dimensional image segmentation problem from a medical application is discussed.
+===affil3:
+Department of Computer Science, Technion-Israel Institute of Technology
+===lastname5:
+
+===affilother:
+
+===title:
+On the Construction of Prolongation Operators for Multigrid
+===firstname2:
+Harald

@@ -1,0 +1,106 @@
+===affil2:
+
+===firstname:
+Benjamin
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Seibold
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+seibold@math.mit.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Department of Mathematics, 2-346
+Massachusetts Institute of Technology
+77 Massachusetts Avenue
+Cambridge MA 02139, USA
+===firstname6:
+
+===ABSTRACT:
+Lagrangian particle methods, such as Smoothed Particle
+Hydrodynamics, approximate the equations of fluid flow
+on a cloud of points that move with the flow. Thus,
+convective terms are treated exactly, which is a great
+advantage compared to Eulerian approaches. The
+fundamental challenge in particle methods are
+unstructured node distributions. A common strategy is to
+approximate differential operators by meshfree finite
+difference stencils. These can be derived for instance
+by the moving least squares method.
+
+Incompressible flows can be simulated by a pressure
+correction in each time step. The arising Poisson
+equations can be approximated on the cloud of particles
+by meshfree finite differences. The generation and
+solution of the arising linear systems is often times
+very costly, thus multigrid methods are of great
+interest. A natural approach is Algebraic Multigrid,
+since geometric strategies to refine a fully
+unstructured point cloud are difficult to formulate.
+
+The finite difference matrices arising from classical
+meshfree least squares approaches have three properties
+that are challenging with respect to AMG:
+\begin{itemize}
+\item
+Finite difference methods on unstructured data sets
+approximate the Laplace operator by non-symmetric
+matrices.
+\item
+The arising matrices are about six times as dense as
+finite difference matrices on rectangular grids.
+\item
+An M-matrix structure is not guaranteed, and is---unless
+the point geometry is sufficiently nice---in general
+violated.
+\end{itemize}
+While here the non-symmetry is in some sense weaker than
+coming from the approximation of a convection operator,
+it can not be overcome.
+Better sparsity and the M-matrix structure, however,
+\emph{can} be achieved, by a new finite difference
+approach, that is based on linear sign-constrained
+optimization.
+
+In this talk, I will outline meshfree finite difference
+methods, present the new finite difference approach, show
+results when applied in the context of AMG methods, and
+pose open questions. Numerical tests were done using
+SAMG (Fraunhofer SCAI, K.~St{\"u}ben et al.),
+as well as AMLI (C.~Mense and R.~Nabben).
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+AMG for Meshfree Finite Difference Methods
+===firstname2:
+

@@ -1,0 +1,57 @@
+===affil2:
+University of Colorado at Boulder
+===firstname:
+Christian
+===firstname4:
+
+===firstname3:
+Steve
+===lastname2:
+Manteuffel 
+===lastname:
+Ketelsen
+===firstname5:
+
+===affil6:
+
+===lastname3:
+McCormick
+===email:
+ketelsen@colorado.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Department of Applied Mathematics
+526 UCB
+University of Colorado
+Boulder, CO 80309-0526
+===firstname6:
+
+===ABSTRACT:
+The Schwinger Model of quantum electrodynamics (QED) describes the interaction between electrons and photons.  Large scale numerical simulations of the theory require repeated solution of the two-dimensional Dirac equation, a system of two first order partial differential equations coupled to a background U(1) gauge field.  Traditional discretizations of this system are sparse and highly structured, but contain random complex entries introduced by the background field.  For even mildly disordered gauge fields the near kernel components of the system are highly oscillatory, rendering standard multilevel methods ineffective.
+
+We consider an alternate formulation of the governing equations that is more amenable to multigrid solvers.  The alternate model is obtained by a similarity transformation of the continuum operator which essentially eliminates the gauge field.  The resulting formulation resembles uncoupled diffusion-like problems with variable diffusion coefficients.  The form of the transformed system is ideal as adaptive multilevel methods have proven effective in the past at solving such problems.  Next, we discretize the transformed system using least-squares finite elements.  Finally, adaptive smoothed aggregation multigrid is used to solve the resulting linear system.  We present numerical results and discuss implications of the transformed formulation for the physical theory.
+===affil3:
+University of Colorado at Boulder
+===lastname5:
+
+===affilother:
+
+===title:
+Multigrid Solvers for Quantum Electrodynamics
+===firstname2:
+Tom

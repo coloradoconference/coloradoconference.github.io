@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Georg Stadler \\
+{\bf Experience with parallel AMG for large-scale adaptive mantle convection}}
+
+Institute for Computational Engineering and Sciences (ICES) \\ The University of Texas at Austin \\ 1 University Station \\ C0200 \\ Austin \\ TX 78712
+\\
+{\tt georgst@ices.utexas.edu}\\
+Carsten Burstedde\\
+{\em Institute for Computational Engineering and Sciences (ICES)
+The University of Texas at Austin, Austin, TX}\\
+Omar Ghattas\\
+{\em Institute for Computational Engineering and Sciences (ICES) and Depts.\ of Geological Sciences and Mechanical Engineering
+The University of Texas at Austin, Austin, TX}\\
+Michael Gurnis\\
+{\em Seismological Laboratory, California Institute of Technology, Pasadena, CA}\\
+Eh Tan\\
+{\em Computational Infrastructure for Geodynamics, California Institute of Technology, Pasadena, CA}\\
+Tiankai Tu\\
+{\em Institute for Computational Engineering and Sciences (ICES)
+The University of Texas at Austin, Austin, TX}\\
+Lucas W. Wilcox\\
+{\em Institute for Computational Engineering and Sciences (ICES)
+The University of Texas at Austin, Austin, TX}\\
+	Zhong, Shijie\\
+{\em Department of Physics, University of Colorado, Boulder, CO}\end{center}
+
+Mantle convection is the principal control on the thermal and
+geological evolution of the Earth. Its modeling involves solution of the
+mass, momentum, and energy equations for a viscous, creeping,
+incompressible non-Newtonian fluid at high Rayleigh and Peclet numbers.
+We are developing the parallel adaptive mantle convection code
+\texttt{Rhea}, which builds on our \textbf{A}daptive \textbf{L}arge-scale
+\textbf{P}arallel \textbf{S}imulations (ALPS) framework.
+
+The numerical simulation of mantle convection requires the solution of a
+stationary, highly variable-viscosity Stokes system at each time step.
+The Stokes equation is discretized using trilinear finite elements for
+both velocity and pressure, and polynomial pressure projection is used to
+stabilize this equal-order approximation. For the solution of the
+discrete Stokes saddle point system we use the preconditioned minimal
+residual (MINRES) method. The preconditioner is based on an approximate
+Schur complement for the pressure component and involves a solve with a
+positive definite operator for the velocity filed. This block solve is
+approximated with one V-cycle
+of algebraic multigrid. Results obtained with the parallel AMG
+libraries {\em BoomerAMG} from {\em hypre} and with {\em ML} from
+{\em Trilinos} will be shown. We discuss the parallel scalability of the
+solver on up to 16K cores, as well as its dependence on viscosity
+variations and boundary conditions.
+
+
+\end{document}

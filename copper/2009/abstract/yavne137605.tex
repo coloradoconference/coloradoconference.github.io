@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Irad Yavneh \\
+{\bf Cyclic Reduction Multigrid Revisited}}
+
+Department of Computer Science \\ Technion - Israel Institute of Technology \\ Haifa 32000 \\ Israel
+\\
+{\tt irad@cs.technion.ac.il}\\
+Chen Greif\\
+{\em University of British Columbia, Canada}\end{center}
+
+We revisit an early 90's technique due to Golub and Tuminaro, originally
+suggested for two-dimensional convection-diffusion. The idea is to
+perform a single cyclic reduction step before reverting to multigrid. We
+generalize this idea and introduce a novel smoothing analysis for the
+resulting problem, which yields explicit analytical results. In
+particular, we prove for 2$d$+1 point "star" stencils, where $d$ is the
+dimension, that the suitably defined $h$-ellipticity measure is always
+increased by the cyclic reduction step for symmetric $M$-matrices.
+Additionally, we introduce a novel relaxation method employing a cyclic
+reduction step, dubbed cyclic reduction relaxation (CRR), and analyze its
+smoothing properties, which turn out to be exceptional. Numerical
+computations show a close agreement between the smoothing analysis
+results and actual V-cycle convergence factors.
+
+
+\end{document}

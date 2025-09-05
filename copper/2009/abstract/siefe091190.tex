@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chris Siefert \\
+{\bf An Algebraic Multigrid Method for Least-Squares Finite Element Systems}}
+
+Sandia National Laboratories \\ P O Box 5800 \\ MS 0378 \\ Albuquerque \\ NM 87185-0378
+\\
+{\tt csiefer@sandia.gov}\\
+Pavel Bochev\\
+{\em Sandia National Laboratories}\\
+Kara Peterson\\
+{\em Sandia National Laboratories}\end{center}
+
+Least-squares finite element methods are an attractive class of methods
+for the numerical solution of certain partial differential equations,
+specifically div-curl systems. They are motivated by the desire to
+recover, in more general settings, the advantageous features of
+Rayleigh-Ritz methods such as the avoidance of discrete compatibility
+conditions and the production of symmetric and positive definite discrete
+systems. The methods are based on the minimization of convex functionals
+that are constructed from equation residuals.
+
+This work deals with formulation of a class of compatible
+least-squares principles for a model div-curl equation and the
+efficient multigrid solution of the resulting algebraic
+systems. Specifically, we consider a discrete least-squares principle
+\begin{equation}\label{eq1}
+\min_{u^h\in C^h_0}
+\| \nabla \times u^h - g \|^2_0 + \| \nabla_h^* \cdot u^h - f\|^2_0
+\end{equation}
+where $C^h_0$ is a curl-conforming space constrained by the
+homogeneous boundary condition $u\times {\bf n} = 0$ on
+$\partial\Omega$, and $\nabla_h^* \cdot$ is a discrete divergence
+operator acting on that space.
+
+The use of discrete divergence in this formulation is compelled by the
+well-known problems in the finite element approximation of the Hilbert
+space $H(curl,\Omega)\cap H(div,\Omega)$. In particular, in
+(\ref{eq1}) we approximate that space conformally with respect to the
+curl operator. This yields a linear system in the form of a Hodge
+Laplacian discretized using edge (curl-conforming) elements. We
+demonstrate that this system can be solved using a multigrid method
+derived from the previous work of Bochev, Hu, Siefert and Tuminaro
+\cite{AMG:2007}. A complementary least-squares formulation wherein
+$H(curl,\Omega)\cap H(div,\Omega)$ is approximated by div-conforming
+elements yields a linear system corresponding to a Hodge Laplacian
+discretized by face (div-conforming) elements. To solve this system we
+use an alternative formulation of the multigrid method derived in
+\cite{AMG:2008}.
+
+\begin{thebibliography}{99}
+\bibitem{AMG:2007} P.~Bochev, J.~Hu, C.~Siefert, and R.~Tuminaro.
+\newblock An algebraic multigrid approach based on a compatible gauge
+reformulation of {M}axwell's equations.
+\newblock {\em SIAM J. Sci. Comp.} Volume 31, Issue 1, pp. 557-0583, 2008.
+
+\bibitem{AMG:2008} P.~Bochev, C.~Siefert, R.~Tuminaro, J.~Xu, and Y.~Zhu,
+Compatible Gauge Approaches for $H(div,\Omega)$ Equations. CSRI Summer
+proceedings, Sandia National Laboratories Report SAND-7977, pp. 3-14,
+2007.
+\end{thebibliography}
+
+\end{document}

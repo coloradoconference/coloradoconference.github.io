@@ -1,0 +1,50 @@
+%-orig: \documentclass[12pt]{amsart}
+%-orig: \begin{document}
+%
+\renewcommand{\div}{\mathbf{div}}
+\newcommand{\curl}{\mathbf{curl}}
+\def\Nedelec{N\'ed\'elec}
+
+%\title{Coarse Spaces by Constrained Energy Minimization}
+%
+%\author{Panayot S.  Vassilevski}
+%\address{Center for Applied Scientific Computing,
+%           Lawrence Livermore National Laboratory,
+%             P.O. Box 808, L-560,
+%             Livermore, CA 94551, U.S.A.}
+%\email{panayot@llnl.gov}
+%%\thanks{This work performed under the auspices of the U.S. Department of 
+%Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.} 
+
+
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Panayot S.  Vassilevski \\
+{\bf Coarse Spaces by Constrained Energy Minimization}}
+
+Center for Applied Scientific Computing \\
+Lawrence Livermore National Laboratory \\
+P.O. Box 808, L-560 \\
+Livermore, CA 94551, U.S.A.
+\\
+{\tt panayot@llnl.gov} %\\
+\end{center}
+
+%-mb: \begin{abstract}
+We consider an unified approach of constructing operator-dependent discretization spaces on relatively coarse 
+computationally feasible meshes. The approach utilizes natural energy functionals associated with the PDEs of interest. 
+We construct local basis functions by minimizing the underlined functional subject to a set of constraints. 
+The constraints are chosen so that the resulting spaces possess increasingly high order of approximation.  
+We investigate the proposed approach from an upscaling discretization point of view which we 
+illustrate with some preliminary numerical examples. 
+%-mb: \end{abstract}
+%-mb: \maketitle
+
+
+\end{document}
+

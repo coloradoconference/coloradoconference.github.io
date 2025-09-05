@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jonathan Hu \\
+{\bf Smoothed Aggregation Multigrid on Multicore Architectures}}
+
+Sandia National Laboratories \\ PO Box 969 MS 9159 \\ Livermore \\ CA 94551-0969
+\\
+{\tt jhu@sandia.gov}\\
+Chris Siefert\\
+{\em Sandia National Laboratories}\\
+Ray Tuminaro\\
+{\em Sandia National Laboratories}\end{center}
+
+Multicore computer architectures present new challenges to linear
+solvers, including algebraic multigrid multigrid. The advent of many
+cores has effectively increased the imbalance between node compute power
+and off-node communication throughput. In this talk we report on our
+experiences using nonstandard smoothed aggregation multigrid on multicore
+architectures to address the computation/communication imbalance.
+Specifically, we consider the case of multigrid with domain decomposition
+smoothing, where the domains are allowed to cover more than one core in a
+compute node. We'll present numerical results on thousands of processors.
+
+
+\end{document}

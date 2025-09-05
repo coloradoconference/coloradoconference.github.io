@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large James Adler \\
+{\bf Nested Iteration First-Order Least Squares on Incompressible Resistive Magnetohydrodynamics}}
+
+2075 Goss St \#11 \\ Boulder \\ CO 80302
+\\
+{\tt james.adler@colorado.edu}\end{center}
+
+Magnetohydrodynamics (MHD) is a single-fluid theory that describes Plasma
+Physics. MHD treats the plasma as one fluid
+of charged particles. Hence, the equations that describe the plasma form
+a nonlinear system that couples Navier-Stokes
+with Maxwell's equations. To solve this system, a
+nested-iteration-Newton-FOSLS-AMG approach is taken. The goal is to
+determine the most efficient algorithm in this context. One would like to
+do as much work as
+possible on the coarse grid including most of the linearization. Ideally,
+it would be good to show that at most one
+Newton step and a few V-cycles are all that is needed on the finest grid.
+This talk will develop theory that supports
+this argument, as well as show experiments to confirm that the algorithm
+can be efficient for MHD problems. Currently, a reduced 2D time-dependent
+formulation is studied. These equations can simulate
+a "large aspect-ratio" tokamak, with non-circular cross-sections. Here,
+the problem was reformulated in a way that is
+suitable for FOSLS and FOSPACK. This talk will discuss two test problems
+from this formulation: the Tearing Mode instability and the Island
+Coalescence Instability.
+
+
+\end{document}

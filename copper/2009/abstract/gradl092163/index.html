@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>gradl092163</TITLE>
+<META NAME="description" CONTENT="gradl092163">
+<META NAME="keywords" CONTENT="gradl092163">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="gradl092163.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tobias Gradl 
+<BR><B>High Performance Adaptive Mesh Refinement</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Universitaet Erlangen-Nuernberg 
+<BR>
+Lehrstuhl fuer Informatik 10 
+<BR>
+Cauerstr 6 
+<BR>
+91058 Erlangen 
+<BR>
+Germany
+
+<BR><TT>tobias.gradl@cs.fau.de</TT>
+<BR>
+Ulrich Rüde
+<BR><EM>Department of Computer Science 10, University of Erlangen-Nuremberg</EM>
+</DIV>
+
+<P>
+Getting multigrid software to solve for as many unknowns per second as
+possible on current high performance computers means designing its data
+access patterns to be as regular as possible. <I>Regularly structured
+data</I> allows for optimally exploiting the processor capabilities (e.g. vector processing) and the interconnection network (e.g. by grouping
+communication operations). Just as important as solving for many unknowns
+in short time is reducing the overall number of unknowns. <I>Adaptive
+mesh refinement (AMR)</I> can significantly reduce the problem size in many
+cases. However, this technique is known to impede the use of regular data
+structures, and, thus, to drastically restrict the possible performance
+of the solver. In our talk we show how AMR can be implemented without
+destroying the regularity of the data structures, maintaining a fast
+execution. The framework for the AMR implementation is provided by
+<I>Hierarchical Hybrid Grids (HHG)</I>, a multigrid finite element solver
+designed for the use on massively parallel computers with several
+thousand processors. The software uses semi-structured meshes in order to
+achieve high performance on such computers. In the talk both red-green
+refinement and refinement with hanging nodes are covered, because both
+methods have individual advantages, and the decision for one of the
+methods--or for a combination of both--has to be made depending on the
+problem characteristics. We develop the mathematical foundation for using
+AMR with the <I>correction scheme</I>, and we show its feasibility in
+practical examples.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

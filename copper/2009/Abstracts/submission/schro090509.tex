@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jacob Schroder \\
+{\bf Smoothed Aggregation Multigrid for One-Dimensional Helmholtz Problems }}
+
+Siebel Center for Computer Science \\ 4328 Siebel Center \\ 201 N Goodwin Ave \\ Urbana \\ IL 61801 \\ USA
+\\
+{\tt jacob.bb.schroder@gmail.com}\\
+Luke Olson\\
+{\em Assistant Professor, Computer Science Department, University of Illinois at Urbana-Champaign}\end{center}
+
+We present a purely algebraic smoothed aggregation (SA) multigrid method
+for one-dimensional scalar Helmholtz problems with exterior radiation
+boundary conditions. The scalar Helmholtz problem is particularly
+difficult for algebraic multigrid (AMG) solvers. Not only can the
+discrete operator be indefinite and non-self-adjoint, but it also allows
+for oscillatory error components that yield relatively small residuals.
+These oscillatory error components are not effectively handled by either
+standard relaxation or standard coarsening procedures. We address these
+difficulties through modifications of the SA method and by providing the
+setup phase with appropriate wave-like near-nullspace candidates. Our
+results for GMRES preconditioned with the proposed SA method exhibit near
+grid-independent performance, along with consistent performance across a
+wide range of frequencies.
+
+
+\end{document}

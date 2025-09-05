@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chen Greif \\
+{\bf Cyclic Reduction and Multigrid}}
+
+2366 Main Mall \\ Vancouver B C V6T 1Z4 \\ Canada
+\\
+{\tt greif@cs.ubc.ca}\\
+Irad Yavneh\\
+{\em Technion - Israel Institute of Technology}\end{center}
+
+Cyclic reduction is a process by which red/black ordering is initially
+applied, and then the unknowns that correspond to one of the unknowns are
+eliminated. The resulting operator is a Schur complement matrix that is
+easy to construct if a 5-pt (7-pt) computational molecule was originally
+used in 2D (3D) on the fine mesh. In this talk we show analytically and
+experimentally that in fact the cyclically reduced operator has very good
+h-ellipticity properties. We discuss various ways of using the operator
+as an effective smoother for convection-diffusion equations.
+
+
+\end{document}

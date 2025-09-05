@@ -1,0 +1,163 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Milan Kucharik \\
+{\bf Application of JFNK to Kinetic Energy Conservative Remapping of the Nodal Velocity in ALE}}
+
+Los Alamos National Laboratory \\ T-05 \\ MS B284 \\ Los Alamos \\ NM 87545 \\ U S A
+\\
+{\tt kucharik@lanl.gov}\\
+Markus Berndt\\
+Mikhail Shashkov\end{center}
+
+Arbitrary Lagrangian-Eulerian (ALE) methods appear to be reasonable
+compromise between Lagrangian and Eulerian approaches, allowing to solve
+large variety of fluid problems. The standard ALE algorithm uses a
+Lagrangian solver to update fluid quantities and the computational mesh
+in the next time step, which can eventually tangle the mesh. To avoid
+such problems, mesh regularization (untangling or smoothing) is applied
+in the case of low mesh quality, followed by a remapping step that
+interpolates all fluid quantities from the Lagrangian to the smoothed
+mesh.
+
+Here, we focus on the last part of the ALE algorithm -- remapping -- in
+the case of a staggered discretization, where scalar quantities (density,
+pressure, specific internal energy) are defined inside mesh cells, and
+vector quantities (positions, velocities) are defined on mesh nodes. A
+staggered discretization is used in most current ALE codes. Generally,
+remapped nodal kinetic energy is not equal to nodal kinetic energy
+obtained from remapped velocities, and this discrepancy leads to energy
+conservation violation and consequently to wrong shock speeds. The
+kinetic energy discrepancy is usually treated by distributing it to the
+internal energy of adjacent cells \cite{Benson:hydrocodes}.
+
+An alternative 1D approach introduced in \cite{Bailey:vel_remap} is based
+on the construction of high-order interpolated velocities $u^*_{n+1/2}$
+used for momentum fluxes (and thus for the velocity update)
+\begin{equation}
+\label{eq:flux_mom}
+\tilde{m}_{n}\, \tilde{u}_{n} = m_n\, u_n
++ F^{m}_{n,n+1/2}\, u^*_{n+1/2}
+- F^{m}_{n,n-1/2}\, u^*_{n-1/2}
+\end{equation}
+such that the kinetic energy discrepancy is automatically eliminated.
+Here, $F^{m}_{n,n\pm 1/2}$ stands for mass fluxes around node $n$, which
+are also used for the nodal mass update in a similar flux form
+\begin{equation}
+\label{eq:flux_mass}
+\tilde{m}_{n} = m_n + F^{m}_{n,n+1/2} - F^{m}_{n,n-1/2}
+\,\mbox{.}
+\end{equation}
+This method expresses the new kinetic energy $\tilde{K}$ in each node in a flux form
+\begin{equation}
+\label{eq:flux_form}
+\tilde{K}_{n} = K_n + F^{K}_{n,n+1/2}
+- F^{K}_{n,n-1/2} \,\mbox{,}
+\end{equation}
+where fluxes $F^{K}$ can be computed from known quantities and
+unknown inter-nodal flux velocities $u^*_{n \pm 1/2}$. To achieve energy
+conservation, there must be an unique flux between every two nodes:
+\begin{equation}
+\label{eq:flux_equality}
+F^{K}_{n,n+1/2} = F^{K}_{n+1,n+1/2} \equiv F^{K}_{n+1/2}
+\,\mbox{,}\,\, \forall n
+\,\mbox{.}
+\end{equation}
+After substituting for all $F^{K}$, we obtain a system of coupled
+quadratic equations for all $u^*$,
+\begin{equation}
+\label{eq:system_Bailey}
+u^{*}_{n+1/2} = \frac{ u_{n+1}\, \bar{u}_{n+1}
+- u_{n} \, \bar{u}_{n}
+- \left(u_{n+1}^2-u_{n}^2\right)/2}
+{\bar{u}_{n+1} - \bar{u}_{n}}
+\,\mbox{,}
+\end{equation}
+where $\bar{u}_n = (u_n + \tilde{u}_n)/2$, and the new velocities
+$\tilde{u}_n$ are defined in \eqref{eq:flux_mom}. This system can
+either be solved with a fixed point iteration, or with a Newton
+solver.
+
+In this presentation, we demonstrate that the system
+\eqref{eq:system_Bailey} does not always have a solution, and analyze
+this situation. Two alternative approaches will be introduced.
+
+In the first approach, the flux equality \eqref{eq:flux_equality} is not
+enforced strictly, but its discrepancy is minimized in a least squares
+sense
+\begin{equation}
+\label{eq:appr_1}
+D^{F} = \sum\limits_{\forall (n+1/2)} (F^{K}_{n+1,n+1/2} - F^{K}_{n,n+1/2})^2
+\end{equation}
+by differentiating $D^{F}$ with respect to all $u^*$ and solving a system
+$\partial D^F / \partial u^*_{n+1/2} = 0$ for all $n+1/2$. Thus, the
+kinetic energy discrepancy is minimized as much as possible, but is not
+guaranteed to equal zero.
+
+In the second approach, the kinetic energy discrepancy is directly
+minimized. Unfortunately, zero kinetic energy discrepancy is generally
+satisfied by infinitely many solutions. Because flux velocities
+$u^*_{n+1/2}$ represent values interpolated from adjacent nodal
+velocities $u_{n}$ and $u_{n+1}$, this velocity should remain bounded by
+these neighbor values and no under/overshoots should appear. Thus,
+additional terms are added to the kinetic energy discrepancy formula,
+which enforce these bounds during minimization
+\begin{equation}
+\label{eq:appr_2}
+D^{K} = (\tilde{K} - K)^2 +
+\varepsilon\, K\, \sum\limits_{\forall (n+1/2)}
+\left( \frac{1}{2}\, m_{n+1/2}\, \left(
+u^*_{n+1/2} - \frac{u_{n} + u_{n+1}}{2}
+\right)^2 \right)
+\,\mbox{.}
+\end{equation}
+Similarly to our first approach, the minimization is done by solving a
+system $\partial D^K / \partial u^*_{n+1/2} = 0$ for all $n+1/2$. This
+approach finds a zero discrepancy solution that is generally different
+from the solution of system \eqref{eq:flux_equality} (if it exists). In
+both approaches \eqref{eq:appr_1} and \eqref{eq:appr_2}, the
+Jacobian-free Newton-Krylov solver \cite{Pernice_Walker:NITSOL} with a
+possible preconditioning is used.
+
+We will also mention a generalization of these approaches to 2D
+logically orthogonal meshes (including corner coupling), and demonstrate
+their behavior in the context of an ALE hydro code for a particular fluid
+flow problem.
+
+\section*{Acknowledgment}
+This work was performed under the auspices of the US Department of Energy
+by Los Alamos National Laboratory under Contract
+DE-AC52-06NA25396. The authors acknowledge the partial support of the DOE
+Advance Simulation and Computing (ASC) Program and the DOE Office of
+Science ASCR Program, and the Laboratory Directed Research and
+Development program (LDRD) at the Los Alamos National Laboratory.
+
+\begin{thebibliography}{9}
+
+\bibitem{Bailey:vel_remap}
+Bailey DS.
+\newblock Second-order monotonic advection in LASNEX.
+\newblock {\em Laser Program Annual Report '84}.
+\newblock UCRL-50021-84, Lawrence Livermore National Laboratory,
+1984; 3-57--3-61.
+
+\bibitem{Benson:hydrocodes}
+Benson DJ.
+\newblock Computational methods in Lagrangian and Eulerian hydrocodes.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering} 1992;
+{\bf 99}:235--394.
+
+\bibitem{Pernice_Walker:NITSOL}
+Pernice M, Walker HF.
+\newblock NITSOL: A Newton iterative solver for nonlinear systems.
+\newblock {\em SIAM Journal on Scientific Computing} 1998;
+{\bf 19}:302--318.
+
+\end{thebibliography}
+
+
+\end{document}

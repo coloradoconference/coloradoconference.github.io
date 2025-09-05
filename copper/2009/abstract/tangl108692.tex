@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lei Tang \\
+{\bf Parallelization of efficiency-based adaptive local refinement for FOSLS-AMG}}
+
+Department of Applied Mathematics \\ 526 UCB \\ University of Colorado \\ Boulder \\ CO 80309-0526
+\\
+{\tt lei.tang@colorado.edu}\\
+Marian Brezina\\
+{\em Department of Applied Mathematics,
+University of Colorado at Boulder}\\
+Tom Manteuffel\\
+{\em Department of Applied Mathematics,
+University of Colorado at Boulder}\\
+Steve McCormick\\
+{\em Department of Applied Mathematics,
+University of Colorado at Boulder}\\
+Josh Nolting\\
+{\em GeoEye Inc., Thornton, Colorado}\\
+John Ruge\\
+{\em Department of Applied Mathematics,
+University of Colorado at Boulder}\end{center}
+
+A new adaptive local refinement strategy (ACE), in which the refinement
+decisions are based on optimizing the
+computational efficiency, has recently been developed. The first-order
+system least-squares (FOSLS) finite
+element methods, together with algebraic multigrid methods (AMG),
+complement this idea, resulting in a powerful tool for numerical
+solutions of many PDEs. However, in parallel environment, the global
+sorting of element local error indicators used by the original approach
+results in undesirable communication between processors. A strategy
+circumventing the global sorting is proposed. The test results show that
+the strategy has the potential of greatly reducing communication, while
+producing a sequence of refined grids with essentially the same quality
+as before.
+
+
+\end{document}

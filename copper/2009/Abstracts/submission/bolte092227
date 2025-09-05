@@ -1,0 +1,71 @@
+===affil2:
+
+===firstname:
+Matthias
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Bolten
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+bolten@math.uni-wuppertal.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+University of Wuppertal
+Department of Mathematics and Science
+D-42097 Wuppertal
+Germany
+
+===firstname6:
+
+===ABSTRACT:
+Local Fourier analysis (LFA) is known to be a valuable tool for the development of geometric multigrid methods for PDEs allowing an effective tuning of multigrid components. The main concept of LFA is the idea of keeping local stencils fixed and treating the (local) problems as if they where part of the associated infinitely large constant coefficient problems. This allows for an optimal choice of smoothers as well as restriction operators.
+
+The infinitely large problem with constant coefficients corresponds to a ($l$-level) Toeplitz operator. The Toeplitz operators are completely described by their generating symbols, i.e. ($l$-variate) $2 \pi$-periodic functions. For second order elliptic problems the generating symbol has a unique zero of order two at the origin. The multigrid methods for Toeplitz matrices and circulant matrices that have been developed in the last years work well for these problems, and they do not depend on the location of the zero. In fact, the zero of the generating symbol just influences the choice of the interpolation operator in the multigrid method.
+
+Using these developments we are able to provide local interpolation operators for matrices with non-constant stencils with complex entries, consider e.g. the stencil
+\begin{equation*}
+\frac{1}{h^{2}} \left[ \begin{array}{ccc}
+& -e^{2 \pi i \varphi_{x,y+\mu}} & \\
+-e^{-2 \pi i \varphi_{x-\mu,y}} & 4 & -e^{2 \pi i \varphi_{x+\mu,y}} \\
+& -e^{-2 \pi i \varphi_{x,y-\mu}} &
+\end{array} \right]
+\end{equation*}
+where the $\varphi_{x-\mu,y}, \varphi_{x+\mu,y}, \varphi_{x,y-\mu}, \varphi_{x,y+\mu} \in [0,1]$ are some random parameters. This can be considered as a non-shifted variant of the 2d Gauge Laplace matrix that arises in a simplified model of lattice quantum chromodynamics. The idea is similar as in LFA, namely take the local stencil as a constant stencil in an infinitely large system. Using results found in previous works on multigrid methods for matrices being Toeplitz or circulant we are able to provide a local definition of the interpolation, yielding in interpolation operators for these matrices. The method has been implemented for the two-grid case and the results are as expected. The idea can be used in a multilevel setting, easily.
+
+In this talk we will give a short overview over the used previous work, introduce the concept in larger detail and present some numerical results for the two-grid case. 
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Local Fourier analysis of interpolation operators for problems with certain complex stencils -- preliminary results
+===firstname2:
+

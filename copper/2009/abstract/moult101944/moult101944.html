@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>moult101944</TITLE>
+<META NAME="description" CONTENT="moult101944">
+<META NAME="keywords" CONTENT="moult101944">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="moult101944.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">David Moulton 
+<BR><B>Challenges for Multilevel Sampling in Statistical Inference</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Applied Mathematics and Plasma Physics 
+<BR>
+MS B284 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>moulton@lanl.gov</TT>
+<BR>
+Dave Higdon
+<BR><EM>Statistical Sciences, Los Alamos National Laboratory</EM>
+<BR>
+Jasper Vrugt
+<BR><EM>Center for Nonlinear Studies, Los Alamos National Laboratory</EM>
+</DIV>
+
+<P>
+Statistical inference through the Bayesian framework provides a
+powerful probabilistic approach to characterizing the solution of
+inverse problems. A canonical example is the recovery of the
+electrical conductivity of an object from measurements of potential
+and flux at the boundary, often called electrical impedance tomography
+(EIT). The mathematical model that maps the state (e.g.,
+conductivity) to the measured data (e.g., potential and flux) is
+refered to as the forward model. In this statistical framework,
+solving the inverse problem corresponds to quantifying statistics
+about the posterior distribution of the state (e.g., conductivities)
+conditioned on measurements. Although this formulation is very
+flexible, the calculation of integrals with respect to the posterior
+distribution is typically done through Markov Chain Monte Carlo (MCMC)
+sampling, and hence it is a significant computational burden for
+complex multiscale forward models. To alleviate this burden
+applications often restrict their analysis to oversimplified forward
+models, in turn limiting the utility of their analysis.
+
+<P>
+To avoid these undesirable simplifications and additional uncertainty,
+considerable research has focused on schemes that improve the
+efficiency of the MCMC work horse, single-site Metropolis. In fact, a
+variety of approaches have been proposed to improve the efficiency of
+this rudimentary MCMC sampling scheme for high-dimensional posteriors.
+Multivariate updating approaches have been introduced that adjust
+multiple parameters simultaneously to construct a new proposal, while
+two-level delayed acceptance schemes rigorously allow the use of an
+approximate forward map (or approximate solve) in an initial screening
+step. In addition, high-level or templated-based priors (i.e.,
+distributions of blobs or layers of conductivity) have been used to
+effectively reduce the dimensionality of the problem. Each of these
+techniques have demonstrated significant gains in efficiency for some
+problems, but achieving a significant improvement in scalability over
+a broad class of inverse problems seems to remain tied to reducing the
+dimensionality.
+
+<P>
+This desire to reduce the dimensionality creates an allure to leverage
+concepts from multilevel iterative solvers, which achieve their
+optimal scaling through the recursive use of coarser grids, with MCMC
+sampling. In this talk we highlight key issues in pursing this
+connection, such as the interpretation of the hierarchy of
+coarse-scale models, as well as the scale-dependent interpretation of
+the model parameters and their distributions. Specifically, we
+explore the use of multilevel solvers within a delayed acceptance
+scheme, and discuss the potential speedup of this approach. Then to
+combine the strengths of this approach with concepts from high-level
+proposals we explore a framework that directly samples the discrete
+hierarchy of models.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

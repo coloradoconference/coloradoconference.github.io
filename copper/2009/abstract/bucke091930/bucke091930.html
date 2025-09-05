@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bucke091930</TITLE>
+<META NAME="description" CONTENT="bucke091930">
+<META NAME="keywords" CONTENT="bucke091930">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bucke091930.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">S. D. Buckeridge 
+<BR><B>Parallel Multigrid in Numerical Weather Prediction</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Bath 
+<BR>
+Department of Mathematical Sciences 
+<BR>
+Bath 
+<BR>
+BA27AY 
+<BR>
+UK
+
+<BR><TT>sdb22@bath.ac.uk</TT>
+<BR>
+R. Scheichl
+<BR><EM>Supervisor</EM>
+</DIV>
+
+<P>
+Fast elliptic solvers are crucial to the forecasting and data
+assimilation tools used at the UK Met Office - one of the world's leading
+providers of weather-related services. Some of the core equations used in
+the numerical solution of weather and climate models are the
+Quasi-Geostrophic Dynamical equations, in particular the
+Quasi-Geostrophic Omega equation
+<!-- MATH
+ \begin{displaymath}
+N^2(r)\nabla^2 u-f_0^2\frac{1}{r^2}\frac{\partial^2 u}{\partial r^2}=f.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="194" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle N^2(r)\nabla^2 u-f_0^2\frac{1}{r^2}\frac{\partial^2 u}{\partial r^2}=f.
+$">
+</DIV><P></P>
+The Met Office uses structured spherical polar grids which has the
+drawback of creating strong anisotropies near the poles where the grid
+lines converge. Moreover, the grid spacings in the radial direction are
+much smaller since the thickness of the atmosphere is small compared to
+the circumference of the Earth's surface. Additionally, the grid is
+graded in this direction, with smaller grid spacings near the surface of
+the Earth to obtain a better resolution in the regions of most interest,
+thus creating a strong anisotropy also in the radial direction. Multigrid
+methods are known for their efficiency and robustness for isotropic
+elliptic problems, and remedies exist for anisotropic problems such as
+semi-coarsening and line smoothing. However, since the strength of
+anisotropy varies between the equator and the poles, the existing methods
+must be adapted further, introducing a non-uniform coarsening strategy,
+where the grid is coarsened only in regions that are sufficiently
+isotropic.
+
+<P>
+The success of non-uniform coarsening strategies has been demonstrated
+with Algebraic Multigrid (AMG) methods. Without the large setup costs
+required by these methods, however, we aim to surpass them with the
+geometric approach outlined above. Results will be given for both
+sequential and parallel solves.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

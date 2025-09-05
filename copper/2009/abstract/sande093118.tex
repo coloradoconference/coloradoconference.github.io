@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Geoffrey D. Sanders \\
+{\bf Acceleration of Algebraic Multigrid Methods for Markov Chains}}
+
+Department of Applied Mathematics \\ 526 UCB \\ University of Colorado \\ Boulder \\ CO 80309-0526
+\\
+{\tt sandersg@colorado.edu}\\
+Hans De Sterck\\
+{\em University of Waterloo}\\
+Tom Manteuffel\\
+{\em University of Colorado, Boulder}\\
+Steve McCormick\\
+{\em University of Colorado, Boulder}\\
+Killian Miller\\
+{\em University of Waterloo}\\
+John Ruge\\
+{\em University of Colorado, Boulder}\end{center}
+
+In many application areas, including web page ranking and networking
+systems, finding the steady-state distribution vector of a Markov system
+is of interest, and often difficult to compute efficiently. The
+steady-state vector is the solution to a nonsymmetric eigenproblem $B
+{\bf x} = {\bf x}$, subject to probability constraint $\|{\bf x}\|_1 =
+1$, where $B$ is column stochastic, ${\bf 1}^t B = {\bf 1}^t$. Recently,
+scalable methods involving Smoothed Aggregation (SA) and Algebraic
+Multigrid (AMG) were proposed to solve such eigenvalue problems. These
+methods
+use multiplicative iterate updates versus additive error corrections that
+are typically used in linear solvers. This work discusses the
+implementation of an outer iteration to the existing methods that
+accelerates convergence of multiplicative update methods, similar in
+principle to a preconditioned flexible Krylov wrapper applied to a linear
+problem. The acceleration is performed by selecting a linear combination
+of old iterates to minimize a functional that has the steady-state
+solution direction as a unique minimizing zero. The quality of the
+acceleration is demonstrated with a few simple examples.
+
+
+\end{document}

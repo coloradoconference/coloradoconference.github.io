@@ -1,0 +1,92 @@
+===affil2:
+School of Mechanical Engineering,University of Leeds,Leeds, West Yorkshire,United Kingdom.LS2 9JT
+===firstname:
+Sergii
+===firstname4:
+Harvey M.
+===firstname3:
+Yeaw Chu
+===lastname2:
+Gaskell
+===lastname:
+Veremieiev
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Lee
+===email:
+s.veremieiev@leeds.ac.uk
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+Thompson
+===affil4:
+School of Mechanical Engineering,University of Leeds,Leeds, West Yorkshire,United Kingdom.LS2 9JT
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+School of Mechanical Engineering,
+University of Leeds,
+Leeds, West Yorkshire,
+United Kingdom.
+LS2 9JT
+===firstname6:
+
+===ABSTRACT:
+The deposition and flow of continuous thin liquid films over man-made or naturally occurring functional substrates containing regions of micro-scale topography (which may be fully submerged or extend through the free-surface of the film itself) plays an important role in numerous engineering and biologically related fields. For example, in the context of engineering processes thin film flows form a key role in photo-lithography [1] and precision coating processes [2], while in biological systems they occur in areas as diverse as tissue engineering [3] and plant disease control [4]. 
+
+Current analytic and experimental methods are incapable, and likely to remain so for the foreseeable future, of either meeting the considerable challenges posed in unravelling the underlying physics of so wide a range of real problems or of providing the necessary insight for improving man-made functional substrates and the design and creation of novel ones. Equally, it would be naive to pretend that there currently exists an off-the-shelf computational answer involving a combined multi-scale modelling approach comprised of a strategic mix of molecular dynamics, meso-scale and continuum methods. The reality is that at present, the modelling of three-dimensional free-surface film flows over substrates containing complex topography is still at an early stage of development, for which exploitation of the long-wave approximation is the focus. The key simplifying feature of the latter is that it enables the reduction of the governing time-dependent Navier-Stokes equations to a more tractable coupled system of partial differential equations; nevertheless the resulting reduced equation set is still required to be solved both efficiently and accurately.
+
+In the context of the above, two such formulations are explored and solved for: (i) a simple lubrication (LUB) approach [5], where the dependent variables are the film height and pressure; (ii) a novel depth averaged form (DAF), which involves the determination of three variables – two velocity components and the film height.  Approach (ii), unlike (i), enables thin film flows with inertia to be predicted and its effect quantified. Solution of the nonlinear problems of interest is extremely challenging since large computational domains and fine mesh structures are required: (a) to ensure grid independent solutions; (b) to capture persistent free surface disturbances caused by both localised (single) and distributed (multiply-connected) topography; (c) as the length-scale of the topographical features involved become smaller and the resolution required to capture the resultant flow accurately becomes increasingly important.
+
+The research reported describes the development and application of an efficient, multigrid algorithm to solve the two different resulting equation sets, which implements the full approximation storage (FAS) and full multigrid (FMG) schemes together with a standard fixed number of pre- and post-smoothing V-cycles and appropriate inter-grid transfer and smoothing operators paired with Newton-Raphson iteration; appropriate account is also taken of the co-located (LUB) or staggered (DAF) meshing strategies employed. The associated time-descretisation includes the use of an explicit predictor [6] and a semi-implicit $\beta$-method [7] solution stages where automatic adaptive time-stepping is controlled in terms of the local truncation error on the finest grid level.
+
+The utility of the multigrid methodology is explored in two different ways:
+\begin{enumerate}
+\item As a scalable parallel, portable object-oriented algorithm implemented on the following HPC architectures: HECToR, HPCx and BlueGene/P.
+\item As a serial algorithm but with the additional feature of error controlled automatic mesh adaption [8].
+\end{enumerate}
+
+In terms of achieving efficient and accurate solutions, the former is shown to deliver the expected benefits that parallelisation and the use of multiple processor computing platforms bring and to be particularly well suited to predicting thin film flow on surfaces containing densely packed and complex topographical features; the latter is found to be preferentially suited to the case of film flow over localised or sparsely distributed topographical features were mesh adaption leads to considerable savings in CPU times without loss of accuracy.
+
+The examples chosen to illustrate the range of applicability of the above solution strategies are centred on the gravity-driven flow of thin films over substrates inclined at an angle $\theta$ to the horizontal and include: (i) comparison of the accuracy of predicted thin film profiles against experimental and complementary finite element solutions of the full Navier-Stokes problem, for varying flow parameters and both LUB and DAF approaches, in the case of two-dimensional span-wise topographies such as a step-up, a step-down, trenches and peaks; (ii) flow past three-dimensional localised surface patterns illustrating the influence of inertia and its effect with varying topography shape and size; (iii) the analysis of flow over an engineered man-made multiple-connected surface pattern where the practical goal is that of minimising free-surface disturbances caused by the topography; (iv) thin film flow over leaf sections exhibiting heterogeneous surface patterning.
+
+\flushleft{
+[1] W.K. Ho, A. Tay, L.L. Lee, C.D. Schaper, “On control of resist film uniformity in the microlithography process”, Control. Eng. Prac., 12(7), 881-892, 2004.
+
+[2] A. Clarke, “Coating on a rough surface”, A.I.Ch.E. Journal, 48, 21492156, 2002.
+
+[3] D.P. Gaver, J.B. Grotberg, “The Dynamics of a Localized Surfactant on a Thin-Film”, J. Fluid Mech., 213, 127-148, 1990.
+
+[4] D. R. Walters, “Disguising the leaf surface: the use of leaf coatings for plant disease control”, Euro. J. Plant Pathology, 114, 255-260, 2006.
+
+[5] P.H. Gaskell, P.K. Jimack, M. Sellier, H.M. Thompson, M.C.T. Wilson, “Gravity-driven flow of continuous thin liquid films on non-porous substrates with topography”, J. Fluid Mech., 509, 253-280, 2004.
+
+[6] P.H. Gaskell, P.K. Jimack, M. Sellier, H.M. Thompson, “Efficient and accurate time adaptive multigrid simulations of droplet spreading”, Int. J. Num. Meth. Fluids, 45, 1161-1186, 2004.
+
+[7] T.J. Chung, Computational Fluid Dynamics. Cambridge: Cambridge University Press, 2002.
+
+[8] Y.C. Lee, H.M. Thompson, P.H. Gaskell, “An efficient adaptive multigrid algorithm for predicting thin film flow on surfaces containing localized topographic features”, Computers \& Fluids, 38, 838-855, 2007.
+}
+
+
+===affil3:
+School of Mechanical Engineering,University of Leeds,Leeds, West Yorkshire,United Kingdom.LS2 9JT
+===lastname5:
+
+===affilother:
+
+===title:
+Multigrid strategies for the efficient and accurate solutions of free-surface film flow on man-made and naturally occurring functional substrates
+===firstname2:
+Phillip H.

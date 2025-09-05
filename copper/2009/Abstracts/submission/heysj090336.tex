@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeffrey J. Heys \\
+{\bf Algebraic Multigrid Solvers for Weighted Least-Squares Finite Elements with Application to Particle Imaging Velocimetry Analysis}}
+
+Chemical and Biological Engineering \\ Montana State University \\ PO Box 173920 \\ Bozeman \\ MT 59717-3920
+\\
+{\tt jeff.heys@gmail.com}\\
+Michele Milano\\
+{\em Arizona State University}\\
+Marek Belohlavek\\
+{\em Mayo Clinic Scottsdale}\end{center}
+
+The combination of ultrasound and microbubbles injected into the blood
+makes it possible to noninvasively obtain 2-dimensional velocity data
+inside the left ventricle of the heart. A long term goal is to translate
+this velocity data into information about energy loss, pressure
+gradients, and overall health of the heart, but this goal requires a full
+3-dimensional velocity field. The question that we seek to answer is
+whether the 2-dimensional velocity data can be incorporated into a full
+3-dimensional computational fluid dynamics simulation in an appropriate
+and computationally practical way. For addressing this problem, we
+examine the potential of least-squares finite element methods ({LSFEM})
+because of their flexibility in the enforcement of various boundary
+conditions and their natural compatibility with multigrid solvers. By
+weighting the boundary conditions in a manner that properly reflects the
+accuracy with which the boundary values are known, we develop the
+weighted LSFEM. The potential of weighted LSFEM is explored for two
+different test problems: the first uses randomly generated Gaussian noise
+to create artificial `experimental' data in a controlled manner, and the
+second uses experimental particle imaging velocimetry data. In both test
+problems, weighted LSFEM produces accurate results even for cases where
+there is significant noise in the experimental data and provides
+excellent computational scalability when used with a parallel algebraic
+multigrid solver.
+
+
+\end{document}

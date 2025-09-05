@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bolte092228</TITLE>
+<META NAME="description" CONTENT="bolte092228">
+<META NAME="keywords" CONTENT="bolte092228">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bolte092228.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Matthias Bolten 
+<BR><B>Local Fourier analysis of interpolation operators for problems with certain complex stencils - preliminary results</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Wuppertal 
+<BR>
+Department of Mathematics and Science 
+<BR>
+D-42097 Wuppertal 
+<BR>
+Germany
+
+<BR><TT>bolten@math.uni-wuppertal.de</TT>
+</DIV>
+
+<P>
+Local Fourier analysis (LFA) is known to be a valuable tool for the
+development of geometric multigrid methods for PDEs allowing an effective
+tuning of multigrid components. The main concept of LFA is the idea of
+keeping local stencils fixed and treating the (local) problems as if they
+where part of the associated infinitely large constant coefficient
+problems. This allows for an optimal choice of smoothers as well as
+restriction operators.
+
+<P>
+The infinitely large problem with constant coefficients corresponds to a
+(<IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ l$">-level) Toeplitz operator. The Toeplitz operators are completely
+described by their generating symbols, i.e. (<IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ l$">-variate) <IMG
+ WIDTH="22" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ 2
+\pi$">-periodic functions. For second order elliptic problems the
+generating symbol has a unique zero of order two at the origin. The
+multigrid methods for Toeplitz matrices and circulant matrices that have
+been developed in the last years work well for these problems, and they
+do not depend on the location of the zero. In fact, the zero of the
+generating symbol just influences the choice of the interpolation
+operator in the multigrid method.
+
+<P>
+Using these developments we are able to provide local interpolation
+operators for matrices with non-constant stencils with complex entries,
+consider e.g. the stencil
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\frac{1}{h^{2}} \left[ \begin{array}{ccc}
+& -e^{2 \pi i \varphi_{x,y+\mu}} & \\
+-e^{-2 \pi i \varphi_{x-\mu,y}} & 4 & -e^{2 \pi i \varphi_{x+\mu,y}} \\
+& -e^{-2 \pi i \varphi_{x,y-\mu}} &
+\end{array} \right]
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="355" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \frac{1}{h^{2}} \left[ \begin{array}{ccc} &amp; -e^{2 \pi i \varphi_{...
+...i \varphi_{x+\mu,y}} \\ &amp; -e^{-2 \pi i \varphi_{x,y-\mu}} &amp; \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the <!-- MATH
+ $\varphi_{x-\mu,y}, \varphi_{x+\mu,y}, \varphi_{x,y-\mu},
+\varphi_{x,y+\mu} \in [0,1]$
+ -->
+<IMG
+ WIDTH="264" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \varphi_{x-\mu,y}, \varphi_{x+\mu,y}, \varphi_{x,y-\mu},
+\varphi_{x,y+\mu} \in [0,1]$"> are some random parameters. This can be
+considered as a non-shifted variant of the 2d Gauge Laplace matrix that
+arises in a simplified model of lattice quantum chromodynamics. The idea
+is similar as in LFA, namely take the local stencil as a constant stencil
+in an infinitely large system. Using results found in previous works on
+multigrid methods for matrices being Toeplitz or circulant we are able to
+provide a local definition of the interpolation, yielding in
+interpolation operators for these matrices. The method has been
+implemented for the two-grid case and the results are as good as
+expected. The idea can be used in a multilevel setting, easily.
+
+<P>
+In this talk we will give a short overview over the used previous work,
+introduce the concept in larger detail and present some numerical results
+for the two-grid case.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

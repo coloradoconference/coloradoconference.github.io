@@ -1,0 +1,61 @@
+===affil2:
+Supervisor
+===firstname:
+S. D.
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Scheichl
+===lastname:
+Buckeridge
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+sdb22@bath.ac.uk
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+University of Bath
+Department of Mathematical Sciences
+Bath, BA27AY, UK
+===firstname6:
+
+===ABSTRACT:
+\noindent Fast elliptic solvers are crucial to the forecasting and data assimilation tools used at the UK Met Office - one of the world's leading providers of weather-related services.  Some of the core equations used in the numerical solution of weather and climate models are the Quasi-Geostrophic Dynamical equations, in particular the Quasi-Geostrophic Omega equation
+\begin{displaymath}
+ N^2(r)\nabla^2 u-f_0^2\frac{1}{r^2}\frac{\partial^2 u}{\partial r^2}=f.
+\end{displaymath}
+The Met Office uses structured spherical polar grids which has the drawback of creating strong anisotropies near the poles where the grid lines converge. Moreover, the grid spacings in the radial direction are much smaller since the thickness of the atmosphere is small compared to the circumference of the Earth's surface. Additionally, the grid is graded in this direction, with smaller grid spacings near the surface of the Earth to obtain a better resolution in the regions of most interest, thus creating a strong anisotropy also in the radial direction. Multigrid methods are known for their efficiency and robustness for isotropic elliptic problems, and remedies exist for anisotropic problems such as semi-coarsening and line smoothing. However, since the strength of anisotropy varies between the equator and the poles, the existing methods must be adapted further, introducing a non-uniform coarsening strategy, where the grid is coarsened only in regions that are sufficiently isotropic.
+
+The success of non-uniform coarsening strategies has been demonstrated with Algebraic Multigrid (AMG) methods. Without the large setup costs required by these methods, however, we aim to surpass them with the geometric approach outlined above. Results will be given for both sequential and parallel solves. 
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Parallel Multigrid in Numerical Weather Prediction
+===firstname2:
+R.

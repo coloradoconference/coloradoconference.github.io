@@ -1,0 +1,100 @@
+===affil2:
+
+===firstname:
+Ralf
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Juengling
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+juenglin@cs.pdx.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Portland State University
+Department of Computer Science
+P.O. Box 751
+Portland, OR 97207-0751
+===firstname6:
+
+===ABSTRACT:
+An interesting problem from the field of computer vision
+is reconstruction of piece-wise smooth functions from
+noisy and incomplete data. The problem is more difficult
+than reconstructing smooth functions and algorithms 
+typically employ an iterative relaxation method as a
+component.
+
+We studied a particular algorithm, published twenty years
+ago by Leclerc [1], which reconstructs two-dimensional,
+piece-wise polynomial functions from noisy data. An
+objective function is derived from the premise that a
+description of the data in terms of a piece-wise polynomial
+signal plus noise from some known stochastic process is
+more likely to be correct the shorter it is. The objective,
+f, is not continuous and thus difficult to optimize.
+
+Leclerc devises a continuation method by which a sequence
+of tentative solutions is sought, solutions corresponding
+to a sequence of smooth objective functions converging
+to f. For each step of the continuation method Leclerc
+uses the Jacobi method to relax the most recent tentative
+solution on the linear system that results from setting 
+the gradient of the next objective in the sequence to zero.
+
+In our experiments it turned out that Leclerc's algorithm
+finds satisfying solutions only for small problem sizes
+and performs poorly with realistic sizes. In several
+variations of Leclerc's continuation scheme we substitute 
+other methods for the Jacobi relaxation to remedy the poor
+performance. In particular, we substitute a Conjugate
+Gradient method, an inexact Newton method, and a multigrid
+Gauss-Seidel relaxation method.
+
+In this presentation we briefly review Leclerc's work and 
+give a picture of the difficulties we encountered with 
+larger problem sizes. We sketch our variations of Leclerc's
+continuation algorithm, present results for each method and
+discuss their merits and shortcomings in terms of accuracy,
+computational efficiency, and amount of work required
+for their implementation.
+
+
+[1] Y. Leclerc: "Constructing simple stable descriptions
+for image partitioning", IJCV (3), pp. 73-102, 1989.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Multigrid vs. Conjugate Gradient for Piece-Wise Smooth Surface Reconstruction, a Case Study
+
+===firstname2:
+

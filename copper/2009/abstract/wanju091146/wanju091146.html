@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wanju091146</TITLE>
+<META NAME="description" CONTENT="wanju091146">
+<META NAME="keywords" CONTENT="wanju091146">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wanju091146.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Justin Wan 
+<BR><B>A Multigrid Method for Solving Partial Integro-Differential Equations Arising from Option Pricing Under the Levy Process</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">School of Computer Science 
+<BR>
+University of Waterloo 
+<BR>
+200 University Ave West 
+<BR>
+Waterloo 
+<BR>
+ON N2L 3G1 
+<BR>
+Canada
+
+<BR><TT>jwlwan@uwaterloo.ca</TT>
+<BR>
+Iris R. Wang
+<BR><EM>University of Waterloo</EM>
+</DIV>
+
+<P>
+Recently, Levy process models for pricing options have become
+popular in the financial literature. Based on the Black-Scholes
+model, the option value of a contingent claim, <IMG
+ WIDTH="55" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ V(S,\tau)$">,
+under the Levy process satisfies the following partial
+integro-differential equation (PIDE):
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+V_\tau =
+\frac{\sigma^2}{2}S^2V_{SS} +
+(r-q)SV_S - rV + \int_{-\infty}^{\infty} \nu(y)[V(Se^y,\tau) - V(S,\tau) -
+S(e^y - 1) V_S]dy,
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="596" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle V_\tau =
+\frac{\sigma^2}{2}S^2V_{SS} +
+(r-q)SV_S - rV + \int_{-\infty}^{\infty} \nu(y)[V(Se^y,\tau) - V(S,\tau) -
+S(e^y - 1) V_S]dy,$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+where <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ S$"> is the underlying stock price, <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \tau$"> the time to
+expiry, <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ r$"> the risk-free interest rate, <IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ q$"> the dividend yield,
+and <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \sigma$"> the volatility associated with the continuous
+component of Levy process. The Levy measure <IMG
+ WIDTH="34" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \nu(y)$"> is
+typically singular at <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ y=0$">.
+
+<P>
+Due to the singularity of <IMG
+ WIDTH="34" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \nu(y)$">, standard discretization
+methods may not achieve the usual accuracy. Moreover, the
+computation of the integral term can be very expensive.
+Recently, an implicit discretization method has been proposed
+that can obtain second order convergence for finite variation
+case and better than first order accuracy for infinite variation
+processes. In each time step, a linear system needs to be
+solved, which forms the bottle neck of the entire computation.
+A fixed point and a preconditioned BiCGSTAB iterations have been
+proposed. While they converge quite rapidly for mildly singular
+cases, the number of iterations grows significantly in the case
+of infinite variation when the mesh size decreases.
+
+<P>
+In this talk, we present a multigrid method for solving the
+PIDE. The multigrid method uses a fixed point iteration for
+smoothing. We prove by Fourier analysis that the smoother damps
+away the high frequencies. Linear interpolation and full
+weighting are used for intergrid transfer. Since it is too
+expensive to form the integral term explicitly, direct
+discretization is used for constructing the coarse grid matrices.
+However, it turns out that it is not as effective as the
+Galerkin course grid operators. We discuss how a combination
+of the two is used to form the coarse grid matrices. We
+demonstrate numerically the effectiveness of the multigrid
+method and show that the convergence rate is independent of the
+mesh size.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

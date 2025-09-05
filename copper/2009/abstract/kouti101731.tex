@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yiannis Koutis \\
+{\bf The Combinatorial Multigrid Solver}}
+
+Computer Science Department \\ Carnegie Mellon University \\ 5000 Forbes Avenue \\ Pittsburgh \\ PA 15213
+\\
+{\tt jkoutis@cs.cmu.edu}\\
+Gary Miller\\
+{\em Carnegie Mellon University}\end{center}
+
+The study of systems on graph Laplacians -the discrete analog of the
+inhomogeneous Poisson equation- has been a topic of interest for both the
+scientific computing (SC) and the theoretical computer science (TCS)
+communities. While the SC community has developed multigrid methods for
+this problems since the 70s, the TCS community has started studying the
+problem much more recently, in the middle 90s, through the introduction
+of Combinatorial Preconditioners, by P. Vaidya. The intense study of
+Combinatorial Preconditioners has recently lead to algorithms with
+strictly provable asymptotic properties: the Spielman-Teng solver, with a
+complexity of O(m polylog(m)) for general Laplacians with m non-zeros,
+and our O(n) solver for planar Laplacians.
+
+In this talk we present the Combinatorial Multigrid Solver (CMG). The CMG
+solver is a multigrid solver derived through the construction of
+combinatorial preconditioners that are based on the combinatorial
+geometry of the underlying graph. In that way the CMG solver combines the
+"black-box/theoretical guarantees" quality of the combinatorial
+preconditioners approach, with the speed and the parallelism potential of
+multigrid. To validate our claim, we present experiments with very large
+3D Laplacians derived from medical scans.
+
+
+\end{document}

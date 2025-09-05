@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kucha089416</TITLE>
+<META NAME="description" CONTENT="kucha089416">
+<META NAME="keywords" CONTENT="kucha089416">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kucha089416.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Acknowledgment</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Milan Kucharik 
+<BR><B>Application of JFNK to Kinetic Energy Conservative Remapping of the Nodal Velocity in ALE</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">T-05 MS B284 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545 USA
+
+<BR><TT>kucharik@lanl.gov</TT>
+<BR>
+Markus Berndt
+<BR>
+Mikhail Shashkov
+</DIV>
+
+<P>
+Arbitrary Lagrangian-Eulerian (ALE) methods appear to be reasonable
+compromise between Lagrangian and Eulerian approaches, allowing to solve
+large variety of fluid problems. The standard ALE algorithm uses a
+Lagrangian solver to update fluid quantities and the computational mesh
+in the next time step, which can eventually tangle the mesh. To avoid
+such problems, mesh regularization (untangling or smoothing) is applied
+in the case of low mesh quality, followed by a remapping step that
+interpolates all fluid quantities from the Lagrangian to the smoothed
+mesh.
+
+<P>
+Here, we focus on the last part of the ALE algorithm - remapping - in
+the case of a staggered discretization, where scalar quantities (density,
+pressure, specific internal energy) are defined inside mesh cells, and
+vector quantities (positions, velocities) are defined on mesh nodes. A
+staggered discretization is used in most current ALE codes. Generally,
+remapped nodal kinetic energy is not equal to nodal kinetic energy
+obtained from remapped velocities, and this discrepancy leads to energy
+conservation violation and consequently to wrong shock speeds. The
+kinetic energy discrepancy is usually treated by distributing it to the
+internal energy of adjacent cells [<A
+ HREF="node2.html#Benson:hydrocodes">2</A>].
+
+<P>
+An alternative 1D approach introduced in [<A
+ HREF="node2.html#Bailey:vel_remap">1</A>] is based
+on the construction of high-order interpolated velocities <!-- MATH
+ $u^*_{n+1/2}$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ u^*_{n+1/2}$">
+used for momentum fluxes (and thus for the velocity update)
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:flux_mom"></A><!-- MATH
+ \begin{equation}
+\tilde{m}_{n}\, \tilde{u}_{n} = m_n\, u_n
++ F^{m}_{n,n+1/2}\, u^*_{n+1/2}
+- F^{m}_{n,n-1/2}\, u^*_{n-1/2}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="369" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \tilde{m}_{n}\, \tilde{u}_{n} = m_n\, u_n + F^{m}_{n,n+1/2}\, u^*_{n+1/2} - F^{m}_{n,n-1/2}\, u^*_{n-1/2}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+such that the kinetic energy discrepancy is automatically eliminated.
+Here, <!-- MATH
+ $F^{m}_{n,n\pm 1/2}$
+ -->
+<IMG
+ WIDTH="64" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ F^{m}_{n,n\pm 1/2}$"> stands for mass fluxes around node <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ n$">, which
+are also used for the nodal mass update in a similar flux form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:flux_mass"></A><!-- MATH
+ \begin{equation}
+\tilde{m}_{n} = m_n + F^{m}_{n,n+1/2} - F^{m}_{n,n-1/2}
+\,\mbox{.}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="232" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle \tilde{m}_{n} = m_n + F^{m}_{n,n+1/2} - F^{m}_{n,n-1/2} \,$">.</TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This method expresses the new kinetic energy <IMG
+ WIDTH="19" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \tilde{K}$"> in each node in a flux form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:flux_form"></A><!-- MATH
+ \begin{equation}
+\tilde{K}_{n} = K_n + F^{K}_{n,n+1/2}
+- F^{K}_{n,n-1/2} \,\mbox{,}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="231" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle \tilde{K}_{n} = K_n + F^{K}_{n,n+1/2} - F^{K}_{n,n-1/2} \,$">,</TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where fluxes <IMG
+ WIDTH="29" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ F^{K}$"> can be computed from known quantities and
+unknown inter-nodal flux velocities <!-- MATH
+ $u^*_{n \pm 1/2}$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ u^*_{n \pm 1/2}$">. To achieve energy
+conservation, there must be an unique flux between every two nodes:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:flux_equality"></A><!-- MATH
+ \begin{equation}
+F^{K}_{n,n+1/2} = F^{K}_{n+1,n+1/2} \equiv F^{K}_{n+1/2}
+\,\mbox{,}\,\, \forall n
+\,\mbox{.}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="233" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle F^{K}_{n,n+1/2} = F^{K}_{n+1,n+1/2} \equiv F^{K}_{n+1/2} \,$">,<IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle \,\, \forall n \,$">.</TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+After substituting for all <IMG
+ WIDTH="29" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ F^{K}$">, we obtain a system of coupled
+quadratic equations for all <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ u^*$">,
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:system_Bailey"></A><!-- MATH
+ \begin{equation}
+u^{*}_{n+1/2} = \frac{ u_{n+1}\, \bar{u}_{n+1}
+- u_{n} \, \bar{u}_{n}
+- \left(u_{n+1}^2-u_{n}^2\right)/2}
+{\bar{u}_{n+1} - \bar{u}_{n}}
+\,\mbox{,}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="331" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle u^{*}_{n+1/2} = \frac{ u_{n+1}\, \bar{u}_{n+1} - u_{n} \, \bar{u}_{n} - \left(u_{n+1}^2-u_{n}^2\right)/2} {\bar{u}_{n+1} - \bar{u}_{n}} \,$">,</TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\bar{u}_n = (u_n + \tilde{u}_n)/2$
+ -->
+<IMG
+ WIDTH="127" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \bar{u}_n = (u_n + \tilde{u}_n)/2$">, and the new velocities
+<!-- MATH
+ $\tilde{u}_n$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \tilde{u}_n$"> are defined in (<A HREF="#eq:flux_mom">1</A>). This system can
+either be solved with a fixed point iteration, or with a Newton
+solver.
+
+<P>
+In this presentation, we demonstrate that the system
+(<A HREF="#eq:system_Bailey">5</A>) does not always have a solution, and analyze
+this situation. Two alternative approaches will be introduced.
+
+<P>
+In the first approach, the flux equality (<A HREF="#eq:flux_equality">4</A>) is not
+enforced strictly, but its discrepancy is minimized in a least squares
+sense
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:appr_1"></A><!-- MATH
+ \begin{equation}
+D^{F} = \sum\limits_{\forall (n+1/2)} (F^{K}_{n+1,n+1/2} - F^{K}_{n,n+1/2})^2
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="278" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle D^{F} = \sum\limits_{\forall (n+1/2)} (F^{K}_{n+1,n+1/2} - F^{K}_{n,n+1/2})^2$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(6)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+by differentiating <IMG
+ WIDTH="29" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ D^{F}$"> with respect to all <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ u^*$"> and solving a system
+<!-- MATH
+ $\partial D^F / \partial u^*_{n+1/2} = 0$
+ -->
+<IMG
+ WIDTH="131" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \partial D^F / \partial u^*_{n+1/2} = 0$"> for all <IMG
+ WIDTH="57" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ n+1/2$">. Thus, the
+kinetic energy discrepancy is minimized as much as possible, but is not
+guaranteed to equal zero.
+
+<P>
+In the second approach, the kinetic energy discrepancy is directly
+minimized. Unfortunately, zero kinetic energy discrepancy is generally
+satisfied by infinitely many solutions. Because flux velocities
+<!-- MATH
+ $u^*_{n+1/2}$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ u^*_{n+1/2}$"> represent values interpolated from adjacent nodal
+velocities <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ u_{n}$"> and <IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ u_{n+1}$">, this velocity should remain bounded by
+these neighbor values and no under/overshoots should appear. Thus,
+additional terms are added to the kinetic energy discrepancy formula,
+which enforce these bounds during minimization
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:appr_2"></A><!-- MATH
+ \begin{equation}
+D^{K} = (\tilde{K} - K)^2 +
+\varepsilon\, K\, \sum\limits_{\forall (n+1/2)}
+\left( \frac{1}{2}\, m_{n+1/2}\, \left(
+u^*_{n+1/2} - \frac{u_{n} + u_{n+1}}{2}
+\right)^2 \right)
+\,\mbox{.}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="497" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$\displaystyle D^{K} = (\tilde{K} - K)^2 + \varepsilon\, K\, \sum\limits_{\foral...
+...m_{n+1/2}\, \left( u^*_{n+1/2} - \frac{u_{n} + u_{n+1}}{2} \right)^2 \right) \,$">.</TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(7)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Similarly to our first approach, the minimization is done by solving a
+system <!-- MATH
+ $\partial D^K / \partial u^*_{n+1/2} = 0$
+ -->
+<IMG
+ WIDTH="133" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \partial D^K / \partial u^*_{n+1/2} = 0$"> for all <IMG
+ WIDTH="57" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ n+1/2$">. This
+approach finds a zero discrepancy solution that is generally different
+from the solution of system (<A HREF="#eq:flux_equality">4</A>) (if it exists). In
+both approaches (<A HREF="#eq:appr_1">6</A>) and (<A HREF="#eq:appr_2">7</A>), the
+Jacobian-free Newton-Krylov solver [<A
+ HREF="node2.html#Pernice_Walker:NITSOL">3</A>] with a
+possible preconditioning is used.
+
+<P>
+We will also mention a generalization of these approaches to 2D
+logically orthogonal meshes (including corner coupling), and demonstrate
+their behavior in the context of an ALE hydro code for a particular fluid
+flow problem.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Acknowledgment</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">Bibliography</A>
+<LI><A NAME="tex2html6"
+  HREF="node3.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Acknowledgment</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>
