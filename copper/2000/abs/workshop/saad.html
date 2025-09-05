@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>cm conference abstract: Yousef Saad </title>
+</head>
+
+<body>
+
+<center>
+Recent progress in Algebraic Recursive Multilevel Solver (ARMS): 
+enhancing robustness 
+</center>
+
+<p>
+<center>
+<a href="mailto: saad@cs.umn.edu">
+Yousef Saad</a><br><br>
+University of Minnesota, Computer Science and Engineering \br
+200 Union St. SE, Minneapolis, MN 55455 
+</center>
+<p> 
+
+<i> * To be presented at the mini-symposium on "Multilevel 
+preconditioning techniques" organized by W.P. Tang. *
+</i> 
+
+
+<p> 
+
+
+<br>
+
+ARMS  is   a  recursive  multilevel  preconditioner   which  has  some
+attributes  of   ILU-type  preconditioners  and   some  attributes  of
+multilevel precondontioners.  It is  algebraic and general  purpose in
+the same way that ILUT (for example)  is.  The main idea of ARMS is to
+recursively form  the Schur complement system associated  with a block
+reordering of the original matrix in the form
+
+<pre> 
+                    | B   E  | | x |   | f |
+                    |        | |   | = |   | 
+                    | F   C  | | y |   | g | 
+</pre> 
+
+The reordering is such that 
+the block $B$ is block diagonal.  The Schur complement <br>
+<center> S = C - F B<sup>-1</sup> E </center> 
+is  typically sparse and as a result the same reduction process can now
+be applied recursively. 
+The method is inherently parallel, though no real parallel 
+implementations are yet available. 
+<p>
+We  will discuss  a  number  of recent  ideas  and new  implementation
+strategies  to enhance  efficiency.  We  will  also show  some of  our
+recent  work in  enhancing the  robustness of  the algorithm  for very
+indefinite problems.
+<br>
+
+Recent papers on this and other topics by the author are 
+<A href="http://www.cs.umn.edu/~saad/"> available </A> online. 
+
+</center>
+
+<p>
+
+</body>
+</html>
+

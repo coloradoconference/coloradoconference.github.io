@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Preconditioning spectral methods for first order equations  }
+
+\author{Manfred R Trummer \\ {\tt  trummer@sfu.ca} \\ Department of Mathematics and Statistics  \\  Simon Fraser University  \\  Burnaby, British Columbia, Canada V5A 1S6  \\}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+We discretize first order equations
+$u_t + c(x,t) u_x + b(x,t) u = f(x,t)$
+subject to periodic boundary conditions 
+(in $x$ and $t$)
+with a Fourier collocation method.
+The matrix of the resulting linear system
+is moderately sparse and highly structured.
+Iterative methods are an excellent choice for solving
+such systems.  We compare the
+performance of various iterative solvers,
+and propose an effective preconditioning strategy
+for this class of matrices.  The method extends
+easily to nonlinear PDEs, where each Newton step
+requires the solution of a linear first order
+equation.  One such problem, namely the computation of
+an invariant torus, will be presented as an example.
+
+
+
+
+
+
+
+\end{document}

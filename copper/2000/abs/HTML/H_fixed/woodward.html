@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>cm conference abstract: Woodward</title>
+</head>
+
+<body>
+
+<center>
+Implicit Solution of Radiation-Diffusion Problems Using 
+Newton-Krylov-Multigrid Methods
+</center>
+
+<p>
+<center>
+Carol S. Woodward ({\tt cswoodward@llnl.gov}) \\
+Peter Brown \\
+Britton Chang \\
+Frank Graziani  \\
+Craig Kapfer
+\\ \\
+Lawrence Livermore National Laboratory \\
+P.O. Box 808, L-561 \\
+Livermore, CA  94551
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Modeling of radiation-diffusion processes has traditionally been 
+accomplished through simulations based on decoupling and linearizing
+the basic physics equations.  By applying these techniques, 
+physicists have simplified their model enough that problems of
+moderate sizes could be solved.  However, new applications demand
+the simulation of larger problems for which the inaccuracies and 
+nonscalability of current algorithms prevent solution.  Recent work 
+in iterative methods has provided computational scientists with 
+new tools for solving these problems.  
+<p>
+In this talk, we present an algorithm for the implicit solution 
+of the diffusion approximation coupled to a material temperature 
+equation.  This algorithm uses a stiff ODE solver coupled with 
+Newton's method for solving the implicit equations arising at 
+each time step.  The Jacobian systems are solved by applying 
+GMRES preconditioned with a semicoarsening multigrid algorithm.  
+By combining the nonlinear Newton iteration with a multigrid 
+preconditioner, we hope to take advantage of the fast, robust 
+nonlinear convergence of Newton's method and the scalability 
+of the linear multigrid method.  Numerical results will be 
+shown indicating that the method is accurate.  Furthermore, 
+both algorithmic and parallel scalabilities will be explored.
+<p>
+This work was performed under the auspices of the U.S. Department of 
+Energy by the Lawrence Livermore National Laboratory under 
+Contract W-7405-Eng-48. UCRL-JC-135152 abs
+
+</body>
+</html>
+
+

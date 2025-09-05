@@ -1,0 +1,176 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Sparse Multiple Semicoarsened Grids  }
+
+\author{Robert D. Falgout \\ {\tt  rfalgout@llnl.gov} \\ Center for Applied Scientific Computing  \\  Lawrence Livermore National Laboratory  \\  P.O. Box 808, L-561, Livermore, CA  94551}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+Much work has been done developing robust multigrid methods for
+solving diffusion equations on structured grids, especially when
+discontinuous coefficients and anisotropy are present (see e.g.,
+[1-9]).  However, all of these methods have relatively high
+computational costs and memory costs.  The goal of this work is to
+develop an algorithm that is both robust
+{\em 
+and
+}
+efficient.
+
+
+
+
+We will present a method based on a modification of the multiple
+semicoarsened grids (MSG) method in [4].  The robustness of MSG is
+studied in [5], and a new, more efficient, variant is proposed in [6].
+Our approach for improving efficiency is based on the relationship
+between the MSG algorithm, the hierarchical-basis multigrid method
+[10], and the sparse grids method [11,12].
+
+
+
+
+The sparse grids method is actually a discretization method that
+considerably reduces computational and storage costs with little loss
+in discretization accuracy.  The method uses hierarchical-basis
+functions defined on a subset of the MSG grids, and uses the so-called
+combination technique to implicitly define the discretization on the
+sparse grid.  It is important to note that although the sparse grids
+method and the MSG method both provide solutions to the diffusion
+problem of interest, they do not solve them on the same discrete grid.
+We consider solving the diffusion equation with the MSG method, but
+with only a subset of the MSG grids.  If we use the same grids as in
+the sparse grids method, one can think of this approach as using the
+sparse grids discretization to form the coarse grid problem in a
+two-level multigrid method.  Since the sparse grids discretization is
+nearly as accurate as the standard Cartesian discretization, we expect
+this method to work well.
+
+
+
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under contract
+no. W-7405-Eng-48.
+
+
+[1] S. Schaffer,
+{\em 
+A semi-coarsening multigrid method for elliptic
+partial differential equations with highly discontinuous and
+anisotropic coefficients
+}
+, SIAM J. Sci. Comput., 20 (1998),
+pp. 228-242.
+
+[2] P. N. Brown, R. D. Falgout, and J. E. Jones,
+{\em 
+Semicoarsening
+multigrid on distributed memory machines
+}
+.  To appear in the SIAM
+Journal on Scientific Computing special issue on the Fifth Copper
+Mountain Conference on Iterative Methods. Also available as LLNL
+technical report UCRL-JC-130720, 1999.
+
+[3] W. A. Mulder,
+{\em 
+A new multigrid approach to convection
+problems
+}
+, J.  Comput. Phys., 83 (1989), pp. 303--323.
+
+[4] N. H. Naik and J. R. Rosendale,
+{\em 
+The improved robustness of
+multigrid elliptic solvers based on multiple semicoarsened grids
+}
+,
+SIAM J. Numer.  Anal., 30 (1993), pp. 215-229.
+
+[5] C. W. Oosterlee and P. Wesseling,
+{\em 
+On the robustness of a multiple
+semi-coarsened grid method
+}
+, Z. Angew. Math. Mech., 75 (1995),
+pp. 251-257.
+
+[6] T. Washio and C. W. Oosterlee,
+{\em 
+Flexible multiple semicoarsening for
+three-dimensional singularly perturbed problems
+}
+, SIAM
+J. Sci. Comput., 19 (1998), pp. 1646-1666.
+
+[7] W. Hackbusch,
+{\em 
+The frequency decomposition multi-grid method
+}
+,
+in Multigrid Methods IV, Proceedings of the Fourth European Multigrid
+Conference, Amsterdam, July 6-9, 1993, vol. 116 of ISNM, Basel, 1994,
+Birkhauser, pp. 43-56.
+
+[8] J. E. Dendy and C. C. Tazartes,
+{\em 
+Grandchild of the frequency
+decomposition multigrid method
+}
+, SIAM J. Sci. Comput., 16 (1995),
+pp. 307--319.
+
+[9] J. E. Dendy,
+{\em 
+Revenge of the semicoarsening frequency
+decomposition multigrid method
+}
+, SIAM J. Sci. Comput., 18 (1997),
+pp. 430-440.
+
+[10] R. E. Bank, T. Dupont, and H. Yserentant,
+{\em 
+The hierarchical basis
+multigrid method
+}
+, Numer. Math., 52 (1988), pp. 427-458.
+
+[11] C. Zenger,
+{\em 
+Sparse grids
+}
+, in Parallel algorithms for partial
+differential equations: Proceedings of the Sixth GAMM-Seminar, Kiel,
+Jan.  1990, vol. Notes on Numerical Fluid Mechanics, vol. 31, Vieweg,
+Braunschweig, 1991.
+
+[12] M. Griebel, M. Schneider, and C. Zenger,
+{\em 
+A combination technique
+for the solution of sparse grid problems
+}
+, in Proceedings of the
+IMACS International Symposium on Iterative Methods in Linear Algebra,
+Amsterdam, 1992, Elsevier, pp. 263-281.
+
+
+
+
+
+\end{document}

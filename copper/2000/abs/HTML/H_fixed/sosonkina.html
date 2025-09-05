@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>cm conference abstract: Sosonkina        </title>
+</head>
+
+<body>
+
+<center>
+<b>Rational Approximation Preconditioners for General Sparse Linear
+Systems</b>
+</center>
+
+<p>
+<center>
+Philippe Guillaume, {\tt guillaum@gmm.insa-tlse.fr} \\
+UMR MIP 5640, D&eacute;partement de Math&eacute;matiques, INSA
+\\
+Complexe Scientifique de Rangueil, 31077 Toulouse Cedex, France
+\\ \\
+Yousef Saad, {\tt saad@cs.umn.edu} \\
+Department of Computer Science and Engineering \\
+University of Minnesota \\
+200 Union Street S.E., Minneapolis, MN 55455
+\\ \\
+Masha Sosonkina, {\tt masha@d.umn.edu} \\
+Department of Computer Science \\
+University of Minnesota - Duluth, 320 Heller Hall \\
+10 University Drive, Duluth, MN 55812-2496
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We present a class of preconditioning techniques which exploit
+rational function approximations to the original matrix. The matrix is
+first shifted and then an incomplete LU factorization of the resulting matrix
+is computed. The resulting factors are then used to compute a better
+preconditioner to the original matrix. Since the incomplete
+factorization is made on a shifted matrix, a good LU factorization 
+is obtained without
+allowing much fill-in. The result needs to be extrapolated to the
+non-shifted matrix. Thus, the main motivation for this process is to
+save memory. The method is useful for matrices whose incomplete LU
+factorizations are poor, e.g., unstable. An error analysis for the 
+conjugate gradient
+algorithm gives some guidance for choosing the shift of the matrix, in
+the special case where the shifted system is solved exactly.
+For several diffcult real-world problems, we provide a few examples of the 
+practical application of the proposed techniques. 
+
+</body>
+</html>

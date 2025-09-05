@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>cm conference abstract: Serge Goossens</title>
+</head>
+<body>
+<center>
+Mortar Projection in Overlapping Composite Mesh Difference Methods
+</center>
+<p>
+<center>
+Serge Goossens \\
+{\tt http://www.cs.kuleuven.ac.be/\~{}serge/} \\
+{\tt Serge.Goossens@cs.kuleuven.ac.be} \\
+Katholieke Universiteit Leuven,
+Department of Computer Science<br>
+Celestijnenlaan 200A,
+B-3001 Heverlee,
+BELGIUM
+</center>
+<p>
+<center>
+<br>Abstract
+</center>
+<p>
+The main topic addressed in this talk is the use of the mortar projection
+in an overlapping composite mesh difference method.  We summarise the
+overlapping nonmatching mortar method described by Cai et al.  This method
+has several desirable properties: it has a full theory, it is consistent,
+the accuracy is of optimal order and the error is independent of the size
+of the overlap.  The disadvantage of this method is that it needs weights,
+which makes it impossible to use fast solvers for the subdomain problems.
+The Composite Mesh Difference Method (CMDM) has a full theory, and the
+accuracy is of optimal order.  The main advantage of this method is that no
+weights are necessary and therefore it allows for fast subdomain solvers.
+The disadvantage is that low order interpolation may lead to a local
+inconsistent discretisation, resulting in an error that depends on the size
+of the overlap.  We discus the easy to implement combination of bilinear
+interpolation with the standard five-point stencil, showing the
+disadvantages of a CMDM due to the local inconsistency when the low order
+interpolaton is used.  
+<p>
+The goal is to take the mortar approach, drop the weights and compare its
+results to the non-mortar methods.  In the ideal scheme the accuracy has to
+be of optimal order and the error has to be independent of the size of
+overlap.  For the purpose of preconditioning and the use of fast solvers it
+is desirable not to have weights in the discretisation equations on the
+overlapping parts of the domain.
+<p>
+The standard stencils (corresponding to P1 or Q1 finite elements on a
+uniform mesh) with bicubic interpolation have these properties.  But these
+schemes have several disadvantages.  First of all a bicubic interpolation
+formula uses 16 points, which is a lot.  Second, they fit in the CMDM
+theory, but this theory requires a large overlap since the interpolation
+constant is quite large, i.e. 25/16 in 2D.  The numerical results show that
+there is no dependency on the amount of overlap since the scheme is fully
+consistent.  The modified stencil with 1D cubic interpolation proposed by
+Goossens and Cai also fits in the CMDM theory.  In this case the
+interpolation constant is smaller, i.e. 5/4 for 1D cubic interpolation.
+Consequently the theory calls for less overlap.  The scheme is fully
+consistent so the numerical results show that there is no dependency on the
+amount of overlap.
+<p>
+The P1 and Q1 finite element discretisations on a uniform mesh can be
+considered as finite difference stencils for which the local truncation
+error is second order.  The mortar projection can be used for the
+interpolation.  These schemes satisfy all the assumptions made in the CMDM
+theory and the resulting method is second order.  However we need to
+consider 2 interpolations for the mortar projection.  The first
+interpolation is the actual projection from the master to the slave side of
+the mortar on the interface.  In the case of overlapping nonmatching grids
+we also need to compute the master side of the mortar, which requires
+evaluating the P1 or Q1 finite element function.  This boils down to linear
+interpolation.  As a result for P1 and Q1 finite elements a linear
+interpolation is done in the direction normal on interface.
+<p> 
+Based on our experience with bilinear interpolation we can estimate the
+effect of doing linear interpolation in the direction normal on interface.
+This interpolation gives rise to an extra term in the bound on the error in
+the extended subdomain just as in the error bound for the P1 stencil with
+bilinear interpolation.  A final point we are considering is the dependency
+on the overlap.  A large overlap may be required since the mortar
+projection does not satisfy the maximum principle (an example will be
+shown).  We will present numerical results illustrating the influence of
+the size of the overlap both on the accuracy of the discretisation and on
+the performance of the iterative solver.
+</body>
+</html>
+

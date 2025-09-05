@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{The Weighted Distributed Modification ILU Factorisation  }
+
+\author{Victor Eijkhout \\ {\tt eijkhout@cs.utk.edu} \\ Department of Computer Science, 107 Ayres Hall \\ University of Tennessee, Knoxville TN 37996}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+The quest for the ultimate incomplete factorisation is a struggle
+between the demand for accuracy, and the demand for the well-definedness
+of the factorisation. It is a well known phenomenon that ordinary
+ILU can break down, even on SPD matrices. Various strategies to guarantee
+a well-defined factorisation exist, but they often reduce the accuracy
+of the factorisation. I will present a new factorisation that has
+strong guarantees for its existence, and exhibits a reasonable
+robustness in practical tests. The main idea behind this factorisation
+is that fill-in in $(i,j)$ is scaled, and moved to both the
+$(i,j)$ and $(j,j)$
+diagonal elements.
+
+
+
+
+
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Adaptive ILU Preconditioning Strategies in Semiconductor Process Modeling  }
+
+\author{Jun Zhang \\ {\tt http://www.cs.uky.edu/~jzhang} \\ Department of Computer Science  \\  University of Kentucky  \\  773 Anderson Hall  \\  Lexington, KY 40506-0046 \\ \\ Anand L. Pardhanani and Graham F. Carey  \\  CFD Laboratory, WRW 301  \\  University of Texas at Austin  \\  Austin, Texas 78712  \\}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+Preconditioning strategies based on incomplete factorization
+using thresholding with dual dropping (ILUT) are
+investigated for iterative solution of sparse linear systems
+arising in semiconductor dopant diffusion modeling. Of
+particular interest are questions associated with selection and
+adaption of threshold parameters with spatial resolution, timestep 
+in the adaptive ODE integrator and the problem physics. It is shown
+that the convergence rate of the preconditioned iterative solvers
+is severely affected by the time steps used in adaptive ODE 
+integrator. Thus the accuracy and quality of the ILU preconditioner
+have to be adaptively adjusted so that iterative convergence is achieved
+and the overall computation cost is kept low.
+
+
+
+Adaptive ILU preconditioners are compared with a fixed block Jacobi 
+preconditioner and a direct band solver in terms of robustness and
+total simulation cost. A few ILU adaptive preconditioning strategies 
+are discussed and their performance is compared.
+
+
+
+
+
+\end{document}

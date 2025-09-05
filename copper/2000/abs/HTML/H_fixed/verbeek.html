@@ -1,0 +1,58 @@
+<html>
+<head>
+   <title>cm conference abstract: Verbeek</title>
+</head>
+<body>
+
+<center>
+Smoother dependent interpolation for AMG
+</center>
+
+<center>
+Menno Verbeek, {\tt verbeek@math.uu.nl} \\
+Mathematical Institute, Utrecht University \\
+P.O.Box 80.010, 3508 TA Utrecht \\
+The Netherlands
+\\ \\
+Jane Cullum, {\tt cullumj@lanl.gov} \\
+MS B256, CIC-3, Los Alamos National Laboratory \\
+Los Alamos, NM 87545, USA
+</center>
+
+
+<p>
+In the Ruge-St&uuml;ben variants of Algebraic Multigrid (AMG), the
+interpolation matrix $P$ is determined from the linear system
+matrix $A$ only. However, for AMG to work efficiently, $P$
+should be chosen such, that the coarse grid correction damps the
+errors that are not damped by the smoother, the so called
+algebraically smooth errors. Therefore, not only the matrix $A$, but also
+the choice of smoother determines what is algebraically smooth. This suggests
+using not only $A$, but also the smoother, to determine the
+interpolation $P$.
+
+<p>
+Errors in the span of the columns in $P$ are removed exactly by
+a (2-level) coarse grid correction. Thus, we would like this span to
+contain the algebraically smooth errors. To
+achieve this, we assume that algebraically smooth vectors have the
+same local behaviour with different, geometrically smooth, amplitudes
+or modes. This is not an uncommon situation for partial differential
+equations with simple smoothers. We use this local behaviour to
+generate a sparse $P$ that represents this local behaviour, and
+thus approximately spans the algebraically smooth vectors.
+
+<p>
+To obtain the local behaviour, we use an approximation to the
+largest eigenvector of the smoother error operator.  We correct a
+``linear'' interpolation to make it exact for this algebraically smooth
+vector. We also explore the possibilities of using multiple smooth
+vectors to construct an interpolation matrix $P$.
+
+<p>
+Results of numerical experiments, including transport
+problems from the ASCI program and electromagnetic boundary integral
+problems, will be presented.
+
+</body>
+</html>

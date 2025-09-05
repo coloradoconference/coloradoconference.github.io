@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{A penalized finite element method for pure Neumann problem  }
+
+\author{Rich Lehoucq \\ {\tt rblehou@sandia.gov} \\ Sandia National Laboratories, P.O.Box 5800, MS 87185-1110  \\ \\  Pavel Bochev \\ {\tt bochev@uta.edu} \\ Department of Mathematics, Box 19408 \\ University of Texas at Arlington, Arlington, TX 76019-0408}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+A conforming finite element discretization of the Poisson problem with
+a pure Neumann boundary condition produces an algebraic problem with a
+singular stiffness matrix. Typically, the singularity is removed by
+specifying the solution at some point or by perturbing the Neumann
+condition to a Robin type condition.
+
+Here we propose and analyze a simple and efficient
+least-squares penalization method that ensures nonsingularity of the
+alegbraic problem and at the same time appears to minimize the
+condition number of the matrix. Numerical results illustrating our
+method are also included.
+
+
+
+
+
+\end{document}

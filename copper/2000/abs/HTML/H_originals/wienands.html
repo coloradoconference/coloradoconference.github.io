@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>cm conference abstract: R. Wienands and C.W. Oosterlee</title>
+</head>
+
+<body>
+
+<center>
+On three-grid Fourier analysis of multigrid
+</center>
+
+<p>
+<center>
+<a href="mailto: wienands@gmd.de">
+R. Wienands</a> and 
+<a href="mailto: oosterlee@gmd.de">
+C.W. Oosterlee</a> <br><br>
+GMD - Institute for Algorithms and Scientific Computing (SCAI) <br>
+Schloss Birlinghoven, D-53754 Sankt Augustin, Germany <br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Fourier one-grid (smoothing) and two-grid analysis [1,5,6] are well-known 
+and useful tools in the multigrid community.
+They yield realistic quantitative smoothing and two-grid convergence rates
+in the limit of small meshsize $h$, if a proper treatment of the boundary
+is performed [2].
+<br><br>
+Two-grid Fourier analysis transforms a two-grid iteration matrix into a
+block diagonal matrix from which its spectral radius is easily calculated.
+It is the basis for asympyotic multigrid convergence estimates. 
+However, for several multigrid components or cycle variants the overall
+multigrid convergence cannot be approximated accurately by two-grid rates.
+For example, if one is interested in the varying performance of 
+V- and W-cycles, of Pre- and Post-smoothing or of different smoothers
+on different grids one has to consider at least one additional grid. <br><br>
+Furthermore, one may use different discretizations on different grids.
+The most prominent example of this kind is Galerkin coarsening.
+It can be very beneficial to replace the standard 
+$2-h$, $4-h$, etc. discretizations on the coarser grids by another
+variant. On the other hand, these different discretizations may introduce
+new problems.
+Investigations of the two-grid method cannot display possible
+smoothing difficulties or other problems on the coarser grids induced by the
+different discretizations, since the direct solution of the $2-h$ problem
+is assumed. <br><br>
+To capture these additional phenomena we developed a three-grid
+Fourier analysis tool, which is presented in this talk. 
+In the first part we outline the theoretical background of the
+three-grid analysis. This analysis can be generalized to the situation where
+multigrid is a preconditioner for restarted GMRES in the same way as it was
+done in [6] for the two-grid analysis.<br>
+Instead of $(4 \times 4)$-blocks for the two-grid iteration matrix [1,5,6], the
+three-grid iteration matrix is transformed into a $(16 \times 16)$-block 
+matrix by Fourier analysis in the two-dimensional scalar case. This means
+that the calculation of three-grid aymptotic convergence rates is reduced
+to the calculation of the spectral radii of certain $(16 \times 16)$-matrices.
+<br><br>
+In the second part of the talk we apply the three-grid analysis to several
+equations and multigrid components. We focus on nonelliptic or singular 
+pertubation problems like the convection diffusion equation discretized by
+first or higer order upwind discretizations or the rotated anisotropic
+diffusion equation. For these problems a variety of non standard coarse
+grid discretizations is evaluated. Some of them are discussed in [7].
+For example Galerkin coarsening based on the transfer operators from [3] is
+investigated. Furthermore we consider several combinations of higher-order
+discretizations of the indefinite Helmholtz equation [4]. <br>
+We would like to emphasize that the different multigrid algorithms are not
+only evaluated as a solver but also as a preconditioner for restarted GMRES
+[6].
+The Fourier results are confirmed by numerical experiments.
+<br><br><br>
+[1] A. Brandt, Multi-level adaptive solutions to boundary-value problems.
+    Math. Comp. 31, 333-390 (1977).<br>
+[2] A. Brandt, Rigorous quantitive analysis of multigrid, I:
+    Constant coefficients two-level cycle with $L_2$-norm. 
+    SIAM J. Numer. Anal. 31, 1695-1730 (1994).<br>
+[3] J.E. Dendy Jr., Blackbox multigrid for nonsymmetric problems.
+    Appl. Math. Comput. 13, 261-283, (1983).<br>
+[4] I. Singer and E. Turkel, Higher order finite difference methods for the
+    Helmholtz equation. Computer Methods in Applied Mechanics and Engineering
+    163, 343-358 (1998).<br>
+[5] K. St\"uben and U. Trottenberg, Multigrid methods: fundamental algorithms,
+    model problem analysis and applications. 
+    In: W.Hackbusch and U. Trottenberg (eds.), Multigrid Methods,
+    Lecture Notes in Math. 960, 1-176, Springer, Berlin Germany (1982).<br>
+[6] R. Wienands, C.W. Oosterlee and T. Washio,
+    Fourier analysis of GMRES($m$) preconditioned by multigrid. 
+    to appear in SIAM J. Sci. Comput. (2000).<br>
+[7] I. Yavneh, Coarse-grid correction for nonelliptic and singular
+    pertubation problems. SIAM J. Sci. Comput. 19, 1682-1699 (1998).
+</body>
+</html>

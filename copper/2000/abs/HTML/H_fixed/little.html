@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>cm conference abstract: Little</title>
+</head>
+
+<body>
+
+<center>
+Domain Decomposition of Solid-Liquid Flows
+</center>
+
+<p>
+<center>
+Leigh Little \\
+{\tt  little@cs.umn.edu} \\
+Department of Computer Science and Engineering,
+University of Minnesota \\
+4-192 EE/CS Building,
+200 Union Street S.E. \\
+Minneapolis, MN, 55455
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+The direct numerical simulation of solid-liquid flows is 
+a computational challenge that has received much attention
+recently.
+Such problems are of interest in modeling of environmental systems
+and industrial applications like oil refining. 
+The use of iterative solution methods in these problems is
+mandated by the enormous size of the resulting linear systems.
+ 
+<p>
+
+We present a domain decomposition solution technique for two-dimensional
+solid-liquid flows.  This approach makes use of PSPARSLIB, a  
+portable library for the parallel solution of linear systems. 
+The main concerns in this problem are how to
+perform domain decomposition in the presence of the particles and
+how to precondition the resulting linear systems.  This work
+concentrates on partitioning strategies.
+
+<p>
+
+Domain decomposition is hindered in this case by the presence
+of the particles.  The density of the unstructured 
+mesh tends to follow the particles.  The technique of overlaying
+a two-dimensional processor grid over the computational domain
+will generally provide poor load balancing since the particles
+can move to any location in the domain and they are frequently packed
+closely together.  In addition, for simulations with large numbers
+of particles, splitting a particle across subdomains is difficult to 
+avoid. 	 If a particle is shared between too many subdomains, a degradation
+in the parallel efficiency is observed.  
+
+<p>
+
+Various techniques to overcome these obstacles are currently being 
+examined.   In order to effectively deal with variations in grid density,
+we have developed a simple one-dimensional partitioning strategy 
+that is effective.  The 
+idea is to group the finite elements into bins based on the 
+x-coordinate of the centroid.  Once this is done, the elements in
+each bin are sorted in order of increasing y-coordinate.  
+An approximate number of elements per domain (NED) is computed from the
+total number of elements and processors.  The contents of the bins
+are then traversed, associating each element with a processor until
+the accumulated number of elements reaches NED.  At this point 
+the processor number is increased and the traversing continues.  
+The benefit of this technique is that it naturally follows the density 
+of the grid.  Preliminary experiments
+indicate that this approach provides partitionings that perform
+as well as partitionings provided by Metis.  While the bin-sorting
+approach takes more time than Metis, it requires less memory.  
+
+<p>
+
+Another obstacle is how to account for the presence of the particles.
+The current particle simulator uses a projection technique developed
+by Maury and Glowinski.  This results in a symmetric saddle point 
+problem with a positive definite matrix in the (1,1) block.  However, 
+the projection step requires information about the particle and
+all finite elements connected to it.  When particles are closely packed,
+there are usually no elements between particles, hence, a given particle 
+may require information from many adjacent particles in addition to
+all the associated elements.  A large amount of data will need
+to be communicated should a particle be split between two or 
+more subdomains.  This can degrade speed-up and scalability.
+We are examining several approaches to particle distribution.  The first is to
+create a layer of structured elements on each particle to ensure that
+there is always at least one fluid element between particles.
+This allows a particle to be isolated on one processor and eliminates the need 
+to communicate information directly between particles, but also 
+increases the mesh density.  The second idea is, 
+should a particle be split between two or more subdomains, to duplicate 
+the particle and all elements attached to it on each of the subdomains.
+The reduces the amount of data that must be communicated during the
+assembly of the local matrices, but also increases the amount of 
+overlap between domains.
+The last idea is a generalization of the previous one.  Rather than overlap
+the particles and elements, only the particle centers are overlapped.  This
+necessitates some communication while assembling the local matrices,
+but greatly reduces the amount of overlap.  
+The preliminary experiments indicate that of these, the second option
+performs best.
+
+<p>
+
+A variant of PSPARSLIB is used to solve the linear systems.  The two solution
+approaches we have attempted so far are an Additive Schwarz algorithm
+with ILUT preconditioning on each subdomain and a Schur complement
+technique.  The latter approach consists of an Additive Schwarz
+algorithm on the nodes that are interior to each processor 
+and a GMRES iteration on the interface unknowns.  
+
+<p>
+
+We will present results comparing the effectiveness of these 
+partitioning strategies. 
+
+<p>
+
+This work is supported by NSF under NSF grant NSF/CTS 9873236 and
+by the Minnesota Supercomputing Institute.
+
+
+</body>
+</html>

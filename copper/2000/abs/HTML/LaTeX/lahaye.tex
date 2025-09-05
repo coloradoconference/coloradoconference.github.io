@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Solving Magnetic Field - Electrical Circuit Coupled systems   }
+
+\author{Domenico Lahaye \\ {\tt  domenico.lahaye@cs.kuleuven.ac.be} \\ Dept. of Computer Science \\ Celestijnenlaan 200A B-3001 \\ Heverlee, Belgium}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+
+We consider preconditioned Krylov subspace solvers for large, 
+sparse, complex symmetric matrices bordered by dense blocks. Such systems 
+arise in computational electro magnetics when e.g. the differential problem 
+describing the magnetic field is coupled with external electrical circuit 
+relations. In low-frequent time-harmonic Maxwell formulations in two 
+dimensions, the governing partial differential equation is the Helmholtz 
+equation with a complex shift. The finite element discretization of this 
+equation leads to sparse, complex symmetric systems. The external electrical 
+circuits constitute relations for global quantities such as the voltage drop 
+accross or the current through the computational domain. These quantities act 
+as a source term in the Helmholtz equation. As the external circuit relations 
+are global relations involving integrals over (part of) the computational 
+domain, their discretization yields dense blocks. The field-circuit coupling 
+can be accomplished in such a way that the overall matrix remains complex 
+symmetric. 
+
+
+
+ 
+
+The presence of dense blocks affects the convergence of Krylov subspace 
+methods and hampers the immediate application of algebraic multigrid codes. 
+This motivates the study of iterative schemes that allow to treat the 
+discretized partial differential problem and the circuit realtions seperately. 
+
+
+
+ 
+
+The complex symmetry of the hybrid field-circuit coupled system allows to 
+solve it by the Conjugate Orthogonal Conjugate Gradient (COCG) method or the 
+Symmetric Quasi Minimal Residual (SQMR) method. A possible symmetric 
+preconditioner
+is a block Jacobi scheme in which the field and circuit relations are treated 
+as seperate blocks. In this scheme an algebraic multigrid code can be used 
+for the discretized field equations. As the size of the circuit block is much 
+smaller than that of the field block, the cost of solving the former is 
+negligable compared to solving the latter. Solving the circuit block can 
+therefore be done by a direct solver. By switching to a Gauss-Seidel scheme, 
+the lower diagonal block in the matrix can be taken into account. The 
+application of the Gauss-Seidel scheme as a preconditioner is more expensive 
+than the Jacobi scheme by a multiplication of this lower diagonal block only. 
+The cost of the block Jacobi and Gauss-Seidel schemes can be reduced by making 
+the tolerance to which the field equations are solved dependent on the 
+accuracy reached in the outer Krylov iteration. The resulting preconditioner
+chances at every Krylov iteration step. A Krylov subspace method that
+allows a variable preconditioner is for example Flexible GMRES
+(FGMRES). 
+
+
+
+ 
+
+Numerical experiments have shown that both the block Jacobi and the block 
+Gauss-Seidel schemes diverge when applied as solver. The number of block 
+Jacobi preconditioned COCG and block Gauss-Seidel preconditioned GMRES 
+iterations is independent of the finite element mesh width. Block Gauss-Seidel
+preconditioned GMRES requires less iterations to converge than block 
+Jacobi preconditioned COCG, but both are equivalent in terms of CPU time. 
+Further research is necessary to validate the proposed schemes on models of 
+engineering relevance. 
+
+
+
+
+
+\end{document}

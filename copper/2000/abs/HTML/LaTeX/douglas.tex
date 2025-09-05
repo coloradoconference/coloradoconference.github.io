@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Almost Fully Utilized Caches for Iterative Methods  }
+
+\author{Craig C. Douglas ({\tt douglas@ccs.uky.edu}) \\ Departments of Computer Science, Mechanical Engineering, \\ and Center for Computational Sciences \\ 325 McVey Hall - CCS, University of Kentucky \\ Lexington, KY 40506-0045, USA \\ \\ Jonathan Hu ({\tt jhu@ms.uky.edu}) \\ University of Kentucky, Department of Mathematics \\ 715 Patterson Hall, Lexington, KY 40506-0027, USA \\ \\ Wolfgang Karl ({\tt karlw@in.tum.de}) \\ Lehrstuhl f\"{u}r Rechnertechnik und Rechnerorganisation (LRR-TUM)  \\  Institut f\"{u}r Informatik, Technische Universit\"{a}t M\"{u}nchen, D-80290 M\"{u}nchen, Germany \\ \\ Markus Kowarschik ({\tt kowarschik@informatik.uni-erlangen.de}) \\ Lehrstuhl f\"{u}r Systemsimulation (IMMD 10), Institut f\"{u}r Informatik  \\  Universit\"{a}t Erlangen-N\"{u}rnberg, Martensstra\ss{}e 3, D-91058 Erlangen, Germany \\ \\ Ulrich R\"{u}de ({\tt ruede@informatik.uni-erlangen.de}) \\ Lehrstuhl f\"{u}r Systemsimulation (IMMD 10), Institut f\"{u}r Informatik  \\  Universit\"{a}t Erlangen-N\"{u}rnberg, Martensstra\ss{}e 3, D-91058 Erlangen, Germany \\ \\ Christian Wei\ss{} ({\tt weissc@in.tum.de}) \\ Lehrstuhl f\"{u}r Rechnertechnik und Rechnerorganisation (LRR-TUM)  \\  Institut f\"{u}r Informatik, Technische Universit\"{a}t M\"{u}nchen, D-80290 M\"{u}nchen, Germany}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+Conventional implementations of iterative numerical algorithms, especially
+multigrid methods, merely reach a disappointing small percentage of the
+theoretically available CPU performance when applied to representative large
+problems.  One of the most important reasons for this phenomenon is that the
+current DRAM technology is not able to provide the data fast enougth to keep
+the CPU busy.  Although the fundamentals of cache optimizations are quite
+simple, current compilers are not able to optimize even simple iterative
+methods.
+
+
+
+
+
+We analyse the memory and cache behavior of iterative methods with extensive
+profiling and describe program transformation techniques to improve the cache
+performance of two and three dimensional multigrid algorithms.  Examples are
+provided for both structured and unstructured grid problems.
+
+
+
+
+
+
+\end{document}

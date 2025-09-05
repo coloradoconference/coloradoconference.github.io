@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Newton's Structured Matrix Iteration  }
+
+\author{Victor Y.Pan \\ Department of Mathematics \& Computer Science \\ Lehman College, CUNY \\ Bronx, NY 10468, USA \\ vpan@alpha.lehman.cuny.edu}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+ 
+
+
+
+Newton's Iteration rapidly improves an initial approximation
+to matrix inverse by performing two matrix multiplications per
+recursive step. The iteration is particularly suitable for the
+inversion of structured matrices because in this case matrix
+operations are performed with $O(n)$ entries of short generators
+of structured matrices rather than with order of $n^2$ entries. A
+major problem is to control the length of the generator, which
+tends to grow in the iterative process. Some techniques proposed
+to control the growth in the Toeplitz-like case [Pan92], [Pan93],
+[Pan93a] relied on the concept of approximate (orthogonal)
+displacement rank, formally coined only in 1999. We study the
+iteration for the more general class of structured matrices,
+proposed some variations of the iterative process and techniques
+for controlling the length of the generators and investigate the
+convergence rate as well as computational complexity.
+
+
+
+
+
+
+
+\end{document}

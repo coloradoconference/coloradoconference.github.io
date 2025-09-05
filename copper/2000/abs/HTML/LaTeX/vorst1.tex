@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{A Domain Decomposition Approach For Eigenvalue Problems  }
+
+\author{Henk van der Vorst \\ {\tt vorst@math.uu.nl} \\ Mathematical Institute, Utrecht University  \\  P.O. Box 80 010, 3508 TA UTRECHT  \\  The Netherlands  \\  {\tt http://www.math.uu.nl/people/vorst/}}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+
+
+ 
+
+
+
+    The Jacobi-Davidson method leads to a so-called
+    correction equation that has to be solved.
+    This can be done with an appropriate iterative solver, but
+    to make this really efficient, one needs an effective
+    preconditioner. Unfortunately, the operator associated with
+    the correction equation is usually indefinite and there
+    are no really successful preconditioners for general indefinite
+    matrices. The popular ILU preconditioners require much
+    tuning in order to be occasionally effective, but it is
+    worthwhile to invest some effort, because the preconditioner
+    can be used for many correction equations, even for a number
+    of successive eigenvalues.
+
+
+
+
+    For eigenproblems stemming from PDEs, we try to adapt domain
+    decomposition approaches. Following ideas from W.-P. Tang, who
+    has proposed to work with an expanded matrix, Tan has suggested
+    interface conditions for virtually overlapping  domains, so that
+    the matrix can be split into parallel parts.
+    The interface conditions can be tuned to the given problem, which
+    makes this splitting very effective as a preconditioners for
+    methods as GMRES, for classes of linear systems
+    For eigenproblems, it turns out that the interface conditions
+    have to be selected differently. 
+
+    We will report on our efforts to construct effective preconditioners,
+    and show some instructive examples.
+
+
+
+
+This is joint work with 
+Gerard Sleijpen
+(\verb9http://www.math.uu.nl/people/sleijpen/9)
+and Menno Genseberger.
+
+
+
+
+
+
+\end{document}

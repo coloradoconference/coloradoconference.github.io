@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Efficient Highly Parallel Multigrid Methods for the Convection Equation.  }
+
+\author{Boris Diskin \\ {\tt bdiskin@icase.edu} \\ Institute for Computer Applications in Science and Engineering (ICASE) \\ Mail Stop 132C, NASA Langley Research Center \\ Hampton, VA 23681-2199.}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+The convergence properties of multigrid algorithms are defined by
+two factors: (1) the smoothing rate which describes the reduction
+of high-frequency error components and (2) the quality of the coarse-grid
+correction which is responsible for dumping of smooth error components.
+In elliptic problems, all the fine-grid smooth components are
+well approximated on the coarse grid built by standard (full) coarsening.
+ In nonelliptic problems, however, some fine-grid
+ components that are much smoother in the
+characteristic direction than in other directions, cannot be approximated
+with standard multigrid methods.
+
+We present a novel multigrid approach to the solution of nonelliptic
+problems.
+This approach is based on semicoarsening and
+well-balanced explicit correction terms, added to coarse-grid operators
+to maintain on coarse grids the same cross-characteristic interaction as
+on the target (fine) grid. Multicolor relaxation schemes are used on all
+the levels, allowing a very efficient parallel implementation.
+Applications to the 2-D constant-coefficient convection operator
+discretized on vertex and cell centered grids are demonstrated.
+The resulting multigrid algorithms demonstrate the ``textbook
+multigrid efficiency'', meaning the solution to the governing problem
+is attained in a computational work which is a small multiple of
+the operation count in the discretized problem itself.
+Extensions to the three dimensions, to variable coefficients,
+and to convection-diffusion
+problems are discussed.
+
+
+
+
+
+\end{document}

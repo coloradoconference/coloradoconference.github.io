@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>cm conference abstract: Adams</title>
+</head>
+
+<body>
+
+<center>
+Evaluation of a Geometric and an Algebraic Multigrid Method on 3D Finite
+Element Problems in Solid Mechanics
+</center>
+
+<p>
+<center>
+<a href="mailto: madams@cs.berkeley.edu">
+Mark Adams</a><br><br>
+531 Soda Hall
+University of California, Berkeley
+Berkeley CA 94720
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The availability of large high performance computers is providing
+scientists and engineers with the opportunity to simulate a variety of
+complex physical systems with ever more accuracy and thereby exploit the
+advantages of computer simulations over laboratory experiments.  The
+finite element method is widely used for these simulations.   The finite
+element method requires that one or several linearized system of sparse
+unstructured algebraic equations (the stiffness matrix) be solved at
+each time step when implicit time integration is used.  The linear
+system solves become the computational bottleneck (once the simulation
+has been setup and before the results are interpreted) as the scale of
+problems increases.  Direct solution methods have been (and still are)
+popular as they are dependable, though the asymptotic complexity of
+direct methods, or any fixed level method, is high in comparison to
+optimal iterative methods (ie, multigrid).  Multigrid has been a popular
+method for solving finite element (and finite difference) systems on
+regular grids for over 30 years; the application of multigrid to
+unstructured problems is, however, not well understood and has been an
+active area of research in recent years.  We are aware of two categories
+of promising unstructured multigrid methods: 1) ``geometric'' methods
+that use standard finite element coarse grid function spaces (and hence
+have a concrete geometric interpretation), and 2) rigid body mode coarse
+grid space (``algebraic'') methods which we call algebraic as the coarse
+grid function spaces can in principle be deduced from the stiffness
+matrix or its component element stiffness matrices and the method that
+we use uses the stiffness matrix to modify the initial rigid body mode
+coarse grid spaces.  This paper evaluates the effectiveness of two
+promising unstructured multigrid methods (one geometric and one
+algebraic) on several challenging unstructured problems in solid
+mechanics with up to 56 million degrees of freedom.
+
+</body>
+</html>
+

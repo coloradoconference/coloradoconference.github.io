@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>cm conference abstract: TOSELLI</title>
+</head>
+
+<body>
+
+<center>
+Neumann-Neumann and Feti Preconditioners for Edge Element
+Approximations of Maxwell's Equations
+</center>
+
+<p>
+<center>
+Andrea Toselli \\
+{\tt  toselli@cims.nyu.edu} \\
+Courant Institute,
+251 Mercer Street \\
+New York, NY 10012
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk, we report on some new results on two iterative
+substructuring methods of Neumann-Neumann and FETI type 
+for some edge element approximations
+of Maxwell equations in two dimensions. 
+<p>
+Iterative substructuring methods provide powerful
+preconditioners for the solution of
+linear systems arising from the finite element approximation
+of partial differential equations.
+In these methods, the computational domain is
+partitioned into non-overlapping subdomains and a
+preconditioner is built by solving local problems on the subdomains.
+<p>
+The Neumann-Neumann and FETI preconditioners that we consider have many 
+algorithmic components in common, such as the solution of local
+Dirichlet and Neumann problems, a set of local functions needed
+to build a coarse space correction, and a set of scaling functions
+that employ the values of the coefficients on the subdomains
+and ensure that the condition number of the resulting linear
+system is independent of the jumps of the coefficients.
+In addition, FETI methods are more easily generalizable to approximations
+on non-matching grids.
+<p>
+For both methods, we show  bounds for the condition number of the
+corresponding preconditioned systems which grow logarithmically with 
+the number of unknowns in each subdomain. Such bounds are independent of 
+possibly large jumps of the coefficients across the boundaries of the 
+subdomains.
+For a Neumann-Neumann and a FETI method, 
+we present some numerical results for conforming
+approximations. We will also show some results for a FETI method
+for a mortar approximation on non-matching grids.
+</body>
+</html>
+
+
+

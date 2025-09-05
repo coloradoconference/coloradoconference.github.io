@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Finite Volume Methods for Systems of Viscous Conservation Laws: Numerical Analysis and Software  }
+
+\author{J\"{u}rgen Fuhrmann \\ {\tt fuhrmann@wias-berlin.de} \\ Weierstrass Institute for Applied Analysis and Stochastics \\ Mohrenstr. 39, ~  10117 Berlin.}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+
+Using the flux function notation developed for the description of time
+explicite   finite  volume schemes, we    present   an exsistence  and
+stability analysis for time implicite finite volume schemes for scalar
+nonlinear viscous  conservation  laws.   The  generalization  of  this
+notation  to  systems leads  to  an  easy  to   understand application
+programming interface and an implementation of a solver for this class
+of problems.  It uses various variants of Newton's method as nonlinear
+solvers and --- among other possibilities --- agglomeration type algebraic
+multigrid with point block ILU smoothers as preconditioners for Krylov
+subspace methods for the linear systems. 
+
+
+The corresponding code - \verb2sysconlaw2 - is implemented on
+top   of the
+{\bf 
+pdelib
+}
+toolbox \linebreak
+(\verb2http://www.wias-berlin.de/~pdelib2)
+for the numerical  solution of partial  differential equations
+developed    at the
+Weierstrass Institute Berlin
+(\verb2http://www.wias-berlin.de2).
+
+
+Numerical  examples    like   two   phase  flow  in     porous  media,
+thermoconvective  flow in porous   media, or the Brusselator equations
+demonstrate the flexibility and usefulness of this approach. 
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

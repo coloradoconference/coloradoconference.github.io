@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>cm conference abstract: Embree</title>
+</head>
+
+<body>
+
+<center>
+Invariant Subspace Convergence for Arnoldi's Method
+</center>
+
+<p>
+<center>
+Mark Embree \\
+{\tt mark.embree@comlab.ox.ac.uk} \\
+Oxford University Computing Laboratory<br>
+Wolfson Building<br>
+Parks Road, Oxford OX1 3QD<br>
+England
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Krylov subspace eigenvalue algorithms typically aim to efficiently 
+calculate some subset of the spectrum with a special property, such
+as the rightmost eigenvalues or minimum modulus eigenvalues.
+What matrix properties determine the rate at which the Krylov subspace 
+captures the invariant subspace associated with the desired eigenvalues?
+When a matrix is normal, convergence only depends upon the dimension
+of the invariant subspace, the distance between desired and undesired
+eigenvalues, and biases of the starting vector.
+
+<p>
+Non-normality leads to a more complicated situation.
+In this talk, we develop bounds on the angle between the Krylov 
+subspace and the desired invariant subspace for general
+(non-derogatory) matrices.  
+These bounds take the form of multiplicative constants based 
+on the quality of the starting vector and the non-normality 
+of the matrix, along with a polynomial approximation problem over the pseudospectra.
+In the context of restarted iterations, the bounds inform 
+shift selection and choice of the basis dimension.
+They also describe convergence when the desired invariant subspace
+is associated with a defective eigenvalue, and
+when the desired eigenvalues are stable but 
+the undesired eigenvalues are ill-conditioned.
+Examples illustrate the applicability of these bounds
+to a variety of situations.
+
+<p>
+This talk describes joint research with Christopher Beattie and
+John Rossi.
+
+
+</body>
+</html>
+

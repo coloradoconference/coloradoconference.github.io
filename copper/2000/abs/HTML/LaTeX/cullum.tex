@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Algebraic Multigrid: Accelerating the Convergence  }
+
+\author{Jane Cullum \\ {\tt cullumj@lanl.gov} \\ MS B256, CIC-3, Los Alamos National Laboratory \\ Los Alamos, NM 87545, USA \\ \\ Menno Verbeek \\ {\tt verbeek@math.uu.nl} \\ Mathematical Institute, Utrecht University \\ P.O.Box 80.010, 3508 TA Utrecht, The Netherlands}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+Algebraic multigrid methods
+{\em 
+(AMG)
+}
+for
+solving large systems of linear equations,
+{\em 
+Ax=b
+}
+,
+are  matrix-based analogs of geometric 
+multigrid methods. 
+Both types of methods are multi-level, and
+at each level utilize a smoothing procedure
+which is applied to residual vectors, and  a coarse
+{\em 
+grid
+} 
+computation which is designed
+to reduce smoothed residual errors. 
+
+
+
+
+In this paper we consider
+{\em 
+AMG
+}
+procedures
+which are based upon papers of Ruge and St\"{u}ben and
+present a simple modification for accelerating the
+convergence of such procedures. We also illustrate
+interesting phenomena which are important in
+studying the convergence of multigrid procedures, 
+including significant differences in convergence rate 
+which may be obtained using different choices of starting configurations.
+
+
+
+
+
+\end{document}

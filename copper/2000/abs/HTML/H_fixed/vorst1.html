@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>cm conference abstract: van der Vorst</title>
+</head>
+
+<body>
+
+<center>
+A Domain Decomposition Approach For Eigenvalue Problems
+</center>
+
+
+<p>
+<center>
+Henk van der Vorst \\ {\tt vorst@math.uu.nl} \\
+Mathematical Institute, Utrecht University<br>
+P.O. Box 80 010,
+3508 TA UTRECHT<br>
+The Netherlands<br>
+{\tt http://www.math.uu.nl/people/vorst/}
+</center>
+
+
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+    The Jacobi-Davidson method leads to a so-called
+    correction equation that has to be solved.
+    This can be done with an appropriate iterative solver, but
+    to make this really efficient, one needs an effective
+    preconditioner. Unfortunately, the operator associated with
+    the correction equation is usually indefinite and there
+    are no really successful preconditioners for general indefinite
+    matrices. The popular ILU preconditioners require much
+    tuning in order to be occasionally effective, but it is
+    worthwhile to invest some effort, because the preconditioner
+    can be used for many correction equations, even for a number
+    of successive eigenvalues.
+
+<p>
+    For eigenproblems stemming from PDEs, we try to adapt domain
+    decomposition approaches. Following ideas from W.-P. Tang, who
+    has proposed to work with an expanded matrix, Tan has suggested
+    interface conditions for virtually overlapping  domains, so that
+    the matrix can be split into parallel parts.
+    The interface conditions can be tuned to the given problem, which
+    makes this splitting very effective as a preconditioners for
+    methods as GMRES, for classes of linear systems
+    For eigenproblems, it turns out that the interface conditions
+    have to be selected differently. 
+
+    We will report on our efforts to construct effective preconditioners,
+    and show some instructive examples.
+
+<p>    This is joint work with 
+Gerard Sleijpen
+(\verb9http://www.math.uu.nl/people/sleijpen/9)
+and Menno Genseberger.
+
+
+</body>
+</html>

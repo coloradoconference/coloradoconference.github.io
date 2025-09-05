@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Algebraic Multigrid for Problems with Discontinuous Coefficients   }
+
+\author{Marian Brezina \\ {\tt brezina@colorado.edu} \\ Dept. of Applied Mathematics \\ University of Colorado at Boulder \\ Boulder, CO 80309-0526}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+Algebraic multigrid has long been established as a practical solver 
+for a variety of problems, particularly elliptic differential
+equations discretized on unstructured grids. 
+
+
+
+Classical multigrid theories, however, are often carried out under 
+assumptions not satisfied in computational practice. 
+We will report on the results of an ongoing joint research done together 
+with P. Vanek, C. Heberton and N. Neuss.   The research focuses on 
+relaxing some of these assumptions and extending the multigrid theory 
+to the cases more accurately reflecting practical environment. 
+
+
+
+Our multilevel method is of smoothed-aggregation type. 
+Modifications of the aggregation-based coarsening algorithm and of the 
+smoothing procedures allow us to prove a convergence result for the 
+problems with discontinuous coefficients with the same rate as for 
+problems having no coefficient discontinuities.  
+
+
+
+The theoretical results will be illustrated by computational experiments. 
+
+
+
+
+
+
+
+\end{document}

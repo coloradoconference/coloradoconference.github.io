@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>cm conference abstract: Kees </title>
+</head>
+
+<body>
+
+<center>
+Multilevel Schwarz Preconditioners for Two- and Three-phase
+Flow in Porous Media.
+</center>
+
+<p>
+<center>
+<a href="mailto: chris_kees@unc.edu">
+Chris Kees</a><br><br>
+Department of Environmental Sciences and Engineering<br>
+University of North Carolina, Chapel Hill, NC 27599-7400 
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Differential-algebraic systems can be derived from multiphase model
+equations via the method of lines. These systems are solved
+effectively with variable order, variable time-step backward
+difference formula methods.  Maintaining efficiency in two and three
+dimensions, however, requires the parallel iterative solution of
+large nonlinear systems of equations.
+
+For this purpose we investigate Newton-Krylov solvers and domain
+decomposition preconditioners. We present model formulations, method
+implementation details, and results from numerical experiments along
+with
+a discussion of the trade-offs between efficiency and robustness for
+a variety of preconditioners.
+
+We use cell-centered finite differences to discretize the model
+equations in space and then advance the solution in time using an
+adaptive backward difference scheme that controls the local truncation
+error of the temporal discretization. This method produces, at each
+step, a nonlinear system of equations, which is solved with a modified
+Newton-Krylov method. The Krylov method is scaled, preconditioned,
+Bi-CGSTAB. We compare two-level additive and multiplicative Schwarz
+preconditioners to one-level additive preconditioners for the scaled
+Bi-CGSTAB iteration.
+</body>
+</html>

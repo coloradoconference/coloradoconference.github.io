@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{{\em  BoomerAMG } : a Parallel Algebraic Multigrid Solver; Implementation and  Enhancements  }
+
+\author{Van Emden Henson \\ Ulrike Meier Yang (speaker), {\tt umyang@llnl.gov} \\ Center for Applied Scientific Computing  \\  Lawrence Livermore National Laboratory  \\  Box 808, L-560  \\  Livermore CA 94551}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+Modern scientists must solve increasingly large linear systems, with
+hundreds of millions, or even billions, of unknowns. This has
+necessitated the use of massively parallel computers, which has in
+turn led to the investigation of scalable linear solvers, such as
+multigrid. For unstructured grid problems, an attractive choice is
+algebraic multigrid (AMG). We have implemented
+{\bf 
+{\em 
+BoomerAMG,
+}
+}
+an AMG code for massively parallel computers
+with distributed memory.
+
+
+
+
+Much of the classical AMG algorithm can be parallelized in a
+straightforward fashion; for example, the entire ``solve'' phase can be
+implemented using parallel matvec or matvec-like operations. However,
+the classical coarse-grid selection algorithm is highly
+sequential.
+{\bf 
+{\em 
+BoomerAMG
+}
+}
+provides the choice of several
+parallel coarsening strategies: the ``CLJP'' method, based on a parallel
+algorithm by Luby, Jones and Plassmann for finding maximal independent
+sets; the ``RS'' approach, a parallel variant of the classical algorithm
+in which the sequential algorithm is performed on each processor and
+several options are available to treat the points near the processor
+boundaries; and finally, the ``Falgout'' algorithm, a combination of the
+two approaches above.
+
+
+
+
+{\bf 
+{\em 
+BoomerAMG
+}
+}
+also offers two choices for the parallel
+smoother: the first is weighted Jacobi while the alternative is a
+``chaotic'' Gauss-Seidel relaxation. This latter method uses
+Gauss-Seidel locally, within each processor, but updates the values on
+the processor boundary only after each sweep over the processor
+domain.
+
+
+
+
+We describe the code and present test results and timings for a
+variety of test problems. We compare the performance of the coarsening
+strategies for various settings of the input parameters. We describe
+some alterations to the basic algorithm that improve convergence
+factors (or prevent divergence) for certain test problems. We examine
+the question of how to define the ``strong connections'' and choose the
+``strength threshold'' for the coarsening algorithms. Results are given
+showing the influence of the strength threshold on convergence and
+computation time.  
+
+
+
+
+Finally, we indicate the current direction our research is taking and
+describe our plans for the future of
+{\bf 
+{\em 
+BoomerAMG.
+}
+}
+
+
+
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under contract number
+W-7405-Eg-48.
+
+
+
+
+\end{document}

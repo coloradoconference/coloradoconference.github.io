@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Efficient Solver for Mixed and Control-Volume Mixed Finite Element Methods in Three Dimensions  }
+
+\author{John D. Wilson ({\tt jwilson@carbon.cudenver.edu}) \\ Thomas F. Russell \\ \\ Department of Mathematics  \\  University of Colorado at Denver  \\  P.O. Box 173364, Campus Box 170  \\  Denver, CO 80217-3364, U.S.A.}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+In simulations of groundwater flow in heterogeneous aquifers, accuracy of
+velocities can be substantially enhanced by discretizations based on mixed
+or control-volume mixed finite element methods.  A potential side benefit is
+improved accuracy of transport calculations that depend on the flow field.  
+A practical difficulty, especially acute in 3-D, is that these methods lead
+to discrete linear systems that are not positive definite and cannot be
+solved by straightforward applications of well-known iterative solvers.
+
+We present a specialized iterative solver for mixed methods in 3-D, built
+around a decomposition of the discrete velocity space that leads to a
+symmetric positive definite system (the pressure variable is eliminated).  
+The decomposition relies on a local basis for the the divergence-free
+subspace of the velocity space.  The positive definite system is then solved
+using a preconditioned conjugate gradient method.  The unpreconditioned
+system is ill-conditioned with respect to the dimension of the discrete
+velocity space, but a preconditioner based on additive or multiplicative
+domain decomposition makes the condition number independent of this
+dimension.  Numerical results verify uniform convergence of the additive
+preconditioned conjugate gradient method.  We also study numerically the
+effects of heterogeneity and anisotropy of the conductivity coefficients on
+the convergence rate.
+
+For distorted hexahedral elements, which are trilinear images of cubes that
+can represent irregular subsurface geology, we consider a control-volume
+mixed discretization.  A similar decomposition of the velocity space is
+used, hoping to obtain a positive definite system, although the system is
+not, in general, symmetric.  We also present numerical results for the
+convergence of the preconditioned conjugate gradient method applied to
+this system.
+
+
+
+
+
+\end{document}

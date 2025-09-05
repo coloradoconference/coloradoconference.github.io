@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Iterative algorithms for least squares problems with multiple right-hand sides  }
+
+\author{Rasmus Munk Larsen \\ {\tt rmunk@solen.stanford.edu} \\   HEPL Annex A206,  Stanford University   \\ Stanford, CA 94305-4085, USA}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+We discuss iterative algorithms for solving linear least squares
+problems with multiple right-hand sides when the coefficient matrix is
+large, ill-conditioned and sparse or structured.
+
+
+
+
+The algorithms presented are all based on the Lanczos
+bidiagonalization process, but different implementations allow
+significant trade-off between the number of operations, required
+amount of storage, parallel efficiency and fraction of BLAS level 3
+operations involved. We study the performance of three algorithms:
+ \newline 
+
+
+{\bf 
+1.
+}
+The (block-) conjugate gradient algorithm applied to the normal
+equations (CGLS) augmented with a Galerkin projection step.
+ \newline 
+
+{\bf 
+2.
+}
+A projection algorithm based on (block-) Lanczos bidiagonalization
+with partial reorthogonalization.
+ \newline 
+
+{\bf 
+3.
+}
+Solving for each right-hand side independently by means of the LSQR
+algorithm. 
+
+
+
+
+
+As an example, ill-conditioned least squares problems with
+multiple right-hand sides arise in image deblurring when restoring
+multiple frames distorted by the same point spread function or when
+implementing the Backus-Gilbert (BG) inversion method. The BG method
+is used extensively in seismology, helioseismology, astronomy and
+other areas involving inverse problems.
+
+We present numerical results for examples from image deblurring and
+helioseismology, where BG implementations based on the three algorithms
+above were used to solve the 2D inverse problem of the solar rotation.
+
+
+
+
+
+\end{document}

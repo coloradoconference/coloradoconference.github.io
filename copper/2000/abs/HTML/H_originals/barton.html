@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>cm conference abstract: Barton</title>
+</head>
+
+<body>
+
+<center>
+SENSITIVITY ANALYSIS OF HYBRID SYSTEMS: THEORY AND NUMERICAL IMPLICATIONS
+</center>
+
+<p>
+<center>
+<a href="mailto: pib@mit.edu">
+Paul I. Barton</a><br><br>
+Department of Chemical Engineering
+<br>
+Massachusetts Institute of Technology
+<br>
+77 Massachusetts Avenue 66-464, Cambridge, MA 01239
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Hybrid (discrete/continuous) systems exhibit coupled discrete valued state and continuous valued state dynamics. They have received increasing attention in recent years as a modeling paradigm for important problems in many applications, such as chemical process operations, robotics, control systems design, air and ground traffic management, etc.  
+<p>
+This paper is concerned with sensitivity analysis of a broad class of hybrid systems. In particular, we are concerned with the existence, uniqueness and computation of the partial derivatives of the continuous valued state with respect to one or more real valued parameters. These partial derivatives are time varying, and hence the notion of 'sensitivity trajectories' that accompany the continuous valued state trajectories. 
+<p>
+Our analysis employs the 'hybrid automaton' representation as the modeling framework. This is a continuous time formulation in which the continuous state is described by a collection of differential-algebraic equation (DAE) systems. Each distinct DAE system is known as a 'mode' of the hybrid automaton. A mapping from the set of discrete states to the set of modes is also defined. The discrete state subsystem only interacts with the continuous state subsystem at distinct points in time known as events. Between events, the evolution of the continuous state is described by the (unique) currently active mode. At an event, the discrete state may change, which may imply that a new mode becomes active. The system can thus 'switch' to a new mode at an event, and then evolves continuously in this mode until another mode switching event. This behavior repeats until a final time is reached or a termination criterion is satisfied. The initial conditions for a mode at a switching event are determined from the final state of the predecessor mode via 'state transfer functions'. The timing of events may be known a priori (time events) or determined by the continuous state satisfying some condition (state events).
+<p>
+Each mode of the hybrid automaton has a characteristic sensitivity system that may be derived in the usual manner from the original differential equations. Similarly, events and switching are completely determined by the host hybrid system. Thus, the only remaining complication is state transfer functions for the sensitivities at events. It is shown that, even for an ODE embedded hybrid system with state continuity at events, the sensitivity trajectories exhibit a (unique, computable) qualitative jump at switches triggered by state events. We also develop a detailed theory governing sufficient conditions for the existence and uniqueness of these (discontinuous) sensitivity trajectories. In particular, the sensitivities cease to exist for the critical parameter values at which the sequence of events along the solution trajectory changes qualitatively.
+<p>
+Based on this theory we develop efficient numerical algorithms for the simultaneous
+computation of the state and sensitivity trajectories of a hybrid system. These algorithms are able to exploit the inherent similarities between the state and sensitivity equations in an
+extremely efficient fashion. 
+<p>
+A further complication arises when performing sensitivity analysis of 'legacy' models coded in programming languages, most often FORTRAN. These codes often contain IF statements, MIN, MAX or SGN functions, look up tables, etc. These all represent discontinuities that may be modeled within the hybrid automaton framework. It is well known that the direct application of standard numerical integration algorithms to codes containing such 'hidden discontinuities' is extremely inefficient, and can occasionally cause simulation failure or incorrect results to be generated. On the other hand, the consequences of performing sensitivity analysis is this naive manner are guaranteed to be disastrous. As noted above, it is often necessary to compute a jump in the sensitivity trajectories at a discontinuity (state event). The naive application of a standard sensitivity algorithm to a legacy code requires no knowledge of the discontinuities present, and hence the jumps will not be computed and the computed sensitivity trajectories will be qualitatively wrong. Instead, for the correct sensitivities to be computed it is necessary to discover all hidden discontinuities present in a code, and handle them properly with event location algorithms and computation of the sensitivity jumps at events. We will discuss the automatic code analysis tools, similar to automatic differentiation techniques, that we are developing to enable correct and efficient sensitivity analysis of such legacy models.  
+
+</body>
+</html>
+
+Paul I. Barton
+Associate Professor
+Department of Chemical Engineering
+Massachusetts Institute of Technology, 66-464
+77 Massachusetts Avenue
+Cambridge
+MA 02139
+U.S.A.
+
+Jesus saves, but the Mongol hordes.
+
+Phone : +1-617-253-6526
+Fax   : +1-617-258-5042
+email : pib@mit.edu
+
+http://web.mit.edu/cheme/www/People/Faculty/Barton_Paul.html
+
+
+

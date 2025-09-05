@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Time-splitting methods for chemically reactive transport  }
+
+\author{Clint Dawson \\ {\tt  clint@ticam.utexas.edu} \\ TICAM \\ University of Texas \\ Austin, TX  78712}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+In this talk we will focus on systems of
+advection-diffusion-reaction equations which arise when modeling the
+transport of chemical species in groundwater.  In these equations, one
+can have kinetic and/or equilibrium reactions.  Typically, the
+transport (advection-diffusion) is split from the reactions, thus one
+takes a transport step for each component, then combines all the
+components into a reaction step, which can be solved locally.  This
+type of approach, while efficient, gives rise to time truncation
+errors.  On the other hand, one can try to solve the system fully
+implicitly, which reduces the time truncation errors but gives rise to
+huge nonlinear systems.  We will discuss various time-stepping
+approaches and examine the errors associated with each.  Examples for
+both kinetic and equilibrium reactions will be discussed.
+
+
+
+
+\end{document}

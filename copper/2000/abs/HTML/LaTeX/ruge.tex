@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{FOSPACK: A FOSLS/AMG Package  }
+
+\author{John Ruge \\ {\tt  jruge@colorado.edu} \\ 1005 Gillaspie Dr. Boulder, CO  80303}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+First order system least squares (FOSLS) is a recent development by Manteuffel 
+and McCormick for expressing and discretizing systems of PDEs. In this method,
+the original second-order system is reduced to a first-order system by 
+introducing auxiliary unknowns, generally derivatives of the primary unknowns.
+Some ``redundant'' equations can also be introduced in order to make the final
+problem more well-posed. A FOSLS functional, consisting of the sum of the 
+integrals of the residuals of the first-order equations, is then formed, so 
+that the problem is recast as a minimization problem for this functional over 
+the permissible spaces. Boundary conditions are either incorporated into the
+functional, or imposed on the spaces involved. Now, the discrete problem is 
+then formed by choosing suitable finite element spaces for the unknowns, and 
+setting up the minimization equations. This approach has a number of advantages,
+including a natural error measure (the functional value), and more freedom in 
+choosing the finite element spaces than with traditional methods. In addition, 
+when properly formulated, the equations for the different unknowns are 
+somewhat decoupled, and the diagonal blocks (the operators coupling each
+unknown with itself) are nicely elliptic. Together, these say that a block-
+diagonal preconditioner would work well, and multigrid or multigrid-like methods
+sould be very effective for inversion of the diagonal blocks. This is
+supported by both theory and numerical tests. 
+
+Algebraic multigrid (AMG) has been shown to work quite well on elliptic 
+problems, and is particularly useful with unstructured meshes, complicated
+domains, and varying or discontinuous problem coefficients. In the development 
+of test codes over the past few years, it has become obvious that combining 
+FOSLS and AMG could be very useful, and FOSPACK (First-Order System PACKage)
+is the result. The intent is to allow a user to quickly specify a domain (and
+initial mesh) and the first-order system, and have the package do the rest. 
+The current 2D package allows for fairly arbitrary (user-generated) domains/
+meshes or more simple (FOSPACK-generated) domains. A flexible interpreter 
+allows for a simple specification of the first-order system (which itself can 
+be quite complicated, involving spatially varying coefficients, matrix/vector
+notation, and more) in a data file. Other features are automatic linearization 
+of some nonlinear first-order problems (with iteration), and the use of ``zones'' 
+to allow different types of equations to be specified in different subdomains.
+Current work includes development of a graphical user interface and local
+refinement capabilities, while future work includes more extensive mesh-
+generation options and extension to 3D.
+
+This talk will include a quick overview of FOSLS and AMG, a description of the
+different components of the code, and sample problem specifications and
+results. 
+
+
+
+
+
+\end{document}

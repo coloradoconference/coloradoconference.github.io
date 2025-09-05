@@ -1,0 +1,57 @@
+<html>
+<head>
+   <title>cm conference abstract: Verbeek</title>
+</head>
+<body>
+
+<center><H3>Smoother dependent interpolation for AMG</H3>
+<p>
+<a href="mailto:verbeek@math.uu.nl">Menno Verbeek</a><sup>*</sup>
+and
+<a href="mailto:cullumj@lanl.gov">Jane Cullum</a><sup>+</sup>
+<p>
+<sup>*</sup>Mathematical Institute, Utrecht University, P.O.Box 80.010, 
+3508 TA Utrecht, The Netherlands<br>
+<sup>+</sup>MS B256, CIC-3, Los Alamos National Laboratory,
+Los Alamos, NM 87545, USA
+<br>&nbsp;
+<p>Abstract</center>
+
+<p>
+In the Ruge-St&uuml;ben variants of Algebraic Multigrid (AMG), the
+interpolation matrix <i>P</i> is determined from the linear system
+matrix <i>A</i> only. However, for AMG to work efficiently, <i>P</i>
+should be chosen such, that the coarse grid correction damps the
+errors that are not damped by the smoother, the so called
+algebraically smooth errors. Therefore, not only the matrix <i>A</i>, but also
+the choice of smoother determines what is algebraically smooth. This suggests
+using not only <i>A</i>, but also the smoother, to determine the
+interpolation <i>P</i>.
+
+<p>
+Errors in the span of the columns in <i>P</i> are removed exactly by
+a (2-level) coarse grid correction. Thus, we would like this span to
+contain the algebraically smooth errors. To
+achieve this, we assume that algebraically smooth vectors have the
+same local behaviour with different, geometrically smooth, amplitudes
+or modes. This is not an uncommon situation for partial differential
+equations with simple smoothers. We use this local behaviour to
+generate a sparse <i>P</i> that represents this local behaviour, and
+thus approximately spans the algebraically smooth vectors.
+
+<p>
+To obtain the local behaviour, we use an approximation to the
+largest eigenvector of the smoother error operator.  We correct a
+``linear'' interpolation to make it exact for this algebraically smooth
+vector. We also explore the possibilities of using multiple smooth
+vectors to construct an interpolation matrix <i>P</i>.
+
+<p>
+Results of numerical experiments, including transport
+problems from the ASCI program and electromagnetic boundary integral
+problems, will be presented.
+
+</body>
+</html>
+
+

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>cm conference abstract: Jones</title>
+</head>
+
+<body>
+
+<center>
+Preconditioners for Newton-Krylov Solvers of Richards' Equation
+</center>
+
+<p>
+<center>
+Jim E. Jones ({\tt jjones@llnl.gov}) \\
+Carol S. Woodward ({\tt cswoodward@llnl.gov}) \\ \\
+Center for Applied Scientific Computing \\
+Lawrence Livermore National Laboratory \\
+P.O. Box 808, L-561 \\
+Livermore, CA 94551
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Accurate simulation of water resource management problems
+requires the solution of large problems with many spatial zones.
+In the case of variably saturated flow problems, we need to
+develop scalable and highly efficient algorithms for solving
+the large nonlinear systems of equations that arise from the
+discretization of Richards' equation.<br>
+
+One approach to solving these systems is to apply a Newton method
+requiring a linear Jacobian system solve at each iteration.  Although
+Newton's method can have very fast convergence properties, it can
+run slowly if the linear system solver is not efficient.
+In this work, we solve the linear systems using a multigrid
+preconditioned Krylov method. Properly designed multigrid solvers
+are optimally efficient in that the work grows linearly with problem
+size while the convergence rate is constant.<br>
+
+In this talk, we compare various strategies for solving the
+Jacobian system with multigrid. One approach is to base the
+multigrid preconditioner on the full Jacobian matrix, which
+is non-symmetric. To save storage, and simplify the preconditioner
+computation, we also consider multigrid preconditioners based
+on symmetric approximations to the full Jacobian matrix.
+We compare the efficiency of these various multigrid preconditioning
+strategies within the context of
+a Newton-Krylov method to solve the nonlinearities.<br>
+
+This work was performed under the
+auspices of the U.S. Department of Energy by the
+Lawrence Livermore National Laboratory under Contract W-7405-Eng-48.<br>
+
+UCRL-JC-137246 abs
+
+</body>
+</html>

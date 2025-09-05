@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>cm conference abstract: Rosemary Renaut, Kewei Chen and Cristina Negoita</title>
+</head>
+
+<body>
+
+<center>
+Iterative Determination of Kinetic Constants from PET Data Utilizing
+Total Least Squares Estimates
+</center>
+
+<p>
+<center>
+Rosemary Renaut ({\tt  renaut@asu.edu}) \\
+Kewei Chen \\
+Cristina Negoita \\ \\
+Department of Mathematics,
+Arizona State University \\
+PO Box 87 1804,
+Tempe, AZ 85287-1804
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Time series data acquired at the pixel level from positron
+emission tomography images can be utilized to provide
+visual images of parameters defining the physiological and
+biochemical function of differing structures/tissues within
+the brain. In studies of Alzheimer's disease it is of
+interest to quantify the data such that statistical studies
+identifying significant change can be performed.It is thus
+important that quantification can be made both reliable and
+computationally efficient.
+
+The standard approach for the
+solution of this problem assumes a single input/single
+output model, in which parameter estimates are made
+independently for each pixel. Even at this level, there are
+still several questions concerning accuracy of the
+estimation that need to be addressed, and in particular how
+to address the contamination of the results due to the
+various measurement errors.
+
+The first approach reported in
+the medical literature uses nonlinear least squares data
+fitting for the parameters defining the model. This method
+does not account at all for the error and has been found to
+be inefficient computationally. More recent works discuss
+the linear least squares problem which results from the
+Laplace transform of the underlying differential equation.
+Although more efficient, this approach also does not
+account for the measurement error.
+
+To overcome this problem
+a generalized least squares method can be used. The method
+is further refined by the incorporation of a penalty term
+which enforces the parameters to physiologically realistic
+values. This latter approach, while requiring the
+determination of an appropriate penalty parameter, can be
+incorporated in both the linear and nonlinear models. The
+need to estimate the penalty can be avoided by the
+utilization of a total least squares formualation.
+
+In this
+paper we evaluate the use of the total least squares method
+in this context as compared to generalized least squares
+with penalty, and investigate the formulation of the
+problem as single-input multiple output. The latter model
+is designed to take advantage of the locality of the data
+in the plane, hence treating the image as a whole, rather
+than on the pixel by pixel level. A multilevel iterative
+algorithm for the solution of this problem is proposed. Its
+effectiveness for the appropriate account of measurement
+error and its computational efficiency will also be
+discussed.
+
+</body>
+</html>

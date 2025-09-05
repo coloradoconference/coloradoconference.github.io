@@ -1,0 +1,74 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (WinNT; U) [Netscape]">
+   <title>cm conference abstract: Henson &amp; Vassilevski</title>
+</head>
+<body>
+
+<center>
+<h3>
+Element-free AMGe: General algorithms for computing interpolation weights</h3></center>
+
+<center><a href="mailto:vhenson@llnl.gov">Van Emden Henson</a> (speaker)
+and Panayot S. Vassilevski
+<p>Center for Applied Scientific Computing
+<br>Lawrence Livermore National Laboratory
+<br>Box 808, L-560
+<br>Livermore CA 94551
+<br>&nbsp;
+<p>Abstract</center>
+
+<p>We propose a new algorithm for constructing the interpolation weights
+in algebraic multigrid (AMG). The rule we propose is related to the interpolation
+described in [1] for AMGe, an element-based algebraic multigrid. There,
+the interpolation is based on an energy-minimization principle for finite
+element applications.
+<p>We first review the classical algorithm for constructing interpolation
+weights in AMG, examining it from an energy-minimization perspective. Our
+purpose is to extend the classical algorithm in a more general setting
+than is possible for the traditional <i>M-matrix</i> applications of classical
+AMG.
+<p>Based on this discussion, we next present the new interpolation rule.
+However, like the method outlined in [1], applying the rule requires access
+to the entries of the individual element matrices. Further, these element
+matrices must be built on all coarse levels, which is a non--trivial and
+expensive task [2].
+<p>We then propose an approach that does not require access to the element
+matrices even on the fine-grid. However, the additional information we
+require instead is knowledge of the so-called <i>rigid body modes,</i>
+that is, the vectors that span the null-space of the global (assembled)
+<i>Neumann</i>-type
+matrix. In the simplest case of scalar elliptic PDE discretization matrices,
+this is just the constant vector. For the elasticity problem, this comprises
+certain linear functions, which, in practice, means that one needs the
+coordinates of the fine-grid nodes. In some cases this information may
+not be available; we use only constant vectors for these cases.
+<p>Based on the rigid body modes, we specify appropriate boundary conditions
+which are imposed on a <i>local neighborhood matrix</i> associated with
+a fine degree of freedom. This produces a sort of Neumann-type local (or
+element) matrix. Finally, we can simply apply the rule from the AMGe methods
+based on the Neumann local matrix.
+<p>Some numerical results are given, illustrating the application of the
+method on discretized elliptic problems.
+<center>
+<h2>
+References</h2></center>
+
+<ol>
+<li>
+M. Brezina, A. J. Cleary, R. D. Falgout, V. E. Henson, J. E. Jones, T.
+A. Manteuffel, S. F. McCormick, and J. W. Ruge, <i>Algebraic multigrid
+based on element interpolation (AMGe),</i> SIAM J. Sci. Comput. (submitted),
+1998.</li>
+
+<li>
+J. E. Jones and P. S. Vassilevski,
+<i>AMGe based on element agglomeration,</i>
+(1999) submitted.</li>
+</ol>
+This work was performed under the auspices of the U.S. Department of Energy
+by University of California Lawrence Livermore National Laboratory under
+contract No. W-7405-Eng-48.
+</body>
+</html>
