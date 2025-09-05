@@ -1,0 +1,49 @@
+<html>
+<head>
+<title> Workshop Talk by Michele Benzi, Tuesday March 31</title>
+</head>
+
+<body>
+<center>
+The Effect of Ordering and Partitioning on Factorized Approximate Inverse 
+Preconditioners
+<br><br>
+<a href="mailto:benzi@lanl.gov">Michele Benzi</a><br>
+Scientific Computing Group (CIC-19), <br>
+MS B256,<br>
+Los Alamos National Laboratory,<br>
+Los Alamos, NM 87545<br><br>
+ Miroslav Tuma,<br>
+ Czech Academy of Sciences, Prague
+ 
+</center> <p> 
+Abstract:
+ <p>
+Factorized sparse approximate inverse preconditioners  
+can be sensitive to the ordering of the unknowns. This sensitivity 
+can be exploited to decrease the amount of fill-in in the approximate
+inverse factorization, and/or to increase the amount of parallelism
+available in the construction of the preconditioner. The question is,
+how does the ordering of the unknowns affect the rate of convergence
+of the preconditioned iteration? To get some insight, we 
+experimented with different reorderings and partitioning strategies 
+on a number of test matrices from several application areas. 
+<p>
+In particular, we considered symmetric orderings for sparse direct solvers, 
+and nonsymmetric orderings aimed at producing matrices with a zero-free
+diagonal. We also considered reorderings induced by some basic graph 
+partitioning heuristics. While our main focus was on the factorized 
+approximate inverse strategies based on conjugation, we also experimented with 
+methods based on Frobenius norm minimization and on bordering. 
+<p>
+In this talk we report on the results of our experiments, which show that
+the robustness and performance of sparse approximate inverse preconditioners
+can be significantly enhanced by reordering the coefficient matrix. 
+We make recommendations
+on which reorderings should be used, and which are likely to give poor results.
+We contrast the situation for factorized approximate inverses with 
+that for ILU-type techniques, and we offer some simple graph-theoretical
+arguments to help explain the results of our experiments.
+
+</body>
+</html>

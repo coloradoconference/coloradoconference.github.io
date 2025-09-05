@@ -1,0 +1,33 @@
+
+Tutorial Introduction to components and frameworks
+
+Title:  Component Architectures for HP Computing
+
+Author: Rob Armstrong, Sandia National Labs, Livermore, CA  94551
+        http://gs.ca.sandia.gov
+
+Abstract:
+
+Component architectures have been an effective software paradigm for
+graphical user interfaces (GUI's) and remote method invocation (RMI)
+applications.  Characteristics of these applications have much in
+common with HP parallel applications.  Parallel computing can be, and
+usually is, highly complex like GUI and RMI applications.
+Message-passing can also be viewed as an event process driven by the
+network interface, similar to the event-driven nature of GUI
+applications.  The frame-based component style of architecting code
+divides large tasks into manageable, nested modules.  Unlike the
+simple OO style of computing the modules are aware of the environment
+into which they have been dropped.  As a result, this module, called a
+component, requires less knowledge on the part of the programmer in
+order to use it.  This is often cited as the reason that the
+frame-based component programming language, Microsoft Visual
+Basic(tm), is so successful.
+
+The claim here is that a component approach can do the same thing for
+HP numerical computing that it has done for GUI and RMI types of
+applications.  In our view, HP computing needs a way to deal with the
+mounting complexity that recent advances in technology and funding has
+brought on.  As an example, features of Sandia's component
+architecture for HP numerical components, called InDEPS, will be
+discussed.
