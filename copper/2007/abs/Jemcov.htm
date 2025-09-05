@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0125)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49582&id=1.2&actionID=113&mime=d11e55b083e4b13ef9527233ccdd4e3b -->
+<HTML><HEAD><TITLE>cm conference abstract: Jemcov</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Stabilization of Agglomerative Algebraic Multigrid Solver by Recursive 
+Projection Method </CENTER>
+<P>
+<CENTER><A href="mailto:%20aj@fluent.com" target=_blank>Aleksandar 
+Jemcov</A><BR><BR>Fluent Inc., 10 Cavendish Court, Lebanon, NH, 03766, 
+USA<BR><BR>Joseph P. Maruszewski<BR>Hrvoje Jasak<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>The Classical approach to constructing an Algebraic Multigrid Solver (AMG) 
+for the solution of linear system of equations is to select a smoother and 
+devise an agglomeration strategy to follow the smooth error component on 
+successive levels. Performance of an AMG solver is dependent on the ability of 
+agglomeration to closely represent the distribution of the smooth error 
+components on a given level and, to a lesser degree, on a choice of smoother. 
+Successful agglomeration strategies result in better performance of AMG 
+solvers.<BR><BR>Agglomeration strategies are hardly universal and depend on the 
+physical properties of the problem and numerical properties of the 
+discretization technique used to create the system of linear equations under 
+consideration: agglomeration that leads to success in one case may lead to 
+failure in another. Furthermore, complex agglomeration may incur a computational 
+penalty associated with the construction of restriction and prolongation 
+operators, with potentially unacceptable computational time overhead. This is 
+particularly important in time-dependent solution of partial differential 
+equations, where a linear system is solved many times per time step. Additional 
+problems are associated with the need to tune the agglomeration, when the 
+primary goal is the analysis of the underlying problem and not a search for new 
+agglomeration strategies. It is therefore desirable to to devise a 
+computationally efficient agglomeration robust enough to handle wide range of 
+problems.<BR><BR>One simple and popular matrix coarsening algorithm is the 
+Agglomerative Method. the basic assumption in agglomerative multigrid is the 
+homogeneity of the smooth error distribution within the agglomeration stencil. 
+The result of the application of this agglomeration strategy is that every fine 
+level equation will have a representation on a coarse level and moreover, coarse 
+level corrections will be constant within a given interpolation stencil. 
+Homogeneous smooth error distribution assumption is correct only in a very 
+special cases of strongly elliptic problems with constant coefficients 
+discretized on uniform grids. In practical application this assumption is rarely 
+met and an Algebraic Multigrid solver that uses this agglomeration strategy can 
+easily fail to converge. The attraction of this agglomeration strategy is in its 
+simplicity and computational efficiency since prolongation and restriction 
+operators are known a priori thus reducing the overall number of operations per 
+multigrid cycle resulting in a very fast algorithm. This agglomeration strategy 
+is effective if the discretization method produces linear system of equation 
+whose matrix has M-matrix properties. In that case, simple scaling of 
+corrections based on variational considerations can substantially improve 
+performance of the multigrid solver. However, if the underlying matrix violates 
+M-matrix properties, the assumption of homogeneous smooth error distribution 
+within a stencil is not applicable and agglomeration strategy that closely 
+follows smooth error distribution is more effective.This, of course, comes at 
+increased computational time and larger memory usage.<BR><BR>One solution to 
+this problem is to use Agglomerative Algebraic Multigrid Solver as a 
+preconditioner to Krylov subspace methods. This approach allows for flexibility 
+of the selection of the most appropriate Krylov subspace solver that fits the 
+needs of the problem at hand and significant performance gain results from the 
+proper choice of the solver and preconditioner. However, often the spectrum of 
+the iteration matrix may be influenced by the quality of the computational grid 
+and peculiarities of the physical models used in the discretization process thus 
+making the process of selection of the appropriate Krylov subspace method 
+harder. When this is the case, a careful choice of the type of the cycle, 
+smoother and agglomeration stencil for the multigrid preconditioner together 
+with appropriate Krylov subspace solver will strike the right balance between 
+computational cost and efficiency. In principle, these choices are not known a 
+priori and every problem requires some amount of tuning of the solver and 
+preconditioner parameters.<BR><BR>Another solution to this problem is in the 
+enhancement of the Agglomerative Algebraic Multigrid Solver by Recursive 
+Projection Method (RPM). The idea of the RPM consists of the projection of the 
+solution vector and fixed-point function onto stable and unstable spaces thus 
+separating unstable eigenvalues of the iteration matrix from the stable ones. 
+The principal question in this approach is the one of the construction of stable 
+and unstable orthogonal projectors. Projectors are constructed from the 
+recursive property of the the algebraic multigrid algorithm which states that 
+the error propagation through iterations is according to powers of the iteration 
+matrix. If the error is defined as the difference between two consecutive 
+solves, then these differences form the Krylov basis of the problem. The 
+dominant eigenspace is extracted from this basis by performing the 
+QR-decomposition of the rectangular matrix whose columns are difference vectors. 
+Diagonal entries of the upper triangular matrix R in QR-decomposition are used 
+to determine which columns of the matrix Q span the unstable space. This 
+procedure is performed when the AMG starts experiencing stalling or divergence 
+of L2 norm of the linear system residual. Once the unstable basis is determined, 
+the unstable projector is constructed and stable projector is obtained from the 
+fact that these projectors are orthogonal.With the knowledge of stable and 
+unstable projectors, the fixed-point function of Agglomerative Algebraic 
+Multigrid Solver together with the current solution is projected on stable and 
+unstable spaces. The stable part of the algorithm proceeds to iterate according 
+to AMG algorithm with stable part of the solution, whereas for the unstable part 
+of the solution the special Newton algorithm is constructed. At the convergence, 
+full solution is constructed from unstable and stable parts by the direct 
+summation.<BR><BR>RPM solver is implemented as a wrapper around agglomerative 
+AMG solver in such way that it becomes active only when divergence or stalled 
+convergence is detected. In that case, dominant eigenspace is determined and 
+stable and unstable projectors are constructed and solution is projected onto 
+those spaces. The basis of unstable space is recursively enriched until all 
+unstable modes are captured at which time rapid convergence is experienced. The 
+advantage of this method is in its dynamic nature since it is activated only 
+when needed. In contrast to preconditioned Krylov space solvers, RPM is 
+universal in nature and very efficient from the computational point of 
+view.<BR><BR></P></BODY></HTML>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49575&id=2&actionID=113&mime=011e62f6c790ee38693453cd460a3819 -->
+<HTML><HEAD><TITLE>cm conference abstract: Yavneh</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>ACA_2 - Automatic Coarse Grid Approximation and Restriction Derivation 
+</CENTER>
+<P>
+<CENTER><A href="mailto:%20irad@cs.technion.ac.il" target=_blank>Irad 
+Yavneh</A><BR><BR>Department of Computer Science, Technion - Israel Institute of 
+Technology, Haifa 32000, Israel<BR><BR>Roman Wienands<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>In a companion talk by Roman Wienands, a new automatic coarsening method 
+(ACA_1) is described, that yields robust convergence behavior, while allowing 
+explicit control of the coarse-grid stencil. In this talk we apply this 
+formalism to automatically construct the restriction, as well as the coarse-grid 
+operator. We call this approach ACA_2. <BR><BR>Given prescribed stencils 
+(sparsity patterns) for the restriction and the coarse-grid operator, of sizes 
+$N_R$ and $N_L$, respectively, we choose $N_L+N_R-1$ local basis functions per 
+coarse-grid variable, and construct a restriction and a coarse-grid operator 
+that provide an exact approximation for all functions belonging to the subspace 
+spanned by these basis functions. By pre-computing a unique and sparse set of 
+so-called Canonical Basis Functions (CBFs), the computational effort required 
+for setup is not excessive. The resulting solver is compared with classical 
+Black-Box multigrid (BBox) of Dendy (1982), and with ACA_1 that uses BBox 
+restriction and prolongation, for a suite of diffusion problems with 
+discontinuous coefficients. <BR><BR>We also present an algebraic viewpoint of 
+both ACA_1 and ACA_2. We show that (Petrov)-Galerkin coarsening is in fact a 
+special case of ACA_1, and demonstrate how ACA_1 gains sparsity in return for 
+redundancy. We further describe some preliminary theoretical results, including 
+conditions under which ACA_2 yields an exact solution at the coarse points. 
+</P></BODY></HTML>

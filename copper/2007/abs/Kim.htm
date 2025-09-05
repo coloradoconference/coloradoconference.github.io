@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49806&id=2&actionID=113&mime=6742a52f27bbac8969618ab070c1f8e5 -->
+<HTML><HEAD><TITLE>cm conference abstract: Kim</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>FOSLS application to optimal control problem by Stokes equations 
+</CENTER>
+<P>
+<CENTER><A href="mailto:skim@knu.ac.kr" target=_blank>Sang Dong Kim and Soorok 
+Ryu </A><BR><BR>Department of Mathematics, Kyungpook National University, Daegu 
+702-701, Korea<BR><BR>Hyung-Chun Lee<BR>Department of Mathematics, Ajou 
+University, Suwon 442-749, Korea </CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>&nbsp;&nbsp; Optimization or flow control problems have the usual three 
+ingredients. First, one has an objective, a reason why one wants to control the 
+flow. Mathematically such an objective functional is expressed as a cost, or 
+performance functional. Next, one has controls or design parameters are expessed 
+in terms of unknown data in the mathematical specification of the problem. 
+Finally, one has contraints that determine what type of flow one is interested 
+in and that place direct or indirect limited on candidate optimizers. 
+Mathematically, the type of flow is in terms of a specific set of partial 
+differential equations.<BR>&nbsp;&nbsp; Actually, In this talk, we concern the 
+Stokes equations as the type of folw. In our case, the optimization problem we 
+consider is to find an optimal state $(\mathbf{u}, p)$ and an optimal control 
+$\mathbf{f}$ which minimize the $L^2$-norm distance between $\mathbf{u}$ and 
+target velocity $\hat{\mathbf{u}}$ subject to $(\mathbf{u},p,\mathbf{f})$ 
+satisfying the Stokes system. Such constraint optimization problem can be 
+converted to the unconstrained optimization problems by the Lagrange multiplier 
+rule. It is a standard approach for solving finite-dimensional constrained 
+optimization problem([3,4]). As a result, we have a coupled optimality system 
+related to two Stokes type equations associate with state variables and adjoint 
+variables. In this system, we use only state variables and adjoint variables but 
+controls. This optimality system can be dealt with mixed finite element 
+approaches. But, in our case, we use first-order system least-squares(FOSLS) 
+technique by using the state flux $'\mathbf{U} = \nabla{\mathbf{u}}^t$ of the 
+state velocity $\mathbf{u}$ and the adjoint flux $\mathbf{V} = 
+\nabla{\mathbf{v}}^t$ of the adjoint velocity $\mathbf{v}$. We reformulate the 
+coupled second-order optimality system as the coupled first-order optimality 
+system. Then, we define the least-squares functionals based on the uncontrained 
+optimal system in terms of appropriate weights and norms for the system. In 
+particular, we impose a weight $\frac{1}{\sigma^2}$ on adjoint system to get a 
+good control result. We show that the least-squares functional is equivalent to 
+$H^1$ product norms by proving the $H^2$-regularity of that optimality 
+system[2]. This principles result in symmetric and positive definite algebraic 
+system. We show that a least-squares principle based on $L^2$ norms applied to 
+this system yields optimal discretization error estimates $H^1$ norm in each 
+variable.<BR>&nbsp; &nbsp; For the numerical test, we use multigrid V-cycle 
+method using Gauss-Seidel smoothing iteration on the unit square domain. And we 
+also use the single approximating space of continuous piecewise linear 
+polynomials for the approximations of all unknowns. Note that we use a simple 
+target velocity that is a solution of the Stokes system. We examine the effects 
+of changes in the parameters \sigma and $\nu$. Generally, effecting good control 
+requires small values of penalty parameter $\sigma$. So, we observe the $L^2$ 
+norm of between controlled flow and target flow. That is, we show the controlled 
+flow behavior when $\sigma =1,0.1,0.01$, and $0.001$ for fixed kinematic 
+viscosity $\nu=1$. Then, we see that the controlled flow matches the target flow 
+very well for small values of penalty parameter $\sigma$. Now, we consider the 
+controlled flow for different kinematic viscosity $\nu =1,0.1,0.01$ and $0.001$ 
+when $\sigma=1$ is fixed. In this case, we see the norms of |u-hat{u}| and |f| 
+are very similar to the ones of above varying $\sigma$ case. These computational 
+results mean that if $\nu$ is small, then the flow is easily controlled by small 
+control flow $\mathbf{f}$. Finally, we consider the dependence of mesh size 
+$h=1/4,1/8,1/16,1/32$ for fixed $\nu=1$ and $\sigma=0.001$. We wee here that the 
+norm of $\|\mathbf{u}-\hat{\mathbf{u}}\|$ and the value of objective functional 
+are decreased.<BR>&nbsp;&nbsp; As a conclusion, we applied on optimal control 
+problem with Stokes equations as contraints by using the earler FOSLS work[1] on 
+Stokes system. Moreover, we imposed weights $\frac{1}{\sigma^2}$ and $\nu^2$ for 
+good control effecting good control of small penalty parameter and viscosity. In 
+this sense, if we find the best weights then, a least-squares principles seems 
+to be proper for optimal control problems. <BR><BR>References <BR>[1] Z. Cai, R. 
+Lazarov, T. A. Manteufel, and S. F. Mccormick, First-order system least squares 
+for the Stokes equation, with application to linear elasticity, SIAM J. Numer. 
+Anal. Vol. 34 (1997), pp. 1727-1741. <BR><BR>[2] S. Agmon, A. Douglis, and L. 
+Nirenberg, Estimates near the boundary for solutions of elliptic partial 
+differential equations satisfying general boundary conditions II, Comm. Pure 
+Appl. Math. 17 (1964), 35-92. <BR><BR>[3] P. Bochev and M. Gunzburger. 
+Least-squares finite element methods for optimality systems arising in 
+optimization and cotrol problems, SIAM J. Numer. Anal. Vol. 43 (2006), pp. 
+2517-2543. <BR><BR>[4] M. Gunzburger, Perspectives in Flow Control and 
+Optimization, SIAM, Philadelphia, 2003.<BR><BR><BR><BR>(This work was supported 
+by KRF-2005-070-C00017 and BK21 MCDI) </P></BODY></HTML>

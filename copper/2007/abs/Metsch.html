@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>cm conference abstract: Metsch</title>
+</head>
+
+<body>
+
+<center>
+Multilevel Coarse Grid Classification - A multilevel approach to
+parallel coarse grid selection for algebraic multigrid
+</center>
+
+<p>
+<center>
+<a href="mailto: metsch@ins.uni-bonn.de">
+Bram Metsch</a><br><br>
+Universit&auml;t Bonn<br><br>
+Institut f&uuml;r Numerische Simulation<br>
+Wegelerstra&szlig;e 6<br>
+D-53115 Bonn<br>
+Germany<br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>We present an improvement to the Coarse Grid
+Classification (CGC) coarsening algorithm for parallel algebraic
+multigrid (AMG).</p>
+<p>The CGC coarsening scheme is based on the classical Ruge-St&uuml;ben
+coarsening algorithm. On each processor subdomain, we individually construct
+multiple candidate coarse grids. Then, we construct a directed,
+weighted graph whose vertices represent the grids constructed by the
+multiple coarsening runs. Edges are defined between vertices which
+represent grids on neighboring processor domains. Each edge weight
+measures the quality of the boundary constellation if the grids
+represented by its incident vertices are chosen to be part of the composed grid. Finally, we transfer the
+whole graph on one processor. There, we select one coarse grid for
+each processor subdomain which automatically matches most of its
+neighbors. 
+</p>
+<p>For a very large number of processors, the transfer of the whole graph
+on a single processor is too expensive and can lead to a significant
+load imbalance. In this talk, we present a modification of the CGC coarsening scheme
+which overcomes this bottleneck. Using a parallel multilevel
+(recursive) heavy edge matching technique, we obtain a smaller graph whose vertices represent
+consistent candidate coarse grids across multiple processor
+subdomains. From this graph, we can construct a coarse grid for the
+whole discretization domain.</p>
+</body>
+</html>

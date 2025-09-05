@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>cm conference abstract: De Sterck</title>
+</head>
+
+<body>
+
+<center>
+Markov Chains and Web Ranking: a Multilevel Adaptive Aggregation Method
+</center>
+
+<p>
+<center>
+<a href="mailto: hdesterck@uwaterloo.ca">
+Hans De Sterck</a><br><br>
+Tom Manteuffel<br>
+Steve McCormick<br>
+Quoc Nguyen<br>
+John Ruge<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Google's PageRank method for ranking web pages models how a
+'random surfer' follows links between web pages in a random
+fashion. The stationary probability vector of the resulting Markov
+chain provides a ranking of all the pages in the network.
+Calculating this stationary probability vector is a very large
+problem: Google now indexes 25 billion internet web pages.
+We present a multilevel adaptive aggregation method for the
+linear algebra problem of calculating the stationary probability
+vector of a Markov chain. The method described is a variant of
+adaptive algebraic multigrid methods for sparse linear systems,
+and is also related to existing aggregation methods for Markov
+chains. We apply our multilevel method to a set of stochastic
+matrices that provide models for web page ranking. These
+numerical tests serve to illustrate for which types of stochastic
+matrices our multilevel adaptive method may provide significant
+speedup compared to standard iterative methods. The tests also
+provide some more insight into why the PageRank model is a
+successful model for determining a ranking of web pages.
+
+</body>
+</html>

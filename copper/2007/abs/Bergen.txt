@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>cm conference abstract: Bergen</title>
+</head>
+
+<body>
+
+<center>
+First Steps Towards Unstructured Grid Representations on the IBM Cell Broadband Engine Architecture
+</center>
+
+<p>
+<center>
+<a href="mailto: bergen@lanl.gov">
+Benjamin Karl Bergen</a><br><br>
+CCS-2 Computational Mathematics and Physics<br>
+Los Alamos National Laboratory<br>
+P.O. Box 1663<br>
+Los Alamos, New Mexico 87545<br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The IBM Cell Broadband Engine Architecture represents a new trend in CPU design.  This so called <i>System-On-A-Chip (SOC)</i> design poses significant hurdles for scientists developing solvers for linear systems resulting from discretizations on unstructured grids.  This is due, both to the memory hierarchy of the chip, and to the fact that the primary compute power of the Cell comes from a <i>single instruction multiple data (SIMD)</i> (vector) processor.  In this talk, we present an introduction to the Cell processor, with emphasis given to the processor's most troublesome characteristics with respect to handling sparse matrix data structures.  We then present an approach for implementing various multigrid component algorithms using the <i>ELL</i> storage format.
+
+</body>
+</html>

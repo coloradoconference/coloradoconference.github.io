@@ -1,0 +1,68 @@
+
+<html> <head> <title>cm conference abstract: Li</title> </head>
+
+<body>
+
+<center> On a type of balancing domain decomposition methods for
+solving interior Helmholtz equations </center>
+
+<p>
+<center>
+<a href="mailto: li@math.kent.edu">
+Jing Li</a><br><br>
+Department of Mathematical Sciences,
+Kent State University, Kent, OH 44242<br><br>
+Xuemin Tu<br>
+Department of Mathematics, University of California, Berkeley, CA
+94720-3840<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+
+A variant of balancing domain decomposition methods by constraints
+(BDDC) are proposed for solving a class of indefinite system of
+linear equations, which arises from the finite element
+discretizations of the Helmholtz equation of time-harmonic wave
+propagation in a bounded interior domain. The proposed BDDC
+algorithm is motivated by the dual-primal finite element tearing and
+interconnecting algorithm for solving the time-harmonic wave
+propagation problems (FETI-DPH), which was first proposed by Charbel
+Farhat and Jing Li (2004). The FETI-DPH method has been shown to be
+parallel scalable and has been applied to the simulation of elastic
+waves in structural dynamic problem, and to the simulation of sound
+waves in acoustic scattering problems. A key component in the
+FETI-DPH algorithm, also used in the proposed BDDC algorithm, is
+some plane waves incorporated in the coarse level problem to enhance
+the convergence rate. These plane waves represent exact solutions of
+the partial differential equations in free space. This is an idea
+first introduced by Farhat, Macedo, and Lesoinne (2000) in the
+FETI-H algorithm for solving the Helmholtz equations.
+
+
+<p> In the proposed BDDC algorithms, the GMRES iteration is used to
+solve the preconditioned indefinite system of linear equations. We
+prove that the convergence rate of the GMRES iteration depends
+polylogarithmically on the dimension of the individual subdomain
+problems, as long as the typical diameter of the subdomains is
+sufficiently small. To overcome the difficulty introduced by the
+indefiniteness of the problem, we use a perturbation approach, which
+was first applied by Cai and Widlund (1992)to analyzing the
+overlapping Schwarz algorithm for solving indefinite problems; see
+also the work by Gopalakrishnan,  Pasciak, and Demkowicz (2003,
+2004) for applications to analyzing overlapping Schwarz algorithms
+and multigrid methods for solving time harmonic Maxwell equations.
+In our analysis, an error bound for the approximation of the
+solution of the Helmholtz equation by a partially sub-assembled
+finite element problem is crucial; we view that finite element
+problem as a non-conforming approximation of the indefinite problem.
+We also establish the spectral equivalence between the proposed BDDC
+algorithms and the FETI-DPH algorithms for solving Helmholtz
+equations.
+
+</body> </html>

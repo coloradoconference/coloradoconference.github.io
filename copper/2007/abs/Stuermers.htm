@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>cm conference abstract: St&uuml;rmer</title>
+</head>
+
+<body>
+<center>
+A fast full multigrid solver for applications in image processing
+</center>
+
+<p>
+<center>
+<a href="mailto:markus.stuermer@informatik.uni-erlangen.de">
+Markus St&uuml;rmer</a><br><br>
+Lehrstuhl f&uuml;r Systemsimulation<br>
+Cauerstra&szlig;e 6<br>
+91058 Erlangen<br>
+Germany<br><br>
+Harald K&ouml;stler<br>
+Ulrich R&uuml;de<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We present a fast, cell-centered multigrid solver and apply it to image denoising and non-rigid diffusion based image registration. In both applications real time performance is required in 3D and the multigrid method has to be compared to solvers based on Fast Fourier Transform. 
+The optimization of the underlying variational approach results for image denoising directly in one time step of a parabolic linear heat equation, for image registration a non-linear 2nd order system of partial differential equations is obtained.
+This system is solved by a fixpoint iteration using a semi-implicit time discretization, where each time step again results in an elliptic linear heat equation. The multigrid implementation comes close to real time performance for medium size medical images in 3D for both applications and is compared to a solver based on Fast Fourier Transform using available libraries.
+
+</body>
+</html>

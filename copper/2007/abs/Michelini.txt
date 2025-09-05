@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>cm conference abstract: Navarrete Michelini</title>
+</head>
+
+<body>
+
+<center>
+A Semi-algebraic Approach to Study the Effect of Inter-grid Operators on Multigrid Convergence
+</center>
+
+<p>
+<center>
+<a href="mailto: pnavarre@purdue.edu">
+Pablo Navarrete Michelini</a><br><br>
+Center for Wireless Systems and Applications<br> 465 Northwestern Ave., Purdue University, West Lafayette, IN 47907-2035, USA<br><br>
+Edward J. Coyle<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We study the effect of inter-grid operators -- the interpolation and restriction operators -- on the convergence of multigrid algorithms for solving 1D and 2D linear PDEs. We show how a modal analysis of linear systems, along with some assumptions on the normal modes of the system, allow us to understand the role of inter-grid operators in the speed and accuracy of a full-multigrid step.<br><br>
+
+We state an assumption that leads to a precise description of aliasing effects on the system. This assumption condenses, in a single algebraic property called the Aliasing Property, all the information needed from the geometry of the discretization and the structure of the eigenmodes. If this property is satisfied then no more information is needed from the system and the analysis is completely algebraic. Therefore, our analysis could be considered a semi-algebraic approach to the study of convergence issues and the design of efficient inter-grid operators.<br><br>
+
+We consider two different scenarios. First, we state an Aliasing Property that is satisfied for a large class of one-dimensional problems discretized in uniform grids. Then, we extend this property to the two-dimensional uniform grid with the help of additional assumptions on the structure of the system matrix.<br><br>
+
+Using the Aliasing Property and the relationship of the inter-grid operators with the normal modes of the system, we determine the exact rates at which high and low frequency groups of modal components of the error evolve and interact. With this knowledge, we are then able to design inter-grid operators for optimal multigrid convergence. By different choices of operators we verify the classic heuristics based on harmonic analysis and we can show a trade-off between the rate of convergence and the number of computations required per iteration.
+</body>
+</html>

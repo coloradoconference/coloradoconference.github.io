@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>cm conference abstract: schmid</title>
+</head>
+
+<body>
+
+<center>
+Investigation of Enhancements in Incremental Forming Simulations using
+      Algebraic Multigrid and Schur Complement Methods 
+</center>
+
+<p>
+<center>
+<a href="mailto:schmid@fnb.tu-darmstadt.de">
+F. Schmid</a>, M. Schäfer<br><br>
+Department of Numerical Methods in Mechanical Engineering<br>
+Petersenstr. 30, 64287 Darmstadt, Germany
+<br><br>
+<br>
+<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+In the recent years, technology in the field of industrial production
+had to cope with an increasing need for short production runs, a high
+product diversification and complexity and thus, continuous
+developments on metal forming have taken place. Along with aspects
+from manufacturing the numerical simulation of forming processes has
+received steady progress and current methods perform well in that
+field of application [5].<br>
+
+As one of the more recent approaches incremental forming processes try
+to achieve those industrial demands due to their high flexibility.
+They are specially designed as a low-cost alternative for difficult
+product geometries, variable low-series productions or prototyping. In
+the process, the product is formed in multiple sequentially similar
+steps of a small and simple die. Plastic forming only occurs in a very
+small zone of the work piece, while wide regions of it undergo only
+elastic deformation [2]. Bulk forming as well as sheet metal forming
+are possible processes for application of the method.<br>
+
+The numerical properties of those simulations obstruct an efficient
+simulation with current methods, though. Beside a high number of
+unknowns and time steps, large deformations, unsteady boundary
+conditions and the need for continual mesh adaption are aspects that
+have to be taken into account. Moreover, nonlinear constitutive laws
+and the indispensible presence of multibody contact between dies and
+work pieces complicate the computations and lead to unacceptably high
+computation times. The main problem encountered is the conditioning of
+the system matrices upon which iterative solvers struggle with bad
+convergence.  Algebraic multigrid methods have proven to be very
+efficient on finite element discretizations and to overcome mesh
+dependency but maintain the good complexity of multigrid methods [1][4].
+It has been shown that those methods perform well on simulations of
+incremental forming processes compared to other iterative solvers and
+retain a high robustness and efficiency [3].<br>
+
+This paper investigates the performance of an algebraic multigrid
+(AMG) solver when different strategies of using certain process
+characteristics of incremental forming are applied.  The main idea of
+those strategies is to exploit the local restriction of the actual
+forming on the model, which is the most striking difference to other
+forming processes. The discussion includes the consideration of those
+process properties within the AMG setup as well as in an feasible
+schur complement decomposition. Numerical results are given.<br><br><br>
+
+
+References:<br><br> 
+
+[1] Briggs, W.L., Henson, V.E. and McCormick, S.: Multigrid Tutorial,
+    2nd Edition, SIAM, Philadelphia, 2000<br>
+
+[2] Groche, P., Heislitz, F., Jöckel, M., Jung, S., Rachor, C.  and
+    Rathmann, T., Modelling of Incremental Forming Processes,
+    Proceedings of NAFEMS World Congress. Como, 2001<br>
+
+[3] Schmid, F. and Schäfer, M.: Performance of Algebraic Multigrid
+    Methods for Simulation of Incremental Forming Processes,
+    Proceedings of European Multigrid Conference, Delft, 2005.<br>
+
+[4] Stüben, K., Algebraic Multigrid (AMG), An introduction with
+    applications, GMD Report 70, St. Augustin, 1999<br>
+
+[5] Wagoner, R.H. and Chenot, J.L, Metal Forming Analysis,
+    Cambridge University Press, Cambridge, 2001<br>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49617&id=2&actionID=113&mime=f0d53719a05dcb96cdd3a3c5425abd69 -->
+<HTML><HEAD><TITLE>cm conference abstract: Dendy</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Black Box Multigrid with Coarsening by a Factor of Three </CENTER>
+<P>
+<CENTER><A href="mailto:%20jed@lanl.gov" target=_blank>Joel E. 
+Dendy</A><BR><BR>MS B284, Los Alamos National Laboratory, Los Alamos, NM 
+87544<BR><BR>J. David Moulton<BR></CENTER>
+<P></P>
+<CENTER><BR>Abstract </CENTER>
+<P>Black Box Multigrid (BoxMG) is a robust variational multigrid solver on 
+logically structured grids. BoxMG standardly uses coarsening by a factor of two. 
+It handles cell-centered discretizations on logically rectangular grids by 
+treating the cell-centers as the unknowns to be coarsened. Such a strategy does 
+not preserve the cell structure. That is, coarse-grid cells are not the union of 
+fine grid cells. In some applications, such as local grid refinement, it is 
+desirable that the cell structure be preserved. One such method was discussed at 
+the last Copper Mountain Conference on Multigrid Methods, and it employed a 
+strategy that preserves cell structure while coarsening by a factor of two. 
+However, performance of this approach was unsatisfactory for certain 
+checkerboard configurations of the diffusion coefficient. </P>
+<P>The method discussed in this talk employs coarsening by a factor of three. It 
+is a natural generalization of standard BoxMG, using operator-induced 
+interpolation (which approximately preserves the continuity of the normal flux), 
+restriction as the transpose of interpolation, and Galerkin coarsening. We 
+present numerical results that demonstrate its robustness with respect to 
+discontinuous diffusion coefficients. In addition, we explore its relationship 
+with smoothed aggregation. </P></BODY></HTML>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49523&id=2&actionID=113&mime=3dc740224d74fc0b41279d46c8356c41 -->
+<HTML><HEAD><TITLE>cm conference abstract: Pennanen</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>An application of graph-based algebraic multigrid method </CENTER>
+<P>
+<CENTER><A href="mailto:%20anspenn@mit.jyu.fi" target=_blank>Anssi 
+Pennanen</A><BR><BR><A href="http://www.jyu.fi/it/laitokset/mit/en" 
+target=_blank>Department of Mathematical Information Technology</A> 
+<BR>University of Jyväskylä Finland<BR><BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>In this study, we describe an Algebraic Multigrid Method (AMG) which is a 
+modification of F. Kickinger's graph-based AMG [<A 
+href="https://webmail.colorado.edu/view.php?thismailbox=INBOX&amp;index=49523&amp;id=2&amp;actionID=113&amp;mime=3dc740224d74fc0b41279d46c8356c41#Kickinger" 
+target=_blank>1</A>]. In Kickinger's AMG, coarsening is based on the graph of 
+the system matrix only, instead of strongly connected components in the matrix, 
+as it is in the "classical" AMG by Ruge and Stüben [<A 
+href="https://webmail.colorado.edu/view.php?thismailbox=INBOX&amp;index=49523&amp;id=2&amp;actionID=113&amp;mime=3dc740224d74fc0b41279d46c8356c41#Ruge">2</A>]. 
+This leads to fast computation of both coarse grid matrices and interpolation 
+operators between coarse and fine levels. By some minor changes in the selection 
+of coarse grid variables and processing of Dirichlet boundary conditions, we 
+have obtained more robustness to the method. Additionally, we have extended the 
+method in a way presented e.g. in [<A 
+href="https://webmail.colorado.edu/view.php?thismailbox=INBOX&amp;index=49523&amp;id=2&amp;actionID=113&amp;mime=3dc740224d74fc0b41279d46c8356c41#Wabro">3</A>] 
+to be more suitable for vector-valued problems. <BR><BR>In numerical tests, we 
+have used our method as well as a solver as a preconditioner for linear systems 
+of equations arising from discretization of various mathematical models of 
+physical phenomena, such as fluid flow, acoustics, linear elasticity, etc. Here 
+we will show numerical results for two different application areas: <BR><BR>1) 
+incompressible, viscous flow problems in 3-D, and, <BR><BR>2) scattering of 
+sound waves in 2-D. <BR><BR>In the first case, AMG is used as a solver for the 
+Oseen problem arising from Picard-type linearization of steady state 
+Navier-Stokes. Linear Lagrangian finite elements are used as a discretization, 
+stabilized by the well-known scheme by Franca, Frey and Hughes. Incomplete LU 
+factorization with relaxation in smoothing steps is employed as a smoother. In 
+the second case, our method is used to approximate inverse of the 
+shifted-Laplacian operator which is used as a preconditioner for the Helmholz 
+equation. In [<A 
+href="https://webmail.colorado.edu/view.php?thismailbox=INBOX&amp;index=49523&amp;id=2&amp;actionID=113&amp;mime=3dc740224d74fc0b41279d46c8356c41#Erlangga">4</A>], 
+this was done by using a geometric multigrid. The equations are discretized by 
+linear, quadratic, and cubic Lagrangian finite elements. For both cases we have 
+obtained good convergence results, but the stabilization scheme in the first 
+case restricts the number of coarse levels. <BR><BR>References <BR><BR>[<A 
+target=_blank name=Kickinger>1</A>] F. Kickinger, Algebraic Multi-grid Solver 
+for Discrete Elliptic Second-Order Problems, in: Multigrid Methods V (Stuttgart, 
+1996), Springer, Berlin, 1998, 157-172. <BR>[<A target=_blank name=Ruge>2</A>] 
+J.W. Ruge and K. Stüben, Algebraic Multigrid (AMG), in: S.F. McCormick (Ed.), 
+Multigrid Methods, Frontiers in Applied Mathematics, SIAM, Philadelphia, 
+Pennsylvania, 1987, pp. 73-130.<BR>[<A target=_blank name=Wabro>3</A>] M. Wabro, 
+Algebraic Multigrid Methods for the Numerical Solution of the Incompressible 
+Navier-Stokes Equations, Ph.D. thesis, Johannes Kepler Universität, Linz, 
+2003.<BR>[<A target=_blank name=Erlangga>4</A>] Y. A. Erlangga, C. W. Oosterlee, 
+C. Vuik, A novel multigrid based preconditioner for heterogeneous Helmholtz 
+problems, SIAM J. Sci. Comput. 27 (4) (2006) 1471 1492. </P></BODY></HTML>

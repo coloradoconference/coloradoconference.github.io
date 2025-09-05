@@ -1,0 +1,50 @@
+ 
+<html>
+<head>
+<title>cm conference abstract: Koestler</title>
+</head>
+
+<body>
+
+<center>
+Structured Multigrid for arbitrary meshsizes with application to ab initio Moleculardynamic simulations and image processing
+</center>
+
+<p>
+<center>
+<a href="mailto: harald.koestler@informatik.uni-erlangen.de">
+Harald Koestler</a><br><br>
+Cauerstrasse 6, 91058 Erlangen, Germany<br><br>
+S. Bergler<br>
+U. Ruede<br>
+R. Schmid<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Geometric multigrid is most straightforward when the number of nodes or cells is a power of two, but
+there are many applications that require different grid dimensions and when it is not suitable to use the next higher power of two.
+In this talk we investigate two different strategies to implement arbitrary mesh sizes within a geometric multigrid solver.
+In the first algorithm, we will use a special restriction between the finest grid that may have arbitrary dimensions to a coarser grid whose grid sizes are powers of two, such that standard coarsening can be used on all still coarser grids.
+In the second algorithm, we combine cell centered and node based multgrid methods, but this must be used between any two consecutive levels. Here, we effectively change from one discretization method to the other depending on the number of unknowns in each direction.
+Numerical experiments show that
+similar convergence rates and timings of the multigrid solver can be achieved even in the case of an arbitrary number of unknowns in each direction. This is additionally confirmed by local Fourier
+analysis.
+
+These algorithms are used in ab-initio molecular
+dynamics simulations, an application in  quantum chemistry, and for variational approaches in image processing.
+In the first application we use our geometric multigrid solver
+in 3D with both periodic and Dirichlet boundary conditions to solve the Coulomb problem for the charge  interaction.
+Due to physical sizes of the atoms, the optimal number of mesh points in each direction can be computed in order to obtain the expected accuracy and to save memory. 
+We apply these techniques to a Car-Parrinello Molecular Dynamics scheme and show that the resulting method is energy conserving.
+In the second application we present variational models in image processing, such as
+optical flow or image inpainting that require the solution of isotropic or anisotropic 2nd order PDEs with Neumann boundary conditions. In general, the images can be of arbitrary size and e.g. for 3D medical images it is not feasible to resize and interpolate the data to dimensions that are powers of two before performing the computations.
+
+</body>
+</html>

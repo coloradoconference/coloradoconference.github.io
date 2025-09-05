@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49616&id=2&actionID=113&mime=9b24d35f531edb689d00d90e8d9a3279 -->
+<HTML><HEAD><TITLE>cm conference abstract: Moulton</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Revisiting Augmented Flux-Space Preconditioning of Mimetic 
+Discretizations </CENTER>
+<P>
+<CENTER><A href="mailto:%20moulton@lanl.gov" target=_blank>David Moulton</A>, 
+Misha Shashkov <BR><BR>Mathematical Modeling and Analysis Group <BR>Theoretical 
+Division<BR>Los Alamos National Laboratory, Los Alamos, NM <BR><BR>Travis Austin 
+<BR><BR>The Bioengineering Institute<BR>University of Auckland, Auckland, NZ 
+<BR><BR>Jim Morel <BR><BR>Department of Nuclear Engineering <BR>Texas A&amp;M 
+University, College Station, TX<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>Mimetic Finite Difference (MFD) discretizations of the diffusion equation, 
+which are based on the first-order form, have gained significant popularity in 
+recent years. The mimetic methodology has similarities with finite volume 
+methods and mixed finite element methods (MFEM), but are the first to be 
+extended to general polygonal and polyhedral elements while maintaining 
+symmetry. In all cases, since these discretizations are based on the first-order 
+form, they naturally lead to an indefinite linear system. Block elimination of 
+the flux (i.e., vector unknowns), destroys the overall sparsity of the reduced 
+system for the scalar variable. Hybridization, is one approach which improves 
+the sparsity of this reduced system. However, for many existing codes, 
+hybridization is not practical, hence we focus on treating the full indefinite 
+system. </P>
+<P>Motivated by the more localized sparsity structure of hybridized 
+discretizations, we increase the degrees of freedom in a manner that leads to a 
+more localized sparsity structure. Specifically, for the support operator MFD we 
+consider augmentation of the flux (i.e., vector unknowns) such that an 
+appropriate ordering of the unknowns leads to a new block diagonal system for 
+this component. In contrast to the block diagonal structure of the hybrid system 
+this system has blocks centered about vertices, and block elimination of the 
+flux (i.e., formation of the Schur complement) leads to a symmetric positive 
+definite scalar problem with a standard cell-based 9-point structure (in two 
+dimensions). In previous work, we demonstrated that this reduced system is 
+readily solved with existing robust multigrid methods, and that it is an 
+effective preconditioner for conjugate gradient iterations on the reduced 
+system. But we are really interested in efficiently solving the full indefinite 
+system. Here we investigate two approaches to this problem. First we consider 
+using the augmented flux system as a block preconditioner for GMRES iterations 
+of the full system. Alternatively, we use inner and outer preconditioned 
+conjugate gradient iterations to mitigate the lack of sparsity in the reduced 
+system, the Schur complement, for the scalar variable. The inner iteration 
+inverts the mass matrix for the vector flux and the outer iteration inverts the 
+Schur complement for the scalar variable. Although, this nested approach is 
+commonly thought to be too costly, here we find that it is faster, and scales 
+slightly better than the preconditioned GMRES. </P></BODY></HTML>

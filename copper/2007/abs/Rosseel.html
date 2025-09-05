@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>cm conference abstract: Rosseel</title>
+</head>
+
+<body>
+
+<center>
+Algebraic multigrid for stationary and time-dependent PDEs with stochastic coefficients
+</center>
+
+<p>
+<center>
+<a href="mailto: Eveline.Rosseel@cs.kuleuven.be">
+Eveline Rosseel</a><br><br>
+Katholieke Universiteit Leuven, Computer Science Department <br>
+Celestijnenlaan 200A, B-3001 Leuven, Belgium<br><br>
+Stefan Vandewalle<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Randomness in a physical problem can be modelled with stochastic partial differential equations (PDE). These equations contain some random parameters, for example, random coefficients in the differential operator or a random forcing term. A spectral expansion approach [1] is used to obtain all statistical information about the solution. This approach is based on a Karhunen-Lo&egrave;ve transform of the random inputs and on a Galerkin projection onto a generalized polynomial chaos basis for the random space. It transforms a stochastic PDE into a, in general coupled, system of deterministic PDEs. This system can further be discretized with deterministic finite element and time integration techniques. </p>
+<p>
+We consider an algebraic multigrid (AMG) method to solve the algebraic systems resulting from stochastic finite element discretizations. Linear stationary and time-dependent stochastic PDEs are discussed. The time-dependent problems are discretized by an implicit Runge-Kutta method. The presented AMG method expands the results in [2,3] to high-order time integration schemes and unstructured finite element meshes. The use of block smoothers and tensor restriction and prolongation operators is the key principle of this multigrid algorithm. The convergence properties of the AMG method are demonstrated by numerical tests and by a convergence analysis. The numerical tests are based on a diffusion equation with a random diffusion coefficient represented by Gaussian or uniform distributed random variables.
+The numerical results and the convergence analysis confirm the observed convergence results in [2] and the theoretical analysis in [4]. For example, the results illustrate the optimal convergence properties with respect to the spatial discretization. As to the efficiency of the method, some important implementation issues are addressed, in particular concerning the high computational cost of block smoothing steps.
+</p>
+
+
+<p>
+[1] R. Ghanem and P. Spanos. A spectral stochastic finite element formulation for reliability analysis. <em>J. Engrg. Mech. ASCE</em>, 17:2351-2372, 1991.<br>
+[2] O. Le Ma&icirc;tre, O. Knio, B. Debusschere, H. Najm and R. Ghanem. A multigrid solver for two-dimensional stochastic diffusion equations. <em> Comput. Methods Appl. Mech. Engrg.</em>, 192:4723-4744, 2003. <br>
+[3] H. Elman and D. Furnival. Solving the stochastic steady-state diffusion problem using multigrid. Technical Report TR-4786, University of Maryland, February 2006.<br>
+[4] B. Seynaeve, E. Rosseel, B. Nicola&iuml; and S. Vandewalle. Fourier mode analysis of multigrid methods for partial differential equations with random coefficients. <em>Journal of Computational Physics</em>, in press.
+</p>
+</body>
+</html>

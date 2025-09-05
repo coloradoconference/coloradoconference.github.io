@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>cm conference abstract: Van lent</title>
+</head>
+
+<body>
+
+<center>
+Energy Minimizing Coarse Spaces for 
+Domain Decomposition Methods
+</center>
+
+<p>
+<center>
+<a href="mailto: j.van.lent@maths.bath.ac.uk">
+Jan Van lent</a><br><br>
+Department of Mathematical Sciences, 
+University of Bath, Bath, BA2 7AY, U.K.<br><br>
+Ivan Graham<br>
+Robert Scheichl<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Two-level overlapping Schwarz methods for elliptic equations combine
+one level of local solves on overlapping domains with a global solve
+of a coarse approximation of the original problem.
+
+To obtain robust methods for equations with highly varying
+coefficients, it is important to carefully choose the coarse space
+used to construct this approximation.
+</p>
+
+<p>
+Inspired by methods for the one-dimensional problem formulated using
+energy minimization, Wan Chan and Smith [1] proposed a coarse space
+based on a constrained energy minimization problem. 
+
+This approach is supported by recent theory on the convergence of
+Schwarz methods that takes into account coefficient variation [2].
+
+The Lagrange multipliers for the constrained minimization problem are
+found by solving a large linear system.
+
+The coarse basis functions are then found by solving
+local systems.
+</p>
+
+<p>
+Xu and Zikatanov [3] showed that, for multigrid methods, the 
+system for the Lagrange multipliers can be solved efficiently using an
+appropriate preconditioner.
+
+They hint at a preconditioner for the domain decomposition case, but
+only present a Jacobi preconditioner, which is not robust for
+two-level Schwarz methods applied to equations with highly varying
+coefficients.
+
+We propose a preconditioner for the domain decomposition case, discuss
+how it can be implemented efficiently and demonstrate that it is
+robust.
+
+The resulting approach provides an algebraic way 
+to construct a robust two-level
+overlapping Schwarz method given only the system matrix and the
+matrices representing the local spaces for the one-level method.
+</p>
+
+<br/>
+[1]  W. L. Wan, T. F. Chan, and B. Smith, 
+<i>An energy-minimizing interpolation for robust multigrid methods</i>, 
+SIAM J. Sci. Comput., 21(4), pp. 1632-1649, 2000.
+<br/>
+[2] I. G. Graham, P. Lechner, and R. Scheichl, 
+<i>Domain Decomposition for Multiscale PDEs</i>,
+BICS Preprint 11/06, Bath, 2006.
+<br/>
+[3] J. Xu, and L. Zikatanov, 
+<i>On an energy minimizing basis for algebraic multigrid methods</i>, 
+Comput. Vis. Sci., 7(3-4), 121-127, 2004. 
+<br/>
+
+</body>
+</html>

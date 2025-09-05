@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49790&id=2&actionID=113&mime=6ba29a92666d26ddd9ca9b0aac561134 -->
+<HTML><HEAD><TITLE>cm conference abstract: Vandewalle</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>An algebraic multigrid method for high order time-discretizations of the 
+div-grad and curlcurl equations </CENTER>
+<P>
+<CENTER><A href="mailto:%20Stefan.Vandewalle@cs.kuleuven.be" 
+target=_blank>Stefan Vandewalle</A><BR><BR>University of Leuven<BR>Department of 
+Computer Science<BR>Celestijnenlaan 200A, B-3001 Leuven, Belgium<BR><BR>Tim 
+Boonen<BR>University of Leuven<BR>Department of Computer 
+Science<BR>Celestijnenlaan 200A, B-3001 Leuven, Belgium<BR><BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>The spatial discretization of time-dependent partial differential equations 
+by finite elements, finite difference or finite volumes leads to systems of 
+ordinary differential equations of very large dimension. Such systems can no 
+longer be solved efficiently by classical ODE software. Their solution requires 
+specialized solvers that take the structure of the problems into account. When 
+using higher order implicit Runge-Kutta or Boundary Value Method 
+time-discretization schemes, the size of the system to be solved in every time 
+step amounts to a multiple of the number of spatial unknowns. We will show in 
+this talk that these systems can be solved very efficiently, with a complexity 
+that is linear in the number of unknowns when multigrid PDE-algorithms are used. 
+
+<P>We will present in particular an algebraic multigrid algorithm fully coupled 
+implicit discretizations of the time-dependent diffusion and curlcurl equations. 
+The algorithm uses a blocksmoother, updating all stage values related to a grid 
+point simultaneously. The multigrid hierarchy can be derived from the hierarchy 
+built by any suitable AMG algorithm for the stationary version of the problem 
+considered. By a theoretical analysis and numerical experiments, we show that 
+the convergence of the algorithm is similar to the convergence of the stationary 
+AMG algorithm on which it is based. </P></BODY></HTML>
