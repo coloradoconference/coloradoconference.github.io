@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Copper Mountain Conference on Iterative and Multigrid Methods">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/favicon.ico">
+
+    <title>Index</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+
+    <!-- Custom CSS -->
+    <link href="css/copper.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light copper-color">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="about.html">About</a>
+          <a class="nav-item nav-link" href="about.html#tutorials">Tutorials</a>
+          <a class="nav-item nav-link" href="https://easychair.org/smart-program/CM2022/">Program (all times MDT)</a>
+          <a class="nav-item nav-link" href="registration.html">Registration</a>
+          <a class="nav-item nav-link" href="submit.html">Submit an abstract</a>
+          <a class="nav-item nav-link" href="student.html">Submit a student paper</a>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+      <div class="d-block mx-auto main-block">
+      <h1 class="title">17th Copper Mountain Conference On</h1>
+      <h1 class="title">Iterative Methods</h1>
+      <h1 class="title">(Virtual)</h1>
+      </div>
+  </div>
+
+    <div id="content">
+<div class="container">
+  <div class="d-block mx-auto main-block">
+    <h2 class="title text-danger">Monday April 4 - Friday April 8, 2022</h2>
+  </div >
+  <div class="row justify-content-center">
+    <div class="col-12">
+<select class="custom-select" id="selecttz" onchange="createtable(this.value)"></select>
+<div class="clearfix"></div>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('America/Los_Angeles')">Los Angeles</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('America/Denver')">MDT/Denver</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('America/Chicago')">Chicago</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('America/New_York')">New York</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('America/St_Johns')">St. John's</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('Europe/London')">London</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('UTC')">UTC</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('Europe/Berlin')">Berlin</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('Europe/Moscow')">Moscow</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('Israel')">Israel</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('Asia/Shanghai')">Shanghai</button>
+  <button type="button" class="btn btn-outline-secondary btn-sm" onclick="createtable('Asia/Tokyo')">Tokyo</button>
+<div class="clearfix"></div>
+<span id="scheduletitle" class="font-weight-bold text-danger"></span>
+<div class="clearfix"></div>
+<span id="scheduletitletime" class="font-weight-bold text-danger"></span>
+<table class="table table-sm" id="schedule"></table>    </div>
+    <div class="clearfix"></div>
+    <div class="col-4">
+      <table class="table table-sm" id="legend">
+        <tr><td class="table-danger">Tutorials: via Zoom</td></tr>
+        <tr><td class="table-primary">Session 1 talks: via Zoom</td></tr>
+        <tr><td class="table-success">Session 2 talks: via Zoom</td></tr>
+        <tr><td class="bg-success">Session 2 student paper talks: via Zoom</td></tr>
+        <tr><td class="table-warning">Break time: meet in gather.town</td></tr>
+        <tr><td class="bg-warning">Virtual banquet: via Zoom</td></tr>
+      </table>
+    </div>
+    <div class="col-8">
+    </div>
+  </div>
+</div>
+    </div>
+
+  <!-- Bootstrap core JavaScript ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/moment-timezone-with-data-10-year-range.min.js"></script>
+<script>
+function loadTimeZoneList(){
+  // https://techbrij.com/date-time-timezone-javascript-select
+  let select = document.getElementById("selecttz");
+  select.innerHTML = "";
+
+  let timeZones = moment.tz.names();
+  option = document.createElement("option");
+  option.textContent = 'Select a timezone...';
+  option.value = 'America/Denver';
+  option.selected = true;
+  select.appendChild(option);
+  timeZones.forEach((timeZone) =>{
+    option = document.createElement("option");
+    option.textContent = `${timeZone} (UTC${moment.tz(timeZone).format('Z')})`;
+    select.appendChild(option);
+  });
+}
+function createtable(newtz='America/Los_Angeles') {
+  let basetz = 'America/Los_Angeles';
+  let times=[
+  '08:00',
+  '08:25',
+  '08:50',
+  '09:15',
+  '09:40',
+  '10:05',
+  '10:25',
+  '10:50',
+  '11:15',
+  '11:40',
+  '12:05',
+  '12:30',
+  ];
+  let label=[
+    '1,3,5,7,9',
+    '1,3,5,7,9',
+    '1,3,5,7,9',
+    '1,3,5,7,9',
+    '1,3,5,7,9',
+    'break',
+    '2,4,6,8',
+    '2,4,6,8',
+    '2,4,6,8',
+    '2,4,6,8',
+    '2,4,6,8',
+    'break',
+  ];
+  let labelcolors=[
+      'table-primary',
+      'table-primary',
+      'table-primary',
+      'table-primary',
+      'table-primary',
+      'table-warning',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-warning',
+  ];
+  let dates=['2022-04-04',
+    '2022-04-05',
+    '2022-04-06',
+    '2022-04-07',
+    '2022-04-08',
+  ];
+  let printtutorial=true;
+  let tutdates=['2022-03-31', '2022-04-01'];
+  let tuttimes=[
+    '',
+    '',
+    '',
+    '09:00',
+    '|',
+    '|',
+    '|',
+    '|',
+    '|',
+    '|',
+    '12:00',
+    '',
+  ];
+  let ignoreastime = ['', '|'];
+  // start over
+  $("#schedule thead").remove();
+  $("#schedule tbody").remove();
+
+  // set selected
+  scheduletitle = document.getElementById("scheduletitle");
+  scheduletitle.innerHTML = "";
+  scheduletitle.append(document.createTextNode('Selected time zone: ' + newtz));
+
+  let newtime = moment().tz(newtz).format('MMMM Do YYYY, HH:mm:ss Z');
+  scheduletitletime = document.getElementById("scheduletitletime");
+  scheduletitletime.innerHTML = "";
+  scheduletitletime.append(document.createTextNode('Current time: ' + newtime));
+
+  // get the table block
+  var table = document.getElementById('schedule');
+
+  // create header
+  let thead = table.createTHead();
+  thead.setAttribute("class", "thead-light");
+  let rowtop = thead.insertRow();
+  let row = thead.insertRow();
+  let alldates = [""].concat(dates);
+  if (printtutorial) {
+    alldates = tutdates.concat(alldates);
+  }
+  for (let d of alldates) {
+    let th = document.createElement("th");
+    let tutname = "";
+    if (d == '2022-03-31') {
+      tutname = 'Iterative Methods';
+    }
+    if (d == '2022-04-01') {
+      tutname = 'GraphBLAS';
+    }
+    if (dates.includes(d)) {
+      if (d == '2022-04-04') {
+        tutname = 'Program';
+      }
+    }
+    th.appendChild(document.createTextNode(tutname));
+    rowtop.appendChild(th);
+    th = document.createElement("th");
+    th.appendChild(document.createTextNode(d));
+    row.appendChild(th);
+  }
+  let row2 = thead.insertRow();
+  days = ["Sessions", "M", "Tu", "W", "Th", "F"];
+  if (printtutorial) {
+    days = ["Th", "F"].concat(days)
+  }
+  for (let d of days) {
+    let th = document.createElement("th");
+    th.appendChild(document.createTextNode(d));
+    row2.appendChild(th);
+  }
+
+  // create body
+  for (i in times) {
+    let session = label[i];
+
+    let row = table.insertRow();
+    for (let d of alldates) {
+      let cell = row.insertCell();
+      let text = document.createTextNode("");
+      let textz = document.createTextNode("");
+      if (dates.includes(d) || tutdates.includes(d)) {
+        let istime=true;
+        let thistime="";
+        let formatastime=true;
+        let formattedtime="";
+        let formattedtimezone="";
+        if (dates.includes(d)) {
+          thistime=times[i];
+        }
+        if (tutdates.includes(d)) {
+          thistime=tuttimes[i];
+          if (ignoreastime.includes(thistime)) {
+            formatastime = false;
+            formattedtime = thistime;
+            console.log(thistime);
+          }
+        }
+        if (formatastime) {
+          var time = moment.tz(d + " " + thistime, basetz);
+          time = time.tz(newtz);
+          formattedtime = time.format('HH:mm  ');
+          formattedtimezone = time.format('Z');
+          textz = document.createElement("span");
+          textz.appendChild(document.createTextNode('(' + formattedtimezone + ')'));
+          textz.setAttribute("style", "font-size: 50%;");
+        }
+        text = document.createTextNode(formattedtime);
+      } else {
+        text = document.createTextNode(session);
+        textz = document.createTextNode("");
+      }
+      cell.appendChild(text);
+      cell.appendChild(textz);
+      let color = "";
+      if (dates.includes(d) || d=="") {
+        color = labelcolors[i];
+      }
+      if (tutdates.includes(d)) {
+        if (i>=3) {
+          color = 'table-danger';
+        }
+        if (i<3 || i>=11) {
+          color = '';
+        }
+      }
+      if (d == '2022-04-06') {
+        if (times[i] == '10:05') {
+          color = 'table-warning';
+        }
+        if (times[i] == '10:25') {
+          color = 'bg-warning';
+        }
+        if (times[i] == '10:50') {
+          color = 'bg-success';
+        }
+        if (times[i] == '11:15') {
+          color = 'bg-success';
+        }
+        if (times[i] == '11:40') {
+          color = 'bg-success';
+        }
+        if (times[i] == '12:05') {
+          color = 'table-warning';
+        }
+      }
+      if (d == '2022-04-08') {
+        if (['10:05', '10:25', '10:50', '11:15', '11:40', '12:05'].includes(times[i])) {
+          color = 'table-warning';
+        }
+      }
+      cell.setAttribute("class", color + " py-0");
+    }
+  }
+}
+function init(){
+  loadTimeZoneList();
+  createtable(moment.tz.guess());
+}
+init();</script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85019101-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  </body>
+</html>

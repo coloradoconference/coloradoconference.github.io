@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Copper Mountain Conference on Iterative and Multigrid Methods">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/favicon.ico">
+
+    <title>Index</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+
+    <!-- Custom CSS -->
+    <link href="css/copper.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light copper-color">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="https://easychair.org/smart-program/CM2021/">Program</a>
+            <a class="nav-item nav-link" href="registration.html">Registration</a>
+            <a class="nav-item nav-link" href="submit.html">Submit an abstract</a>
+            <a class="nav-item nav-link" href="student.html">Submit a student paper</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  <div class="container">
+      <div class="d-block mx-auto main-block">
+      <h1 class="title">20th Copper Mountain Conference On</h1>
+      <h1 class="title">Multigrid Methods</h1>
+      <h1 class="title">(Virtual)</h1>
+      </div>
+  </div>
+
+    <div id="content">
+
+<div class="container">
+    <div class="d-block mx-auto main-block">
+      <h2 class="title text-danger">Wednesday March 24 - Friday April 2, 2021</h2>
+      <h2 class="title text-danger">
+      <b>Daily schedule:</b> 15:00 - 19:00 UTC<br/>
+      (8am - 12pm PDT, 11am - 3pm EDT, 17:00 - 21:00 CEST)
+      </h2>
+    </div >
+    <div class="d-block mx-auto main-block">
+      <h2 class="title text-primary font-weight-bold"><a href="https://easychair.org/smart-program/CM2021/">**Program (all times in UTC)**</a></h2>
+    </div >
+      <a href="https://easychair.org/smart-program/CM2021/">
+      </a>
+    <div class="d-block mx-auto main-block">
+      <h2 class="title text-primary font-weight-bold"><a href="faq.html">FAQ</a></h2></div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="card">
+        <!-- from https://commons.wikimedia.org/wiki/File:Copper_Trail.jpg retrieved on 20160711 -->
+        <!-- This work has been released into the public domain by its
+          author, DebateLord at English Wikipedia. This applies worldwide.
+          In some countries this may not be legally possible; if so: DebateLord grants
+          anyone the right to use this work for any purpose, without any conditions,
+          unless such conditions are required by law. -->
+        <img class="img-fluid img-rounded" src="./images/640px-Copper_Trail.jpg" alt="Copper Mountain">
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <div class="card copper-color">
+        <div class="card-body">
+          <h4 class="card-title">Conference Deadlines</h4>
+          <ul class="fa-ul">
+            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span> <a href="submit.html"        > Presentation Abstracts:        </a> Monday, March 1, 2021&nbsp; <strike>Monday, February 22, 2021</strike></li>
+            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span> <a href="student.html"       > Student Competition Abstract:       </a> Friday, January 15, 2021</li>
+            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span> <a href="student.html"     > Student Competition Paper:     </a> Friday, January 22, 2021</li>
+            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span> <a href="registration.html"> Registration:</a> March 8, 2021</li>
+            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span> <a href="about.html#specialissue"     > SISC Journal Issue:     </a> July 15, 2021</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h5>Schedule at a glance:</h5>
+    </div>
+    <div class="col-12">
+<select class="custom-select" id="selecttz" onchange="createtable(this.value)"></select>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/Los_Angeles')">Los Angeles</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/Denver')">Denver</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/Chicago')">Chicago</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/New_York')">New York</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/St_Johns')">St. John's</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Europe/London')">London</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Europe/Berlin')">Berlin</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Europe/Moscow')">Moscow</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Israel')">Israel</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Asia/Shanghai')">Shanghai</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Asia/Tokyo')">Tokyo</button>
+<div class="clearfix"></div>
+<span id="scheduletitle" class="font-weight-bold text-danger"></span>
+<div class="clearfix"></div>
+<span id="scheduletitletime" class="font-weight-bold text-danger"></span>
+<table class="table table-sm" id="schedule"></table>    </div>
+  </div>
+
+  <div class="row row-top">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <h6>Organized by</h6>
+      <a href="http://www.frontrangescicomp.com">Front Range Scientific Computations, Inc.</a>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <h6>Co-Organized by</h6>
+      The
+      <a href="http://www.colorado.edu/">University of Colorado</a>
+      , the
+      <a href="http://www.llnl.gov/casc">Center for Applied Scientific Computing at LLNL</a>
+      , the
+      <a href="http://www.illinois.edu">University of Illinois at Urbana-Champaign</a>
+      , and
+      <a href="https://www.mun.ca/">Memorial University of Newfoundland</a>
+      .
+
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <!-- <h6>Sponsored by</h6> -->
+      <!-- <a href="http://www.doe.gov">DOE</a> -->
+      <!-- <a href="http://www.ibm.com">IBM</a>, -->
+      <!--
+      <a href="http://www.llnl.gov/casc">LLNL</a>,
+      <a href="http://www.lanl.gov">LANL</a>,
+      <a href="http://www.sandia.gov">Sandia</a>
+      -->
+      <!-- <a href="http://www.nsf.gov">NSF</a>, -->
+      <!-- <a href="http://www.anl.gov">Argonne</a> -->
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <h6>In cooperation with</h6>
+      <a href="http://www.siam.org/">SIAM</a>
+      <br/>
+      <i>contact: <a href="people.html">Luke Olson</a></i>
+      <br/>
+      <img class="img-responsive center-block" src="./images/blue_non-co-branded.png" alt="SIAM" width="120">
+    </div>
+  </div>
+
+  <div class="row row-top">
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <div class="card copper-color">
+        <div class="card-block">
+          <h4 class="card-title">Conference Information</h4>
+          <ul class="fa-ul">
+            <li><i class="fa-li fa fa-users"></i><a href="people.html#chair">Conference Chairs</a>
+            <li><i class="fa-li fa fa-users"></i><a href="people.html#committee">Conference Program Committee</a>
+            <li><i class="fa-li fa fa-users"></i><a href="about.html#topics">Conference Highlights</a></li>
+          </ul>
+          <br/>
+          <ul class="fa-ul">
+            <li><i class="fa-li fa fa-history"></i><a href="http://grandmaster.colorado.edu/copper/">Conference History</a>
+          </ul>
+          <br/>
+          <ul class="fa-ul">
+            <li><i class="fa-li fa fa-graduation-cap"></i><a href="student.html#details">Student Registration Support</a>
+            <li><i class="fa-li fa fa-file-text"></i><a href="student.html#details">Student Paper Competition</a>
+            <li><i class="fa-li fa fa-trophy"></i><a href="student.html#past">Student Paper Competition List of Previous Winners</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <div class="card copper-color">
+        <div class="card-block">
+          <h4 class="card-title">Previous Conference Information</h4>
+          <ul class="small list-unstyled">
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2020/">
+                  <b>2020</b> - (Cancelled) 16th Copper Mountain Conference On Iterative Methods
+                    </a>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2019/">
+                  <b>2019</b> - 19th Copper Mountain Conference On Multigrid Methods
+                    </a>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2018/">
+                  <b>2018</b> - 15th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="https://epubs.siam.org/toc/sjoce3/41/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2017/">
+                  <b>2017</b> - 18th Copper Mountain Conference On Multigrid Methods
+                    </a>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2016/">
+                  <b>2016</b> - 14th Copper Mountain Conference On Iterative Methods
+                    </a>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2015/">
+                  <b>2015</b> - 17th Copper Mountain Conference On Multigrid Methods
+                    </a>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2014/">
+                  <b>2014</b> - 13th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/37/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+          </ul>
+          <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            ((more))
+          </a>
+          <div class="collapse" id="collapseExample">
+            <div>
+          <ul class="small list-unstyled">
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2013/">
+                  <b>2013</b> - 16th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1002/nla.v21.2/issuetoc"> NLAA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2012/">
+                  <b>2012</b> - 12th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/35/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2011/">
+                  <b>2011</b> - 15th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1002/nla.v19.2/issuetoc"> NLAA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2010/">
+                  <b>2010</b> - 11th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/33/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2009/">
+                  <b>2009</b> - 14th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1002/nla.v17:2/3/issuetoc"> NLAA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2008/">
+                  <b>2008</b> - 10th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/32/1"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2007/">
+                  <b>2007</b> - 13th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1002/nla.v15:2/3/issuetoc"> NLAA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2006/">
+                  <b>2006</b> - 9th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/29/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2005/">
+                  <b>2005</b> - 12th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1002/nla.v13:2/3/issuetoc"> NLAA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2004/">
+                  <b>2004</b> - 8th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/27/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2003/">
+                  <b>2003</b> - 11th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://onlinelibrary.wiley.com/doi/10.1002/nla.v11:2/3/issuetoc"> NLAA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2002/">
+                  <b>2002</b> - 7th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/25/2"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/2001/">
+                  <b>2001</b> - 10th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://etna.mcs.kent.edu/volumes/2001-2010/vol15/"> ETNA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/opper/2000/">
+                  <b>2000</b> - 6th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/23/2"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/1999/">
+                  <b>1999</b> - 9th Copper Mountain Conference On Multigrid Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://etna.mcs.kent.edu/volumes/1993-2000/vol10/"> ETNA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <a href="http://grandmaster.colorado.edu/copper/1998/">
+                  <b>1998</b> - 5th Copper Mountain Conference On Iterative Methods
+                    </a>
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/21/5"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <b>1997</b> - 8th Copper Mountain Conference On Multigrid Methods
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://etna.mcs.kent.edu/volumes/1993-2000/vol6/"> ETNA Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <b>1996</b> - 4th Copper Mountain Conference On Iterative Methods
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/19/1"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <b>1995</b> - 7th Copper Mountain Conference On Multigrid Methods
+              </li>
+              <li>
+                  <b>1994</b> - 3rd Copper Mountain Conference On Iterative Methods
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/17/1"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <b>1992</b> - 2nd Copper Mountain Conference on Iterative Methods in Numerical Linear Algebra
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sjoce3/15/2"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+              <li>
+                  <b>1990</b> - 1st Copper Mountain Conference on Iterative Methods
+                    <ul class="fa-ul">
+                      <li><i class="fa fa-book"></i> <a href="http://epubs.siam.org/toc/sijcd4/13/1"> SISC Special Issue </a> </li>
+                    </ul>
+              </li>
+          </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <div class="card copper-color">
+        <div class="card-block">
+          <h4 class="card-title">Virtual Conference Information</h4>
+          <ul class="fa-ul">
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+    </div>
+
+  <!-- Bootstrap core JavaScript ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.3/moment-timezone-with-data.min.js"></script>
+<script>
+function loadTimeZoneList(){
+  // https://techbrij.com/date-time-timezone-javascript-select
+  let select = document.getElementById("selecttz");
+  select.innerHTML = "";
+
+  let timeZones = moment.tz.names();
+  option = document.createElement("option");
+  option.textContent = 'Select a timezone...';
+  option.value = 'America/Denver';
+  option.selected = true;
+  select.appendChild(option);
+  timeZones.forEach((timeZone) =>{
+    option = document.createElement("option");
+    option.textContent = `${timeZone} (UTC${moment.tz(timeZone).format('Z')})`;
+    option.value = timeZone;
+    select.appendChild(option);
+  });
+}
+function createtable(newtz='America/Los_Angeles') {
+  let basetz = 'America/Los_Angeles';
+  let times=['08:00',
+    '08:25',
+    '08:50',
+    '09:15',
+    '09:40',
+    '10:05',
+    '10:20',
+    '10:45',
+    '11:10',
+    '11:35',
+    '12:00',
+  ];
+  let label=['1',
+    '1',
+    '1',
+    '1',
+    'break',
+    'break',
+    '2',
+    '2',
+    '2',
+    '2',
+    'break',
+  ];
+  let labelcolors=['table-primary',
+      'table-primary',
+      'table-primary',
+      'table-primary',
+      'table-warning',
+      'table-warning',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-warning',
+  ];
+  let dates=['2021-03-29',
+    '2021-03-30',
+    '2021-03-31',
+    '2021-04-01',
+    '2021-04-02',
+  ];
+  let printtutorial=true;
+  let tutdates=['2021-03-24',
+    '2021-03-25',
+    '2021-03-26',
+  ];
+  let tuttimes=[
+    '',
+    '',
+    '',
+    '09:00',
+    '|',
+    '|',
+    '|',
+    '|',
+    '11:00',
+    '',
+    '',
+  ];
+  let ignoreastime = ['', '|'];
+  // start over
+  $("#schedule thead").remove();
+  $("#schedule tbody").remove();
+
+  // set selected
+  scheduletitle = document.getElementById("scheduletitle");
+  scheduletitle.innerHTML = "";
+  scheduletitle.append(document.createTextNode('Selected time zone: ' + newtz));
+
+  let newtime = moment().tz(newtz).format('MMMM Do YYYY, HH:mm:ss Z');
+  scheduletitletime = document.getElementById("scheduletitletime");
+  scheduletitletime.innerHTML = "";
+  scheduletitletime.append(document.createTextNode('Current time: ' + newtime));
+
+  // get the table block
+  var table = document.getElementById('schedule');
+
+  // create header
+  let thead = table.createTHead();
+  thead.setAttribute("class", "thead-light");
+  let rowtop = thead.insertRow();
+  let row = thead.insertRow();
+  let alldates = [""].concat(dates);
+  if (printtutorial) {
+    alldates = tutdates.concat(alldates);
+  }
+  for (let d of alldates) {
+    let th = document.createElement("th");
+    let tutname = "";
+    if (d == '2021-03-24') {
+      tutname = 'MG tutorial';
+    }
+    if (d == '2021-03-25') {
+      tutname = 'AMG tutorial';
+    }
+    if (d == '2021-03-26') {
+      tutname = 'Parallel MG tutorial';
+    }
+    if (dates.includes(d)) {
+      if (d == '2021-03-29') {
+        tutname = 'Program';
+      }
+    }
+    th.appendChild(document.createTextNode(tutname));
+    rowtop.appendChild(th);
+    th = document.createElement("th");
+    th.appendChild(document.createTextNode(d));
+    row.appendChild(th);
+  }
+  let row2 = thead.insertRow();
+  days = ["Session", "M", "Tu", "W", "Th", "F"];
+  if (printtutorial) {
+    days = ["W", "Th", "F"].concat(days)
+  }
+  for (let d of days) {
+    let th = document.createElement("th");
+    th.appendChild(document.createTextNode(d));
+    row2.appendChild(th);
+  }
+
+  // create body
+  for (i in times) {
+    let session = label[i];
+
+    let row = table.insertRow();
+    for (let d of alldates) {
+      let cell = row.insertCell();
+      let text = document.createTextNode("");
+      let textz = document.createTextNode("");
+      if (dates.includes(d) || tutdates.includes(d)) {
+        let istime=true;
+        let thistime="";
+        let formatastime=true;
+        let formattedtime="";
+        let formattedtimezone="";
+        if (dates.includes(d)) {
+          thistime=times[i];
+        }
+        if (tutdates.includes(d)) {
+          thistime=tuttimes[i];
+          if (ignoreastime.includes(thistime)) {
+            formatastime = false;
+            formattedtime = thistime;
+            console.log(thistime);
+          }
+        }
+        if (formatastime) {
+          var time = moment.tz(d + " " + thistime, basetz);
+          time = time.tz(newtz);
+          formattedtime = time.format('HH:mm  ');
+          formattedtimezone = time.format('Z');
+          textz = document.createElement("span");
+          textz.appendChild(document.createTextNode('(' + formattedtimezone + ')'));
+          textz.setAttribute("style", "font-size: 50%;");
+        }
+        text = document.createTextNode(formattedtime);
+      } else {
+        text = document.createTextNode(session);
+        textz = document.createTextNode("");
+      }
+      cell.appendChild(text);
+      cell.appendChild(textz);
+      let color = "";
+      if (dates.includes(d) || d=="") {
+        color = labelcolors[i];
+      }
+      if (tutdates.includes(d)) {
+        if (i>=3) {
+          color = 'table-danger';
+        }
+        if (i<3 || i>=9) {
+          color = '';
+        }
+      }
+      if (d == '2021-03-31') {
+        if (times[i] == '09:40') {
+          color = 'table-primary';
+        }
+        if (times[i] == '10:20') {
+          color = 'table-warning';
+        }
+      }
+      if (d == '2021-04-01') {
+        if (times[i] == '09:40') {
+          color = 'table-danger';
+        }
+      }
+      cell.setAttribute("class", color + " py-0");
+    }
+  }
+}
+function init(){
+  loadTimeZoneList();
+  createtable(moment.tz.guess());
+}
+init();</script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85019101-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  </body>
+</html>

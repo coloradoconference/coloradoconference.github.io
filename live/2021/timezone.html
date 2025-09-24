@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Copper Mountain Conference on Iterative and Multigrid Methods">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/favicon.ico">
+
+    <title>Index</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+
+    <!-- Custom CSS -->
+    <link href="css/copper.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light copper-color">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="https://easychair.org/smart-program/CM2021/">Program</a>
+            <a class="nav-item nav-link" href="registration.html">Registration</a>
+            <a class="nav-item nav-link" href="submit.html">Submit an abstract</a>
+            <a class="nav-item nav-link" href="student.html">Submit a student paper</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  <div class="container">
+      <div class="d-block mx-auto main-block">
+      <h1 class="title">20th Copper Mountain Conference On</h1>
+      <h1 class="title">Multigrid Methods</h1>
+      <h1 class="title">(Virtual)</h1>
+      </div>
+  </div>
+
+    <div id="content">
+<div class="container">
+  <div class="d-block mx-auto main-block">
+    <h2 class="title text-danger">Wednesday March 24 - Friday April 2, 2021</h2>
+  </div >
+  <div class="row justify-content-center">
+    <div class="col-12">
+<select class="custom-select" id="selecttz" onchange="createtable(this.value)"></select>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/Los_Angeles')">Los Angeles</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/Denver')">Denver</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/Chicago')">Chicago</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/New_York')">New York</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('America/St_Johns')">St. John's</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Europe/London')">London</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Europe/Berlin')">Berlin</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Europe/Moscow')">Moscow</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Israel')">Israel</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Asia/Shanghai')">Shanghai</button>
+  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="createtable('Asia/Tokyo')">Tokyo</button>
+<div class="clearfix"></div>
+<span id="scheduletitle" class="font-weight-bold text-danger"></span>
+<div class="clearfix"></div>
+<span id="scheduletitletime" class="font-weight-bold text-danger"></span>
+<table class="table table-sm" id="schedule"></table>    </div>
+  </div>
+</div>
+    </div>
+
+  <!-- Bootstrap core JavaScript ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.3/moment-timezone-with-data.min.js"></script>
+<script>
+function loadTimeZoneList(){
+  // https://techbrij.com/date-time-timezone-javascript-select
+  let select = document.getElementById("selecttz");
+  select.innerHTML = "";
+
+  let timeZones = moment.tz.names();
+  option = document.createElement("option");
+  option.textContent = 'Select a timezone...';
+  option.value = 'America/Denver';
+  option.selected = true;
+  select.appendChild(option);
+  timeZones.forEach((timeZone) =>{
+    option = document.createElement("option");
+    option.textContent = `${timeZone} (UTC${moment.tz(timeZone).format('Z')})`;
+    option.value = timeZone;
+    select.appendChild(option);
+  });
+}
+function createtable(newtz='America/Los_Angeles') {
+  let basetz = 'America/Los_Angeles';
+  let times=['08:00',
+    '08:25',
+    '08:50',
+    '09:15',
+    '09:40',
+    '10:05',
+    '10:20',
+    '10:45',
+    '11:10',
+    '11:35',
+    '12:00',
+  ];
+  let label=['1',
+    '1',
+    '1',
+    '1',
+    'break',
+    'break',
+    '2',
+    '2',
+    '2',
+    '2',
+    'break',
+  ];
+  let labelcolors=['table-primary',
+      'table-primary',
+      'table-primary',
+      'table-primary',
+      'table-warning',
+      'table-warning',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-success',
+      'table-warning',
+  ];
+  let dates=['2021-03-29',
+    '2021-03-30',
+    '2021-03-31',
+    '2021-04-01',
+    '2021-04-02',
+  ];
+  let printtutorial=true;
+  let tutdates=['2021-03-24',
+    '2021-03-25',
+    '2021-03-26',
+  ];
+  let tuttimes=[
+    '',
+    '',
+    '',
+    '09:00',
+    '|',
+    '|',
+    '|',
+    '|',
+    '11:00',
+    '',
+    '',
+  ];
+  let ignoreastime = ['', '|'];
+  // start over
+  $("#schedule thead").remove();
+  $("#schedule tbody").remove();
+
+  // set selected
+  scheduletitle = document.getElementById("scheduletitle");
+  scheduletitle.innerHTML = "";
+  scheduletitle.append(document.createTextNode('Selected time zone: ' + newtz));
+
+  let newtime = moment().tz(newtz).format('MMMM Do YYYY, HH:mm:ss Z');
+  scheduletitletime = document.getElementById("scheduletitletime");
+  scheduletitletime.innerHTML = "";
+  scheduletitletime.append(document.createTextNode('Current time: ' + newtime));
+
+  // get the table block
+  var table = document.getElementById('schedule');
+
+  // create header
+  let thead = table.createTHead();
+  thead.setAttribute("class", "thead-light");
+  let rowtop = thead.insertRow();
+  let row = thead.insertRow();
+  let alldates = [""].concat(dates);
+  if (printtutorial) {
+    alldates = tutdates.concat(alldates);
+  }
+  for (let d of alldates) {
+    let th = document.createElement("th");
+    let tutname = "";
+    if (d == '2021-03-24') {
+      tutname = 'MG tutorial';
+    }
+    if (d == '2021-03-25') {
+      tutname = 'AMG tutorial';
+    }
+    if (d == '2021-03-26') {
+      tutname = 'Parallel MG tutorial';
+    }
+    if (dates.includes(d)) {
+      if (d == '2021-03-29') {
+        tutname = 'Program';
+      }
+    }
+    th.appendChild(document.createTextNode(tutname));
+    rowtop.appendChild(th);
+    th = document.createElement("th");
+    th.appendChild(document.createTextNode(d));
+    row.appendChild(th);
+  }
+  let row2 = thead.insertRow();
+  days = ["Session", "M", "Tu", "W", "Th", "F"];
+  if (printtutorial) {
+    days = ["W", "Th", "F"].concat(days)
+  }
+  for (let d of days) {
+    let th = document.createElement("th");
+    th.appendChild(document.createTextNode(d));
+    row2.appendChild(th);
+  }
+
+  // create body
+  for (i in times) {
+    let session = label[i];
+
+    let row = table.insertRow();
+    for (let d of alldates) {
+      let cell = row.insertCell();
+      let text = document.createTextNode("");
+      let textz = document.createTextNode("");
+      if (dates.includes(d) || tutdates.includes(d)) {
+        let istime=true;
+        let thistime="";
+        let formatastime=true;
+        let formattedtime="";
+        let formattedtimezone="";
+        if (dates.includes(d)) {
+          thistime=times[i];
+        }
+        if (tutdates.includes(d)) {
+          thistime=tuttimes[i];
+          if (ignoreastime.includes(thistime)) {
+            formatastime = false;
+            formattedtime = thistime;
+            console.log(thistime);
+          }
+        }
+        if (formatastime) {
+          var time = moment.tz(d + " " + thistime, basetz);
+          time = time.tz(newtz);
+          formattedtime = time.format('HH:mm  ');
+          formattedtimezone = time.format('Z');
+          textz = document.createElement("span");
+          textz.appendChild(document.createTextNode('(' + formattedtimezone + ')'));
+          textz.setAttribute("style", "font-size: 50%;");
+        }
+        text = document.createTextNode(formattedtime);
+      } else {
+        text = document.createTextNode(session);
+        textz = document.createTextNode("");
+      }
+      cell.appendChild(text);
+      cell.appendChild(textz);
+      let color = "";
+      if (dates.includes(d) || d=="") {
+        color = labelcolors[i];
+      }
+      if (tutdates.includes(d)) {
+        if (i>=3) {
+          color = 'table-danger';
+        }
+        if (i<3 || i>=9) {
+          color = '';
+        }
+      }
+      if (d == '2021-03-31') {
+        if (times[i] == '09:40') {
+          color = 'table-primary';
+        }
+        if (times[i] == '10:20') {
+          color = 'table-warning';
+        }
+      }
+      if (d == '2021-04-01') {
+        if (times[i] == '09:40') {
+          color = 'table-danger';
+        }
+      }
+      cell.setAttribute("class", color + " py-0");
+    }
+  }
+}
+function init(){
+  loadTimeZoneList();
+  createtable(moment.tz.guess());
+}
+init();</script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85019101-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  </body>
+</html>
