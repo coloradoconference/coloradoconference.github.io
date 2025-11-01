@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hormozd Gahvari \\
+{\bf Performance Modeling in Algebraic Multigrid: Latest Developments}}
+
+P O Box 808 \\ L-561 \\ Livermore \\ CA 94551
+\\
+{\tt gahvari1@llnl.gov}\\
+William Gropp\\
+Kirk E. Jordan\\
+Martin Schulz\\
+Ulrike Meier Yang\end{center}
+
+Algebraic multigrid (AMG) solvers are very popular due to their ideal
+algorithmic complexity and applicability to unstructured problems, but
+there are concerns about scalability when solving large problems on
+massively parallel machines. These concerns stem from large numbers of
+messages being sent between processors on coarse grids. To improve the
+performance and scalability of AMG in the parallel setting, we have
+turned to performance modeling to guide data redistribution at runtime in
+the AMG solve cycle that reduces the number of messages. A performance
+model is employed on the fly to control when in the cycle the
+redistribution occurs, and how much of it is performed. We are now in the
+process of turning this inline modeling into a feature that can be
+employed in production software. In this talk, we discuss what we have
+achieved so far and our plans for the future. We have already been able
+to obtain significant speedups on multiple machines on both simple and
+more complicated problems, and we can now make machine parameter
+measurements for the performance models on the fly instead of having to
+input them beforehand.
+
+
+\end{document}

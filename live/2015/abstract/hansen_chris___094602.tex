@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chris Hansen \\
+{\bf GEOMETRIC MULTIGRID FOR MHD SIMULATIONS WITH NEDELEC FINITE ELEMENTS ON TETRAHEDRAL GRIDS}}
+
+Aeronautics and Astronautics \\ University of Washington \\ Box 352250 \\ AERB Room 120 \\ Seattle \\ WA 98195
+\\
+{\tt hansec@uw.edu}\\
+George Marklin\end{center}
+
+The Magneto-HydroDynamic (MHD) model is used extensively to simulate
+macroscopic plasma dynamics in Magnetic Confinement Fusion (MCF) devices.
+In these simulations, the span of time scales from fast wave dynamics to
+the desired evolution of equilibrium due to transport processes is large,
+resulting in stiff linear systems for implicit time advance. Many
+existing codes leverage toroidal symmetry, a common feature of many MCF
+devices, to develop efficient preconditioners for the linearized system.
+Recent interest in 3D effects in symmetric MCF devices and experiments
+with non-symmetric boundaries has renewed interest in improved geometric
+flexibility within numerical tools.
+
+The PSI-TET code is a 3D non-linear extended MHD code based on a high
+order finite element method using unstructured tetrahedral grids,
+allowing arbitrary geometry to be captured easily. A mixed FE basis is
+used with a Nedelec vector basis set used to represent magnetic flux and
+scalar Lagrange elements used for each component of the plasma velocity.
+This talk discusses the application of geometric multigrid to
+preconditioning both equilibrium and time dependent MHD solves in
+PSI-TET. For equilibrium solves, the relevant linear systems are
+symmetric so a multigrid-preconditioned CG with Jacobi smoothers is used.
+The linearized systems produced for time dependent solves are not
+symmetric so a multigrid-preconditioner GMRES method is employed, with
+block-preconditioned smoothers. We discuss the implementation and
+performance of these methods in comparison to single level
+preconditioners for benchmark and experimental validation simulations. We
+also present implementation considerations for constructing multigrid
+levels from both h and p refinement of a base mesh while maintaining
+consistency CAD geometry. Work supported by DOE.
+
+
+\end{document}

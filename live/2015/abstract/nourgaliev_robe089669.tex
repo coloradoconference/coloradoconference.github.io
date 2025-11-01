@@ -1,0 +1,73 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert Nourgaliev \\
+{\bf On the Preconditioning of a High-Order RDG-based All-Speed Navier-Stokes Solver}}
+
+Lawrence Livermore National Laboratory (LLNL) \\ P O Box 808 \\ L-170 \\ Livermore CA 94551
+\\
+{\tt nourgaliev1@llnl.gov}\\
+Brian Weston\\
+Robert Nourgaliev\\
+Andy Anderson\\
+J.-P. Delplanque\end{center}
+
+We investigate the preconditioning of an all-speed Navier-Stokes solver,
+based on the orthogonal-basis Reconstructed Discontinuous Galerkin (RDG)
+space discretization, and integrated using a high-order fully-implicit
+time discretization method. The work is motivated by applications in
+Additive Manufacturing (AM), requiring simulations of laser-induced
+powder melting with formation and subsequent solidification of liquid
+metal pools, with numerous numerically challenging issues. These include
+modeling of liquid-solid interfaces, due to powder
+melting/solidification; gas-solid and gas-liquid multi-material
+interfaces, with representation of ambient gaseous media (air, Argon),
+using a fully-compressible formulation; and complex interfacial physics,
+including surface tension and Marangoni effects, adequate representation
+of fluid-solid-gas contacts and wetting phenomena.
+
+Governing equations for melting/solidifying metallic substances are
+discretized with (up to) the 4th-order accurate (Reconstructed) DG
+method. Since we are interested in the low-speed limit, the degrees of
+freedom solved for are those for pressure, velocity and
+temperature/specific internal energy/enthalpy, while the non-linear
+residual vectors are formulated for conservative variables (mass,
+momentum and energy). The resulting set of non-linear equations is solved
+using the Newton-Krylov method, with the Jacobian-free version of the
+GMRES solver for linear iterations. For time discretization, we use a set
+of high-order (up to the 5th) L-stable fully-implicit discretization
+schemes (BDF2 and ESDIRK3-5). Due to the stiffness of the underlying
+physics (combination of acoustics, thermal and viscous/material strength
+effects), GMRES must be preconditioned. Our strategy for preconditioning
+is a combination of a p-multigrid method with (physics-based) operator
+splitting. While operator-splitting preconditioning of
+(finite-volume-based) Navier-Stokes solvers has been successfully
+deployed in the past, using a p-multigrid technique for the
+preconditioning of DG-based solvers is relatively new, especially in the
+context of the Jacobian-free Newton Krylov (JFNK) methodology. We
+investigate different options of splitting governing equations for
+linearized residuals, rendering a reduced set of the approximate
+(preconditioning) Jacobian, which can be approximately solved for at the
+preconditioning steps of the Krylov iterations, either directly or
+iteratively (with Krylov- or AMG-based solvers). The figures of merit in
+designing successful splitting of equations and degrees of freedom
+(within p-multigrid) are – (a) the spread/clustering of eigenvalues, (b)
+the condition number of the preconditioned Jacobian matrix, (c) the total
+number of Krylov iterations, (d) the memory imprint due to additional
+storage required for approximate Jacobian matrices, and (e) total CPU
+time per non-linear iterations. The method is tested on a classical set
+of benchmark problems (like lid- or thermally-driven flows), and
+AM-relevant natural convection problems with embedded melting/solidifying
+fronts.
+
+This work performed under the auspices of the U.S. Department of Energy
+by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344 and funded by the Laboratory Directed Research and
+Development Program at LLNL under project tracking code 13-SI-002.
+
+
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jon Calhoun \\
+{\bf Understanding the Propagation of Silent Data Corruption in Algebraic Multigrid}}
+
+201 North Goodwin Ave \\ Urbana \\ IL 61802
+\\
+{\tt jccalho2@illinois.edu}\\
+Luke Olson\end{center}
+
+Sparse linear solvers from a fundamental kernel in high performance computing (HPC).
+Exascale systems are expected to be more complex than systems of today
+being composed of thousands of
+heterogeneous processing elements that operate at near-threshold-voltage to meet
+power constraints. The combination of near near-threshold-voltage and number of
+processing elements required to reach exascale increases the rate of
+silent data corruption (SDC).
+With the rate of SDC expected
+to be higher, understanding how error propagates in HPC applications becomes vital
+to devise efficient detection and recovery schemes. In this talk, we investigate
+how SDC occurring in fixed-point and floating-point instructions
+propagates in the linear solver algebraic multigrid (AMG). We discover
+that
+SDC occurring on the coarsest levels have the most impact on convergence
+requiring extra iterations in a higher percentage than on the finest
+levels.
+
+
+\end{document}

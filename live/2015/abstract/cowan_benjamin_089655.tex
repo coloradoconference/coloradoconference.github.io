@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Benjamin Cowan \\
+{\bf Application of multigrid techniques to magnetic and electromagnetic systems}}
+
+5621 Arapahoe Ave \\ Boulder \\ CO 80303
+\\
+{\tt benc@txcorp.com}\\
+J. Scott Berg\\
+Holger Witte\\
+D. J. Summers\end{center}
+
+We discuss the use of multigrid techniques for several novel systems
+related to electromagnetics. One of these is the magnetostatic problem,
+in which systems can involve highly anisotropic and nonlinear materials.
+We describe the linear problems arising in several variations of this
+problem, including fully static, hysteretic, and eddy-current. We show
+results of tests of several AMG methods for solving these systems in 2D
+and 3D. We then discuss the challenges in solving the nonlinear system
+and some techniques for overcoming these challenges.
+
+We also discuss several other systems, including implicit
+electromagnetics, which gives rise to a positive-definite curl-curl
+system, and frequency-domain electromagnetics, which gives rise to an
+indefinite curl-curl system. The latter problem is especially
+challenging, and while the physics of the system can relieve the
+challenges somewhat, the combination of operator indefiniteness and curl
+null space continues to present difficulties.
+
+Work supported by U.S. Department of Energy Office of Science/High-Energy
+Physics grants DE-SC0008920 (SciDAC), DE-SC0009532, and DE-SC0011258
+(SBIR).
+
+
+\end{document}

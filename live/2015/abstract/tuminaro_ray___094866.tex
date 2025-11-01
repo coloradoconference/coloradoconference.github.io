@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ray Tuminaro \\
+{\bf A Hybrid Operator Dependent MG / AMG Approach: Application to Ice Sheet Modeling }}
+
+Sandia National Labs \\ MS 9159 \\ PO Box 969 \\ Livermore \\ CA 94551
+\\
+{\tt rstumin@sandia.gov}\\
+Irina Kalashnikova\\
+Mauro Perego\\
+Andy Salinger\end{center}
+
+A multigrid method is proposed that combines ideas of operator dependent
+multigrid for structured grids and algebraic multigrid for unstructured
+grids. It is intend for problems where the three dimensional mesh can be
+viewed as an extrusion of a two dimensional unstructured mesh in a third
+dimension. That is, the mesh is logically regular in the third dimension.
+Our motivation comes generally from the modeling of thin structures via
+finite elements and more specifically by land-based ice sheet
+simulations. Extruded meshes are relatively common for thin structures
+such as ice sheets and often give rise to problems with an anisotropic
+nature when the thin direction mesh spacing is much smaller than the wide
+direction mesh spacing. Within our approach, the first few multigrid
+hierarchy levels are obtained by applying operator dependent multigrid to
+semi-coarsen in a structured fashion. It is well-known that
+semi-coarsening can successfully address anisotropic problems. After
+sufficient structured coarsening, the resulting lower resolution mesh
+contains only a single layer corresponding to a two dimensional
+unstructured mesh of the wide dimensions. AMG can now be employed
+successfully to create further coarse levels, as the anisotropic
+phenomena is no longer present in the single layer problem.
+
+Numerical comparisons with standard smoothed aggregation AMG are
+presented demonstrating the effectiveness of the approach on several ice
+sheet problems. Overall, the convergence of the new procedure is
+relatively insensitive to a number of problem and mesh features.
+
+
+\end{document}

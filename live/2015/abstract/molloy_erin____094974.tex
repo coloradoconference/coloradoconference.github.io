@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Erin Molloy \\
+{\bf Is the ideal approximation operator always ``ideal'' for a particular C/F splitting?}}
+
+University of Illinois at Urbana-Champaign \\ Department of Computer Science \\ Rm 4332 \\ 201 N Goodwin Ave \\ Urbana \\ IL 61801
+\\
+{\tt emolloy2@illinois.edu}\\
+Luke Olson\\
+Jacob Schroder\end{center}
+
+Given a coarse grid, the ideal prolongation operator is defined by
+$\mathbf{P}_\star = \begin{bmatrix} \mathbf{W} & \mathbf{I} \end{bmatrix}^T$,
+where the weight matrix, $\mathbf{W} = \mathbf{A}_{FF}^{-1} \mathbf{A}_{FC}$ ,
+interpolates a set of fine grid variable ($F$-points) from a set of coarse grid variable
+($C$-points), and the identity matrix, $\mathbf{I}$, represents the
+injection of $C$-points to and from the coarse grid (Falgout and
+Vassilevski, 2004).
+In this talk, we consider $\mathbf{P}_\star$, constructed from
+both traditional $C/F$ splittings and $C/F$ splittings corresponding to
+aggregates, for several challenging problems. We demonstrate the effects of the
+$C/F$ splitting on the convergence and complexity of $\mathbf{P}_\star$.
+Finally, we argue that $\mathbf{P}_\star$ may be misleading in demonstrating the
+``ideal'' nature of interpolation of a given $C/F$ splitting by providing
+numerical evidence that hierarchies built using $\mathbf{P}_\star$
+converge more slowly
+than hierarchies built from alternative prolongation operators with the
+same $C/F$ splitting. This is important as we wish to minimize the number
+of levels in
+a multigrid hierarchy by using a small set of C points for which $\mathbf{P}_\star$
+may have poor convergence.
+
+
+\end{document}

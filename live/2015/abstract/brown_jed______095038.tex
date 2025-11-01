@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jed Brown \\
+{\bf HPGMG: Benchmarking computers using multigrid}}
+
+Argonne National Lab \& CU Boulder
+\\
+{\tt jed@jedbrown.org}\\
+Mark Adams\\
+Sam Williams\end{center}
+
+HPGMG (https://hpgmg.org) is a geometric multigrid benchmark designed to
+measure the performance and versatility of computers. For a benchmark to
+be representative of applications, good performance on the benchmark
+should be sufficient to ensure good performance on most important
+applications and only those system features necessary for some important
+applications should be stressed by the benchmark. Moreover, the
+specification should be scale-free and the method should solve a
+globally-coupled problem. FMG with highly parallel smoothers and a
+matrix-free representation of the operator has most of the desirable
+attributes and we have developed benchmark implementations using finite
+volume and finite element methods. Both implementations stress the
+network similarly, and can clearly distinguish different network types,
+but have quite different on-node characteristics due to different
+arithmetic intensity, cache demands, and the fact that a non-overlapping
+partition of the data is not a partition of the work. In this talk, I
+will present the benchmark design, performance results on many top
+machines, and remaining challenges for this benchmarking effort.
+
+
+\end{document}

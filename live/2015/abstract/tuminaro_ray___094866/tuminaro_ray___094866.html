@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>tuminaro_ray___094866</TITLE>
+<META NAME="description" CONTENT="tuminaro_ray___094866">
+<META NAME="keywords" CONTENT="tuminaro_ray___094866">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tuminaro_ray___094866.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Ray Tuminaro 
+<BR><B>A Hybrid Operator Dependent MG / AMG Approach: Application to Ice Sheet Modeling </B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Labs 
+<BR>
+MS 9159 
+<BR>
+PO Box 969 
+<BR>
+Livermore 
+<BR>
+CA 94551
+
+<BR><TT>rstumin@sandia.gov</TT>
+<BR>
+Irina Kalashnikova
+<BR>
+Mauro Perego
+<BR>
+Andy Salinger
+</DIV>
+
+<P>
+A multigrid method is proposed that combines ideas of operator dependent
+multigrid for structured grids and algebraic multigrid for unstructured
+grids. It is intend for problems where the three dimensional mesh can be
+viewed as an extrusion of a two dimensional unstructured mesh in a third
+dimension. That is, the mesh is logically regular in the third dimension.
+Our motivation comes generally from the modeling of thin structures via
+finite elements and more specifically by land-based ice sheet
+simulations. Extruded meshes are relatively common for thin structures
+such as ice sheets and often give rise to problems with an anisotropic
+nature when the thin direction mesh spacing is much smaller than the wide
+direction mesh spacing. Within our approach, the first few multigrid
+hierarchy levels are obtained by applying operator dependent multigrid to
+semi-coarsen in a structured fashion. It is well-known that
+semi-coarsening can successfully address anisotropic problems. After
+sufficient structured coarsening, the resulting lower resolution mesh
+contains only a single layer corresponding to a two dimensional
+unstructured mesh of the wide dimensions. AMG can now be employed
+successfully to create further coarse levels, as the anisotropic
+phenomena is no longer present in the single layer problem.
+
+<P>
+Numerical comparisons with standard smoothed aggregation AMG are
+presented demonstrating the effectiveness of the approach on several ice
+sheet problems. Overall, the convergence of the new procedure is
+relatively insensitive to a number of problem and mesh features.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

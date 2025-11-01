@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wan_justin_____094783</TITLE>
+<META NAME="description" CONTENT="wan_justin_____094783">
+<META NAME="keywords" CONTENT="wan_justin_____094783">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wan_justin_____094783.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Justin Wan 
+<BR><B>Numerical Method for Dynamic Bertrand Oligopoly Using Multigrid</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">200 University Ave West 
+<BR>
+Waterloo 
+<BR>
+ON 
+<BR>
+Canada
+
+<BR><TT>jwlwan@uwaterloo.ca</TT>
+<BR>
+Swathi Amarala
+</DIV>
+
+<P>
+In economics, oligopoly is a market structure in which a small number of
+firms producing substitutable goods compete by setting prices strategically
+in an uncertain demand environment (Bertrand model). For instance, Pepsi
+and Coca-Cola in the soft drink industry, Apple and Samsung in the smart
+phone industry. Firms choose prices to maximize profit in the sense of
+Nash Equilibrium. The Bertrand Oligopoly can be modelled as nonzero sum
+differential games. The model can be solved by the dynamic programming
+principle, which yields a system of Hamilton-Jacobi-Bellman (HJB) equations.
+More precisely, let <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ V_i$"></SPAN> be the value functions, which represent the
+expected discount lifetime profit. Then for the special case where there
+are only two players (duopoly), the unknowns <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ V_i$"></SPAN> satisfy:
+<P><!-- MATH
+ \begin{displaymath}
+\frac{\partial V_i}{\partial t} = LV_i - D_M(p_j)
+\frac{\partial V_i}{\partial x_j} + \sup \left\{ D_i(p_i,p_j)
+\left \begin{displaymath} p_i - \left( \frac{\partial V_i}{\partial x_i} - \frac{\gamma}{\beta}
+\frac{\partial V_i}{\partial x_j} \right) \right] \right\} - r V_i,
+\end{displaymath}
+where $p_i$\  is the price for goods produced by firm $i$, and $L$\  is the
+differential operator:
+\begin{displaymath}L = \frac{1}{2} \sigma_1^2 \frac{\partial^2}{\partial x_1^2} + \rho \sigma_1
+\sigma_2 \frac{\partial^2}{\partial x_1 \partial x_2} + \frac{1}{2}
+\sigma_2^2 \frac{\partial^2}{\partial x_2^2}.
+\end{displaymath}
+In this talk, we will present a numerical method for solving the system of
+HJB PDEs. We will discuss the discretization of the nonlinear equation,
+the issues of viscosity solutions, and present a monotone finite difference
+scheme. We will then solve the resulting discrete systems by a multigrid
+method. We will present a relaxation scheme as a smoother, and a
+prolongation method for the system case. Finally, numerical results will
+be presented to illustrate the effectiveness of the method.
+\par
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="557" HEIGHT="251" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \frac{\partial V_i}{\partial t} = LV_i - D_M(p_j)
+\frac{\partial ...
+... results will
+be presented to illustrate the effectiveness of the method.
+\par
+$">
+</DIV><P></P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

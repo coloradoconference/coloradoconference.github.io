@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Frederic Vi \\
+{\bf Parallel Multigrid Preconditionner based on Automatic 3D Tetraedric Meshes}}
+
+MINES ParisTech \\ CEMEF \\ 1 rue Claude Daunesse \\ CS 10207 \\ 06904 Sophia Antipolis Cedex \\ France
+\\
+{\tt frederic.vi@mines-paristech.fr}\\
+Katia Mocellin\\
+Hugues Digonnet\\
+Lionel Fourment\end{center}
+
+Multigrid methods are efficient for solving large sparse linear systems.
+Geometric (GMG) and Algebraic Multigrid (AMG) have both their own
+benefits and limitations. Combining the simplicity of AMG with the
+efficiency of GMG lead us to the development of an Hybrid Multigrid
+preconditionner. From an initial fine mesh we first build coarser
+unnested meshes and then deduce interpolation and restriction matrices
+based on interpolation of a mesh into a coarser one. We finally use
+Galerkin relation on each level to create our coarser problem matrix.
+
+We focus on the resolution of linear systems coming from solid mechanics
+problems. More specifically we solve Stokes problem using a 3D tetraedric
+mixed finite element formulation (P1+/P1) leading to a specific kind of
+problem with the associated matrix [1]. To deal with complex geometries
+and various material forming processes, we use unstructured mesh and need
+the resolution method to be compatible with automatic remeshing. Coarser
+meshes, interpolation and restriction operators and coarser matrices have
+then to be automatically built and rebuilt.
+
+As nowadays numerical simulations can not ignore the evolution of
+computer architecture, our developments take parallel computing into
+account. We manage to create well-balanced partitions and generate
+coarser meshes with a similar partitioning, so that the communication
+costs are minimized. The matrices (interpolation, restriction, coarser
+problems) are computed in parallel and the resolution uses smoothers and
+coarse grid solver suitable for parallel computations.
+
+
+[1] T. Coupez, S. Marie, From a direct solver to a parallel iterative
+solver in 3-D forming simulation, International Journal of High
+Performance Computing Applications (1997) 11: 277-285.
+
+
+\end{document}

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>pultarova_ivana094799</TITLE>
+<META NAME="description" CONTENT="pultarova_ivana094799">
+<META NAME="keywords" CONTENT="pultarova_ivana094799">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pultarova_ivana094799.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Ivana Pultarova 
+<BR><B>Preconditioning of stochastic Galerkin method</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Ivana Pultarova 
+<BR>
+Thakurova 7 
+<BR>
+Praha 6 
+<BR>
+166 29 
+<BR>
+Czech Republic 
+<BR>
+Europe
+
+<BR><TT>ivana@mat.fsv.cvut.cz</TT>
+</DIV>
+
+<P>
+Stochastic Galerkin method is a popular tool for solving differential
+equations with uncertain data. We consider a second order scalar elliptic
+partial differential equation
+<P><!-- MATH
+ \begin{displaymath}
+-\nabla\left(a(x,y)\nabla u(x,y)\right)=b(x)
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<IMG
+ WIDTH="199" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle -\nabla\left(a(x,y)\nabla u(x,y)\right)=b(x)$">
+</DIV><P></P>
+with Dirichlet boundary conditions. The coefficient <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ a(x,y)$"></SPAN> is not
+determined exactly. We use a truncated Karhunen-Loeve expansion of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ a(x,y)$"></SPAN> and with either uniformly or normally distributed of random
+variables <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ y_i$"></SPAN>. Variable <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ x$"></SPAN> is a spatial variable. Weak formulation and
+finite element discretization of the space part of the solution and
+polynomial chaos expansion
+of the stochastic part of the solution lead to a system of linear
+equations, the dimension of which is huge.
+Then efficient preconditioning techniques are demanded.
+We introduce a hierarchical multilevel preconditioning method obtained
+from a splitting of approximation spaces <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ V$"></SPAN> with respect to stochastic
+variables. Especially, we deal with approximation of the stochastic part
+of the solution by complete polynomials of order <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ P$"></SPAN>. We consider a
+splitting of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ V$"></SPAN> into the direct sum of the complete orthogonal
+polynomials of order <SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P-1$"></SPAN> and of the rest of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ V$"></SPAN>. As one of the main
+results, we prove that for the uniform distribution of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ y_i$"></SPAN> (and thus
+for Legendre orthogonal polynomials), the corresponding
+Cauchy-Buniakowski-Schwarz constant is bounded by <!-- MATH
+ $\sqrt{P/(2P+1)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="100" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \sqrt{P/(2P+1)}$"></SPAN>
+and thus the condition number of the two-by-two block preconditioned
+matrix of the problem is less than <!-- MATH
+ $3+2\sqrt{2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="61" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ 3+2\sqrt{2}$"></SPAN> for any <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ P&gt;1$"></SPAN>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

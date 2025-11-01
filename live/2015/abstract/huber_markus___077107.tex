@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Markus Huber \\
+{\bf Resilience for Exascale Enabled Multigrid Methods}}
+
+Insitute for Numerical Mathematics (M2) \\ Technische Universität München \\ Boltzmannstraße 3 \\ 85748 Garching \\ Germany
+\\
+{\tt huber@ma.tum.de}\\
+Björn Gmeiner\\
+Ulrich Rüde\\
+Barbara Wohlmuth\end{center}
+
+With the increasing number of components and further miniaturization
+the mean time between faults in supercomputers will decrease.
+System level fault tolerance techniques
+are expensive and cost energy, since they are often based on redundancy.
+Also classical check-point-restart techniques reach their limits when the time
+for storing the system state to backup memory becomes excessive.
+Therefore, algorithm-based fault tolerance mechanisms can become an
+attractive alternative.
+This article investigates
+the solution process for elliptic
+partial differential equations that are discretized by
+finite elements.
+Faults that occur in the parallel geometric multigrid solver
+are studied in various model scenarios.
+In a standard domain partitioning approach,
+the impact of a failure of a
+core or a node will affect one or several subdomains.
+Different strategies are developed to
+compensate the effect of such a failure algorithmically.
+The recovery is achieved by solving a
+local subproblem with Dirichlet boundary conditions using
+local multigrid cycling algorithms.
+Additionally, we propose a superman strategy where extra
+compute power is employed to minimize the time of the recovery process.
+
+
+\end{document}

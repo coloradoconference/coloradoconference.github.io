@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bobby Philip \\
+{\bf Iterative Methods for Nonlinear Systems Arising in Diblock CoPolymer Systems}}
+
+Computer Science and Mathematics Division \\ Oak Ridge National Laboratory \\ Oak Ridge \\ TN 37831
+\\
+{\tt bobby.philip@outlook.com}\\
+Kumar Rajeev\end{center}
+
+Over the past four decades, extensive scientific research has been
+directed towards developing a molecular level understanding of
+micro-phase separation in diblock copolymers. Various novel applications
+such as the development of advanced materials for thermoplastic
+elastomers, nano lithography, fuel cells and supercapacitors have made
+these systems a major focus in soft matter research worldwide. Field
+theoretic approaches such as the self-consistent field theory (SCFT) have
+been used to predict thermodynamic stabilities of various polymer
+morphologies such as the lamellae, spheres, cylinders, gyroid etc.
+
+In this talk the SCFT model for a diblock copolymer system is first
+described. The resulting set of nonlinear SCFT equations is solved in 3D
+using a nonlinear Krylov accelerator solver. Issues encountered in using
+potentially more efficient Jacobian Free Newton Krylov (JFNK) solvers and
+the performance of less efficient simple mixing algorithms are also
+detailed. The outer nonlinear solver requires computing the nonlinear
+residual at each iteration. For the SCFT systems this turns out to be
+extremely expensive as it requires time integration of a set of diffusion
+equations at each iteration. These equations are integrated using an
+implicit BDF4 method with multigrid solvers at each time step. After
+describing the full solution process some initial results in 3D will be
+presented with a description of the challenges to be tackled for future
+work.
+
+
+\end{document}

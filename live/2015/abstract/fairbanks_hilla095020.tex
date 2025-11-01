@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hillary Fairbanks \\
+{\bf High Dimensional Uncertainty Quantification via Multilevel Monte Carlo}}
+
+1859 23rd st \\ APT C \\ Boulder \\ CO \\ 80302
+\\
+{\tt hillary.fairbanks@colorado.edu}\\
+Alireza Doostan\\
+Christian Ketelsen\end{center}
+
+Multilevel Monte Carlo (MLMC) has been shown to be a cost effective way
+to compute moments of desired quantities of interest in stochastic
+partial differential equations when the uncertainty in the data is
+high-dimensional. In this talk, we investigate the improved performance
+of MLMC versus standard Monte Carlo. While both methods converge at a
+rate independent of the dimension of the stochastic input, the use of a
+series of nested grids in MLMC allows us to improve the convergence by
+allocating more computational work onto the coarse grids, while the
+costly fine grid solves require fewer samples. In addition, we find that
+further variance reduction techniques have promise in speeding up
+convergence to a solution. As an application, we consider a thermally
+driven flow problem with random fluctuations in temperature along one
+wall of a square domain. Given the random input of the initial
+temperature, we wish to determine the expected value of the final mean
+heat flux along the opposite wall.
+
+
+\end{document}

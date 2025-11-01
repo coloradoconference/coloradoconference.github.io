@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>weston_brian___089669</TITLE>
+<META NAME="description" CONTENT="weston_brian___089669">
+<META NAME="keywords" CONTENT="weston_brian___089669">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="weston_brian___089669.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Brian Weston 
+<BR><B>On the Preconditioning of a High-Order RDG-based All-Speed Navier-Stokes Solver</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Livermore National Laboratory (LLNL) 
+<BR>
+P O Box 808 
+<BR>
+L-170 
+<BR>
+Livermore CA 94551
+
+<BR><TT>nourgaliev1@llnl.gov</TT>
+<BR>
+Brian Weston
+<BR>
+Robert Nourgaliev
+<BR>
+Andy Anderson
+<BR>
+J.-P. Delplanque
+</DIV>
+
+<P>
+We investigate the preconditioning of an all-speed Navier-Stokes solver,
+based on the orthogonal-basis Reconstructed Discontinuous Galerkin (RDG)
+space discretization, and integrated using a high-order fully-implicit
+time discretization method. The work is motivated by applications in
+Additive Manufacturing (AM), requiring simulations of laser-induced
+powder melting with formation and subsequent solidification of liquid
+metal pools, with numerous numerically challenging issues. These include
+modeling of liquid-solid interfaces, due to powder
+melting/solidification; gas-solid and gas-liquid multi-material
+interfaces, with representation of ambient gaseous media (air, Argon),
+using a fully-compressible formulation; and complex interfacial physics,
+including surface tension and Marangoni effects, adequate representation
+of fluid-solid-gas contacts and wetting phenomena.
+
+<P>
+Governing equations for melting/solidifying metallic substances are
+discretized with (up to) the 4th-order accurate (Reconstructed) DG
+method. Since we are interested in the low-speed limit, the degrees of
+freedom solved for are those for pressure, velocity and
+temperature/specific internal energy/enthalpy, while the non-linear
+residual vectors are formulated for conservative variables (mass,
+momentum and energy). The resulting set of non-linear equations is solved
+using the Newton-Krylov method, with the Jacobian-free version of the
+GMRES solver for linear iterations. For time discretization, we use a set
+of high-order (up to the 5th) L-stable fully-implicit discretization
+schemes (BDF2 and ESDIRK3-5). Due to the stiffness of the underlying
+physics (combination of acoustics, thermal and viscous/material strength
+effects), GMRES must be preconditioned. Our strategy for preconditioning
+is a combination of a p-multigrid method with (physics-based) operator
+splitting. While operator-splitting preconditioning of
+(finite-volume-based) Navier-Stokes solvers has been successfully
+deployed in the past, using a p-multigrid technique for the
+preconditioning of DG-based solvers is relatively new, especially in the
+context of the Jacobian-free Newton Krylov (JFNK) methodology. We
+investigate different options of splitting governing equations for
+linearized residuals, rendering a reduced set of the approximate
+(preconditioning) Jacobian, which can be approximately solved for at the
+preconditioning steps of the Krylov iterations, either directly or
+iteratively (with Krylov- or AMG-based solvers). The figures of merit in
+designing successful splitting of equations and degrees of freedom
+(within p-multigrid) are – (a) the spread/clustering of eigenvalues, (b)
+the condition number of the preconditioned Jacobian matrix, (c) the total
+number of Krylov iterations, (d) the memory imprint due to additional
+storage required for approximate Jacobian matrices, and (e) total CPU
+time per non-linear iterations. The method is tested on a classical set
+of benchmark problems (like lid- or thermally-driven flows), and
+AM-relevant natural convection problems with embedded melting/solidifying
+fronts.
+
+<P>
+This work performed under the auspices of the U.S. Department of Energy
+by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344 and funded by the Laboratory Directed Research and
+Development Program at LLNL under project tracking code 13-SI-002.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2015-03-23
+</ADDRESS>
+</BODY>
+</HTML>

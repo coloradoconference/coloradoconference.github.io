@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrei Draganescu \\
+{\bf Optimal Order Multigrid Preconditioners for Linear Systems Arising in the Semismooth Newton Method Solution Process of a Class of Control-Constrained Problems}}
+
+University of Maryland Baltimore County \\ Department of Mathematics and Statistics \\ 1000 Hilltop Circle \\ Baltimore MD 21250
+\\
+{\tt draga@umbc.edu}\\
+Jyoti Saraswat\end{center}
+
+In this work we present a new multigrid preconditioner for the linear
+systems arising in the semismooth Newton method solution process of
+certain control-constrained, quadratic distributed optimal control
+problems. Using a piecewise constant discretization of the control space,
+each semismooth Newton iteration essentially
+requires inverting a principal submatrix of the matrix entering the
+normal equations of the associated unconstrained optimal control problem,
+the rows (and columns) of the submatrix representing the constraints
+deemed inactive at the current iteration. Previously developed multigrid
+preconditioners by Dr{\u a}g{\u a}nescu
+[\emph{Optim. Methods Softw.}, 29 (2004), pp. 786--818] for the
+aforementioned sub matrices were based on constructing a sequence of
+conforming coarser spaces, and proved to be of suboptimal quality for the
+class of problems considered. Instead, the multigrid preconditioner
+introduced in this work uses non-conforming coarse spaces, and it is
+shown that, under reasonable geometric assumptions on the constraints
+that are deemed inactive, the preconditioner approximates the inverse of
+the desired submatrix to optimal order. The preconditioner is tested
+numerically on a classical elliptic-constrained optimal control problem
+and further on a constrained image-deblurring problem.
+
+
+\end{document}

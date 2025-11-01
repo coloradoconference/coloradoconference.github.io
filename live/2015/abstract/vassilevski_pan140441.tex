@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Panayot Vassilevski \\
+{\bf Space-time constrained FOSLS with AMGe upscaling}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ P O Box 808 \\ L-561 \\ Livermore \\ CA 94550 \\ U S A
+\\
+{\tt panayot@llnl.gov}\\
+Martin Neumueller\\
+Umberto Villa\end{center}
+
+We consider time-dependent PDEs discretized in combined space-time
+domains. We first reduce the PDE to a first order system. Very often in
+practice, one of the equations of the reduced system involves the
+divergence operator (in space-time).
+The popular FOSLS (first order system least-squares) method is then
+applied modified by keeping the divergence equation as a constraint which
+we refer to as CFOSLS (constrained FOSLS). Applying finite elements to
+discretize the CFOSLS problem leads to a saddle-point system. To
+alleviate the high memory demand of the combined space-time approach (due
+to the increased dimension),
+we apply element agglomeration AMG upscaling on space-time elements. This
+leads to substantially reduced problem sizes with controlled accuracy.
+Initial numerical results for model parabolic and scalar hyperbolic
+problems illustrate the potential of the method.
+
+
+\end{document}

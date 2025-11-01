@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christoph Pflaum \\
+{\bf Discretization of Elliptic Differential Equations Using Sparse Grids and Prewavelets}}
+
+Friedrich-Alexander-Universität Erlangen-Nürnberg \\ Department Computer Science 10 \\ Cauerstraße 11 \\ D-91058 Erlangen
+\\
+{\tt christoph.pflaum@fau.de}\\
+Rainer Hartmann\end{center}
+
+Sparse grids can be used to discretize second order elliptic differential
+equations on a d-dimensional cube. Using Galerkin discretization, we
+obtain a linear equation system with $O(N (\log N)^{d-1})$ unknowns. The
+corresponding discretization error is $O(N^{-1} (\log N)^{d-1})$ in the
+$H^1$-norm. A major difficulty in using this sparse grid discretization
+is complexity of the related stiffness matrix. Consequently, only
+differential equations with constant coefficients could be efficiently
+discretized using sparse grids for $d>2$. To reduce the complexity of the
+sparse grid discretization matrix, we apply pre-wavelets. This simplifies
+the implementation of the multigrid Q-cylce. Furthermore, we present a
+new sparse grid discretization for Helmholtz equation with a variable
+coefficient c. This discretization utilizes a semi-orthogonality
+property. The convergence rate of this discretization in $H^1$-norm is
+$O(N^{-1} (\log N)^{d-1})$ for $d \leq 4$ and $O(N^{-(2/(d-2))})$ for $d
+\geq 5$.
+
+
+\end{document}

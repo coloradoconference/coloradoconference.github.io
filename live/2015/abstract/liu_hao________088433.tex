@@ -1,0 +1,100 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hao Liu \\
+{\bf Local Defect Correction multigrid Method coupled with the Zienkiewicz-Zhu \emph{a posteriori} error estimator in elastostatics Solid Mechanics}}
+
+CEA Cadarache \\ DEN/DEC/SESC/LSC \\ Building 151 \\ 13108 SAINT-PAUL-LEZ-DURANCE CEDEX \\ France
+\\
+{\tt hao.liu@cea.fr}\\
+Isabelle Rami{\`e}re\\
+Fr{\'e}d{\'e}ric Lebon\end{center}
+
+Local multigrid methods provide a technique to solve problems which
+locally require high accuracy (cracks, discontinuous boundary conditions,
+entrant corners etc.) in acceptable computational times and memory space.
+These methods have several advantages such as fast resolution on each
+sub-grid, work on local fine meshes only...
+
+We propose here to use the Local Defect Correction (LDC) multigrid
+method, proposed by Hackbush \cite{Hackbusch84}, to solve Solid Mechanics
+Problems. From an initial coarse mesh, this method focuses on recursively
+adding local sub-grids in areas where higher accuracy is required. We
+keep adding levels of refinement until the finest grid has the desired
+accuracy. Then prolongation and restriction operators are used to link
+the different level of grids. It should be noted that this method is
+generic : solver, refinement ratio , mesh type, model etc. could be
+different (or not) between the several levels of refinement.
+
+In order to automatically detect the zones to be refined, we propose to
+couple the LDC multigrid method with the Zienkiewicz-Zhu \emph{a
+posteriori} error estimator \cite{Zienkiewicz87}. Based on the fact that
+the stress field calculated by the finite element method is discontinuous
+between elements, the Zienkiewicz-Zhu \emph{a posteriori} error estimator
+constructs a smoothed stress field. Then the error estimator is evaluated
+by the difference between the finite element stress solution and the
+smoothed stress fields. A strategy of coupling the LDC multigrid method
+with the Zienkiewicz-Zhu \emph{a posteriori} error was already introduced
+in \cite{Barbie13CAS,Barbie11}. The authors proposed to refine the
+elements for which the indicator is greater than $\alpha$\% of the
+maximum error. This strategy is easy to implement but requires the
+knowledge of the $\alpha$ (which may depend of the problem) and the
+maximal number of sub-grids (because this indicator never stops). We
+propose here an automatic procedure of refinement working directly on the
+elements for which the stress error is superior than a threshold
+(relative error) given by the user. In this way, we avoid the dependence
+on a arbitrary coefficient.
+
+We apply this method on an industrial test case that is simulation of the
+Pellet-Cladding mechanical Interaction (PCI) in Pressurized Water
+Reactors (PWR) \cite{Michel13}. Precise simulations of this problem
+require cells of 1 $\mu$m for a structure of 1 cm. The LDC multigrid
+method could be efficient to overcome this issue. We present results
+obtained on the 2D linear elasticity test cases with discontinuous
+boundary condition. Whatever the thresholds set by user, the proposed
+coupled method gives really satisfactory results. Memory space and CPU
+time saving will be also pointed out.
+
+\begin{thebibliography}{1}
+
+\bibitem{Barbie13CAS}
+L.~Barbi{\'e}, I.~Rami{\`e}re, and F.~Lebon.
+\newblock Strategies around the local defect correction multi-level refinement
+method for three-dimensional linear elastic problems.
+\newblock {\em Computers and Structures}, 130:73--90, 2014.
+
+\bibitem{Barbie11}
+L.~Barbi{\'e}, I.~Rami{\`e}re, F.~Lebon, and J.~Sercombe.
+\newblock {AMR} methods in solids mechanics for pellet-cladding interaction
+modelling.
+\newblock In D.~Aubry, P.~D\'iez, B.~Tie, and N.~Par{\'e}s, editors, {\em V
+International Conference on Adaptive Modeling and Simulation}, pages 70--81,
+2011.
+\newblock 6-8 June, Paris, France.
+
+\bibitem{Hackbusch84}
+W.~Hackbusch.
+\newblock {Local Defect Correction Method and Domain Decomposition Techniques}.
+\newblock {\em Computing Suppl. Springer-Verlag}, 5:89--113, 1984.
+
+\bibitem{Michel13}
+B.~Michel, C.~Nonon, J.~Sercombe, F.~Michel, and V.~Marelle.
+\newblock Simulation of pellet-cladding interaction with the pleiades fuel
+performance software environment.
+\newblock {\em Nuclear Technology}, 182, 2013.
+
+\bibitem{Zienkiewicz87}
+O.C. Zienkiewicz and J.Z. Zhu.
+\newblock A simple error estimator and adaptive procedure for practical
+engineering analysis.
+\newblock {\em International Journal for Numerical Methods in Engineering},
+24:337--357, 1987.
+
+\end{thebibliography}
+
+
+\end{document}

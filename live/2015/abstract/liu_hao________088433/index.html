@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>liu_hao________088433</TITLE>
+<META NAME="description" CONTENT="liu_hao________088433">
+<META NAME="keywords" CONTENT="liu_hao________088433">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="liu_hao________088433.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Hao Liu 
+<BR><B>Local Defect Correction multigrid Method coupled with the Zienkiewicz-Zhu <SPAN  CLASS="textit">a posteriori</SPAN> error estimator in elastostatics Solid Mechanics</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">CEA Cadarache 
+<BR>
+DEN/DEC/SESC/LSC 
+<BR>
+Building 151 
+<BR>
+13108 SAINT-PAUL-LEZ-DURANCE CEDEX 
+<BR>
+France
+
+<BR><TT>hao.liu@cea.fr</TT>
+<BR>
+Isabelle Rami&#232;re
+<BR>
+Fr&#233;d&#233;ric Lebon
+</DIV>
+
+<P>
+Local multigrid methods provide a technique to solve problems which
+locally require high accuracy (cracks, discontinuous boundary conditions,
+entrant corners etc.) in acceptable computational times and memory space.
+These methods have several advantages such as fast resolution on each
+sub-grid, work on local fine meshes only...
+
+<P>
+We propose here to use the Local Defect Correction (LDC) multigrid
+method, proposed by Hackbush [<A
+ HREF="node1.html#Hackbusch84">3</A>], to solve Solid Mechanics
+Problems. From an initial coarse mesh, this method focuses on recursively
+adding local sub-grids in areas where higher accuracy is required. We
+keep adding levels of refinement until the finest grid has the desired
+accuracy. Then prolongation and restriction operators are used to link
+the different level of grids. It should be noted that this method is
+generic : solver, refinement ratio , mesh type, model etc. could be
+different (or not) between the several levels of refinement.
+
+<P>
+In order to automatically detect the zones to be refined, we propose to
+couple the LDC multigrid method with the Zienkiewicz-Zhu <SPAN  CLASS="textit">a
+posteriori</SPAN> error estimator [<A
+ HREF="node1.html#Zienkiewicz87">5</A>]. Based on the fact that
+the stress field calculated by the finite element method is discontinuous
+between elements, the Zienkiewicz-Zhu <SPAN  CLASS="textit">a posteriori</SPAN> error estimator
+constructs a smoothed stress field. Then the error estimator is evaluated
+by the difference between the finite element stress solution and the
+smoothed stress fields. A strategy of coupling the LDC multigrid method
+with the Zienkiewicz-Zhu <SPAN  CLASS="textit">a posteriori</SPAN> error was already introduced
+in [<A
+ HREF="node1.html#Barbie13CAS">1</A>,<A
+ HREF="node1.html#Barbie11">2</A>]. The authors proposed to refine the
+elements for which the indicator is greater than <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \alpha$"></SPAN>% of the
+maximum error. This strategy is easy to implement but requires the
+knowledge of the <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \alpha$"></SPAN> (which may depend of the problem) and the
+maximal number of sub-grids (because this indicator never stops). We
+propose here an automatic procedure of refinement working directly on the
+elements for which the stress error is superior than a threshold
+(relative error) given by the user. In this way, we avoid the dependence
+on a arbitrary coefficient.
+
+<P>
+We apply this method on an industrial test case that is simulation of the
+Pellet-Cladding mechanical Interaction (PCI) in Pressurized Water
+Reactors (PWR) [<A
+ HREF="node1.html#Michel13">4</A>]. Precise simulations of this problem
+require cells of 1 <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mu$"></SPAN>m for a structure of 1 cm. The LDC multigrid
+method could be efficient to overcome this issue. We present results
+obtained on the 2D linear elasticity test cases with discontinuous
+boundary condition. Whatever the thresholds set by user, the proposed
+coupled method gives really satisfactory results. Memory space and CPU
+time saving will be also pointed out.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

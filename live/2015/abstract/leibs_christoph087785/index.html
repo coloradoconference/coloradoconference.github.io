@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>leibs_christoph087785</TITLE>
+<META NAME="description" CONTENT="leibs_christoph087785">
+<META NAME="keywords" CONTENT="leibs_christoph087785">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="leibs_christoph087785.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Christopher A. Leibs 
+<BR><B>Least-Squares Finite Element Method and Nested Iteration for Electromagnetic Two-Fluid Plasma Models</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">526 UCB 
+<BR>
+University of Colorado 
+<BR>
+Boulder 
+<BR>
+CO 80309
+
+<BR><TT>leibs@colorado.edu</TT>
+<BR>
+Thomas Manteuffel
+</DIV>
+
+<P>
+Efforts are currently being directed towards a fully implicit,
+electromagnetic, JFNK-based solver, motivating the necessity of
+developing a fluid-based, electromagnetic, preconditioning strategy [1].
+The two-fluid plasma (TFP) model is an ideal approximation to the kinetic
+Jacobian. The TFP model couples both an ion and an electron fluid with
+Maxwell's equations. The fluid equations consist of the conservation of
+momentum and number density. A Darwin approximation of Maxwell is used to
+eliminate light waves from the model in order to facilitate coupling to
+non-relativistic particle models. We analyze the TFP-Darwin system in the
+context of a stand-alone solver with consideration of preconditioning a
+kinetic-JFNK approach.
+
+<P>
+The TFP-Darwin system is addressed numerically by use of nested iteration
+(NI) and a First-Order Systems Least Squares (FOSLS) discretization. An
+important goal of NI is to produce an approximation that is within the
+basin of attraction for Newton's method on a relatively coarse mesh and,
+thus, on all subsequent meshes. After scaling and modification, the
+TFP-Darwin model yields a nonlinear, first-order system of equations
+whose Fr&#233;chet derivative is shown to be uniformly
+<!-- MATH
+ $\mathcal{H}^1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mathcal{H}^1$"></SPAN>-elliptic in a neighborhood of the exact solution.
+<!-- MATH
+ $\mathcal{H}^1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mathcal{H}^1$"></SPAN> ellipticity yields optimal finite element performance and
+linear systems amenable to solution with Algebraic Multigrid (AMG). To
+efficiently focus computational resources, an adaptive mesh refinement
+scheme, based on the accuracy per computational cost, is leveraged.
+Numerical tests, including magnetic reconnection, demonstrate the
+efficacy of the approach, yielding an approximate solution within
+discretization error in a relatively small number of computational work
+units.
+
+<BR>
+<BR>[1] G. Chen, L. Chac&#243;n, Computer Physics Communications, 185(10), 2014.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vi_frdric______087295</TITLE>
+<META NAME="description" CONTENT="vi_frdric______087295">
+<META NAME="keywords" CONTENT="vi_frdric______087295">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vi_frdric______087295.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Frédéric Vi 
+<BR><B>Parallel Multigrid Preconditionner based on Automatic 3D Tetraedric Meshes</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">MINES ParisTech 
+<BR>
+CEMEF 
+<BR>
+1 
+<BR>
+rue Claude Daunesse 
+<BR>
+CS 10207 
+<BR>
+06904 Sophia Antipolis Cedex 
+<BR>
+France
+
+<BR><TT>frederic.vi@mines-paristech.fr</TT>
+<BR>
+Katia Mocellin
+<BR>
+Hugues Digonnet
+<BR>
+Lionel Fourment
+</DIV>
+
+<P>
+Multigrid methods are efficient for solving large sparse linear systems.
+Geometric (GMG) and Algebraic Multigrid (AMG) have both their own
+benefits and limitations. Combining the simplicity of AMG with the
+efficiency of GMG lead us to the development of an Hybrid Multigrid
+preconditionner. From an initial fine mesh we first build coarser
+unnested meshes and then deduce interpolation and restriction matrices
+based on interpolation of a mesh into a coarser one. We finally use
+Galerkin relation on each level to create our coarser problem matrix.
+
+<P>
+We focus on the resolution of linear systems coming from solid mechanics
+problems. More specifically we solve Stokes problem using a 3D tetraedric
+mixed finite element formulation (P1+/P1) leading to a specific kind of
+problem with the associated matrix [1]. To deal with complex geometries
+and various material forming processes, we use unstructured mesh and need
+the resolution method to be compatible with automatic remeshing. Coarser
+meshes, interpolation and restriction operators and coarser matrices have
+then to be automatically built and rebuilt.
+
+<P>
+As nowadays numerical simulations can not ignore the evolution of
+computer architecture, our developments take parallel computing into
+account. We manage to create well-balanced partitions and generate
+coarser meshes with a similar partitioning, so that the communication
+costs are minimized. The matrices (interpolation, restriction, coarser
+problems) are computed in parallel and the resolution uses smoothers and
+coarse grid solver suitable for parallel computations.
+
+<P>
+[1] T. Coupez, S. Marie, From a direct solver to a parallel iterative
+solver in 3-D forming simulation, International Journal of High
+Performance Computing Applications (1997) 11: 277-285.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

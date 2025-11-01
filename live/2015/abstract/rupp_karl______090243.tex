@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Karl Rupp \\
+{\bf A Performance Comparison of Algebraic Multigrid Preconditioners on GPUs and MIC}}
+
+Institute for Microelectronics \\ Vienna University of Technology \\ Gußhausstraße 27-29/E360 \\ A-1040 Wien \\ Austria \\ Europe
+\\
+{\tt rupp@iue.tuwien.ac.at}\\
+Ansgar Jüngel\\
+Tibor Grasser\end{center}
+
+Algebraic multigrid (AMG) preconditioners for accelerators such as
+graphics processing units (GPUs) and Intel's many-integrated core (MIC)
+architecture typically require a careful, problem-dependent trade-off
+between efficient hardware use, robustness, and convergence rate in order
+to minimize time-to-solution. Several variants of AMG with fine-grained
+parallelism have been proposed recently, but a comparison across
+different hardware architectures is difficult since the proposed
+approaches are mostly focused on a single architecture. To address this
+deficiency, we derived implementations of recently proposed AMG variants
+in CUDA, OpenCL, and OpenMP and run extensive benchmarks. Our performance
+results for GPUs from AMD and NVIDIA as well as for Intel's Xeon Phi
+reveal the sweet spots of each accelerator architecture, helping
+practitioners to select the best AMG variant and hardware for a given
+problem.
+
+
+\end{document}

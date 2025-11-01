@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>manteuffel_tom_087650</TITLE>
+<META NAME="description" CONTENT="manteuffel_tom_087650">
+<META NAME="keywords" CONTENT="manteuffel_tom_087650">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="manteuffel_tom_087650.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tom Manteuffel 
+<BR><B>Range Decomposition: A low communication algorithm for solving PDEs on Massively Parallel Machines.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">526 UCB 
+<BR>
+University of Colorado 
+<BR>
+Boulder 
+<BR>
+CO 80309
+
+<BR><TT>tmanteuf@colorado.edu</TT>
+<BR>
+David J Appelhans
+<BR>
+John Ruge
+</DIV>
+
+<P>
+The Range Decomposition (RD) algorithm uses nested iteration and adaptive
+mesh refinement locally before performing a global communication step.
+Only several such steps are observed to be necessary before reaching a
+solution within a small multiple of discretization error. The target
+application is peta- and exascale machines where traditional parallel
+numerical PDE communication patterns stifle scalability. The RD algorithm
+uses a partition of unity to equally distribute the error, and thus, the
+work. The computational advantages of this approach are that the
+decomposed problems can be solved using nested iteration and any
+multigrid cycle type, in parallel, without any communication until the
+partitioned solutions are summed. This offers potential advantages in the
+paradigm of expensive communication but very cheap computation.
+Performance models and numerical results demonstrate the enhanced
+performance.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2015-03-06
+</ADDRESS>
+</BODY>
+</HTML>

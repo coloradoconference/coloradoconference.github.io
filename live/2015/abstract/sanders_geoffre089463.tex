@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Geoffrey D. Sanders \\
+{\bf Hub Snub: removing vertices with high degree from coarse-grid correction}}
+
+7000 East Avenue \\ L-561 \\ Livermore \\ CA 94551
+\\
+{\tt sanders29@llnl.gov}\\
+Alyson Fox\\
+Thomas Manteuffel\\
+Tobias Jones\end{center}
+
+Network scientists often employ numerical solutions to linear systems as
+subroutines of data mining algorithms. Due to the ill-conditioned nature
+of the systems, obtaining solutions with standard iterative methods is
+often prohibitively costly; current research aims to automatically
+construct preconditioners that are optimally efficient and scalable for a
+very broad class of graph associated matrices and network topologies.
+Frequently, networks encountered have skewed degree distribution and
+small-world topology and we present new strategies to aggressively
+coarsen the underlying systems into significantly smaller,
+better-conditioned systems, from which smooth error is approximated with
+high accuracy. Aggressive coarsening strategies are often applicable as a
+preprocessing step for almost any other preconditioner. We demonstrate
+their efficacy in conjunction with adaptive algebraic multigrid.
+
+In this talk, we focus on analyzing coarse grid selection strategies that
+eliminate high-degree vertices. We observe that there is often relatively
+little energy in smooth modes at central, high-degree vertices and
+propose completely ignoring these hubs in coarse-grid representation.
+Clever smoother design further improves this property. We develop an
+adaptive approach to identify which hubs are best candidates for removal
+from coarse spaces in the setup of the multilevel hierarchy. We discuss
+the trade-off between convergence factors and complexity involved in this
+process.
+
+
+\end{document}

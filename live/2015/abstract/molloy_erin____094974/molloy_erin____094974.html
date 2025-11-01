@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>molloy_erin____094974</TITLE>
+<META NAME="description" CONTENT="molloy_erin____094974">
+<META NAME="keywords" CONTENT="molloy_erin____094974">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="molloy_erin____094974.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Erin Molloy 
+<BR><B>Is the ideal approximation operator always ``ideal'' for a particular C/F splitting?</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Illinois at Urbana-Champaign 
+<BR>
+Department of Computer Science 
+<BR>
+Rm 4332 
+<BR>
+201 N Goodwin Ave 
+<BR>
+Urbana 
+<BR>
+IL 61801
+
+<BR><TT>emolloy2@illinois.edu</TT>
+<BR>
+Luke Olson
+<BR>
+Jacob Schroder
+</DIV>
+
+<P>
+Given a coarse grid, the ideal prolongation operator is defined by
+<!-- MATH
+ $\mathbf{P}_\star = \begin{bmatrix} \mathbf{W} & \mathbf{I} \end{bmatrix}^T$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="111" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mathbf{P}_\star = \begin{bmatrix}\mathbf{W} &amp; \mathbf{I} \end{bmatrix}^T$"></SPAN>,
+where the weight matrix, <!-- MATH
+ $\mathbf{W} = \mathbf{A}_{FF}^{-1} \mathbf{A}_{FC}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="113" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{W} = \mathbf{A}_{FF}^{-1} \mathbf{A}_{FC}$"></SPAN> ,
+interpolates a set of fine grid variable (<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ F$"></SPAN>-points) from a set of coarse grid variable
+(<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ C$"></SPAN>-points), and the identity matrix, <!-- MATH
+ $\mathbf{I}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathbf{I}$"></SPAN>, represents the
+injection of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ C$"></SPAN>-points to and from the coarse grid (Falgout and
+Vassilevski, 2004).
+In this talk, we consider <!-- MATH
+ $\mathbf{P}_\star$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{P}_\star$"></SPAN>, constructed from
+both traditional <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ C/F$"></SPAN> splittings and <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ C/F$"></SPAN> splittings corresponding to
+aggregates, for several challenging problems. We demonstrate the effects of the
+<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ C/F$"></SPAN> splitting on the convergence and complexity of <!-- MATH
+ $\mathbf{P}_\star$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{P}_\star$"></SPAN>.
+Finally, we argue that <!-- MATH
+ $\mathbf{P}_\star$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{P}_\star$"></SPAN> may be misleading in demonstrating the
+``ideal'' nature of interpolation of a given <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ C/F$"></SPAN> splitting by providing
+numerical evidence that hierarchies built using <!-- MATH
+ $\mathbf{P}_\star$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{P}_\star$"></SPAN>
+converge more slowly
+than hierarchies built from alternative prolongation operators with the
+same <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ C/F$"></SPAN> splitting. This is important as we wish to minimize the number
+of levels in
+a multigrid hierarchy by using a small set of C points for which <!-- MATH
+ $\mathbf{P}_\star$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{P}_\star$"></SPAN>
+may have poor convergence.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

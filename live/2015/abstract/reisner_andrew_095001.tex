@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew Reisner \\
+{\bf Multilevel Solvers for High Resolution Electric Field Calculations}}
+
+107 N Busey Apt B \\ Urbana \\ IL 61801
+\\
+{\tt areisne2@illinois.edu}\\
+Luke Olson\end{center}
+
+High fidelity electric field calculations are a critical component in plasma
+simulations. In this this talk we consider the problem of a dielectric
+barrier
+discharge (DBD) wherein the electric field is calculated to support a
+compressible flow, thus requiring a highly efficient global solve. The
+electric
+field is constructed on a logically structured but mapped mesh which yields
+anisotropy in the operator, along with jumps in the permittivity. Another
+challenge arises in the modeling of a dielectric barrier discharge, where
+dielectrics result in localized Dirichlet blocks within the domain. In a
+multilevel solver, these interior blocks are not resolved on coarse grids,
+leading to a deterioration in convergence with a strong dependence on the
+alignment and size relative to the coarse levels. We investigate the
+dependence of various multilevel solvers in this context and in a parallel
+setting. In particular, we detail the convergence of multilevel methods for
+high resolution electric field calculations in the presence of warped meshes
+with jumping coefficients.
+
+
+\end{document}

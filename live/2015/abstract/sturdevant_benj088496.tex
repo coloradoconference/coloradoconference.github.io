@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Benjamin, J Sturdevant \\
+{\bf Iterative Solution Method for an Implicit Orbit Averaged Particle-in-Cell Model}}
+
+8901 Grant St Apt 336 \\ Thornton \\ CO 80229
+\\
+{\tt benjamin.sturdevant@colorado.edu}\\
+Scott Parker\end{center}
+
+Present kinetic simulations of turbulence in magnetized plasmas employ
+models from gyrokinetic theory, which is based on a number of ordering
+assumptions used to reduce the Vlasov-Maxwell system to eliminate high
+frequency phenomena. Recently, a second order accurate, implicit
+particle-in-cell (PIC) model using ions which evolve according to the
+exact Newton-Lorentz equations of motion has been developed to study
+low-frequency phenomena in magnetized plasmas. This model promises to be
+physically reliable in regimes where the ordering assumptions of
+gyrokinetics may be in question, but presents some additional
+computational challenges to produce numerically stable results while
+retaining important kinetic effects.
+
+This talk will focus on orbit averaging algorithms applied to the Lorentz
+ion model. Orbit averaging is a time stepping method based on advancing
+particles over several micro time steps for each macro time step over
+which the fields are advanced. An implicit scheme is applied to the orbit
+averaging algorithm to eliminate a time stepping constraint due to a high
+frequency compressional Alfven wave present in the Lorentz ion model. The
+implicit algorithm requires the solution of a large system of nonlinear
+equations at each macro-time step. A solution method for this system
+based on Picard iterations will be presented. An "inner" iteration is
+used for the particle advances at the micro time steps and an "outer"
+iteration in which the particle system and the field equations are
+alternately updated is used to provide a self-consistent coupling at the
+macro time step. A preconditioner may provide a means of increasing the
+rate of convergence in this iterative process. Numerical results will be
+presented along with a discussion on the convergence of the iterative
+method.
+
+[1] Y. Chen, S.E. Parker, Phys. Plasmas 16 (2009)
+[2] J. Cheng, S.E. Parker, Y. Chen, D. Uzdensky, J. Comput. Phys. 245 (2013), 364
+
+
+\end{document}

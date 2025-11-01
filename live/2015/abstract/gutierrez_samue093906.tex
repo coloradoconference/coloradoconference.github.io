@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Samuel K. Gutierrez \\
+{\bf Data-Centric Models for Multilevel Algorithms}}
+
+Applied Computer Science \\ Los Alamos National Laboratory \\ PO Box 1663 MS B287 \\ Los Alamos \\ NM 87545
+\\
+{\tt samuel@lanl.gov}\\
+Patrick McCormick\\
+David Moulton\\
+Benjamin Bergen\end{center}
+
+Today, computational scientists must contend with a diverse set of
+supercomputer architectures that are capable of exposing unprecedented
+levels of parallelism and complexity. Effectively placing, moving, and
+operating on data residing in complex distributed memory hierarchies is
+quickly becoming an intractable problem for developers of parallel
+scientific software. Because of this, there is an increased desire to
+explore data-centric task-based programming models because of their
+ability to assist in performing complex, error-prone tasks required for
+application correctness, performance, and scalability.
+
+In this talk we will present our data- and task-parallel implementation
+of the High Performance Conjugate Gradient (HPCG) benchmark targeting the
+Legion runtime. HPCG implements a multigrid preconditioned conjugate
+gradient method that comprises several computational kernels commonly
+found in many scientific applications. We will discuss how we are using
+this infrastructure as a vehicle for investigating how design and
+abstractions choices impact the performance and programmability of
+multilevel methods expressed in this model. We will conclude our talk by
+discussing our current efforts porting the High Performance Geometric
+Multigrid (HPGMG) benchmark to Legion.
+
+
+\end{document}

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sanders_geoffre089463</TITLE>
+<META NAME="description" CONTENT="sanders_geoffre089463">
+<META NAME="keywords" CONTENT="sanders_geoffre089463">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sanders_geoffre089463.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Geoffrey D. Sanders 
+<BR><B>Hub Snub: removing vertices with high degree from coarse-grid correction</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">7000 East Avenue 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94551
+
+<BR><TT>sanders29@llnl.gov</TT>
+<BR>
+Alyson Fox
+<BR>
+Thomas Manteuffel
+<BR>
+Tobias Jones
+</DIV>
+
+<P>
+Network scientists often employ numerical solutions to linear systems as
+subroutines of data mining algorithms. Due to the ill-conditioned nature
+of the systems, obtaining solutions with standard iterative methods is
+often prohibitively costly; current research aims to automatically
+construct preconditioners that are optimally efficient and scalable for a
+very broad class of graph associated matrices and network topologies.
+Frequently, networks encountered have skewed degree distribution and
+small-world topology and we present new strategies to aggressively
+coarsen the underlying systems into significantly smaller,
+better-conditioned systems, from which smooth error is approximated with
+high accuracy. Aggressive coarsening strategies are often applicable as a
+preprocessing step for almost any other preconditioner. We demonstrate
+their efficacy in conjunction with adaptive algebraic multigrid.
+
+<P>
+In this talk, we focus on analyzing coarse grid selection strategies that
+eliminate high-degree vertices. We observe that there is often relatively
+little energy in smooth modes at central, high-degree vertices and
+propose completely ignoring these hubs in coarse-grid representation.
+Clever smoother design further improves this property. We develop an
+adaptive approach to identify which hubs are best candidates for removal
+from coarse spaces in the setup of the multilevel hierarchy. We discuss
+the trade-off between convergence factors and complexity involved in this
+process.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

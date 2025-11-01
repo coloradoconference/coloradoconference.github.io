@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Justin Wan \\
+{\bf Numerical Method for Dynamic Bertrand Oligopoly Using Multigrid}}
+
+200 University Ave West \\ Waterloo \\ ON \\ Canada
+\\
+{\tt jwlwan@uwaterloo.ca}\\
+Swathi Amarala\end{center}
+
+In economics, oligopoly is a market structure in which a small number of
+firms producing substitutable goods compete by setting prices strategically
+in an uncertain demand environment (Bertrand model). For instance, Pepsi
+and Coca-Cola in the soft drink industry, Apple and Samsung in the smart
+phone industry. Firms choose prices to maximize profit in the sense of
+Nash Equilibrium. The Bertrand Oligopoly can be modelled as nonzero sum
+differential games. The model can be solved by the dynamic programming
+principle, which yields a system of Hamilton-Jacobi-Bellman (HJB) equations.
+More precisely, let $V_i$ be the value functions, which represent the
+expected discount lifetime profit. Then for the special case where there
+are only two players (duopoly), the unknowns $V_i$ satisfy:
+$$
+\frac{\partial V_i}{\partial t} = LV_i - D_M(p_j)
+\frac{\partial V_i}{\partial x_j} + \sup \left\{ D_i(p_i,p_j)
+\left \[ p_i - \left( \frac{\partial V_i}{\partial x_i} - \frac{\gamma}{\beta}
+\frac{\partial V_i}{\partial x_j} \right) \right] \right\} - r V_i,
+$$
+where $p_i$ is the price for goods produced by firm $i$, and $L$ is the
+differential operator:
+$$
+L = \frac{1}{2} \sigma_1^2 \frac{\partial^2}{\partial x_1^2} + \rho \sigma_1
+\sigma_2 \frac{\partial^2}{\partial x_1 \partial x_2} + \frac{1}{2}
+\sigma_2^2 \frac{\partial^2}{\partial x_2^2}.
+$$
+In this talk, we will present a numerical method for solving the system of
+HJB PDEs. We will discuss the discretization of the nonlinear equation,
+the issues of viscosity solutions, and present a monotone finite difference
+scheme. We will then solve the resulting discrete systems by a multigrid
+method. We will present a relaxation scheme as a smoother, and a
+prolongation method for the system case. Finally, numerical results will
+be presented to illustrate the effectiveness of the method.
+
+
+\end{document}

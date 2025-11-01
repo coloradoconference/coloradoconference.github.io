@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ballard_grey___094697</TITLE>
+<META NAME="description" CONTENT="ballard_grey___094697">
+<META NAME="keywords" CONTENT="ballard_grey___094697">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ballard_grey___094697.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Grey Ballard 
+<BR><B>Reducing Communication Costs for Sparse Matrix Multiplication within Algebraic Multigrid</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">P O Box 969 
+<BR>
+Mail Stop 9159 
+<BR>
+Livermore 
+<BR>
+CA 94550
+
+<BR><TT>gmballa@sandia.gov</TT>
+<BR>
+Grey Ballard
+<BR>
+Jonathan Hu
+<BR>
+Christopher Siefert
+</DIV>
+
+<P>
+We consider the sequence of sparse matrix-matrix multiplications
+performed during the setup phase of algebraic multigrid.
+In particular, we show that the most commonly used parallel algorithm is
+often not the most communication-efficient one for all of the matrix
+multiplications involved.
+By using an alternative algorithm, we show that the communication costs
+are reduced (in theory and practice), and we demonstrate the performance
+benefit for both model and real problems on large-scale
+distributed-memory parallel systems.
+
+<P>
+We consider the smoothed aggregation multigrid method, and for this talk
+we focus on a symmetric fine grid operator <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"></SPAN>.
+After fine-level rows of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"></SPAN> are grouped into coarse-level aggregates,
+there are three sparse matrix multiplication operations performed to
+construct the coarse grid operator.
+The tentative prolongation matrix <!-- MATH
+ $\widehat{P}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \widehat{P}$"></SPAN> represents aggregate
+membership, and the final prolongation matrix <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ P$"></SPAN> is computed by applying
+a step of damped Jacobi to <!-- MATH
+ $\widehat{P}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \widehat{P}$"></SPAN>, which is structurally
+equivalent to computing the product <!-- MATH
+ $A\cdot \widehat{P}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A\cdot \widehat{P}$"></SPAN>.
+The coarse grid operator is given by the triple product <SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A_c=P^TAP$"></SPAN>,
+which is typically performed with two more sparse matrix multiplications:
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A\cdot P$"></SPAN> and <!-- MATH
+ $P^T\cdot (AP)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^T\cdot (AP)$"></SPAN>.
+
+<P>
+The standard approach for performing each of these parallel sparse matrix
+multiplications is to use a row-wise algorithm: for general <!-- MATH
+ $C=A\cdot B$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ C=A\cdot B$"></SPAN>,
+each processor owns a subset of the rows of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"></SPAN>, a subset of the rows of
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ B$"></SPAN>, and computes a subset of rows of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ C$"></SPAN> (which matches the distribution
+of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"></SPAN>).
+The communication required is an exchange of rows of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ B$"></SPAN> among processors.
+We consider as an alternative the outer-product sparse matrix
+multiplication algorithm, where each processor owns a subset of the rows
+of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"></SPAN>, the corresponding subset of columns of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ B$"></SPAN>, and the communication
+consists of exchanging partially unreduced rows of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ C$"></SPAN> among processors
+(assuming the desired output distribution is row-wise).
+
+<P>
+Because of its low arithmetic intensity, the performance of parallel
+algorithms for sparse matrix multiplication is typically bound by the
+cost of interprocessor communication.
+Based on communication cost analysis of model problems, we conclude that
+the row-wise algorithm is the right choice for computing <!-- MATH
+ $A\cdot
+\widehat{P}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A\cdot \widehat{P}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A\cdot P$"></SPAN> but the outer-product is the better choice
+for computing <!-- MATH
+ $P^T\cdot (AP)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^T\cdot (AP)$"></SPAN>.
+For a fine grid operator corresponding to a 3D 27-point stencil on a
+regular grid, for example, the row-wise algorithm for <SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ P^T(AP)$"></SPAN> requires
+more than <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ 5\times$"></SPAN> the communication of the outer-product algorithm.
+Furthermore, using the outer-product algorithm for <!-- MATH
+ $P^T\cdot(AP)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^T\cdot (AP)$"></SPAN> avoids
+the explicit redistribution of <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ P^T$"></SPAN> that is typically required in order
+to use the row-wise algorithm and involves as much interprocessor
+communication as a sparse matrix multiplication.
+
+<P>
+We have implemented the outer-product algorithm within the Trilinos
+software framework, and we compare communication costs and running times
+of the two approaches for representative matrices.
+To confirm the theoretical analysis, our experiments include regular-grid
+stencil matrices for 2D and 3D problems.
+We also perform tests on realistic problems, including a low Mach fluid
+dynamics application problem, to demonstrate the benefits of the new
+approach.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

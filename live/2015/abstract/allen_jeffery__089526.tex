@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeffery Allen \\
+{\bf New FOSLS Formulation of Nonlinear Stokes Flow for Glaciers}}
+
+2210 Walnut Apt 1 \\ Boulder \\ CO 80302
+\\
+{\tt jeffery.allen@colorado.edu}\\
+Thomas Manteuffel \\
+Harihar Rajaram\end{center}
+
+This talk describes two First-order System Least-squares (FOSLS)
+formulations of the nonlinear Stokes flow used to model glaciers and ice
+sheets. The first is a Stress formulation and the second
+a Stress-Vorticity formulation. Both use fluidity, which is the
+reciprocal of viscosity and avoid the difficulties of infinite viscosity.
+Coercivity and continuity in appropriate Sobolev norms will be discussed.
+A Nested Iteration (NI), Newton-FOSLS-AMG approach is employed, in which
+the majority of the work
+is done on coarse grids.
+
+In current ice sheet codes, viscosity is modeled using a formula known as
+Glen's law. It becomes infinite as the gradient of velocity approaches
+zero, which can happen near the bed and along the top surface, where ice
+is carried along undeformed. In current ice sheet codes, this is
+mitigated by a small modification to Glen's law that bounds the maximum
+value of viscosity. The fluidity formulation presented here avoids this
+difficulty and requires no modification to Glen’s law.
+
+Numerical tests are presented that demonstrate the efficacy of the
+NI-Newton-FOSLS-AMG approach on model problems from the ISMIP-HOM problem
+set.
+
+
+\end{document}

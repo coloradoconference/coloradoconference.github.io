@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eran Treister \\
+{\bf A fast Multigrid approach for solving the Helmholtz equation with a point source}}
+
+408-3515 Wesbrook Mall \\ UBC \\ Vancouver \\ BC \\ Canada V6T1Z4
+\\
+{\tt eran@cs.technion.ac.il}\\
+Eldad Haber\end{center}
+
+Solving the discretized Helmholtz equations with high wave numbers in
+large dimensions is a challenging task. However, in many scenarios, the
+solution of these equations is required for a point source. In this case,
+the problem can be be reformulated and split into two parts: one in a
+solution of the eikonal equation for the travel time, and the second is a
+solution of a complex-valued advection-diffusion-reaction (ADR) equation
+for the amplitude. The eikonal equation for the travel time can be solved
+efficiently by several existing solvers in the literature. Given the
+travel time, the ADR equation for the amplitude can be efficiently solved
+by standard multigrid methods, since the solution for the amplitude is
+typically smooth in this case. The only difference between our numerical
+solution and a solution of the original discretized Helmholtz equations
+is due to discretization and roundoff errors. Numerical results show that
+this is an efficient solution algorithm for a wide range of frequencies.
+
+
+\end{document}

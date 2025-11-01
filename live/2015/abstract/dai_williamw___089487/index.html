@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dai_williamw___089487</TITLE>
+<META NAME="description" CONTENT="dai_williamw___089487">
+<META NAME="keywords" CONTENT="dai_williamw___089487">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dai_williamw___089487.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">William W. Dai 
+<BR><B>On Operator-Splitting Approach for Plasma 3-T Radiation Diffusion in Two and Three Dimensions</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Los Alamos National Laboratory 
+<BR>
+Mail Stop D413 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>dai@lanl.gov</TT>
+<BR>
+William W. Dai
+<BR>
+Anthony J. Scannapieco
+</DIV>
+
+<P>
+Solving plasma 3-T radiation diffusion equations is a critical step in
+multi-physics simulations,
+Often these simulations involve mixed cells, and within a mixed cell
+there are more than one material, no matter how fine the resolution of a
+simulation is. Treatment of mixed cells is important for many
+applications. Since materials within a mixed cell could be in a state of
+thermally non-equilibrium, and material property of mixture of materials
+is unknown, a mixed cell is decomposed to a set of sub-cells through
+material interface reconstruction so that each sub-cell contains only one
+material. The sub cells thus generated are general polygons in
+two-dimensions and polyhedrons in three dimensions. The plasma 3-T
+radiation diffusion equations are solved on the mesh with these general
+polygons and polyhedrons.
+
+<P>
+Two typical implicit methods are the backward Euler method and Crank-Nicolson method.
+The backward Euler method is first order accurate in time, but numerical
+errors in the method undergo quick damping for large time steps.
+Therefore the method is very useful for large time steps and steady
+states. Although Crank-Nicolson method is second order accurate,
+numerical errors do not damp out for large time steps, and significant
+numerical errors will be introduced when time steps are large. The
+formulation for large time steps is very important for problems involving
+dramatically different materials even for time-dependent problems. A
+given time step may be considered so large for some material that the
+formulation for steady state is more appropriate for the material than
+the formulation with the second order of accuracy, but the time step is
+so small for other materials that accuracy in time is more important. The
+scheme we will present is second order accurate in space and time, works
+for any size of time steps, and will give exact steady states when time
+steps are very large.
+
+<P>
+For systems of multi-materials with dramatically different material
+properties, the correct treatment for the discontinuity of material
+properties is important. A typical approach for this is to use
+mathematical approximations, which could introduce numerical errors when
+thermal properties of two materials are very different. We use the
+governing physics principle to give formula for effective diffusion
+coefficient across a material interface for flux calculation on
+polyhedral meshes.
+
+<P>
+In addition to the aspects mentioned above, we will focus on another
+issue in numerical simulations for plasma 3-T radiation equations, i.e.,
+numerical treatment for interaction between radiation and material that
+involves nonlinearity. The 3-T radiation diffusion equations are often
+solved through some operator-splitting technique. Several approaches that
+are typically used in numerical simulations have serious drawbacks for
+some problems.
+
+<P>
+The numerical scheme to be presented is intended for a code of
+multi-physics simulations. It is an extension of previous work to include
+mixed cells, unstructured meshes, fully coupling, full nonlinearity, and
+operator-splitting. For mixed cells, we consider the interface
+reconstruction with any number of materials in both two- and
+three-dimensional meshes with adaptive mesh refinement (AMR). In this
+talk, we will first describe the procedure for interface reconstruction
+for both two- and three-dimensions for AMR meshes with any number of
+materials, and then we will present the scheme for the set of equations
+for 3-T radiation diffusion in both two- and three-dimensions. We will
+demonstrate serious errors of typical operator-splitting approaches for
+some problems, and present our operator-splitting techniques.
+
+<P>
+One operator-splitting approach is to decompose plasma 3-T radiation
+diffusion equations into two steps, a set of diffusion equations without
+interaction among radiation, electrons and ions, and a set of equations
+for the interactions without diffusion. In the first step, the set of
+diffusion equations are fully implicitly solved. In the second step, the
+coupling among radiation, electrons and ions is also fully implicitly
+solved. Through the first step of the operator-splitting approach,
+radiation temperature diffuses across the material interface, while
+temperatures of electrons and ions may diffuse little. During the second
+step of the operator-splitting, almost all the increase of radiation
+energy of the heated material transfers to local electrons and ions, but
+electrons and ions increase their temperatures very little because of
+their large material heat capacity. As a result, three temperatures
+barely diffuse through this operator-splitting approach.
+
+<P>
+A slightly change of this operator-splitting is an approach with three
+steps, a half time step of coupling, one time step of diffusion, and a
+half time step of coupling. Unfortunately, this operator-splitting
+approach will get a similar result.
+
+<P>
+Another operator-splitting approach for 3-T radiation diffusion equations
+is more sophisticated than the one described above, but bears another
+serious problem. This approach decompose the set of basic equations into
+four steps, each of step is fully implicitly solved. But, due to an
+inappropriate treatment for the nonlinear terms, electrons and ions are
+much over-heated.
+
+<P>
+In additional to a fully nonlinear scheme in which material and radiation
+are fully coupled, we will present a scheme in which the nonlinearity is
+properly treated, and an operator-splitting technique is used, which
+generates reasonable solutions for those problems for which the previous
+operator-splitting approaches fail.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

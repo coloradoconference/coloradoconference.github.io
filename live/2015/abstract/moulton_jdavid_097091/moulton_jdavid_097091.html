@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>moulton_jdavid_097091</TITLE>
+<META NAME="description" CONTENT="moulton_jdavid_097091">
+<META NAME="keywords" CONTENT="moulton_jdavid_097091">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="moulton_jdavid_097091.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">J. David Moulton 
+<BR><B>Multiphysics Frameworks and Scalable Solvers for Environmental Applications</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Applied Mathematics and Plasma Physics 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>moulton@lanl.gov</TT>
+<BR>
+Ethan Coon
+<BR>
+Gianmarco Manzini
+<BR>
+Markus Berndt
+<BR>
+Rao Garimella
+<BR>
+Konstantin Lipnikov
+<BR>
+Scott Painter
+</DIV>
+
+<P>
+Modeling and simulation are playing an increasingly critical role in
+understanding and predicting climate impacts and feedbacks in terrestrial
+systems. Managing the complexity of these process-rich integrated
+hydrologic and biogeochemical models requires flexible software designs
+that enable exploration of model features and model coupling. In
+addition, flexibility in meshing and robust discretization techniques are
+required to capture topographic features, such as hill slopes and rivers,
+and suburface stratigraphy. This combination of process-rich applications
+with advanced discretizations creates significant challenges for
+efficient solvers, and efficient time-evolution.
+
+<P>
+In this talk we highlight a flexible and extensible approach to
+multiphysics frameworks for these applications that specifies interfaces
+for coupled processes, automates weak coupling and supports strong
+coupling strategies to manage this complexity. We use a prototype
+implementation this multiphysics framework, dubbed Arcos, to support both
+model and algorithm development for environmental applications in the
+open-source codes Amanzi and the Arctic Terrestrial Simulator (ATS).
+Amanzi provides infrastructure for general unstructured polyhedral
+meshing with a flexible operator-based implementation of the Mimetic
+Finite Difference method as well as two-point flux Finite Volume method.
+Amanzi is used for subsurface flow and reactive transport, while ATS
+includes capabilities for coupled non-isothermal surface/subsurface flow.
+
+<P>
+Here we examine the increasingly important problem of coupled
+surface/subsurface flow where we use a diffusive wave approximation for
+surface flow, and a Richards equation for subsurface flow as a testbed
+for discretizations and solvers. In both equations, the coefficients of
+the div/grad operator are strongly nonlinear, and the surface and
+subsurface flows are strongly coupled. The challenges of designing a
+preconditioner for Krylov-based nonlinear solvers with first-order
+backward Euler time discretization are discussed. For example, upwinding
+of the nonlinear coefficient is required to evolve the system
+efficiently, but breaks the symmetry of the operator on general meshes.
+Furthermore, as the ponded height of the surface water goes to zero
+(e.g., water runs off or infiltrates into the subsurface) the nonlinear
+coefficient goes to zero, making standard formulations that involve its
+inverse invalid. Finally, the system is strongly coupled through
+continuity of both pressure and flux at the surface/subsurface interface,
+and adaptive time-stepping is required to evolve the system efficiently.
+We discuss the performance of the nonlinear and multilevel linear solvers
+(e.g., Hypre BOOMERAMG), on this fully coupled system at various times in
+the simulation, and the hueristics used to control the dynamic time-step.
+We show results for several benchmark problems, as well as physically
+relevant, large-scale simulation of rainfall on arctic tundra based upon
+LIDAR data from Barrow, Alaska.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,94 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Keith, W Kelly \\
+{\bf A scalable algorithm for inverse medium problems with multiple sources}}
+
+603 Bellevue Pl \\ Apt A \\ Austin \\ TX 78705
+\\
+{\tt keith@ices.utexas.edu}\\
+George Biros\end{center}
+
+We consider the problem of acoustic scattering as described by the
+free-space, time-harmonic scalar wave equation given by
+\begin{equation}
+\nabla^2 v(\mathbf{r}) + k^2(\mathbf{r})v(\mathbf{r}) = -s(\mathbf{r}),
+\label{eq:helm}
+\end{equation}
+where $r$ is a point in $\mathbb{R}^3$, $s$ is the source term, and $k$
+is the wavenumber.
+Our formulation is based on potential theory. First we write $k$ as $k_0
++ k(r) + \eta(r)$, where $k_0$ is a constant value, $k(r)$ is a known
+function of space, and $\eta$ is the unknown medium perturbation.
+Given the sources $s(\mathbf{r})$ and detectors outside the perturbation
+$\eta$ we solve (\ref{eq:helm}) for $\eta$.
+We observe the total field only at designated points outside of $\eta$
+where detectors which measure the field may exist.
+We use multiple events, where we consider independent activations or
+different sources at different times.
+This problem is common in many areas of science and engineering such as
+seismic imaging, subsurface imaging, impedance tomography,
+non-destructive evaluation, and diffuse optical tomography.
+
+We describe an algorithm for for efficiently solving the inverse
+scattering problem for the low-frequency time-harmonic scalar wave
+equation with multi-point illumination.
+The following approach is based on the FaIMS algorithm described by
+Chaillat and Biros in [1].
+First, compress the number of incident fields (computed by solving the
+variable coefficient Helmholtz equation with point sources) using a
+randomized QR factorization to compute a low rank approximation.
+By compressing the incident fields, we greatly reduce the problem size
+and by using a randomized QR factorization we can compute an
+approximation to within a specified tolerance, ensuring that there is not
+significant information loss.
+After compressing the incident fields, we can compute the medium
+perturbation $\eta$ by solving $\nabla^2 \phi(\mathbf{r}) +
+k_0^2\phi(\mathbf{r}) = -\eta(\pmb{r})v(\pmb{r})$, where the scattered
+field $\phi$ is measured as the difference between the incident field and
+the measured total field.
+We transform the Helmholtz equation above into a linear integral equation to obtain
+\begin{equation}
+\phi(\pmb{r}') = \int_{\mathbb{R}^3}
+G(\pmb{r},\pmb{r}')\eta(\pmb{r})(\phi(\pmb{r}) + u(\pmb{r})) d\pmb{r},
+\label{eq:ls}
+\end{equation}
+where $G$ is the Green's function for the Helmholtz operator with wavenumber $k_0$.
+Using the Born approximation we can eliminate the dependence of the right
+hand side of the Lippmann-Schwinger equation on the scattered field.
+In order to solve for $\eta$ we use the conjugate gradient method on the
+normal equations with a randomized QR factorization based preconditioner.
+The randomized QR factorization allows us to quickly compute an
+approximate, low rank QR factorization which can also be applied in less
+time in order to accelerate convergence of CG.
+To improve the accuracy of the computed solution for slightly larger
+perturbations of the background medium, we use an iterated Born
+approximation scheme.
+
+We have extended the results of [1] in a few different ways.
+In the original paper the background medium was assumed to have a
+constant wavenumber except for the perturbation, i.e. $k(r)$ was zero,
+but here we allow for variable background medium.
+We expand the types of scatterers allowed; the original paper allowed
+only point scatterers while we allow for multiple continuous scattering
+objects.
+We also make use use of the iterated Born approximation in our solver.
+Finally, we achieve superior scalability to the approached referenced in the FaIMS paper.
+We rapidly evaluate the integral for the forward scatterer using the
+\texttt{pvfmm} library which implements a fast multipole method for
+volume potentials in parallel.
+Furthermore, we use \texttt{PETSc} for in our implementation for its fast
+iterative solvers.
+
+\section*{References}
+[1] St\'{e}phanie Chaillat and George Biros. FaIMS: A fast algorithm for
+the inverse medium problem with multiple frequencies and multiple sources
+for the scalar helmholtz equation. \textit{Journal of Computational
+Physics}, 231(20):4403–4421, 2012.
+
+
+\end{document}

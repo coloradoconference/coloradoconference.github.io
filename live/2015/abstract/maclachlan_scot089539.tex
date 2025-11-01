@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Scott MacLachlan \\
+{\bf Monolithic multigrid methods for coupled multi-physics problems}}
+
+Department of Mathematics and Statistics \\ Memorial University of Newfoundland \\ St John's \\ NL \\ A1C 5S7 \\ Canada
+\\
+{\tt smaclachlan@mun.ca}\\
+James Adler\\
+Thomas Benson\\
+Eric Cyr\\
+David Emerson\\
+Thomas Manteuffel\\
+Ray Tuminaro\end{center}
+
+While block-diagonal and approximate block-factorization preconditioners
+are often considered for coupled problems, monolithic approaches can
+offer improved performance, particularly when the coupling between
+equations is strong. In this talk, we discuss the extension of
+Braess-Sarazin relaxation techniques to the linear systems resulting from
+the linearization and finite-element discretization of such coupled
+systems. Defining an easy-to-invert approximation to the (1,1) block of
+the system is a key step in achieving efficiency, and we demonstrate that
+the finite-element discretization can effectively guide this choice.
+Numerical results are presented for two problems, magnetohydrodynamics
+and flexoelectric nematic liquid crystals. In both cases, geometric
+multigrid with Braess-Sarazin relaxation shows excellent performance and
+scaling with problem size and physical parameters.
+
+
+\end{document}

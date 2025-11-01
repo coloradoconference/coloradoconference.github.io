@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David J Appelhans \\
+{\bf Range Decomposition: A low communication algorithm for solving PDEs on Massively Parallel Machines.}}
+
+6352 W 115th Pl \\ Westminster \\ CO 80020
+\\
+{\tt dappelha@gmail.com}\\
+Tom Manteuffel\\
+John Ruge\end{center}
+
+The Range Decomposition (RD) algorithm uses nested iteration and adaptive
+mesh refinement locally before performing a global communication step.
+Only several such steps are observed to be necessary before reaching a
+solution within a small multiple of discretization error. The target
+application is peta- and exascale machines where traditional parallel
+numerical PDE communication patterns stifle scalability. The RD algorithm
+uses a partition of unity to equally distribute the error, and thus, the
+work. The computational advantages of this approach are that the
+decomposed problems can be solved using nested iteration and any
+multigrid cycle type, in parallel, without any communication until the
+partitioned solutions are summed. This offers potential advantages in the
+paradigm of expensive communication but very cheap computation.
+Performance models and numerical results demonstrate the enhanced
+performance.
+
+
+\end{document}

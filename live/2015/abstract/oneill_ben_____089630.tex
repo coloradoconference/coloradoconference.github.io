@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ben O'Neill \\
+{\bf Parallel in time multigrid for Nonlinear Problems}}
+
+2210 Walnut St Apt 1 \\ Boulder CO 80302
+\\
+{\tt ben.oneill@colorado.edu}\\
+Jacob Schroder\\
+Thomas Manteuffel\end{center}
+
+Standard sequential time marching schemes limit parallelism to the
+spacial domain. With computer architectures growing in size rather than
+clock speeds, additional speed-up must come from greater parallelism. We
+propose a multigrid reduction method that incorporates temporal
+parallelism into general time-stepping routines, allowing for dramatic
+speed-ups on large architectures. For a nonlinear equation, each
+iteration of the parallel-in-time method requires an expensive,
+nonlinear, spatial solve. Using a simple nonlinear equation, with a
+Picard method as the nonlinear solver, we investigate several methods for
+reducing the computational cost of this spatial solve, including reducing
+solver accuracy on coarser levels and introducing spatial coarsening.
+
+
+\end{document}

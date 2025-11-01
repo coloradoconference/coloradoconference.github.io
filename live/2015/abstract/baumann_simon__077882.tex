@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Simon Baumann \\
+{\bf Aspects of Multigrid for Mantle Convection}}
+
+Geophysics - Department of Earth and \\ Environmental Sciences \\ Universität München (LMU) \\ Theresienstr 41 \\ 80333 München \\ Germany
+\\
+{\tt baumann@geophysik.uni-muenchen.de}\\
+Marcus Mohr\end{center}
+
+Convection in the Earth's mantle can be described by a Stokes-type equation
+with strongly varying viscosity values coupled to an energy equation. The
+dynamics of the mantle depend essentially on the underlying viscosity structure.
+Computing the quasi-stationary flow field in each time step dominates the
+computational cost of Earth mantle simulators. Therefore constructing efficient
+solvers is crucial for simulating Earth mantle dynamics.
+In this article we consider a geometric multigrid method for the viscous
+operator of the Stokes-type system and study the convergence behaviour for
+different smoothers and transfer operators. We focus on two aspects, the
+influence of operator complexity, starting with a simplified form and ending
+with its most general formulation, and the effects of highly discontinuous
+viscosity parameters. Systematic numerical tests help to identify the most
+efficient multigrid components.
+
+
+\end{document}

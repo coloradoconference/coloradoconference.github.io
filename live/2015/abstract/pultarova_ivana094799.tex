@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ivana Pultarova \\
+{\bf Preconditioning of stochastic Galerkin method}}
+
+Ivana Pultarova \\ Thakurova 7 \\ Praha 6 \\ 166 29 \\ Czech Republic \\ Europe
+\\
+{\tt ivana@mat.fsv.cvut.cz}\end{center}
+
+Stochastic Galerkin method is a popular tool for solving differential
+equations with uncertain data. We consider a second order scalar elliptic
+partial differential equation
+$$-\nabla\left(a(x,y)\nabla u(x,y)\right)=b(x)$$
+with Dirichlet boundary conditions. The coefficient $a(x,y)$ is not
+determined exactly. We use a truncated Karhunen-Loeve expansion of
+$a(x,y)$ and with either uniformly or normally distributed of random
+variables $y_i$. Variable $x$ is a spatial variable. Weak formulation and
+finite element discretization of the space part of the solution and
+polynomial chaos expansion
+of the stochastic part of the solution lead to a system of linear
+equations, the dimension of which is huge.
+Then efficient preconditioning techniques are demanded.
+We introduce a hierarchical multilevel preconditioning method obtained
+from a splitting of approximation spaces $V$ with respect to stochastic
+variables. Especially, we deal with approximation of the stochastic part
+of the solution by complete polynomials of order $P$. We consider a
+splitting of $V$ into the direct sum of the complete orthogonal
+polynomials of order $P-1$ and of the rest of $V$. As one of the main
+results, we prove that for the uniform distribution of $y_i$ (and thus
+for Legendre orthogonal polynomials), the corresponding
+Cauchy-Buniakowski-Schwarz constant is bounded by $\sqrt{P/(2P+1)}$
+and thus the condition number of the two-by-two block preconditioned
+matrix of the problem is less than $3+2\sqrt{2}$ for any $P>1$.
+
+
+\end{document}

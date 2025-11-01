@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Irad Yavneh \\
+{\bf A Multilevel Approach for l-1 Regularized Convex Optimization with Application to Covariance Selection}}
+
+Computer Science \\ Technion \\ Israel Institute of Technology \\ Technion City \\ 32000 \\ Haifa \\ Israel
+\\
+{\tt irad@cs.technion.ac.il}\\
+Eran Treister\\
+Javier S. Turek\end{center}
+
+We present an iterative multilevel framework for solving l-1 regularized
+convex optimization problems, which are common in the fields of
+computational biology, signal processing and machine learning. Such l-1
+regularization is utilized to find sparse
+minimizers of convex functions, and is mostly known for its use in the
+LASSO problem, where the l-1 norm is applied to regularize a quadratic
+function. Taking advantage of the (typical) sparseness of the solution,
+we create a multilevel hierarchy of similar problems, which are traversed
+back and forth in order to accelerate the
+optimization process. This framework is applied for solving the
+Covariance Selection Problem, where the inverse of an unknown covariance
+matrix of a multivariate normal distribution is estimated, assuming that
+it is sparse. To this end, an l-1 regularized log-determinant
+optimization problem needs to be solved. This task is challenging for
+large-scale data sets because of time and memory limitations. Our
+numerical experiments demonstrate the eefficiency of the multilevel
+framework for solving both medium and large scale instances of this
+problem.
+
+
+\end{document}

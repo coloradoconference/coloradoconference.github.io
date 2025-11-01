@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kelly_keithw___095584</TITLE>
+<META NAME="description" CONTENT="kelly_keithw___095584">
+<META NAME="keywords" CONTENT="kelly_keithw___095584">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kelly_keithw___095584.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Keith W Kelly 
+<BR><B>A scalable algorithm for inverse medium problems with multiple sources</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">201 E 24th St 
+<BR>
+Austin 
+<BR>
+TX 78712
+
+<BR><TT>keith@ices.utexas.edu</TT>
+<BR>
+George Biros
+</DIV>
+
+<P>
+We consider the problem of acoustic scattering as described by the
+free-space, time-harmonic scalar wave equation given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eq:helm"></A><!-- MATH
+ \begin{equation}
+\Delta v(\mathbf{r}) + k^2(\mathbf{r})v(\mathbf{r}) = -s(\mathbf{r}),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="195" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \Delta v(\mathbf{r}) + k^2(\mathbf{r})v(\mathbf{r}) = -s(\mathbf{r}),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">0</SPAN>.<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+along with radiation boundary conditions. Here, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ r$"></SPAN> is a point in
+<!-- MATH
+ $\mathbb{R}^3$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathbb{R}^3$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ s$"></SPAN> is the source term, and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ k$"></SPAN> is the wavenumber.
+Our formulation is based on potential theory. First we write <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ k$"></SPAN> as <!-- MATH
+ $k_0
++ k(r) + \eta(r)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="116" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ k_0
++ k(r) + \eta(r)$"></SPAN>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ k_0$"></SPAN> is a constant value, <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ k(r)$"></SPAN> is a known
+function of space, and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \eta$"></SPAN> is the unknown medium perturbation.
+Then, given the sources <!-- MATH
+ $s(\mathbf{r})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ s(\mathbf{r})$"></SPAN> and detectors outside the
+perturbation <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \eta$"></SPAN> we solve an inverse problem based on (<A HREF="#eq:helm">1</A>)
+for <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \eta$"></SPAN>.
+We observe the total field only at some (finite dimensional set of) sensor positions.
+We use multiple events, where we consider independent activations or
+different sources at different times.
+This problem is common in many areas of science and engineering such as
+seismic imaging, subsurface imaging, impedance tomography,
+non-destructive evaluation, and diffuse optical tomography.
+
+<P>
+We describe an algorithm for efficiently solving the inverse scattering
+problem for the low-frequency time-harmonic scalar wave equation with
+multi-point illumination.
+The following approach is based on the FaIMS algorithm described by
+Chaillat and Biros in [1].
+First, we compress the number of incident fields (computed by solving the
+variable coefficient Helmholtz equation with point sources) using a
+randomized QR factorization to compute a low rank approximation.
+By compressing the incident fields, we greatly reduce the problem size
+and by using a randomized QR factorization we can compute an
+approximation to within a specified tolerance, ensuring that there is not
+significant information loss.
+After compressing the incident fields, we can compute the medium
+perturbation <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \eta$"></SPAN> by solving <!-- MATH
+ $\Delta \phi(\mathbf{r}) +
+k_0^2\phi(\mathbf{r}) = -\eta(\pmb{r})v(\pmb{r})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="202" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \Delta \phi(\mathbf{r}) +
+k_0^2\phi(\mathbf{r}) = -\eta(\pmb{r})v(\pmb{r})$"></SPAN>, where the scattered
+field <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \phi$"></SPAN> is measured as the difference between the incident field and
+the measured total field.
+We transform the Helmholtz equation above into a linear integral equation to obtain
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eq:ls"></A><!-- MATH
+ \begin{equation}
+\phi(\pmb{r}') = \int_{\mathbb{R}^3}
+G(\pmb{r},\pmb{r}')\eta(\pmb{r})(\phi(\pmb{r}) + u(\pmb{r})) d\pmb{r},
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="277" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle \phi(\pmb{r}') = \int_{\mathbb{R}^3} G(\pmb{r},\pmb{r}')\eta(\pmb{r})(\phi(\pmb{r}) + u(\pmb{r})) d\pmb{r},$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">0</SPAN>.<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ G$"></SPAN> is the Green's function for the Helmholtz operator with wavenumber <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ k_0$"></SPAN>.
+Using the Born approximation we can eliminate the dependence of the right
+hand side of the Lippmann-Schwinger equation on the scattered field.
+In order to solve for <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \eta$"></SPAN> we use the conjugate gradient method on the
+normal equations with a randomized QR factorization based preconditioner.
+To improve the accuracy of the computed solution for slightly larger
+perturbations of the background medium, we use an iterated Born
+approximation scheme.
+
+<P>
+We have extended the results of [1] in a few different ways.
+In the original paper the background medium was assumed to have a
+constant wavenumber except for the perturbation, i.e. <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ k(r)$"></SPAN> was zero,
+but here we allow for variable background medium.
+We expand the types of scatterers allowed; the original paper allowed
+only point scatterers while we allow for multiple continuous scattering
+objects.
+We also make use use of the iterated Born approximation in our solver.
+Finally, we achieve superior scalability to the approached referenced in the FaIMS paper.
+We rapidly evaluate the integral for the forward scatterer using a fast
+multipole method for volume potentials in parallel.
+Furthermore, we use <TT>PETSc</TT> for in our implementation for its fast
+iterative solvers.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">References</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

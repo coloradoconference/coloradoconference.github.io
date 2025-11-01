@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>densmore_jeffer080436</TITLE>
+<META NAME="description" CONTENT="densmore_jeffer080436">
+<META NAME="keywords" CONTENT="densmore_jeffer080436">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="densmore_jeffer080436.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Jeffery D. Densmore 
+<BR><B>A Multigrid Method for the Self-Adjoint Angular Flux Form of the Radiation-Transport Equation Based on Cellwise Block Jacobi Iteration</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Bettis Atomic Power Laboratory 
+<BR>
+P O Box 79 
+<BR>
+West Mifflin 
+<BR>
+PA 15122
+
+<BR><TT>jeffery.densmore@unnpp.gov</TT>
+<BR>
+Daniel F. Gill
+<BR>
+Justin M. Pounders
+</DIV>
+
+<P>
+Cellwise block Jacobi iteration is a technique for radiation-transport
+calculations in which the angular flux for all directions is solved for
+simultaneously within a spatial cell with the angular flux in neighboring
+cells held fixed. Each step of the iteration then involves the inversion
+of a small to moderate-sized matrix for every cell. The resulting
+arithmetic intensity may make cellwise block Jacobi iteration suitable
+for advanced, heterogeneous computing architectures. However, the
+convergence properties of cellwise block Jacobi iteration are much
+different than those of other iterative schemes for radiation-transport
+calculations. Specifically, while convergence is rapid when spatial cells
+are optically thick regardless of the amount of scattering present,
+convergence is very slow when spatial cells are optically thin even for
+highly absorbing media.
+
+<P>
+To address the poor convergence properties of cellwise block Jacobi
+iteration for optically thin cells, we instead develop a multigrid method
+based on this type of iteration. If a sufficient number of spatial grids
+are employed in this approach, then cells on the coarsest grids should be
+optically thick enough that cellwise block Jacobi iteration converges
+rapidly. We specifically consider the Self-Adjoint Angular Flux (SAAF)
+form of the radiation-transport equation. For smoothing, we employ a
+multistage version of cellwise block Jacobi iteration. Due to the nature
+of the SAAF equation, we are able to determine damping parameters for
+each stage that are optimal in the limit of vanishingly small spatial
+cells, for which cellwise block Jacobi iteration without damping is
+ineffective as a smoother. In addition, the SAAF equation includes a term
+representing radiation streaming that is hyperbolic in character, and
+thus Direct Coarse-Grid Approximation (DCA) is inappropriate for
+discretization on coarse grids. We instead employ a hybrid approximation
+formed by applying Galerkin coarse-grid approximation based on
+full-weighting restriction and bilinear interpolation to the streaming
+term and DCA to the remaining terms. With a set of numerical examples, we
+demonstrate that our multigrid method yields robust convergence
+regardless of cell optical thickness.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

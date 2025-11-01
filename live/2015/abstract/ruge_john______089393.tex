@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large John Ruge \\
+{\bf Hybrid FOSLS/LL* for Navier-Stokes Equations}}
+
+526 UCB \\ University of Colorado \\ Boulder \\ CO 80309-0526
+\\
+{\tt jruge@colorado.edu}\\
+Tom Manteuffel\end{center}
+
+First-Order System Least Squares (FOSLS) is a method for the
+discretization of systems of PDEs in which the set of equations is
+reformulated as a (generally larger) first-order system. The goal is the
+minimization the sum of the squares of the associated residuals (the
+FOSLS functional). Properly formulated, this functional is equivalent to
+the H1 norm (squared) of the error. This approach has a number of
+advantages over traditional methods. In some cases though (e.g. flow
+through a long channel), this equivalence can be rather loose, and large
+(generally smooth) L2 error can be present even when the functional is
+small. In such cases, one approach for linear system is to use FOSLL*,
+where the problem is posed to minimize the L2 error over the range of the
+adjoint of the operator. This can be problematic for nonlinear problems
+though, and a hybrid method was developed. There, both the FOSLS and
+FOSLL* functionals are used, along with a connecting term that ties the
+two together (by approximately projecting the FOSLL* approximation back
+into the original finite element space). This talk covers the approach
+taken and results obtained for 2D Stokes and Navier-Stokes flow.
+
+
+\end{document}

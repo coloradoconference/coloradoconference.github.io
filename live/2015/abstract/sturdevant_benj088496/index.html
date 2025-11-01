@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sturdevant_benj088496</TITLE>
+<META NAME="description" CONTENT="sturdevant_benj088496">
+<META NAME="keywords" CONTENT="sturdevant_benj088496">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sturdevant_benj088496.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <BIG CLASS="LARGE">Benjamin, J Sturdevant 
+<BR><B>Iterative Solution Method for an Implicit Orbit Averaged Particle-in-Cell Model</B></BIG>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">8901 Grant St Apt 336 
+<BR>
+Thornton 
+<BR>
+CO 80229
+
+<BR><TT>benjamin.sturdevant@colorado.edu</TT>
+<BR>
+Scott Parker
+</DIV>
+
+<P>
+Present kinetic simulations of turbulence in magnetized plasmas employ
+models from gyrokinetic theory, which is based on a number of ordering
+assumptions used to reduce the Vlasov-Maxwell system to eliminate high
+frequency phenomena. Recently, a second order accurate, implicit
+particle-in-cell (PIC) model using ions which evolve according to the
+exact Newton-Lorentz equations of motion has been developed to study
+low-frequency phenomena in magnetized plasmas. This model promises to be
+physically reliable in regimes where the ordering assumptions of
+gyrokinetics may be in question, but presents some additional
+computational challenges to produce numerically stable results while
+retaining important kinetic effects.
+
+<P>
+This talk will focus on orbit averaging algorithms applied to the Lorentz
+ion model. Orbit averaging is a time stepping method based on advancing
+particles over several micro time steps for each macro time step over
+which the fields are advanced. An implicit scheme is applied to the orbit
+averaging algorithm to eliminate a time stepping constraint due to a high
+frequency compressional Alfven wave present in the Lorentz ion model. The
+implicit algorithm requires the solution of a large system of nonlinear
+equations at each macro-time step. A solution method for this system
+based on Picard iterations will be presented. An "inner" iteration is
+used for the particle advances at the micro time steps and an "outer"
+iteration in which the particle system and the field equations are
+alternately updated is used to provide a self-consistent coupling at the
+macro time step. A preconditioner may provide a means of increasing the
+rate of convergence in this iterative process. Numerical results will be
+presented along with a discussion on the convergence of the iterative
+method.
+
+<P>
+[1] Y. Chen, S.E. Parker, Phys. Plasmas 16 (2009)
+[2] J. Cheng, S.E. Parker, Y. Chen, D. Uzdensky, J. Comput. Phys. 245 (2013), 364
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+mario
+2015-02-01
+</ADDRESS>
+</BODY>
+</HTML>

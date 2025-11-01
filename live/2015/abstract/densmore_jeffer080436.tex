@@ -1,0 +1,53 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeffery D. Densmore \\
+{\bf A Multigrid Method for the Self-Adjoint Angular Flux Form of the Radiation-Transport Equation Based on Cellwise Block Jacobi Iteration}}
+
+Bettis Atomic Power Laboratory \\ P O Box 79 \\ West Mifflin \\ PA 15122
+\\
+{\tt jeffery.densmore@unnpp.gov}\\
+Daniel F. Gill\\
+Justin M. Pounders\end{center}
+
+Cellwise block Jacobi iteration is a technique for radiation-transport
+calculations in which the angular flux for all directions is solved for
+simultaneously within a spatial cell with the angular flux in neighboring
+cells held fixed. Each step of the iteration then involves the inversion
+of a small to moderate-sized matrix for every cell. The resulting
+arithmetic intensity may make cellwise block Jacobi iteration suitable
+for advanced, heterogeneous computing architectures. However, the
+convergence properties of cellwise block Jacobi iteration are much
+different than those of other iterative schemes for radiation-transport
+calculations. Specifically, while convergence is rapid when spatial cells
+are optically thick regardless of the amount of scattering present,
+convergence is very slow when spatial cells are optically thin even for
+highly absorbing media.
+
+To address the poor convergence properties of cellwise block Jacobi
+iteration for optically thin cells, we instead develop a multigrid method
+based on this type of iteration. If a sufficient number of spatial grids
+are employed in this approach, then cells on the coarsest grids should be
+optically thick enough that cellwise block Jacobi iteration converges
+rapidly. We specifically consider the Self-Adjoint Angular Flux (SAAF)
+form of the radiation-transport equation. For smoothing, we employ a
+multistage version of cellwise block Jacobi iteration. Due to the nature
+of the SAAF equation, we are able to determine damping parameters for
+each stage that are optimal in the limit of vanishingly small spatial
+cells, for which cellwise block Jacobi iteration without damping is
+ineffective as a smoother. In addition, the SAAF equation includes a term
+representing radiation streaming that is hyperbolic in character, and
+thus Direct Coarse-Grid Approximation (DCA) is inappropriate for
+discretization on coarse grids. We instead employ a hybrid approximation
+formed by applying Galerkin coarse-grid approximation based on
+full-weighting restriction and bilinear interpolation to the streaming
+term and DCA to the remaining terms. With a set of numerical examples, we
+demonstrate that our multigrid method yields robust convergence
+regardless of cell optical thickness.
+
+
+\end{document}

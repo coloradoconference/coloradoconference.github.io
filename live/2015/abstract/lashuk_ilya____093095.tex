@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large ILYA LASHUK \\
+{\bf Multilevel methods for Poisson-like equations on the sphere using highly non-uniform meshes}}
+
+Tufts University \\ School of Arts and Sciences \\ Department of Mathematics \\ Bromfield-Pearson Hall \\ 503 Boston Avenue \\ Medford \\ MA 02155
+\\
+{\tt ilya.lashuk@tufts.edu}\\
+James Adler\\
+Scott MacLachlan\end{center}
+
+Numerical models of electron transport in 3D include a scattering term
+that, in the Fokker-Planck limit, converges to a diffusion operator on
+the surface of the unit sphere. Motivated by this example, we have
+implemented a finite-element discretization scheme and a multilevel
+solver for Poisson-like PDEs on the sphere. We approximate the sphere by
+a piecewise-triangular surface, and the triangular faces of the
+approximating surface play the role of the finite elements. We are
+interested in the problems where the source function (nearly) has a point
+singularity and, thus, we use highly nonuniform meshes. Our multilevel
+solver is a version of the Fast Adaptive Composite Grid (FAC) method. We
+study numerically both the discretization accuracy and the multilevel
+solver performance.
+
+
+\end{document}

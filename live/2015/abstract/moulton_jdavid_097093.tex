@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large J. David Moulton \\
+{\bf Multiphysics Frameworks and Scalable Solvers for Environmental Applications}}
+
+Applied Mathematics and Plasma Physics \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545
+\\
+{\tt moulton@lanl.gov}\\
+Ethan Coon\\
+Gianmarco Manzini\\
+Markus Berndt\\
+Rao Garimella\\
+Konstantin Lipnikov\\
+Scott Painter\end{center}
+
+Modeling and simulation are playing an increasingly critical role in
+understanding and predicting climate impacts and feedbacks in terrestrial
+systems. Managing the complexity of these process-rich integrated
+hydrologic and biogeochemical models requires flexible software designs
+that enable exploration of model features and model coupling. In
+addition, flexibility in meshing and robust discretization techniques are
+required to capture topographic features, such as hill slopes and rivers,
+and suburface stratigraphy. This combination of process-rich applications
+with advanced discretizations creates significant challenges for
+efficient solvers, and efficient time-evolution.
+
+In this talk we highlight a flexible and extensible approach to
+multiphysics frameworks for these applications that specifies interfaces
+for coupled processes, automates weak coupling and supports strong
+coupling strategies to manage this complexity. We use a prototype
+implementation this multiphysics framework, dubbed Arcos, to support both
+model and algorithm development for environmental applications in the
+open-source codes Amanzi and the Arctic Terrestrial Simulator (ATS).
+Amanzi provides infrastructure for general unstructured polyhedral
+meshing with a flexible operator-based implementation of the Mimetic
+Finite Difference method as well as two-point flux Finite Volume method.
+Amanzi is used for subsurface flow and reactive transport, while ATS
+includes capabilities for coupled non-isothermal surface/subsurface flow.
+
+Here we examine the increasingly important problem of coupled
+surface/subsurface flow where we use a diffusive wave approximation for
+surface flow, and a Richards equation for subsurface flow as a testbed
+for discretizations and solvers. In both equations, the coefficients of
+the div/grad operator are strongly nonlinear, and the surface and
+subsurface flows are strongly coupled. The challenges of designing a
+preconditioner for Krylov-based nonlinear solvers with first-order
+backward Euler time discretization are discussed. For example, upwinding
+of the nonlinear coefficient is required to evolve the system
+efficiently, but breaks the symmetry of the operator on general meshes.
+Furthermore, as the ponded height of the surface water goes to zero
+(e.g., water runs off or infiltrates into the subsurface) the nonlinear
+coefficient goes to zero, making standard formulations that involve its
+inverse invalid. Finally, the system is strongly coupled through
+continuity of both pressure and flux at the surface/subsurface interface,
+and adaptive time-stepping is required to evolve the system efficiently.
+We discuss the performance of the nonlinear and multilevel linear solvers
+(e.g., Hypre BOOMERAMG), on this fully coupled system at various times in
+the simulation, and the hueristics used to control the dynamic time-step.
+We show results for several benchmark problems, as well as physically
+relevant, large-scale simulation of rainfall on arctic tundra based upon
+LIDAR data from Barrow, Alaska.
+
+
+\end{document}

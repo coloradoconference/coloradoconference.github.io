@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stephanie Friedhoff \\
+{\bf Multigrid approaches for parallel-in-time integration}}
+
+KU Leuven - University of Leuven \\ Department of Computer Science \\ Celestijnenlaan 200A \\ 3001 Leuven-Heverlee (Belgium)
+\\
+{\tt stephanie.friedhoff@alumni.tufts.edu}\\
+Stefan Vandewalle\end{center}
+
+Multigrid and related multilevel methods are the approaches of choice for
+solving the linear systems that result from the discretisation of a wide
+class of PDEs. One feasible approach for doing effective parallel-in-time
+integration is also through some kind of multilevel method. Multigrid
+algorithms for parabolic problems that allow temporal parallelism either
+employ a semicoarsening strategy or an adaptive parameter-dependent
+coarsening strategy. As shown in [Vandewalle and Van de Velde, Space-time
+concurrent multigrid waveform relaxation, Ann. Numer. Math., 1 (1994),
+pp. 347-360], the multigrid waveform relaxation method which uses
+coarsening only in the spatial dimension also permits time parallelism.
+The other semicoarsening approach, i.e., coarsening only in the time
+dimension is the basis of the multigrid-reduction-in-time (MGRIT)
+algorithm [Falgout et. al., SIAM J. Sci. Comput., 36 (2014), pp.
+C635-C661]. In space-time multigrid as presented in [Horton and
+Vandewalle, A space-time multigrid method for parabolic PDEs, SIAM J.
+Sci. Comput., 16 (1995), pp. 848-864], where time is simply another
+dimension in the grid, either semicoarsening in space or in time
+depending on the anisotropy of the discretisation stencil at each grid
+level is employed.
+
+In this talk, we compare different approaches for integrating multigrid
+concepts into time-evolution algorithms.
+
+
+\end{document}
