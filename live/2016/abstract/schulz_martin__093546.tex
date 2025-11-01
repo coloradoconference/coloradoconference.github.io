@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Martin Schulz \\
+{\bf Addressing Performance Challenges on Modern Node Architectures}}
+
+PO Box 808 \\ L-561 \\ Livermore \\ CA 94551 \\ USA
+\\
+{\tt schulzm@llnl.gov}\end{center}
+
+Modern HPC systems feature complex node architectures with a large number
+of cores, deep memory hierarchies, non-uniform memory access (NUMA)
+properties and hyper threading; and future systems will only grow in
+complexity. When porting solver libraries to such systems, understanding
+the impact of data access patterns is key to extracting good performance
+as well as energy efficiency. In this talk I will present a set of tools,
+which can help developers extract memory access patterns at runtime,
+annotate it with the necessary context to allow root cause analysis and
+visualize the results in an intuitive way.
+
+Mitos is a sampling tool that can transparently capture memory accesses
+at runtime with minimal overhead at runtime; Caliper is an annotation
+library that can be used to add information about a code’s structure,
+such as key data structures or phases, in a composable and reusable
+manner; and MemAxes is a visualization tool that maps memory access
+information, combined with structural information, back to hardware
+topologies, key data structures, or even the underlying matrices or
+simulation domains. Combined these tools provide the necessary insight
+into an application’s or a library’s memory access behavior to optimize
+data communication for complex node architectures.
+
+
+\end{document}

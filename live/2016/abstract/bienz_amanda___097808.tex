@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Amanda Bienz \\
+{\bf Hiding Communication Costs in Sparse Matrix-Vector Multiplication and Algebraic Multigrid}}
+
+202 N Race St \\ Apt 312 \\ Urbana \\ IL 61801
+\\
+{\tt bienz2@illinois.edu}\\
+Luke Olson\\
+Jon Calhoun\\
+William D. Gropp\end{center}
+
+In many sparse iterative methods, the sparse matrix-vector multiply
+(SpMV) is the dominant computational kernel. This is particularly true in
+a parallel setting where communication costs increase dramatically at
+large core counts. Both the structure and number of nonzeros impact the
+communication patterns and we introduce several strategies in this talk
+to limit the impact on performance.
+
+While many current methods target a reduction in communication
+requirements, we can additionally hide the cost of communication through
+asynchrony. Our approach decomposes the monolithic communication in
+standard approaches of the SpMV by pipelining segments of the data. We
+also explore over-decomposition techniques in algebraic multigrid (AMG)
+in order to improve load balances in the communication, thereby
+increasing the benefits of asynchrony. We give an overview of these
+concepts and show several examples in support of the approach.
+
+
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large John Shadid \\
+{\bf Scalable Solution of Continuum Plasma Physics Models by Approximate Block Factorization Preconditioners}}
+
+Sandia National Laboratories \\ Computational Mathematics Department \\ Sandia National Laboratories \\ PO Box 5800 MS 1321 \\ Albuquerque \\ NM 87185 – 1321
+\\
+{\tt jnshadi@sandia.gov}\\
+Edward Phillips\\
+Eric Cyr\\
+Roger Pawlowski\end{center}
+
+The mathematical basis for the continuum modeling of plasma physics systems
+is the solution of the governing partial differential equations (PDEs)
+describing conservation of mass, momentum, and energy, along with various
+forms of approximations to Maxwell's equations. This PDE system is
+non-self adjoint, strongly-coupled, highly-nonlinear, and characterized
+by physical phenomena that span a very large range of length- and
+time-scales. To enable accurate and stable approximation of these systems
+a range of spatial and temporal discretization methods are commonly
+employed. In the context of finite element spatial discretization methods
+these include mixed integration, stabilized methods and
+structure-preserving (physics compatible) approaches. For effective time
+integration for these systems some form of implicitness is required. Two
+well-structured approaches, of recent interest, are fully-implicit and
+implicit-explicit (IMEX) type methods. Clearly the desire to accommodate
+disparate spatial discretizations, and allow the flexible assignment of
+mechanisms as explicit or implicit operators, implies a wide variation in
+unknown coupling, ordering, the nonzero block structure, and the
+conditioning of the implicit system. These characteristics make the
+scalable and efficient iterative solution of these systems extremely
+challenging.
+
+This talk considers the development and evaluation of approaches based on
+approximate block factorization (ABF) and physics-based preconditioning
+approaches. These methods reduce the coupled systems into a set of
+simplified systems to which multilevel methods are applied. A critical
+aspect of these methods is the development of approximate Schur
+complement operators that encode the critical cross-coupling physics of
+the system [1-3]. To demonstrate the flexibility and performance of these
+methods we consider application of these techniques to resistive MHD and
+multiphysics MHD models for challenging prototype systems.
+In this context robustness, efficiency, and the parallel and algorithmic
+scaling of the preconditioning methods are discussed.
+
+[1] E. C. Cyr, J. N. Shadid, R. S. Tuminaro, R. P. Pawlowski, and L.
+Chacon, A new approximate block factorization preconditioner for 2D
+incompressible (reduced) resistive mhd, SIAM Journal on Scientific
+Computing, 35:B701-B730, 2013
+
+[2] E. G. Phillips, H. C. Elman, E. C. Cyr, J. N. Shadid, R.P. Pawlowski,
+A Block Preconditioner for an Exact Penalty Formulation for Stationary
+MHD, SIAM J. Sci. Comput. 36-6 (2014), pp. B930-B951
+
+[3] E. C. Cyr, J. N. Shadid, and R. S. Tuminaro, “Teko an abstract block
+preconditioning capability with concrete example applications to
+Navier-Stokes and resistive MHD, Accepted in SISC
+
+*This work was supported by the DOE Office of Science Advanced Scientific
+Computing Research - Applied Math Research program at Sandia National
+Laboratories.
+
+
+\end{document}

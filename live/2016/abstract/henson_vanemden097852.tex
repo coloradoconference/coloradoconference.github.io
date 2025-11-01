@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Van Emden Henson \\
+{\bf Tools for spectral near-bipartite community detection}}
+
+Lawrence Livermore National Laboratory \\ Center for Applied Scientific Computing \\ 7000 East Avenue \\ Livermore \\ Ca 94550
+\\
+{\tt henson5@llnl.gov}\\
+Geoffrey Sanders\end{center}
+
+Near-bipartite communities (NBPCs) are an example of dense graph
+structure with interesting internal structure. NBPCs are common in
+networks involving competition amongst subsets of entities (e.g. a dating
+network). We discuss uses of spectral embedding for NBPC detection.
+Typical spectral algorithms for detecting traditional community structure
+involve the eigenvectors of the graph Laplacian associated with the
+smallest non-zero eigenvalues (smoothest eigenmodes). For NBPCs, we study
+algorithms based on embeddings using eigenvectors associated with the
+largest eigenvalues of the normalized graph Laplacian (most oscillatory
+eigenmodes). We present important preprocessing steps, how the
+eigenvectors indicate the presence of NBPCs, and post-processing steps
+for robust detection. Additionally, we present preliminary convergence
+criteria and analysis of iterative eigensolvers for calculating
+oscillatory Laplacian eigenmodes. We use several graph models to
+illustrate concepts and demonstrate performance of our algorithms. We
+include some tests on real-world complex networks.
+
+
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Pranjal Prasad \\
+{\bf Balanced iterative solvers for {linear systems} arising from finite element approximation of PDEs}}
+
+School of Mathematics \\ Alan Turing Building \\ The University of Manchester \\ Manchester M13 9PL \\ UK
+\\
+{\tt pranjal.pranjal@manchester.ac.uk}\end{center}
+
+This paper discusses the design and implementation of
+efficient solution algorithms for symmetric and nonsymmetric
+linear systems associated with finite element approximation of partial
+differential equations. The novel feature of our preconditioned MINRES
+solver (for symmetric systems) and preconditioned GMRES solver (for
+nonsymmetric systems) is
+the incorporation of error control in the natural norm (associated with
+the specific approximation space) in combination with {a reliable and
+efficient} a posteriori estimator for the PDE approximation error. This
+leads to a robust
+and balanced inbuilt stopping criterion: the iteration is terminated as
+soon as the algebraic error is insignificant compared to the
+approximation error.
+
+
+\end{document}

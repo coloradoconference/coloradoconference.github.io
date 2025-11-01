@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Johann Rudi \\
+{\bf $\mu$-BFBT Preconditioner for Stokes Flow Problems with Strongly Heterogeneous Viscosity}}
+
+The University of Texas at Austin \\ 201 East 24th Street \\ Stop C0200 \\ Austin TEXAS 78712-1229
+\\
+{\tt johann@ices.utexas.edu}\\
+Georg Stadler\\
+Omar Ghattas\end{center}
+
+We present $\mu$-BFBT, an approximation for the inverse Schur complement of a
+Stokes system with strongly heterogeneous viscosity.
+
+When used as part of a Schur complement preconditioner, we observe robust
+convergence rates for Stokes problems with smooth but strongly varying (up to
+10 orders of magnitude) viscosities, optimal algorithmic scalability with
+respect to mesh refinement, and a merely mild dependence on the polynomial
+order of high-order finite element discretizations
+($Q_{k} \times P_{k-1}^{disc}$, order $k\ge2$).
+
+For certain problems, $\mu$-BFBT significantly improves Stokes solver
+convergence over the widely used Schur approximation with an inverse viscosity
+weighted pressure mass matrix. Using detailed numerical experiments, we
+discuss modifications to $\mu$-BFBT at Dirichlet boundaries, which decrease the
+number of iterations.
+
+The overall algorithmic performance of the Stokes solver is governed by the
+efficacy of $\mu$-BFBT as a Schur complement approximation and, in addition, by
+our parallel hybrid spectral-geometric-algebraic multigrid (HMG) method, used
+for approximating the inverses of the viscous block and variable-coefficient
+pressure Poisson operators within $\mu$-BFBT.
+
+Building on the scalability of HMG, our Stokes solver achieves parallel weak
+scalability of 90\% for a more than 600-fold increase from 48 to all 30,000
+cores of TACC's Lonestar 5 supercomputer.
+
+
+\end{document}

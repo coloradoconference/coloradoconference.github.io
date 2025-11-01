@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Mahadevan Ganesh \\
+{\bf An efficient preconditioned iterative algorithm for Helmhotz wave propagation models}}
+
+Department of Applied Mathematics \& Statistics \\ Colorado School of Mines \\ Golden \\ CO 80401
+\\
+{\tt mganesh@mines.edu}\\
+Charles Morgenstern\end{center}
+
+We consider the Helmholtz acoustic wave propagation model in a bounded media
+with an inhomogeneous impedance boundary condition on its boundary. It is
+well known that the standard Galerkin variational formulation of the
+Helmholtz partial differential equation (PDE) is indefinite for large
+wavenumbers, and hence the Helmholtz PDE in some literature is known as
+sign-indefinite.
+The lack of coercivity (indefiniteness) in the standard Galerkin problem and
+iterative algorithms associated finite element method (FEM) models is one
+of the major difficulties for simulating wave propagation models using
+iterative methods.
+
+A recent theoretical variational formulation of the Helmholtz PDE shows
+that coercivity property can be obtained using a non-standard approach.
+However, the authors of the theoretical article also questioned the
+practical use of their sign-definite formulation even for the constant
+coefficient Helmholtz equation with impedance boundary condition. In
+particular, the key open issue is: Whether the recent sign-definite
+formulation can alleviate some of the associated iterative algorithm.
+
+Through various computer simulations, we provide a concrete answer that the
+theoretically analyzed sign-definite formulation does not alleviate the key difficulty
+of reducing the GMRES iterations of the associated FEM model.
+We subsequently develop a new class of efficient preconditioned iterative
+Galerkin FEM wave propagation models for the Helmholtz equation.
+
+
+\end{document}

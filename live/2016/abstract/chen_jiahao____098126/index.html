@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chen_jiahao____098126</TITLE>
+<META NAME="description" CONTENT="chen_jiahao____098126">
+<META NAME="keywords" CONTENT="chen_jiahao____098126">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chen_jiahao____098126.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jiahao Chen 
+<BR><B>A Julia package for practical iterative SVDs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">32 Vassar St 
+<BR>
+Rm 32-206 
+<BR>
+MIT CSAIL 
+<BR>
+Cambridge 
+<BR>
+MA 02139
+
+<BR><TT>jiahao@mit.edu</TT>
+<BR>
+Andreas Noack
+<BR>
+Jake Bolewski
+<BR>
+Alan Edelman
+</DIV>
+
+<P>
+We present an implementation of iterative Golub-Kahan-Lanczos (GKL)
+bidiagonalization in the Julia package IterativeSolvers.jl, allowing for the
+iterative computation of the singular value decomposition. The implementation
+combines the best features of available implementations, featuring a standardized
+palette of techniques aiding practical computation such as restarting and
+reorthogonalization. Our implementation offers multiple restarting strategies,
+such as explicit restarts, implicit restarts as in ARPACK, thick restarts as
+in SLEPc, and harmonic restarts. We also offer multiple
+reorthogonalization strategies, such as partial
+orthogonalization as in PROPACK, and full reorthogonalization using QR and
+various Gram-Schmidt methods.
+
+<P>
+We show how the multimethods (multiple dispatch) system of Julia allows
+for modular composition of these
+various components, allowing for very fine grained control over roundoff error.
+The Julia type system also allows for bidiagonalizations to be computed over a
+wide variety of matrix data types, ranging from ordinary dense matrices to
+sparse matrices with multiprecision floating point numbers. Overloading elementary
+operators such as multiplication (*) and subtraction (-) allow the same code to
+run on new data structures, such as out of core arrays in a database, or custom
+matrix representations. The same technique allows us to provide run time control
+over the underlying linear algebra library, allowing users to change between
+OpenBLAS, MKL, Eigen, and others. The result is a flexible yet performant
+library of components which can be used for high performance computation that
+at the same time facilitates further experimentation and prototyping of new
+algorithms.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

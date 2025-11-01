@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>shen_zhaolizl__093472</TITLE>
+<META NAME="description" CONTENT="shen_zhaolizl__093472">
+<META NAME="keywords" CONTENT="shen_zhaolizl__093472">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="shen_zhaolizl__093472.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Zhaoli, Z.-L. Shen 
+<BR><B>An efficient preconditioner based on a partial low-rank factorization for PageRank problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute of Mathematics and Computing Science 
+<BR>
+University of Groningen 
+<BR>
+Nijenborgh 9 
+<BR>
+P O Box 407 
+<BR>
+9700 AK Groningen 
+<BR>
+The Netherlands
+
+<BR><TT>szlxiaoyao@163.com</TT>
+<BR>
+Bruno, B. Carpentieri
+</DIV>
+
+<P>
+The PageRank problem used by Google for ranking web pages can be
+mathematically stated as the following linear system
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="pagerank"></A><!-- MATH
+ \begin{equation}
+(I-\alpha P)x=v,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="110" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle (I-\alpha P)x=v,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $0<\alpha<1$
+ -->
+<IMG
+ WIDTH="73" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ 0&lt;\alpha&lt;1$">
+ is the damping factor, <!-- MATH
+ $P=\{p_{ij}\}$
+ -->
+<IMG
+ WIDTH="73" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ P=\{p_{ij}\}$">
+ is the
+transition probability matrix representing the web structure where entry
+<IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ p_{ij}$">
+ is the probability of transition from page <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ j$">
+ to page <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ i$">
+, <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ v$">
+
+is a personalization probability vector, and finally <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ x$">
+ is the unknown
+PageRank vector. With the rapid development of the Internet, the size of
+system (<A HREF="#pagerank">1</A>) is reaching order of millions or even billions
+unknowns. For solving problems of this size, iterative methods are
+mandatory to use. When the damping factor approaches 1, i.e., the model
+reflects more closely the web structure, iterative solvers tend to suffer
+from slow convergence due to the unfavourable spectral distribution and
+the high condition number of system&nbsp;(<A HREF="#pagerank">1</A>) [<A
+ HREF="node1.html#ref1">1</A>,<A
+ HREF="node1.html#ref2">2</A>].
+Thus preconditioning is necessary. Some preconditioning techniques that
+have proved successful for general linear systems have been applied for
+solving the PageRank problem. However, general purpose methods do not
+exploit well any special property or structure of PageRank matrices.
+
+<P>
+In this study we exploit the similarity of pattern structures and the
+special distribution of the numerical values on these patterns in the
+transition matrix <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P$">
+ during the construction of preconditioner.
+This similarity often appears due to the similar link distributions of
+pages from same hosts. Note that the problem matrix <!-- MATH
+ $A=I-\alpha P$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ A=I-\alpha P$">
+
+maintains this similarity structure, except at the diagonal indexes. We
+propose an economic compression algorithm that computes similarity
+patterns in PageRank matrices and compresses matrix blocks of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A$">
+ by a
+low-rank matrix factorization, saving considerably storage and
+computational cost. Accordingly, system matrix <!-- MATH
+ $A\in \mathbb{R}^{n\times
+n}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ A\in \mathbb{R}^{n\times
+n}$">
+ is reformulated as
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="low_rank"></A><!-- MATH
+ \begin{equation}
+A=D+FH,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="101" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle A=D+FH,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $D\in \mathbb{R}^{n\times n}$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ D\in \mathbb{R}^{n\times n}$">
+ is more sparse than <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A$">
+, <!-- MATH
+ $F\in
+\mathbb{N}^{n\times m}$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ F\in
+\mathbb{N}^{n\times m}$">
+ and <!-- MATH
+ $H \in \mathbb{R}^{m\times n}$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ H \in \mathbb{R}^{m\times n}$">
+ are low-rank
+factors. We demonstrate that both the matrix <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ D$">
+ and the matrix
+<!-- MATH
+ $I+HD^{-1}F$
+ -->
+<IMG
+ WIDTH="90" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ I+HD^{-1}F$">
+ are unconditionally invertible for PageRank problems. Then
+we propose a preconditioner <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ M$">
+ based on the Woodbury formula of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="preconditioner"></A><!-- MATH
+ \begin{equation}
+M\approx A^{-1}=D^{-1}(I-F(I+HD^{-1}F)^{-1}HD^{-1})
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="336" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle M\approx A^{-1}=D^{-1}(I-F(I+HD^{-1}F)^{-1}HD^{-1})$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+that exploits effectively the computed structure (<A HREF="#low_rank">2</A>).
+
+<P>
+Numerical experiments show that our algorithm can solve difficult
+PageRank problems, i.e. for <!-- MATH
+ $\alpha=0.99,0.999$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \alpha=0.99,0.999$">
+, with over one million
+unknows efficiently, also in comparison to state-of-the-art solvers, and
+may yield a high compression rate sometimes up to 40%. In this talk we
+present the theoretical background of the proposed method and we
+illustrate numerical experiments of realistic PageRank simulations that
+support our findings. Further improvement is under investigation.
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

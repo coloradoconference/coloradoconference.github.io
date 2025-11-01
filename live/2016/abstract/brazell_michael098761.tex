@@ -1,0 +1,51 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michael J. Brazell \\
+{\bf Scalable Non-linear Solution Techniques for Higher-Order Accurate Finite-Element Reynolds-Averaged Navier-Stokes Problems}}
+
+Department of Mechanical Engineering \\ University of Wyoming \\ Laramie \\ WY 82071 \\ USA
+\\
+{\tt mbrazell@uwyo.edu}\\
+Dimitri J. Mavriplis\\
+Behzad R. Ahrabi\end{center}
+
+Although second-order accurate finite-volume methods for structured and
+unstructured grids are well established as the dominant approach for
+solving the Reynolds-averaged Navier-Stokes (RANS) equations for the
+simulation of turbulent flow problems, interest in higher-order
+finite-element discretizations has been growing over the last decade.
+Considered methods include both continuous and discontinuous Galerkin
+discretizations, with the continuous methods being based on the
+streamwise-upwind Petrov Galerkin approach (SUPG). The advantages of
+these discretizations include the use of a nearest neighbor stencil,
+straight forward extension to high-order accuracy, and the generation of
+dense computations kernels that are more suitable for emerging exascale
+architectures. However, the resulting non-linear equations that must be
+solved for steady-state and time-implicit RANS problems have proven to be
+much stiffer and more difficult to converge efficiently and robustly.
+
+In this work we examine several non-linear solution techniques for SUPG
+and DG discretizations of the RANS equations with a single equation
+turbulence model. The approach relies on a preconditioned Newton-Krylov
+method, where the exact Jacobian of the discretization is assembled and
+used in the GMRES phase of the Newton Krylov solver. Incomplete
+factorization (ILU) with various levels of fill is used as a
+preconditioner, as well as simpler and more scalable approaches such as
+line preconditioning where lines are extracted from the Jacobian matrix
+using a graph algorithm. Non-linear continuation is incorporated into the
+solver by controlling the pseudo time step applied to the diagonal of the
+Jacobian matrix, while a line search is used to ensure suitable
+non-linear updates for the Newton solver. We compare the performance and
+scalability of the current approach with the performance of similar and
+other multigrid solvers applied to traditional second-order accurate
+finite-volume unstructured mesh RANS discretizations, and discuss
+possible future avenues for improving the efficiency and scalability of
+higher-order RANS solvers.
+
+
+\end{document}

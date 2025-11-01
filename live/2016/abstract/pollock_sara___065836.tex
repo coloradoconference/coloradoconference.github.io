@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sara Pollock \\
+{\bf Regularization and Adaptivity for Nonlinear Elliptic PDE Solvers}}
+
+Department of Mathematics \\ 3368 TAMU \\ College Station \\ TX 77843-3368
+\\
+{\tt snpolloc@math.tamu.edu}\end{center}
+
+In this talk I will introduce an adaptive framework developed to solve
+nonlinear elliptic partial differential equations (PDE) starting from a
+coarse mesh. The target problem class includes quasi-linear problems with
+steep internal layers in the solution-dependent diffusion coefficients,
+for which standard methods such as Newton or Picard iterations are known
+to fail. The method is designed to start with a discretization that does
+not resolve the problem coefficients. The discrete problem on the initial
+sequence of meshes is not assumed to inherit the stability, coercivity,
+monotonicity or solvability properties of the continuous system;
+essentially, the initial sequence of discrete problems is assumed
+ill-posed.
+
+A sequence of partial solves of regularized problems is used to refine
+the discretization where necessary to resolve the problem coefficients
+and data. Adaptivity is used both for mesh refinement and automatic
+control of the regularization parameters to ultimately solve the discrete
+problem without regularization. I will discuss improving stability of the
+method with different pseudo-time integrators. The method will be
+demonstrated with numerical examples using an underlying linear finite
+element discretization.
+
+
+\end{document}

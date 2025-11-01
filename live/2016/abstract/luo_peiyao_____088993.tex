@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Peiyao Luo \\
+{\bf Uzawa smoother in multigrid for coupled porous medium and Stokes flow system}}
+
+Delft University of Technology \\ Mekelweg 4 \\ 2628 CD \\ Delft \\ The Netherlands
+\\
+{\tt p.luo@tudelft.nl}\\
+Carmen Rodrigo\\
+Francisco J. Gaspar\\
+Cornelis W.  Oosterlee\end{center}
+
+The multigrid solution of coupled porous media and Stokes flow problems
+is considered. The Darcy equation as the saturated porous medium model is
+coupled to the Stokes equations
+by means of appropriate interface conditions. We focus on an efficient
+multigrid solution technique for the coupled problem, which is
+discretized by finite volumes on staggered grids, giving rise to a saddle
+point linear system. Special treatment is required regarding the
+discretization at the interface.
+An Uzawa smoother is employed in multigrid, which is a decoupled
+procedure based on symmetric Gauss-Seidel smoothing for velocity
+components and a simple Richardson iteration for the pressure field.
+Since a relaxation parameter is part of a Richardson iteration, Local
+Fourier Analysis (LFA) is applied to determine the optimal parameters.
+Highly satisfactory multigrid convergence is reported, and, moreover, the
+algorithm performs well for small values of the hydraulic conductivity
+and fluid viscosity, that are relevant for applications.
+
+KEY WORDS: Darcy equation, Porous medium, Stokes equation, Free flow,
+Coupling, interface conditions, Multigrid method, Uzawa smoother, local
+Fourier analysis
+
+
+\end{document}

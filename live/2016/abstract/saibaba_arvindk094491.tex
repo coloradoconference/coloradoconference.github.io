@@ -1,0 +1,80 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Arvind Krishna Saibaba \\
+{\bf Fast Iterative Methods for Bayesian Inverse Problems}}
+
+2311 Stinson Drive 3126 \\ Raleigh \\ NC 27606
+\\
+{\tt asaibab@ncsu.edu}\\
+Julianne Chung\end{center}
+
+Inverse problems arise in various scientific applications, and Bayesian
+approaches are often used for solving statistical inverse problems, where
+unknowns are modeled as random fields and Bayes' rule {is used} to infer
+unknown parameters by conditioning on measurements. In this work, we
+develop iterative methods for solving the following least squares
+problem, which is equivalent to computing the maximum a posteriori (MAP)
+estimator
+\begin{equation}\label{eq_map}
+\hat{x}_\text{MAP} \equiv {\arg}\min_x - \log p(x|d) \> =\>{\arg}\min_x
+\> \frac{1}{2}\|d-Ax\|_{R^{-1}}^2 +
+\frac{\lambda^2}{2}\|x-\mu\|_{Q^{-1}}^2.
+\end{equation}
+
+We model the prior covariance matrix $Q$ to have entries of the form
+$\kappa(\vec{x}_i,\vec{x}_j)$, where $\kappa(\cdot,\cdot)$ is a
+covariance kernel, and $\{\vec{x}_i\}_{i=1}^n$ are spatial points
+representing the discrete image. We choose $\kappa$ from the Mat\'{e}rn
+class of covariance kernels, which not only represent a rich class of
+priors but also
+are convenient from a theoretical and modeling point of view. However,
+one of the main challenges of using the Mat\'{e}rn kernels is that
+$Q^{-1}$ is difficult to obtain and work with, whereas matrix-vector
+products (matvecs) with $Q$ can be handled efficiently in
+$\mathcal{O}(n\log n)$ using FFT methods (on regular grids) and using
+$\mathcal{H}$-matrices (on irregular grids). In our approach, we make an
+appropriate change of variables and consider a hybrid Golub-Kahan
+bidiagonalization iterative process with weighted inner products $\langle
+\cdot, \cdot \rangle_{R^{-1}} $ and $\langle \cdot, \cdot \rangle_{Q} $.
+Our approach avoids forming (either explicitly, or matvecs with) the
+square root or inverse of the prior covariance matrix $Q$. The resulting
+algorithms are efficient and scalable to large problem sizes.
+
+Our proposed hybrid approach can automatically determine regularization
+parameter $\lambda$, which controls the relative importance between the
+prior and the data-misfit part of the likelihood. Hybrid methods project
+the original least squares problem onto a smaller dimensional problem,
+using orthonormal bases for the Krylov subspaces generated during the
+iterative process, and regularization parameters are sought by optimizing
+an appropriate functional on the projected problem. In this talk, we show
+how several commonly used functionals can be appropriately modified to
+handle weighted norms, as in Equation~\eqref{eq_map}. Since the
+regularization parameters are determined on-the-fly during the iterative
+process, this approach is attractive for large-scale inverse problems.
+
+
+In order to characterize the uncertainty in parameter reconstruction, we
+must fully specify the posterior distribution characterized by the MAP
+estimator and the posterior covariance matrix. However, the posterior
+covariance matrix is dense, and therefore, storing and computing it is
+infeasible for large-scale problems. Using the bidiagonalization process,
+we describe an efficient approach to generate approximations to useful
+uncertainty measures based on the posterior covariance matrix. In
+particular, we estimate the variance, which are the diagonals of the
+posterior covariance, and show how to generate conditional realizations,
+which are samples from the posterior distribution.
+
+We will demonstrate the benefits of our proposed algorithms on
+challenging 1D and 2D image reconstruction problems.
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>marques_osni___097854</TITLE>
+<META NAME="description" CONTENT="marques_osni___097854">
+<META NAME="keywords" CONTENT="marques_osni___097854">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="marques_osni___097854.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Osni Marques 
+<BR><B>Tuning the Coarse Space Construction in a Spectral AMG Solver</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Laboratory 
+<BR>
+1 Cyclotron Road 
+<BR>
+MS 50F-1650 
+<BR>
+Berkeley 
+<BR>
+CA 94720-8139 
+<BR>
+USA
+
+<BR><TT>oamarques@lbl.gov</TT>
+<BR>
+Alex  Druinsky
+<BR>
+Sherry  Li
+<BR>
+Andrew Barker
+<BR>
+Delyan Kalchev
+<BR>
+Panayot Vassilevski
+<BR></DIV>
+<P>
+<DIV ALIGN="CENTER">
+</DIV>
+
+<P>
+In this presentation we will discuss strategies for computing subsets of
+eigenvectors of matrices corresponding to subdomains
+of finite element meshes achieving compromise between two contradicting
+goals. The subset of eigenvectors is required in the construction of
+coarse spaces used in algebraic multigrid methods (AMG) as well as in
+certain domain decomposition (DD) methods. The quality of the coarse
+spaces depends on the number of eigenvectors, which improves the
+approximation properties of the coarse space and the latter impacts the
+overall performance and convergence of the associated AMG or DD
+algorithms. However, a large number of eigenvectors reflects negatively
+the sparsity of the corresponding coarse matrices, which can become
+fairly dense. The sparsity of the coarse matrices can be controlled to a
+certain extent by the size of the subdomains (union of finite elements)
+referred to as agglomerates. However, if the size of the agglomerates is
+too large then the cost of the eigensolvers increases and eventually can
+become unacceptable for the purpose of constructing the AMG or DD
+solvers. This presentation discusses strategies to optimize the solution
+of the partial eigenproblems of interest. In particular, we examine
+direct and iterative eigensolvers for computing those subsets. Our
+experiments with synthetic meshes and with a well-known model of an
+oil-reservoir simulation benchmark indicate that iterative eigensolvers
+can lead to significant improvement in the overall performance of an AMG
+solver that exploits such spectral construction of coarse spaces.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

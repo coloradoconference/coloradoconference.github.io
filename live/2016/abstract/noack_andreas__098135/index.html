@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>noack_andreas__098135</TITLE>
+<META NAME="description" CONTENT="noack_andreas__098135">
+<META NAME="keywords" CONTENT="noack_andreas__098135">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="noack_andreas__098135.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andreas Noack 
+<BR><B>Faster than FastPCA: High performance principal components analysis of genomics data</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">32 Vassar St 
+<BR>
+Rm 32-206 
+<BR>
+MIT CSAIL 
+<BR>
+Cambridge 
+<BR>
+MA 02139-4307
+
+<BR><TT>noack@mit.edu</TT>
+<BR>
+Jiahao Chen
+<BR>
+Jake Bolewski
+<BR>
+Alan Edelman
+<BR>
+Nikolaos Patsopoulos
+</DIV>
+
+<P>
+Data for genome-wide association studies (GWAS) involve extremely large matrices
+with small nonnegative integer entries representing deviations from a reference
+genome. Principal components analysis (PCA) is traditionally used to identify
+clusters reflecting subpopulation structure in genomics populations.
+
+<P>
+We present implementations of high performance principal components analysis using
+Golub-Kahan-Lanczos (GKL) iterative bidiagonalization routines written in pure Julia.
+We demonstrate out of core computation on data stored on external files and databases,
+showing how Julia's user-extensible type system and generic functions with
+multimethods (multiple dispatch) allow for flexible and convenient
+definitions of new types reflecting new data structures, such as matrices stored
+in HDF5 files or in an array database. Operator overloading also allows for a
+natural expression of elementary operations such as matrix-vector products that
+exploit detailed knowledge of underlying storage formats and layouts for improved
+performance.
+
+<P>
+We compare our implementation of principal components analysis with existing
+tools designed for GWAS data, such as EIGENSOFT, FlashPCA and FastPCA. We show
+that in many cases, iterative bidiagonalization outperforms other methods
+implemented in these existing tools, such as randomized subspace iteration.
+We explore how convergence of GKL iterates and auxiliary quantities used in
+practical roundoff control strategies, such as the <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \omega$">
+-recurrence coefficients
+in partial reorthogonalization reflect underlying structure latent in genomics
+data matrices.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christopher Leibs \\
+{\bf Least-Squares Finite Element Method and Nested Iteration for Spatially Variable Temperatures in a Two-Fluid Plasma}}
+
+526 UCB \\ University of Colorado \\ Boulder CO \\ 80309
+\\
+{\tt leibs@colorado.edu}\\
+Thomas Manteuffel\end{center}
+
+Previously, the authors introduced a scalable solution technique for an
+electromagnetic, two-fluid plasma (TFP) model that utilized least-squares
+finite elements, nested iteration, and adaptive mesh refinement [1]. The
+system under investigation used a naive adiabatic (constant) temperature
+model. Such an assumption was key in designing a scaling and modification
+of the TFP model to produce optimal finite element performance, and
+linear systems amenable to solution with Algebraic Multigrid (AMG). To
+efficiently focus computational resources, an adaptive mesh refinement
+scheme was used.
+
+In this talk, we discuss the recent exploration of spatially variable
+temperature models. The motivation is twofold: (1) many fluid-based
+temperature closures can simply be lagged in nonlinear iteration or
+nested iteration with little overhead, and (2) the ability to provide a
+kinetic-based closure becomes viable. Without loss of generality, we
+focus on the former and consider how the previous solution technique is
+modified in order to handle such variability while maintaining
+scalability and efficiency.
+
+[1] C. A. Leibs, T. A. Manteuffel, SIAM Journal on Scientific Computing,
+37(5):S314-S333, 2015.
+
+
+\end{document}

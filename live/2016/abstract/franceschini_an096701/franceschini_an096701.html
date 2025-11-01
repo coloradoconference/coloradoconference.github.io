@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>franceschini_an096701</TITLE>
+<META NAME="description" CONTENT="franceschini_an096701">
+<META NAME="keywords" CONTENT="franceschini_an096701">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="franceschini_an096701.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrea Franceschini 
+<BR><B>Multilevel Approaches for FSAI Preconditioning</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Civil and Environmental Engineering 
+<BR>
+University of Padova 
+<BR>
+via Trieste 63 
+<BR>
+35121 Padova (Italy)
+
+<BR><TT>andrea.franceschini@dicea.unipd.it</TT>
+<BR>
+Victor, A. Magri
+<BR>
+Carlo Janna
+<BR>
+Massimiliano Ferronato
+</DIV>
+
+<P>
+The solution of a large size sparse linear system of equations
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\mathbf{A} x = b,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="60" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \mathbf{A} x = b,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\mathbf{A}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{A}$">
+ is a SPD matrix, requires the use of iterative methods based on Krylov
+subspaces. It is well known, however, that the use of these methods alone generally
+provide poor convergence. This can be remedied by using their preconditioned form, which
+requires the definition of a preconditioner, i.e., a linear transformation that
+approximates the action of <!-- MATH
+ $\mathbf{A}^{-1}$
+ -->
+<IMG
+ WIDTH="35" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathbf{A}^{-1}$">
+.
+
+<P>
+In this paper, two new preconditioners built upon the dynamic FSAI algorithm
+[Janna et al., 2015] are considered: the BTFSAI - Block Tridiagonal Factorized Sparse
+Approximate Inverse - and the DDFSAI - Domain Decomposition Factorized Sparse Approximate
+Inverse. The first one is based on the successive application of the FSAI
+algorithm on the
+matrix reordered in a block tridiagonal structure and the second one is based on the
+combination of a two level domain decomposition approach and the FSAI preconditioner,
+which is used for computing the approximate inverse of the inner
+submatrices and the Schur
+complement.
+
+<P>
+In the Block Tridiagonal preconditioner - BTFSAI - the matrix <!-- MATH
+ $\mathbf{A}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{A}$">
+ is first
+reordered by the reverse Cuthill-McKee algorithm, with the aim to reduce its bandwidth,
+and then it is divided into a block tridiagonal structure according to a given number
+of blocks. After that, the block LDU decomposition of this new matrix is calculated
+where the inverses of the diagonal blocks are approximated explicitly by the adaptive
+FSAI algorithm.
+
+<P>
+With this approach, the global matrix is subdivided into small blocks, that should be
+approximated with less effort. Though this method is intrinsically sequential,
+parallelism can be exploited for each block by the use of the FSAI algorithm.
+Calling <!-- MATH
+ $\mathbf{A}_i$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathbf{A}_i$">
+ the SPD diagonal submatrix and <!-- MATH
+ $\mathbf{B}_i$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathbf{B}_i$">
+ the upper diagonal
+submatrix of the <IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ i-th$">
+ block, the block LDU decomposition reads
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\mathbf{A} =
+\begin{bmatrix}
+\mathbf{I}_1 & & & \\
+\mathbf{B}^T_1 \mathbf{S}^{-1}_1 & \mathbf{I}_2 & & \\
+& \ddots & \ddots & \\
+& & \mathbf{B}^T_{n-1} \mathbf{S}^{-1}_{n-1} & \mathbf{I}_{n}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{S}_1 & & & \\
+& \mathbf{S}_2 & & \\
+& & \ddots & \\
+& & & \mathbf{S}_n
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{I}_1 & \mathbf{S}^{-1}_1 \mathbf{B}_1 & & \\
+& \mathbf{I}_2 & \mathbf{S}^{-1}_2 \mathbf{B}_2 & \\
+& & \ddots & \ddots \\
+& & & \mathbf{I}_n
+\end{bmatrix}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="603" HEIGHT="104" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle \mathbf{A} = \begin{bmatrix}\mathbf{I}_1 &amp; &amp; &amp; \ \mathbf{B}^T_1 ...
+...-1}_2 \mathbf{B}_2 &amp; \ &amp; &amp; \ddots &amp; \ddots \ &amp; &amp; &amp; \mathbf{I}_n \end{bmatrix}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\mathbf{S}_i = \mathbf{A}_i - \mathbf{B}^T_{i-1} \mathbf{S}^{-1}_{i-1}
+\mathbf{B}_{i-1}, \qquad \qquad i = 2
+\dots n,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="324" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle \mathbf{S}_i = \mathbf{A}_i - \mathbf{B}^T_{i-1} \mathbf{S}^{-1}_{i-1} \mathbf{B}_{i-1}, \qquad \qquad i = 2 \dots n,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+is the <IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ i-th$">
+ block Schur complement and <!-- MATH
+ $\mathbf{S}_1 = \mathbf{A}_1$
+ -->
+<IMG
+ WIDTH="64" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \mathbf{S}_1 = \mathbf{A}_1$">
+,
+by definition. Let
+<!-- MATH
+ $\mathbf{S}^{-1}_i = \mathbf{F}^T_i \mathbf{F}_i$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbf{S}^{-1}_i = \mathbf{F}^T_i \mathbf{F}_i$">
+ be the approximate
+inverse of the Schur complement
+computed by the adaptive FSAI algorithm and let the matrix <!-- MATH
+ $\mathbf{H}_i$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \mathbf{H}_i$">
+ be equal to the
+product <!-- MATH
+ $\mathbf{F}_i \mathbf{B}_i$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathbf{F}_i \mathbf{B}_i$">
+, it follows that the Schur complement recursively as
+<!-- MATH
+ $\mathbf{S}_i = \mathbf{A}_i - \mathbf{H}^T_{i-1} \mathbf{H}_{i-1}$
+ -->
+<IMG
+ WIDTH="152" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \mathbf{S}_i = \mathbf{A}_i - \mathbf{H}^T_{i-1} \mathbf{H}_{i-1}$">
+.
+Using these relations,
+the approximate inverse of the matrix <!-- MATH
+ $\mathbf{A}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{A}$">
+ reads
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\mathbf{A}^{-1} \approx \mathbf{M}^{-1} =
+\begin{bmatrix}
+\mathbf{F}^T_1 & - \mathbf{F}^T_1 \mathbf{H}_1 \mathbf{F}^T_2 & & \\
+& \mathbf{F}^T_2 & - \mathbf{F}^T_2 \mathbf{H}_2 \mathbf{F}^T_3 & \\
+& & \ddots & \ddots \\
+& & & \mathbf{F}^T_n
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{F}_1 & & & \\
+- \mathbf{F}_2 \mathbf{H}^T_1 \mathbf{F}_1 & \mathbf{F}_2 & & \\
+& \ddots & \ddots & \\
+& & -\mathbf{F}_n \mathbf{H}^T_{n-1} \mathbf{F}_{n-1} & \mathbf{F}_n \\
+\end{bmatrix}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="675" HEIGHT="103" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \mathbf{A}^{-1} \approx \mathbf{M}^{-1} = \begin{bmatrix}\mathbf{...
+...athbf{F}_n \mathbf{H}^T_{n-1} \mathbf{F}_{n-1} &amp; \mathbf{F}_n \ \end{bmatrix}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The main drawback of this approach is the need of computing <IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ n - 1$">
+ Schur complements
+along with their FSAI approximations. While theoretically these matrices should be SPD,
+the use of approximate inverses may cause the loss of this property. Indeed, for some
+matrices, we can have indefinite Schur complements if the approximate inverses are not
+accurate enough. In this case, the construction of the preconditioner should be restarted
+allowing for a larger number of nonzero entries per row.
+
+<P>
+Roughly speaking, domain decomposition refers to a number of techniques which solve a
+problem defined on a large domain <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \Omega$">
+ via the solution of smaller problems defined
+over subdomains <!-- MATH
+ $\Omega_k, k = 1,\ldots,n$
+ -->
+<IMG
+ WIDTH="114" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \Omega_k, k = 1,\ldots,n$">
+. Each problem can be solved independently and
+the solutions can be gathered to build the outcome of the original problem.
+
+<P>
+In the domain decomposition FSAI preconditioner - DDFSAI - the graph of the original
+matrix is reordered according to the k-way partition algorithm implemented in the METIS
+software library. With this method, the number of edges connecting a subdomain to the
+others is minimized, thus reducing the pieces of information that need to be communicated
+among different blocks. At the same time, the size of subdomains is kept to be
+approximately of the same order in favour of providing a good load
+balance among different
+threads, which are going to work in one or possibly more blocks. After this, each
+independent block of the matrix is reordered according to the reverse Cuthill-McKee
+algorithm in order to reduce its bandwidth.
+
+<P>
+The algorithm for constructing the DDFSAI preconditioner is almost the same as BTFSAI
+restricted to two blocks, with the only difference consisting in the initial ordering of
+the matrix, which in the current case uses the METIS library besides of the reverse
+Cuthill-McKee ordering.
+
+<P>
+The results show that the BTFSAI technique is very promising in terms of decreasing
+the total number of iterations and time for achieving the solution. Further, with
+the DDFSAI technique, the computational pain is smaller, but stability and scalability
+are generally better. We remark that these strategies are under development and
+further computational improvements are being addressed, for instance a hybrid
+MPI/OpenMP implementation.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">References</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

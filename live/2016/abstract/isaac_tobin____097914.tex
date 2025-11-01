@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tobin Isaac \\
+{\bf DofColumns: a plugin for PETSc's PCGAMG}}
+
+201 East 24th St \\ Stop C0200 \\ Austin \\ Texas 78712-1229
+\\
+{\tt tisaac@uchicago.edu}\end{center}
+
+I will present and discuss a plugin for PETSc's PCGAMG (generic algebraic
+multigrid) preconditioner, called DofColumns. DofColumns is intended for
+problems that have strong mesh-aligned anisotropy, but for which a
+geometric multigrid is either inappropriate or unavailable. Such problems
+occur in climate system modeling, where domains can span thousands of
+kilometers horizontally but remain O(1) km thick or less. The particular
+motivating example in this case is ice sheet modeling, where the W:H
+aspect ratios for discretization are typically 25:1 or greater.
+DofColumns works by dividing the aggregation phase of restriction
+construction into horizontal and vertical sub-phases. DofColumns is also
+intended to be a simple example of the extensibility of the PCGAMG
+framework for algebraic multigrid, and its use to generate AMG variants
+tailored to individual problems.
+
+
+\end{document}

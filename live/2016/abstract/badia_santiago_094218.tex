@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Santiago Badia \\
+{\bf Scalable space-time balancing domain-decomposition solvers}}
+
+Universitat Polit\`ecnica de Catalunya (UPC) \\ Centre Internacional de M\`etodes Num\`erics a l'Enginyeria (CIMNE) \\ 08860 Castelldefels (Barcelona \\ Spain)
+\\
+{\tt sbadia@cimne.upc.edu}\\
+Marc Olm\end{center}
+
+The usual approach to transient problems is to exploit sequentiality in
+time, and solve one space problem every time step. This approach has
+recently been re-considered, motivated by the forthcoming exascale
+supercomputers with billions of cores. This sequential approach has a
+clear problem, parallelization cannot be exploited in time. Many key
+computational engineering problems, e.g., turbulent flow simulations,
+involve thousands to millions of time steps, and a scalable parallel
+solver in space leads can lead to unacceptable computation times in these
+problems. On the other hand, space parallelization always saturates at
+some point and to efficiently exploit the forthcoming exascale platforms
+one needs to exhibit further concurrency and less synchronization. In
+this situation, the development of space-time solvers is an excellent
+approach because deals with all time steps at once and exhibits much more
+concurrency than space-only solvers. In this presentation, we will
+introduce a new type of (non)linear space-time solvers for the solution
+of finite element systems arising from the discretization of transient
+problems, based on the novel extension of balancing domain decomposition
+methods to space-time, and show numerically the scalability of the
+proposed schemes on a set of academical problems, based on a highly
+scalable overlapped multilevel task implementation.
+
+
+\end{document}

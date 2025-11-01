@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>phillips_edward089406</TITLE>
+<META NAME="description" CONTENT="phillips_edward089406">
+<META NAME="keywords" CONTENT="phillips_edward089406">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phillips_edward089406.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Edward G. Phillips 
+<BR><B>Block Solvers for Implicit Electromagnetic and Plasma Simulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1318
+
+<BR><TT>egphill@sandia.gov</TT>
+<BR>
+John N. Shadid
+<BR>
+Eric C. Cyr
+</DIV>
+
+<P>
+Multiple time-scales can arise in electromagnetic simulations when
+heterogeneous material properties result in multiple light speeds and
+when currents are applied at slower time-scales than the speed of light.
+When time-scales of interest are slower than the fastest time-scales
+admitted by the model, yet the displacement current cannot be ignored,
+implicit time integration of the full Maxwell equations can be an
+effective and competitive means of electromagnetic simulation. In this
+talk, we consider a compatible discretization of the Maxwell equations,
+using edge elements for the electric field and face elements for the
+magnetic induction. This discretization results in discrete enforcement
+of the solenoidal involution div B = 0 to machine precision. In order to
+take advantage of existing solver technology, we propose block
+preconditioners in which edge and face degrees of freedom are segregated.
+These preconditioners use Schur complement approximations to capture the
+stiff off-diagonal physics. We design these approximations so that either
+specialized edge element AMG solvers or more traditional multigrid
+methods can be employed for component solves. We continue by applying
+these techniques to a fully coupled multi-fluid plasma simulation in
+which the compatible Maxwell discretization is coupled to a nodal
+hydrodynamic discretization. We employ block factorizations that allow
+the combination of our new Maxwell solvers with state of the art
+Navier-Stokes solvers. We demonstrate robustness and scalability of our
+methods on a sequence of difficult test problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

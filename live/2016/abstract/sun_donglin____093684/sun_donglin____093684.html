@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sun_donglin____093684</TITLE>
+<META NAME="description" CONTENT="sun_donglin____093684">
+<META NAME="keywords" CONTENT="sun_donglin____093684">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sun_donglin____093684.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Dong-Lin Sun 
+<BR><B>A block GMRES method with deflated restarting for solving linear systems with multiple shifts and multiple right-hand sides</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">9747 AG Groningen 
+<BR>
+The Netherlands
+
+<BR><TT>d.sun@rug.nl</TT>
+<BR>
+Ting-Zhu Huang
+<BR>
+Yan-Fei Jing
+<BR>
+Bruno Carpentieri
+</DIV>
+
+<P>
+We consider solutions of linear systems with multiple right-hand sides,
+in which the coefficient matrices differ from each other by a scalar
+multiple of the identity,
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="ABL"></A><!-- MATH
+ \begin{equation}
+(A-\sigma_{i}I)X_{i} = B,~\text{with} ~i = 1, 2, \ldots, L,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="136" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle (A-\sigma_{i}I)X_{i} = B,&nbsp;$">with<IMG
+ WIDTH="110" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle&nbsp;i = 1, 2, \ldots, L,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $A-\sigma_{i}I \in \mathbb{C}^{n\times n}$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A-\sigma_{i}I \in \mathbb{C}^{n\times n}$">
+ are square nonsingular
+matrices of large dimension <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ n$">
+, <!-- MATH
+ $B = [b^{(1)}, b^{(2)},\ldots, b^{(p)}]$
+ -->
+<IMG
+ WIDTH="162" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ B = [b^{(1)}, b^{(2)},\ldots, b^{(p)}]$">
+
+is a full rank matrix consisting of <IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p\ll n$">
+ given right-hand sides
+<IMG
+ WIDTH="27" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ b^{(i)}$">
+, and <!-- MATH
+ $\{\sigma _{i}\}_{i = 1}^{L}\subset \mathbb{C}$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \{\sigma _{i}\}_{i = 1}^{L}\subset \mathbb{C}$">
+ are called
+shifts. Many large-scale scientific applications, such as lattice quantum
+chromo dynamics [<A
+ HREF="node1.html#frommer1995">1</A>] and PageRank problems
+[<A
+ HREF="node1.html#haveliwala2003topic">2</A>], to name but a few, require the solution of
+sequences of linear systems with both multiple shifts and multiple
+right-hand sides given simultaneously.
+
+<P>
+We propose a new shifted block Krylov subspace algorithm that solves all
+of the given shifted linear systems simultaneously, and it has the
+ability to dump the negative effect of small eigenvalues from the
+convergence. Our block GMRES with deflated restarted for shifted linear
+systems (BGMRES-DR-Sh) can be seen as an extension of the BGMRES-DR
+method proposed by Morgan in&nbsp;[<A
+ HREF="node1.html#Morgan2005">3</A>] to the case of shifted
+linear systems.
+This approach can be computationally more efficient than applying Krylov
+subspace methods to the sequence of linear systems with multiple
+shifts, or block Krylov subspace methods to each single shifted linear
+system with multiple right-hand sides separately.
+
+<P>
+The key idea behind BGMRES-DR-Sh is to apply the block GMRES-DR algorithm
+to the base shifted block system, and then to generate the approximate
+solutions to the additional shifted block systems by imposing
+collinearity with the computed base block residual. Moreover, our method
+is enhanced with a seed selection strategy to handle the case of almost
+linear dependence of the right-hand sides. After solving the seed block
+system by the BGMRES-DR-Sh method, a Galerkin projection of the block
+residual onto the shifted block Krylov subspace generated by the seed
+block system is considered to obtain approximate solutions for the
+additional block systems. The whole process is repeated until all of the
+shifted block systems have converged.
+
+<P>
+In our talk we present the main lines of development of the BGMRES-DR-Sh
+method, describing its theoretical properties, and we report on numerical
+experiments on a set of representative matrix problems having size up to
+1.5M unknowns arising from different fields. We analyse various aspects
+such as performance comparison against other Krylov methods for solving
+multi-shifted linear systems, the effect of the seed selection strategy,
+and the sensitivity of our method to the accuracy of the
+eigen-computation. Finally, we discuss how to combine it with a right
+preconditioning technique that maintains the block shift-invariance
+property.
+
+<P>
+ <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

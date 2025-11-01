@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Alexander Toth \\
+{\bf Anderson Acceleration for Black-Box Code Coupling in Nuclear Reactor Simulation}}
+
+Department of Mathematics \\ Box 8205 \\ NC State University \\ Raleigh \\ NC 2695-8205
+\\
+{\tt artoth@ncsu.edu}\\
+Tim Kelley\\
+Roger Pawlowski\end{center}
+
+Picard iteration is a standard method for solving coupled multi-physics
+problems. In this, individual physical systems are repeatedly solved in
+some sequence with updated coupling parameters transferred between
+systems as they are obtained. Picard iteration is primarily attractive
+due to its simplicity of implementation and minimal requirements on the
+single-physics application codes. However, this method comes with several
+drawbacks, namely relatively slow convergence and poor robustness.
+Anderson acceleration is an alternative method for solving fixed-point
+problems which maintains a depth of previous iterate information in order
+to compute a new iterate as a linear combination of previous evaluations
+of the fixed-point map. In this presentation, we examine the potential
+for Anderson acceleration to improve upon the drawbacks of Picard
+iteration in the context of coupled multi-physics problems in nuclear
+reactor simulation. We specifically consider the Tiamat code coupling
+being developed as part of the Consortium for Advanced Simulation of
+LWRs. Tiamat couples the Bison fuel performance code with the MPACT
+neutronics and COBRA-TF thermal hydraulics codes to provide a tool for
+pellet-cladding interaction analysis. We will describe how Anderson
+acceleration has been integrated into this code coupling by posing the
+coupled system as a fixed-point problem in terms of coupling parameters,
+and then examine the performance gains obtained from utilizing Anderson
+acceleration for this coupling.
+
+
+\end{document}

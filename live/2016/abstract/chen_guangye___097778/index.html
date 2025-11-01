@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chen_guangye___097778</TITLE>
+<META NAME="description" CONTENT="chen_guangye___097778">
+<META NAME="keywords" CONTENT="chen_guangye___097778">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chen_guangye___097778.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Guangye Chen 
+<BR><B>Nonlinearly implicit, multidimensional, electromagnetic particle-in-cell algorithms for kinetic simulation of plasmas</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">P O Box 1663 Ms K717 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 
+<BR>
+87545
+
+<BR><TT>gchen@lanl.gov</TT>
+<BR>
+Chacon Luis
+</DIV>
+
+<P>
+Particle-in-cell (PIC) simulation techniques have been widely successful
+in first-principles simulations of plasma dynamics. However, the fundamental
+algorithmic underpinnings of standard PIC algorithms have not changed
+in decades. The classical PIC method employs an explicit approach
+(e.g. leap-frog) to advance the Vlasov-Maxwell/Poisson system using
+particles coupled to a grid. Explicit PIC is subject to both temporal
+stability constraints (either light-wave CFL condition or resolving
+plasma-wave frequency) and spatial stability (so-called finite-grid
+instability) constraints, which makes it unsuitable for system-scale
+kinetic simulations, even with modern super-computers.
+
+<P>
+Implicit algorithms can potentially eliminate both spatial and temporal
+stability constraints, thus becoming orders of magnitude more efficient
+than explicit ones. This has motivated much exploration of these algorithms
+in the literature since the 1970's. However, the lack of efficient
+nonlinear solvers for a very large system of particle-field equations
+required approximations that resulted in intolerable accumulation
+of numerical errors in long-term simulations.
+
+<P>
+In this presentation, we discuss a multi-dimensional, nonlinearly
+implicit electromagnetic PIC algorithm key-1. The approach
+delivers both accuracy and efficiency for multi-scale plasma kinetic
+simulations, and extends previous proof-of-principle studies on 1D
+electrostatic key-2,key-3,key-4,key-5 and electromagnetic
+systems key-6. To avoid noise issues associated with numerical
+Cherenkov radiation key-7, we focus our implementation on
+the Darwin approximation to Maxwell's equations, which eliminates
+the light wave analytically. The formulation conserves exactly total
+energy, local charge, ignorable canonical momentum, and preserves
+the Coulomb gauge. Linear momentum is not exactly conserved, but errors
+are controlled by an adaptive particle sub-stepping orbit integrator.
+Key to the performance of the algorithm is a moment-based preconditioner,
+featuring the correct asymptotic limits. The formulation has been
+extended to allow mapped meshes, which opens the possibility of accurate
+body-fitted and/or spatially adaptive PIC simulations. The superior
+accuracy and efficiency properties of the scheme will be demonstrated
+with challenging numerical examples.
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yves Robert \\
+{\bf Optimal resilience patterns to cope with fail-stop and silent errors -- application to sparse iterative solvers}}
+
+Laboratoire LIP \\ ENS Lyon \\ 69364 Lyon Cedex 07 \\ France
+\\
+{\tt yves.robert@inria.fr}\end{center}
+
+This work focuses on resilience techniques at extreme scale,
+dealing with fail-stop and silent errors
+simultaneously. We present a unified framework and optimal algorithmic
+solutions to cope with both error sources.
+Silent errors are handled via verification mechanisms
+(either partially or fully accurate) and in-memory checkpoints. Fail-stop
+errors are processed via disk checkpoints. All verification and
+checkpoint types are combined into computational patterns. We provide a
+unified model, and
+a full characterization of the optimal pattern. Our results nicely extend
+several published solutions.
+
+We instantiate the model for sparse iterative solvers and
+discuss several application-specific error detection and correction
+mechanisms, including partial recomputations, orthogonality checks and
+ABFT.
+
+Joint work with Anne Benoit, Aurelien Cavelan, Massimiliamo Fasi, Julien
+Langou, Hongyang Sun and Bora Ucar.
+
+
+\end{document}

@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>stathopoulos_an097795</TITLE>
+<META NAME="description" CONTENT="stathopoulos_an097795">
+<META NAME="keywords" CONTENT="stathopoulos_an097795">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="stathopoulos_an097795.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andreas Stathopoulos 
+<BR><B>Deflation as variance reduction for computing the trace of the inverse</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+Box 8795 
+<BR>
+College of William and Mary 
+<BR>
+Williamsburg 
+<BR>
+VA 23187-8795
+
+<BR><TT>andreas@cs.wm.edu</TT>
+<BR>
+Arjun Gambhir
+<BR>
+Kostas Orginos
+</DIV>
+
+<P>
+A useful statistical measure is the diagonal or the trace of the inverse of
+a matrix. This has myriad applications from quantum mechanics and Lattice QCD
+to uncertainty quantification and data mining.
+Most commonly the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+ or its Hermitian part <IMG
+ WIDTH="58" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A+A^T$">
+ would be Hermitian
+positive definite and very large and sparse (large dimension <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ N$">
+). We are
+interested in cases where a direct factorization of the matrix is not possible.
+
+<P>
+For such large matrices, the current state-of-the-practice is to use a
+Monte Carlo method known as Hutchinson's which is based on the fact that
+the trace can be obtained as the expected value of
+<!-- MATH
+ ${\rm tr}(A^{-1}) = E(x^T A^{-1} x)$
+ -->
+<IMG
+ WIDTH="162" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ {\rm tr}(A^{-1}) = E(x^T A^{-1} x)$">
+.
+Therefore, a simple averaging algorithm can be implemented where random vectors
+are chosen and linear systems <IMG
+ WIDTH="43" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A^{-1} x$">
+ are solved with an iterative method.
+The method converges as <!-- MATH
+ $O({\rm Var}/\sqrt{n})$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ O({\rm Var}/\sqrt{n})$">
+, where the variance of the
+estimator, <!-- MATH
+ $\operatorname{Var}$
+ -->
+<IMG
+ WIDTH="29" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \operatorname{Var}$">
+, is known to be minimized by choosing <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ x$">
+ with random
+Rademacher entries <IMG
+ WIDTH="56" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \{-1, 1\}$">
+ (in the real case).
+This variance is given by
+<P><!-- MATH
+ \begin{displaymath}
+\frac{1}{2}\operatorname{Var}(tr(A)^{-1}) = \|A^{-1}\|^2_F -
+\sum_{i=1}^N (A^{-1}_{ii})^2.
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="283" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle \frac{1}{2}\operatorname{Var}(tr(A)^{-1}) = \Vert A^{-1}\Vert^2_F -
+\sum_{i=1}^N (A^{-1}_{ii})^2.$">
+</DIV><P>
+</P>
+
+<P>
+The two computational bottlenecks are (a) for ill conditioned systems iterative
+methods may take many steps and (b) thousands of linear systems are needed just
+to get two digits of accuracy in the trace.
+In earlier work, we showed how approximate eigenvectors and eigenvalues can
+be used to deflate, and thus remove the ill conditioning in linear systems
+with multiple right hand sides.
+We also developed Hierarchical Probing, a method to systematically produce
+the vectors <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ x$">
+ in Hutchinsons's method so that variance is reduced significantly.
+In this talk we focus on the effect of deflation on reducing the variance,
+and how it can complement Hierarchical Probing to achieve substantial further
+improvements.
+
+<P>
+Assume for simplicity that we want to find tr(<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+) (not tr(<IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A^{-1}$">
+)).
+Consider its singular value decomposition,
+<!-- MATH
+ $A = A_D + A_R = U_1\Sigma_1 V_1^T + U_2\Sigma_2 V_2^T$
+ -->
+<IMG
+ WIDTH="263" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ A = A_D + A_R = U_1\Sigma_1 V_1^T + U_2\Sigma_2 V_2^T$">
+
+where <!-- MATH
+ $A_D = U_1\Sigma_1 V_1^T$
+ -->
+<IMG
+ WIDTH="109" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ A_D = U_1\Sigma_1 V_1^T$">
+ corresponds to the largest <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ k$">
+
+singular triplets of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+.
+Clearly, the trace of <IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ A_D$">
+ is trivial to compute direclty.
+Thus, using the appropriate projector, we can apply Hutchinson's method
+on the deflated <!-- MATH
+ $A_R = U_2\Sigma_2 V_2^T$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A_R = U_2\Sigma_2 V_2^T$">
+, hoping this has lower variance.
+We prove that
+<P><!-- MATH
+ \begin{displaymath}
+\frac{1}{2} \operatorname{Var}(tr(A_R)) = \sum_{m=k+1}^N \sigma_m^2 -
+\sum_{m=k+1}^N \sum_{l=k+1}^N \sigma_m \sigma_l \Delta_{ml},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="368" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle \frac{1}{2} \operatorname{Var}(tr(A_R)) = \sum_{m=k+1}^N \sigma_m^2 -
+\sum_{m=k+1}^N \sum_{l=k+1}^N \sigma_m \sigma_l \Delta_{ml},
+$">
+</DIV><P>
+</P>
+where
+<!-- MATH
+ $\Delta_{ml} = \sum_{i=1}^N \bar{u}_{im} v_{im} u_{il} \bar{v}_{il}, \
+m,l = 1,\ldots ,N.$
+ -->
+<IMG
+ WIDTH="303" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \Delta_{ml} = \sum_{i=1}^N \bar{u}_{im} v_{im} u_{il} \bar{v}_{il}, \
+m,l = 1,\ldots ,N.$">
+
+To achieve variance reduction we need <!-- MATH
+ $\operatorname{Var}(tr(A_R)) <
+\operatorname{Var}(tr(A))$
+ -->
+<IMG
+ WIDTH="186" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \operatorname{Var}(tr(A_R)) &lt;
+\operatorname{Var}(tr(A))$">
+.
+Contrary to low rank matrix approximations, the term subtracting the double
+sum implies that deflation may not achieve this.
+In fact, it is easy to come up with such examples.
+The presence of <!-- MATH
+ $\Delta_{ml}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \Delta_{ml}$">
+ in the formula complicates a precise
+characterization of when we can expect variance reduction.
+A crude analysis shows that reduction is guaranteed if the singular
+spectrum decreases geometrically as
+<!-- MATH
+ $\sigma_{i+1} = 2^{-i}\sigma_1$
+ -->
+<IMG
+ WIDTH="96" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \sigma_{i+1} = 2^{-i}\sigma_1$">
+.
+However, this is pessimistic.
+
+<P>
+To bypass the complications caused by <!-- MATH
+ $\Delta_{ml}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \Delta_{ml}$">
+,
+we assume that <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ U$">
+ and <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ V$">
+ are standard random unitary matrices, i.e.,
+distributed with the Haar probability measure.
+For large size matrices this is a reasonable assumption, and it is also
+theoretically supported for matrices in Lattice QCD.
+Based on an analysis of the moments of the elements of these matrices, we have
+derived an expression for the expected variance of the deflated estimator.
+Define the mean and the variance of the <IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ N-k$">
+ singular values of <IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ A_R$">
+,
+<!-- MATH
+ $\mu_k =\frac{1}{N-k} \sum_{m=k+1}^{N}\sigma_m$
+ -->
+<IMG
+ WIDTH="164" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \mu_k =\frac{1}{N-k} \sum_{m=k+1}^{N}\sigma_m$">
+, and
+<!-- MATH
+ $V_k = \frac{1}{N-k} \sum_{m=k+1}^N (\sigma_m - \mu_k)^2$
+ -->
+<IMG
+ WIDTH="217" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ V_k = \frac{1}{N-k} \sum_{m=k+1}^N (\sigma_m - \mu_k)^2$">
+, respectively.
+Then, for non-Hermitian matrices it holds
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\frac{1}{2} E(\operatorname{Var}(t(A_R))) =
+(N-k) (1-\frac{1}{N}) (V_k + \mu_k^2)
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="320" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$\displaystyle \frac{1}{2} E(\operatorname{Var}(t(A_R))) = (N-k) (1-\frac{1}{N}) (V_k + \mu_k^2)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and for Hermitian matrices,
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\frac{1}{2} E(\operatorname{Var}(t(A_R))) =
+(N-k)\left( V_k \frac{N}{N+1} + \mu_k^2 \frac{k}{N+1} \right).
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="374" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$\displaystyle \frac{1}{2} E(\operatorname{Var}(t(A_R))) = (N-k)\left( V_k \frac{N}{N+1} + \mu_k^2 \frac{k}{N+1} \right).$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This theory facilitates an accurate prediction of the outcome of deflation
+based solely on the variance and the expectation of the undeflated singular values.
+For example, we can numerically confirm that it is sufficient that the singular
+values decrease at a rate faster than linear.
+In practice, the singular spectrum in Lattice QCD matrices decreases geometrically
+so deflation is expected to help.
+Surprisingly, non-Hermitian matrices benefit more than Hermitian matrices with
+the same singular value distribution.
+We have also observed that our model is extremely robust on general, non-random matrices.
+
+<P>
+The second contribution of the paper is that we observed a synergistic action
+between deflation and hierarchical probing.
+Specifically, we analyzed the geometric effect of the two methods and observed that
+while hierarchical probing removes, by design, the error in neighboring lattice nodes
+at increasing distances, deflation is not good at that but excels in removing error
+in long lattice distances.
+In our experiments on a very large Lattice QCD problem,
+while deflation alone gave a small improvement, Hierarchical Probing
+reduced variance by an order of magnitude, and
+combining the two methods gave us an additional order of magnitude;
+an overall speedup of more than 200.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

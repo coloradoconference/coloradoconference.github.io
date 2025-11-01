@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>oneill_ben_____097102</TITLE>
+<META NAME="description" CONTENT="oneill_ben_____097102">
+<META NAME="keywords" CONTENT="oneill_ben_____097102">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="oneill_ben_____097102.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Ben O'Neill 
+<BR><B>Multigrid Reduction in Time for Nonlinear Parabolic Equations </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">2210 Walnut St 
+<BR>
+Apt 1 
+<BR>
+Boulder Co 
+<BR>
+80302
+
+<BR><TT>ben.oneill@colorado.edu</TT>
+</DIV>
+
+<P>
+The need for parallelism in time is being driven by changes in computer
+architectures, where future speed-ups will be available through greater
+concurrency, not faster clock speeds. This leads to a bottleneck for
+sequential time marching schemes because they lack parallelism in the
+time dimension. Multigrid Reduction in Time (MGRIT) is an iterative
+procedure that allows for temporal parallelism by utilizing multigrid
+reduction techniques and a multilevel hierarchy of coarse time grids. The
+goal of this work is the efficient solution of nonlinear problems with
+MGRIT, where efficiency is defined as achieving similar performance when
+compared to an equivalent linear problem. When solving a linear problem,
+using implicit methods and optimal spatial solvers, e.g. classical
+multigrid, the spatial multigrid convergence rate is fixed across
+temporal levels, despite a large variation in time step sizes. This is
+not the case for nonlinear problems, where the work required increases
+dramatically on coarser time grids. By using a variety of strategies,
+most importantly, spatial coarsening and an alternate initial guess for
+the nonlinear solver, we reduce the work per time step evaluation over
+all temporal levels to a range similar to those of a corresponding linear
+problem. This allows for overall speedups comparable with those achieved,
+in previous work, for linear systems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

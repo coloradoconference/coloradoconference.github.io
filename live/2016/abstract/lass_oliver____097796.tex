@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Oliver Lass \\
+{\bf Robust optimization using a second order approximation technique in parametrized shape optimization }}
+
+Technische Universit\"at Darmstadt \\ Fachbereich Mathematik \\ Dolivostr 15 \\ 64293 Darmstadt \\ Germany
+\\
+{\tt lass@mathematik.tu-darmstadt.de}\\
+Stefan Ulbrich\end{center}
+
+A nonlinear constrained optimization problem with uncertain parameters is
+investigated. It is adressed by a robust worst-case formulation. The
+resulting optimization problem is of bi-level structure. This type of
+problems are difficult to treat numerically. We propose and investigate
+an approximate robust formulation that employs a quadratic approximation.
+For an efficient realization in application problems we will mix the
+introduced framework with a linear approximation when appropriate.
+
+The proposed strategy is then applied to the optimal placement of a
+permanent magnet in the rotor of a synchronous machine. The goal is to
+optimize the volume and position while maintaining a desired performance
+level. These quantities are computed from the magnetic vector potentials
+obtained by the magnetostatic approximation of Maxwell's equation with
+transient movement of the rotor. Permanent magnet synchronous machines
+can be described sufficiently accurate by this model. Hence we arrive at
+an optimization problem governed by a set of elliptic partial
+differential equations, where one PDE has to be solved for every rotor
+position.
+
+Due to manufacturing, there are uncertainties in material and production
+precision. Here the introduced robust optimization framework comes into
+play and accounts for uncertain model and optimization parameters. To
+speed up the computation in the optimization process reduced order models
+are developed. Numerical results are presented to validate the presented
+approach.
+
+
+\end{document}

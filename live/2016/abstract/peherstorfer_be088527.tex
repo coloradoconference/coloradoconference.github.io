@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Benjamin Peherstorfer \\
+{\bf Multifidelity Monte Carlo estimation with multiple surrogate models}}
+
+Department of Aeronautics \& Astronautics \\ Massachusetts Institute of Technology \\ 77 Massachusetts Avenue \\ Cambridge \\ MA 02139
+\\
+{\tt pehersto@mit.edu}\\
+Karen Willcox\\
+Max Gunzburger\end{center}
+
+We present an optimal model management strategy that exploits
+multifidelity surrogate models to accelerate the estimation of statistics
+of outputs of computationally expensive high-fidelity models. Existing
+acceleration methods typically exploit a multilevel hierarchy of
+surrogate models that follow a known rate of error decay and
+computational costs; however, a general collection of surrogate models,
+which may include projection-based reduced models, data-fit models,
+support vector machines, and simplified-physics models, does not
+necessarily give rise to such a hierarchy. Our multifidelity approach
+provides a framework to combine an arbitrary number of surrogate models
+of any type. Instead of relying on error and cost rates, an optimization
+problem balances the number of model evaluations across the high-fidelity
+and surrogate models with respect to error and costs. We show that a
+unique analytic solution of the model management optimization problem
+exists under mild conditions on the models. Our multifidelity method
+makes occasional recourse to the high-fidelity model; in doing so it
+provides an unbiased estimator of the statistics of the high-fidelity
+model, even in the absence of error bounds and error estimators for the
+surrogate models. Numerical experiments with linear and nonlinear
+examples show that speedups by orders of magnitude are obtained compared
+to Monte Carlo estimation that invokes a single model only.
+
+
+\end{document}

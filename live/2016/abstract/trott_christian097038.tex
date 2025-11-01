@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christian R. Trott \\
+{\bf Performance Portability for Linear Algebra with Kokkos}}
+
+1515 Eubank SE \\ Albuquerque \\ NM 87123
+\\
+{\tt crtrott@sandia.gov}\\
+H. Carter Edwards\end{center}
+
+Supporting high concurrency node architectures is most likely one of the
+defining challenges of the next few years not just for linear algebra
+libraries, but for scientific applications in general. A particular
+problem is how to support the different node architectures used in
+upcoming super computers, without writing multiple code implementations.
+Sandia's answer to address this issue is Kokkos, a programming model and
+its implementation as an embedded C++ library, which provides
+abstractions for parallel dispatch as well as managing hierarchical
+memory effectively.
+
+In this talk we will present the fundamental design and capabilities of
+Kokkos, and demonstrate its usage to implement performance portable
+linear algebra operations for the scientific library collection Trilinos.
+We will also show results from performance studies across multiple
+architectures including the prototype systems for upcoming super
+computers using Intel Xeon Phi processors and IBM Power processors with
+NVIDIA GPUs attached.
+
+
+\end{document}

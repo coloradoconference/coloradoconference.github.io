@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tristan Konolige \\
+{\bf Improved Adaptive Smoothed Aggregation}}
+
+College of Engineering and Applied Science \\ University of Colorado Boulder \\ 1111 Engineering Drive \\ ECOT 717 \\ 430 UCB \\ Boulder \\ CO 80309-0430 USA
+\\
+{\tt tristan.konolige@colorado.edu}\\
+Ben Southworth\\
+Delyan Kalchev\\
+Stephen McCormick\\
+Thomas Manteuffel\end{center}
+
+Smoothed Aggregation (SA) multigrid has proved to be a useful AMG method
+for solving discretizations of elliptic problems. However, SA requires
+knowledge of slow to converge near-nullspace vectors in order to achieve
+good performance. Previous work in adaptively finding near-nullspace
+vectors relied on heuristics and had trouble when near-nullspace vectors
+were too similar. Our improved version of Adaptive Smoothed Aggregation
+(aSA) uses a more principled approach to find near-nullspace vectors. By
+leveraging the Weak Approximation Property and global and local
+orthogonalization processes, we ensure that our candidates better match
+the near-nullspace vectors. We extend this method to find candidates on
+all multigrid levels. Our technique can be used as a tool to find
+near-nullspace vectors for developing new multigrid methods or as a stand
+alone solver for difficult problems.
+
+
+\end{document}

@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>gu_xianming____093481</TITLE>
+<META NAME="description" CONTENT="gu_xianming____093481">
+<META NAME="keywords" CONTENT="gu_xianming____093481">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="gu_xianming____093481.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Xian-Ming Gu 
+<BR><B>Nested Krylov subspace methods based on the Hessenberg procedure for shifted linear systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute of Mathematics and Computing Science 
+<BR>
+University of Groningen 
+<BR>
+Nijenborgh 9 
+<BR>
+P O Box 407 
+<BR>
+9700 AK Groningen 
+<BR>
+The Netherlands
+
+<BR><TT>guxianming@live.cn</TT>
+<BR>
+T.-Z.  Huang
+<BR>
+B. Carpentieri
+</DIV>
+
+<P>
+In many computational applications it is required to solve simultaneously
+shifted linear systems of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq1.1"></A><!-- MATH
+ \begin{equation}
+(A - \sigma_k I)x^{(k)} = b,\quad\ \sigma_k \in \mathbb{C},\quad k = 1,2,\ldots,s,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="328" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle (A - \sigma_k I)x^{(k)} = b,\quad \sigma_k \in \mathbb{C},\quad k = 1,2,\ldots,s,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $A\in \mathbb{C}^{n\times n}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A\in \mathbb{C}^{n\times n}$">
+ is a non-Hermitian matrix, <IMG
+ WIDTH="31" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ x^{(k)}$">
+
+is the unknown vector and <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ b$">
+ is the right-hand side, both of them are
+complex vectors of length <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ n$">
+. For instance, shifted linear systems arise
+in the solution of PageRank problems and the rational approximation of
+the action of a matrix function to a vector, i.e. <IMG
+ WIDTH="47" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ f(A)v$">
+, where <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ v$">
+ is
+an arbitrary vector with length <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ n$">
+.
+
+<P>
+In principle, a sequence of shifted linear systems (<A HREF="#eq1.1">1</A>) can be
+solved simultaneously at the cost of a single solve using shifted Krylov
+subspace methods (abbreviated as KSMs). These methods employ the property
+that Krylov subspaces are invariant under arbitrary diagonal shifts
+<IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \sigma$">
+ to the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A$">
+, i.e.,
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq1.2"></A><!-- MATH
+ \begin{equation}
+\mathcal{K}_m(A, b) = \mathcal{K}_m(A - \sigma I, b),\quad \forall m \in
+\mathbb{N}^+,\quad
+\forall \sigma \in \mathbb{C}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="352" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle \mathcal{K}_m(A, b) = \mathcal{K}_m(A - \sigma I, b),\quad \forall m \in \mathbb{N}^+,\quad \forall \sigma \in \mathbb{C}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+As we know, the restarted GMRES method is a widely popular choice for
+solving (<A HREF="#eq1.1">1</A>), refer to [<A
+ HREF="node1.html#AFUGR">1</A>]. The computed GMRES shifted
+residuals are not collinear in
+general after the first restart so that it loses the computational
+efficiency mentioned above. Consequently,
+certain enforcement has to be made to guarantee the computed GMRES
+shifted residuals collinear to each other in order to maintain the
+computational efficiency. Note that in this case,
+only the seed system satisfies the minimum residual property, the
+solution of the other shifted systems is not equivalent to GMRES applied
+to those systems, see [<A
+ HREF="node1.html#AFUGR">1</A>] for details. Moreover, another
+attractive approach is to use the restarted FOM method for solving the
+whole sequence
+of shifted linear systems simultaneously, for all residuals are naturally
+collinear [<A
+ HREF="node1.html#AFUGR">1</A>,<A
+ HREF="node1.html#VSRF">2</A>]. As a result, the computational efficiency
+can be maintained because the orthonormal basis and the Hessenberg matrix
+are required to be calculated only once each time.
+
+<P>
+However, both the restarted GMRES method and the restarted FOM method for
+(<A HREF="#eq1.1">1</A>) are inherently derived by the Arnoldi procedure, which
+tends to be expensive when <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ m$">
+ becomes large in aspects of memory and
+algorithmic cost. To alleviate these difficulties, our recent work
+[<A
+ HREF="node1.html#XMGTZH">5</A>] proposed a new iterative strategy with collinear residuals
+for solving sequence of shifted linear systems based on the Hessenberg
+process, which is similar but cheaper compared to the Arnoldi procedure.
+Our theoretical and numerical analyses indicate that iterative schemes
+referred to as <!-- MATH
+ $\mathtt{sHessen(m)}$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathtt{sHessen(m)}$">
+ may outperform the conventional
+shifted FOM method in aspects of iteration counts and CPU time. From the
+algorithmic property, it turns out that preserving orthonormality
+in the construction of the Krylov basis is sometimes not necessary for an
+efficient iterative solution of (<A HREF="#eq1.1">1</A>). This observation motivates
+us to extend the restarted Changing Minimal Residual method based on the
+Hessenberg process (CMRH) [<A
+ HREF="node1.html#HSCMRH">3</A>], which is similar
+to the restarted shifted GMRES method but much cheaper, for solving (<A HREF="#eq1.1">1</A>).
+
+<P>
+In practice, preconditioning shifted systems (<A HREF="#eq1.1">1</A>) is necessary
+to accelerate the convergence of shifted KSMs and this remains an open
+question, because standard preconditioning techniques may destroy the
+shift-invariance property (<A HREF="#eq1.2">2</A>). In this work, we construct an
+inner-outer scheme based on nested KSMs, where the inner solver is a
+multi-shift KSM (i.e., <!-- MATH
+ $\mathtt{sHessen(m)}$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathtt{sHessen(m)}$">
+) that acts as a
+preconditioner for an outer flexible CMRH (FCMRH) method. Our
+numerical experiments show that the new nested iterative scheme based on
+the Hessenberg procedure is very competitive, and sometimes superior,
+compared to the early established combination (FOM-FGMRES) in
+[<A
+ HREF="node1.html#MBMBG">4</A>] in terms of CPU time. In summary, in our presentation first
+we discuss the derivations of both the <!-- MATH
+ $\mathtt{sHessen(m)}$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathtt{sHessen(m)}$">
+ method
+[<A
+ HREF="node1.html#XMGTZH">5</A>] and the restarted shifted CMRH method. Then, we present
+their flexible variant combined with nested inner-outer iterative
+schemes, namely multi-shift Hessen-FCMRH.
+Meanwhile, extensive numerical experiments involving PageRank problems
+and numerical solutions of space(-time) fractional differential equations
+are reported to illustrate the effectiveness of the restarted shifted
+CMRH method and the Hessen-FCMRH method, respectively.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

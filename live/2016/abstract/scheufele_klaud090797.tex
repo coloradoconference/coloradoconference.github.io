@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Klaudius Scheufele \\
+{\bf Multi-Secant quasi-Newton Variants for Parallel Fluid-Structure Simulations -- and Other Multi-Physics Applications}}
+
+Institute for Parallel and Distributed Systems \\ University of Stuttgart \\ Universit‰tsstraﬂe 38 \\ D-70569 Stuttgart
+\\
+{\tt klaudius.scheufele@ipvs.uni-stuttgart.de}\\
+Miriam Mehl\end{center}
+
+Multi-secant quasi-Newton methods based on secant information produced
+with no overhead throughout subsequent solver
+iterations have been shown to be particularly suited to solve non-linear
+fixed-point equations that arise from
+partitioned multi-physics simulations where the exact Jacobian is
+inaccessible. In all these methods, the multi-secant
+equation for the approximate (inverse) Jacobian is enhanced by a norm
+minimization condition. It is well-known, that
+fluid-structure simulations, e.\,g., typically require the use of
+secant-information from previous time steps. The number
+of these time-steps highly depends on the application, its parameters,
+the used solvers, and the mesh resolution. Using
+to few leads to a relatively high number of iterations, using too many
+not only to a computational overhead but also to
+an increase of the number of iterations, as well. Determining the optimal
+number requires a costly try-and-error process,
+which can be avoided using a modified method that considers the difference of the
+current (inverse) Jacobian and the one of the previous time step in the
+norm-minimization. Thus, previous time step
+information is taken into account in an implicit and automatized way
+without magic parameters. We show numerical results
+for fluid-structure interactions for both methods proving the robustness
+and numerical efficiency of the second variant.
+In addition, we propose a new algorithm eliminating the drawback of
+having to store full interface Jacobian approximations
+for the Jacobian difference norm minimization. This results in a highly
+efficient, parallelizable, and robust iterative
+solver applicable for surface coupling in many types of multi-physics simulations.
+
+
+\end{document}

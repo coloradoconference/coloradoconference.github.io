@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>greene_patrick_098085</TITLE>
+<META NAME="description" CONTENT="greene_patrick_098085">
+<META NAME="keywords" CONTENT="greene_patrick_098085">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="greene_patrick_098085.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Patrick Greene 
+<BR><B>Newton's Method with Discontinuous Galerkin Projections Applied to Minimization Problems in Level Set Re-distancing and Weighted Condition Number Mesh Relaxation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">P O Box 808 
+<BR>
+L-405 
+<BR>
+Livermore 
+<BR>
+CA 94551
+
+<BR><TT>greene30@llnl.gov</TT>
+<BR>
+Robert Nourgaliev 
+<BR>
+Sam Schofield
+</DIV>
+
+<P>
+We demonstrate how Newton's method can be effectively combined with
+discontinuous Galerkin projections for minimization problems based on
+discretized quantities. Utilizing a discontinuous Galerkin projection
+provides a simple method to compute the derivatives needed for the
+Jacobian and Hessian since the derivatives are simply evaluated from the
+prescribed basis functions. The resulting projected function and its
+derivatives can then be used with Newton's method to solve the
+minimization problem. Two applications of the proposed method are shown.
+
+<P>
+The first application of the method is for re-distancing in a high-order
+unstructured mesh level set method. The re-distancing process requires
+finding the shortest distance from a given point to the zero contour of
+the level set. We introduced a new re-distancing algorithm, where this
+process is formulated as a constrained minimization problem with the
+level set represented as a discontinuous Galerkin projection. Static and
+dynamic front evolution results will be shown, confirming that the
+computed distance function maintains the same order of convergence as the
+level set projection.
+
+<P>
+The second application is weighted condition number (CN) mesh relaxation.
+CN mesh relaxation is used in arbitrary Lagrangian-Eulerian (ALE)
+simulations to prevent mesh tangling, which can result from the
+Lagrangian mesh motion. The method works by defining a condition number
+functional at each vertex, which is based on the near by cell geometries,
+and then iteratively minimizing the functional to find new vertex
+positions. The inclusion of a weight allows the mesh relaxer to
+concentrate mesh density near regions of interest. A new formulation of
+the weights using a discontinuous Galerkin projection is presented. The
+new method can cluster grid cells near interfaces prescribed by discrete
+cell-centered values, such as an index function or volume fraction.
+Sample meshes demonstrating the method’s ability to cluster cells around
+dynamically evolving complex geometries are given.
+
+<P>
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344. Information management release number LLNL-ABS-681162.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

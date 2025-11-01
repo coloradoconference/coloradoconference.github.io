@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bardsley_johnat089263</TITLE>
+<META NAME="description" CONTENT="bardsley_johnat089263">
+<META NAME="keywords" CONTENT="bardsley_johnat089263">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bardsley_johnat089263.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Johnathan M. Bardsley 
+<BR><B>Sampling from Bayesian Inverse Problems with L1-type Priors using Randomize-then-Optimize</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Math Sciences 
+<BR>
+University of Montana 
+<BR>
+32 Campus Drive
+
+<BR><TT>bardsleyj@mso.umt.edu</TT>
+<BR>
+Zheng Wang
+<BR>
+Cui Tiangang
+<BR>
+Youssef Marzouk
+<BR>
+Antti Solonen
+</DIV>
+
+<P>
+We focus on applications arising in inverse problems in which the
+measurement model has the form
+<P><!-- MATH
+ \begin{displaymath}
+y = F(\theta)+\epsilon,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="97" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle y = F(\theta)+\epsilon,
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ y$">
+ is the measurement vector; <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ F$">
+ is the forward model function
+with unknown parameters <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \theta$">
+; and <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \epsilon$">
+ denotes independent and
+identically distributed
+Gaussian measurement error, i.e., <!-- MATH
+ $\epsilon\sim N(0,\sigma^2 I)$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \epsilon\sim N(0,\sigma^2 I)$">
+.
+Then the probability density function for the measurements <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ y$">
+ given the
+unknown parameters <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \theta$">
+ is given by
+<P><!-- MATH
+ \begin{displaymath}
+p(y|\theta)\propto\exp\left(-\frac{1}{2\sigma^2}\Vert y-F(\theta)\Vert^2_2\right),
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="249" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle p(y\vert\theta)\propto\exp\left(-\frac{1}{2\sigma^2}\Vert y-F(\theta)\Vert^2_2\right),
+$">
+</DIV><P>
+</P>
+where `<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \propto$">
+' denotes proportionality. In Bayesian inverse problems,
+one also assumes a <EM>prior</EM> probability density function <IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ p(\theta)$">
+,
+which incorporates both prior knowledge and uncertainty about the unknown
+parameters <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \theta$">
+. In this talk, we focus on the case in which
+the prior <IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ p(\theta)$">
+ is of L1-type, i.e.,
+<P><!-- MATH
+ \begin{displaymath}
+p(\theta)\propto \exp\left(-\lambda \Vert D\theta\Vert_1\right).
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="167" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle p(\theta)\propto \exp\left(-\lambda \Vert D\theta\Vert_1\right).
+$">
+</DIV><P>
+</P>
+Such priors include the total variation prior and the Besov <!-- MATH
+ $B_{1,1}^s\;$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ B_{1,1}^s\;$">
+ space priors.
+With these two probability models (<!-- MATH
+ $p(y|\theta)$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ p(y\vert\theta)$">
+ and <IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ p(\theta)$">
+) in
+hand, by Bayes' Law, the <EM>posterior</EM> density function has the form
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+p(\theta|y)&\propto& p(y|\theta)p(\theta)\\
+&\propto& \exp\left(-\frac{1}{2\sigma^2}\Vert
+y-F(\theta)\Vert^2_2-\lambda \Vert D\theta\Vert_1\right).
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle p(\theta\vert y)$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \propto$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="74" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle p(y\vert\theta)p(\theta)$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \propto$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="260" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle \exp\left(-\frac{1}{2\sigma^2}\Vert
+y-F(\theta)\Vert^2_2-\lambda \Vert D\theta\Vert_1\right).$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Regardless of the form of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ F$">
+, <!-- MATH
+ $p(\theta|y)$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ p(\theta\vert y)$">
+ is non-Gaussian due to the
+presence of the L1-norm. Moreover, in inverse problems, <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \theta$">
+ is
+high-dimensional. Taken together,
+these challenges make the problem of sampling from <!-- MATH
+ $p(\theta|y)$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ p(\theta\vert y)$">
+ - which
+is a requirement if one wants to perform uncertainty quantification -
+difficult.
+To overcome this, we extend the Randomize-then-Optimize (RTO) method,
+which was recently developed for posterior sampling when <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ F$">
+ above is
+nonlinear and <IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ p(\theta)$">
+ is Gaussian.
+The extension of RTO to the L1-type prior case requires a variable
+transformation, which turns <IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ p(\theta)$">
+ into a Gaussian probability
+density
+in the transformed variables, thus allowing for the application of RTO.
+In this talk, we will begin by presenting the RTO method, and then its
+extension to the L1-type prior case via the variable transformation.
+Several numerical experiments will also be presented to illustrate the
+approach and the resulting Markov Chain Monte Carlo method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

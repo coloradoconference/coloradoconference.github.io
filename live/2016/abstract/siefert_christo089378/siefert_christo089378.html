@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>siefert_christo089378</TITLE>
+<META NAME="description" CONTENT="siefert_christo089378">
+<META NAME="keywords" CONTENT="siefert_christo089378">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="siefert_christo089378.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christopher M. Siefert 
+<BR><B>Won't you be my neighbor? A look at neighbor discovery for algebraic multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+MS 1322 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1322
+
+<BR><TT>csiefer@sandia.gov</TT>
+</DIV>
+
+<P>
+At the core of many MPI-based codes, including almost all MPI-based PDE codes,
+is the idea of a ``neighbor'' -- the list processors to whom
+point-to-point messages get sent and from whom they are received.
+Thus, one of the very first bits of parallel code an implementer must
+develop (or borrow from elsewhere) is code that does arbitrary
+neighbor discovery. More specifically, this code answers the
+question, ``Who owns a particular degree of freedom?'' This code is necessary for
+things as mundane as assembling sparse matrices and performing
+matrix-vector products. Thus a non-trivial
+literature has developed on performing arbitrary neighbor discovery
+with minimum storage and message cost. With such a tool in the
+proverbial toolbox, it is not uncommon for the arbitrary neighbor
+discovery code to be used again and again -- even for problems where
+additional information is available to make neighbor discovery <I>not</I> so
+arbitrary.
+
+<P>
+In this talk we will focus neighbor discovery in two (related)
+computational kernels involved in the setup phase of algebraic
+multigrid -- migration of sparse matrices between processors and sparse
+matrix-matrix multiplication. We will show that for these kernels,
+passing additional information during point-to-point communication
+can allow one to perform neighbor discovery more efficiently.
+For these kernels, it can be performed using a number of
+messages and amount of storage independent of the number of processors
+(assuming that the number of neighbors is bounded independently).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>carlberg_kevin_096966</TITLE>
+<META NAME="description" CONTENT="carlberg_kevin_096966">
+<META NAME="keywords" CONTENT="carlberg_kevin_096966">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="carlberg_kevin_096966.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kevin Carlberg 
+<BR><B>Applying model reduction to Krylov-subspace recycling: the POD-augmented conjugate-gradient method</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">7011 East Ave 
+<BR>
+MS 9159 
+<BR>
+Livermore 
+<BR>
+CA 94550
+
+<BR><TT>ktcarlb@sandia.gov</TT>
+<BR>
+Virginia Forstall
+<BR>
+Ray Tuminaro
+</DIV>
+
+<P>
+This talk presents a new Krylov-subspace-recycling method for efficiently
+solving sequences of linear systems of equations characterized by varying
+right-hand sides and symmetric-positive-definite matrices. As opposed to
+typical truncation strategies used in recycling such as deflation, we propose
+a truncation method based on a technique from nonlinear model reduction:
+goal-oriented proper orthogonal decomposition (POD).
+
+<P>
+This idea is inspired by the observation that model reduction aims to compute a
+low-dimensional subspace that contains an <I>accurate</I> solution; as such,
+we expect the proposed method to generate a low-dimensional subspace that is
+well suited for computing solutions that can satisfy <I>inexact</I>
+tolerances. In particular, we propose specific goal-oriented POD `ingredients'
+that align the optimality properties of POD with the objective of
+Krylov-subspace recycling.
+
+<P>
+To efficiently compute solutions in the resulting `POD-augmented' Krylov
+subspace, we propose a novel hybrid direct/iterative three-stage method that
+leverages 1) the optimal ordering of POD basis vectors, and 2)
+well-conditioned reduced matrices. Numerical experiments performed on
+solid-mechanics problems highlight the benefits of the proposed method over
+existing approaches for Krylov-subspace recycling.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

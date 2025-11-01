@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniela Calvetti \\
+{\bf Statistically inspired preconditioned iterative solvers for ill-posed linear systems}}
+
+Case Western Reserve University \\ MAMS Department \\ 10900 Euclid Ave \\ Cleveland \\ OH 44118
+\\
+{\tt dxc57@case.edu}\\
+Erkki Somersalo\\
+Jamie Prezioso\\
+Francesca Pitolli\\
+Barbara Vantaggi\end{center}
+
+The solution of ill-posed linear systems via iterative methods is a
+versatile tool to account for qualitative features that are believed to
+characterize the solution when recasting the problem in a probabilistic
+framework where every unknown is modeled as a random variable. In this
+talk we show how to use a hierachical model and anatomical features of
+the brain to design a class of right preconditioners for the solution of
+the severely underdetermined inverse problem of magnetoenchephalography.
+These preconditioners depend on a set of parameters that are estimated
+together with the unknown of primary interest. In the general setup, the
+parameters can be interpreted as the variances of the entries of the
+unknown, with a higher parameter value indicating that the corresponding
+solution entry may have a value significantly different from the nearby
+entries.
+The algorithm for estimating the unknown and the parameters in the
+preconditioner is an iterative alternating scheme (IAS) which updates
+alternatively one of the two set of unknowns, while keeping the other
+fixed. The IAS algorithm can be computationally very efficient: the
+updating of the unknown requires the solution of a least squares problem,
+while an explicit formula can be used to update the parameters when they
+are assumed to follow a Gamma distribution. Moreover, the IAS algorithm
+is globally convergent and it can be shown that one of the two parameters
+of the Gamma distribution can be tuned to promote sparsity. A
+statistically motivated criterion for stopping the iteration in the
+solution of the least squares problems is also presented.
+
+
+\end{document}

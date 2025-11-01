@@ -1,0 +1,64 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew Canning \\
+{\bf Hybrid OpenMP/MPI Conjugate Gradient Iterative Eigensolver for First-principles Plane Wave Electronic Structure Codes on Many-core Architectures }}
+
+LBNL MS-50F \\ One Cyclotron Road \\ Berkeley \\ CA 94720 \\ USA
+\\
+{\tt acanning@lbl.gov}\end{center}
+
+Density Functional Theory (DFT) based First-principles materials science
+codes using plane waves
+(PW Fourier basis) have become the largest user, by method, of computer
+cycles at scientific computer centers around
+the world. At NERSC (National Energy Research Scientific Computing
+Center) an estimated 17% of the total
+cycles are used by DFT-PW codes such as VASP, Quantum Espresso, Abinit,
+PEtot, PARATEC etc.
+These codes commonly use conjugate gradient based iterative eigensolvers
+to solve the density functional theory based
+approximation to the many-body Schrodinger Equation (usually the Kohn-Sham form).
+In this approach 3D FFTs are used to move between real and Fourier space
+to construct the matrix-vector product
+such that the different parts of the Hamiltonian matrix are calculated in
+the space where they are sparse.
+The parallel scaling of the 3D FFTs in the conjugate gradient solver is
+particularly challenging as rather than one large grid,
+as is the case in other scientific applications using spectral methods,
+we have many medium sized grids
+(one for each electronic state) which can limit scaling. We therefore
+developed a specialized hybrid OpenMP/MPI
+version of the 3D FFT to scale efficiently on modern many-core platforms.
+
+Overall the conjugate gradient solver uses a two level parallelization
+scheme where the high level parallelization
+divides the eigenvectors (electronic states) among groups of nodes and
+then within a group each eigenvector is
+divided among the nodes. OpenMP and threading is then used to parallelize
+the solver on the node while MPI is
+used for the communications between the nodes. Details of how OpenMP and
+threading is used to parallelize the 3D FFT
+and other parts of the solver will be given in the talk.
+We will present results for the complete code as well as separately for
+the 3D FFT on the many-core architecture
+Intel MIC Xeon NERSC computers Edison (Cray XC30 with 12 core Intel Ivy
+Bridge Xeon) and Cori phase one (Cray with 16 core
+Intel Haswell Xeon).
+By sending fewer larger messages the hybrid OpenMP/MPI
+version of the 3D FFT significantly outperforms the pure MPI version on
+large core count many-core architectures
+allowing the solver to scale efficiently to 10,000s of cores. This work
+was done in collaboration with L-W Wang, J. Shalf,
+N.J. Wright (LBNL), M. Gajbe (NCSA) and S. Anderson (Cray Inc.).
+This research used resources of the National Energy Research Scientific
+Computing Center, which is supported by
+the Office of Science of the U.S. Department of Energy under Contract No.
+DE-AC02-05CH11231.
+
+
+\end{document}

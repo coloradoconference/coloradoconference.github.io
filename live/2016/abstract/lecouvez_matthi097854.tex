@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthieu Lecouvez \\
+{\bf A parallel-in-time algorithm for variable stepsize multistep methods}}
+
+Lawrence Livermore National Laboratory \\ 7000 east avenue \\ L-561 \\ Livermore \\ CA 94550
+\\
+{\tt matthieu.lecouvez@gmail.com}\\
+Rob, D. Falgout\\
+Carol, S. Woodward\end{center}
+
+As the number of cores increases on current and future architectures, the
+natural sequential approach to time integration is becoming a more
+serious bottleneck for achieving high scalability. One alternative to
+overcome this problem is the use of multigrid-in-time algorithms such as
+MGRIT [1]. Although first designed for one-step methods, we apply the
+MGRIT algorithm to multistep BDF methods for the integration of fully
+implicit {\em Differential Algebraic Equations} (DAE) on variable
+timestep grids. Our step function solves the nonlinear problem
+\begin{equation}
+F\left(t_n,y_n,\dot{y}_n\right)=0,\quad \dot{y}_n=\sum_{j=0}^s \alpha_{n,j}\,y_{n-j},
+\end{equation}
+where $s$ is the order of the BDF method used, and the coefficients
+$\alpha_{n,j}$ depend on the order $s$ and the previous timestep sizes.
+We will present one approach for implementing variable stepsize BDF
+methods in a parallel-in-time context based on the XBraid software
+library. Results on power grid applications will also be given.\\
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under contract
+DE-AC52-07NA27344. Lawrence Livermore National Security, LLC.
+LLNL-ABS-681082.
+\begin{itemize}
+\item[1] R. D. Falgout, S. Friedhoff, T. V. Kolev, S. P. MacLachlan, and
+J. B. Schroder, ``Parallel time integration with multigrid'', {\em SIAM
+J. Sci. Comput.}, vol. 36, no 6, pp. C635--C661, 2014, ILNL-JRNL-645325.
+\end{itemize}
+
+
+\end{document}

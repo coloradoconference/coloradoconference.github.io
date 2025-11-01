@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>brazell_michael098761</TITLE>
+<META NAME="description" CONTENT="brazell_michael098761">
+<META NAME="keywords" CONTENT="brazell_michael098761">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="brazell_michael098761.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Michael J. Brazell 
+<BR><B>Scalable Non-linear Solution Techniques for Higher-Order Accurate Finite-Element Reynolds-Averaged Navier-Stokes Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mechanical Engineering 
+<BR>
+University of Wyoming 
+<BR>
+Laramie 
+<BR>
+WY 82071 
+<BR>
+USA
+
+<BR><TT>mbrazell@uwyo.edu</TT>
+<BR>
+Dimitri J. Mavriplis
+<BR>
+Behzad R. Ahrabi
+</DIV>
+
+<P>
+Although second-order accurate finite-volume methods for structured and
+unstructured grids are well established as the dominant approach for
+solving the Reynolds-averaged Navier-Stokes (RANS) equations for the
+simulation of turbulent flow problems, interest in higher-order
+finite-element discretizations has been growing over the last decade.
+Considered methods include both continuous and discontinuous Galerkin
+discretizations, with the continuous methods being based on the
+streamwise-upwind Petrov Galerkin approach (SUPG). The advantages of
+these discretizations include the use of a nearest neighbor stencil,
+straight forward extension to high-order accuracy, and the generation of
+dense computations kernels that are more suitable for emerging exascale
+architectures. However, the resulting non-linear equations that must be
+solved for steady-state and time-implicit RANS problems have proven to be
+much stiffer and more difficult to converge efficiently and robustly.
+
+<P>
+In this work we examine several non-linear solution techniques for SUPG
+and DG discretizations of the RANS equations with a single equation
+turbulence model. The approach relies on a preconditioned Newton-Krylov
+method, where the exact Jacobian of the discretization is assembled and
+used in the GMRES phase of the Newton Krylov solver. Incomplete
+factorization (ILU) with various levels of fill is used as a
+preconditioner, as well as simpler and more scalable approaches such as
+line preconditioning where lines are extracted from the Jacobian matrix
+using a graph algorithm. Non-linear continuation is incorporated into the
+solver by controlling the pseudo time step applied to the diagonal of the
+Jacobian matrix, while a line search is used to ensure suitable
+non-linear updates for the Newton solver. We compare the performance and
+scalability of the current approach with the performance of similar and
+other multigrid solvers applied to traditional second-order accurate
+finite-volume unstructured mesh RANS discretizations, and discuss
+possible future avenues for improving the efficiency and scalability of
+higher-order RANS solvers.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Johnathan M. Bardsley \\
+{\bf Sampling from Bayesian Inverse Problems with L1-type Priors using Randomize-then-Optimize}}
+
+Math Sciences \\ University of Montana \\ 32 Campus Drive
+\\
+{\tt bardsleyj@mso.umt.edu}\\
+Zheng Wang\\
+Cui Tiangang\\
+Youssef Marzouk\\
+Antti Solonen\end{center}
+
+We focus on applications arising in inverse problems in which the
+measurement model has the form
+$$
+y = F(\theta)+\epsilon,
+$$
+where $y$ is the measurement vector; $F$ is the forward model function
+with unknown parameters $\theta$; and $\epsilon$ denotes independent and
+identically distributed
+Gaussian measurement error, i.e., $\epsilon\sim N(0,\sigma^2 I)$.
+Then the probability density function for the measurements $y$ given the
+unknown parameters $\theta$ is given by
+$$
+p(y|\theta)\propto\exp\left(-\frac{1}{2\sigma^2}\Vert y-F(\theta)\Vert^2_2\right),
+$$
+where `$\propto$' denotes proportionality. In Bayesian inverse problems,
+one also assumes a {\em prior} probability density function $p(\theta)$,
+which incorporates both prior knowledge and uncertainty about the unknown
+parameters $\theta$. In this talk, we focus on the case in which
+the prior $p(\theta)$ is of L1-type, i.e.,
+$$
+p(\theta)\propto \exp\left(-\lambda \Vert D\theta\Vert_1\right).
+$$
+Such priors include the total variation prior and the Besov $B_{1,1}^s\;$ space priors.
+With these two probability models ($p(y|\theta)$ and $p(\theta)$) in
+hand, by Bayes' Law, the {\em posterior} density function has the form
+\begin{eqnarray*}
+p(\theta|y)&\propto& p(y|\theta)p(\theta)\\
+&\propto& \exp\left(-\frac{1}{2\sigma^2}\Vert
+y-F(\theta)\Vert^2_2-\lambda \Vert D\theta\Vert_1\right).
+\end{eqnarray*}
+Regardless of the form of $F$, $p(\theta|y)$ is non-Gaussian due to the
+presence of the L1-norm. Moreover, in inverse problems, $\theta$ is
+high-dimensional. Taken together,
+these challenges make the problem of sampling from $p(\theta|y)$ -- which
+is a requirement if one wants to perform uncertainty quantification --
+difficult.
+To overcome this, we extend the Randomize-then-Optimize (RTO) method,
+which was recently developed for posterior sampling when $F$ above is
+nonlinear and $p(\theta)$ is Gaussian.
+The extension of RTO to the L1-type prior case requires a variable
+transformation, which turns $p(\theta)$ into a Gaussian probability
+density
+in the transformed variables, thus allowing for the application of RTO.
+In this talk, we will begin by presenting the RTO method, and then its
+extension to the L1-type prior case via the variable transformation.
+Several numerical experiments will also be presented to illustrate the
+approach and the resulting Markov Chain Monte Carlo method.
+
+
+\end{document}

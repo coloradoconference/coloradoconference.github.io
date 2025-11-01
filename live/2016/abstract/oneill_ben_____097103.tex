@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ben O'Neill \\
+{\bf Multigrid Reduction in Time for Nonlinear Parabolic Equations }}
+
+2210 Walnut St \\ Boulder Co \\ 80302
+\\
+{\tt ben.oneill@colorado.edu}\end{center}
+
+The need for parallelism in time is being driven by changes in computer
+architectures, where future speed-ups will be available through greater
+concurrency, not faster clock speeds. This leads to a bottleneck for
+sequential time marching schemes because they lack parallelism in the
+time dimension. Multigrid Reduction in Time (MGRIT) is an iterative
+procedure that allows for temporal parallelism by utilizing multigrid
+reduction techniques and a multilevel hierarchy of coarse time grids. The
+goal of this work is the efficient solution of nonlinear problems with
+MGRIT, where efficiency is defined as achieving similar performance when
+compared to an equivalent linear problem. When solving a linear problem,
+using implicit methods and optimal spatial solvers, e.g. classical
+multigrid, the spatial multigrid convergence rate is fixed across
+temporal levels, despite a large variation in time step sizes. This is
+not the case for nonlinear problems, where the work required increases
+dramatically on coarser time grids. By using a variety of strategies,
+most importantly, spatial coarsening and an alternate initial guess for
+the nonlinear solver, we reduce the work per time step evaluation over
+all temporal levels to a range similar to those of a corresponding linear
+problem. This allows for overall speedups comparable with those achieved,
+in previous work, for linear systems.
+
+
+\end{document}

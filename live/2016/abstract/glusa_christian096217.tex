@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christian Glusa \\
+{\bf Resilience Analysis for Multigrid Methods}}
+
+Division of Applied Mathematics \\ 182 George Street \\ Brown University \\ Providence \\ RI 02912
+\\
+{\tt christian\_glusa@brown.edu}\\
+Mark Ainsworth\end{center}
+
+With the the advent of exascale computing expected within the next few
+years, the number of components in a system will continue to grow. The
+error rate per individual component is unlikely to improve, however,
+meaning that future high performance computing will be faced with faults
+occurring at significantly higher rates than present day installations.
+Therefore, the resilience properties of numerical methods will become
+important factors in both the choice of algorithm and in its analysis.
+
+In this talk we present a framework for the analysis of linear iterative
+methods in a fault-prone environment. The effects of random node failures
+are taken into account through a probabilistic model involving random
+diagonal matrices. Using this model, we analyze the behavior of two- and
+multigrid methods under random node failures. Our results show that while
+standard multigrid is not resilient, protecting the prolongation leads to
+a fault-resilient variant. Both analytic convergence estimates for these
+methods and simulation results will be discussed.
+
+This is joint work with Mark Ainsworth.
+
+
+\end{document}

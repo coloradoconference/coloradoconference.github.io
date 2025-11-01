@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Masha Sosonkina \\
+{\bf Multilevel Variable-Block based preconditioning offloaded to Xeon Phi accelerators}}
+
+Old Dominion University \\ 1300 ECSB \\ 4700 Elkhorn Ave \\ Norfolk VA 23529
+\\
+{\tt masha.sosonkina@acm.org}\\
+Bruno Carpentieri\\
+Yiming Bu\end{center}
+
+In this talk, we consider a recently proposed variable-block variant
+VBARMS of the ARMS preconditioner for solving general nonsymmetric linear
+systems. This preconditioner can detect automatically exact or
+approximate dense structures in a matrix to improve reliability and
+throughput during factorization. We show how offloading parts of VBARMS
+to Xeon Phi
+accelerators may speed up the preconditioner construction by revealing a
+high-degree of the parallelism. We compare the resulting performance and
+convergence with a parallel VBARMS and distributed Schur-Complement
+preconditioner on large turbulent-flow test cases.
+
+
+\end{document}

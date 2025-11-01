@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel Szyld \\
+{\bf Asynchronous Optimized Schwarz Methods for the solution of PDEs}}
+
+Temple University \\ Department of Mathematics \\ 1805 N Broad St \\ Philadelphia PA 19122
+\\
+{\tt szyld@temple.edu}\\
+Fr\'ederic Magoul\'es\\
+Cedric Venet\end{center}
+
+Asynchronous methods are parallel iterative procedures where each process
+performs its task without waiting for other processes to be completed.
+For the numerical solution of a general PDE on a domain,
+Schwarz iterative methods use a decomposition
+into two or more (overlapping) subdomains.
+In the classical formulation, Dirichlet boundary conditions are used
+on the artificial interfaces.
+Given an initial approximation, the method
+progresses by solving the PDE in
+each subdomain using as boundary data on the artificial interfaces
+the values of the solution on the neighboring subdomain from the previous step.
+This procedure is inherently parallel.
+For optimized Schwarz, the boundary conditions on the artificial interfaces are
+of Robin or mixed type.
+Thus, one can optimize the Robin parameter(s) obtaining a very fast method.
+
+We present an asynchronous version of the optimized Schwarz method
+for the solution of differential equations on a parallel computational environment.
+In a one-way subdivision of the computational domain, with overlap,
+the method is shown to converge
+when the optimal artificial interface conditions are used.
+Convergence is also proved under very mild conditions on the size of the subdomains,
+when approximate (non-optimal) interface conditions are utilized.
+Numerical results are presented on large three-dimensional problems
+illustrating the efficiency of the proposed
+asynchronous parallel implementation of the method.
+
+
+\end{document}

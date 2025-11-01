@@ -1,0 +1,154 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrea Franceschini \\
+{\bf Multilevel Approaches for FSAI Preconditioning}}
+
+Department of Civil and Environmental Engineering \\ University of Padova \\ via Trieste 63 \\ 35121 Padova (Italy)
+\\
+{\tt andrea.franceschini@dicea.unipd.it}\\
+Victor, A. Magri\\
+Carlo Janna\\
+Massimiliano Ferronato\end{center}
+
+The solution of a large size sparse linear system of equations
+\begin{equation}
+\mathbf{A} x = b,
+\end{equation}
+where $\mathbf{A}$ is a SPD matrix, requires the use of iterative methods based on Krylov
+subspaces. It is well known, however, that the use of these methods alone generally
+provide poor convergence. This can be remedied by using their preconditioned form, which
+requires the definition of a preconditioner, i.e., a linear transformation that
+approximates the action of $\mathbf{A}^{-1}$.
+
+In this paper, two new preconditioners built upon the dynamic FSAI algorithm
+[Janna et al., 2015] are considered: the BTFSAI - Block Tridiagonal Factorized Sparse
+Approximate Inverse - and the DDFSAI - Domain Decomposition Factorized Sparse Approximate
+Inverse. The first one is based on the successive application of the FSAI
+algorithm on the
+matrix reordered in a block tridiagonal structure and the second one is based on the
+combination of a two level domain decomposition approach and the FSAI preconditioner,
+which is used for computing the approximate inverse of the inner
+submatrices and the Schur
+complement.
+
+In the Block Tridiagonal preconditioner - BTFSAI - the matrix $\mathbf{A}$ is first
+reordered by the reverse Cuthill-McKee algorithm, with the aim to reduce its bandwidth,
+and then it is divided into a block tridiagonal structure according to a given number
+of blocks. After that, the block LDU decomposition of this new matrix is calculated
+where the inverses of the diagonal blocks are approximated explicitly by the adaptive
+FSAI algorithm.
+
+With this approach, the global matrix is subdivided into small blocks, that should be
+approximated with less effort. Though this method is intrinsically sequential,
+parallelism can be exploited for each block by the use of the FSAI algorithm.
+Calling $\mathbf{A}_i$ the SPD diagonal submatrix and $\mathbf{B}_i$ the upper diagonal
+submatrix of the $i-th$ block, the block LDU decomposition reads
+
+\footnotesize
+\begin{equation}
+\mathbf{A} =
+\begin{bmatrix}
+\mathbf{I}_1 & & & \\
+\mathbf{B}^T_1 \mathbf{S}^{-1}_1 & \mathbf{I}_2 & & \\
+& \ddots & \ddots & \\
+& & \mathbf{B}^T_{n-1} \mathbf{S}^{-1}_{n-1} & \mathbf{I}_{n}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{S}_1 & & & \\
+& \mathbf{S}_2 & & \\
+& & \ddots & \\
+& & & \mathbf{S}_n
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{I}_1 & \mathbf{S}^{-1}_1 \mathbf{B}_1 & & \\
+& \mathbf{I}_2 & \mathbf{S}^{-1}_2 \mathbf{B}_2 & \\
+& & \ddots & \ddots \\
+& & & \mathbf{I}_n
+\end{bmatrix}
+\end{equation}
+\normalsize
+where
+\begin{equation}
+\mathbf{S}_i = \mathbf{A}_i - \mathbf{B}^T_{i-1} \mathbf{S}^{-1}_{i-1}
+\mathbf{B}_{i-1}, \qquad \qquad i = 2
+\dots n,
+\end{equation}
+is the $i-th$ block Schur complement and $\mathbf{S}_1 = \mathbf{A}_1$,
+by definition. Let
+$\mathbf{S}^{-1}_i = \mathbf{F}^T_i \mathbf{F}_i$ be the approximate
+inverse of the Schur complement
+computed by the adaptive FSAI algorithm and let the matrix $\mathbf{H}_i$ be equal to the
+product $\mathbf{F}_i \mathbf{B}_i$, it follows that the Schur complement recursively as
+$\mathbf{S}_i = \mathbf{A}_i - \mathbf{H}^T_{i-1} \mathbf{H}_{i-1}$.
+Using these relations,
+the approximate inverse of the matrix $\mathbf{A}$ reads
+\footnotesize
+\begin{equation}
+\mathbf{A}^{-1} \approx \mathbf{M}^{-1} =
+\begin{bmatrix}
+\mathbf{F}^T_1 & - \mathbf{F}^T_1 \mathbf{H}_1 \mathbf{F}^T_2 & & \\
+& \mathbf{F}^T_2 & - \mathbf{F}^T_2 \mathbf{H}_2 \mathbf{F}^T_3 & \\
+& & \ddots & \ddots \\
+& & & \mathbf{F}^T_n
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{F}_1 & & & \\
+- \mathbf{F}_2 \mathbf{H}^T_1 \mathbf{F}_1 & \mathbf{F}_2 & & \\
+& \ddots & \ddots & \\
+& & -\mathbf{F}_n \mathbf{H}^T_{n-1} \mathbf{F}_{n-1} & \mathbf{F}_n \\
+\end{bmatrix}.
+\end{equation}
+\normalsize
+The main drawback of this approach is the need of computing $n - 1$ Schur complements
+along with their FSAI approximations. While theoretically these matrices should be SPD,
+the use of approximate inverses may cause the loss of this property. Indeed, for some
+matrices, we can have indefinite Schur complements if the approximate inverses are not
+accurate enough. In this case, the construction of the preconditioner should be restarted
+allowing for a larger number of nonzero entries per row.
+
+Roughly speaking, domain decomposition refers to a number of techniques which solve a
+problem defined on a large domain $\Omega$ via the solution of smaller problems defined
+over subdomains $\Omega_k, k = 1,\ldots,n$. Each problem can be solved independently and
+the solutions can be gathered to build the outcome of the original problem.
+
+In the domain decomposition FSAI preconditioner - DDFSAI - the graph of the original
+matrix is reordered according to the k-way partition algorithm implemented in the METIS
+software library. With this method, the number of edges connecting a subdomain to the
+others is minimized, thus reducing the pieces of information that need to be communicated
+among different blocks. At the same time, the size of subdomains is kept to be
+approximately of the same order in favour of providing a good load
+balance among different
+threads, which are going to work in one or possibly more blocks. After this, each
+independent block of the matrix is reordered according to the reverse Cuthill-McKee
+algorithm in order to reduce its bandwidth.
+
+The algorithm for constructing the DDFSAI preconditioner is almost the same as BTFSAI
+restricted to two blocks, with the only difference consisting in the initial ordering of
+the matrix, which in the current case uses the METIS library besides of the reverse
+Cuthill-McKee ordering.
+
+The results show that the BTFSAI technique is very promising in terms of decreasing
+the total number of iterations and time for achieving the solution. Further, with
+the DDFSAI technique, the computational pain is smaller, but stability and scalability
+are generally better. We remark that these strategies are under development and
+further computational improvements are being addressed, for instance a hybrid
+MPI/OpenMP implementation.
+
+\section*{References}
+M. Benzi. Preconditioning techniques for large linear systems: A survey. {\em Journal
+of Computational Physics}, 182(2):418 { 477, 2002.
+
+C. Janna and M. Ferronato. Adaptive pattern research for block FSAI preconditioning.
+SIAM J. Sci. Comput., 33, 2011.
+
+C. Janna, M. Ferronato, F. Sartoretto, and G. Gambolati. FSAIPACK: A software package
+for high-performance factored sparse approximate inverse preconditioning. {\em ACM
+Trans. Math. Softw.}, 41(2):10:1{10:26, February 2015.
+
+
+\end{document}

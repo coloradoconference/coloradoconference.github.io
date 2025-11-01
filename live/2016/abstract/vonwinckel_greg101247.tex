@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Greg von Winckel \\
+{\bf Reduced and Full Space Methods in Topology Optimization: Applications in Linear Elasticity and Electrical Conduction}}
+
+Sandia National Laboratories \\ MS 1318 \\ Albuquerque \\ NM 87185
+\\
+{\tt gvonwin@sandia.gov}\\
+Eric C.  Cyr\\
+Thomas Gardiner\\
+Drew Kouri\\
+Denis Ridzal\\
+John Shadid\end{center}
+
+Topology optimization is a method which aims to compute a spatial
+distribution of materials to optimize a
+design figure of merit. A standard such problem appears in the design of
+truss structures where the physics
+are linear elasticity and the intention is to optimize load compliance.
+We also consider the problem of
+designing electrical conduits in a two port network with topology
+optimization. While this appears to be
+a straightforward problem, it presents challenges due to an effective
+lack of uniqueness of the solution
+arising from extreme differences in conductivity in the structure. A
+regularization method to obtain
+physically desirable solutions is introduced.
+
+Commonly topology optimization problems are solved using mesh-dependent
+approaches such as the Method of
+Moving Asymptotes which addresses the problem of the inherently concave
+objective functions by making a
+sequence of convex approximations. With large scale optimization problems
+constrained by complex partial
+differential equations, more standard optimization approaches such as SQP
+and interior point methods have
+been demonstrated to have superior convergence properties[1].
+
+In this work we explore solution of elasticity and conductive network
+topology optimization problems in the full
+space setting with an interior point method using successively penalized
+SQP solves and a reduced space method
+using trust region methods with bound constraints. The optimization is
+carried out using the Rapid Optimization
+Library (ROL), a modular C++ package that is part of the Trilinos suite
+of scientific computing tools.
+Solution of general inequality constrained problems and implementation of
+efficient preconditioners is
+an area of active development within ROL.
+
+[1] Susana Rojas-Labanda and Mathias Stolpe,
+Benchmarking optimization solvers for structural topology
+optimization, Struct. Multidisc. Optim. (2015) 52:527–547
+
+
+\end{document}

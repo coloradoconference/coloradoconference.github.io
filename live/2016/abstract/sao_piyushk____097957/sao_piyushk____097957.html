@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sao_piyushk____097957</TITLE>
+<META NAME="description" CONTENT="sao_piyushk____097957">
+<META NAME="keywords" CONTENT="sao_piyushk____097957">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sao_piyushk____097957.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Piyush K Sao 
+<BR><B>Scalable Sparse Direct Solver for Hybrid Architecture</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">RM#1343 
+<BR>
+266 ferst Dr NW 
+<BR>
+Atlanta GA 30318
+
+<BR><TT>piyush3@gatech.edu</TT>
+<BR>
+Xiaoye S.  Li 
+<BR>
+Richard W. Vuduc
+</DIV>
+
+<P>
+We present new algorithmic techniques for improving the scalability
+and efficiency of sparse direct solvers, specifically for distributed
+memory systems comprised of hybrid multicore CPU systems and hardware
+co-processors. This work extends the algorithm in SUPERLU_DIST, which is
+both right-looking and statically pivoted.
+
+<P>
+First, we present a novel algorithm for exploiting intra-node
+co-processors, which we call the HALO (Highly Asynchronous Lazy Offload)
+algorithm. HALO combines highly aggressive use of asynchrony with
+accelerated offload, lazy updates, and data shadowing (a la halo or ghost
+zones). These techniques hide and reduce communication, whether to local
+memory, across the network, or over PCIe. We evaluated our implementation
+on both NVIDIA GPUs and Intel Xeon-Phi accelerated systems. We use
+various realistic test problems for both single-node and multi-node
+configurations, finding that our implementation achieves
+speedups of up to 2.5x over an already efficient multicore CPU implementation.
+
+<P>
+Secondly, we present new algorithmic techniques to improve the
+scalability of sparse direct solvers at high core counts. Our techniques
+aggressively exploit elimination tree parallelism and replicate data to
+reduce per process communication volume. The net effect is to overlap
+communication with computation. We give preliminary experimental results
+that show the efficacy of these techniques.
+
+<P>
+Beyond sparse direct solvers, we believe our proposed techniques can
+apply to wide range of other sparse linear algebra computations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

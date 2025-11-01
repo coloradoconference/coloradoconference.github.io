@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Fei Xue \\
+{\bf A factorized sparse approximate inverse preconditioner for symmetric indefinite linear systems}}
+
+Maxim Doucet 419 \\ Department of Mathematics \\ University of Louisiana at Lafayette \\ Lafayette \\ LA 70503
+\\
+{\tt fxue@louisiana.edu}\\
+Sam Karbet\end{center}
+
+We propose a factorized sparse approximate inverse preconditioner for
+large real symmetric and indefinite linear systems. Factorized
+approximate inverse preconditioners have been developed and used
+successfully for symmetric positive definite and many nonsymmetric linear
+systems, but it remains challenging to construct effective
+preconditioners of this type in the symmetric and indefinite setting. In
+this study, we show that whether the coefficient matrix is close to
+diagonally dominant tends to have a greater impact on the density of
+factorized approximate inverses than the inertia itself. To enhance the
+diagonal dominance, we use HSL's symmetric MC64 subroutine for
+preprocessing, which scales and relocates large entries to super- and
+sub-diagonals near the diagonal. Our main incomplete conjugation
+algorithm uses the Bunch-Kauffman partial pivoting. A
+sparsest-columns-first dynamic reordering is proposed and shown effective
+for maintaining the sparsity of the factorized preconditioners. Numerical
+results are provided to illustrate the effectiveness of the new
+preconditioner and its potential to be a competitive alternative to
+incomplete LDL$^\mathrm{T}$ preconditioners, especially on parallel
+computers.
+
+
+\end{document}

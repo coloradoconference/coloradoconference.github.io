@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sumedh Joshi \\
+{\bf A deflated Schur complement method for the iterative solution of a high-order discontinuous element discretization of the Poisson equation}}
+
+657 Rhodes Hall \\ Cornell University \\ Ithaca \\ NY \\ 14850
+\\
+{\tt smj96@cornell.edu}\\
+Peter Diamessis\end{center}
+
+A combination of block-Jacobi and deflation preconditioning is used to
+solve a high-order discontinuous element-based collocation discretization
+of the Schur complement of the Poisson-Neumann system as arises in the
+operator splitting of the incompressible Navier-Stokes equations.
+The ill-posedness of the Poisson-Neumann system manifests as an
+inconsistency of the Schur complement problem, but it is shown that this
+can be accounted for with appropriate projections out of the null space
+of the Schur complement matrix without affecting the accuracy of the
+solution. The block-Jacobi preconditioner, combined with deflation, is
+shown to yield GMRES convergence independent of the polynomial order of
+expansion within an element. Finally, while the number of GMRES
+iterations does grow as the element size is reduced (e.g.
+$h$-refinement), the dependence is very mild; the number of GMRES
+iterations roughly doubles as the element size is divided by a factor of
+six. In light of these numerical results, the deflated Schur complement
+approach seems practicable, especially for high-order methods given its
+convergence independent of polynomial order.
+
+
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stefan M Wild \\
+{\bf Manifold Sampling for L1 Nonconvex Optimization}}
+
+Argonne National Laboratory \\ Mathematics and Computer Science Division \\ 9700 S Cass Ave \\ Bldg 240-1151 \\ Lemont \\ IL 60439
+\\
+{\tt wild@anl.gov}\\
+Jeffrey Larson\\
+Matt Menickelly\end{center}
+
+We introduce the \emph{manifold sampling} algorithm for
+unconstrained minimization of
+a nonsmooth composite function $h\circ F$. By classifying points in the domain
+of $h$ into manifolds, the algorithm adapts search directions within a
+trust-region framework based
+on knowledge of manifolds
+intersecting the current trust region.
+
+We motivate this idea through a study of $\ell_1$ functions, where the
+classification into manifolds using zero-order information about the
+constituent functions $F_i$ is trivial.
+In this case, we show that both deterministic and stochastic versions of the
+algorithm generate cluster points that are Clarke stationary.
+
+
+Since the manifold sampling algorithm only requires approximations of the
+Jacobian $\nabla F$ at the trust-region center, the algorithm can also address
+situations where $F$ is defined by a simulation for which such derivative
+information may not be available.
+We present numerical results for different variants of the algorithm and
+show that
+using manifold information from points near the current iterate can improve
+empirical performance.
+
+
+\end{document}

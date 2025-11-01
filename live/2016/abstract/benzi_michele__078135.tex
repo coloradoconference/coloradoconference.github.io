@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michele Benzi \\
+{\bf Numerical solution of differential equations on graphs}}
+
+Department of Mathematics and Computer Science \\ Emory University \\ 400 Dowman Drive \\ Atlanta \\ GA 30322 \\ USA
+\\
+{\tt benzi@mathcs.emory.edu}\end{center}
+
+Diffusion-type models on graphs and networks have been widely used to
+model phenomena such as consensus and belief propagation in social
+networks. These simple models usually involve only combinatorial graphs,
+possibly weighted, and lead to systems of ODEs involving the graph
+Laplacian. More sophisticated models may be obtained by studying
+evolution processes on metric graphs, and
+replacing the graph Laplacian with a more general differential operator,
+leading to a PDE on the graph. Now not only initial conditions but also
+interface conditions at the vertices must be supplied.
+
+In this talk I will discuss
+the numerical solution of differential equations posed on graphs or networks.
+More specifically, the talk is concerned with
+quantum graphs, which are metric graphs endowed with a self-adjoint
+differential operator (Hamiltonian)
+acting on functions defined on the graph's edges with
+suitable side conditions. I will describe and analyze the use of
+a linear finite element method for computing steady-state
+solutions first.
+The solution of the discrete equations is achieved by means of a
+(non-overlapping) domain decomposition approach.
+For model elliptic problems and a wide class of graphs, we show that
+a combination of Schur complement reduction and diagonally preconditioned
+conjugate gradients results in optimal complexity.
+
+I will also discuss the solution of diffusion-type problems
+using exponential integrators based on Krylov subspace methods.
+
+Numerical results will be presented for both regular and
+scale-free graph topologies.
+
+This is joint work with Mario Arioli (University of Wuppertal).
+
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jacob B. Schroder \\
+{\bf Multigrid Reduction in Time: Recent theoretical results}}
+
+Lawrence Livermore National Laboratory
+\\
+{\tt schroder2@llnl.gov}\\
+R. Falgout\\
+Tz. Kolev\\
+U. Yang\\
+V. Dobrev\\
+A. Petersson\end{center}
+
+The need for parallel-in-time is being driven by changes in computer
+architectures, where future speedups will be available through greater
+concurrency, but not faster clock speeds, which are stagnant. This leads
+to a bottleneck for sequential time marching schemes, because they lack
+parallelism in the time dimension. In this talk, we examine an
+optimal-scaling parallel time integration method,
+multigrid-reduction-in-time (MGRIT). MGRIT applies multigrid to the time
+dimension by solving the (non)linear systems that arise when solving for
+multiple time steps simultaneously. The result is a versatile approach
+that is nonintrusive and wraps existing time evolution codes. In this
+talk, we present the MGRIT framework and then discuss some recent
+theoretical convergence results. Some typical simplifying assumptions are
+made, such as a two-grid method, uniform time-line and constant
+coefficient PDE. The convergence estimates are then explored in a variety
+of settings, including common parabolic and hyperbolic spatial
+discretizations coupled with implicit Runge-Kutta time-stepping schemes.
+Overall, the convergence estimates are sharp when compared to numerical
+experiments and are good predictors of multilevel results.
+
+
+\end{document}

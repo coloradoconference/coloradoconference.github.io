@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Alyson, L Fox \\
+{\bf Numerical Methods for Gremban's Expansion of Signed Graphs}}
+
+782 30th Street \\ Boulder \\ CO 80303
+\\
+{\tt fox.alyson@gmail.com}\end{center}
+
+Signed graphs are an interesting subset of the typical graph problem.
+They not only show how two vertices can be positively related but also
+how negative relations as well. Data scientists have studied linear
+solvers for unsigned, undirected graph Laplacians at length, but the
+supplementary knowledge of signed graphs, gives current solvers
+difficulty. Gremban's Expansion \cite{GrembanPHD} can be used to
+transform the signed, undirected graph Laplacian into an unsigned,
+undirected graph Laplacian. The solution to the linear system of the
+expanded matrix yields the solution to the linear system of the original
+matrix. Unsigned, undirected graph Laplacian solvers have been shown to
+be robust, thus, using Gremban's Expansion, current solvers can also
+solve the signed, undirected graph Laplacian linear system. This paper
+delves into the numerical stability and applicability of Gremban's
+expansion for signed graph Laplacians. A tight error bound for Gremban's
+expansion for a symmetric linear system is shown. It is also shown that
+Gremban's expansion can be extended to nonsymmetric graph Laplacians.
+Both manufactured and real-world signed, undirected graph Laplacians are
+tested with various solvers to show that the expansion is numerically
+stable.
+
+
+\end{document}

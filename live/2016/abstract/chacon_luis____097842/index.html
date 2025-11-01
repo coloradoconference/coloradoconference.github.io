@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chacon_luis____097842</TITLE>
+<META NAME="description" CONTENT="chacon_luis____097842">
+<META NAME="keywords" CONTENT="chacon_luis____097842">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chacon_luis____097842.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html7"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html8"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Luis Chacon 
+<BR><B>An optimal, fully implicit algorithm for the low-beta extended MHD model </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>chacon@lanl.gov</TT>
+<BR>
+Adam Stanier
+</DIV>
+
+<P>
+The low-<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \beta$">
+ extended magnetohydrodynamics (low-<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \beta$">
+ XMHD)
+model is obtained by taking the large-guide-field and cold-ion limit
+of the extended MHD model. The resulting model is appealing owing
+to its simplicity (it is a small set of scalar equations), and because
+it describes a wide range of laboratory magnetic confinement devices,
+the solar corona, and other astrophysical plasmas in which large guide
+fields are present.
+
+<P>
+However, the numerical integration of the low-<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \beta$">
+ XMHD system
+is non-trivial due to the presence of disparate time and length scales,
+which demand both spatial adaptivity and efficient implicit integration
+methods for efficiency. The large time-scale disparity originates
+in the presence of fast dispersive waves, which result in significant
+numerical stiffness and the need of high-order dissipation operators
+to prevent numerical noise in nonlinear regimes. Both dispersive hyperbolic
+systems and high-order differential operators stress numerical algorithms,
+and benefit from an implicit treatment.
+
+<P>
+Despite the relevance of the low-<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \beta$">
+ XMHD system in the study
+of magnetized plasmas, to our knowledge there is scant effort devoted
+towards the development of modern, efficient implicit algorithms for
+the numerical solution of the low-<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \beta$">
+ XMHD model. There are several
+efforts in the literature record that employ implicit timestepping,<A NAME="tex2html1"
+  HREF="footnode.html#foot28"><SUP>1</SUP></A><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ ^{,}$">
+<A NAME="tex2html2"
+  HREF="footnode.html#foot29"><SUP>2</SUP></A><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ ^{,}$">
+<A NAME="tex2html3"
+  HREF="footnode.html#foot30"><SUP>3</SUP></A> but only the latter reference makes some effort to characterize the
+solver performance. It employs a Newton-Krylov-Schwarz implicit parallel
+solver, with incomplete ILU methods with various degrees of overlap
+in each parallel domain. Performance is quite sensitive to the domain
+overlap, and iteration count is quite high, but scales reasonably
+well in parallel. Reported speedups with respect to explicit approaches
+are at most of an order of magnitude for a 1980<IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \times$">
+1980 mesh.
+
+<P>
+The focus of this paper is to demonstrate an efficient, optimal nonlinearly
+implicit algorithm for the low-<IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \beta$">
+ XMHD model. The approach uses
+Jacobian-free Newton-Krylov (JFNK) methods, effectively preconditioned
+using physics-based approximations of the Jacobian system that are
+multigrid-friendly, and therefore deliver optimal convergence rates.
+The preconditioning approach presented here leverages earlier developments
+of effective physics-based preconditioners for MHD<A NAME="tex2html4"
+  HREF="footnode.html#foot31"><SUP>4</SUP></A> and extended MHD,<A NAME="tex2html5"
+  HREF="footnode.html#foot32"><SUP>5</SUP></A> and in particular employs a similar parabolization strategy to that
+presented in these studies. We demonstrate the performance of the
+algorithm with challenging numerical examples. In particular, we demonstrate
+optimal scaling under mesh refinement, and CPU speedups with respect
+to explicit methods of 2 to 3 orders of magnitude even for moderate
+meshes (256<IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \times$">
+256). We apply the algorithms to the problem of
+fast reconnection in the large-guide-field regime to derive new physical
+insight for this challenging problem.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html9"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html7"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html8"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

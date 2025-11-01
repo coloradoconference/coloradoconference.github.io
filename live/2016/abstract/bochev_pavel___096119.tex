@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Pavel Bochev \\
+{\bf Optimization-based additive decomposition of weakly coercive problems with applications to iterative solver design}}
+
+Center for Computing Research \\ Sandia National Laboratories \\ P O Box 5800 \\ MS 1320 \\ Albuquerque \\ NM 87185-1320
+\\
+{\tt pbboche@sandia.gov}\\
+Denis Ridzal\end{center}
+
+We present an abstract mathematical framework for an optimization-based
+additive decomposition of a large class of variational problems into a
+collection of concurrent subproblems. The framework replaces a given
+monolithic problem by an \emph{equivalent} constrained optimization
+formulation in which the subproblems define the optimization constraints
+and the objective is to minimize the mismatch between their solutions.
+The significance of this reformulation stems from the fact that one can
+solve the resulting optimality system by an iterative process involving
+only solutions of the subproblems. Consequently, assuming that stable
+numerical methods and efficient solvers are available for every
+subproblem, our reformulation leads to robust and efficient numerical
+algorithms for a given monolithic problem by breaking it into subproblems
+that can be handled more easily. An application of the framework to the
+Oseen equations illustrates its potential.
+
+
+\end{document}

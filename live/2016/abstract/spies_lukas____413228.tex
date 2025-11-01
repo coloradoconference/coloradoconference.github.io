@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lukas Spies \\
+{\bf Structured-grid Multigrid for Taylor-Hood finite elements}}
+
+Department of Mathematics and Statistics \\ Memorial University of Newfoundland \\ St John's NL \\ A1C 5S7 \\ Canada
+\\
+{\tt Lukas.Spies@mun.ca}\\
+Scott MacLachlan\\
+Thomas Benson\\
+Luke Olson\end{center}
+
+Recent years have seen renewed interest in the numerical solution of the
+Stokes Equations. While many preconditioning approaches ignore the
+underlying mesh geometry, our approach is to develop a structured-grid
+implementation, taking advantage of the highly structured data-access
+patterns and employing stencil-based calculations. This opens up many
+opportunities for fine-grained parallelism, allowing us to take advantage
+of multicore and accelerated architectures. In this talk, we discuss
+progress to date in (parallel) implementation and optimisation of a
+structured-grid monolithic Multigrid approach for Q2-Q1 finite-element
+discretisations on structured meshes.
+
+
+\end{document}

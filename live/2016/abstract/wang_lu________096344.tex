@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lu Wang \\
+{\bf An Algebraic Multigrid Solver for Fully-Implicit Solution Methods in Reservoir Simulation}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ Livermore \\ CA 94550 \\ Mail Code: L-561
+\\
+{\tt wang84@llnl.gov}\\
+Daniel Osei-Kuffuor\\
+Robert Falgout\\
+Ilya D. Mishev\end{center}
+
+The linearized equations of oil reservoir simulations often
+yield a complex Jacobian linear system that is challenging
+to solve by iterative methods. We present our efforts to develop an
+AMG-preconditioned Krylov method for directly
+solving the original discretized system. The preconditioner
+is designed to represent the coupling between the physical variables and
+account for the underlying physics of the
+system. We present performance results for the solver on
+challenging applications emerging from reservoir simulations.
+
+
+\end{document}

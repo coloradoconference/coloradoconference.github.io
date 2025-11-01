@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel F Martin \\
+{\bf Solver Challenges in AMR Ice Sheet Modeling }}
+
+Lawrence Berkeley National Laboratory \\ Mail Stop 50A-1148 \\ 1 Cyclotron Rd \\ Berkeley \\ CA 94720
+\\
+{\tt dfmartin@lbl.gov}\\
+Mark Adams\\
+Stephen Cornford\end{center}
+
+Ice sheets are a prime candidate for adaptive mesh refinement (AMR) due
+to the combination of localized regions which demand very fine spatial
+resolution, like ice streams and grounding lines, combined with large
+quiescent regions where such fine resolution represents a waste of
+computational effort.
+BISICLES is a scalable ice-sheet model built on the Chombo framework
+which uses block-structured AMR to dynamically refine the computational
+mesh where needed to resolve the wide range of dynamical scales found in
+ice sheets.
+We use a formulation of the momentum balance based on the
+vertically-integrated treatment of Schoof and Hindmarsh, which produces a
+nonlinear coupled elliptic system which must be solved repeatedly to
+compute the ice velocity field.
+The combination of local refinement and the particular non-Newtonian
+character of ice produces unique challenges solving this system of
+equations. We have adopted a hybrid Picard-JFNK approach to the nonlinear
+system.
+While geometric multigrid (GMG) is a natural fit with AMR methods, it has
+struggled with the linear systems some of our applications produce,
+particularly in the case of marine ice sheets, leading us to explore
+applications of algebraic multigrid (AMG) schemes to AMR.
+
+
+\end{document}

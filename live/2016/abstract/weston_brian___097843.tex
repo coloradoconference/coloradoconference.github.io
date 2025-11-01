@@ -1,0 +1,62 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Brian Weston \\
+{\bf Physics-Based Preconditioning for a Newton-Krylov Framework in a High-Order rDG-based Navier-Stokes Solver }}
+
+Lawrence Livermore National Laboratory (LLNL) \\ Livermore \\ CA 94551
+\\
+{\tt weston8@llnl.gov}\\
+Robert Nourgaliev\\
+Jean-Pierre Delplanque\end{center}
+
+We investigate the preconditioning of an all-speed Navier-Stokes solver,
+based on the orthogonal-basis reconstructed Discontinuous Galerkin (rDG)
+method, and integrated using high-order, fully implicit time
+discretization schemes. The work is motivated by laser-induced phase
+change applications, particularly the selective laser melting (SLM)
+process in additive manufacturing. Simulations of the SLM process require
+precise tracking of multi-material solid-liquid-gas interfaces, due to
+laser-induced melting/solidification and evaporation/condensation of
+metal powder in an ambient gas. These rapid density variations and phase
+change processes tightly couple the governing equations, requiring a
+fully compressible framework to robustly capture the rapid density
+variations of the ambient gas and the melting/evaporation of the metal
+powder.
+
+The governing equations are discretized up to 4th-order accuracy with our
+rDG spatial discretization scheme and up to 5th-order accuracy with
+L-stable fully implicit time discretization schemes (BDF2 and ESDIRK3-5).
+The resulting set of non-linear equations is solved using a robust
+Newton-Krylov method, with the Jacobian-free version of the GMRES solver
+for linear iterations. Due to the stiffness of the underlying physics
+associated with fast acoustic waves and thermal and viscous/material
+strength effects, GMRES must be preconditioned.
+To accelerate the convergence of the Newton-GMRES solver, we employ a
+semi-implicit, physics-based operator split preconditioner (PBP) with a
+p-multigrid approach. While physics-based operator-split preconditioning
+has been successfully deployed in the past for finite volume based
+Navier-Stokes solvers, using a p-multigrid technique for the
+preconditioning of DG-based solvers is relatively new, especially in the
+context of the Jacobian-free Newton Krylov (JFNK) methodology.
+
+We investigate different options to split the governing equations for the
+linearized residuals, rendering a reduced set of the approximate Jacobian
+as the preconditioning matrix. In addition, we explore different
+stationary iterative methods as well as the ordering of the physics
+(block) degrees of freedom. We demonstrate that our JFNK-PBP framework
+converges for high CFL numbers on classic benchmark problems in fluid
+dynamics (lid-driven cavity flow and natural convection heat transfer) as
+well as for laser-induced phase change problems in 2D and 3D.
+
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344.
+
+
+\end{document}

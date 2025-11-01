@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Maxim Olshanskii \\
+{\bf ILU preconditioners for non-symmetric saddle point matrices with application to the incompressible Navier--Stokes equations}}
+
+Department of Mathematics \\ University of Houston \\ 651 PGH Houston \\ Texas 77204
+\\
+{\tt molshan@math.uh.edu}\end{center}
+
+The talk focuses on threshold incomplete LU factorizations for
+non-symmetric saddle point matrices. The research is motivated by the
+numerical solution of the linearized incompressible Navier--Stokes
+equations. The resulting preconditioners are used to accelerate the
+convergence of a Krylov subspace method applied to finite element
+discretizations of fluid dynamics problems in three space dimensions. We
+shall discuss the stability of the factorization for generalized saddle
+point matrices and consider an extension for non-symmetric matrices of
+the Tismenetsky--Kaporin incomplete factorization. We demonstrate that in
+numerically challenging cases of higher Reynolds number flows one
+benefits from using this two-parameter modification of a standard
+threshold ILU preconditioner. The performance of the ILU preconditioners
+is studied numerically for a wide range of flow and discretization
+parameters, and the efficiency of the approach is shown if threshold
+parameters are chosen suitably. The practical utility of the method is
+further demonstrated for the haemodynamic problem of simulating a blood
+flow in a right coronary artery of a real patient.
+
+
+\end{document}

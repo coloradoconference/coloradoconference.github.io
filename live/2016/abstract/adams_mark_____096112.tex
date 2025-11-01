@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large MARK ADAMS \\
+{\bf Experimental investigation of the asymptotics of segmental refinement multigrid}}
+
+Lawrence Berkeley National Laboratory \\ 609 Gott St \\ Ann Arbor MI 48103
+\\
+{\tt mfadams@lbl.gov}\\
+Matt Knepley\end{center}
+
+We introduce the segmental refinement (SR) method of Brandt and Diskin
+(1994) for reducing communication latency costs within a standard
+distributed memory Top/Textbook Multigrid Efficiency (TME) cell centered
+full multigrid solver of the model problem. We discuss memory models
+appropriate for understanding SR and discuss future multilevel version of
+SR. We revisit data that suggesting a buffer schedule that provides a TME
+solver and present new convergence studies, with this buffer schedule
+with up to over 4 trillion cells, using higher order boundary conditions
+and prolongation than the original study. We corroborate that this buffer
+schedule does in fact provide a TME solver. Two additional talks in this
+session will discuss theoretical analysis of SR and evanescent data SR of
+Brandt (ca. 1975).
+
+
+\end{document}

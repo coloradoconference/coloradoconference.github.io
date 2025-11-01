@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Kookjin Lee \\
+{\bf A PRECONDITIONED LOW-RANK PROJECTION METHOD WITH A RANK-REDUCTION SCHEME FOR STOCHASTIC PARTIAL DIFFERENTIAL EQUATIONS}}
+
+Department of Computer Science \\ University of Maryland \\ College Park \\ MD 20742
+\\
+{\tt klee@cs.umd.edu}\\
+Howard Elman\end{center}
+
+We consider the numerical solution of the large systems of linear
+equations obtained from the stochastic Galerkin formulation of stochastic
+partial differential equations. We propose an iterative algorithm that
+exploits Kronecker product structure of the linear systems. Solutions in
+such settings often have a special low-rank structure, and Krylov
+subspace methods have been developed to take advantage of this property
+by truncating various terms constructed during the course of the
+iteration. We show here that the costs of truncation can be reduced by
+identifying an important subspace in the stochastic domain and compresses
+tensors of high rank on the fly during the iterations. The proposed
+reduction scheme is a multilevel method in that the important subspace
+can be identified in a coarse spatial grid setting. In addition, we
+construct preconditioners for the linear operators in tensor product
+format that accelerates the convergence of the low-rank iterative
+algorithms. The efficiency of the proposed method is illustrated by
+numerical experiments on benchmark problems.
+
+
+\end{document}

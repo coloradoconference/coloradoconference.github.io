@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>howell_garyw___095275</TITLE>
+<META NAME="description" CONTENT="howell_garyw___095275">
+<META NAME="keywords" CONTENT="howell_garyw___095275">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="howell_garyw___095275.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Gary W. Howell 
+<BR><B>LU Preconditioning for Iterative Solution of Overdetermed Sparse Least Squares Problems </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">512 Farmington Woods Dr Cary NC 27511
+
+<BR><TT>gwhowell@ncsu.edu</TT>
+<BR>
+Marc Baboulin 
+</DIV>
+
+<P>
+We investigate how to use an <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+ factorization with the classical <TT>lsqr</TT> routine for solving overdetermined sparse least squares problems.
+Usually <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ is much better conditioned than <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+. Thus iterating with <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+
+instead of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ results in faster convergence.
+Numerical experiments using Matlab illustrate the good behavior of our
+algorithm in terms of storage and convergence.
+This paper explores a preliminary shared memory implementation using
+SuperLU factorization.
+
+<P>
+We consider the overdetermined full rank LLS problem
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:llsp"></A><!-- MATH
+ \begin{equation}
+\min_{x \in \mathbb{R}^n} \neucs{Ax - b},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="91" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \min_{x \in \mathbb{R}^n} \neucs{Ax - b},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <!-- MATH
+ $A \in \mathbb{R}^{m \times n}, m \geq n$
+ -->
+<IMG
+ WIDTH="129" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A \in \mathbb{R}^{m \times n}, m \geq n$">
+ and <!-- MATH
+ $b \in \mathbb{R}^m$
+ -->
+<IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ b \in \mathbb{R}^m$">
+.
+When <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ is sparse, direct methods based on <IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ QR$">
+ factorization or the
+normal equations are not always suitable because the <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ R$">
+ factor or <IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+
+can be dense.
+A common iterative method to find the least squares solution <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ x$">
+
+is to solve the normal equations
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:ne"></A><!-- MATH
+ \begin{equation}
+A^TAx = A^Tb,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="102" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle A^TAx = A^Tb,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+by applying the conjugate gradient (CG) algorithm to <IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+. In this case the matrix
+<IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+ does not need to be explicitly formed, avoiding possible fill-in
+in the formation of <IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+.
+
+<P>
+with other sparse linear systems, preconditoning techniques based on
+incomplete factorizations can improve convergence. One method to
+precondition the normal equations&nbsp;(<A HREF="#eq:ne"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is to perform an
+incomplete Cholesky decomposition of <IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+ (e.g., RIF preconditioner,
+Benzi, 2003).
+
+<P>
+When <IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+ and its Cholesky factorization are denser than <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+, it is
+natural to wonder if the <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+ factorization of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ can be used in solving
+the least squares problem. In this paper we use an <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+ factorization of
+the rectangular matrix <!-- MATH
+ $A=\left(
+\begin{array}{c}
+A_1\\
+A_2\\
+\end{array}
+\right)$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="54" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{displaymath}A=\left(
+\begin{array}{c}
+A_1\\
+A_2\\
+\end{array}\right)
+\end{displaymath}">
+ where <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ is unit lower trapezoidal and <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ U$">
+ is upper triangular.
+For the nonpivoting case, the normal equations&nbsp;(<A HREF="#eq:ne"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) become
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:neL"></A><!-- MATH
+ \begin{equation}
+L^TLy=c,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="77" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle L^TLy=c,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <!-- MATH
+ $c = L^T b, U x = y$
+ -->
+<IMG
+ WIDTH="119" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ c = L^T b, U x = y $">
+, and we can apply CG iterations on&nbsp;(<A HREF="#eq:neL"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>).
+
+<P>
+Least squares solution using <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+ factorization has been explored by
+several authors. Peters and Wilkinson (1970) and Bj&#246;rck and Duff (1980)
+give direct methods. This work follows Bj&#246;rck and Yuan (1999) using
+conjugate gradient methods based on <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+ factorization, an approach worth
+revisiting because of the recent progress in sparse <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+ factorization.
+The lsqrLU (2015) algorithm presented here uses a lower trapezoidal <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+
+returned from a direct solver package. Here we use an <IMG
+ WIDTH="86" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ LU = PAQ$">
+
+factorization from shared memory SuperLU (X. LI 2005), comparing
+iteration with <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ to the <IMG
+ WIDTH="46" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ U^{-1}A$">
+ iteration suggested by Saunders.
+Because other direct solver packages offer scalable sparse <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ LU$">
+
+factorizations, it appears likely that the algorithm used here can also
+be used to solve larger problems.
+The rate of linear convergence for CG iterations on the normal equations is
+<P><!-- MATH
+ \begin{displaymath}
+K = \frac {\kappa - 1 }{\kappa + 1},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="85" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle K = \frac {\kappa - 1 }{\kappa + 1},$">
+</DIV><P>
+</P>
+where <!-- MATH
+ $\kappa=\sqrt{\cond(A^TA)}=\cond(A)$
+ -->
+<IMG
+ WIDTH="143" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \kappa=\sqrt{\cond(A^TA)}=\cond(A)$">
+ and <IMG
+ WIDTH="29" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \cond(A)$">
+ denotes the
+2-norm condition number of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ (ratio of largest and smallest singular
+values of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+).
+In our experiments, <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ is often much better conditioned than <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+, so
+convergence of the CG method is relatively rapid. Moreover, the total
+number of nonzeros
+in <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ and <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ U$">
+ is usually less than in the sparse Cholesky factorization of
+<IMG
+ WIDTH="38" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ A^TA$">
+.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

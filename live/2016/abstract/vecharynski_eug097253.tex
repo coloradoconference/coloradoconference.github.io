@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eugene Vecharynski \\
+{\bf Symmetric indefinite systems, positive definite preconditioning, and interior eigenvalues}}
+
+Computational Research Division \\ Lawrence Berkeley National Laboratory \\ 1 Cyclotron Road \\ Berkeley \\ CA 94720 \\ USA
+\\
+{\tt evecharynski@lbl.gov}\\
+Andrew Knyazev\end{center}
+
+We present the Preconditioned Locally Harmonic Residual (PLHR) method for
+computing a subset of interior eigenvalues and their associated
+eigenvectors of a large, possibly sparse, symmetric matrix. The method is
+based on a short-term block recurrence, with iteration coefficients given
+by the $T$-harmonic Rayleigh--Ritz procedure. PLHR does not require
+traditional spectral transformations, matrix factorizations, or
+inversions. Instead, it takes advantage of symmetric positive definite
+preconditioning. We describe a simple derivation of the algorithm, which
+is motivated by a relation between interior eigensolvers and
+preconditioned linear solvers for symmetric indefinite systems, and
+discuss possible preconditioning approaches. Several numerical
+experiments will be presented to illustrate efficiency and robustness of
+the algorithm.
+
+
+\end{document}

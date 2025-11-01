@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stefan Henneking \\
+{\bf Evanescent data segmental refinement multigrid: ideas and experiments}}
+
+100 10th Street NW \\ Apt 706 \\ Atlanta \\ GA 30309
+\\
+{\tt henneking@gatech.edu}\\
+Richard Vuduc\\
+Mark F. Adams\end{center}
+
+We introduce a modified approach to evanescent data segmental refinement
+(SR), based on Achi Brandt's work on low-memory multi-level techniques
+(1977). Evanescent data SR avoids storing the entire finest grid(s) at
+any time during the computation and thereby drastically reduces the
+memory complexity of a standard full multigrid (FMG) full approximation
+scheme solver. Naturally, this feature also provides a way to compress an
+accurate fine-grid solution to a coarser grid and reproduce the fine-grid
+solution later. We discuss a simple one-level evanescent data scheme as
+well as approaches to a multi-level version; both can be applied within a
+sequential SR solver or as part of a parallel one. We present preliminary
+experimental results of a model problem for two FMG SR solvers: a
+vertex-centered finite difference solver and a cell-centered finite
+volume solver. We discuss the trade-off between storage requirements and
+computational complexity.
+
+
+\end{document}

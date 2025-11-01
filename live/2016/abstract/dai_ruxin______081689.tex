@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ruxin Dai \\
+{\bf A high accuracy high efficiency solution for anisotropic Poisson equation}}
+
+Department of Computer Science and Information Systems \\ University of Wisconsin River Falls \\ 410 S Third Street \\ River Falls \\ WI 54022 \\ USA
+\\
+{\tt ruxin.dai@uwrf.edu}\\
+Ruxin Dai\\
+Pengpeng Lin\end{center}
+
+The solution of anisotropic Poisson equation appears in many
+computational science and engineering and industry modeling and
+simulation applications. Therefore, a study of high accuracy and high
+efficiency solution for anisotropic Poisson equation is carried out.
+Taking into account the feature of anisotropic, unequal mesh size
+discretization is used, in which more grid points are distributed in the
+direction which changes fast while less grid points are distributed in
+the direction which changes slowly. Although there exists fourth order
+compact difference scheme on unequal mesh size grids for anisotropic
+Poisson equation, this study aims to develop a more cost-effective method
+which can achieve sixth order of accuracy on computed solutions. The gain
+in accuracy is obtained through applying completed Richardson
+extrapolation on two computed fourth order solutions from different scale
+grids with unequal mesh sizes. In this work, theoretical analysis is
+conducted to show that the Richardson extrapolation is able to remove the
+heading truncation error terms from unequal mesh size discretization and
+thus to improve the order of accuracy. In order to improve computational
+efficiency, partial semi-coarsening multigrid method is adopted to solve
+the resulting linear systems and multiscale multigrid computation is
+involved to speed up the whole solution process. Numerical experiments
+are conducted to test the accuracy and efficiency of the proposed method
+and to compare it with the existing fourth order method.
+
+\vspace{0.1in}
+
+\noindent {\bf Keywords}: Anisotropic Poisson equation, Richardson
+extrapolation, unequal mesh size, partial semi-coarsening, multigrid
+method, multiscale multigrid computation.
+
+
+\end{document}

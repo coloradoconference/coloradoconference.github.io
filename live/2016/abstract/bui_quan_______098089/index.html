@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bui_quan_______098089</TITLE>
+<META NAME="description" CONTENT="bui_quan_______098089">
+<META NAME="keywords" CONTENT="bui_quan_______098089">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bui_quan_______098089.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Quan Bui 
+<BR><B>Algebraic Multigrid Preconditioners for Multiphase Flow in Porous Media</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">11714 Leesborough Cir 
+<BR>
+Silver Spring 
+<BR>
+MD 20902
+
+<BR><TT>mquanbui@math.umd.edu</TT>
+<BR>
+Howard Elman
+<BR>
+David Moulton
+</DIV>
+
+<P>
+Multiphase flow is a critical process in a wide range of applications,
+including carbon sequestration, contaminant remediation, and groundwater
+management. It is modeled by a nonlinear system of partial differential
+equations derived by considering the mass conservation of each phase
+(e.g., oil, water), along with constituitive laws for the relationship of
+phase velocity to phase pressure. The constraint that the phase
+saturations sum to one, along with initial and boundary conditions,
+closes this system. The nonlinearity of the constuitive laws, in
+conjuction with the coupling of the phases, often requires the use of
+implicit discretization in time for both stability and accuracy. In this
+work we study a model of immiscible two-phase flow in which the primary
+variables are the pressure of the wetting phase and the saturation of the
+nonwetting phase. We use a finite volume method for spatial
+discretization and the backward Euler method for time discretization of
+the coupled system, leading to a fully implicit solution method. In this
+setting the capillary pressure is the difference between the non-wetting
+phase and wetting phase pressures. If the capillary pressure changes
+quickly with respect to saturation, then the operators associated with
+each phase are diffusion-dominated, whereas if capillary pressures vary
+slowly, then the saturation depends strongly on an advection-dominated,
+nearly hyperbolic, operator. These variations in character affect the
+performance of AMG-based solvers. Here, we present our experience with
+the GMRES solution of the linear systems resulting from the linearization
+of the coupled equations with algebraic multigrid (AMG) as a
+preconditioner, and with two constrained pressure residual multigrid
+(CPR-AMG) preconditioners. AMG is implemented using the HYPRE software
+package from Lawrence Livermore National Laboratories. Numerical
+expermients demonstrate that GMRES with AMG preconditioning for the
+coupled systems works best in the diffusion-dominated case, but it
+suffers slow convergence and sometimes diverges in the
+advection-dominated case. Similarly, the previously established CPR-AMG
+method that uses AMG to solve the pressure block, do not scale optimally
+with problem size in the advection-dominated case. The proposed CPR-AMG
+method that uses AMG to solve both the pressure block and the saturation
+block generally performs well for advection-dominated problems and scales
+optimally with problem size.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

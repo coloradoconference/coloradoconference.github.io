@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ruipeng Li \\
+{\bf A Thick-Restart Lanczos algorithm with polynomial filtering for Hermitian eigenvalue problems}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ P O Box 808 \\ L-561 \\ Livermore \\ CA 94551
+\\
+{\tt li50@llnl.gov}\\
+Yuanzhe Xi\\
+Eugene Vecharynski\\
+Chao Yang\\
+Yousef Saad\end{center}
+
+Polynomial filtering can provide a highly effective means of computing
+all eigenvalues of a real symmetric (or complex Hermitian) matrix that
+are located in a given interval, anywhere in the spectrum. This work
+presents a technique for tackling this problem by combining a
+Thick-Restart version of the Lanczos algorithm with deflation (`locking')
+and a new type of polynomial filters. Thick restarting is employed to
+limit the cost of orthogonalization. The polynomial filter that maps
+eigenvalues within a given interval to eigenvalues with the largest
+magnitude of the transformed problem, is obtained from a least-squares
+approximation to an appropriately centered Dirac-$\delta$ distribution.
+The resulting algorithm
+can be utilized in a `spectrum-slicing' approach whereby a
+very large number of eigenvalues and associated eigenvectors of the
+matrix are computed by extracting eigenpairs located in different
+sub-intervals independently from one another. Numerical experiments show
+that such a construction yields effective polynomial filters which along
+with a Thick-Restart Lanczos procedure enable desired eigenpairs to be
+computed efficiently.
+
+
+\end{document}

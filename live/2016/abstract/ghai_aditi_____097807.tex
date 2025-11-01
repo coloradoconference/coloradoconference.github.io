@@ -1,0 +1,136 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Aditi Ghai \\
+{\bf An Empirical Comparison of Krylov Subspace Methods for Nonsymmetric Linear Systems from PDEs}}
+
+Department of Applied Math \\ Stony Brook University \\ Stony Brook \\ NY 11794
+\\
+{\tt aditi.ghai@stonybrook.edu}\\
+Aditi Ghai\\
+Cao Lu\\
+Xiangmin Jiao\end{center}
+
+\providecommand{\tabularnewline}{\\}
+Krylov subspace methods are widely used in solving partial differential
+equations and large sparse linear systems. For symmetric systems,
+CG and MINRES are almost
+always the optimal choices as efficient solvers. However, for nonsymmetric
+systems, such as those arising from convection-diffusion equations,
+the best choice of solvers is much less clearer. Various methods have
+been proposed for nonsymmetric systems over the years. Notable methods
+include GMRES \cite{gmres}, QMR \cite{qmr}, TFQMR \cite{tfqmr},
+Bi-CGSTAB \cite{BSG}, QMRCGSTAB \cite{qcsb}, etc. Unlike for symmetric
+case, there is no overall best method, and there is a need of guidelines
+in choosing these different types methods. The purpose of this study
+is to perform a systematic comparison of the various methods for linear
+systems arising from PDE discretizations. We focus on two classes
+of methods that are based on either nonsymmetric Lanczos iterations
+or Arnoldi iterations. We analyze the algorithm complexity and present
+numerical performances of these methods with and without preconditioners,
+for linear systems from finite difference or finite element discretizations
+in $2$-D and $3$-D.
+
+In this study, we first report some theoretical comparisons of the
+methods with three-term recurrences, including QMR, TFQMR, Bi-CGSTAB
+and QMRCGSTAB, as well as the methods based on $n$-term recurrence,
+such as GMRES. Table~\ref{tab:Comparison-of-operations} compares
+the operation counts per iteration and the storage requirements for
+these methods, which augment the comparison in \cite{BBC94Templates}
+with TFQMR and QMRCGSTAB. There is a tradeoff depending on the average
+number of nonzeros in the matrix versus the number of iterations.
+We present simple performance models for different classes of linear
+systems from PDE discretizations based on finite difference or finite
+element discretizations in 2-D and 3-D to provide practical guidelines
+in choosing these different Krylov subspace solvers.
+
+\begin{table}
+\caption{\label{tab:Comparison-of-operations}Comparison of operations per
+iteration and memory requirements of various methods. $m$ denotes
+the number of rows, $n$ denotes the average number of nonzeros per
+row, and $k$ denotes the iteration count.}
+
+
+\centering{}%
+\begin{tabular}{c|c|c|c|c|c}
+\hline
+& MatVec & & Inner & & \tabularnewline
+& Prod. & DAXPY & Prod. & FLOPs & Storage\tabularnewline
+\hline
+\hline
+QMR & 2 & 12 & 2 & $4m(n+7)$ & $m(n+16)$\tabularnewline
+\hline
+TFQMR & 2 & 10 & 4 & $4m(n+7)$ & $m(n+8)$\tabularnewline
+\hline
+Bi-CGSTAB & 2 & 6 & 4 & $4m(n+5)$ & $m(n+10)$\tabularnewline
+\hline
+QMRCGSTAB & 2 & 8 & 6 & $4m(n+7)$ & $m(n+13)$\tabularnewline
+\hline
+GMRES & 1 & $k$+1 & $k$+1 & $2m(n+2k+2)$ & $m(n+k+5)$\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+To compliment the theoretical analysis, we also report some empirical
+comparisons of the different methods in terms of their convergence
+rates with and without preconditioners. We evaluate three preconditioners,
+including incomplete LU, Gauss Seidel, and Chebyshev polynomials.
+From the results, we observe that methods GMRES is more robust, with
+monotonically decreasing residuals, QMRCGSTAB, QMR, and TFQMR are
+less robust with nearly monotonically decreasing residual, and Bi-CGSTAB
+is the most efficient but also the least robust, with oscillatory
+residuals. For these different methods, we observe different accelerations
+with different preconditioners for different classes of problems.
+These results help provide some practical guidelines in choosing different
+preconditioners for different types of linear systems, and also motivate
+the development of hybrid solvers for sparse linear systems arising
+from PDE discretizations.
+
+\begin{thebibliography}{1}
+
+\bibitem{BBC94Templates}
+R.~Barrett, M.~Berry, T.~F. Chan, J.~Demmel, J.~Donato, J.~Dongarra,
+V.~Eijkhout, R.~Pozo, C.~Romine, and H.~{Van der Vorst}.
+\newblock {\em Templates for the Solution of Linear Systems: Building Blocks
+for Iterative Methods}.
+\newblock SIAM, Philadelphia, PA, 2nd edition, 1994.
+
+\bibitem{qcsb}
+T.~F. Chan, E.~Gallopoulos, V.~Simoncini, T.~Szeto, and C.~H. Tong.
+\newblock A quasi-minimal residual variant of the {Bi-CGSTAB} algorithm for non
+symmetric systems.
+\newblock {\em SIAM J. Sci. Comput.}, 15(2):338--347, 1994.
+
+\bibitem{tfqmr}
+R.~W. Freund.
+\newblock A transpose-free quasi-minimal residual algorithm for non-hermitian
+linear systems.
+\newblock {\em SIAM J. Sci. Comput.}, 14(2):470--482, 1993.
+
+\bibitem{qmr}
+R.~W. Freund and N.~M. Nachtigal.
+\newblock An implementation of the {QMR} method based on coupled two-term
+recurrences.
+\newblock {\em SIAM J. Sci. Comput.}, 15(2):313--337, 1994.
+
+\bibitem{gmres}
+Y.~Saad and M.~H. Schultz.
+\newblock {GMRES}: A generalized minimal residual algorithm for solving non
+symmetric linear systems.
+\newblock {\em SIAM J. Sci. Comput.}, 7(3):856--869, 1986.
+
+\bibitem{BSG}
+H.~A. {Van der Vorst}.
+\newblock {BI-CGSTAB}: A fast and smoothly convergent variant of {Bi-CG} for
+solution of non symmetric linear systems.
+\newblock {\em SIAM J. Sci. Comput.}, 13(2):631--644, 1992.
+
+\end{thebibliography}
+
+
+\end{document}

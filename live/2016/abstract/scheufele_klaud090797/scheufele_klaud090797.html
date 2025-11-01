@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>scheufele_klaud090797</TITLE>
+<META NAME="description" CONTENT="scheufele_klaud090797">
+<META NAME="keywords" CONTENT="scheufele_klaud090797">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="scheufele_klaud090797.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Klaudius Scheufele 
+<BR><B>Multi-Secant quasi-Newton Variants for Parallel Fluid-Structure Simulations - and Other Multi-Physics Applications</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute for Parallel and Distributed Systems 
+<BR>
+University of Stuttgart 
+<BR>
+Universit‰tsstraﬂe 38 
+<BR>
+D-70569 Stuttgart
+
+<BR><TT>klaudius.scheufele@ipvs.uni-stuttgart.de</TT>
+<BR>
+Miriam Mehl
+</DIV>
+
+<P>
+Multi-secant quasi-Newton methods based on secant information produced
+with no overhead throughout subsequent solver
+iterations have been shown to be particularly suited to solve non-linear
+fixed-point equations that arise from
+partitioned multi-physics simulations where the exact Jacobian is
+inaccessible. In all these methods, the multi-secant
+equation for the approximate (inverse) Jacobian is enhanced by a norm
+minimization condition. It is well-known, that
+fluid-structure simulations, e.g., typically require the use of
+secant-information from previous time steps. The number
+of these time-steps highly depends on the application, its parameters,
+the used solvers, and the mesh resolution. Using
+to few leads to a relatively high number of iterations, using too many
+not only to a computational overhead but also to
+an increase of the number of iterations, as well. Determining the optimal
+number requires a costly try-and-error process,
+which can be avoided using a modified method that considers the difference of the
+current (inverse) Jacobian and the one of the previous time step in the
+norm-minimization. Thus, previous time step
+information is taken into account in an implicit and automatized way
+without magic parameters. We show numerical results
+for fluid-structure interactions for both methods proving the robustness
+and numerical efficiency of the second variant.
+In addition, we propose a new algorithm eliminating the drawback of
+having to store full interface Jacobian approximations
+for the Jacobian difference norm minimization. This results in a highly
+efficient, parallelizable, and robust iterative
+solver applicable for surface coupling in many types of multi-physics simulations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

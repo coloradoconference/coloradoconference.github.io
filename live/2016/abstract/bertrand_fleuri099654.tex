@@ -1,0 +1,51 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Fleurianne Bertrand \\
+{\bf Least-Squares mixed finite elements in relation to mixed finite elements for elasticity}}
+
+Universit\"at Duisburg-Essen \\ Fakult‰t f\"ur Mathematik \\ Thea-Leymann-Straﬂe 9 \\ D-45127 Essen
+\\
+{\tt fleurianne.bertrand@uni-due.de}\\
+Z. Cai\\
+Eun Y. Park\end{center}
+
+The related physical equations of linear elasticity are the equilibrium
+equation and the constitutive equation, which expresses a relation
+between the stress and strain tensors. This is a first-order partial
+differential system such that a least squares method based on a
+stress-displacement formulation can be used whose corresponding finite
+element approximation does not preserve the symmetry of the
+stress\footnote{Z. Cai, G. Starke. {\it Least squares methods for linear
+elasticity.} SIAM J. Numer. Anal. 42 (2004): 826--842.}.
+
+In this talk, a new method is investigated by introducing the vorticity
+and applying the $L^2$ norm least squares principle to the
+stress-displacement-vorticity system. The question of ellipticity due to
+the fact that all three variables
+are present in one equation is discussed. Further, the supercloseness of
+the least squares approximation to the standard mixed finite element
+approximations arising from the Hellinger-Reissner principle with reduced
+symmetry\footnote{D. Boffi, F. Brezzi, and M. Fortin. {\it Mixed Finite
+Element Methods and Applications.} Springer-Verlag, Heidelberg, 2013.
+[Chp. 9]}, is studied. This implies that the favourable conservation
+properties of the dual-based mixed methods and the inherent error control
+of the least squares method are combined.
+
+Additionally, a closer look will be taken at the error that appears using
+this formulation on domains with curved boundaries approximated by a
+triangulation \footnote{F. Bertrand, S. M\"unzenmaier, and G. Starke.
+{\it First-Order System Least Squares on Curved Boundaries: Lowest-Order
+Raviart-Thomas Elements.} SIAM J. Numer. Anal. 52.2 (2014): 880-894.}. In
+the higher-order case, parametric Raviart-Thomas finite elements are
+employed to this end.
+
+Finally, it is shown that an optimal order of convergence is achieved and
+illustrated numerically on a test example.
+
+
+\end{document}

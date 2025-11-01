@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Joseph Benzaken \\
+{\bf Multigrid Methods for Isogeometric Thin Plate Discretizations}}
+
+2805 Olson Dr Unit B \\ Boulder \\ CO 80303
+\\
+{\tt Joseph.Benzaken@colorado.edu}\\
+Joseph Benzaken\\
+Christopher Coley\\
+John A. Evans\end{center}
+
+In this talk, we present a novel isogeometric approach to the numerical
+solution of the classical Reissner-Mindlin and Kirchhoff-Love plate
+equations. This approach eliminates the common issue of locking in thin
+plates, a numerical phenomenon resulting from an incompatibility between
+the finite element spaces for the translational and rotational
+displacement degrees of freedom. This locking-free implementation also
+permits the use of a simple geometric multigrid method for solving the
+resulting linear system in which Schwarz methods with
+intelligently-chosen subdomains are used for iterative smoothing in the
+multigrid V-cycles. In the thin plate limit, our multigrid approach
+automatically and exactly preserves the constraint that the shear strain
+is zero at every geometric level. This results in a method with
+convergence rates independent of the thickness. Moreover, this elucidates
+the problem as a network of coupled plates with Dirichlet boundary data
+specified by adjacent subdomains. Numerical results for both the
+Kirchhoff-Love and Reissner-Mindlin plates are presented. The results
+demonstrate the robustness of the numerical method through the invariance
+of convergence rates with respect to thickness.
+
+
+\end{document}

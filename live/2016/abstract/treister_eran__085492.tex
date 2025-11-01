@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eran Treister \\
+{\bf Joint Full Waveform Inversion and Travel Time Tomography}}
+
+Dept of Earth and Ocean Sciences \\ University of British Columbia \\ 2021 Main Mall \\ Vancouver \\ V6T-1Z4 \\ Canada
+\\
+{\tt erantreister@gmail.com}\\
+Eldad Haber\end{center}
+
+The full waveform inversion (FWI) in heterogeneous media is a highly
+non-linear optimization problem. Using traditional methods like Gauss
+Newton, the solution is highly sensitive to the initialization point. The
+best results are often achieved
+by a frequency continuation strategy where the process is initially
+obtained with the low-frequency data only, and then gradually the high
+frequency data
+is added into the optimization. However, low frequency data is usually
+missing, and in its absence the FWI process reaches a local minimum.
+Travel time tomography, unlike FWI, is less sensitive to its
+initialization and contains low
+frequency features. In this work we propose a framework to jointly apply
+FWI and travel time tomography, so that the resulting model is faithful
+to both the
+waveform and travel time data. Using this approach we also aim to relieve
+the problem of missing low-frequency data. To this end, we minimize a sum
+of the FWI and travel time tomography misfit functions, with
+regularization.
+Synthetic examples show that this strategy leads to a better recovery of
+the underlying medium when low-frequency data is missing.
+
+
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large James Herring \\
+{\bf Optimization Schemes for Phase Recovery in Bispectral Imaging}}
+
+Department of Mathematics and Computer Science \\ Emory University \\ 400 Dowman Dr  \\ W401 \\ Atlanta \\ GA \\ 30322
+\\
+{\tt jlherri@emory.edu}\\
+James Nagy\end{center}
+
+Bispectral imaging is one class of methods used for the recovery of
+images in ground-based astronomical imaging. The problem is a familiar
+one: retrieve a clear, high-resolution image of an object in space given
+a sequence of telescopic images of an object and a star (acting as the
+point spread function or blurring operator) through an
+atmosphere-telescope system. Bispectral methods approach this problem by
+separating the image recovery into two subproblems: recovery of the
+object’s intensity (also known as its Fourier modulus or power spectrum)
+and recovery of the object’s Fourier phase. To recover the object’s
+phase, we exploit the relationship between the object’s phase and the
+bispectrum phase of the collected image frames, where the bispectrum is a
+statistical quantity which is calculable given a sufficient number of
+frames. Mathematically, this is formulated as a large-scale, non-linear
+inverse problem. In this talk, we describe two previously proposed
+alternative formulations of the objective function (Haniff and
+Glindemann, Dainty) and discuss efficient approaches to solving these
+optimization problems.
+
+1.) A. Glindemann and J.C. Dainty, “Object fitting to the bispectral
+phase by using least squares,” JOSA A 10.5 (1993): 1056-1063.
+
+2.) C.A. Haniff, “Least-squares Fourier phase estimation from the modulo
+2-pi bispectrum phase,” JOSA A 8.1 (1991): 134-140.
+
+
+\end{document}

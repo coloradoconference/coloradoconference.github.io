@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chris Newman \\
+{\bf A Fully Implicit Approach to Phase Field Modeling of Dendritic Solidification}}
+
+Los Alamos National Laboratory \\ T-3 \\ PO Box 1663 MS B216 \\ Los Alamos \\ NM 87545
+\\
+{\tt cnewman@lanl.gov}\\
+Marianne M Francois\end{center}
+
+We develop and characterize a fully-coupled, fully-implicit approach to phase field
+modeling of dendritic solidification.
+Predictive simulation of dendrite growth in pure metals and alloys
+remains a significant challenge in the field of materials science,
+as micro-structure formation during the solidification of a material plays an
+important role in the properties of the solid material.
+Our approach consists of a finite element spatial discretization of the
+fully-coupled nonlinear system, which
+is treated implicitly in time with a preconditioned Jacobian-free
+Newton-Krylov (JFNK) method.
+The key to efficient implementation of JFNK is effective preconditioning.
+As the dominant cost of JFNK is the linear solver, effective preconditioning
+reduces the number of linear solver iterations per Newton iteration.
+We discuss a preconditioning strategy based on algebraic multigrid and
+block factorization
+that allows an efficient, implicit time integration.
+We provide numerical examples and
+compare our method to explicit methods to evaluate efficiency, accuracy
+and algorithmic scalability.
+
+
+\end{document}

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>martin_danielf_097788</TITLE>
+<META NAME="description" CONTENT="martin_danielf_097788">
+<META NAME="keywords" CONTENT="martin_danielf_097788">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="martin_danielf_097788.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Daniel F Martin 
+<BR><B>Solver Challenges in AMR Ice Sheet Modeling </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Laboratory 
+<BR>
+Mail Stop 50A-1148 
+<BR>
+1 Cyclotron Rd 
+<BR>
+Berkeley 
+<BR>
+CA 94720
+
+<BR><TT>dfmartin@lbl.gov</TT>
+<BR>
+Mark Adams
+<BR>
+Stephen Cornford
+</DIV>
+
+<P>
+Ice sheets are a prime candidate for adaptive mesh refinement (AMR) due
+to the combination of localized regions which demand very fine spatial
+resolution, like ice streams and grounding lines, combined with large
+quiescent regions where such fine resolution represents a waste of
+computational effort.
+BISICLES is a scalable ice-sheet model built on the Chombo framework
+which uses block-structured AMR to dynamically refine the computational
+mesh where needed to resolve the wide range of dynamical scales found in
+ice sheets.
+We use a formulation of the momentum balance based on the
+vertically-integrated treatment of Schoof and Hindmarsh, which produces a
+nonlinear coupled elliptic system which must be solved repeatedly to
+compute the ice velocity field.
+The combination of local refinement and the particular non-Newtonian
+character of ice produces unique challenges solving this system of
+equations. We have adopted a hybrid Picard-JFNK approach to the nonlinear
+system.
+While geometric multigrid (GMG) is a natural fit with AMR methods, it has
+struggled with the linear systems some of our applications produce,
+particularly in the case of marine ice sheets, leading us to explore
+applications of algebraic multigrid (AMG) schemes to AMR.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

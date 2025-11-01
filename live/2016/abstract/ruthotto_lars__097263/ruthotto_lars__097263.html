@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ruthotto_lars__097263</TITLE>
+<META NAME="description" CONTENT="ruthotto_lars__097263">
+<META NAME="keywords" CONTENT="ruthotto_lars__097263">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ruthotto_lars__097263.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Lars Ruthotto 
+<BR><B>jInv - A Flexible Framework for Parallel PDE Parameter Estimation in Julia</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Emory University 
+<BR>
+Department of Mathematics and Computer Science 
+<BR>
+400 Dowman Drive 
+<BR>
+W408 
+<BR>
+30322 Atlanta 
+<BR>
+GA 
+<BR>
+USA
+
+<BR><TT>lruthotto@emory.edu</TT>
+<BR>
+Eldad Haber
+</DIV>
+
+<P>
+This talk presents jInv, a new framework for solving parameter estimation
+problems involving partial differential equations (PDEs). Parameter
+estimation problems of this kind arise frequently in many scientific
+disciplines, for example, in medical imaging, geophysical imaging, non
+destructive testing and economics. Parameter estimation is an inverse
+problem and typically ill-posed. The problem is typically formulated as
+an optimization problem with constraints that are given by the PDEs. The
+unknowns are parameters of the PDEs, which correspond to physical
+properties of the object to be measured. The objective is to minimize the
+misfit between PDE simulations and measured data plus some regularization
+term.
+
+<P>
+jInv is implemented in the relatively new programming language
+Julia&nbsp;[<A
+ HREF="node1.html#BezansonEtAl2012">2</A>], which offers a few advantages. First,
+Julia is a dynamic language therefore allows for rapid prototyping, is
+easy to read, change, distribute, and document. Second, Julia comes with
+a just-in-time compiler and therefore the runtime of the code can in many
+cases approach that of C or Fortran. Third, Julia provides tools that
+simplify parallel and distributed computing. Our code was initially
+developed on a standard laptop but supports also homogeneous clusters, as
+well as heterogeneous cloud computing services.
+
+<P>
+In this talk, we consider forward problems of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:fwd"></A><!-- MATH
+ \begin{equation}
+d_{ijk} = p_k^T u_{ij} + e_{ijk},\quad {\rm where}\quad A(m,\omega_i) u_{ij} = q_j,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="336" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle d_{ijk} = p_k^T u_{ij} + e_{ijk},\quad {\rm where}\quad A(m,\omega_i) u_{ij} = q_j,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+for all <!-- MATH
+ $\quad \forall i=1,\ldots,n_f, j=1,\ldots,n_s, k=1,\ldots,n_r$
+ -->
+<IMG
+ WIDTH="310" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \quad \forall i=1,\ldots,n_f, j=1,\ldots,n_s, k=1,\ldots,n_r$">
+.
+Here, <!-- MATH
+ $A(m,\omega_i)$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A(m,\omega_i)$">
+ is a discretization of the governing PDE for a
+discrete model <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m$">
+ and additional parameter <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \omega_i$">
+, for example,
+frequency. Further, <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p_k$">
+ represent receivers, <IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ q_j$">
+ the applied sources,
+and <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ u_{ij}$">
+ is the field caused by the <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ i$">
+-th source and the <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ j$">
+-th
+frequency. The noise, <IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ e_{ijk}$">
+ is assumed to identically distributed
+white noise. It is important to note that computing the data requires the
+computation of <!-- MATH
+ $n_f \cdot n_s$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ n_f \cdot n_s$">
+ fields associated with <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ n_f$">
+ different
+linear systems and <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ n_s$">
+ right hand sides.
+
+<P>
+In practical applications, the number of sources and frequencies is
+generally large, and so a large number of PDE solves is required in the
+inversion. Thus, efficient methods for solving the PDEs are essential. In
+jInv, one can chose between state-of-the-art iterative or direct methods
+depending on the problem size and computational resources. Also, jInv
+supports both regular and stretched tensor meshes that can be adapted to
+the source locations.
+
+<P>
+For given data, sources, receivers, and frequencies, the goal of the
+parameter estimation problem is to estimate the model <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m$">
+. Therefore, we
+consider the bound-constrained discrete optimization problem
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:inv"></A><!-- MATH
+ \begin{equation}
+\min_{m} \sum_{ijk} \phi( p_{i}^\top {A}(\omega_{j},m)^{-1}q_{k}
+,d_{ijk}) + \alpha R(m)\quad
+{\rm subject\ to } \quad m_{\rm low} \leq m \leq m_{\rm up}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="520" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \min_{m} \sum_{ijk} \phi( p_{i}^\top {A}(\omega_{j},m)^{-1}q_{k} ...
+...+ \alpha R(m)\quad {\rm subject to } \quad m_{\rm low} \leq m \leq m_{\rm up}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Here, <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \phi$">
+ measures the misfit of the predicted and measured data, <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ R$">
+
+is a regularizer, and <!-- MATH
+ $m_{\rm low}$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ m_{\rm low}$">
+ and <!-- MATH
+ $m_{\rm up}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ m_{\rm up}$">
+ are lower- and upper
+bounds on the components of <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m$">
+, respectively. The parameter <IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \alpha&gt;0$">
+
+balances between the misfit and regularizer. In its current version jInv
+provides some commonly used misfit functions (weighted <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ L_2$">
+ and <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ L_1$">
+
+norms) and regularization (diffusion, total variation) that can be
+exchanged modularly.
+
+<P>
+The optimization problem is solved using a projected Gauss-Newton method
+that uses a Steepest Descent step to identify the active set. The Hessian
+approximation of the data term is implemented in a matrix-free fashion,
+since it involves <!-- MATH
+ $A(m,\omega_i)^{-1}$
+ -->
+<IMG
+ WIDTH="82" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ A(m,\omega_i)^{-1}$">
+ for <!-- MATH
+ $i=1,\ldots,n_f$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ i=1,\ldots,n_f$">
+, which are in
+general large and dense. Intermediate results of the PDE solver such as a
+factorizations or preconditioner are re-used to accelerate computations
+with the Hessian. A projected PCG method is used for determining the
+search direction and projected Armijo condition is used for line search.
+
+<P>
+A particular focus of the talk is Julia's potential for parallel and
+distributed computing that is used in jInv to reflect the parallel
+structure of the misfit term in&nbsp;(<A HREF="#eq:inv">2</A>). Note that all terms can
+be computed independently and in parallel. Therefore a variety of
+parallelization strategies are supported by jInv that can be tested to
+exploit the given computational resources.
+
+<P>
+We use a distributed data model that divides the data, sources, receivers
+and frequencies among all available workers and therefore parallelizes
+evaluation of the misfit. One benefit is the reduced memory consumption,
+in particular regarding the fields and intermediate results from the PDE
+solves that are held in memory by the respective worker. Another benefit
+of this model is the reduction of communication costs, since only the
+model <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m$">
+ as well as vectors of equivalent size must be communicated.
+
+<P>
+The talk will present numerical examples geophysical imaging. Particular
+emphasis is on the parallel implementation using Julia. We will show the
+scalability of the code on a single-user laptop, a large parallel
+workstation, and a cloud computing engine.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

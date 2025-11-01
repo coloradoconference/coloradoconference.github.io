@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Luz Angelica Caudillo Mata \\
+{\bf A Multiscale Finite Volume Method for Geophysical Electromagnetic Simulations in Time Domain}}
+
+4013-2207 Main Mall \\ Vancouver B C  \\ V6T 1Z4
+\\
+{\tt lcaudill@eos.ubc.ca}\\
+Eldad Haber\end{center}
+
+Efficient and accurate simulation of transient electromagnetic fields and
+fluxes of complex geological settings is crucial in a variety of
+scenarios, including mineral and petroleum exploration, water resource
+utilizations and geothermal power extractions. In this talk, we present a
+new Multiscale finite volume method that computes these electromagnetic
+responses in a very effective manner.
+
+Geophysical time-varying electromagnetic simulations of highly
+heterogeneous media are computationally expensive. One reason for this is
+the fact that very fine meshes are often required to accurately
+discretize the physical properties of the media, which may vary over a
+wide range of length scales and several orders of magnitude. Using very
+fine meshes for the discrete models lead to solve large systems of
+equations that are often difficult to deal with at each time step.
+
+To reduce the computational cost of the electromagnetic simulation, we
+develop a Multiscale finite volume method for the quasistatic Maxwell’s
+equations in the time domain. Our method begins by locally computing
+Multiscale basis functions at each time step, which incorporate the
+small-scale information contained in the physical properties of the
+media. Using a Galerkin proper orthogonal decomposition approach, the
+local basis functions are used to represent the solution on a coarse
+mesh. The governing equations are numerically integrated using an
+implicit time marching scheme.
+
+Our approach leads to a significant reduction in the size of the final
+system of equations to be solved and in the amount of computational time
+of the simulation, while accurately approximating the behavior of the
+fine-mesh solutions. We demonstrate the performance of our method in the
+context of an airborne geophysical application.
+
+
+\end{document}

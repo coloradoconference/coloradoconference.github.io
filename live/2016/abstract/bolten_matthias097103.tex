@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthias Bolten \\
+{\bf Advanced smoothing techniques and aggressive coarsening for massively parallel multigrid}}
+
+Universit\"at Kassel \\ Institut f\"ur Mathematik \\ Heinrich-Plett-Stra\ss{}e 40 \\ 34132 Kassel \\ Germany
+\\
+{\tt bolten@mathematik.uni-kassel.de}\end{center}
+
+Multigrid methods are amongst the most efficient methods for the solution
+of partial differential equations in a variety of applications,
+especially when the solution of elliptic partial differential equations
+is needed. They are used for many simulations in computational science
+and engineering, often requiring the use of supercomputers due to the
+vast problem size.
+
+While parallel multigrid methods show an optimal scaling behavior on
+parallel computers that depends on the number of processors
+logarithmically, only, the large number of cores that is available
+nowadays on large supercomputers exposes this logarithmic factor. While
+this cannot be prevented, the use of aggressive coarsening can reduce
+this effect. In order to maintain the efficiency and good algorithmic
+scalability of multigrid methods, more powerful smoothing techniques have
+to be employed. Different options exist, including polynomial smoothers
+or block smoothers that are strongly connected to domain decomposition
+methods.
+
+In this talk we will discuss the effect of aggressive coarsening in
+geometric multigrid methods and different smoothing techniques that in
+combination result in efficient multigrid methods. Analyses and the
+necessary techniques will be presented and the advantage of these
+techniques on large scale supercomputers and modern computer
+architectures will be highlighted.
+
+
+\end{document}

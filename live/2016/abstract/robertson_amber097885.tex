@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Amber, S. Robertson \\
+{\bf Approximation of the Scattering Amplitude using Nonsymmetric Saddle Point Matrices}}
+
+104 Mary Circle Hattiesburg \\ Ms 39402
+\\
+{\tt amber.sumner@eagles.usm.edu}\\
+James, V. Lambers\end{center}
+
+In this paper we seek to develop iterative methods that are more robust
+and efficient than existing methods for solving the forward ($A{\bf
+x}={\bf b}$) and adjoint ($A^{T}{\bf y}={\bf g}$) systems of linear
+equations where the coefficient matrix is large, sparse, and
+nonysmmetric. We can use these methods to approximate the scattering
+amplitude defined by ${\bf g}^{T}{\bf x}$. We use a conjugate
+gradient-like iteration for a nonsymmetric saddle point matrix that is
+constructed so as to have a real positive spectrum, and a full set of
+eigenvectors that are orthogonal in some sense. The preservation of these
+properties allows us to generalize the conjugate gradient method to one
+for nonsymmetric matrices. We find that this method performs more
+consistently in the initial iterations than known methods for computing
+the scattering amplitude such as GLSQR or QMR. We also look into using
+techniques from "matrices, moments, and quadrature" to approximate
+expressions of the form ${\bf u}^{T} f(A) {\bf v}$, where $A$ is a
+nonsymmetric saddle point matrix, such as the scattering amplitude,
+without solving the system directly. Block approaches and preconditioning
+are also examined.
+
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Xiaozhe Hu \\
+{\bf Efficient Solvers for Asymptotically Disappearing Solutions of Maxwell’s Equations}}
+
+Department of Mathematics \\ Tufts University \\ 503 Boston Avenue \\ Bromfield-Pearson \\ Room 212 \\ Medford \\ MA 02155
+\\
+{\tt Xiaozhe.Hu@tufts.edu}\\
+J. H. Adler\\
+V. Petkov\\
+L. T. Zikatanov\end{center}
+
+This work is on the numerical approximation of incoming solutions to
+Maxwell's equations, whose energy decays exponentially with time
+(asymptotically disappearing), meaning that the leading term of the
+back-scattering matrix becomes negligible. We consider a
+structure-preserving finite-element approximation and a Crank-Nicolson
+scheme to approximate the electric and magnetic fields. In order to solve
+the linear system of equations at each time step efficiently, we design
+iterative solvers based on exact block factorization. We emphasize the
+importance of structure-preserving discretization, which makes the exact
+Schur complement sparse and computable. Numerically, we show that the
+proposed solver significantly reduces the computational time and the
+finite-element solution approximates well the asymptotically disappearing
+solutions constructed analytically when the mesh size becomes small.
+
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yingwei Wang \\
+{\bf Fast Structured Jacobi-Jacobi Transform}}
+
+150 N University St \\ MATH 433 \\ West Lafayette \\ IN 47906
+\\
+{\tt wywshtj@gmail.com}\\
+Jie Shen\\
+Yingwei Wang\\
+Jianlin Xia\end{center}
+
+In this talk, we will consider the fast structured algorithm for the
+computation involving finite expansions in Jacobi polynomials.
+The algorithm is based on two main ingredients.
+(i) Derive explicit formulas for connection matrices of two Jacobi expansions
+with arbitrary indices, and demonstrate that the connection matrices
+are relatively sparse if the indices have integer differences.
+(ii) Explore analytically or numerically a low-rank property hidden
+in the connection matrices, and construct rank structured approximations for them.
+Combining these two ingredients, we develop a fast structured
+Jacobi-Jacobi transform with nearly linear complexity
+(after a one-time precomputation step)
+between coefficients of two Jacobi expansions with arbitrary indices.
+An important byproduct of the fast Jacobi-Jacobi transform
+is the fast Jacobi transform between the function values
+at a set of Chebyshev-Gauss type points and coefficients
+of the Jacobi expansion with arbitrary indices.
+Ample numerical results are presented to illustrate
+the computational efficiency and accuracy of our algorithm.
+
+
+\end{document}

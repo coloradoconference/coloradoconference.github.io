@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Scott MacLachlan \\
+{\bf Composite Grid Multigrid for Diffusion on the Sphere}}
+
+Department of Mathematics and Statistics \\ Memorial University of Newfoundland \\ St John's \\ NL \\ A1C 5S7 \\ Canada
+\\
+{\tt smaclachlan@mun.ca}\\
+James Adler\\
+Ilya Lashuk\end{center}
+
+While discretization and solvers for scalar elliptic PDEs
+over regions in the plane or volumes in space are generally
+well-understood, many open questions remain when considering PDEs
+posed on surfaces. In this talk, we present an adaptive mesh
+refinement scheme for a finite-element discretization of diffusion on
+the sphere, motivated by numerical models of the transport of charged
+particles near the Fokker-Planck limit. In such problems, the
+right-hand side is typically highly localized and, thus, nonuniform
+meshes are needed to efficiently resolve the solutions. We
+approximate the sphere by a piecewise-triangular surface, with
+refinement focused around the regions where the source function is
+nonzero. A Fast Adaptive Composite grid (FAC) multigrid method is
+used to efficiently solve the resulting linear systems.
+
+
+\end{document}

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>deweese_kevin__097182</TITLE>
+<META NAME="description" CONTENT="deweese_kevin__097182">
+<META NAME="keywords" CONTENT="deweese_kevin__097182">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="deweese_kevin__097182.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kevin Deweese 
+<BR><B>An Empirical Comparison of Graph Laplacian Solvers</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+UC Santa Barbara 
+<BR>
+Santa Barbara 
+<BR>
+CA 93106
+
+<BR><TT>kdeweese@cs.ucsb.edu</TT>
+<BR>
+Erik G. Boman
+<BR>
+John R. Gilbert
+</DIV>
+
+<P>
+Solving Laplacian linear systems is an important task in a variety of
+practical and theoretical applications. This problem is known to have
+solutions that perform in linear times polylogarithmic work in theory,
+but these algorithms are difficult to implement in practice. We examine
+existing solution techniques in order to determine the best methods
+currently available and for which types of problems are they useful. We
+perform timing experiments using a variety of solvers on a variety of
+problems and present our results.
+
+<P>
+The Laplacian matrix of a weighted, undirected graph <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ G$">
+ is defined as
+<!-- MATH
+ $L_G=D_G-A_G$
+ -->
+<IMG
+ WIDTH="113" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L_G=D_G-A_G$">
+, where <IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ D_G$">
+ is the diagonal matrix containing the sum of
+incident edge weights and <IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A_G$">
+ is the weighted adjacency matrix. <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ L_G$">
+
+is a symmetric, positive semidefinite, diagonally dominant M-matrix, with
+a nullspace
+containing the constant vector. Solving linear systems on the Laplacians
+of structured graphs, such as two and three dimensional meshes, has long
+been important to application domains such as finite element analysis and
+image processing. More recently, solving linear systems on the Laplacians
+of large graphs without mesh-like structure has emerged as an important
+computational task in network analysis with applications to graph
+sparsification and spectral clustering.
+
+<P>
+To our knowledge there is not a comprehensive experimental study of
+available solvers. Our goal is to provide an initial understanding of
+available solvers, and to determine where ideas from more theoretical
+solvers could be leveraged to make improvements in practice. Towards this
+goal we must select an implementation of existing solvers, gather a set
+of relevant test problems, and select a set of performance metrics for
+comparing solver performance. We choose to use the Trilinos software
+package and its implementation of preconditioned conjugate gradient and
+multilevel methods. We use a variety of mesh-like and irregular graphs
+from the University of Florida sparse matrix collection, a set of
+generated Block Two-Level Erd&#246;s R&#233;nyi graphs, and a set of graphs
+generated from image segmentation problems. For each solver we examine
+number of iterations, setup time, solve time, and memory usage.
+
+<P>
+We examine each solver's performance on each test set and present our
+results. Of interest, we find that relative solver behavior is consistent
+within each test set, but varies between the test sets.
+Cheap to apply preconditioners such as Jacobi scaling work surprisingly
+well on graphs with irregular degree distribution. We hope to update
+these results with new test data, solvers, and analysis through community
+feedback.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,123 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Xian-Ming Gu \\
+{\bf Nested Krylov subspace methods based on the Hessenberg procedure for shifted linear systems}}
+
+Institute of Mathematics and Computing Science \\ University of Groningen \\ Nijenborgh 9 \\ P O Box 407 \\ 9700 AK Groningen \\ The Netherlands
+\\
+{\tt guxianming@live.cn}\\
+T.-Z.  Huang\\
+B. Carpentieri\end{center}
+
+In many computational applications it is required to solve simultaneously
+shifted linear systems of the form
+\begin{equation}
+(A - \sigma_k I)x^{(k)} = b,\quad\ \sigma_k \in \mathbb{C},\quad k = 1,2,\ldots,s,
+\label{eq1.1}
+\end{equation}
+where $A\in \mathbb{C}^{n\times n}$ is a non-Hermitian matrix, $x^{(k)}$
+is the unknown vector and $b$ is the right-hand side, both of them are
+complex vectors of length $n$. For instance, shifted linear systems arise
+in the solution of PageRank problems and the rational approximation of
+the action of a matrix function to a vector, i.e. $f(A)v$, where $v$ is
+an arbitrary vector with length $n$.
+
+In principle, a sequence of shifted linear systems (\ref{eq1.1}) can be
+solved simultaneously at the cost of a single solve using shifted Krylov
+subspace methods (abbreviated as KSMs). These methods employ the property
+that Krylov subspaces are invariant under arbitrary diagonal shifts
+$\sigma$ to the matrix $A$, i.e.,
+\begin{equation}
+\mathcal{K}_m(A, b) = \mathcal{K}_m(A - \sigma I, b),\quad \forall m \in
+\mathbb{N}^+,\quad
+\forall \sigma \in \mathbb{C}.
+\label{eq1.2}
+\end{equation}
+As we know, the restarted GMRES method is a widely popular choice for
+solving (\ref{eq1.1}), refer to \cite{AFUGR}. The computed GMRES shifted
+residuals are not collinear in
+general after the first restart so that it loses the computational
+efficiency mentioned above. Consequently,
+certain enforcement has to be made to guarantee the computed GMRES
+shifted residuals collinear to each other in order to maintain the
+computational efficiency. Note that in this case,
+only the seed system satisfies the minimum residual property, the
+solution of the other shifted systems is not equivalent to GMRES applied
+to those systems, see \cite{AFUGR} for details. Moreover, another
+attractive approach is to use the restarted FOM method for solving the
+whole sequence
+of shifted linear systems simultaneously, for all residuals are naturally
+collinear \cite{AFUGR,VSRF}. As a result, the computational efficiency
+can be maintained because the orthonormal basis and the Hessenberg matrix
+are required to be calculated only once each time.
+
+However, both the restarted GMRES method and the restarted FOM method for
+(\ref{eq1.1}) are inherently derived by the Arnoldi procedure, which
+tends to be expensive when $m$ becomes large in aspects of memory and
+algorithmic cost. To alleviate these difficulties, our recent work
+\cite{XMGTZH} proposed a new iterative strategy with collinear residuals
+for solving sequence of shifted linear systems based on the Hessenberg
+process, which is similar but cheaper compared to the Arnoldi procedure.
+Our theoretical and numerical analyses indicate that iterative schemes
+referred to as $\mathtt{sHessen(m)}$ may outperform the conventional
+shifted FOM method in aspects of iteration counts and CPU time. From the
+algorithmic property, it turns out that preserving orthonormality
+in the construction of the Krylov basis is sometimes not necessary for an
+efficient iterative solution of (\ref{eq1.1}). This observation motivates
+us to extend the restarted Changing Minimal Residual method based on the
+Hessenberg process (CMRH) \cite{HSCMRH}, which is similar
+to the restarted shifted GMRES method but much cheaper, for solving (\ref{eq1.1}).
+
+In practice, preconditioning shifted systems (\ref{eq1.1}) is necessary
+to accelerate the convergence of shifted KSMs and this remains an open
+question, because standard preconditioning techniques may destroy the
+shift-invariance property (\ref{eq1.2}). In this work, we construct an
+inner-outer scheme based on nested KSMs, where the inner solver is a
+multi-shift KSM (i.e., $\mathtt{sHessen(m)}$) that acts as a
+preconditioner for an outer flexible CMRH (FCMRH) method. Our
+numerical experiments show that the new nested iterative scheme based on
+the Hessenberg procedure is very competitive, and sometimes superior,
+compared to the early established combination (FOM-FGMRES) in
+\cite{MBMBG} in terms of CPU time. In summary, in our presentation first
+we discuss the derivations of both the $\mathtt{sHessen(m)}$ method
+\cite{XMGTZH} and the restarted shifted CMRH method. Then, we present
+their flexible variant combined with nested inner-outer iterative
+schemes, namely multi-shift Hessen-FCMRH.
+Meanwhile, extensive numerical experiments involving PageRank problems
+and numerical solutions of space(-time) fractional differential equations
+are reported to illustrate the effectiveness of the restarted shifted
+CMRH method and the Hessen-FCMRH method, respectively.
+
+\begin{thebibliography}{99}
+\bibitem{AFUGR}
+A. Frommer, U. Gl\"{a}ssner, Restarted GMRES for shifted linear systems,
+SIAM J. Sci. Comput., 19 (1998), pp. 15-26.
+
+\bibitem{VSRF}
+V. Simoncini, Restarted full orthogonalization method for shifted linear
+systems, BIT., 43 (2003), pp. 459-466.
+
+\bibitem{HSCMRH}
+H. Sadok, CMRH: A new method for solving nonsymmetric linear systems
+based on the Hessenberg reduction algorithm, Numer. Algorithms, 20
+(1999), pp. 303-321.
+
+\bibitem{MBMBG}
+M. Baumann, M. B. van Gijzen, Nested Krylov methods for shifted linear
+systems, SIAM J. Sci. Comput., 37 (2015), pp. S90-S112.
+
+\bibitem{XMGTZH}
+X.-M. Gu, T.-Z. Huang, G. Yin, B. Carpentieri, C. Wen, Restarted
+Hessenberg method for shifted nonsymmetric linear systems with
+applications to fractional differential equations, submitted to Numer.
+Linear Algebra Appl., Aug. 20, 2015, 24 page. ({\it under review})
+
+\end{thebibliography}
+
+
+\end{document}

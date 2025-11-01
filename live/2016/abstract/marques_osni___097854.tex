@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Osni Marques \\
+{\bf Tuning the Coarse Space Construction in a Spectral AMG Solver}}
+
+Lawrence Berkeley National Laboratory \\ 1 Cyclotron Road \\ MS 50F-1650 \\ Berkeley \\ CA 94720-8139 \\ USA
+\\
+{\tt oamarques@lbl.gov}\\
+Alex  Druinsky\\
+Sherry  Li\\
+Andrew Barker\\
+Delyan Kalchev\\
+Panayot Vassilevski\\
+	
+	     \end{center}
+
+In this presentation we will discuss strategies for computing subsets of
+eigenvectors of matrices corresponding to subdomains
+of finite element meshes achieving compromise between two contradicting
+goals. The subset of eigenvectors is required in the construction of
+coarse spaces used in algebraic multigrid methods (AMG) as well as in
+certain domain decomposition (DD) methods. The quality of the coarse
+spaces depends on the number of eigenvectors, which improves the
+approximation properties of the coarse space and the latter impacts the
+overall performance and convergence of the associated AMG or DD
+algorithms. However, a large number of eigenvectors reflects negatively
+the sparsity of the corresponding coarse matrices, which can become
+fairly dense. The sparsity of the coarse matrices can be controlled to a
+certain extent by the size of the subdomains (union of finite elements)
+referred to as agglomerates. However, if the size of the agglomerates is
+too large then the cost of the eigensolvers increases and eventually can
+become unacceptable for the purpose of constructing the AMG or DD
+solvers. This presentation discusses strategies to optimize the solution
+of the partial eigenproblems of interest. In particular, we examine
+direct and iterative eigensolvers for computing those subsets. Our
+experiments with synthetic meshes and with a well-known model of an
+oil-reservoir simulation benchmark indicate that iterative eigensolvers
+can lead to significant improvement in the overall performance of an AMG
+solver that exploits such spectral construction of coarse spaces.
+
+
+\end{document}

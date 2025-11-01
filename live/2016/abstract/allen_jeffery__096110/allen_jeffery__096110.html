@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>allen_jeffery__096110</TITLE>
+<META NAME="description" CONTENT="allen_jeffery__096110">
+<META NAME="keywords" CONTENT="allen_jeffery__096110">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="allen_jeffery__096110.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jeffery Allen 
+<BR><B>Fluidity Based Formulation of Nonlinear Stokes Flow for Ice Sheets using FOSLS</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">2210 Walnut Apt 1 
+<BR>
+Boulder 
+<BR>
+CO 80302
+
+<BR><TT>jeffery.allen@colorado.edu</TT>
+<BR>
+Thomas Manteuffel 
+<BR>
+Harihar Rajaram
+</DIV>
+
+<P>
+This talk describes two First-order System Least Squares (FOSLS)
+formulations of a nonlinear Stokes flow model for glaciers and ice
+sheets. In Glen's law, the most commonly used constitutive equation for
+ice rheology, the ice viscosity becomes infinite as the velocity
+gradients (strain rates) approach zero, which typically occurs near the
+ice surface where deformation rates are low, or when the basal slip
+velocities are high. The computational difficulties associated with the
+infinite viscosity are often overcome by an arbitrary modification of
+Glen's law that bounds the maximum viscosity. In this talk, two FOSLS
+formulations (the viscosity formulation and fluidity formulation) are
+presented. The viscosity formulation is a FOSLS representation of the
+standard nonlinear Stokes problem. The new fluidity formulation exploits
+the fact that only the product of the viscosity and strain rate appears
+in the nonlinear Stokes problem, a quantity that, in fact, approaches
+zero as the strain rate goes to zero. The fluidity formulation is
+expressed in terms of a new set of variables and overcomes the problem of
+infinite viscosity. The new formulation is well posed and the
+linearization is essentially <IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H^1$">
+-elliptic around solutions for which
+the viscosity is bounded. A Nested Iteration (NI) Newton-FOSLS-AMG
+approach is used to solve both nonlinear Stokes problems, in which most
+of the iterations are performed on the coarsest grid. Both formulations
+demonstrate optimal finite element convergence. However, the fluidity
+formulation is more accurate. The fluidity formulation involves linear
+systems that are more amenable to solution by AMG. Further improvement in
+computational cost is achieved using local adaptive refinement.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

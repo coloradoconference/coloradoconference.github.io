@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>draganescu_andr100511</TITLE>
+<META NAME="description" CONTENT="draganescu_andr100511">
+<META NAME="keywords" CONTENT="draganescu_andr100511">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="draganescu_andr100511.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrei Draganescu 
+<BR><B>Algebraic Multigrid Preconditioning of Distributed Optimal Control Problems Constrained by Elliptic Equations Based on Smoothed Aggregation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Statistics 
+<BR>
+University of Maryland Baltimore County 
+<BR>
+1000 Hilltop Circle 
+<BR>
+Baltimore MD 21250
+
+<BR><TT>draga@umbc.edu</TT>
+</DIV>
+
+<P>
+In this work we propose a new algebraic multigrid (AMG) method for the
+reduced form of linear-quadratic optimal control problems constrained by
+elliptic equations of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:ellipticctrl"></A><!-- MATH
+ \begin{equation}
+\min_{y,u} \frac{1}{2}\| y-y_d\| ^2+\frac{\beta}{2}\|u\|^2,\ \ \ \ -\Delta y=u\ .
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="279" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min_{y,u} \frac{1}{2}\Vert y-y_d\Vert ^2+\frac{\beta}{2}\Vert u\Vert^2,    -\Delta y=u .$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Previous work has shown that problems like&nbsp;(<A HREF="#eq:ellipticctrl">1</A>) can be
+solved very efficiently using multigrid methods, assuming a geometric
+hierarchy of grids is available. As with geometric multigrid, AMG methods
+have been originally designed for solving linear systems representing
+discrete differential equations, where the matrices are sparse. Instead,
+the linear systems arising in the reduced formulation
+of&nbsp;(<A HREF="#eq:ellipticctrl">1</A>), the so-called reduced Hessians, are not
+sparse, therefore AMG methods are not directly applicable. Relying on the
+basis functions and prolongation operators originating in smoothed
+aggregation for the elliptic equation, we construct an AMG-based
+multigrid preconditioner for&nbsp;(<A HREF="#eq:ellipticctrl">1</A>) that exhibits an
+efficiency similar to the geometric multigrid case, namely it increases
+with increasing resolution.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2016-03-22
+</ADDRESS>
+</BODY>
+</HTML>

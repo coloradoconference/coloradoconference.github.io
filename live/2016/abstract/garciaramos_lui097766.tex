@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Luis Garcia Ramos \\
+%-orig: {\bf On the spectrum of deflated matrices with applications to the deflated shifted Laplace preconditioner for the Helmholtz equation}
+{\bf The spectrum of deflated matrices and the deflated shifted laplace preconditioner for the Helmholtz equation}
+}
+
+Technische Universit\"{a}t Berlin \\ Institut f\"ur Mathematik \\ Stra\ss e des 17 Juni 136 \\ 10623 Berlin \\ Germany
+\\
+{\tt garcia@math.tu-berlin.de}\\
+Reinhard Nabben\end{center}
+
+The deflation technique to accelerate Krylov subspace iterative methods
+for the solution of linear systems has been known for a long time. The
+first landmark papers are due
+to Nicolaides and Dost\'{a}l in the late eighties where deflation is used
+for Hermitian positive definite (HPD) linear systems. In the last decade
+deflation was used and analyzed in combination with domain decomposition
+and multigrid methods, resulting in very effective algorithms. Examples
+are the multilevel Krylov methods introduced in [1,2], see also [3,4]
+where multilevel deflation techniques are presented. Although these
+algorithms work very well in practice for non-Hermitian problems, not
+many theoretical results are known so far in this direction. Here we show
+inclusion regions for the spectrum of an arbitrary deflated matrix based
+on the field of values, which generalize known results for HPD systems.
+Moreover, for deflated GMRES we show a residual bound based on the field
+of values. We apply our results to linear systems arising from the
+Helmholtz equation. We focus on the combination of the complex shifted
+Laplace (CSL) preconditioner [5] with the multilevel Krylov technique.
+Numerical examples indicate that the eigenvalues of the deflated
+CSL-preconditioned system lie on exact the same circles as the
+CSL-preconditioned linear systems and are shifted away from zero. Here we
+are able to prove these surprising results for any wavenumber and any
+dimension using M\"{o}bius transformations and the Spectral Mapping
+Theorem. Our new results help to explain the good performance of
+multilevel Krylov methods for the Helmholtz equation.
+
+References
+
+[1] Y. A. Erlangga and R. Nabben, Multilevel projection-based nested
+Krylov iteration for boundary value problems, SIAM Journal on Scientific
+Computing, 30 (2008), pp. 1572–1595.
+
+[2] Y. A. Erlangga and R. Nabben, On a multilevel Krylov method for the
+Helmholtz equation preconditioned by shifted Laplacian, Electronic
+Transactions on Numerical Analysis, 31 (2008), pp. 403–424.
+
+[3] A. H. Sheikh, D. Lahaye, L. Garc\'{i}a Ramos, R. Nabben, and C. Vuik,
+Accelerating the Shifted Laplace Preconditioner for the Helmholtz
+Equation by Multilevel Deflation, (2015), preprint.
+
+[4] A. H. Sheikh, D. Lahaye, and C. Vuik, On the convergence of shifted
+Laplace preconditioner combined with multilevel deflation, Numerical
+Linear Algebra with Applications, 20 (2013), pp. 645–662.
+
+[5] Y. A. Erlangga, C. Vuik, and C. W. Oosterlee, A novel multigrid-based
+preconditioner for heterogeneous Helmholtz problems, SIAM Journal on
+Scientific Computing, 27 (2006), pp. 1471–1492.
+
+
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Steffen Muenzenmaier \\
+{\bf A Comparison of Finite Element Spaces for $H(div)$-Conforming First-Order System Least Squares}}
+
+1ECOT \\ Engineering Office Tower \\ 1111 Engineering Drive \\ Boulder CO 80309
+\\
+{\tt steffen.muenzenmaier@colorado.edu}\\
+Christopher Leibs\\
+Thomas Manteuffel\end{center}
+
+First-order system least squares (FOSLS) is a commonly used technique in
+a wide range of physical applications. FOSLS discretizations are
+straightforward to implement and offer many advantages over traditional
+Galerkin or saddle point formulations. Often these problems are
+formulated in $H(div)$ spaces and $H(div)$-conforming elements are used.
+These elements have lesser regularity assumptions than the commonly used
+$H^1$-conforming elements and are therefore believed to be more suited
+for singular problems arising in many applications. This talk will
+compare the approximation properties of the $H(div)$-conforming
+Raviart-Thomas and Brezzi-Douglas-Marini elements to $H^1$-conforming
+piecewise polynomials in a $H(div)$-setting. Furthermore a
+$H^1$-formulation for these problems will be used and compared to the
+$H(div)$-formulation. For the comparison typical Poisson/Stokes problems
+are examined and singular solutions will be addressed by adaptive
+refinement strategies.
+
+
+\end{document}

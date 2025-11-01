@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>rajamanickam_si097949</TITLE>
+<META NAME="description" CONTENT="rajamanickam_si097949">
+<META NAME="keywords" CONTENT="rajamanickam_si097949">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="rajamanickam_si097949.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Siva Rajamanickam 
+<BR><B>ShyLU : A package for on-node smoothers and hybrid preconditioners in Trilinos</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories
+
+<BR><TT>srajama@sandia.gov</TT>
+<BR>
+Erik Boman
+<BR>
+Joshua Booth
+<BR>
+Andrew Bradley
+<BR>
+Clark Dohrmann
+</DIV>
+
+<P>
+This talk will present recent developments in the ShyLU package in Trilinos.
+ShyLU was originally developed as hybrid Schur complement solver. ShyLU is
+a MPI + X Schur complement solver where the X refers to additional levels of
+parallelism based on the architecture. This second level of parallelism has
+become critical for performance in modern architectures. This talk
+will focus on recent on-node factorizations and preconditioners in ShyLU. We
+discuss three different algorithms. First, we discuss a left-looking,
+data-parallel, non-supernodal (in)complete factorization. This algorithm is a
+parallel version of the Gilbert-Peierls algorithm. Second, we discuss a
+right-looking, task-parallel incomplete Cholesky factorization. This algorithm
+derives from the algorithm-by-blocks style of algorithms popular in the dense
+linear algebra community. Both these algorithms use a two-dimensional matrix
+layout for reduced synchronization costs. While the task-parallel algorithm is
+asynchronous, the data-parallel algorithm reduces the synchronization costs by
+algorithm specific techniques. Third, we discuss a new implementation of the
+iterative algorithm to compute the incomplete LU factorization and the
+triangular solve. This is a highly parallel, asynchronous algorithm that is
+uses nonlinear iterations to compute the LU factorization.
+
+<P>
+The first two algorithms are targeted towards medium level of concurrency and
+the third algorithm is targeted towards very high concurrency architectures.
+We compare the task-parallel and data-parallel algorithms to other solvers
+in both CPU and Xeon-Phi architectures. We present results of the third
+algorithm in GPU architectures. All three algorithms are implemented
+using the Kokkos
+library in Trilinos for portable performance across different architectures.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

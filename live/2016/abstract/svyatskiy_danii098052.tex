@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniil Svyatskiy \\
+{\bf New preconditioning strategy for Jacobian-Free solvers coupled with advanced discretization methods}}
+
+MS B284 \\ Theoretical division \\ Los Alamos National Laboratory \\ Los Alamos \\ NM,87545
+\\
+{\tt dasvyat@lanl.gov}\\
+Konstantin Lipnikov\\
+David Moulton\end{center}
+
+Numerical algorithms for nonlinear PDEs employ often implicit or explicit-implicit
+time integration schemes that result in a system of nonlinear discrete
+equations. Another key component of these algorithms is
+the spatial discretization of PDEs. The current practice of using
+unstructured meshes that conform to the physical domain or solution
+features reduces accuracy
+of the conventional discretization methods. New advanced discretization
+methods that remain
+accurate on unstructured meshes become more complex. However, the potential impact of
+modern discretization methods on multi-physics simulations
+has not been yet realized because the additional complexity
+cannot be managed by existing nonlinear solvers.
+
+Variably saturated flow in porous media is a critical process
+in a wide variety of environmental applications, including
+contaminant transport in the subsurface and carbon cycling in degrading
+permafrost. This flow process is often modeled by the nonlinear
+PDE which is referred to as the Richards' equation.
+In Richard's formulation the flow model is
+considered under the assumption that the gas phase is immobile.
+This simplification also makes
+Richards' equation a strongly nonlinear
+parabolic PDE, creating significant
+challenges for the performance of nonlinear solvers.
+
+The implicit discretization in time of its mixed-form is the standard
+approach for this type of applications since it enables large time steps
+and locally conserve mass. This scheme
+leads to a nonlinear discrete system of equations that must be solved
+at each time step.
+Typically, this solution is obtained by
+discretizing PDEs and then solving the resulting system of
+nonlinear discrete equations with a Newton-Raphson-type method.
+This approach is widely used in the case of cartesian
+grids with isotropic or grid-aligned anisotropic
+permeabilities, for which the two-point flux approximation of
+the flux is accurate.
+The Jacobian matrix is computed by
+differentiating the discrete nonlinear system of equations analytically
+with respect to the discrete pressure unknowns. This discrete Jacobian
+matrix is non-symmetric but positive definite, and for certain
+upwinding formulations, naturally picks up the appropriate upwinding
+needed for stability of the first-order derivatives.
+However, complexity and cost do increase if complex models of porosity or
+density are incorporated, particularly if these models require
+interpolation of tabular data.
+The geometric complexity of the subsurface environment
+requires to handle non-orthogonal and unstructured
+meshes. To discretize the flow model in these settings
+advanced discretization methods are essential.
+These methods offer accurate schemes on general meshes, but
+close-from formulas for the analytic
+Jacobian may not exist, e.g slope-limiting
+methods, nonlinear discretization schemes. For these discrete systems
+an implementation of the standard Newton-Raphson-type
+nonlinear solvers becomes very problematic.
+Although, this complexity in the discretization is manageable, it is problematic
+for the direct analytic differentiating of the nonlinear discrete
+system, as it is costly or overly complex to evaluate and the
+resulting Jacobian matrix may be singular.
+Therefore, development of Jacobian-Free solvers has attracted a
+lot of interest in the past decade.
+
+
+Several Jacobian-Free methods have become quite popular in the recent years.
+Methods, such as the Jacobian-Free Newton-Krylov method, only require the
+action of the Jacobian matrix on a vector, which is approximated
+via the numerical computation of the Gateaux derivative.
+Accelerated fixed-point methods such as Anderson
+Mixing and Nonlinear Krylov Acceleration (NKA) methods are design to extend
+the power of linear iterative schemes to the nonlinear case. In all
+of these methods the preconditioner plays a crucial role for the
+efficacy of a nonlinear solver. The standard preconditioning approach
+is based on a linearized counterpart of the original discrete system.
+The strong nonlinearity in the coefficients limits the
+efficacy of that approach and results in the growth of nonlinear iterations.
+
+
+We propose and analyze a new preconditioning strategy that is based on a
+stable discretization
+of the continuum Jacobian. The underlying idea in this work is to reverse
+the order of the
+discretization and linearization steps in the development of the
+nonlinear solver. Specifically, by performing the linearization step
+first, the analytic Jacobian of the continuum model is derived and
+then analyzed to establish requirements for accurate and stable
+discretizations.
+This strategy allows us to take full
+advantage of advanced discretization methods and control properties of
+intermediate solutions.
+For example, we may use monotone schemes for the diffusive term in the Jacobian and
+upwinded schemes for the advective term. This not only leads to an efficient
+preconditioner but also allows us to control its numerical properties.
+
+The proposed strategy was tested in simulations of water infiltration into a partially
+saturated layered medium in
+steady-state and transient regimes on
+non-orthogonal subsurface topology with
+heterogeneous permeabilities and water retention models.
+These experiments demonstrate that the new preconditioner improves
+convergence of the existing
+Jacobian-Free solvers 3-20 times.
+
+
+\end{document}

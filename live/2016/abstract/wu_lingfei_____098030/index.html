@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wu_lingfei_____098030</TITLE>
+<META NAME="description" CONTENT="wu_lingfei_____098030">
+<META NAME="keywords" CONTENT="wu_lingfei_____098030">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wu_lingfei_____098030.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Lingfei Wu 
+<BR><B>Preconditioned Thick-Restart Lanczos Method with Subspace Optimization for Symmetric Eigenvalue Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">120 Lafayette Blvd APT F 
+<BR>
+Williamsburg 
+<BR>
+VA 
+<BR>
+23188
+
+<BR><TT>lwu@email.wm.edu</TT>
+<BR>
+Fei  Xue
+<BR>
+Andreas Stathopoulos
+</DIV>
+
+<P>
+The Thick-Restart Lanczos method (TRLAN) is an effective method for large
+sparse symmetric eigenvalue problems. However, the effectiveness of
+Lanczos method heavily depends on the distribution of eigenvalues and can
+converge very slowly when the desired eigenvalues are not well separated
+from the rest of the spectrum. In addition, restarting causes further
+deterioration of convergence. Thick restarting can recover some of the
+convergence loss but the restarting method of subspace optimization (also
+known as +k or locally optimal restarting) is the one that can result in
+near optimal methods. However, locally optimal restarting has only been
+implemented with Generalized Davidson (GD) or LOPBCG methods which have
+expensive iteration costs.
+
+<P>
+In this work, we propose a new near-optimal eigenmethod, TRLAN+K, that
+combines the efficiency of the Lanczos algorithm and the power of the
+subspace optimization techniques. Specifically, an inner-outer scheme is
+employed. The inner loop applies the Lanczos recurrence while the outside
+loop augments the Krylov subspace with a certain number of vectors from
+the previous restart cycle. We then apply the Rayleigh-Ritz procedure in
+the new subspace. Numerical experiments show that the proposed method can
+achieve almost optimal convergence when considering the unrestarted
+Lanczos as benchmark. Specifically, our method can converge up to ten
+times faster than TRLAN when both methods are operated with relatively
+small subspace under limited memory. The advantage of the proposed method
+slowly diminishes as the size of subspace increases compared to TRLAN,
+and then both methods converge similarly to the unrestarted Lanczos.
+
+<P>
+The generated Davidson (GD) method and its variants are a class of
+effective eigenmethods that can also take advantage of a preconditioner.
+Among them, GD+K utilizes the locally optimal conjugate gradient
+restarting and has been shown to deliver near-optimal convergence under
+severely limited memory. Without a preconditioner, it is well known that
+the GD method is mathematically equivalent to the Lanczos method and with
+thick restarting it is equivalent to TRLAN. GD+K, however, has slightly
+better convergence than TRLAN+K since it expands the subspace by the
+residuals from Rayleigh-Ritz optimization at every step. On the other
+hand TRLAN+K has smaller costs for Raryleigh-Ritz and orthogonalization
+and thus it can be more efficient than GD+K when the matrix is
+sufficiently sparse. In addition, as the size of the subspace increases,
+the differences between convergence rates become smaller and the low cost
+of the Lanczos recurrence further benefits TRLAN+K.
+
+<P>
+In addition to the usual shift-invert mode,TRLAN+K can also be adapted to
+use a preconditioner. We use an inverse-free type preconditioned Krylov
+subspace scheme in the inner iteration. Although the inner iteration is
+similar to the EIGIFP method, TRLAN+K differs in several ways and most
+importantly in the techniques used in the outer iteration, specifically
+thick restarting and the subspace optimization. These techniques are the
+key to achieving a near-optimal eigenmethod.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

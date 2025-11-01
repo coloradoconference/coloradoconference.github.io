@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large James Nagy \\
+{\bf ADMM for Matrix Equations Arising in Inverse Problems}}
+
+Mathematics and Computer Science Department \\ Emory University \\ Atlanta \\ GA 30322 \\ USA
+\\
+{\tt nagy@mathcs.emory.edu}\\
+Jianjun Zhang\end{center}
+
+In this talk we consider linear inverse problems where the matrix that
+models the forward problem can be decomposed into a sum of Kronecker
+products. We first show that such a decomposition can be computed
+very efficiently for large-scale problems in certain imaging
+applications. We then show how to exploit this decomposition to
+obtain an efficient implementation of the alternating direction method
+of multipliers (ADMM) to solve the inverse problem with total
+variation regularization. In particular, ADMM is an iterative solver
+that requires solving several subproblems at each iteration, and we
+describe how this can be done efficiently when the problem is
+reformulated as a generalized matrix equation.
+
+
+\end{document}

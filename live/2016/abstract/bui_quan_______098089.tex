@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Quan Bui \\
+{\bf Algebraic Multigrid Preconditioners for Multiphase Flow in Porous Media}}
+
+11714 Leesborough Cir \\ Silver Spring \\ MD 20902
+\\
+{\tt mquanbui@math.umd.edu}\\
+Howard Elman\\
+David Moulton\end{center}
+
+Multiphase flow is a critical process in a wide range of applications,
+including carbon sequestration, contaminant remediation, and groundwater
+management. It is modeled by a nonlinear system of partial differential
+equations derived by considering the mass conservation of each phase
+(e.g., oil, water), along with constituitive laws for the relationship of
+phase velocity to phase pressure. The constraint that the phase
+saturations sum to one, along with initial and boundary conditions,
+closes this system. The nonlinearity of the constuitive laws, in
+conjuction with the coupling of the phases, often requires the use of
+implicit discretization in time for both stability and accuracy. In this
+work we study a model of immiscible two-phase flow in which the primary
+variables are the pressure of the wetting phase and the saturation of the
+nonwetting phase. We use a finite volume method for spatial
+discretization and the backward Euler method for time discretization of
+the coupled system, leading to a fully implicit solution method. In this
+setting the capillary pressure is the difference between the non-wetting
+phase and wetting phase pressures. If the capillary pressure changes
+quickly with respect to saturation, then the operators associated with
+each phase are diffusion-dominated, whereas if capillary pressures vary
+slowly, then the saturation depends strongly on an advection-dominated,
+nearly hyperbolic, operator. These variations in character affect the
+performance of AMG-based solvers. Here, we present our experience with
+the GMRES solution of the linear systems resulting from the linearization
+of the coupled equations with algebraic multigrid (AMG) as a
+preconditioner, and with two constrained pressure residual multigrid
+(CPR-AMG) preconditioners. AMG is implemented using the HYPRE software
+package from Lawrence Livermore National Laboratories. Numerical
+expermients demonstrate that GMRES with AMG preconditioning for the
+coupled systems works best in the diffusion-dominated case, but it
+suffers slow convergence and sometimes diverges in the
+advection-dominated case. Similarly, the previously established CPR-AMG
+method that uses AMG to solve the pressure block, do not scale optimally
+with problem size in the advection-dominated case. The proposed CPR-AMG
+method that uses AMG to solve both the pressure block and the saturation
+block generally performs well for advection-dominated problems and scales
+optimally with problem size.
+
+
+\end{document}

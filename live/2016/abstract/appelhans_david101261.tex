@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Appelhans \\
+{\bf Nested Iteration Range Decomposition: A scalable, low communication PDE solution method with numerical results on advection-diffusion problem.}}
+
+99 Grant Ave #1 \\ Medford \\ MA 02155
+\\
+{\tt dappelh@us.ibm.com}\\
+John Ruge\\
+Tom Manteuffel\\
+Steve McCormick\end{center}
+
+Combining nested iteration, adaptive mesh refinement, and range
+decomposition creates a powerful PDE solution method with reduced
+communication costs compared to traditional solution methods. Range
+decomposition partitions a PDE according to the right side of the
+equation, rather than the domain. If the right side is approximately
+equally distributed, for example from a coarse adaptive least squares
+solve, then range decomposition equally distributes the error and is a
+naturally load balanced algorithm. This algorithm is naturally suited for
+large distributed memory systems where intra-node communication is
+expensive but on node computational power is plentiful. The method will
+be explained, a performance model will show the scaling benefits, and
+numerical results for an advection-diffusion type PDE will be shown.
+
+
+\end{document}

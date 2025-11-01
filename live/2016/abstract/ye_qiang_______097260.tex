@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Qiang Ye \\
+{\bf Computing Singular Values of Large Matrices with an Inverse Free Preconditioned Krylov Subspace Method}}
+
+Department of Mathematics \\ University of Kentucky \\ Lexington \\ KY 40506-0027
+\\
+{\tt qye3@uky.edu}\\
+Qiao Liang\end{center}
+
+We present an efficient algorithm for computing a few extreme (largest
+and smallest) singular values and corresponding singular vectors of a
+large sparse $m\times n$ matrix $C$. Our algorithm is based on
+reformulation of the singular value problem as an eigenvalue problem for
+$C^T C$ and, to address the clustering of singular values, we use an
+inverse-free preconditioned Krylov subspace method to accelerate
+convergence. We consider preconditioning that is based on robust
+incomplete factorizations and we discuss various implementation issues
+such as deflations. Numerical tests will be presented to demonstrate
+efficiency and robustness of the new algorithm.
+
+
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jiahao Chen \\
+{\bf A Julia package for practical iterative SVDs}}
+
+32 Vassar St \\ Rm 32-206 \\ MIT CSAIL \\ Cambridge \\ MA 02139
+\\
+{\tt jiahao@mit.edu}\\
+Andreas Noack\\
+Jake Bolewski\\
+Alan Edelman\end{center}
+
+We present an implementation of iterative Golub-Kahan-Lanczos (GKL)
+bidiagonalization in the Julia package IterativeSolvers.jl, allowing for the
+iterative computation of the singular value decomposition. The implementation
+combines the best features of available implementations, featuring a standardized
+palette of techniques aiding practical computation such as restarting and
+reorthogonalization. Our implementation offers multiple restarting strategies,
+such as explicit restarts, implicit restarts as in ARPACK, thick restarts as
+in SLEPc, and harmonic restarts. We also offer multiple
+reorthogonalization strategies, such as partial
+orthogonalization as in PROPACK, and full reorthogonalization using QR and
+various Gram-Schmidt methods.
+
+We show how the multimethods (multiple dispatch) system of Julia allows
+for modular composition of these
+various components, allowing for very fine grained control over roundoff error.
+The Julia type system also allows for bidiagonalizations to be computed over a
+wide variety of matrix data types, ranging from ordinary dense matrices to
+sparse matrices with multiprecision floating point numbers. Overloading elementary
+operators such as multiplication (*) and subtraction (-) allow the same code to
+run on new data structures, such as out of core arrays in a database, or custom
+matrix representations. The same technique allows us to provide run time control
+over the underlying linear algebra library, allowing users to change between
+OpenBLAS, MKL, Eigen, and others. The result is a flexible yet performant
+library of components which can be used for high performance computation that
+at the same time facilitates further experimentation and prototyping of new
+algorithms.
+
+
+\end{document}

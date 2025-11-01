@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>reisner_andrewr098148</TITLE>
+<META NAME="description" CONTENT="reisner_andrewr098148">
+<META NAME="keywords" CONTENT="reisner_andrewr098148">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="reisner_andrewr098148.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrew, R Reisner 
+<BR><B>Progress on Improving the Parallel Scalability of BoxMG</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">201 N Goodwin Ave 
+<BR>
+Urbana 
+<BR>
+IL 
+<BR>
+61801
+
+<BR><TT>areisne2@illinois.edu</TT>
+<BR>
+Luke Olson
+<BR>
+David Moulton
+</DIV>
+
+<P>
+Black Box Multigrid (BoxMG) is a variational multigrid method for discretizations
+of PDEs on logically structured grids.
+BoxMG uses operator-induced interpolation, making it robust for problems
+with discontinuous coefficients and general boundary conditions on grids
+of any dimension (i.e., non-power-of-two grids).
+Like most structured multigrid methods, BoxMG uses the structure of the problem to
+yield notable performance advantages such as direct memory access and bounded
+complexity in the coarse grid operator. Yet, while current parallel BoxMG
+implementations scale well out to thousands of cores,
+the coarse grid solve and line-relaxation limit further scalability.
+In the plasma applications of interest, grid stretching creates an
+anisotropic diffusion operator, and hence, with standard coarsening
+line-relaxation is required.
+The current coarse-grid solve strategy first collects the coarse problem to a single
+core. The coarse problem is then solved using serial BoxMG.
+To extend the scalability of the coarse-grid solve, we look at redistributing
+the problem on coarser levels to provide redundancy while minimizing communication costs.
+In this talk, we give an overview of the current state of BoxMG including a new control
+layer. We will show our progress in addressing the coarse-grid scalability limitations,
+specifically in the context of electric field calculations on curvilinear meshes.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chen Greif \\
+{\bf Preconditioners for Mixed Finite Element Discretizations of Incompressible MHD Equations}}
+
+Department of Computer Science \\ The University of British Columbia \\ Vancouver \\ BC \\ V6T1Z4 \\ Canada
+\\
+{\tt greif@cs.ubc.ca}\\
+Dominik Schoetzau\\
+Michael Wathen\end{center}
+
+We consider preconditioning techniques for a mixed finite element
+discretization of an incompressible magnetohydrodynamics (MHD) problem.
+We use Taylor-Hood elements for the fluid variables and a mixed Nedelec
+pair for the magnetic unknowns. Upon discretization and linearization, a
+4-by-4 nonsymmetric block-structured linear system needs to be
+(repeatedly) solved. One of the principal challenges is the presence of a
+skew-symmetric term that couples the fluid velocity with the magnetic
+field. Our proposed preconditioner exploits the block structure of the
+underlying linear system, utilizing and combining effective solvers for
+the mixed Maxwell and Navier-Stokes subproblems. The preconditioner is
+based on dual and primal Schur complement sparse approximations. We
+perform spectral analysis for an ideal version of the preconditioner, and
+develop and test a practical version of it. Large scale numerical results
+for linear systems of dimensions up to ten million demonstrate the
+effectiveness and scalability of our approach.
+
+
+\end{document}

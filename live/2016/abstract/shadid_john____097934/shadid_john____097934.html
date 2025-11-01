@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>shadid_john____097934</TITLE>
+<META NAME="description" CONTENT="shadid_john____097934">
+<META NAME="keywords" CONTENT="shadid_john____097934">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="shadid_john____097934.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">John Shadid 
+<BR><B>Scalable Solution of Continuum Plasma Physics Models by Approximate Block Factorization Preconditioners</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+Computational Mathematics Department 
+<BR>
+Sandia National Laboratories 
+<BR>
+PO Box 5800 MS 1321 
+<BR>
+Albuquerque 
+<BR>
+NM 87185 – 1321
+
+<BR><TT>jnshadi@sandia.gov</TT>
+<BR>
+Edward Phillips
+<BR>
+Eric Cyr
+<BR>
+Roger Pawlowski
+</DIV>
+
+<P>
+The mathematical basis for the continuum modeling of plasma physics systems
+is the solution of the governing partial differential equations (PDEs)
+describing conservation of mass, momentum, and energy, along with various
+forms of approximations to Maxwell's equations. This PDE system is
+non-self adjoint, strongly-coupled, highly-nonlinear, and characterized
+by physical phenomena that span a very large range of length- and
+time-scales. To enable accurate and stable approximation of these systems
+a range of spatial and temporal discretization methods are commonly
+employed. In the context of finite element spatial discretization methods
+these include mixed integration, stabilized methods and
+structure-preserving (physics compatible) approaches. For effective time
+integration for these systems some form of implicitness is required. Two
+well-structured approaches, of recent interest, are fully-implicit and
+implicit-explicit (IMEX) type methods. Clearly the desire to accommodate
+disparate spatial discretizations, and allow the flexible assignment of
+mechanisms as explicit or implicit operators, implies a wide variation in
+unknown coupling, ordering, the nonzero block structure, and the
+conditioning of the implicit system. These characteristics make the
+scalable and efficient iterative solution of these systems extremely
+challenging.
+
+<P>
+This talk considers the development and evaluation of approaches based on
+approximate block factorization (ABF) and physics-based preconditioning
+approaches. These methods reduce the coupled systems into a set of
+simplified systems to which multilevel methods are applied. A critical
+aspect of these methods is the development of approximate Schur
+complement operators that encode the critical cross-coupling physics of
+the system [1-3]. To demonstrate the flexibility and performance of these
+methods we consider application of these techniques to resistive MHD and
+multiphysics MHD models for challenging prototype systems.
+In this context robustness, efficiency, and the parallel and algorithmic
+scaling of the preconditioning methods are discussed.
+
+<P>
+[1] E. C. Cyr, J. N. Shadid, R. S. Tuminaro, R. P. Pawlowski, and L.
+Chacon, A new approximate block factorization preconditioner for 2D
+incompressible (reduced) resistive mhd, SIAM Journal on Scientific
+Computing, 35:B701-B730, 2013
+
+<P>
+[2] E. G. Phillips, H. C. Elman, E. C. Cyr, J. N. Shadid, R.P. Pawlowski,
+A Block Preconditioner for an Exact Penalty Formulation for Stationary
+MHD, SIAM J. Sci. Comput. 36-6 (2014), pp. B930-B951
+
+<P>
+[3] E. C. Cyr, J. N. Shadid, and R. S. Tuminaro, “Teko an abstract block
+preconditioning capability with concrete example applications to
+Navier-Stokes and resistive MHD, Accepted in SISC
+
+<P>
+*This work was supported by the DOE Office of Science Advanced Scientific
+Computing Research - Applied Math Research program at Sandia National
+Laboratories.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

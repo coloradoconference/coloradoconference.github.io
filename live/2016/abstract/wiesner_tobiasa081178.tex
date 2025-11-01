@@ -1,0 +1,60 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tobias, A. Wiesner \\
+{\bf Algebraic multigrid for contact problems in saddle point formulation}}
+
+Sandia National Laboratories \\ Attn: Dr -Ing Tobias A Wiesner \\ PO Box 5800 MS-1320 \\ Albuquerque \\ NM 87185
+\\
+{\tt tawiesn@sandia.gov}\\
+Michael, W. Gee\\
+Wolfgang, A. Wall\end{center}
+
+This talk introduces a full aggregation-based algebraic multigrid
+strategy for structural contact problems in saddle point formulation
+(e.g., \cite{wieners2003,popp2012diss}). The basic idea is to preserve
+the saddle point structure on all multigrid levels. This concept of
+extending multigrid methods to saddle point systems is not new and can be
+found, e.g., in the context of Stokes and Oseen equations in
+\cite{janka2006}. So far, there is not so much literature on
+aggregation-based algebraic multigrid solvers for mortar-based contact
+problems.
+
+The main contribution of this work is the development of an interface
+aggregation strategy for generating the Lagrange multiplier aggregates
+that are required for coupling the structural equations with the contact
+constraints. The proposed method is simpler to implement, computationally
+less expensive than the ideas from \cite{adams2004}, and -- in the
+author's opinion -- the presented approach is more intuitive for contact
+problems. Our interface aggregation strategy perfectly fits into the
+general multigrid framework and can easily be combined with segregated
+transfer operators which allow to preserve the saddle point structure on
+the coarse levels (cf.~\cite{wiesner2014diss}). Numerical experiments
+show the robustness of the new method.
+
+\begin{thebibliography}{1cm}
+\bibitem{wieners2003}C.~Wieners and B.~Wohlmuth: {\sl Duality estimates
+and multigrid analysis for saddle point problems arising from mortar
+discretizations}. SIAM Journal on Scientific Computing, vol 24,
+2163-2184, 2003.
+\bibitem{popp2012diss} A.~Popp: {\sl Mortar Methods for Computational
+Contact Mechanics and General interface Problems}. Technische
+Universit\"at M\"unchen, 2012.
+\bibitem{janka2006} Ales Janka: {\sl Smoothed aggregation multigrid for a
+{S}tokes problem}, Institute of Analysis and Scientific Comuting, Ecole
+Polytechnique Federale de Lausanne, 2006.
+\bibitem{adams2004} M.~F.~Adams: {\sl Algebraic multrigrid methods for
+constrained linear systems with applications to contact problems in solid
+mechanics}. Numerical Linear Algebra with Applications, vol 11, 141-153,
+2004
+\bibitem{wiesner2014diss} T.~A.~Wiesner: {\sl Flexible aggregation-based
+algebraic multigrid methods for contact and flow problems}. Technische
+Universit\"at M\"unchen, 2015.
+\end{thebibliography}
+
+
+\end{document}

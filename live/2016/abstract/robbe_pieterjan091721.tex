@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Pieterjan Robbe \\
+{\bf A Practical Multilevel Quasi-Monte Carlo Method for PDEs with Random Coefficients}}
+
+Department of Computer Science \\ KU Leuven - University of Leuven \\ Celestijnenlaan 200A \\ B3001 Leuven \\ Belgium
+\\
+{\tt pieterjan.robbe@kuleuven.be}\\
+Dirk Nuyens\\
+Stefan Vandewalle\end{center}
+
+We present a Multilevel Quasi-Monte Carlo algorithm for the solution of
+elliptic partial differential equations with random coefficients and
+inputs. By combining the multilevel sampling idea with randomly shifted
+rank-1 lattice rules, the algorithm constructs an estimator for the
+expected value of some functional of the solution. The error analysis of
+this estimator provides a formula for the optimal number of samples at
+each level. The efficiency of the method is illustrated on a
+three-dimensional subsurface flow problem with lognormal diffusion
+coefficient. This example is particularly challenging because of the
+small correlation length, and thus the large number of uncertainties that
+must be included. We numerically show that it is possible to achieve a
+cost almost inversely proportional to the requested tolerance on the
+root-mean-square error.
+
+
+\end{document}

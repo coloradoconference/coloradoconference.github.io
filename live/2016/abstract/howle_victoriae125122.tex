@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Victoria, E. Howle \\
+{\bf Preconditioning IRK Methods for Time-Dependent Fluid Flow Problems}}
+
+Department of Mathematics \& Statistics \\ Texas Tech University \\ Lubbock \\ TX 79407
+\\
+{\tt victoria.howle@tty.edu}\\
+Ashley Meek\end{center}
+
+We examine block preconditioners for time-dependent incompressible
+Navier-Stokes problems and some related coupled problems. In some
+time-dependent problems, explicit time stepping methods can require much
+smaller time steps for stability than is needed for reasonable accuracy.
+This leads to taking many more time steps than would otherwise be needed.
+With implicit time stepping methods, we can take larger steps, but at the
+price of needing to solve large linear systems at each time step. We
+consider implicit Runge-Kutta (IRK) methods. Suppose our PDE has been
+linearized and discretized with $N$ degrees of freedom. Using an
+$s$-staghe IRK method leads to an $s N \times s N$ linear system that
+must be solved at each time step. These linear systems are block $s \times
+s$ systems, where each block is $N \times N$. We investigate
+preconditioners for such systems, where we take advantage of the
+structure of the subblocks.
+
+
+\end{document}

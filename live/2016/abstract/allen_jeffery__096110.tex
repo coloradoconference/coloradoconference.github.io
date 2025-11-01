@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeffery Allen \\
+{\bf Fluidity Based Formulation of Nonlinear Stokes Flow for Ice Sheets using FOSLS}}
+
+2210 Walnut Apt 1 \\ Boulder \\ CO 80302
+\\
+{\tt jeffery.allen@colorado.edu}\\
+Thomas Manteuffel \\
+Harihar Rajaram\end{center}
+
+This talk describes two First-order System Least Squares (FOSLS)
+formulations of a nonlinear Stokes flow model for glaciers and ice
+sheets. In Glen's law, the most commonly used constitutive equation for
+ice rheology, the ice viscosity becomes infinite as the velocity
+gradients (strain rates) approach zero, which typically occurs near the
+ice surface where deformation rates are low, or when the basal slip
+velocities are high. The computational difficulties associated with the
+infinite viscosity are often overcome by an arbitrary modification of
+Glen's law that bounds the maximum viscosity. In this talk, two FOSLS
+formulations (the viscosity formulation and fluidity formulation) are
+presented. The viscosity formulation is a FOSLS representation of the
+standard nonlinear Stokes problem. The new fluidity formulation exploits
+the fact that only the product of the viscosity and strain rate appears
+in the nonlinear Stokes problem, a quantity that, in fact, approaches
+zero as the strain rate goes to zero. The fluidity formulation is
+expressed in terms of a new set of variables and overcomes the problem of
+infinite viscosity. The new formulation is well posed and the
+linearization is essentially $H^1$-elliptic around solutions for which
+the viscosity is bounded. A Nested Iteration (NI) Newton-FOSLS-AMG
+approach is used to solve both nonlinear Stokes problems, in which most
+of the iterations are performed on the coarsest grid. Both formulations
+demonstrate optimal finite element convergence. However, the fluidity
+formulation is more accurate. The fluidity formulation involves linear
+systems that are more amenable to solution by AMG. Further improvement in
+computational cost is achieved using local adaptive refinement.
+
+
+\end{document}

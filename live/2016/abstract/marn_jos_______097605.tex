@@ -1,0 +1,105 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large José Marín \\
+{\bf Preconditioners for nonsymmetric linear systems with low-rank skew-symmetric part}}
+
+Institut de Matematica Multidisciplinar \\ Universitat Politecnica de Valencia \\ Camí de Vera \\ 14 \\ 46022 Valencia \\ Spain
+\\
+{\tt jmarinma@imm.upv.es}\\
+Juana Cerdán\\
+Danny Guerrero\\
+José Mas\end{center}
+
+\newcommand{\reals}{\mathbb{R}}
+
+In this work we study the iterative solution of nonsingular, nonsymmetric
+linear systems of $n$ equations
+\begin{equation} Ax=b \end{equation}
+where the skew-symmetric part of the coefficient matrix $A$ can be
+approximated by a low-rank matrix.
+Consider $A=H+K$ where $H$ and $K$ are the symmetric and skew-symmetric
+parts of $A$, respectively. It is assumed that the skew-symmetric matrix
+can be written as $K=PQ^T + E$ for some full rank $P,Q \in \reals^{n
+\times s}$ with $k \ll n$, and $\| E \| \ll 1$.
+
+Different strategies have been proposed when the skew-symmetric part $K$
+has exactly rank $s \ll n$. In \cite{Beckermann:2008} it is presented a
+progressive GMRES method that allows for the short-term computation of an
+orthogonal Krylov subspace basis. As pointed out in \cite{ESSSX.2012},
+although the method is mathematically equivalent to full GMRES
+\cite{sasc:86} in practice it may suffer from instabilities due to the
+loss of orthogonality between the vectors of the generated Krylov
+subspace basis. In the same paper, the authors propose a Schur complement
+method that also permits the application of short-term formulas. The
+method obtains an
+approximate solution by applying the MINRES method $s+1$ times. The
+authors also suggest that can be successfully applied as a preconditioner
+for GMRES for the problem considered in this paper.
+
+We study a method based on the framework proposed in \cite{cmm:16}.
+Assuming that the matrix $H+PQ^T$ is nonsingular, our approach computes
+an approximate LU factorization of the matrix
+\begin{equation}\label{eq:augmented}
+\left[
+\begin{array}{cc}
+H & P\\
+-Q^T & I
+\end{array}
+\right]
+\end{equation}
+with the Balanced Incomplete Factorization (BIF) algorithm
+\cite{bmmt:08,bmmt:10}. Interestingly, the matrix in (\ref{eq:augmented})
+is
+similar to the one used in \cite{ESSSX.2012} to develop the Schur
+complement method, but in this work it is used to update a previously
+computed preconditioner for the symmetric part $H$. Then, the
+factorization is used as a preconditioner for the GMRES method. The
+results of the numerical experiments for different problems will be
+presented.
+
+\begin{thebibliography}{1}
+
+\bibitem{Beckermann:2008}
+Bernhard Beckermann and Lothar Reichel.
+\newblock The {A}rnoldi process and {GMRES} for nearly symmetric matrices.
+\newblock {\em SIAM J. Matrix Anal. Appl.}, 30(1):102--120, February 2008.
+
+\bibitem{bmmt:08}
+R.~Bru, J.~Mar{\'{\i}}n, J.~Mas, and M.~T\accent23uma.
+\newblock Balanced incomplete factorization.
+\newblock {\em SIAM J. Sci. Comput.}, 30(5):2302--2318, 2008.
+
+\bibitem{bmmt:10}
+R.~Bru, J.~Mar{\'{\i}}n, J.~Mas, and M.~T\accent23uma.
+\newblock Improved balanced incomplete factorization.
+\newblock {\em SIAM J. Matrix Anal. Appl.}, 31(5):2431--2452, 2010.
+
+\bibitem{cmm:16}
+J.~Cerd\'an, J.~Mar\'{\i}n, and J.~Mas.
+\newblock Low-rank updates of balanced incomplete factorization
+preconditioners.
+\newblock {\em Submitted.}
+
+\bibitem{ESSSX.2012}
+Mark Embree, Josef~A. Sifuentes, Kirk~M. Soodhalter, Daniel~B. Szyld, and Fei
+Xue.
+\newblock Short-term recurrence {K}rylov subspace methods for nearly hermitian
+matrices.
+\newblock {\em SIAM. J. Matrix Anal. and Appl.}, 33-2:480--500, 2012.
+
+\bibitem{sasc:86}
+Y.~Saad and M.~H. Schulz.
+\newblock {GMRES}: {A} generalized minimal residual algorithm for solving
+nonsymmetric linear systems.
+\newblock {\em {SIAM} Journal on Scientific and Statistical Computing},
+7:856--869, 1986.
+
+\end{thebibliography}
+
+
+\end{document}

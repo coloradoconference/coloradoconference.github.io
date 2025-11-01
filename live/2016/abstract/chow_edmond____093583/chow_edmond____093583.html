@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chow_edmond____093583</TITLE>
+<META NAME="description" CONTENT="chow_edmond____093583">
+<META NAME="keywords" CONTENT="chow_edmond____093583">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chow_edmond____093583.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Edmond Chow 
+<BR><B>Reducing communication costs in distributed relaxation methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">School of Computational Science and Engineering 
+<BR>
+Georgia Institute of Technology 
+<BR>
+Atlanta 
+<BR>
+GA 
+<BR>
+USA
+
+<BR><TT>echow@cc.gatech.edu</TT>
+<BR>
+Jordi Wolfson-Pou
+</DIV>
+
+<P>
+Inter-node communication has high energy cost compared to computation.
+In exascale computing, reducing communication and thus energy cost may
+become even more important than reducing overall time. We apply this
+extreme objective to relaxation-type iterative methods and propose a new,
+``parallel Southwell'' iteration for solving sparse linear systems.
+Standard Southwell iteration relaxes one row at a time, corresponding
+to the row with the highest residual, and is a sequential algorithm by
+definition. Southwell generally converges faster than Gauss-Seidel in
+terms of the number of relaxations. Since each relaxation is associated with
+communication, communication cost is also reduced. However, to achieve
+this faster convergence, Southwell needs global communication after
+every relaxation step to determine the row with the highest residual.
+
+<P>
+In parallel Southwell, we approximate the standard Southwell iteration
+by 1) avoiding global communication, and 2) allowing some rows to be
+relaxed simultaneously. To describe the method, assume one processor
+node assigned to one row or grid point. At each iteration, each node
+determines if it is the node with the largest residual among its
+neighbors in the grid. If so, then this node relaxes its row and sends
+updated values to its neighbors. Nodes that have recently relaxed
+do not relax again for a given number of iterations, to prevent too
+many nodes relaxing simultaneously. Open questions include how each
+node maintains an estimate of the residual on neighboring nodes (this
+process does not need to be exact). Also, the algorithm is ideally
+implemented as an asynchronous method, and thus we discuss the challenges
+of implementing this method using MPI one-sided communication (remote
+memory access). The goal is to develop a method to solve problems with
+less communication than with Gauss-Seidel or Jacobi with the possibility
+of also being faster on extreme scale distributed systems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

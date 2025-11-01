@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stefan Ulbrich \\
+{\bf Preconditioners for time-dependent PDE-constrained optimization and their application based on ”Parareal” time-domain decomposition }}
+
+Technische Universität Darmstadt \\ Department of Mathematics \\ Dolivostr 15 \\ 64293 Darmstadt \\ Germany
+\\
+{\tt ulbrich@mathematik.tu-darmstadt.de}\end{center}
+
+We consider optimization problems governed by time-dependent
+parabolic PDEs and discuss the construction of parallel preconditioners
+based on the parareal method for the solution of quadratic subproblems
+which arise within SQP methods.
+In the case without control constraints, the optimality
+system of the subproblem is directly reduced to a symmetric PDE system,
+for which we propose a preconditioner that decouples into a forward and
+backward PDE solve.
+In the case of control constraints we apply a semismooth Newton method
+and apply the preconditioner to the semismooth Newton
+system. We prove bounds on the condition number of the preconditioned
+system which shows no or only a weak dependence on the size of
+regularization parameters for the control.
+We propose to use the parareal time domain decomposition method for the
+forward and backward PDE solves within the
+PDE preconditioner to construct an efficient parallel preconditioner.
+Numerical results are presented.
+The talk is in parts based on joint work with Anton Schiela.
+
+
+\end{document}

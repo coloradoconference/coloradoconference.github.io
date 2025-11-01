@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>rudi_johann____098281</TITLE>
+<META NAME="description" CONTENT="rudi_johann____098281">
+<META NAME="keywords" CONTENT="rudi_johann____098281">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="rudi_johann____098281.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Johann Rudi 
+<BR><B><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu$">
+-BFBT Preconditioner for Stokes Flow Problems with Strongly Heterogeneous Viscosity</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">The University of Texas at Austin 
+<BR>
+201 East 24th Street 
+<BR>
+Stop C0200 
+<BR>
+Austin TEXAS 78712-1229
+
+<BR><TT>johann@ices.utexas.edu</TT>
+<BR>
+Georg Stadler
+<BR>
+Omar Ghattas
+</DIV>
+
+<P>
+We present <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu$">
+-BFBT, an approximation for the inverse Schur complement of a
+Stokes system with strongly heterogeneous viscosity.
+
+<P>
+When used as part of a Schur complement preconditioner, we observe robust
+convergence rates for Stokes problems with smooth but strongly varying (up to
+10 orders of magnitude) viscosities, optimal algorithmic scalability with
+respect to mesh refinement, and a merely mild dependence on the polynomial
+order of high-order finite element discretizations
+(<!-- MATH
+ $Q_{k} \times P_{k-1}^{disc}$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ Q_{k} \times P_{k-1}^{disc}$">
+, order <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k\ge2$">
+).
+
+<P>
+For certain problems, <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu$">
+-BFBT significantly improves Stokes solver
+convergence over the widely used Schur approximation with an inverse viscosity
+weighted pressure mass matrix. Using detailed numerical experiments, we
+discuss modifications to <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu$">
+-BFBT at Dirichlet boundaries, which decrease the
+number of iterations.
+
+<P>
+The overall algorithmic performance of the Stokes solver is governed by the
+efficacy of <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu$">
+-BFBT as a Schur complement approximation and, in addition, by
+our parallel hybrid spectral-geometric-algebraic multigrid (HMG) method, used
+for approximating the inverses of the viscous block and variable-coefficient
+pressure Poisson operators within <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu$">
+-BFBT.
+
+<P>
+Building on the scalability of HMG, our Stokes solver achieves parallel weak
+scalability of 90% for a more than 600-fold increase from 48 to all 30,000
+cores of TACC's Lonestar 5 supercomputer.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

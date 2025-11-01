@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew, R Reisner \\
+{\bf Progress on Improving the Parallel Scalability of BoxMG}}
+
+201 N Goodwin Ave \\ Urbana \\ IL \\ 61801
+\\
+{\tt areisne2@illinois.edu}\\
+Luke Olson\\
+David Moulton\end{center}
+
+Black Box Multigrid (BoxMG) is a variational multigrid method for discretizations
+of PDEs on logically structured grids.
+BoxMG uses operator-induced interpolation, making it robust for problems
+with discontinuous coefficients and general boundary conditions on grids
+of any dimension (i.e., non-power-of-two grids).
+Like most structured multigrid methods, BoxMG uses the structure of the problem to
+yield notable performance advantages such as direct memory access and bounded
+complexity in the coarse grid operator. Yet, while current parallel BoxMG
+implementations scale well out to thousands of cores,
+the coarse grid solve and line-relaxation limit further scalability.
+In the plasma applications of interest, grid stretching creates an
+anisotropic diffusion operator, and hence, with standard coarsening
+line-relaxation is required.
+The current coarse-grid solve strategy first collects the coarse problem to a single
+core. The coarse problem is then solved using serial BoxMG.
+To extend the scalability of the coarse-grid solve, we look at redistributing
+the problem on coarser levels to provide redundancy while minimizing communication costs.
+In this talk, we give an overview of the current state of BoxMG including a new control
+layer. We will show our progress in addressing the coarse-grid scalability limitations,
+specifically in the context of electric field calculations on curvilinear meshes.
+
+
+\end{document}

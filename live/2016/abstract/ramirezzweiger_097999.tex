@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large M. Ramirez Zweiger \\
+{\bf Radiation Transport Using Rayleigh Quotient Iteration with Multigrid in Energy Preconditioning}}
+
+Oak Ridge National Laboratory \\ One Bethel Valley Rd \\ P O Box 2008 \\ MS 6170 \\ Oak Ridge \\ TN 37831-6170
+\\
+{\tt mrt@ornl.gov}\\
+R. N.  Slaybaugh\\
+T. M. Evans\\
+S. P.  Hamilton\\
+T. M.  Pandya\end{center}
+
+Efficiently solving the eigenvalue form of the radiation transport
+equation is an important task in nuclear reactor analysis. Rayleigh
+quotient iteration (RQI) offers significantly better iterative
+performance relatively to standard solvers used in the industry, such as
+power iteration. The downside is that the shifted linear systems that
+must be solved within RQI are significantly more challenging than those
+encountered in power iteration. In this talk we discuss the difficulties
+in solving these shifted linear systems and discuss the use of GMRES in
+conjunction with a multigrid in energy preconditioner.
+
+
+\end{document}

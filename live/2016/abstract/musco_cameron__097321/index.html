@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>musco_cameron__097321</TITLE>
+<META NAME="description" CONTENT="musco_cameron__097321">
+<META NAME="keywords" CONTENT="musco_cameron__097321">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="musco_cameron__097321.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Cameron Musco 
+<BR><B>Randomized Block Iterative Methods for the Singular Value Decomposition</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">5 Cottage Ct 
+<BR>
+Cambridge MA 
+<BR>
+02139
+
+<BR><TT>cnmusco@mit.edu</TT>
+<BR>
+Cameron Musco
+<BR>
+Christopher Musco
+</DIV>
+
+<P>
+In machine learning and data analysis the singular value decomposition is
+typically used for principal component analysis, low-rank approximation,
+and other problems where just a few top singular directions are needed.
+In this regime, block iterative methods like randomized Simultaneous
+Iteration have become standard and are often used as defaults in popular
+machine learning libraries.
+
+<P>
+There is good reason for this - such methods are simple to implement,
+fast in practice, and come with strong convergence guarantees for data
+analysis tasks. Importantly, unlike traditional bounds, these guarantees
+<I>do not depend on singular values gaps</I>, which are often helplessly
+small in high dimensional data problems.
+
+<P>
+An analysis by Rokhlin, Szlam, and Tygert of Simultaneous Iteration has
+been particularly influential. They demonstrate that, when implemented
+with randomly chosen start vectors, the algorithm requires just <!-- MATH
+ $\tilde
+O(1/\epsilon)$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \tilde
+O(1/\epsilon)$">
+ iterations to return a set of approximate singular vectors
+that yield a low-rank approximation within <!-- MATH
+ $(1+\epsilon)$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (1+\epsilon)$">
+ of optimal for
+spectral norm error. When requirements on <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \epsilon$">
+ are relatively loose
+and singular value gaps are small, as is typical in modern data analysis
+applications, this iteration bound is much tighter than classical
+results.
+
+<P>
+In this work we extend this gap-independent analysis to a simple
+randomized block Krylov method, which is closely related to the classic
+Block Lanczos algorithm.
+We show that after just <!-- MATH
+ $\tilde O(1/\sqrt{\epsilon})$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \tilde O(1/\sqrt{\epsilon})$">
+ iterations, our
+method recovers a set of approximate singular vectors that are within
+<!-- MATH
+ $(1+\epsilon)$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ (1+\epsilon)$">
+ of the optimal for low-rank approximation and principal
+component analysis. To complement this theoretical guarantee, we
+demonstrate experimentally that our method significantly outperforms
+randomized Simultaneous Iteration in many scenarios.
+
+<P>
+Despite their long history, our analysis is the first of a Krylov
+subspace method that gives accuracy bounds that do not depend on singular
+value gaps. It relies on framing iterative algorithms as de-noising
+procedures for coarse <I>randomized sketching</I> methods for approximate
+singular value decomposition.
+
+<P>
+Using this framework, we can argue that the approximate singular vectors
+returned by our block Krylov algorithm are nearly optimal for low-rank
+approximation and principal component analysis even if, due to small
+spectral gaps, they have not converged to the true top singular vectors
+of the matrix.
+
+<P>
+Our Krylov method results rely critically on a new analysis of the
+standard Rayleigh-Ritz method - we show that the procedure still works
+effectively when convergence to the true top subspace has not occurred.
+This new analysis also leads to improved gap-independent bounds for
+Simultaneous Iteration.
+
+<P>
+Finally, beyond gap-independent results, we prove extremely simple
+convergence bounds that <I>do</I> depend on singular value gaps. We show
+how to take advantage of these bounds by using a block size slightly
+<I>larger</I> than the target rank <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ k$">
+, theoretically justifying a
+heuristic implemented in several data analysis libraries.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

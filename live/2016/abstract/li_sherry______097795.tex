@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sherry Li \\
+{\bf Performance Analysis of Coarse Solvers for Algebraic Multigrid on Leading Multicore Architectures}}
+
+Lawrence Berkeley Lab \\ One Cyclotron Road \\ MS 50F-1650 \\ Berkeley \\ CA 94720
+\\
+{\tt xsli@lbl.gov}\\
+Alex Druinsky\\
+Pieter Ghysels\\
+Osni Marques\\
+Sam Williams\\
+Andrew Barker\\
+Panayot Vassilevski\end{center}
+
+We present performance of a novel multigrid code using higher order elements to
+discretize the PDEs and element-agglomeration AMGe methods which
+improve the coarsening process over the traditional AMG and have guaranteed
+approximation property. Another novelty is to use a randomized HSS
+low-rank sparse factorization method as a coarse grid solver,
+which provides powerful and flexible coarse solver for numerically
+challenging problems.
+
+In addition to scaling study, we present a comparative analysis of the impact
+of the coarse grid solver on the AMG performance. Here, we compare the
+PCG method and the HSS sparse factorization method.
+We contrast the performance of our solver on one 12-core socket of
+a Cray XC30 machine with performance on a 60-core Intel Xeon Phi coprocessor.
+To obtain peak performance, we optimized the code to take full advantage
+of fine-grained parallelism and made it thread-friendly for high thread count.
+We also developed a bounds-and-bottlenecks performance model of the solver
+which we used to guide us through the optimization effort. We carried out
+performance tuning in the solver's large parameter space. As a result,
+signicant speedups were obtained on both machines.
+
+
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrei Draganescu \\
+{\bf Algebraic Multigrid Preconditioning of Distributed Optimal Control Problems Constrained by Elliptic Equations Based on Smoothed Aggregation}}
+
+Department of Mathematics and Statistics \\ University of Maryland Baltimore County \\ 1000 Hilltop Circle \\ Baltimore MD 21250
+\\
+{\tt draga@umbc.edu}\end{center}
+
+In this work we propose a new algebraic multigrid (AMG) method for the
+reduced form of linear-quadratic optimal control problems constrained by
+elliptic equations of the form
+\begin{equation}
+\label{eq:ellipticctrl}
+\min_{y,u} \frac{1}{2}\| y-y_d\| ^2+\frac{\beta}{2}\|u\|^2,\ \ \ \ -\Delta y=u\ .
+\end{equation}
+Previous work has shown that problems like~\eqref{eq:ellipticctrl} can be
+solved very efficiently using multigrid methods, assuming a geometric
+hierarchy of grids is available. As with geometric multigrid, AMG methods
+have been originally designed for solving linear systems representing
+discrete differential equations, where the matrices are sparse. Instead,
+the linear systems arising in the reduced formulation
+of~\eqref{eq:ellipticctrl}, the so-called reduced Hessians, are not
+sparse, therefore AMG methods are not directly applicable. Relying on the
+basis functions and prolongation operators originating in smoothed
+aggregation for the elliptic equation, we construct an AMG-based
+multigrid preconditioner for~\eqref{eq:ellipticctrl} that exhibits an
+efficiency similar to the geometric multigrid case, namely it increases
+with increasing resolution.
+
+
+\end{document}

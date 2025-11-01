@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Masahiro Kanazaki \\
+{\bf Aircraft's Trajectory Optimization During Descent Using Kriging Model Based Genetic Algorithm}}
+
+Tokyo Metoropolitan University \\ 6-6 Asahigaoka \\ Hino \\ Tokyo \\ Japan
+\\
+{\tt kana@sd.tmu.ac.jp}\\
+Norazila Othman\end{center}
+
+To develop the next generation aircraft, the safety, the efficiency by
+reducing fuel consumption and the reducing environmental impact are
+critical issues because of higher density landing in the future. A
+microburst is a typical hazard to aircraft descent.
+
+Several studies have investigated control strategies to overcome the
+hazardous conditions using a successive quadratic programs trajectory
+optimization algorithm. They showed the ability of their algorithms to
+decide time-series control such as angle of attack, and pitch angle.
+However, these studies did not address in detail the major effect of the
+aerodynamics associated with the hazardous conditions during takeoff or
+descent.
+
+In this study, the time-series trajectory optimization problem for a
+conventional civil aircraft is considered. The trajectory is estimated by
+the 3-degree-of-freedom (3DoF) equations of motion (EoM); the
+aerodynamics are estimated through the trajectory evaluation by USAF
+stability and control DATCOM. Global optimization is carried out by means
+of Kriging model based multi-objective evolutionary algorithm (MOEA).
+Objective functions are to minimize the cost function, which indicates
+the efficiency trajectory profile during the descent of an aircraft and
+the minimization of the maximum acceleration, which decides the impact
+load to passengers and payloads. The trajectory is evaluated time wise
+and two cases are compared; one is the trajectory when no microburst
+occurs and the other is the trajectory with a microburst. Analysis of
+variance (ANOVA) is used to investigate effects of the input variables.
+
+
+\end{document}

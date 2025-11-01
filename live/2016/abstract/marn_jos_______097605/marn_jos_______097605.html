@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>marn_jos_______097605</TITLE>
+<META NAME="description" CONTENT="marn_jos_______097605">
+<META NAME="keywords" CONTENT="marn_jos_______097605">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="marn_jos_______097605.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">José Marín 
+<BR><B>Preconditioners for nonsymmetric linear systems with low-rank skew-symmetric part</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institut de Matematica Multidisciplinar 
+<BR>
+Universitat Politecnica de Valencia 
+<BR>
+Camí de Vera 
+<BR>
+14 
+<BR>
+46022 Valencia 
+<BR>
+Spain
+
+<BR><TT>jmarinma@imm.upv.es</TT>
+<BR>
+Juana Cerdán
+<BR>
+Danny Guerrero
+<BR>
+José Mas
+</DIV>
+
+<P>
+
+<P>
+In this work we study the iterative solution of nonsingular, nonsymmetric
+linear systems of <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ n$">
+ equations
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+Ax=b
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle Ax=b$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the skew-symmetric part of the coefficient matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ can be
+approximated by a low-rank matrix.
+Consider <IMG
+ WIDTH="86" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A=H+K$">
+ where <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ H$">
+ and <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ K$">
+ are the symmetric and skew-symmetric
+parts of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+, respectively. It is assumed that the skew-symmetric matrix
+can be written as <!-- MATH
+ $K=PQ^T + E$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ K=PQ^T + E$">
+ for some full rank <!-- MATH
+ $P,Q \in \mathbb{R}^{n
+\times s}$
+ -->
+<IMG
+ WIDTH="90" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ P,Q \in \mathbb{R}^{n
+\times s}$">
+ with <IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k \ll n$">
+, and <!-- MATH
+ $\| E \| \ll 1$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \Vert E \Vert \ll 1$">
+.
+
+<P>
+Different strategies have been proposed when the skew-symmetric part <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ K$">
+
+has exactly rank <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ s \ll n$">
+. In [<A
+ HREF="node1.html#Beckermann:2008">1</A>] it is presented a
+progressive GMRES method that allows for the short-term computation of an
+orthogonal Krylov subspace basis. As pointed out in [<A
+ HREF="node1.html#ESSSX.2012">5</A>],
+although the method is mathematically equivalent to full GMRES
+[<A
+ HREF="node1.html#sasc:86">6</A>] in practice it may suffer from instabilities due to the
+loss of orthogonality between the vectors of the generated Krylov
+subspace basis. In the same paper, the authors propose a Schur complement
+method that also permits the application of short-term formulas. The
+method obtains an
+approximate solution by applying the MINRES method <IMG
+ WIDTH="39" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ s+1$">
+ times. The
+authors also suggest that can be successfully applied as a preconditioner
+for GMRES for the problem considered in this paper.
+
+<P>
+We study a method based on the framework proposed in [<A
+ HREF="node1.html#cmm:16">4</A>].
+Assuming that the matrix <IMG
+ WIDTH="74" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ H+PQ^T$">
+ is nonsingular, our approach computes
+an approximate LU factorization of the matrix
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:augmented"></A><!-- MATH
+ \begin{equation}
+\left[
+\begin{array}{cc}
+H & P\\
+-Q^T & I
+\end{array}
+\right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="101" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \left[ \begin{array}{cc} H &amp; P\ -Q^T &amp; I \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with the Balanced Incomplete Factorization (BIF) algorithm
+[<A
+ HREF="node1.html#bmmt:08">2</A>,<A
+ HREF="node1.html#bmmt:10">3</A>]. Interestingly, the matrix in (<A HREF="#eq:augmented">2</A>)
+is
+similar to the one used in [<A
+ HREF="node1.html#ESSSX.2012">5</A>] to develop the Schur
+complement method, but in this work it is used to update a previously
+computed preconditioner for the symmetric part <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ H$">
+. Then, the
+factorization is used as a preconditioner for the GMRES method. The
+results of the numerical experiments for different problems will be
+presented.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

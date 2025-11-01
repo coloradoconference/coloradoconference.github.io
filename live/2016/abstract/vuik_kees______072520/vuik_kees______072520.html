@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vuik_kees______072520</TITLE>
+<META NAME="description" CONTENT="vuik_kees______072520">
+<META NAME="keywords" CONTENT="vuik_kees______072520">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vuik_kees______072520.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kees Vuik 
+<BR><B>Physics-based pre-conditioners for large-scale subsurface flow simulation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Delft University of Technology 
+<BR>
+Delft Institute of Applied Mathematics 
+<BR>
+Mekelweg 4 
+<BR>
+2628 CD Delft 
+<BR>
+The Netherlands
+
+<BR><TT>c.vuik@tudelft.nl</TT>
+<BR>
+Gabriela Diaz
+<BR>
+Jan Dirk Jansen 
+</DIV>
+
+<P>
+Physics-based pre-conditioners for large-scale subsurface flow
+simulation
+<BR>
+<BR>
+<BR>
+C. Vuik, G. Diaz and J.D. Jansen
+<BR>
+Delft University of Technology
+<BR>
+Department of Geoscience and Engineering
+and
+Delft Institute of Applied Mathematics
+<BR>
+Mekelweg 4,
+2628 CD Delft,
+The Netherlands 
+<BR><B>e-mail: c.vuik@tudelft.nl</B>
+<BR>[2ex]In this paper we consider new physics-based pre-conditioning techniques
+for solving large, sparse linear systems of equations with strongly
+varying coefficients and localised source terms.
+Such systems occur during the simulation of multi-phase flow through
+strongly heterogeneous porous media as occur in e.g. oil and gas
+production, CO<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ _2$">
+ storage or (contaminated) ground water flow.
+The underlying partial differential equations are typically of two
+different types: a weakly nonlinear near-elliptic parabolic equation
+with time-varying parameters to describe the diffusive pressure
+behaviour, and one or more strongly nonlinear nearly-hyperbolic parabolic
+equations to describe the mostly convective behaviour of the interfaces
+between the phases.
+The spatially discretized coupled nonlinear equations are typically
+solved with a low-order time discretization and Newton-Raphson
+iteration.
+<BR>
+<BR>
+<BR>
+The state of the art approach to solve
+these systems is to apply a two-stage preconditioning in which first the
+pressure-related part of the matrix is isolated (with the aid of Schur
+decomposition) and solved, typically with an Algebraic Multi Grid (AMG)
+solver. Thereafter the full system of equations is solved with e.g. a
+Conjugate Gradient solver.
+We consider the first step of this two-step procedure, i.e. solving of
+the pressure equation. A particular aspect of porous media flow is the
+relatively small number of wells which are usually positioned quite far
+apart. This results in pressure solutions that are dominated by the
+near-well pressure behaviour in addition to the geological spatial
+features.
+<BR>
+<BR>
+<BR>
+In [1] it is shown that an effective alternative to the AMG solver for
+the pressure equation can be provided by a
+reduced-order model obtained by applying proper orthogonal decomposition
+(POD) to a number of pre-computed solutions.
+In case of optimisation or
+parameter estimation exercises which require tens to hundreds of
+'reservoir simulations' of nearly identical models with nearly identical
+right-hand sides (source terms), the CPU time to compute the
+reduced-order model is negligible.
+<BR>
+<BR>
+<BR>
+In this paper we analyse and further develop
+the preconditioners given in [1]. We investigate alternatives using
+different varieties of reduced-order modelling. Furthermore we explore
+the connection between POD-based preconditioning and deflation methods.
+One of the difficulties for deflation methods is to find the right
+deflation vectors for general problems. A start has been made to find
+these vectors in an automated way, however until now this remains an
+open question. The combination of deflation with the POD methods looks
+very promising in this respect.
+<BR>
+<BR>
+<BR>
+Some numerical experiments are given to illustrate the theory. We start
+with a simple layered problem and also give results for the SPE10
+benchmark [2].
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">References</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>williams_samuel096226</TITLE>
+<META NAME="description" CONTENT="williams_samuel096226">
+<META NAME="keywords" CONTENT="williams_samuel096226">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="williams_samuel096226.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Samuel Williams 
+<BR><B>Performance Portability in Hybrid and Heterogeneous Multigrid Solvers</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">One Cyclotron Rd 
+<BR>
+MS:59R4104 
+<BR>
+Berkeley 
+<BR>
+CA 94720
+
+<BR><TT>SWWilliams@lbl.gov</TT>
+<BR>
+Samuel Williams
+<BR>
+Mark Adams
+<BR>
+Brian Van Straalen
+<BR>
+Jed Brown
+</DIV>
+
+<P>
+Obtaining high-performance, scalable, portable implementations of linear
+solvers running on today's emerging manycore and accelerated
+supercomputers has become an immense challenge. To that end, we developed
+a multigrid proxy app, HPGMG-FV, designed to: proxy the multigrid aspect
+of linear solves found in applications built on CHOMBO or BoxLib, allow
+for co-design of discretization and algorithm, and evaluate emerging
+programming models and architectures.
+
+<P>
+In this talk, we explore software techniques developed that provide
+scalability and performance portability when running on CPU and
+GPU-accelerated supercomputers and clusters. Moreover, these techniques
+hide choices on programming model (OpenMP vs. CUDA, MPI vs. UPC++) and
+implementation (e.g. cache/thread blocking) from the user and functional
+description. We show, with proper usage of affinity to avoid NUMA issues
+and thread migration, that MPI+OpenMP performance can exceed flat MPI
+performance. Moreover, we show that heterogeneous CPU+GPU implementations
+can exceed CPU-only performance. Finally, we show network architecture is
+paramount in delivering scalable performance for even the largest problem
+sizes.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

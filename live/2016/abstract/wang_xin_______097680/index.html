@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wang_xin_______097680</TITLE>
+<META NAME="description" CONTENT="wang_xin_______097680">
+<META NAME="keywords" CONTENT="wang_xin_______097680">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wang_xin_______097680.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Xin Wang 
+<BR><B>Lanczos-filter subspace iteration for self-consistent-field calculation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">311 Stevens Circle 
+<BR>
+Apt3A 
+<BR>
+Aberdeen 
+<BR>
+MD 21001
+
+<BR><TT>xin.c.wang2.ctr@mail.mil</TT>
+<BR>
+Xin C Wang
+<BR>
+Kenneth Leiter
+<BR>
+Alexander Breuer
+<BR>
+Jaroslaw Knap
+</DIV>
+
+<P>
+Kohn-Sham density functional theory (K-S DFT) is widely-used for
+ground-state electronic structure calculations. Its bottleneck is the
+computation of N occupied eigen-states of a non-linear eigenvalue problem, where
+N is the number of the electron-pairs. The non-linear eigenvalue problem is
+solved through a self-consistent-field (SCF) iteration where at each iteration
+a linear eigenvalue problem is solved.
+
+<P>
+Due to the large number of electrons in
+the model problem and the high accuracy (around <IMG
+ WIDTH="47" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ 1e-4$">
+ relative error) required
+for K-S DFT, the resulting degrees of freedom in the matrices can range from
+hundreds of thousands to tens of millions. Furthermore, the condition number
+of the matrices can be poor depending on the choice of the discretization
+basis. For real-space
+based methods such as finite difference or finite elements, the condition number
+can be in the range of millions for DFT problems that
+model all the electrons. These characteristics of the DFT problem make it very
+difficult for conventional iterative eigensolvers to find the wanted eigen-states.
+
+<P>
+Zhou <I>et al.</I> (Journal of Computational Physics,
+2006) proposed the Chebyshev-filtered subspace iteration (CheFSI) as a
+non-linear subspace iteration method to extract the wanted eigen-subspace.
+CheFSI starts with an initial guess to the wanted eigen-subspace of the initial
+matrix <!-- MATH
+ $H_{\rm initial}$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ H_{\rm initial}$">
+, and progressively through the SCF iterations
+transform it to the wanted eigen-subspace of the final converged matrix
+<!-- MATH
+ $H_{\rm final}$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ H_{\rm final}$">
+ using a
+Chebyshev-polynomial filter. We propose a Lanczos-filter subspace
+iteration (LanFSI) that uses an interpolative-polynomial approximation to
+smeared step function from the Lanczos iteration to filter the wanted
+eigen-subspace. We observe that for matrices with
+a large condition number, LanFSI is a more efficient filter than CheFSI.
+Consequently, LanFSI achieves convergence with fewer SCF iterations than
+CheFSI using the same polynomial degree in all-electron calculations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

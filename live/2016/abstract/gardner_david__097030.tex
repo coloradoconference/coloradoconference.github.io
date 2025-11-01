@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Gardner \\
+{\bf Implicit Time Stepping and Preconditioning for Global Atmospheric Dynamics in Climate Simulation}}
+
+Lawrence Livermore National Laboratory \\ 7000 East Ave L-561 \\ Livermore \\ CA 94550
+\\
+{\tt gardner48@llnl.gov}\\
+Richard Archibald\\
+Katherine Evans\\
+Carol Woodward\end{center}
+
+High resolution, long-term climate simulations are critical to
+investigating multiscale behavior in global climate simulations and
+understanding regional climate variation on the decade scale. Implicit
+time stepping methods provide a means to increase efficiency by taking
+time steps commensurate with the physical processes of interest rather
+than step sizes limited by model resolution. We present results utilizing
+a second order implicit time stepping method and Trilinos solvers in the
+hydrostatic spectral element dynamical core of the Community Atmosphere
+Model (CAM-SE), the atmosphere component of the Community Earth System
+Model (CESM) and the Accelerated Climate Model for Energy (ACME). The
+growth of linear iterations in the Newton-Krylov method applied to the
+nonlinear residual equation highlights the need for scalable
+preconditioning to reduce the cost of ancillary linear system solves. We
+discuss the impact of an approximate block factorization preconditioner
+on solver efficiency and scalability when utilizing a globally assembled
+Jacobian matrix for the spectral element discretization.
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344. LLNL-ABS-681040
+
+
+\end{document}

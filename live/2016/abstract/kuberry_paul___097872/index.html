@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kuberry_paul___097872</TITLE>
+<META NAME="description" CONTENT="kuberry_paul___097872">
+<META NAME="keywords" CONTENT="kuberry_paul___097872">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kuberry_paul___097872.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Paul Kuberry 
+<BR><B>An optimization-based approach for interfaces with gaps and overlaps via virtual controls </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+Mailstop 1320 
+<BR>
+P O Box 5800 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-XXXX
+
+<BR><TT>pakuber@sandia.gov</TT>
+<BR>
+Pavel Bochev
+</DIV>
+
+<P>
+Partitioned approaches are popular for solving coupled problems with
+possibly different physics in each of one or more subdomains sharing an
+interface. Particularly when the physics differ, it may be advantageous
+or simply unavoidable to mesh the subdomains independently. In the case
+of refining a straight or flat interface, this may result in multiple
+discretizations that are coincident but have mismatched vertices. In the
+case of refining a curved surface, the resulting discretizations will
+likely be noncoincident and mismatched, having gaps and overlaps.
+
+<P>
+We present an optimization-based approach, which deals with the coupling
+between subdomains by introducing a virtual control as a natural boundary
+condition on each of the subdomains. Providing boundary conditions to the
+physics on each subdomain permits using separate solvers simultaneously.
+We introduce terms in the objective of our optimization that penalize any
+violation of global flux conservation or violation of continuity between
+states. Since the solvers each return a solution on their respective
+subdomain, it adds complication to comparing the continuity of states. In
+order to measure violations of continuity, we extend solutions between
+subdomains by means of extrapolation in a way that makes use of the
+gradient. We iteratively update the control until the objective is
+minimized. Computational results will be presented that demonstrate
+convergence to a manufactured solution, and also that the method can pass
+a linear consistency test.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

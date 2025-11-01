@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>hartmann_rainer096833</TITLE>
+<META NAME="description" CONTENT="hartmann_rainer096833">
+<META NAME="keywords" CONTENT="hartmann_rainer096833">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="hartmann_rainer096833.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Rainer Hartmann 
+<BR><B>An efficient matrix-vector-multiplication for solving high dimensional Schr&#246;dinger problems using prewavelets and sparse grids</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Cauerstr 11 
+<BR>
+D-91058 Erlangen
+
+<BR><TT>rainer.hartmann@fau.de</TT>
+<BR>
+Christoph Pflaum
+</DIV>
+
+<P>
+Solving the Schr&#246;dinger equation, the basic equation of quantum
+mechanics, is an active area of research spanning the fields of
+chemistry, physics, and applied mathematics.
+The main problem is that this equation is an equation in <IMG
+ WIDTH="52" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d = 3n$">
+ space
+dimensions for a system consisting of <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ n$">
+ electrons and nuclei.
+The so-called ``curse of dimensionality`` prohibits direct approximation
+techniques for even reasonably small systems.
+A tensor product grid with <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ N $">
+ grid points in one dimension consists of
+<!-- MATH
+ $O \left(N^d\right)$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ O \left(N^d\right)$">
+ grid points.
+Therefore, it is not possible to solve partial differential equations in
+higher dimensions using full grids.
+Hence discretization grids are not applied to problems with dimension <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ d \geq 4$">
+.
+
+<P>
+Sparse grids can be used to efficiently discretize second order elliptic
+differential equations on a <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ d$">
+-dimensional cube.
+The first discretizations of PDEs on sparse grids using the Ritz-Galerkin
+approach were restricted to constant coefficients on cubical domains.
+Nevertheless, these original discretizations cannot easily be extended to
+obtain a computational efficient discretization of partial differential
+equations with variable coefficients.
+An extension to variable coefficients is essential for applying sparse
+grids to PDEs used for problems in the field of Physics and Engineering.
+
+<P>
+A new sparse grid discretization for Helmholtz equations with a variable
+coefficient has been developed.
+To reduce the complexity of the sparse grid discretization matrix, we
+apply prewavelets and the semi-orthogonality property.
+Semi-orthogonality can be treated as a special kind of matrix compression.
+An efficient algorithm for matrix vector multiplication using a
+Ritz-Galerkin discretization is presented.
+This algorithm is based on standard 1-dimensional restrictions and
+prolongations, a simple prewavelet stencil, and the classical operator
+dependent stencil for multilinear finite elements.
+Simulation results show a convergence of the discretization according to
+the approximation properties of the finite element space.
+The linear equation system is solved by a preconditioned conjugate gradient method.
+The condition number of the stiffness matrix can be bounded below <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ 10$">
+
+using a standard diagonal preconditioner for a three dimensional test
+problem.
+Numerical simulation results are presented for a 3-dimensional problem on
+a curvilinear bounded domain and for a 6-dimensional problem with
+variable coefficients.
+Furthermore, simulation results for homogeneous and inhomogeneous
+boundary conditions are presented for block-structured grids.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

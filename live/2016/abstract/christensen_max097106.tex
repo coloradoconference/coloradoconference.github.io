@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Max la Cour Christensen \\
+{\bf NONLINEAR MULTIGRID SOLVER EXPLOITING AMGe COARSE SPACES WITH APPROXIMATION PROPERTIES}}
+
+Baunehøjvej 15 st tv \\ 2800 Kongens Lyngby \\ Denmark
+\\
+{\tt max@maxlacour.com}\\
+Umberto Villa\\
+Allan P. Engsig-Karup\\
+Panayot Vassilevski\end{center}
+
+The paper introduces a nonlinear multigrid solver for mixed finite
+element discretizations based on the Full Approximation Scheme (FAS) and
+element-based Algebraic Multigrid (AMGe). The main motivation to use FAS
+for unstructured problems is the guaranteed approximation property of the
+AMGe coarse spaces that were developed recently at Lawrence Livermore
+National Laboratory. These give the ability to derive stable and accurate
+coarse nonlinear discretization problems. The previous attempts
+(including ones with the original AMGe method), were less successful due
+to lack of such good approximation properties of the coarse spaces. With
+coarse spaces with approximation properties, our FAS approach on
+unstructured meshes has the ability to be as powerful/successful as FAS
+on geometrically refined meshes. For comparison, Newton’s method and
+Picard iterations with an inner state-of-the-art linear solver are
+compared to FAS on a nonlinear saddle point problem with applications to
+porous media flow. It is demonstrated that FAS is faster than Newton’s
+method and Picard iterations for the experiments considered here. Due to
+the guaranteed approximation properties of our AMGe, the coarse spaces
+are very accurate, providing a solver with the potential for
+mesh-independent convergence on general unstructured meshes.
+
+
+\end{document}

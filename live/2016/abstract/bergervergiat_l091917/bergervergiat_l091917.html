@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bergervergiat_l091917</TITLE>
+<META NAME="description" CONTENT="bergervergiat_l091917">
+<META NAME="keywords" CONTENT="bergervergiat_l091917">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bergervergiat_l091917.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Luc Berger-Vergiat 
+<BR><B>Parallel domain decomposition preconditioners for Isogeometric discretizations arising in impact problems at high strain rates</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Civil Engineering &amp; Engineering Mechanics - room 626A 
+<BR>
+610 Seeley W Mudd 
+<BR>
+500 West 120th Street 
+<BR>
+New York 
+<BR>
+NY 10027
+
+<BR><TT>lb2653@columbia.edu</TT>
+<BR>
+Luc Berger-Vergiat
+</DIV>
+
+<P>
+Shear bands are one of the most fascinating instabilities in metals that
+occur under high strain rates. They describe narrow regions, on the order
+of micron scales, where plastic deformations
+and significant heating is localized that eventually leads to fracture
+nucleation and failure of the component.
+
+<P>
+In this work shear bands are described by a set of four strongly coupled
+thermo-mechanical equations discretized by a mixed finite element
+formulation. A thermo-viscoplastic flow rule is used to model the
+inelastic constitutive law and finite thermal conductivity is prescribed
+which gives rise to an inherent physical length scale, governed by
+competition of shear heating and thermal diffusion. The residual
+equations are solved monolithically by a Newton type method at every time
+step and has been shown to yield mesh insensitive result. The Jacobian of
+the system is sparse and has a non-symmetric block structure that varies
+with the different stages of shear bands formation.
+
+<P>
+The aim of this work is to develop fast converging Isogeometric elements
+for monolithic solution of shear bands and appropriate parallel and
+iterative solvers that are robust through all the deformation stages:
+homogeneous, onset of instability and stress collapse. To this end, we
+propose irreducible and hybrid NURBS quadrilateral elements that are
+stable and locking free and lead to high rates of convergence. To solve
+the resulting linearized systems, a novel Schur based
+domain-decomposition preconditioners are proposed based on
+constitutive/conservation laws splitting. The elements and solvers are
+implemented in parallel and shows excellent scaling performance compared
+to standard solvers.
+
+<P>
+Keywords: Shear bands, NURBS, Preconditioner, Schur complement, Domain
+decomposition, Additive Schwarz method
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

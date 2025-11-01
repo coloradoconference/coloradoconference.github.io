@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Clarissa Garvey \\
+{\bf Approximate SVD preconditioners for large-scale inverse problems}}
+
+Department of Math \& CS \\ 400 Dowman Drive W401 \\ Atlanta GA 30322
+\\
+{\tt ccgarve@emory.edu}\\
+James Nagy\end{center}
+
+In this talk we consider solving large-scale ill-posed linear inverse
+problems by iterative methods. Convergence can be accelerated using
+preconditioning, but if not done carefully, it can lead to erratic
+convergence behavior that results in fast convergence to a poor
+approximate solution. It has been shown that effective preconditioners
+can be obtained from approximate spectral or singular value
+decompositions (SVD) of the matrix that models the forward operator. We
+present a new technique to compute an approximate SVD preconditioner
+based on Kronecker product decompositions, and show that the
+preconditioner can be computed very efficiently for inverse problems
+arising in imaging applications. Performance will be illustrated on a
+variety of numerical examples.
+
+
+\end{document}

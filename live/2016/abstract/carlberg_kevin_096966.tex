@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Kevin Carlberg \\
+{\bf Applying model reduction to Krylov-subspace recycling: the POD-augmented conjugate-gradient method}}
+
+7011 East Ave \\ MS 9159 \\ Livermore \\ CA 94550
+\\
+{\tt ktcarlb@sandia.gov}\\
+Virginia Forstall\\
+Ray Tuminaro\end{center}
+
+This talk presents a new Krylov-subspace-recycling method for efficiently
+solving sequences of linear systems of equations characterized by varying
+right-hand sides and symmetric-positive-definite matrices. As opposed to
+typical truncation strategies used in recycling such as deflation, we propose
+a truncation method based on a technique from nonlinear model reduction:
+goal-oriented proper orthogonal decomposition (POD).
+
+This idea is inspired by the observation that model reduction aims to compute a
+low-dimensional subspace that contains an \textit{accurate} solution; as such,
+we expect the proposed method to generate a low-dimensional subspace that is
+well suited for computing solutions that can satisfy \textit{inexact}
+tolerances. In particular, we propose specific goal-oriented POD `ingredients'
+that align the optimality properties of POD with the objective of
+Krylov-subspace recycling.
+
+To efficiently compute solutions in the resulting `POD-augmented' Krylov
+subspace, we propose a novel hybrid direct/iterative three-stage method that
+leverages 1) the optimal ordering of POD basis vectors, and 2)
+well-conditioned reduced matrices. Numerical experiments performed on
+solid-mechanics problems highlight the benefits of the proposed method over
+existing approaches for Krylov-subspace recycling.
+
+
+\end{document}

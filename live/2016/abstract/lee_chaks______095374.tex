@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chak, S. Lee \\
+{\bf Parallel solver for H(div) problems using hybridization and AMG}}
+
+%1109 Southwest Pkwy Apt 1809 \\ College Station \\ TX 77840
+%\\
+Department of Mathematics \\
+Mailstop 3368 \\
+Texas A\&M University \\
+College Station, TX 77843-3368 \\
+{\tt cslee@math.tamu.edu}\\
+Panayot S. Vassilevski\end{center}
+
+In this paper, a scalable parallel solver is proposed for ${\boldsymbol
+H}$(div) problems discretized by arbitrary order finite elements on
+general unstructured meshes. The solver is based on hybridization and
+algebraic multigrid (AMG). Unlike some previously studied ${\boldsymbol
+H}$(div) solvers, the hybridization solver does not require discrete curl
+and gradient operators as additional input from the user. Instead, only
+some element information is needed in the construction of the solver. The
+hybridization results in a $H^1$-equivalent symmetric positive definite
+system, which is then rescaled and solved by AMG solvers designed for
+$H^1$ problems. Weak and strong scaling of the method are examined
+through several numerical tests. Our numerical results show that the
+proposed solver provides a promising alternative to ADS, a
+state-of-the-art solver [Kolev and Vassilevski, 2012], for ${\boldsymbol
+H}$(div) problems. In fact, it outperforms ADS for higher order elements.
+
+
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Giovanni De Luca \\
+{\bf GLOBAL DISCRETE EMPIRICAL INTERPOLATION METHOD FOR NONLINEAR MODEL ORDER REDUCTION}}
+
+Avenue des Jeux Olympiques \\ 2
+\\
+{\tt g.de.luca@tue.nl}\\
+Michiel E. Hochstenbach\end{center}
+
+In the context of model order reduction (MOR) for nonlinear problems, we
+propose a variant of discrete empirical interpolation method (DEIM),
+called global DEIM (GDEIM). Since DEIM is a nearly-optimal method, i.e.,
+the error of the reduction depends on the number and location of the
+selected nonlinearities to evaluate, we show that, by employing an
+alternative procedure to select the points, we sometimes obtain a better
+accuracy of the reduction with GDEIM for the same number of points as for
+DEIM. This is useful especially when one has restrictions on the
+dimension of the reduced order model (ROM) to simulate or, the other way
+around, when a better accuracy can be reached for a speci ed reduction
+order. To compare the accuracy level between GDEIM and DEIM before
+proceeding with the reduction, i.e., when the projection matrix is
+formed, we make use of a heuristic error estimator cheap to evaluate,
+which in most of our experiments is able to determine which of the two
+methods is best. This can speedup simulations of the obtained ROM, when
+inputs and/or parameters are swept for analysis. We demonstrate the
+usefulness of GDEIM to nonlinear, parametric, analytic functions and
+provide a comparison with DEIM by using our error estimator.
+The second contribution of this work is a mathematical formulation which
+extends (G)DEIM to general nonlinear function, evaluated
+non-componentwise. We provide accuracy and speedup results from using our
+extended formulation to an example for time-domain circuit simulation,
+described by a set of differential algebraic equations. This may be a
+promising direction to speedup analysis of more complex and large
+circuits, where it is common to have millions of unknowns in the
+vector-solution.
+
+
+\end{document}

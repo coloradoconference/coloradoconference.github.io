@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>prokopenko_andr098014</TITLE>
+<META NAME="description" CONTENT="prokopenko_andr098014">
+<META NAME="keywords" CONTENT="prokopenko_andr098014">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="prokopenko_andr098014.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrey Prokopenko 
+<BR><B>Speeding up multi-physics simulations through reuse of multigrid components</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+MailStop 1318 
+<BR>
+PO BOX 5800 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1318
+
+<BR><TT>aprokop@sandia.gov</TT>
+<BR>
+Paul Lin
+<BR>
+John Shadid
+<BR>
+Jonathan Hu
+</DIV>
+
+<P>
+Large scale scientific applications, such as fluid dynamics or MHD, rely
+on robust and efficient linear and nonlinear solvers for their
+simulations. The complex nature of such simulations may require taking
+small time steps which may result in a long time to solution, a
+significant part of which is taken by linear solvers. The sheer amount of
+work and transient nature of these problems allow for various approaches
+to reduce the overall simulation time.
+For example, nonlinear solvers for each transient step often produce a
+sequence of closely related systems, and a promising strategy is to
+leverage any such system similarities from within the linear solve phase.
+
+<P>
+In this talk, we will focus on simulations that use algebraic multigrid
+(AMG) methods as part of their solution process. We will concentrate on
+speeding up the AMG solver through reuse of
+components of the multigrid hierarchy throughout the nonlinear solve, and
+possibly across transient steps. The goal is to significantly reduce the
+multigrid hierarchy setup time while not
+significantly hurting the convergence. We will consider several AMG reuse
+strategies that differ in the amount of reused data. We will demonstrate
+the effectiveness of such strategies in parallel
+applications.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

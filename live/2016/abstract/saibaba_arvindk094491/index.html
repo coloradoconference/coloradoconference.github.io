@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>saibaba_arvindk094491</TITLE>
+<META NAME="description" CONTENT="saibaba_arvindk094491">
+<META NAME="keywords" CONTENT="saibaba_arvindk094491">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="saibaba_arvindk094491.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Arvind Krishna Saibaba 
+<BR><B>Fast Iterative Methods for Bayesian Inverse Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">2311 Stinson Drive 3126 
+<BR>
+Raleigh 
+<BR>
+NC 27606
+
+<BR><TT>asaibab@ncsu.edu</TT>
+<BR>
+Julianne Chung
+</DIV>
+
+<P>
+Inverse problems arise in various scientific applications, and Bayesian
+approaches are often used for solving statistical inverse problems, where
+unknowns are modeled as random fields and Bayes' rule is used to infer
+unknown parameters by conditioning on measurements. In this work, we
+develop iterative methods for solving the following least squares
+problem, which is equivalent to computing the maximum a posteriori (MAP)
+estimator
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq_map"></A><!-- MATH
+ \begin{equation}
+\hat{x}_\text{MAP} \equiv {\arg}\min_x - \log p(x|d) \> =\>{\arg}\min_x
+\> \frac{1}{2}\|d-Ax\|_{R^{-1}}^2 +
+\frac{\lambda^2}{2}\|x-\mu\|_{Q^{-1}}^2.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \hat{x}_$">MAP<IMG
+ WIDTH="467" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \equiv {\arg}\min_x - \log p(x\vert d) \&gt; =\&gt;{\arg}\min_x \&gt; \fra...
+...}\Vert d-Ax\Vert _{R^{-1}}^2 + \frac{\lambda^2}{2}\Vert x-\mu\Vert _{Q^{-1}}^2.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+We model the prior covariance matrix <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ Q$">
+ to have entries of the form
+<!-- MATH
+ $\kappa(\vec{x}_i,\vec{x}_j)$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \kappa(\vec{x}_i,\vec{x}_j)$">
+, where <!-- MATH
+ $\kappa(\cdot,\cdot)$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \kappa(\cdot,\cdot)$">
+ is a
+covariance kernel, and <!-- MATH
+ $\{\vec{x}_i\}_{i=1}^n$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \{\vec{x}_i\}_{i=1}^n$">
+ are spatial points
+representing the discrete image. We choose <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \kappa$">
+ from the Mat&#233;rn
+class of covariance kernels, which not only represent a rich class of
+priors but also
+are convenient from a theoretical and modeling point of view. However,
+one of the main challenges of using the Mat&#233;rn kernels is that
+<IMG
+ WIDTH="34" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ Q^{-1}$">
+ is difficult to obtain and work with, whereas matrix-vector
+products (matvecs) with <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ Q$">
+ can be handled efficiently in
+<!-- MATH
+ $\mathcal{O}(n\log n)$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \mathcal{O}(n\log n)$">
+ using FFT methods (on regular grids) and using
+<!-- MATH
+ $\mathcal{H}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathcal{H}$">
+-matrices (on irregular grids). In our approach, we make an
+appropriate change of variables and consider a hybrid Golub-Kahan
+bidiagonalization iterative process with weighted inner products <!-- MATH
+ $\langle
+\cdot, \cdot \rangle_{R^{-1}}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \langle
+\cdot, \cdot \rangle_{R^{-1}} $">
+ and <!-- MATH
+ $\langle \cdot, \cdot \rangle_{Q}$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \langle \cdot, \cdot \rangle_{Q} $">
+.
+Our approach avoids forming (either explicitly, or matvecs with) the
+square root or inverse of the prior covariance matrix <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ Q$">
+. The resulting
+algorithms are efficient and scalable to large problem sizes.
+
+<P>
+Our proposed hybrid approach can automatically determine regularization
+parameter <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \lambda$">
+, which controls the relative importance between the
+prior and the data-misfit part of the likelihood. Hybrid methods project
+the original least squares problem onto a smaller dimensional problem,
+using orthonormal bases for the Krylov subspaces generated during the
+iterative process, and regularization parameters are sought by optimizing
+an appropriate functional on the projected problem. In this talk, we show
+how several commonly used functionals can be appropriately modified to
+handle weighted norms, as in Equation&nbsp;(<A HREF="#eq_map"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). Since the
+regularization parameters are determined on-the-fly during the iterative
+process, this approach is attractive for large-scale inverse problems.
+
+<P>
+In order to characterize the uncertainty in parameter reconstruction, we
+must fully specify the posterior distribution characterized by the MAP
+estimator and the posterior covariance matrix. However, the posterior
+covariance matrix is dense, and therefore, storing and computing it is
+infeasible for large-scale problems. Using the bidiagonalization process,
+we describe an efficient approach to generate approximations to useful
+uncertainty measures based on the posterior covariance matrix. In
+particular, we estimate the variance, which are the diagonals of the
+posterior covariance, and show how to generate conditional realizations,
+which are samples from the posterior distribution.
+
+<P>
+We will demonstrate the benefits of our proposed algorithms on
+challenging 1D and 2D image reconstruction problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

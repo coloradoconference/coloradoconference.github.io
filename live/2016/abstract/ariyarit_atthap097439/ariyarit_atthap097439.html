@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ariyarit_atthap097439</TITLE>
+<META NAME="description" CONTENT="ariyarit_atthap097439">
+<META NAME="keywords" CONTENT="ariyarit_atthap097439">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ariyarit_atthap097439.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Atthaphon Ariyarit 
+<BR><B>Hybrid Surrogate Model based on Multi-fidelity Efficiency Global Optimization Applied to Helicopter Blade Design</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Aerospace Engineering 
+<BR>
+Graduate School of System Design 
+<BR>
+Tokyo Metropolitan University 
+<BR>
+6-6 Asahigaoka 
+<BR>
+Hino-shi 
+<BR>
+Tokyo 
+<BR>
+191-0065 
+<BR>
+Japan
+
+<BR><TT>ariyarit-atthaphon@ed.tmu.ac.jp</TT>
+<BR>
+Masahiko Sugiura
+<BR>
+Yasutada Tanabe
+<BR>
+Masahiro Kanzaki
+</DIV>
+
+<P>
+In helicopter blades design, it is a problem that computational cost
+should be expensive with a high-fidelity computational fluid dynamics
+(CFD). Efficient global optimization (EGO) which is Kriging model based
+exploration can be reduced the number of expensive function. However, the
+reduction of computational cost with CFD is not enough to practical use.
+Thus, multi-fidelity approach which combines high-fidelity data and
+low-fidelity data has possibility to improve efficiency by reduce the
+function of a high-fidelity CFD drastically.
+
+<P>
+In this study, hybrid Kriging model for multi-fidelity approach are
+proposed. In the proposed approach, radial basis function (RBF) is used
+to estimate a global model <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu(x)$">
+. Then, a Kriging method is applied to
+evaluate the local deviation <!-- MATH
+ $\varepsilon(x)$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \varepsilon(x)$">
+ (<IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ x$">
+ is set of design
+variables). <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mu(x)$">
+ is constructed for data based on a low-fidelity
+evalution and <!-- MATH
+ $\varepsilon(x)$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \varepsilon(x)$">
+ is obtained based on a high-fidelity CFD.
+In general, the ordinary Kriging model expresses the unknown function
+<!-- MATH
+ $y(x)=\mu(x)+\varepsilon(x)$
+ -->
+<IMG
+ WIDTH="135" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ y(x)=\mu(x)+\varepsilon(x)$">
+ where <!-- MATH
+ $\varepsilon(x)$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \varepsilon(x)$">
+ is a constant. The
+proposed multi-fidelity approach is investigated with solving test
+problems. Reults by proposed method are compared with single-fidelity
+evaluation based surrogate model by an ordinary Kriging method and a
+multi-fidelity evaluations based surrogate model by co-Kriging method.
+According to this investigations, proposed method can be obtained better
+solution than existent method such as an ordinary Kriging based method
+and a co-Kriging method. In addition, proposed method should have the
+highest efficient method compared with existent methods.
+
+<P>
+Finally, proposed method is employed to design optimization of helicopter
+blades in hovering to obtain the maximum blade efficiency that can be
+measured by figure of merit (FOM). Helicopter blades shape are design
+through changing their twist distribution. A blade element method (BEM)
+solver is used to obtain a low-fidelity data and the computational time
+per design is about 0.1 seconds. Reynolds-averaged Navier-Stokes
+simulation (RANS) is applied as a high fidelity CFD, which is the
+computational time per design is about 48 hours. The optimal shape by the
+proposed method could be acquired optimal design which is similar
+performance to the optimal design by the high-fidelity evaluation based
+optimization. Comparing the proposed method, an ordinary Kriging
+single-fidelity approach and a co-Kriging based multi-fidelity approach,
+the total number of high-fidelity CFD run was fewest. Thus, the proposed
+method which is based on hybrid model is the most efficient optimization
+when the optimal design shows similar performance to design by a
+single-fidelity based approach.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

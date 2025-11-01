@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Luc Berger-Vergiat \\
+{\bf Parallel domain decomposition preconditioners for Isogeometric discretizations arising in impact problems at high strain rates}}
+
+Department of Civil Engineering \& Engineering Mechanics - room 626A \\ 610 Seeley W Mudd \\ 500 West 120th Street \\ New York \\ NY 10027
+\\
+{\tt lb2653@columbia.edu}\\
+Luc Berger-Vergiat\end{center}
+
+Shear bands are one of the most fascinating instabilities in metals that
+occur under high strain rates. They describe narrow regions, on the order
+of micron scales, where plastic deformations
+and significant heating is localized that eventually leads to fracture
+nucleation and failure of the component.
+
+In this work shear bands are described by a set of four strongly coupled
+thermo-mechanical equations discretized by a mixed finite element
+formulation. A thermo-viscoplastic flow rule is used to model the
+inelastic constitutive law and finite thermal conductivity is prescribed
+which gives rise to an inherent physical length scale, governed by
+competition of shear heating and thermal diffusion. The residual
+equations are solved monolithically by a Newton type method at every time
+step and has been shown to yield mesh insensitive result. The Jacobian of
+the system is sparse and has a non-symmetric block structure that varies
+with the different stages of shear bands formation.
+
+The aim of this work is to develop fast converging Isogeometric elements
+for monolithic solution of shear bands and appropriate parallel and
+iterative solvers that are robust through all the deformation stages:
+homogeneous, onset of instability and stress collapse. To this end, we
+propose irreducible and hybrid NURBS quadrilateral elements that are
+stable and locking free and lead to high rates of convergence. To solve
+the resulting linearized systems, a novel Schur based
+domain-decomposition preconditioners are proposed based on
+constitutive/conservation laws splitting. The elements and solvers are
+implemented in parallel and shows excellent scaling performance compared
+to standard solvers.
+
+Keywords: Shear bands, NURBS, Preconditioner, Schur complement, Domain
+decomposition, Additive Schwarz method
+
+
+\end{document}

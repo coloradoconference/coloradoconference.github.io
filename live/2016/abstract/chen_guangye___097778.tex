@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Guangye Chen \\
+{\bf Nonlinearly implicit, multidimensional, electromagnetic particle-in-cell algorithms for kinetic simulation of plasmas}}
+
+P O Box 1663 Ms K717 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM \\ 87545
+\\
+{\tt gchen@lanl.gov}\\
+Chacon Luis\end{center}
+
+Particle-in-cell (PIC) simulation techniques have been widely successful
+in first-principles simulations of plasma dynamics. However, the fundamental
+algorithmic underpinnings of standard PIC algorithms have not changed
+in decades. The classical PIC method employs an explicit approach
+(e.g. leap-frog) to advance the Vlasov-Maxwell/Poisson system using
+particles coupled to a grid. Explicit PIC is subject to both temporal
+stability constraints (either light-wave CFL condition or resolving
+plasma-wave frequency) and spatial stability (so-called finite-grid
+instability) constraints, which makes it unsuitable for system-scale
+kinetic simulations, even with modern super-computers.
+
+Implicit algorithms can potentially eliminate both spatial and temporal
+stability constraints, thus becoming orders of magnitude more efficient
+than explicit ones. This has motivated much exploration of these algorithms
+in the literature since the 1970's. However, the lack of efficient
+nonlinear solvers for a very large system of particle-field equations
+required approximations that resulted in intolerable accumulation
+of numerical errors in long-term simulations.
+
+In this presentation, we discuss a multi-dimensional, nonlinearly
+implicit electromagnetic PIC algorithm \citep{key-1}. The approach
+delivers both accuracy and efficiency for multi-scale plasma kinetic
+simulations, and extends previous proof-of-principle studies on 1D
+electrostatic \citep{key-2,key-3,key-4,key-5} and electromagnetic
+systems \citep{key-6}. To avoid noise issues associated with numerical
+Cherenkov radiation \citep{key-7}, we focus our implementation on
+the Darwin approximation to Maxwell's equations, which eliminates
+the light wave analytically. The formulation conserves exactly total
+energy, local charge, ignorable canonical momentum, and preserves
+the Coulomb gauge. Linear momentum is not exactly conserved, but errors
+are controlled by an adaptive particle sub-stepping orbit integrator.
+Key to the performance of the algorithm is a moment-based preconditioner,
+featuring the correct asymptotic limits. The formulation has been
+extended to allow mapped meshes, which opens the possibility of accurate
+body-fitted and/or spatially adaptive PIC simulations. The superior
+accuracy and efficiency properties of the scheme will be demonstrated
+with challenging numerical examples.
+\begin{thebibliography}{99}
+\bibitem{key-1}G. Chen, L. Chacón, \textit{Comput. Phys. Commun.}
+\textbf{197}, 73-87 (2015).
+
+\bibitem{key-2}G. Chen, L. Chacón, and D.C. Barnes, \textit{J. Comput.
+Phys}., \textbf{230} (18), 7018-7036 (2011).
+
+\bibitem{key-3}G. Chen, L. Chacón, D. C. Barnes, \textit{J. Comput.
+Phys.}, \textbf{231}(16), 5374-5388 (2012).
+
+\bibitem{key-4}L. Chacón, G. Chen, D. C. Barnes, \textit{J. Comput.
+Phys}., \textbf{233}, 1-9 (2013).
+
+\bibitem{key-5}W. Taitano, D. Knoll, L. Chacón, G. Chen, \textit{SIAM
+J. Sci. Compt.}, \textbf{35} (5), S126-S149 (2013).
+
+\bibitem{key-6}G. Chen and L. Chacón, \textit{Comput. Phys. Commun.},
+\textbf{185} (10), 2391-2402 (2014).
+
+\bibitem{key-7}S. Markidis and G. Lapenta, \textit{J. Comput. Phys.},
+\textbf{230} (18), 7037-7052 (2011).\end{thebibliography}
+
+
+\end{document}

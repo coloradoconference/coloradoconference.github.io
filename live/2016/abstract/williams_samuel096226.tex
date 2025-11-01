@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Samuel Williams \\
+{\bf Performance Portability in Hybrid and Heterogeneous Multigrid Solvers}}
+
+One Cyclotron Rd \\ MS:59R4104 \\ Berkeley \\ CA 94720
+\\
+{\tt SWWilliams@lbl.gov}\\
+Samuel Williams\\
+Mark Adams\\
+Brian Van Straalen\\
+Jed Brown\end{center}
+
+Obtaining high-performance, scalable, portable implementations of linear
+solvers running on today's emerging manycore and accelerated
+supercomputers has become an immense challenge. To that end, we developed
+a multigrid proxy app, HPGMG-FV, designed to: proxy the multigrid aspect
+of linear solves found in applications built on CHOMBO or BoxLib, allow
+for co-design of discretization and algorithm, and evaluate emerging
+programming models and architectures.
+
+In this talk, we explore software techniques developed that provide
+scalability and performance portability when running on CPU and
+GPU-accelerated supercomputers and clusters. Moreover, these techniques
+hide choices on programming model (OpenMP vs. CUDA, MPI vs. UPC++) and
+implementation (e.g. cache/thread blocking) from the user and functional
+description. We show, with proper usage of affinity to avoid NUMA issues
+and thread migration, that MPI+OpenMP performance can exceed flat MPI
+performance. Moreover, we show that heterogeneous CPU+GPU implementations
+can exceed CPU-only performance. Finally, we show network architecture is
+paramount in delivering scalable performance for even the largest problem
+sizes.
+
+
+\end{document}

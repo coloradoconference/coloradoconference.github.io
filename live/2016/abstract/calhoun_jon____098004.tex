@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jon Calhoun \\
+{\bf How Silent Errors Propagate in Iterative Methods}}
+
+201 N Goodwin Ave \\ Urbana \\ IL 61801
+\\
+{\tt jccalho2@illinois.edu}\\
+Luke Olson\\
+Marc Snir\end{center}
+
+
+As simulation size and machine complexity grows on next generation HPC
+systems, machine errors are expected to increase. In particular, silent
+data corruption (SDC), which occurs due to cosmic radiation striking
+hardware components causing the state of a transistor to flip, remains a
+concern key concern. SDC in iterative methods can lead to extra
+iterations required to find a solution, can convergence to an incorrect
+solution, or cause an application crash. Understanding how SDC propagates
+through iterative methods can lead to better mitigation systems that in
+turn increases effective system utilization.
+
+In this talk, we highlight SDC in several iterative computations over a
+range of applications. For example we consider miniapps, including CoMD,
+as well as benchmarks from NAS and the graph500 suites. From this we show
+how SDC propagates through different operations, suggesting different
+algorithm-based mitigation strategies to help reduce the impact of SDC.
+
+
+\end{document}

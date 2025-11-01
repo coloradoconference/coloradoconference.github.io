@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>taitano_william097016</TITLE>
+<META NAME="description" CONTENT="taitano_william097016">
+<META NAME="keywords" CONTENT="taitano_william097016">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="taitano_william097016.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">William Taitano 
+<BR><B>iFP: An optimal, fully implicit, fully conservative 1D2V Vlasov-Rosenbluth-Fokker-Planck code for ICF capsule implosion simulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">P O Box 1663 
+<BR>
+MS-K717 
+<BR>
+Los Alamos 
+<BR>
+NM 
+<BR>
+87545
+
+<BR><TT>taitano@lanl.gov</TT>
+<BR>
+Luis Chacon
+<BR>
+Andrei Simakov
+</DIV>
+
+<P>
+Contrary to predictions of radiation-hydrodynamics design codes, the
+National Ignition Facility has not succeeded in achieving ignition.
+Recent experimental evidence suggests that plasma kinetic effects may
+play an important role during Inertial Confinement Fusion (ICF) capsules’
+implosion. Consequently, kinetic models and simulations may need to be
+used to better understand experimental results and design ICF targets. We
+present a new, optimal, fully implicit, and fully conservative 1D2V
+Vlasov-Fokker-Planck (VFP) code, iFP, which simulates ICF implosions
+kinetically. Such simulations are difficult to perform because of the
+disparate time and length scales involved. The challenge in obtaining a
+credible solution is further complicated by the need to enforce discrete
+conservation properties.
+
+<P>
+In our studies, we employ the Rosenbluth formulation for the
+Fokker-Planck collision operator. Our approach uses a fully implicit
+temporal advance to step over stiff collision-time scales. For the
+solver, we use a Jacobian-free Newton-Krylov method with an optimal
+multigrid-based preconditioning technology. To address the issues of
+velocity disparity between various species as well as those associated
+with temporal and spatial temperature variations, we have developed: 1) a
+velocity space meshing scheme, which adapts to the species’ local thermal
+velocity; and 2) an asymptotic expansion of the Rosenbluth potentials
+based on the large ratio of thermal speeds of the fast-to-slow species
+(<!-- MATH
+ $v_{th,f}/v_{th,s} \gg 1$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ v_{th,f}/v_{th,s} \gg 1$">
+). We have also implemented a Lagrangian mesh,
+which allows the physical space mesh to move as the capsule compresses.
+Finally, we enforce discrete conservation of mass, momentum, and energy
+by solving a set of discrete nonlinear constraints, which are derived
+from continuum symmetries present in the VFP equations. Herein, we
+present some results testing the code capabilities and show preliminary
+simulations of a plasma shock.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

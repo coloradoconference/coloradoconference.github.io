@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Laura Grigori \\
+{\bf Low rank approximation of a sparse matrix based on LU factorization with column and row tournament pivoting }}
+
+Inria \\ Paris \\ France
+\\
+{\tt laura.grigori@inria.fr}\\
+James Demmel\\
+Sebastien Cayrols\end{center}
+
+In this talk we present an algorithm for computing a low rank
+approximation of a sparse matrix based on a truncated LU factorization
+with column and row permutations. We present various approaches for
+determining the column and row permutations that show a trade-off between
+speed versus deterministic/probabilistic accuracy. We show that if the
+permutations are chosen by using tournament pivoting based on QR
+factorization, then the obtained truncated LU factorization with
+column/row tournament pivoting, LU\_CRTP, satisfies bounds on the
+singular values which have similarities with the ones obtained by a
+communication avoiding rank revealing QR factorization. Experiments on
+challenging matrices show that LU\_CRTP provides a good low rank
+approximation of the input matrix, it is less expensive than the rank
+revealing QR factorization in terms of computational and memory usage
+costs, while also minimizing the communication cost. We also compare the
+computational complexity of our algorithm with randomized algorithms and
+show that for sparse matrices and certain accuracy, our approach is
+faster.
+
+
+\end{document}

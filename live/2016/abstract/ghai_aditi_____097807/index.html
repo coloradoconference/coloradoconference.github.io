@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ghai_aditi_____097807</TITLE>
+<META NAME="description" CONTENT="ghai_aditi_____097807">
+<META NAME="keywords" CONTENT="ghai_aditi_____097807">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ghai_aditi_____097807.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Aditi Ghai 
+<BR><B>An Empirical Comparison of Krylov Subspace Methods for Nonsymmetric Linear Systems from PDEs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Math 
+<BR>
+Stony Brook University 
+<BR>
+Stony Brook 
+<BR>
+NY 11794
+
+<BR><TT>aditi.ghai@stonybrook.edu</TT>
+<BR>
+Aditi Ghai
+<BR>
+Cao Lu
+<BR>
+Xiangmin Jiao
+</DIV>
+
+<P>
+Krylov subspace methods are widely used in solving partial differential
+equations and large sparse linear systems. For symmetric systems,
+CG and MINRES are almost
+always the optimal choices as efficient solvers. However, for nonsymmetric
+systems, such as those arising from convection-diffusion equations,
+the best choice of solvers is much less clearer. Various methods have
+been proposed for nonsymmetric systems over the years. Notable methods
+include GMRES [<A
+ HREF="node1.html#gmres">5</A>], QMR [<A
+ HREF="node1.html#qmr">4</A>], TFQMR [<A
+ HREF="node1.html#tfqmr">3</A>],
+Bi-CGSTAB [<A
+ HREF="node1.html#BSG">6</A>], QMRCGSTAB [<A
+ HREF="node1.html#qcsb">2</A>], etc. Unlike for symmetric
+case, there is no overall best method, and there is a need of guidelines
+in choosing these different types methods. The purpose of this study
+is to perform a systematic comparison of the various methods for linear
+systems arising from PDE discretizations. We focus on two classes
+of methods that are based on either nonsymmetric Lanczos iterations
+or Arnoldi iterations. We analyze the algorithm complexity and present
+numerical performances of these methods with and without preconditioners,
+for linear systems from finite difference or finite element discretizations
+in <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ 2$">
+-D and <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ 3$">
+-D.
+
+<P>
+In this study, we first report some theoretical comparisons of the
+methods with three-term recurrences, including QMR, TFQMR, Bi-CGSTAB
+and QMRCGSTAB, as well as the methods based on <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ n$">
+-term recurrence,
+such as GMRES. Table&nbsp;<A HREF="#tab:Comparison-of-operations">1</A> compares
+the operation counts per iteration and the storage requirements for
+these methods, which augment the comparison in [<A
+ HREF="node1.html#BBC94Templates">1</A>]
+with TFQMR and QMRCGSTAB. There is a tradeoff depending on the average
+number of nonzeros in the matrix versus the number of iterations.
+We present simple performance models for different classes of linear
+systems from PDE discretizations based on finite difference or finite
+element discretizations in 2-D and 3-D to provide practical guidelines
+in choosing these different Krylov subspace solvers.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+
+<P>
+<DIV ALIGN="CENTER"><A NAME="54"></A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>Table 1:</STRONG>
+Comparison of operations per
+iteration and memory requirements of various methods. <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ m$">
+ denotes
+the number of rows, <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ n$">
+ denotes the average number of nonzeros per
+row, and <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k$">
+ denotes the iteration count.</CAPTION>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">MatVec</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Inner</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Prod.</TD>
+<TD ALIGN="CENTER">DAXPY</TD>
+<TD ALIGN="CENTER">Prod.</TD>
+<TD ALIGN="CENTER">FLOPs</TD>
+<TD ALIGN="CENTER">Storage</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QMR</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">12</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ 4m(n+7)$">
+</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ m(n+16)$">
+</TD>
+</TR>
+<TR><TD ALIGN="CENTER">TFQMR</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">10</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ 4m(n+7)$">
+</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ m(n+8)$">
+</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Bi-CGSTAB</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">6</TD>
+<TD ALIGN="CENTER">4</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ 4m(n+5)$">
+</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ m(n+10)$">
+</TD>
+</TR>
+<TR><TD ALIGN="CENTER">QMRCGSTAB</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="CENTER">6</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ 4m(n+7)$">
+</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ m(n+13)$">
+</TD>
+</TR>
+<TR><TD ALIGN="CENTER">GMRES</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k$">
++1</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k$">
++1</TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $2m(n+2k+2)$
+ -->
+<IMG
+ WIDTH="112" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ 2m(n+2k+2)$">
+</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="96" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ m(n+k+5)$">
+</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+
+<P>
+To compliment the theoretical analysis, we also report some empirical
+comparisons of the different methods in terms of their convergence
+rates with and without preconditioners. We evaluate three preconditioners,
+including incomplete LU, Gauss Seidel, and Chebyshev polynomials.
+From the results, we observe that methods GMRES is more robust, with
+monotonically decreasing residuals, QMRCGSTAB, QMR, and TFQMR are
+less robust with nearly monotonically decreasing residual, and Bi-CGSTAB
+is the most efficient but also the least robust, with oscillatory
+residuals. For these different methods, we observe different accelerations
+with different preconditioners for different classes of problems.
+These results help provide some practical guidelines in choosing different
+preconditioners for different types of linear systems, and also motivate
+the development of hybrid solvers for sparse linear systems arising
+from PDE discretizations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html5"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html6"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andy Wathen \\
+{\bf A preconditioner with guaranteed rapid convergence for nonsymmetric real Toeplitz systems}}
+
+Mathematical Insititute \\ Woodstock Road \\ Oxford \\ UK
+\\
+{\tt wathen@maths.ox.ac.uk}\\
+Jen Pestana\end{center}
+
+Descriptive convergence estimates or bounds for Krylov subspace
+iterative methods for nonsymmetric matrix systems are keenly
+desired but remain elusive. In the case of symmetric (self-
+adjoint) matrices, bounds based on eigenvalues can be usefully
+descriptive of observed convergence; an important consequence
+is that there are rigorous criteria for what constitutes a
+good preconditioner for symmetric matrices. For nonsymmetric
+matrices preconditioning must generally be heuristically
+motivated.
+
+Such comments apply quite generally, however there is one class
+of nonsymmetric matrices for which we have recently been able
+to rigorously prove descriptive convergence bounds, namely real
+Toeplitz (constant diagonal) matrices. Our results apply
+regardless of non-normality or any `degree' of nonsymmetry.
+
+Gil Strang proposed the use of circulant matrices (and the
+FFT) for preconditioning symmetric Toeplitz matrix systems in
+1986 and there is now a well-developed theory which guarantees
+rapid convergence of the conjugate gradient method for such
+preconditioned positive definite symmetric systems.
+
+In this talk we describe our recent approach which provides a
+preconditioned MINRES method with the same guarantees for real
+nonsymmetric Toeplitz systems regardless of the non-normality.
+
+
+\end{document}

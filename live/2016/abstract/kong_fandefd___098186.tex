@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Fande, FD Kong \\
+{\bf A scalable parallel nonlinear solver for numerical simulation of fluid-structure interactions with applications in hemodynamics}}
+
+Department of Computer Science \\ University of Colorado Boulder \\ Boulder \\ Colorado 80309
+\\
+{\tt fande.kong@colorado.edu}\\
+Xiao-Chuan/XC Cai\end{center}
+
+Numerical simulation of fluid-structure interactions (FSI) with a
+patient-specific geometry provides a valuable tool in computer-aided
+surgeries. Especially, with the rapid development of
+supercomputers, a high resolution of the numerical simulation of cardiovascular dynamics
+becomes achievable, and calculated metrics such as the blood velocity, the
+blood pressure and the wall displacement can be used directly or indirectly as valuable
+means, instead of empirical and often risky clinical experiments, to
+examine the suitability
+and the efficiency of various reconstructive procedures. However, the
+parallel numerical solution of the FSI system with a patient-specific
+geometry is still challenging
+because (1) computation domains are irregular and deformable so that the
+construction of efficient solvers such as
+multigrid methods or multilevel methods is difficult; (2) fluid-structure
+interactions need to couple different types of equations together
+and different parts of the FSI system behave differently so that the
+resulting nonlinear algebraic system is hard to solve.
+In this talk, we discuss a highly scalable, fully implicit multilevel
+fluid-structure interaction solver based on isogeometric unstructured 3D
+coarse spaces. The proposed
+nonlinear solver is shown to be scalable with more than 10,000 processor cores.
+
+
+\end{document}

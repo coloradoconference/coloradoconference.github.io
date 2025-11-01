@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthias Bollhoefer \\
+{\bf Sparse Inverse Covariance Estimation Using Sparse Matrices}}
+
+TU Braunschweig \\ Institute for Computational Mathematics \\ D-38106 Braunschweig \\ Germany
+\\
+{\tt m.bollhoefer@tu-bs.de}\\
+Olaf Schenk\\
+Fabio Verbosio\end{center}
+
+A well-known task in statistics is the estimation of the (inverse)
+covariance matrix when only certain samples of random variables are
+given. In particular, big data problems often lead to a high-dimensional
+regime where the number of samples is significant less than the
+dimension. To compute an inverse covariance often requires additional
+constraints such as sparsity. This is why one usually reguluarizes the
+log-likelihood function with the 1-norm of the inverse covariance matrix.
+In [1], a promising quadratic approximation called QUIC algorithm is
+presented to estimate the sparse inverse covariance matrix for dense
+matrices. This method has been generalized in [2] using the notion of
+hierarchical matrices. In this talk we present a sparse version of this
+algorithm which uses up-to-date sparse matrix computations to deal with
+large-scale data and to handle sparse matrices and their approximate
+inverses.
+
+[1] Cho-Jui Hsieh, Mátyás A. Sustik, Inderjit S. Dhillon, Pradeep
+Ravikumar. Sparse Inverse Covariance Matrix Estimation Using Quadratic
+Approximation, Advances in Neural Information Processing Systems, vol.
+24, 2011.
+
+[2] Jonas Ballani, Daniel Kressner.
+Sparse Inverse Covariance Estimation with Hierarchical Matrices.
+Technical report, EPFL, October 2014.
+
+
+\end{document}

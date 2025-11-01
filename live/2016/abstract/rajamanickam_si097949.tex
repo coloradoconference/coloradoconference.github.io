@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Siva Rajamanickam \\
+{\bf ShyLU : A package for on-node smoothers and hybrid preconditioners in Trilinos}}
+
+Sandia National Laboratories
+\\
+{\tt srajama@sandia.gov}\\
+Erik Boman\\
+Joshua Booth\\
+Andrew Bradley\\
+Clark Dohrmann\end{center}
+
+This talk will present recent developments in the ShyLU package in Trilinos.
+ShyLU was originally developed as hybrid Schur complement solver. ShyLU is
+a MPI + X Schur complement solver where the X refers to additional levels of
+parallelism based on the architecture. This second level of parallelism has
+become critical for performance in modern architectures. This talk
+will focus on recent on-node factorizations and preconditioners in ShyLU. We
+discuss three different algorithms. First, we discuss a left-looking,
+data-parallel, non-supernodal (in)complete factorization. This algorithm is a
+parallel version of the Gilbert-Peierls algorithm. Second, we discuss a
+right-looking, task-parallel incomplete Cholesky factorization. This algorithm
+derives from the algorithm-by-blocks style of algorithms popular in the dense
+linear algebra community. Both these algorithms use a two-dimensional matrix
+layout for reduced synchronization costs. While the task-parallel algorithm is
+asynchronous, the data-parallel algorithm reduces the synchronization costs by
+algorithm specific techniques. Third, we discuss a new implementation of the
+iterative algorithm to compute the incomplete LU factorization and the
+triangular solve. This is a highly parallel, asynchronous algorithm that is
+uses nonlinear iterations to compute the LU factorization.
+
+The first two algorithms are targeted towards medium level of concurrency and
+the third algorithm is targeted towards very high concurrency architectures.
+We compare the task-parallel and data-parallel algorithms to other solvers
+in both CPU and Xeon-Phi architectures. We present results of the third
+algorithm in GPU architectures. All three algorithms are implemented
+using the Kokkos
+library in Trilinos for portable performance across different architectures.
+
+
+\end{document}

@@ -1,0 +1,93 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Gary W. Howell \\
+{\bf LU Preconditioning for Iterative Solution of Overdetermed Sparse Least Squares Problems }}
+
+512 Farmington Woods Dr Cary NC 27511
+\\
+{\tt gwhowell@ncsu.edu}\\
+Marc Baboulin \end{center}
+
+We investigate how to use an $LU$ factorization with the classical {\tt
+lsqr} routine for solving overdetermined sparse least squares problems.
+Usually $L$ is much better conditioned than $A$. Thus iterating with $L$
+instead of $A$ results in faster convergence.
+Numerical experiments using Matlab illustrate the good behavior of our
+algorithm in terms of storage and convergence.
+This paper explores a preliminary shared memory implementation using
+SuperLU factorization.
+
+
+We consider the overdetermined full rank LLS problem
+\begin{equation}
+\label{eq:llsp}
+\min_{x \in \mathbb{R}^n} \neucs{Ax - b},
+\end{equation}
+with $A \in \mathbb{R}^{m \times n}, m \geq n$ and $b \in \mathbb{R}^m$.
+When $A$ is sparse, direct methods based on $QR$ factorization or the
+normal equations are not always suitable because the $R$ factor or $A^TA$
+can be dense.
+A common iterative method to find the least squares solution $x$
+is to solve the normal equations
+
+\begin{equation}
+\label{eq:ne}
+A^TAx = A^Tb,
+\end{equation}
+by applying the conjugate gradient (CG) algorithm to $A^TA$. In this case the matrix
+$A^T A$ does not need to be explicitly formed, avoiding possible fill-in
+in the formation of $A^TA$.
+
+with other sparse linear systems, preconditoning techniques based on
+incomplete factorizations can improve convergence. One method to
+precondition the normal equations~(\ref{eq:ne}) is to perform an
+incomplete Cholesky decomposition of $A^T A$ (e.g., RIF preconditioner,
+Benzi, 2003).
+
+When $A^TA$ and its Cholesky factorization are denser than $A$, it is
+natural to wonder if the $LU$ factorization of $A$ can be used in solving
+the least squares problem. In this paper we use an $LU$ factorization of
+the rectangular matrix $A=\left(
+\begin{array}{c}
+A_1\\
+A_2\\
+\end{array}
+\right)
+$ where $L$ is unit lower trapezoidal and $U$ is upper triangular.
+For the nonpivoting case, the normal equations~(\ref{eq:ne}) become
+\begin{equation}
+\label{eq:neL}
+L^TLy=c,
+\end{equation}
+with $c = L^T b, U x = y $, and we can apply CG iterations on~(\ref{eq:neL}).
+
+Least squares solution using $LU$ factorization has been explored by
+several authors. Peters and Wilkinson (1970) and Bj\"orck and Duff (1980)
+give direct methods. This work follows Bj\"orck and Yuan (1999) using
+conjugate gradient methods based on $LU$ factorization, an approach worth
+revisiting because of the recent progress in sparse $LU$ factorization.
+The lsqrLU (2015) algorithm presented here uses a lower trapezoidal $L$
+returned from a direct solver package. Here we use an $LU = PAQ$
+factorization from shared memory SuperLU (X. LI 2005), comparing
+iteration with $L$ to the $U^{-1}A$ iteration suggested by Saunders.
+Because other direct solver packages offer scalable sparse $LU$
+factorizations, it appears likely that the algorithm used here can also
+be used to solve larger problems.
+The rate of linear convergence for CG iterations on the normal equations is
+$$K = \frac {\kappa - 1 }{\kappa + 1},$$
+where $\kappa=\sqrt{\cond(A^TA)}=\cond(A)$ and $\cond(A)$ denotes the
+2-norm condition number of $A$ (ratio of largest and smallest singular
+values of $A$).
+In our experiments, $L$ is often much better conditioned than $A$, so
+convergence of the CG method is relatively rapid. Moreover, the total
+number of nonzeros
+in $L$ and $U$ is usually less than in the sparse Cholesky factorization of
+$A^T A$.
+
+
+\end{document}

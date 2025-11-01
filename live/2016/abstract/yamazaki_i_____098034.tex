@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large I. Yamazaki \\
+{\bf Preconditioning Communication-Avoiding Krylov Methods}}
+
+Innovative Computing Laboratory \\ University of Tennessee Department of Electrical Engineering and Computer Science \\ Suite 203 Claxton \\ 1122 Volunteer Blvd \\ Knoxville \\ TN 37996
+\\
+{\tt iyamazak@icl.utk.edu}\\
+	S. Rajamanickam, A. PROKOPENKO, E. G. Boman, M. Hoemmen, M. A. Heroux,  S. Tomov, and J. Dongarra
+	\end{center}
+
+Krylov subspace projection methods are widely used iterative methods for
+solving large-scale linear systems of equations. Communication-avoiding
+(CA) techniques may improve the performance of the Krylov methods on
+modern computers, where communication has become significantly more
+expensive compared to arithmetic operations. However, though the CA
+Krylov methods were originally proposed as s-step methods over thirty
+years ago, they have not been widely adopted in practice. One reason for
+this is that, in practice, Krylov methods require preconditioning to
+accelerate their convergence rate, but is is a challenge to seamlessly
+precondition a CA method. In this talk, we first outline a domain
+decomposition framework to introduce a family of preconditioners that are
+suitable for CA Krylov methods. Our preconditioners do not incur any
+additional communication and allow the easy reuse of existing algorithms
+and software for the subdomain solves. We then discuss several extensions
+to the framework, which can improve the performance of the
+preconditioners.
+
+
+\end{document}

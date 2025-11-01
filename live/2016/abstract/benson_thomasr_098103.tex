@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Thomas R. Benson \\
+{\bf Monolithic Multigrid for a B-field Incompressible, Resistive Magnetohydrodynamics Model}}
+
+7000 East Ave \\ Livermore \\ CA 94550
+\\
+{\tt benson31@llnl.gov}\\
+James H. Adler\\
+Eric C. Cyr\\
+Scott P. MacLachlan\\
+Raymond S. Tuminaro\end{center}
+
+Magnetohydrodynamics (MHD) models describe a wide range of plasma physics
+applications, from thermonuclear fusion in tokamak reactors to
+astrophysical models. These models are characterized by a nonlinear
+system of partial differential equations in which the flow of the fluid
+strongly couples to the evolution of electromagnetic fields. As a result,
+the discrete linearized systems that arise in
+the numerical solution of these equations are generally difficult to
+solve, and require effective preconditioners to be developed. This paper
+investigates monolithic multigrid preconditioners for a one-fluid,
+viscoresistive MHD model in two dimensions that utilizes a second
+Lagrange multiplier added to Faraday's law to enforce the divergence-free
+constraint on the magnetic field. We consider the extension of a
+well-known relaxation scheme from the fluid dynamics literature, Vanka
+relaxation, to this formulation. To isolate the relaxation scheme from
+the rest of the multigrid method, we utilize structured grids, geometric
+interpolation operators, Galerkin coarse grid operators, and inf-sup
+stable elements for both constraints in the system. Numerical results are
+shown for the Hartmann flow problem, a standard test problem in MHD.
+
+
+\end{document}

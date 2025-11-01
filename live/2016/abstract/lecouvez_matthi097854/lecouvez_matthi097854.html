@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lecouvez_matthi097854</TITLE>
+<META NAME="description" CONTENT="lecouvez_matthi097854">
+<META NAME="keywords" CONTENT="lecouvez_matthi097854">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lecouvez_matthi097854.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Matthieu Lecouvez 
+<BR><B>A parallel-in-time algorithm for variable stepsize multistep methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Livermore National Laboratory 
+<BR>
+7000 east avenue 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94550
+
+<BR><TT>matthieu.lecouvez@gmail.com</TT>
+<BR>
+Rob, D. Falgout
+<BR>
+Carol, S. Woodward
+</DIV>
+
+<P>
+As the number of cores increases on current and future architectures, the
+natural sequential approach to time integration is becoming a more
+serious bottleneck for achieving high scalability. One alternative to
+overcome this problem is the use of multigrid-in-time algorithms such as
+MGRIT [1]. Although first designed for one-step methods, we apply the
+MGRIT algorithm to multistep BDF methods for the integration of fully
+implicit <EM>Differential Algebraic Equations</EM> (DAE) on variable
+timestep grids. Our step function solves the nonlinear problem
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+F\left(t_n,y_n,\dot{y}_n\right)=0,\quad \dot{y}_n=\sum_{j=0}^s \alpha_{n,j}\,y_{n-j},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="277" HEIGHT="62" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle F\left(t_n,y_n,\dot{y}_n\right)=0,\quad \dot{y}_n=\sum_{j=0}^s \alpha_{n,j} y_{n-j},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ s$">
+ is the order of the BDF method used, and the coefficients
+<!-- MATH
+ $\alpha_{n,j}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \alpha_{n,j}$">
+ depend on the order <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ s$">
+ and the previous timestep sizes.
+We will present one approach for implementing variable stepsize BDF
+methods in a parallel-in-time context based on the XBraid software
+library. Results on power grid applications will also be given.
+<BR>
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under contract
+DE-AC52-07NA27344. Lawrence Livermore National Security, LLC.
+LLNL-ABS-681082.
+<DL COMPACT>
+<DT>1</DT>
+<DD>R. D. Falgout, S. Friedhoff, T. V. Kolev, S. P. MacLachlan, and
+J. B. Schroder, ``Parallel time integration with multigrid'', <EM>SIAM
+J. Sci. Comput.</EM>, vol. 36, no 6, pp. C635-C661, 2014, ILNL-JRNL-645325.
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2016-02-22
+</ADDRESS>
+</BODY>
+</HTML>
