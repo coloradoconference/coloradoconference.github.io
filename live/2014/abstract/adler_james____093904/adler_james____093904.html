@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>adler_james____093904</TITLE>
+<META NAME="description" CONTENT="adler_james____093904">
+<META NAME="keywords" CONTENT="adler_james____093904">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="adler_james____093904.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">James Adler 
+<BR><B>A Non-symmetric Least-Squares Finite-Element Method for Singularly Perturbed Reaction-Diffusion</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">503 Boston Ave 
+<BR>
+Medford 
+<BR>
+MA 02155
+
+<BR><TT>james.adler@tufts.edu</TT>
+<BR>
+Scott MacLachlan
+<BR>
+Niall Madden
+</DIV>
+
+<P>
+
+<P>
+In this talk, we consider the numerical solution of a singularly perturbed
+reaction-diffusion problem:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:model"></A><!-- MATH
+ \begin{equation*}
+Lu:=-\varepsilon ^2 \Delta u + b u = f\quad{\rm in\ }\Omega: = (0,1)^2,
+\qquad u = 0 \ \text{ on } \partial \Omega.
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="362" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle Lu:=-\varepsilon ^2 \Delta u + b u = f\quad{\rm in\ }\Omega: = (0,1)^2, \qquad u = 0 \ $">&nbsp; &nbsp; on&nbsp;<IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \partial \Omega.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varepsilon $">
+ is a small positive parameter. The solution exhibits
+boundary layers with width of order <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varepsilon $">
+. Our goal is to generate a
+numerical solution using a finite-element method on a tensor-product
+mesh, which accurately solves the problem and resolves the layers, but
+without any assumption that the number of nodes in each dimension, <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ N$">
+, is
+<!-- MATH
+ ${\mathcal{O}}(\varepsilon ^{-1})$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\mathcal{O}}(\varepsilon ^{-1})$">
+.
+
+<P>
+Using a standard Galerkin method, it is natural to
+conduct the analysis with respect to the <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varepsilon $">
+-weighted norm (energy norm),
+<!-- MATH
+ $\| v \|_\varepsilon  = \big( \varepsilon ^2 |v|^2_1 + \|v\|^2_{0}\big)^{1/2}$
+ -->
+<IMG
+ WIDTH="181" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \Vert v \Vert _\varepsilon = \big( \varepsilon ^2 \vert v\vert^2_1 + \Vert v\Vert^2_{0}\big)^{1/2}$">
+.
+This has been done in several studies, such as [<A
+ HREF="node1.html#LiMa09a">2</A>], where the
+method is implemented with bilinear elements on a specially
+constructed piecewise-uniform Shishkin mesh. However, the energy norm is weak for this
+problem, since <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ u_x$">
+ and <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ u_y$">
+ are both
+<!-- MATH
+ ${\mathcal{O}}(\varepsilon ^{-1})$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\mathcal{O}}(\varepsilon ^{-1})$">
+. Thus, as <!-- MATH
+ $\varepsilon \to 0$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \varepsilon \to 0$">
+,
+<!-- MATH
+ $\| u \|_\varepsilon  \to \|u\|_0$
+ -->
+<IMG
+ WIDTH="93" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \Vert u \Vert _\varepsilon \to \Vert u\Vert _0$">
+. This is particularly problematic, since it
+is easy to show that, for sufficiently small <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varepsilon $">
+, if the FEM
+solution, <IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ u^N$">
+, is computed on a uniform mesh, then <!-- MATH
+ $\|u-u^N\|_\infty$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \Vert u-u^N\Vert _\infty$">
+ is
+<!-- MATH
+ ${\mathcal{O}}(1)$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ {\mathcal{O}}(1)$">
+ (meaning there is no convergence, since the layers are not
+resolved), yet <!-- MATH
+ $\|u-u^N\|_0 \sim N^{-1/2}$
+ -->
+<IMG
+ WIDTH="143" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \Vert u-u^N\Vert _0 \sim N^{-1/2}$">
+.
+Even with the layer resolving Shishkin mesh, the error estimate in the
+energy norm is <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varepsilon $">
+-dependent: <!-- MATH
+ $\| u-u^N \|_\varepsilon  \sim N^{-2} +
+\varepsilon ^{1/2} N^{-1} \ln N$
+ -->
+<IMG
+ WIDTH="241" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \Vert u-u^N \Vert _\varepsilon \sim N^{-2} +
+\varepsilon ^{1/2} N^{-1} \ln N$">
+.
+
+<P>
+More recently, Lin and Stynes&nbsp;[<A
+ HREF="node1.html#LiSt12">1</A>] have proposed the
+use of a ``balanced norm'', which arises in the analysis of a mixed
+finite-element method and requires <!-- MATH
+ $H(\operatorname{div})$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ H(\operatorname{div})$">
+ conforming
+spaces. In this talk we extend these results in the framework of a
+non-symmetric least-squares formulation, which finds the solution in
+an <IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ H^1$">
+ conforming finite-element space. The resulting
+finite-element solutions yield <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varepsilon $">
+-independent
+convergence in a balanced norm, resolving the boundary
+layers accurately and efficiently, yet are also amenable to solution
+using scalable algebraic multigrid methods.
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

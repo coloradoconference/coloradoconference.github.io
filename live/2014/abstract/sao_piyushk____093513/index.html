@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sao_piyushk____093513</TITLE>
+<META NAME="description" CONTENT="sao_piyushk____093513">
+<META NAME="keywords" CONTENT="sao_piyushk____093513">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sao_piyushk____093513.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Piyush, K. Sao 
+<BR><B>Self-stabilizing Iterative Solvers</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">266 Ferst Drive 
+<BR>
+1343 Klaus Advanced Computing Building 
+<BR>
+Atlanta 
+<BR>
+GA 30332
+
+<BR><TT>piyush3@gatech.edu</TT>
+<BR>
+Richard Vuduc
+</DIV>
+
+<P>
+On future exascale computing systems, it is expected that incorrect
+functioning of the hardware (referred as faults), may become the norm
+rather than an exception.
+A particularly insidious case is that of <I>soft faults</I>, which are
+transient (temporary) errors that do not cause the program to crash or
+halt but may nevertheless go undetected.
+For example, bit flips during a computation or in cache or memory are
+typical soft faults.
+
+<P>
+For soft faults, we show how to use the idea of
+<I>self-stabilization</I>, which originates in work by Dijkstra (1974)
+for problems in distributed control, to make fault-tolerant iterative
+solvers.
+At a high level, a self-stabilizing system is one that, starting from an
+arbitrary state (valid or invalid), reaches a valid state within a finite
+number of steps. This property imbues the system with a natural means of
+tolerating soft faults.
+
+<P>
+We have written an initial paper on our
+approach&nbsp;[<A
+ HREF="node1.html#ref:SS-Iter-Solver-Scala">1</A>]. Below, we summarize the paper's
+key ideas.
+
+<P>
+Our basic recipe for applying self-stabilization to numerical algorithm
+design is roughly as follows. First, we regard the execution of a given
+solver algorithm as the ``system.'' Its state consists of some or all of
+the variables that would be needed to continue its execution. Then, we
+identify a condition that must hold at each iteration for the solver to
+converge. When the condition holds, the solver is in a ``valid'' state;
+otherwise, it is in an invalid state. Finally, we augment the solver
+algorithm with an explicit mechanism that will bring it from an invalid
+state to a valid one within a guaranteed finite number of iterations.
+Importantly, the mechanism is designed so that the solver algorithm need
+<I>not</I> detect a fault explicitly. Rather, it is designed to cause a
+transition from an invalid to valid state automatically.
+
+<P>
+We have thus far devised two proof-of-concept self-stabilizing iterative linear solvers.
+One is a self-stabilized variant of steepest descent (SD) and the other
+is a variant of the conjugate gradient (CG) method. Our self-stabilized
+versions of SD and CG do require small amounts of fault-detection, e.g.,
+we may check only for NaNs and infinities. Otherwise, under specific
+assumptions on the type and rates of transient soft faults, we can show
+formally that our modified solvers are self-stabilizing.
+
+<P>
+To get an idea of how this process works, consider the case of CG.
+Recall that CG constructs A-orthogonal search directions that span a Krylov subspace.
+In each iteration, it updates the solution estimate by taking a step of
+optimal size in the computed search direction.
+A fault, when it occurs, can
+
+<UL>
+<LI>change the problem being solved, e.g., the same system with a
+perturbed right-hand side, in which case algorithm converges to an
+incorrect value ;
+</LI>
+<LI>generate an incorrect search direction, i.e., one which may not
+even be a <I>descent</I> direction, which may lead the solver iterations
+to diverge;
+</LI>
+<LI>take a suboptimal step size in each iteration, which may lead the
+solver iterations to converge at a much slower rate;
+</LI>
+</UL>
+Our self-stabilized CG, through a periodic correction scheme we have
+devised, enforces the correctness of the problem being solved and
+restores certain local optimality and orthogonality properties of the
+generated search directions and residuals.
+One can prove that maintaining these properties satisfies the Zoutendijk
+Condition, which allows the (modified) solver to converge asymptotically,
+even in the presence in faults, provided the correction mechanism is
+invoked ``frequently enough.''
+And in the absence of any faults, our self-stabilized CG remains
+equivalent to CG up to roundoff error.
+
+<P>
+To illustrate the fault tolerance property of self-stabilized algorithms,
+we test our self-stabilized conjugate gradient experimentally by
+analyzing its convergence and overhead for different types and rates of
+faults in selective reliability mode, where we assume a small fraction of
+computation can be done in guaranteed reliable mode. We present a
+theoretical analysis relating amount of reliable computation required,
+rate of faults and problem being solved.
+
+<P>
+Beyond the specific findings for the case of self-stabilized conjugate
+gradient, we believe self-stabilization has promise to become a useful
+tool for constructing resilient solvers more generally.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html4"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

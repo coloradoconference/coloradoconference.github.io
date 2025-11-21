@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dinapoli_edoard092364</TITLE>
+<META NAME="description" CONTENT="dinapoli_edoard092364">
+<META NAME="keywords" CONTENT="dinapoli_edoard092364">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dinapoli_edoard092364.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Edoardo Di Napoli 
+<BR><B>An Optimized and Scalable Iterative Eigensolver for Sequences of Dense Eigenvalue Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Juelich Supercomputing Centre 
+<BR>
+Forschungszentrum Juelich 
+<BR>
+Wilhelm-Johnen strasse 
+<BR>
+52425 Juelich 
+<BR>
+Germany
+
+<BR><TT>e.di.napoili@fz-juelich.de</TT>
+<BR>
+Mario Berljafa
+</DIV>
+
+<P>
+Sequences of eigenvalue problems consistently appear in a large class of
+applications based on the iterative solution of a non-linear eigenvalue
+problem. A typical example is given by the chemistry and materials
+science ab initio simulations relying on computational methods developed
+within the framework of Density Functional Theory (DFT). DFT provides the
+means to solve a high-dimensional quantum mechanical problem by
+representing it as a non-linear generalized eigenvalue problem which is
+solved self-consistently through a series of successive outer-iteration
+cycles. As a consequence each self-consistent simulation is made of
+several sequences of generalized eigenproblems <!-- MATH
+ $P: Ax=\lambda Bx$
+ -->
+<IMG
+ WIDTH="104" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ P: Ax=\lambda Bx$">
+. Each
+sequence, <!-- MATH
+ $P^{(1)}, \dots P^{(\ell)} \dots P^{(N)}$
+ -->
+<IMG
+ WIDTH="149" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ P^{(1)}, \dots P^{(\ell)} \dots P^{(N)}$">
+, groups together
+eigenproblems with increasing outer-iteration index <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+.
+
+<P>
+In more general terms a set of eigenvalue problems <!-- MATH
+ $\{P^{(1)}, \dots
+P^{(N)}\}$
+ -->
+<IMG
+ WIDTH="113" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \{P^{(1)}, \dots
+P^{(N)}\}$">
+ is said to be a ``sequence'' if the solution of the <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+-th
+eigenproblem determines, in an application-specific manner, the
+initialization of the <IMG
+ WIDTH="51" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ (\ell+1)$">
+-th eigenproblem. In turns this
+definition implies that successive eigenproblems in a sequence possess a
+certain degree of correlation. For instance at the beginning of each
+DFT cycle an initial function <!-- MATH
+ $\rho^{(\ell)}({\bf r})$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \rho^{(\ell)}({\bf r})$">
+ determines the
+initialization of the <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+-th eigenproblem. A large fraction of
+<!-- MATH
+ $P^{(\ell)}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^{(\ell)}$">
+ eigenpairs are then use to compute a new
+<!-- MATH
+ $\rho^{(\ell+1)}({\bf r})$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \rho^{(\ell+1)}({\bf r})$">
+ which, in turn, leads to the initialization of
+a new eigenvalue problem <!-- MATH
+ $P^{(\ell+1)}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P^{(\ell+1)}$">
+. In DFT sequences, correlation
+becomes manifest in
+the way eigenvectors of successive eigenproblems become progressively
+more collinear to each other as the <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+-index increases.
+
+<P>
+The growing collinearity between eigenvectors of increasing
+<IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+-index is a phenomenon which suggests a possible method to
+measure and exploit the correlation of a sequence. Recording the
+variation of eigenvectors angles as a function of <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+ provides a way
+to assess the degree of the correlation. In addition small angles which
+decrease with increasing <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \ell$">
+ suggest the possible use of the
+eigenvectors of <!-- MATH
+ $P^{(\ell)}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^{(\ell)}$">
+ as an educated guess for the eigenvectors of
+the successive problem <!-- MATH
+ $P^{(\ell+1)}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P^{(\ell+1)}$">
+. The key element is to take
+advantage of this growing eigenvector collinearity in order to improve
+the performance of the eigensolver. While implementing this strategy
+naturally leads to the use of iterative eigensolvers, very few methods
+possess the characteristics which make them well suited to the task at
+hand.
+
+<P>
+An iterative method capable of exploiting the eigenvector angles
+decline should satisfiy two distinct key properties: 1) the ability to
+receive as input a sizable set of approximate eigenvectors, and 2) the
+potential to make an efficient use of them by solving simultaneously for
+a substantial portion of the eigenpairs. In theory such a solver, when
+used on a sequence of correlated problems, should achieve a
+moderate-to-substantial reduction in the number of matrix-vector
+operations as well as an improved convergence. In practice the
+effectiveness of the eigensolver depends on its ability to filter away as
+efficiently as possible the unwanted components of the inputed
+approximate eigenvectors.
+
+<P>
+We developed a subspace iteration method (ChFSI) specifically tailored
+for sequences of eigenproblems whose correlation appears in the form of
+increasingly collinear eigenvectors. Our
+strategy is to take the maximal advantage possible from the information
+that the solution of the <!-- MATH
+ $P^{(\ell)}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^{(\ell)}$">
+ eigenproblem is
+providing when solving for the successive <!-- MATH
+ $P^{(\ell+1)}$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P^{(\ell+1)}$">
+ problem. As a
+consequence the subspace iteration was augmented with a Chebyshev
+polynomial filter whose degree gets dynamically optimized so as to
+minimize the number of matrix-vector multiplications. The effectiveness
+of the Chebyshev filter is substantially increased when inputed the
+approximate eigenvectors <!-- MATH
+ $\{ x_1^{(\ell)}, \dots x_{\rm nev}^{(\ell)}\}$
+ -->
+<IMG
+ WIDTH="103" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \{ x_1^{(\ell)}, \dots x_{\rm nev}^{(\ell)}\}$">
+,
+as well as very reliable estimates, namely <!-- MATH
+ $[\lambda_1^{(\ell)},\
+\lambda_{\rm nev}^{(\ell)}]$
+ -->
+<IMG
+ WIDTH="81" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ [\lambda_1^{(\ell)},\
+\lambda_{\rm nev}^{(\ell)}]$">
+, for the limits of the eigenspectrum
+interval <IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ [a,\ b]$">
+ to be filtered out. In addition
+the degree of the polynomial filter is adjusted so as to be minimal with
+respect to the required tolerance for the eigenpairs
+residual. This result is achieved by exploiting the dependence each
+eigenpair residual have with respect to its convergence ratio as
+determined by the rescaled Chebyshev polynomial and its
+degree. The solver is complemented with an efficient mechanism which
+locks and deflates the converged eigenpairs.
+
+<P>
+The resulting eigensolver was implemented in C language and
+parallelized for both shared and distributed architectures. Numerical
+tests show that, when the eigensolver is inputed approximate solutions
+instead of random vectors, it achieves up to a 5X speedup. Moreover ChFSI
+takes great advantage of computational resources by scaling over a large
+range of cores commensurate with the size of the eigenproblems.
+Specifically, by making better use of massively parallel architectures,
+the distributed memory version will allow DFT users to simulate physical
+systems quite larger than are currently accessible.
+
+<P>
+In the context of DFT applications, we tested ChFSI on sequences of dense
+eigenvalue problems, where the size of each problem ranges from 5 to 30
+thousand and the interest lays in the eigenpairs corresponding to the
+lower 5-20% part of the spectrum. Due to the dense nature of the
+eigenproblems and the large portion of the spectrum requested, iterative
+solvers are generally not competitive so that current simulation codes
+uniquely use direct methods. Despite being in principle disadvantaged,
+the parallel ChFSI inputed with approximate
+solutions performs substantially better than the corresponding direct
+eigensolvers, even for a significant portion of the sought-after
+spectrum.
+
+<P>
+The pivotal element allowing the achievement of such a result resides in
+the change of paradigm when looking at sequences of eigenproblems. While
+the computational scientist solves many isolate eigenproblems one after
+the other, we look at the entire computation as made of one sequence of
+correlated problems. This shift in focus enables one to harness the
+inherent essence of the correlation between successive problems and
+translate it to an efficient use of opportunely tailored iterative
+solvers. In the long term such a result will positively impact a large
+community of computational scientists working on DFT-based methods.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

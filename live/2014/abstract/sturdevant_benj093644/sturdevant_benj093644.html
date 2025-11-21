@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sturdevant_benj093644</TITLE>
+<META NAME="description" CONTENT="sturdevant_benj093644">
+<META NAME="keywords" CONTENT="sturdevant_benj093644">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sturdevant_benj093644.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Benjamin Sturdevant 
+<BR><B>Iterative Methods for an Implicit <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \delta f$">
+ Hybrid Kinetic Plasma Model</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">8901 Grant St Apt 336 
+<BR>
+Thornton 
+<BR>
+CO 80229
+
+<BR><TT>benjamin.sturdevant@colorado.edu</TT>
+<BR>
+Scott Parker
+<BR>
+Tom Manteuffel
+<BR>
+Chris Leibs
+</DIV>
+
+<P>
+Plasma systems generally support phenomena occurring on time scales
+spanning many orders of magnitude. This presents a difficulty for
+simulations, since phenomena of interest often occur on relatively slow
+time scales, but the accuracy and stability of conventional
+particle-in-cell (PIC) methods require the resolution of high-frequency
+modes. Computational techniques, including implicit methods, sub-cycling,
+and orbit averaging, have been developed to relax these time stepping
+constraints without modification of the governing equations. In order to
+obtain self-consistent couplings between particles and fields in implicit
+plasma simulation, an iterative process is used in which particles and
+fields are alternately updated. A preconditioner may provide a means of
+increasing the rate of convergence in this iterative process.
+
+<P>
+In this talk, we consider a second order implicit electromagnetic model
+using Lorentz ions along with drift/gyrokinetic electrons which has been
+developed to study low-frequency, quasi-neutral plasmas. Methods are
+explored to overcome two severe time stepping constraints present in this
+model - one due to compressional Alfv&#233;n waves and the other due to
+the necessity of resolving the ion gyromotion. By employing an implicit
+method, the most severe constraint due to compressional Alfv&#233;n waves
+can be eliminated. An iterative process is then necessary to solve the
+resulting implicit system.
+
+<P>
+The constraint due to the ion gyromotion is handled by the use of
+sub-cycling and orbit averaging with GPU accelerated particle pushes.
+Sub-cycling and orbit averaging techniques are both based on advancing
+particles over several micro time steps for each macro time step over
+which the fields are advanced. The two methods differ in that sub-cycling
+uses only the most current particle data to provide information on the
+sources for the field equations, whereas orbit averaging uses temporally
+averaged source data. An orbit averaged <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \delta f$">
+ implementation, using
+a simplified field model, has been shown to successfully simulate finite
+Larmor radius (FLR) effects on ion acoustic waves for macro time steps
+much larger than ion cyclotron time scales. Modifications of the method
+will be explored for the inclusion of an electromagnetic field model
+along with the additional considerations arising from the implicit
+method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

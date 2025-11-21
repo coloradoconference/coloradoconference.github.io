@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ladenheim_scott090000</TITLE>
+<META NAME="description" CONTENT="ladenheim_scott090000">
+<META NAME="keywords" CONTENT="ladenheim_scott090000">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ladenheim_scott090000.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Scott Ladenheim 
+<BR><B>Indefinite Preconditioning of the Coupled Stokes- Darcy System</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">1714 Memphis St 
+<BR>
+Unit 106 
+<BR>
+Philadelphia 
+<BR>
+PA 19125
+
+<BR><TT>saladenh@temple.edu</TT>
+<BR>
+Prince Chidyagwai
+<BR>
+Daniel B. Szyld
+</DIV>
+
+<P>
+We consider the coupled Stokes-Darcy system in a specified domain with
+two subregions. This is a system of partial differential equations
+describing two flows. In one subregion of the domain, freely flowing
+fluid is governed by the Stokes equations. In the other subregion there
+is flow governed by Darcy's law. The two flows are then coupled together
+by conditions on the interface of the two flows. This model can
+physically represent fluid percolating through a porous medium.
+
+<P>
+The problem is solved numerically using the finite element method. The
+Stokes domain is discretized using standard, continuous finite element
+spaces that satisfy and inf-sup condition. In the Darcy domain we
+consider both continuous functions and discontinuous polynomials
+(discontinuous Galerkin methods). In both cases the discretization leads
+to a system of equations that is large, sparse, non-symmetric (and
+non-symmetrizable in the DG case) and of saddle point form.
+
+<P>
+We propose solving the system of equations using preconditioned GMRES
+with an indefinite (or constraint) preconditioner which mimics the
+structure of the original system matrix. We prove that the convergence of
+GMRES using this preconditioner is bounded independently of the
+underlying mesh discretization. We present numerical results showing that
+the indefinite preconditioner outperforms both standard block diagonal
+and block triangular preconditioners both with respect to iteration count
+and CPU times.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

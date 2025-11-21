@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>anton_lucian___103047</TITLE>
+<META NAME="description" CONTENT="anton_lucian___103047">
+<META NAME="keywords" CONTENT="anton_lucian___103047">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="anton_lucian___103047.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Lucian Anton 
+<BR><B>Comparing Parallel Performance for a Geometric Multigrid Solver Using Hybrid Parallelism, MPI Shared Memory and Multiple GPUs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Scientific Computing Department 
+<BR>
+STFC 
+<BR>
+Daresbury Laboratory 
+<BR>
+Sci-Tech Daresbury 
+<BR>
+Warrington WA4 4AD 
+<BR>
+United Kingdom
+
+<BR><TT>lucian.anton@stfc.ac.uk</TT>
+<BR>
+Mark Mawson
+<BR>
+Vendel Szeremi
+</DIV>
+
+<P>
+The recent advances in parallel computing hardware and parallel
+algorithms have opened the perspective for Quantum Density Functional
+Theory (QDFT) codes, such as ONETEP and CASTEP, to compute accurately
+properties of large molecules or materials interacting with solvents [1].
+Solvent contribution to the electronic charge density can be incorporated
+in QDFT computations by solving either the Poisson Equation (PE) or the
+Poisson-Boltzmann Equation (PBE) in a domain which contains the modelled
+quantum system and is characterised by an inhomogeneous electric
+permittivity. DL_MG, a hybrid parallel (MPI+OpenMP) multigrid solver,
+was developed as an efficient and robust method for finding the required
+electrostatic potentials [2].
+
+<P>
+Performance optimisation of memory or communication bound applications,
+such as multigrid solvers, requires continuous evaluation of data
+placement and concurrency as the number of cores per compute node
+increases and memory hierarchies become more complex. These aspects are
+even more important if accelerators (GPUs or Xeon Phi) are used.
+
+<P>
+When using multicore nodes the standard method proposed in many numerical
+applications to reduce the communication overheads is to use OpenMP for
+parallelism at node level and MPI for inter-node communication. However,
+scaling OpenMP towards 30 threads in a non-uniform memory access node
+proves to be difficult in many applications. Recently, the MPI 3 standard
+has introduced the ability to use shared memory for MPI ranks on the same
+node in order to reduce MPI data traffic while preserving the more
+structured communication environment offered by MPI [3].
+
+<P>
+In this paper we study the strong scaling for the DL_MG multigrid solver
+across several hardware platforms. We present a comparative performance
+analysis between hybrid OpenMP-MPI parallelism and MPI parallelism
+enhanced with the shared memory introduced by the MPI 3 standard. The
+multicore CPU node performance is compared with the performance obtained
+on GPUs.
+
+<P>
+References:
+
+<P>
+1. J. Dziedzic, S.J Fox, T. Fox, C.S. Tautermann and C.-K. Skylaris, <EM>Large-scale DFT calculations in implicit solvent - a case study on the
+T4 lysozyme L99A/M102Q protein</EM>, Int. J. Quant. Chem. 113 6 (2013)
+
+<P>
+2. <TT><A NAME="tex2html1"
+  HREF="http://www.hector.ac.uk/cse/distributedcse/reports/onetep/onetep.pdf">http://www.hector.ac.uk/cse/distributedcse/reports/onetep/onetep.pdf</A></TT>
+<P>
+3. T. Hoefler and J. Dinan and D. Buntinas and P. Balaji and B. Barrett
+and R. Brightwell and W. Gropp and V. Kale and R. Thakur, <EM>MPI + MPI:
+a new hybrid approach to parallel programming with MPI plus shared
+memory</EM>, Journal of Computing, May, 2013
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html5"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

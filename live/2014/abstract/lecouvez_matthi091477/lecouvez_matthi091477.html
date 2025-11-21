@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lecouvez_matthi091477</TITLE>
+<META NAME="description" CONTENT="lecouvez_matthi091477">
+<META NAME="keywords" CONTENT="lecouvez_matthi091477">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lecouvez_matthi091477.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Matthieu Lecouvez 
+<BR><B>Optimized Transmission Conditions for Domain Decomposition methods for the Helmholtz equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">15 Avenue des Sabli&#232;res 
+<BR>
+33114 Le Barp 
+<BR>
+FRANCE
+
+<BR><TT>matthieu.lecouvez@gmail.com</TT>
+<BR>
+Matthieu Lecouvez
+<BR>
+Bruno Stupfel
+<BR>
+Patrick Joly
+<BR>
+Francis Collino
+</DIV>
+
+<P>
+Scattering problems by electrically large objects are of wide interest in
+many fields. The numerical computation of such problems remains limited
+by computer resources, due to the large number of unknowns, especially
+when inhomogeneous materials are present. Domain decomposition methods
+(DDM) are particularly attractive for the solution of large finite
+elements problem. It is decomposed into several coupled sub-problems
+which can be solved independently, thus reducing considerably the memory
+storage requirements. Moreover, DDM are intrinsically well suited for
+numerical implementation on parallel computers.
+
+<P>
+The key point of these methods is how the sub-domains are coupled to each
+other, i.e. which transmission conditions are imposed on the interfaces
+between two sub-domains. The most commonly used transmission condition in
+electromagnetism is the one proposed by Despr&#233;s in [B. Despr&#233;s, SIAM,
+197-206, 1993] or higher order ones [see e.g. M. Gander et al., SIAM JSC,
+24, 38-60, 2002]. But these transmission conditions are local (i.e.
+expressed in terms of tangential differential operators) and generally
+lead to an arithmetic convergence of an domain decomposition iterative
+process.
+
+<P>
+We introduce new transmission conditions based on specific linear
+operators <!-- MATH
+ $T\in\mathcal{L}\left(H^s(\Sigma),H^{-s}(\Sigma)\right)$
+ -->
+<IMG
+ WIDTH="169" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ T\in\mathcal{L}\left(H^s(\Sigma),H^{-s}(\Sigma)\right)$">
+ for
+some <IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ s&gt;0$">
+:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\left\{
+\begin{array}{l}
+\partial_{n_1} u_1 +zTu_1=\partial_{n_1} u_2+zTu_2,\ \mbox{on}\ \Sigma_{12}\\
+\partial_{n_2} u_2 +\overline{z}Tu_2=\partial_{n_2}
+u_1+\overline{z}Tu_1,\ \mbox{on}\ \Sigma_{21}
+\end{array}
+\right.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="305" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \left\{ \begin{array}{l} \partial_{n_1} u_1 +zTu_1=\partial_{n_1}...
+...partial_{n_2} u_1+\overline{z}Tu_1,\ \mbox{on}\ \Sigma_{21} \end{array} \right.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Provided that <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ T$">
+ is injective and <!-- MATH
+ $\mathcal{I}(z)\neq0$
+ -->
+<IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathcal{I}(z)\neq0$">
+, then our
+transmission conditions are equivalent to the exact transmission
+conditions <IMG
+ WIDTH="58" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ u_1=u_2$">
+, and <!-- MATH
+ $\partial_{n_1} u_1=-\partial_{n_2} u_2$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \partial_{n_1} u_1=-\partial_{n_2} u_2$">
+. Let
+us remark that this general framework contains most of the iterative
+methods proposed in the litterature:
+
+<UL>
+<LI>If <!-- MATH
+ $T=I,\ z=i\omega$
+ -->
+<IMG
+ WIDTH="103" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ T=I,\ z=i\omega$">
+ <IMG
+ WIDTH="54" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ (s=0)$">
+, one recovers the original method
+introduced by Despr&#233;s
+</LI>
+<LI>If T is a differential operator of order 2 <IMG
+ WIDTH="54" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ (s=2)$">
+, one gets the
+higher order transmission conditions
+</LI>
+</UL>
+A specific case of interest is when the two following assumptions hold:
+
+<UL>
+<LI><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ T$">
+ can be written as <!-- MATH
+ $T=\Lambda^*\Lambda$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ T=\Lambda^*\Lambda$">
+, where
+<!-- MATH
+ $\Lambda\in\mathcal{L}\left(H^s(\Sigma),L^2(\Sigma)\right)$
+ -->
+<IMG
+ WIDTH="157" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \Lambda\in\mathcal{L}\left(H^s(\Sigma),L^2(\Sigma)\right)$">
+.
+</LI>
+<LI><!-- MATH
+ $s=\frac{1}{2}$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ s=\frac{1}{2}$">
+
+</LI>
+</UL>
+This case leads to a proven exponential convergence rate. However, these
+assumptions prevent us from expressing <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ T$">
+ (or <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \Lambda$">
+) in terms of
+differential or local operators. To build an explicit operator verifying
+the assumptions, we use non local integral kernels as suggested by Riesz
+potential:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\Lambda
+u(x)=u(x)-\beta\mbox{div}\int_\Sigma\left|x-y\right|^{\frac{1}{2}}\nabla
+u(y) d\sigma(y)
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="127" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \Lambda u(x)=u(x)-\beta$">div<IMG
+ WIDTH="166" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle \int_\Sigma\left\vert x-y\right\vert^{\frac{1}{2}}\nabla u(y) d\sigma(y)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Moreover, to avoid fully non local operators, leading to full matrices
+after discretization, we introduce a smooth cutoff function <!-- MATH
+ $\chi_\delta$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \chi_\delta$">
+
+such that <!-- MATH
+ $\chi_\delta(x)=0$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \chi_\delta(x)=0$">
+ for <!-- MATH
+ $|x|>\delta$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \vert x\vert&gt;\delta$">
+ and <!-- MATH
+ $\chi_\delta(x)=1$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \chi_\delta(x)=1$">
+ for
+<!-- MATH
+ $|x|<\frac{\delta}{2}$
+ -->
+<IMG
+ WIDTH="54" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \vert x\vert&lt;\frac{\delta}{2}$">
+. The operator becomes:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\Lambda
+u(x)=u(x)-\beta\mbox{div}\int_\Sigma\chi_\delta(x-y)\left|x-y\right|^{\frac{1}{2}}\nabla
+u(y) d\sigma(y)
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="127" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \Lambda u(x)=u(x)-\beta$">div<IMG
+ WIDTH="235" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$\displaystyle \int_\Sigma\chi_\delta(x-y)\left\vert x-y\right\vert^{\frac{1}{2}}\nabla u(y) d\sigma(y)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+As soon as <!-- MATH
+ $\mathcal{I}(\beta)\neq 0$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \mathcal{I}(\beta)\neq 0$">
+, the operator <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \Lambda$">
+ verifies
+all the conditions required to achieve exponential convergence of an
+iterative method such as Jacobi, Gauss-Seidel or GMRES. At the
+conference, several numerical experiments will be presented to show the
+influence of our transmission conditions on the eigenvalues of the
+problem as well as on the convergence rate of different iterative
+methods. We shall also investigate, analytically and numerically, how to
+tune the different parameters (<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ z$">
+, <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \beta$">
+, <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \delta$">
+) to optimize the
+rate of convergence.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

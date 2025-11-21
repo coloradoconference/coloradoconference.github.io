@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lemieux_jeanfra090858</TITLE>
+<META NAME="description" CONTENT="lemieux_jeanfra090858">
+<META NAME="keywords" CONTENT="lemieux_jeanfra090858">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lemieux_jeanfra090858.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jean-François Lemieux 
+<BR><B>A second-order accurate in time IMplicit-EXplicit (IMEX) integration scheme for sea ice dynamics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Recherche en Prévision Numérique environnementale/Environnement Canada 
+<BR>
+2121 route Transcanadienne 
+<BR>
+Dorval 
+<BR>
+Qc H9P 1J3 
+<BR>
+Canada
+
+<BR><TT>jean-francois.lemieux@ec.gc.ca</TT>
+<BR>
+Dana A. Knoll
+<BR>
+Martin Losch
+<BR>
+Claude Girard
+</DIV>
+
+<P>
+Current sea ice models are based on a splitting in time between the
+momentum and continuity equations. As the ice strength is explicit when
+solving the momentum equation, this can lead to unrealistic ice stress
+gradients when using a large time step. As a consequence, noise develops
+in the numerical solution and these models can even become unstable at
+high resolution. To cure this problem, we have implemented an iterated
+IMplicit-EXplicit (IMEX) time integration method. This IMEX method was
+developed in the framework of an already implemented Jacobian-free
+Newton-Krylov solver. The basic idea of this iterated IMEX scheme is to
+move the explicit calculation of the sea ice thickness and concentration
+inside the Newton loop such that these fields evolve during the implicit
+integration. To obtain second-order accuracy in time, we have also
+modified the explicit time integration to a second-order Runge-Kutta
+approach and introduced a second-order backward difference method for the
+implicit integration of the momentum equation. These modifications to the
+code are minor and straightforward. A truncation error analysis and
+numerical experiments demonstrate that the approximate solution is
+second-order accurate in time. The new method permits to obtain the same
+accuracy as the splitting in time but by using a time step that is 10
+times larger. Results show that the second-order scheme is more than five
+times more computationally efficient than the splitting in time approach
+for an equivalent level of error.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

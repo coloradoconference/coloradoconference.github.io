@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>canning_andrew_093595</TITLE>
+<META NAME="description" CONTENT="canning_andrew_093595">
+<META NAME="keywords" CONTENT="canning_andrew_093595">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="canning_andrew_093595.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrew Canning 
+<BR><B>A Hybrid OpenMP/MPI Conjugate Gradient Iterative Eigensolver for First-principles Plane Wave Electronic Structure Codes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Laboratory 
+<BR>
+One Cyclotron Road 
+<BR>
+Berkeley 
+<BR>
+CA94720
+
+<BR><TT>acanning@lbl.gov</TT>
+</DIV>
+
+<P>
+First-principles materials science codes based on density functional
+theory (DFT) and using plane waves
+(PW) have become the largest user (by method) of computer cycles at
+scientific computer centers around
+the world. At NERSC (National Energy Research Scientific Computing
+Center) an estimated 17% of the total
+cycles are used by DFT-PW codes such as VASP, Quantum Espresso, Abinit,
+PEtot, PARATEC etc. These codes commonly use conjugate gradient based
+iterative eigensolvers to solve the density functional theory based
+approximation to the many-body Schr&#246;dinger Equation (usually the
+Kohn-Sham form). In this approach 3D FFTs are used to move between real
+and Fourier space to construct the matrix-vector product such that the
+different parts of the Hamiltonian matrix are calculated in the space
+where they are diagonal. The parallel scaling of the 3D FFTs in the
+conjugate gradient solver is particularly challenging as rather than one
+large grid, as is the case in other scientific applications using
+spectral methods, we have many medium sized grids
+(one for each electronic state) which can limit scaling. We therefore
+developed a specialized hybrid OpenMP/MPI
+version of the 3D FFT to scale efficiently on modern multicore platforms.
+
+<P>
+Overall the conjugate gradient solver uses a two level parallelization
+scheme where the high level parallelization
+divides the eigenvectors (electronic states) among groups of nodes and
+then within a group each eigenvector is
+divided among the nodes. OpenMP and threading is then used to parallelize
+the solver on the node while MPI is
+used for the communications between the nodes. Details of how OpenMP and
+threading is used to parallelize the 3D FFT
+and other parts of the solver will be given in the talk.
+We will present results for the complete code as well as separately for
+the 3D FFT on the multicore Cray XE6 (Hopper)
+and Cray XC30 (Edison) computers at NERSC which have 24 cores per node.
+By sending fewer larger messages the hybrid OpenMP/MPI
+version of the 3D FFT significantly outperforms the pure MPI version on
+large core counts allowing the solver to
+scale efficiently to 10,000s of cores. This work was done in
+collaboration with L-W Wang, J. Shalf,
+N.J. Wright (LBNL), M. Gajbe (NCSA) and S. Anderson (Cray Inc.).
+This research used resources of the National Energy Research Scientific
+Computing Center, which is supported by
+the Office of Science of the U.S. Department of Energy under Contract No.
+DE-AC02-05CH11231.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

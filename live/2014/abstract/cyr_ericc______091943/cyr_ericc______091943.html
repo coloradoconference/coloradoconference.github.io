@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>cyr_ericc______091943</TITLE>
+<META NAME="description" CONTENT="cyr_ericc______091943">
+<META NAME="keywords" CONTENT="cyr_ericc______091943">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cyr_ericc______091943.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Eric C. Cyr 
+<BR><B>A New Split Preconditioner for 3D Magnetohydrodynamics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+MS 1320 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1320
+
+<BR><TT>eccyr@sandia.gov</TT>
+<BR>
+John N. Shadid
+<BR>
+Roger P. Pawlowski
+</DIV>
+
+<P>
+This talk presents a new approximate block factorization preconditioner
+for a stabilized discretization of a 3D Lagrange multiplier formulation
+of the magnetohydrodynamics (MHD) equations. The MHD equations are highly
+nonlinear and model the flow of an ionized fluid in the presence of a
+magnetic field. Additionally, MHD contains multiple mechanisms that
+interact over a range of temporal and spatial scales. As a result the
+discretized linear systems are stiff and require preconditioning to
+achieve scalability in processor count and mesh resolution.
+
+<P>
+Approximate block factorization preconditioners are an appealing choice
+for this problem. The linear system is segregated into the physical
+fields: velocity, pressure, magnetic field and the Lagrange multiplier.
+The resulting linear operator is a block <IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ 4\times 4$">
+ matrix where each
+physical field corresponds to a block row and column. An approximate
+block factorization is developed that focuses on capturing the essential
+mechanisms that generate the stiffness. In particular this preconditioner
+uses an operator split approximation that we have previously shown to be
+effective for a 2D incompressible MHD formulation [1]. The operator split
+methodology treats enforcement of the divergence free constraints (for
+both velocity and magnetics) separately from the velocity-magnetics
+coupling critical for support of the Alfven wave. This approximation
+neglects secondary coupling effects in exchange for a simplified
+velocity-magnetics Schur-complement to develop a computable sparse
+approximation used in the preconditioner. For the 3D Lagrange multiplier
+formulation used here the elliptic effects of the divergence free
+magnetic field must be explicitly handled in the preconditioner. We will
+demonstrate the parallel performance by presenting scaling results for a
+range of problems. Furthermore, comparisons of this preconditioner to
+domain-decomposition and fully coupled algebraic multigrid
+preconditioners will be given.
+
+<P>
+<BR>
+<BR>
+[1] E.C. Cyr, J.N. Shadid, R.S. Tuminaro, R.P. Pawlowski, and L. Chac&#243;n,
+A New Approximate Block Factorization Preconditioner for Two Dimensional
+Incompressible (Reduced) Resistive MHD,
+<EM>SIAM Journal on Scientific Computing</EM>, 35:B701-B730, 2013.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

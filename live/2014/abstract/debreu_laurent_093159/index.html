@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>debreu_laurent_093159</TITLE>
+<META NAME="description" CONTENT="debreu_laurent_093159">
+<META NAME="keywords" CONTENT="debreu_laurent_093159">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debreu_laurent_093159.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Laurent Debreu 
+<BR><B>Multigrid solvers and multigrid preconditioners for the solution of variational data assimilation problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">INRIA EPI MOISE and Laboratoire Jean Kuntzmann 
+<BR>
+51 rue des Mathematiques 
+<BR>
+38400 Saint Martin d'Heres 
+<BR>
+FRANCE
+
+<BR><TT>Laurent.Debreu@inria.fr</TT>
+<BR>
+Emilie Neveu
+<BR>
+Ehouarn Simon
+<BR>
+François-Xavier LeDimet
+<BR>
+Arthur Vidard
+</DIV>
+
+<P>
+In order to lower the computational cost of the variational data
+assimilation process, we investigate the use of multigrid methods to
+solve the associated optimal control system. On a linear advection
+equation, we study the impact of the regularization term on the optimal
+control and the impact of discretization errors on the efficiency of the
+coarse grid correction step. We show that even if the optimal control
+problem leads to the solution of an elliptic system, numerical errors
+introduced by the discretization can alter the success of the multigrid
+methods. The view of the multigrid iteration as a preconditioner for a
+Krylov optimization method leads to a more robust algorithm. A scale
+dependent weighting of the multigrid preconditioner and the usual
+background error covariance matrix based preconditioner is proposed and
+brings significant improvements.
+
+<P>
+We consider the time evolution of a system governed by the following equation:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\begin{array}{l}
+\displaystyle \frac{{\rm d}X}{{\rm d}t}=F(X)\\[2mm]
+\displaystyle X(t=t_0)={\bf x}
+\end{array}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="98" HEIGHT="72" BORDER="0"
+ SRC="img1.png"
+ ALT="\begin{displaymath}\begin{array}{l} \displaystyle \frac{{\rm d}X}{{\rm d}t}=F(X) [2mm] \displaystyle X(t=t_0)={\bf x} \end{array}\end{displaymath}"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\bf x}$">
+ is the initial condition at time <IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ t=t_0$">
+ and will be our
+control parameter. The variational data assimilation problem consists in
+finding the minimum of a cost function <!-- MATH
+ $J({\bf x})$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ J({\bf x})$">
+ that measures the
+distance from the numerical model to the observations and includes a
+background or regularization term associated to a first guess <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\bf
+x}_b$">
+.
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="costfunction"></A><!-- MATH
+ \begin{equation}
+J({\bf x})=\frac{1}{2}\left({\bf x}-{\bf x}_b\right)^T{{\bf
+B}^{-1}}\left({\bf x}-{\bf x}_b\right)\\+\frac{1}{2}\left(H\left(X({\bf
+x},t)\right)-y\right){{\bf R}^{-1}}\left(H\left(X({\bf
+x},t)\right)-y\right)
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="544" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle J({\bf x})=\frac{1}{2}\left({\bf x}-{\bf x}_b\right)^T{{\bf B}^{-...
+...bf x},t)\right)-y\right){{\bf R}^{-1}}\left(H\left(X({\bf x},t)\right)-y\right)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Here <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ y$">
+ are the observations. <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ H$">
+ is the observation operator from the
+model to the observations space, <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ {\bf R}$">
+ and <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\bf B}$">
+ are respectively
+the observations and background error covariances matrices. At a minimum
+<!-- MATH
+ ${\bf x}^\star$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ {\bf x}^\star$">
+ of <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ J$">
+, the gradient is zero
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="euler"></A><!-- MATH
+ \begin{equation}
+\nabla_{\bf x} J({\bf x}^\star)=0
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="95" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle \nabla_{\bf x} J({\bf x}^\star)=0$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+When the model <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ F$">
+ and the observations operator <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ H$">
+ are linear, the cost
+function is quadratic and the solution of&nbsp;(<A HREF="#euler">3</A>) is equivalent to
+the solution of
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq22"></A><!-- MATH
+ \begin{equation}
+{\bf A}{\bf x^{\star}}=b
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="63" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle {\bf A}{\bf x^{\star}}=b$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ {\bf A}$">
+ is the Hessian of the cost function:
+<P><!-- MATH
+ \begin{displaymath}
+{\bf A}={\bf B}^{-1} + {\bf H}^T {\bf R}^{-1} {\bf H}
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="159" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle {\bf A}={\bf B}^{-1} + {\bf H}^T {\bf R}^{-1} {\bf H}
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ {\bf H}$">
+ is a compact representation that includes both the model
+and the observation operators and the right hand side <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ b$">
+ is given by
+<P><!-- MATH
+ \begin{displaymath}
+b={\bf B}^{-1} {\bf x}_b+{\bf H}^T {\bf R}^{-1} y
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="162" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle b={\bf B}^{-1} {\bf x}_b+{\bf H}^T {\bf R}^{-1} y
+$">
+</DIV><P>
+</P>
+
+<P>
+The subject of this presentation is the application of multigrid methods
+for the solution of&nbsp;(<A HREF="#eq22">4</A>). On a model problem of a linear
+advection equation, the following key points are investigated:
+
+<UL>
+<LI>Ellipticity according to usual definition of the background error
+covariance matrix <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\bf B}$">
+
+</LI>
+<LI>Order of transfer operators and their design
+</LI>
+<LI>Validity of the approximation property
+</LI>
+</UL>
+
+<P>
+We then consider the use of the multigrid cycle as a preconditioner for a
+conjugate gradient algorithm. Best results are obtained by an hybrid
+preconditioner written as a combination of the multigrid cycle and the
+traditional background error covariance matrix (<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\bf B}$">
+) based
+preconditioner.
+<BR>
+<BR>
+<BR>[1] Laurent Debreu, Emilie Neveu, Ehouarn Simon, Fran&#231;ois-Xavier Le
+Dimet and Arthur Vidard, 2014: Multigrid solvers and multigrid
+preconditioners for the solution of variational data assimilation
+problems <EM>submitted to QJRMS</EM>, http://hal.inria.fr/hal-00874643
+<BR>[2] Emilie Neveu, Laurent Debreu and Fran&#231;ois-Xavier Le Dimet, 2011:
+Multigrid methods and data assimilation - Convergence study and first
+experiments on non-linear equations <EM>ARIMA</EM>, 14, 63-80,
+<BR>
+http://intranet.inria.fr/international/arima/014/014005.html
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

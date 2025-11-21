@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>brown_jed______096500</TITLE>
+<META NAME="description" CONTENT="brown_jed______096500">
+<META NAME="keywords" CONTENT="brown_jed______096500">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="brown_jed______096500.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jed Brown 
+<BR><B>Fast solvers for implicit Runge-Kutta</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Argonne National Laboratory 
+<BR>
+CU Boulder
+
+<BR><TT>jedbrown@mcs.anl.gov</TT>
+<BR>
+Debojyoti Ghosh
+</DIV>
+
+<P>
+Implicit Runge-Kutta methods solve coupled systems involving all stages
+in a step, and in turn benefit from excellent accuracy and stability
+properties as well as optional symplecticity. While quite successful in
+the dense and research ODE communities, IRK has only recently received
+significant attention from the PDE community, largely due to interest in
+the spectral deferred correction (SDC) method for solving IRK systems.
+While such methods can expose parallelism, total work grows superlinearly
+in the number of stages, and each stage experiences the low arithmetic
+intensity of scalar problems. These factors result in typically-low
+efficiencies. We propose a different solution technique, inspired by the
+classical methods of Butcher and Bickart as well as waveform relaxation
+for space-time multigrid. Specifically, we apply multigrid methods
+directly to the tensor-product system obtained by linearizing the coupled
+Runge-Kutta system. This results in easy vectorization and high
+arithmetic intensity similar to multiple right hand sides. Only one
+communication is required per iteration, which may assist applications
+with strict turn-around time requirements. We present these methods, a
+performance analysis, and techniques for improving convergence due to the
+increasing imaginary parts in the eigenvalues of the Runge-Kutta matrix.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

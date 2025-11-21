@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>norton_richarda092844</TITLE>
+<META NAME="description" CONTENT="norton_richarda092844">
+<META NAME="keywords" CONTENT="norton_richarda092844">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="norton_richarda092844.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Richard A. Norton 
+<BR><B>Langevin and Hamiltonian proposals are matrix splittings</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Physics 
+<BR>
+University of Otago 
+<BR>
+PO Box 56 
+<BR>
+Dunedin 9054 
+<BR>
+New Zealand
+
+<BR><TT>richard.norton@otago.ac.nz</TT>
+<BR>
+Colin Fox
+</DIV>
+
+<P>
+Stationary iterative methods based on matrix splittings, such as
+Gauss-Seidel and symmetric successive over-relaxation (SSOR), are well
+understood for solving linear systems
+<P><!-- MATH
+ \begin{displaymath}
+A x = b
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle A x = b
+$">
+</DIV><P>
+</P>
+where <!-- MATH
+ $A \in \mathbb{R}^{d\times d}$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A \in \mathbb{R}^{d\times d}$">
+ and <!-- MATH
+ $x, b \in \mathbb{R}^d$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ x, b \in \mathbb{R}^d$">
+. The
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$">
+ is split <IMG
+ WIDTH="89" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A = M-N$">
+ and the solution is computed by solving
+<P><!-- MATH
+ \begin{displaymath}
+M x^{k+1} = N x^{k} + b.
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="138" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle M x^{k+1} = N x^{k} + b.
+$">
+</DIV><P>
+</P>
+The convergence rate is determined by the spectral radius of <IMG
+ WIDTH="53" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ M^{-1} N$">
+,
+but can be improved by using a polynomial acceleration technique, such as
+Chebyshev acceleration.
+
+<P>
+We investigate how this technology can be transferred to the problem of
+constructing efficient Markov chain Monte Carlo (MCMC) methods to sample
+from high dimensional Gaussian distributions,
+<P><!-- MATH
+ \begin{displaymath}
+\pi(x) \propto \exp \left( -\frac{1}{2} x^T A x + b^T x \right)
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="217" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle \pi(x) \propto \exp \left( -\frac{1}{2} x^T A x + b^T x \right)
+$">
+</DIV><P>
+</P>
+where the matrix <!-- MATH
+ $A \in \mathbb{R}^{d \times d}$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A \in \mathbb{R}^{d\times d}$">
+ is the precision
+matrix for the distribution. We can use exactly the same splitting for a
+MCMC method as for a linear solver <IMG
+ WIDTH="89" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A = M-N$">
+ to obtain an iterative
+procedure
+<P><!-- MATH
+ \begin{displaymath}
+M x^{k+1} = N x^{k} + b + \nu^k,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="174" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle M x^{k+1} = N x^{k} + b + \nu^k,
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="21" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \nu^k$">
+ is an independent sample from <!-- MATH
+ $N(0,M^T+N)$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ N(0,M^T+N)$">
+. This iterative
+procedure computes a Markov chain that will converge in distribution to a
+sample from <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \pi$">
+ if the corresponding iterative solver also converges.
+The rate of convergence is again dependent on the spectral radius of
+<IMG
+ WIDTH="53" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ M^{-1} N$">
+.
+
+<P>
+The Gibbs sampling algorithm corresponds to the Gauss-Seidel and SSOR
+iterative solvers, as studied by Fox and Parker 2013.
+
+<P>
+Other sampling methods also correspond to matrix splittings, and we use
+this correspondence to help us understand the convergence properties of
+these sampling methods. For example Crank-Nicolson algorithms, described
+in Cotter et al. 2013, can be expressed as matrix splittings.
+
+<P>
+The Metropolis-Hastings algorithm is a popular method for constructing
+MCMC methods, where the accept/reject step in the algorithm is used
+because a proposal must be corrected so that the Markov chain converges
+to the desired target distribution. For Metropolis-adjusted Langevin
+(MALA) and Hamiltonian/hybrid Monte Carlo (HMC) proposals we can express
+the proposal as a matrix splitting of an ``effective'' precision matrix
+<!-- MATH
+ $\tilde{A} = M-N$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \tilde{A} = M-N$">
+. The difference between the target precision matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$">
+
+and the proposal precision matrix <IMG
+ WIDTH="16" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \tilde{A}$">
+ is what the
+Metropolis-Hastings algorithm corrects. We explore the consequences of
+the matrix splitting correspondence for these proposals, in particular
+the opportunity for using polynomial acceleration to construct more
+efficient sampling algorithms.
+
+<P>
+
+<UL>
+<LI>C. Fox and A. Parker, ``Convergence in variance of Chebyshev
+accelerated Gibbs samplers", SIAM J. Sci. Comput., 2013.
+
+<P>
+</LI>
+<LI>S. L. Cotter, G. O. Roberts, A. M. Stuart and D. White, ``MCMC
+methods for functions: modifying old algorithms to make them faster'',
+Statistical Science, 2013, Vol. 28, No. 3, pp. 424-446.
+</LI>
+</UL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chow_edmond____093479</TITLE>
+<META NAME="description" CONTENT="chow_edmond____093479">
+<META NAME="keywords" CONTENT="chow_edmond____093479">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chow_edmond____093479.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Edmond Chow 
+<BR><B>Iterative Construction of ILU Preconditioners</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">School of Computational Science and Engineering 
+<BR>
+Georgia Institute of Technology
+
+<BR><TT>echow@cc.gatech.edu</TT>
+<BR>
+Aftab Patel
+</DIV>
+
+<P>
+An incomplete LU (ILU) factorization is generally computed by a
+Gaussian elimination process where certain nonzeros are
+neglected in some way. Here, we present a completely different method
+for computing ILU factorizations. The new method is iterative in
+nature and is highly parallel. Given a matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+, the new method
+computes the incomplete factors <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ and <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ U$">
+ by using the property
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:0"></A><!-- MATH
+ \begin{equation}
+(L U)_{ij} = a_{ij}, \quad (i,j) \in S
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="178" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle (L U)_{ij} = a_{ij}, \quad (i,j) \in S$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="52" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ (LU)_{ij}$">
+ denotes the <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ (i,j)$">
+ entry of the product <IMG
+ WIDTH="28" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ LU$">
+,
+<IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ a_{ij}$">
+ denotes the <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ (i,j)$">
+ entry of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+, and <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ S$">
+ denotes a set
+of matrix locations where nonzeros are allowed.
+In other words, the factorization is exact on the sparsity pattern <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ S$">
+.
+The precursors to ILU methods in separate works by Buleev, Oliphant,
+and Varga in the early 1960's constructed matrix factorizations
+in a similar fashion, much before they were recognized as a form
+of Gaussian elimination.
+
+<P>
+The new method interprets an ILU factorization as, instead of a
+Gaussian elimination process, a problem of computing the unknowns
+<IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ l_{ij}$">
+ and <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ u_{ij}$">
+, which are the entries of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L$">
+ and <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ U$">
+,
+using property (<A HREF="#eq:0">1</A>) as constraint equations. Such an approach may
+seem impractical because these equations
+are nonlinear and there are more equations than the number of rows in <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+.
+However, there are several potential advantages to computing an ILU
+factorization this way: 1) the equations can be solved in parallel
+without needing to reorder the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+,
+2) the equations do not need to be solved
+very accurately to produce a good ILU preconditioner, and 3) we often
+have a good initial guess for the solution.
+
+<P>
+The constraint equations may be solved via a fixed-point iteration,
+or a parallel asynchronous iteration in the parallel setting.
+We will present theoretical and experimental results on the
+convergence of these methods for computing ILU factorizations. The fact
+that the method is iterative means that the <EM>exact</EM> ILU factorization
+does not need to be computed, and we show experimentally that
+roughly converged iterations produce factorizations that are
+very effective preconditioners. Furthermore, the number of
+iterations required is typically very small (less than 5), especially
+when good initial guesses for the ILU factorization are available,
+such as in the case when solving a sequence of related linear systems.
+We can also interpret the new method as a way of updating an
+existing ILU preconditioner.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

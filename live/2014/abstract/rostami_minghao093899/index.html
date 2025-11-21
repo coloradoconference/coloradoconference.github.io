@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>rostami_minghao093899</TITLE>
+<META NAME="description" CONTENT="rostami_minghao093899">
+<META NAME="keywords" CONTENT="rostami_minghao093899">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="rostami_minghao093899.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Minghao W. Rostami 
+<BR><B>Lyapunov inverse iteration for computing pseudospectral abscissa</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematical Sciences 
+<BR>
+Stratton Hall 
+<BR>
+100 Institute Road 
+<BR>
+Worcester 
+<BR>
+MA 01609-2280
+
+<BR><TT>mwu@wpi.edu</TT>
+</DIV>
+
+<P>
+<!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \varepsilon$">
+-pseudospectral abscissa <!-- MATH
+ $\alpha_\varepsilon$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \alpha_\varepsilon$">
+ refers to the
+maximum real part of points in the <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \varepsilon$">
+-pseudospectrum of a
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+. It is a robust measure of the stability of the linear
+dynamical system <!-- MATH
+ $\dot{u}=Au$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \dot{u}=Au$">
+. If <!-- MATH
+ $\alpha_\varepsilon>0$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \alpha_\varepsilon&gt;0$">
+, the steady
+state of this system can be unstable (<I>i.e.</I>, sensitive to small
+perturbations) in reality even if all the eigenvalues of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ have
+negative real parts.
+
+<P>
+In [SIAM J. Matrix Anal. Appl, Vol. 32, No. 4, pp. 1166-1192], an
+algorithm for computing <!-- MATH
+ $\alpha_\varepsilon$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \alpha_\varepsilon$">
+ for large, sparse matrices
+was proposed, which requires computing the rightmost eigenvalues for a
+sequence of (complex) matrices.
+
+<P>
+Finding the rightmost eigenvalues for large, sparse and nonsymmetric
+matrices is known to be challenging. In this talk, we first present a
+modified version of the above algorithm that computes the real
+<!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \varepsilon$">
+-pseudospectral abscissa <!-- MATH
+ $\alpha_\varepsilon^{\mathbb{R}}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \alpha_\varepsilon^{\mathbb{R}}$">
+
+of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+. It requires computing the rightmost eigenvalues for a sequence of
+real matrices, which can be done in a robust and efficient manner by
+applying a recently developed eigenvalue solver called the Lyapunov
+inverse iteration [SIAM. J. Matrix Anal. Appl. Vol. 34, No. 4, pp.
+1685-1707]. We then show that a good approximation of
+<!-- MATH
+ $\alpha_\varepsilon$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \alpha_\varepsilon$">
+ can be obtained from
+<!-- MATH
+ $\alpha_\varepsilon^{\mathbb{R}}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \alpha_\varepsilon^{\mathbb{R}}$">
+. Numerical results for <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ arising from
+spacial discretization of incompressible Navier-Stokes equations will be
+presented.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

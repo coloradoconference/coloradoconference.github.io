@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lazarov_boyan__093424</TITLE>
+<META NAME="description" CONTENT="lazarov_boyan__093424">
+<META NAME="keywords" CONTENT="lazarov_boyan__093424">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lazarov_boyan__093424.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Boyan Lazarov 
+<BR><B>Contrast independent domain decomposition preconditioners for topology optimization under manufacturing uncertainties</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Technical University of Denmark 
+<BR>
+Nils Koppels Allé 
+<BR>
+Building 404 
+<BR>
+room 118 
+<BR>
+2800 Kgs Lyngby
+
+<BR><TT>bsl@mek.dtu.dk</TT>
+<BR>
+Joe Alexandersen
+<BR>
+Oded Amir
+</DIV>
+
+<P>
+Topology optimization [1] is an iterative process which minimizes a
+predefined objective function by distributing material in a given design
+domain. Common objective choices, in linear elasticity, are minimization
+of structural weight, compliance or stress concentration. The material
+distribution fulfills a predefined set of constraints, e.g. volume or
+stress constraints. In a density based formulation, the material
+distribution is represented by a density field which takes values one or
+zero: one if a point is occupied with material and zero if the point is
+void. The optimization problem is usually relaxed so the density takes
+intermediate values and the field is updated using gradients of the
+objective and the constraints with respect to the density
+parametrization. Mesh independence of the optimization process is ensured
+by regularizing the formulation. The regularized solution possesses
+intermediate values between zero and one which might not have a clear
+physical interpretation. Therefore, a 0/1 solution is restored by
+projection techniques which can be used to represent uncertainties in the
+production process [2]. Taking into account uncertainties in the geometry
+results in manufacturable black and white designs [3].
+
+<P>
+Incorporating the uncertainty model in the optimization process results
+in significant increase of the computational load. In order to re-utilize
+already developed deterministic solvers, non-intrusive methods are
+utilized for obtaining the response of the stochastic problem. This
+results in a set of completely uncoupled deterministic problems which
+share similar structure. Here we propose an approach to reduce the
+solution cost for a single stochastic problem as well as for the sequence
+of the stochastic problems during the optimization process using
+preconditioned iterative solvers. The idea is to utilize the recently
+developed multiscale finite element coarse spaces for high contrast
+elliptic problems [4] and the similarity between the deterministic
+problems. The coarse spaces are obtained by solving a set of local
+eigenvalue problems on overlapping patches covering the computational
+domain. The approach is relatively easy for parallelization, due to the
+complete independence of the sub-problems, and ensures contrast
+independent convergence of the iterative state problem solvers. Several
+modifications for reducing the computational cost in connection to
+topology optimization are discussed in details.
+
+<P>
+[1] Bendsoe, M. P. and Sigmund, O. Topology Optimization - Theory,
+Methods and Applications Springer Verlag, Berlin Heidelberg, 2003
+
+<P>
+[2] Jansen, M.; Lazarov, B.; Schevenels, M. and Sigmund, O. On the
+similarities between micro/nano lithography and topology optimization
+projection methods. Structural and Multidisciplinary Optimization,
+Springer Berlin Heidelberg, 2013, 48, 717-730
+
+<P>
+[3] Andreassen, E.; Lazarov, B. and Sigmund, O. Design of manufacturable
+3D extremal elastic microstructure. Mechanics of Materials , 2014, 69, 1
+- 10
+
+<P>
+[4] Efendiev, Y.; Galvis, J. and Wu, X.-H. Multiscale finite element
+methods for high-contrast problems using local spectral basis functions.
+Journal of Computational Physics, 2011, 230, 937 - 955
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

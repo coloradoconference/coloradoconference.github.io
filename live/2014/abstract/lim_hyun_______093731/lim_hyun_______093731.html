@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lim_hyun_______093731</TITLE>
+<META NAME="description" CONTENT="lim_hyun_______093731">
+<META NAME="keywords" CONTENT="lim_hyun_______093731">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lim_hyun_______093731.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Hyun Lim 
+<BR><B>A Numerical Implementation of the Space-Time Finite Element Approach for the Semilinear Wave Equation </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">673 Faculty Drive 
+<BR>
+Brookings 
+<BR>
+SD 57006
+
+<BR><TT>hylim1988@gmail.com</TT>
+<BR>
+Matthew Anderson
+<BR>
+Jung-Han Kimn
+</DIV>
+
+<P>
+We present a fully implicit and time parallel numerical procedure based
+on the space-time finite element methods to simulate a physical
+singularity model based on the semilinear wave equation. For observing
+critical collapse, we consider semilinear wave equation in the spherical
+symmetry:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\frac{\partial^2 \phi}{\partial
+t^2}-\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2 \frac{\partial
+\phi}{\partial r} \right) + \phi = \phi^p \nonumber
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="224" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \frac{\partial^2 \phi}{\partial
+t^2}-\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2 \frac{\partial
+\phi}{\partial r} \right) + \phi = \phi^p$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+To preserve spatial symmetry(<!-- MATH
+ $\phi \rightarrow -\phi$
+ -->
+<IMG
+ WIDTH="61" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \phi \rightarrow -\phi$">
+), we test the odd
+power of <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+. Nonlinear powers <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+ provide different performances of
+solution. Previous researches show that the case of <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ p = 3$">
+ could not
+indicate a singularity because of its late time growth. In the case of <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ p
+= 5$">
+, a critical solution is observed, but it is not easy to find
+self-similarity in the solution. Therefore, we test <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p = 7$">
+ power as the
+nonlinear term.
+
+<P>
+The main purpose of this talk is to present an efficient parallelizable
+numerical approach to analyze physical singularity using with decent high
+resolutions. We apply nonlinear and KSP(Krylov Subspace Methods) solvers.
+Time parallel algorithm is implemented through time additive Schwarz
+preconditioner with a KSP solver. And, the time additive Schwarz
+preconditioner is vital to successful simulation. To reduce size of
+discrete problem, we apply non-uniform meshes on space-time finite
+element based on physical observation, and we found this feature relax
+the size of discrete problem without losing accuracy of discretization.
+We study about the optimized parameters for this numerical procedure. The
+time parallelizable algorithm is implemented through PETSc (Portable,
+Extensible, Toolkit for Scientific Computation, developed by Argonne
+National Laboratory).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

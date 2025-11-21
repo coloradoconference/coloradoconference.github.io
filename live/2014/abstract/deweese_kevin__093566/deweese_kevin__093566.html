@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>deweese_kevin__093566</TITLE>
+<META NAME="description" CONTENT="deweese_kevin__093566">
+<META NAME="keywords" CONTENT="deweese_kevin__093566">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="deweese_kevin__093566.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kevin Deweese 
+<BR><B>Preconditioning Linear Systems Arising from Graph Laplacians of Complex Networks.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Computer Science Department 
+<BR>
+University of California 
+<BR>
+Santa Barbara 
+<BR>
+CA 93106-5110
+
+<BR><TT>kdeweese@cs.ucsb.edu</TT>
+<BR>
+Erik G. Boman
+</DIV>
+
+<P>
+We consider the solution of linear systems corresponding to the
+combinatorial graph Laplacian of large unstructured networks. This has
+emerged as an important computational task in network analysis, along
+with the corresponding eigenvalue problem. The key when using iterative
+solvers, such as conjugate gradients, is to find good preconditioners.
+(This also helps some eigensolvers.)
+
+<P>
+Most preconditioners were developed for physics-based simulations
+over meshes. We consider networks that are scale-free with a power-law
+degree distribution. Our goal is first to study the performance of
+traditional algebraic preconditioners, and second, to investigate the
+performance of graph-based preconditioners, such as support-graph
+preconditioners. Recent work has shown that graph sparsification can
+produce near-optimal preconditioners. However, these are difficult to
+compute and little software is available. We show that, perhaps
+surprisingly, most standard approaches, such as Jacobi, Gauss-Seidel, and
+incomplete factorizations work quite well on a fixed size problem.
+Further,
+a simple spanning tree (forest) preconditioner (MSF) gives slightly
+better convergence; indicating that more advanced subgraphs may
+potentially give even better performance. A subtle detail is the diagonal
+values of the preconditioner. We show that convergence can be improved by
+a simple modification.
+
+<P>
+For large problems, parallel computing becomes necessary.
+We use the Trilinos scientific computing toolkit for our parallel
+experiments. Many graph algorithms are hard to parallelize so we consider
+a simpler (more practical) option based on domain decomposition. We use
+the block Jacobi and additive Schwarz methods, and show that the number
+of iterations remains almost constant as the number of subdomains
+increases (up to about 64). We study the impact of graph partitioning,
+and observed that the graph preconditioner (MSF) is less sensitive to
+partitioning than the other methods. We conclude that additive Schwarz
+with a support-graph as a local solver is a robust and competitive
+iterative solver for graph Laplacians from complex networks.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

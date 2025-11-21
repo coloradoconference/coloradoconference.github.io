@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>quaife_bryan___086806</TITLE>
+<META NAME="description" CONTENT="quaife_bryan___086806">
+<META NAME="keywords" CONTENT="quaife_bryan___086806">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="quaife_bryan___086806.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Bryan Quaife 
+<BR><B>Spectral Deferred Correction Methods for Vesicle Suspensions</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Texas 
+<BR>
+Austin
+
+<BR><TT>quaife@ices.utexas.edu</TT>
+<BR>
+George Biros
+</DIV>
+
+<P>
+
+<P>
+Vesicles are inextensible capsules filled with and submerged in a viscous
+fluid. Their dynamics are governed by an internal energy due to bending
+and tension, a background velocity, and the inextensibility condition. In
+many simulations, the dynamics can complicate or simplify, and,
+therefore, we are introducing time adaptivity. In order to allow for
+large time steps, we are only interested in second- or higher-order
+methods. Unfortunately, backward difference formulas that use two or more
+previous time steps can become unstable if the time step size changes too
+rapidly. Therefore, we iteratively use a first-order method in a spectral
+deferred correction (SDC) framework to develop high-order solutions that
+only require the previous time step. The result is a high-order method
+that remains stable even if the time step size changes rapidly.
+
+<P>
+The velocity of a vesicle <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ j$">
+, parameterized by <!-- MATH
+ ${\mathbf{x}}_{j}$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf{x}}_{j}$">
+ with tension
+<!-- MATH
+ $\sigma_{j}$
+ -->
+<IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \sigma_{j}$">
+, is governed by the integro-differential equation
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+&\frac{d{\mathbf{x}}_{j}}{dt} = \sum_{k}{\mathbf{v}}[{\mathbf{x}}_{k}]{\mathbf{x}}_{j},
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="137" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle &amp;\frac{d{\mathbf{x}}_{j}}{dt} = \sum_{k}{\mathbf{v}}[{\mathbf{x}}_{k}]{\mathbf{x}}_{j},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ ${\mathbf{v}}[{\mathbf{x}}_{k}]{\mathbf{x}}_{j}$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\mathbf{v}}[{\mathbf{x}}_{k}]{\mathbf{x}}_{j}$">
+ is the velocity due to vesicle <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ k$">
+ acting on
+vesicle <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ j$">
+. A first-order solution <!-- MATH
+ ${\tilde{{\mathbf{x}}}}$
+ -->
+<IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ {\tilde{{\mathbf{x}}}}$">
+ is formed by solving the
+semi-implicit discretization
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+&\frac{{\mathbf{x}}_{j}^{N+1} - {\mathbf{x}}_{j}^{N}}{\Delta t} =
+\sum_{k}{\mathbf{v}}[{\mathbf{x}}_{k}^{N}]{\mathbf{x}}_{j}^{N+1}.
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="217" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle &amp;\frac{{\mathbf{x}}_{j}^{N+1} - {\mathbf{x}}_{j}^{N}}{\Delta t} = \sum_{k}{\mathbf{v}}[{\mathbf{x}}_{k}^{N}]{\mathbf{x}}_{j}^{N+1}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Our SDC formulation forms the higher accurate solution <!-- MATH
+ ${\tilde{{\mathbf{x}}}}+ {\tilde{\boldsymbol{\delta}}}$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ {\tilde{{\mathbf{x}}}}+ {\tilde{\boldsymbol{\delta}}}$">
+
+where <!-- MATH
+ ${\tilde{\boldsymbol{\delta}}}$
+ -->
+<IMG
+ WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\tilde{\boldsymbol{\delta}}}$">
+ is an approximate solution of
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="283" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle {\boldsymbol{\delta}}_{j} = \mathbf{e}_{j} + \int_{0}^{t}\sum_{k}...
+...\boldsymbol{\delta}}_{k}] ({\mathbf{x}}_{j} + {\boldsymbol{\delta}}_{j}) d\tau,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and <!-- MATH
+ $\mathbf{e}$
+ -->
+<IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathbf{e}$">
+ is the residual of the previous solution. This update
+can be performed iteratively, and, asymptotically, each iteration
+increases the formal order of accuracy by one.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

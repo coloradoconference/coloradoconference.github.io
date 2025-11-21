@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bienz_amandaj__087692</TITLE>
+<META NAME="description" CONTENT="bienz_amandaj__087692">
+<META NAME="keywords" CONTENT="bienz_amandaj__087692">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bienz_amandaj__087692.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Amanda, J Bienz 
+<BR><B>Scalability of non-Galerkin Parallel Algebraic Multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">202 N Race Street 
+<BR>
+Apt 107 
+<BR>
+Urbana 
+<BR>
+IL 61801
+
+<BR><TT>bienz2@illinois.edu</TT>
+<BR>
+Rob Falgout
+<BR>
+Luke Olson
+<BR>
+Jacob Schroder
+</DIV>
+
+<P>
+Algebraic multigrid (AMG) is an effective iterative solver for systems of
+linear equations. The Galerkin product, an essential component to the
+setup phase of AMG, causes fill-in on the coarse grids. In parallel
+implementations of AMG, this added density to coarse levels yields an
+increase in communications costs, reducing the scalability of the method.
+As problem size grows, the number of levels in the hierarchy will
+increase, yielding increasingly large, dense levels. The communication
+costs can be reduced through the use of non-Galerkin coarse grids, in
+which unnecessary entries are removed reintroducing sparsity to the
+coarser levels. A study of the parallel performance of GMRES
+preconditioned by non-Galerkin shows a consistent decrease in solve times
+for a three dimensional Laplace problem. The setup times show that any
+added cost to this phase is masked by the reduction in communication, and
+the overall time spent in the setup phase is often also reduced. Further
+tests show increasing the tolerance for collapsing entries on coarser
+grids has added benefits of removing the larger percentage of unnecessary
+entries occurring further in the hierarchy. Retaining symmetry of coarse
+grids allows use of more competitive methods such as CG or its three-term
+analogue for indefinite matrices, minimal residual method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

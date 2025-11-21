@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ulbrich_michael093263</TITLE>
+<META NAME="description" CONTENT="ulbrich_michael093263">
+<META NAME="keywords" CONTENT="ulbrich_michael093263">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ulbrich_michael093263.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Michael Ulbrich 
+<BR><B>A Semismooth Newton-CG Method for Constrained Parameter Identification in Seismic Tomography</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Technische Universitaet Muenchen 
+<BR>
+Department of Mathematics 
+<BR>
+Boltzmannstr 3 
+<BR>
+85747 Garching 
+<BR>
+Germany
+
+<BR><TT>mulbrich@ma.tum.de</TT>
+<BR>
+Christian Boehm
+</DIV>
+
+<P>
+Seismic tomography is a technique to determine the material properties of
+the Earth's subsurface based on the observation of seismograms. This can
+be stated as a PDE-constrained optimization problem governed by the
+elastic wave equation. We present a semismooth Newton-PCG method with a
+trust-region globalization for full-waveform inversion that uses a
+Moreau-Yosida regularization to handle additional constraints on the
+material parameters. We develop results on the differentiability of the
+parameter-to-state operator and analyze the proposed optimization method
+in a function space setting.
+
+<P>
+The elastic wave equation is discretized by a high-order continuous
+Galerkin method in space and an explicit Newmark time-stepping scheme.
+The matrix-free implementation relies on the adjoint-based computation of
+the gradient and Hessian-vector products and on a MPI-based
+parallelization. Randomized data reduction techniques are employed to
+efficiently gather information from a large number of seismic events.
+Especially, we utilize randomly chosen linear combinations of the seismic
+sources to approximate the Hessian operator and to reduce the number of
+required PDE solves during the CG iterations. Numerical results are shown
+for an application in geophysical exploration on reservoir-scale and the
+joint inversion for both Lam&#233; coefficients with constraints on the
+Poisson's ratio.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

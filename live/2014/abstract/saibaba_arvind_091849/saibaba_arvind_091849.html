@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>saibaba_arvind_091849</TITLE>
+<META NAME="description" CONTENT="saibaba_arvind_091849">
+<META NAME="keywords" CONTENT="saibaba_arvind_091849">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="saibaba_arvind_091849.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Arvind Saibaba 
+<BR><B>Fast algorithms for Hyperspectral Diffuse Optical Tomography</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Electrical and Computer Engineering 
+<BR>
+Tufts University
+
+<BR><TT>arvind.saibaba@tufts.edu</TT>
+<BR>
+Misha Kilmer
+<BR>
+Eric Miller
+</DIV>
+
+<P>
+Diffusive Optical Tomography (DOT) is an emerging technology for breast
+tumor detection and brain imaging in which the region of interest is
+illuminated with near infrared light at a specific wavelength and the
+data are comprised of observations of the resulting scattered diffuse
+fields at a number of locations surrounding the medium. Given these data
+as well as the partial differential equation governing the interaction of
+light and tissue, we seek to recover space and time-varying maps (i.e.
+images) of concentrations of physiologically relevant chromophores such
+as oxygenated and deoxygenated hemoglobin, lipid, and water as well as
+properties governing the scattering of light within the medium. Due to
+the diffusive physics associated with this problem as well as limitations
+concerning the geometric distribution of sources and detectors, the image
+recovery problem is an ill-posed, non-linear inverse problem. New
+technology allows for the collection of hyperspectral data. Although we
+anticipate that the availability of more information using multiple
+wavelengths increases the accuracy of the reconstruction, the use of
+hyperspectral data poses a significant computational burden in the
+context of image recovery.
+
+<P>
+We seek to reconstruct large scale structure of the breast (adipose and
+fibroglandular tissue) as well as the characterization of tumors. The
+Born approximation is employed to linearize the parameter-to-observation
+map that results in a system of partial differential equations for the
+incident and the scattered fields. This allows us to consider complex
+geometries for which the Green's function is not easily determined.
+Furthermore, under this approximation, the <I>forward problem</I> that
+models the propagation of light through a turbid medium (such as the
+breast) can be represented by a shifted linear systems of equations of
+the form <!-- MATH
+ $(K+\sigma_jM)x_j = b$
+ -->
+<IMG
+ WIDTH="128" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ (K+\sigma_jM)x_j = b$">
+ for <!-- MATH
+ $j=1,\dots,N_\lambda$
+ -->
+<IMG
+ WIDTH="98" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ j=1,\dots,N_\lambda$">
+. Here, <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ K$">
+ and
+<IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M$">
+ correspond to the discrete finite element representations of the
+diffusion operator and the absorption operator respectively, <IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ b$">
+ is a
+discrete representation of a scaled delta function corresponding to
+either a source or detector position and <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \sigma_j$">
+ are the shifts
+corresponding to various wavelengths. By exploiting the shift-invariant
+property of Krylov subspace methods and using a shift-and-invert
+preconditioner, we show how to solve this shifted system of equations at
+a cost that is nearly independent of the number of wavelengths. Further,
+we discuss various strategies to reduce the computational burden of
+solving systems involving multiple shifts and multiple right-hand sides.
+
+<P>
+The reconstruction of the chromophore concentration from the
+hyperspectral DOT data is performed using both traditional Tikhonov-based
+regularization and a parametric level-set approach. In the parametric
+level set approach, the Jacobian needs to be re-computed at every
+iteration, and we show how this procedure can be accelerated
+significantly by carefully accounting for the redundancy in information
+content across multiple wavelengths. Numerical experiments based on
+synthetic data-sets will demonstrate the scalability of our algorithm.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

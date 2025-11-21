@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chen_guangye___093574</TITLE>
+<META NAME="description" CONTENT="chen_guangye___093574">
+<META NAME="keywords" CONTENT="chen_guangye___093574">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chen_guangye___093574.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Guangye Chen 
+<BR><B>An energy- and charge-conserving, fully implicit, electromagnetic particle-in-cell algorithm</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Applied Mathematics and Plasma Physics (T-5) 
+<BR>
+MS B284 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>gchen@lanl.gov</TT>
+<BR>
+Luis Chacon
+<BR>
+Dana Knoll
+<BR>
+CoCoMANS  team
+</DIV>
+
+<P>
+Classical particle-in-cell (PIC) algorithms [1] employ an explicit
+time integration approach (leap-frog) to advance the Vlasov-Maxwell
+(or Vlasov-Poisson) system to perform kinetic simulations of plasma
+physics for a wide range of applications in material processing, fusion,
+laser-plasma interaction, astrophysics, etc. As in the fluid context,
+explicit PIC features a numerical stability constraint which enforces
+a minimum timestep resolution (i.e, the timestep has to be small enough
+to resolve the fastest time-scale of the system, e.g. light wave propagation).
+Unlike fluid approaches, however, explicit PIC also features a spatial
+numerical stability constraint that requires a minimum spatial resolution
+(i.e., the grid size must be smaller than the Debye length, which
+is the characteristic length scale of charge separation) to avoid
+the so-called finite-grid instability. Moreover, it is not yet possible
+to built in discrete energy conservation by the leap-frog algorithm.
+The stringent stability constraints make explicit PIC approaches impractical
+for many realistic multi-scale kinetic problems. The loss of energy
+conservation after taking very large number of steps makes explicit
+approaches unsuitable even with future supercompters.
+
+<P>
+Fully implicit temporal schemes can in principle employ arbitrarily
+large timesteps without numerical instability. They can also avoid
+the finite-grid-instability, thus allowing spatial resolution to be
+dictated by accuracy, not stability. It follows that, by taking time
+steps and grid sizes much larger than the plasma period and the Debye
+length, respectively, implicit PIC algorithms can be orders of magnitude
+more efficient than explicit approaches. This realization motivated
+the early exploration of various semi-implicit PIC approaches since
+1980s [2-5]. Some recent proof-of-principle studies of fully implicit
+PIC algorithms are beginning to show the algorithmic feasibility of
+both efficiency and accuracy benefits [7-12].
+
+<P>
+Our focus of this study is a proof-of-principle, 1D3V (one dimension
+in space and three dimensions in velocity) electromagnetic model [13]
+with preconditioning, based on Jacobian-Free Newton-Krylov (JFNK)
+technology. Our implicit implementation is built on the Vlasov-Darwin
+system. The Darwin approximation of Maxwell's equations is appropriate
+for non-radiactive plasma problems by ordering out the light wave,
+which otherwise suffers radiative noise issues (which can be exaggerative)
+with relatively large timesteps. Our discrete implementation is exactly
+energy- and charge-conserving, avoiding particle self-heating and
+self-cooling. Furthermore, enabled by the implicit Darwin equations,
+exact conservation of the canonical momentum per particle in any ignorable
+direction is enforced via a suitable scattering rule for the magnetic
+field. We have developed a simple preconditioner that targets electrostatic
+waves and skin currents, which allows us to employ time steps
+<!-- MATH
+ $\mathcal{O}(m_{i}/m_{e})^{1/2}$
+ -->
+<IMG
+ WIDTH="98" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mathcal{O}(m_{i}/m_{e})^{1/2}$">
+
+larger than the explicit CFL for weakly magnetized plasmas. Several
+1D numerical experiments demonstrate the (2nd-order) accuracy, efficiency,
+and conservation properties of the algorithm. In particular, CPU speedups
+of more than three orders of magnitude vs. an explicit Vlasov-Maxwell
+solver have been demonstrated in the cold plasma regime (where <!-- MATH
+ $k\lambda_{D}\ll1$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ k\lambda_{D}\ll1$">
+).
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">References</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

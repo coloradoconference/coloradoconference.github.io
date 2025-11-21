@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>alkahtani_badr_097129</TITLE>
+<META NAME="description" CONTENT="alkahtani_badr_097129">
+<META NAME="keywords" CONTENT="alkahtani_badr_097129">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="alkahtani_badr_097129.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Badr Alkahtani 
+<BR><B>Iterative Method (GMRES) vs Direct Solver for Solving Navier-Stokes Equations </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">P O BOX 1142 
+<BR>
+RUWAIDAH 
+<BR>
+RIYADH 11989
+
+<BR><TT>alhaghog@gmail.com</TT>
+</DIV>
+
+<P>
+We consider the steady Navier-Stokes problem in two dimensions to be
+solved using numerical iterative methods. Firstly, we consider a test
+problem with a known solution and therefore the results of the numerical
+solutions can be compared with the exact solution. Secondly, we solve the
+lid-driven cavity problem at high Reynolds number, and the results can be
+compared with previous results. We discretize the problem using Chebyshev
+discretization in the <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ x$">
+ and <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ y$">
+ directions. Because of the
+non-linearity of the Navier-Stokes equations, Newton linearization is
+used to work in terms of correction terms. Here, we combine the use of
+iterative Newton linearization with a direct solver to solve the
+vorticity-streamfunction formulation. The direct solver employs the back
+substitution Gauss elimination method with piovting for solving the
+linear system. We solve the Navier-Stokes problem exploiting the accuracy
+of the use of Chebyshev discretization to obtain the numerical solution
+at high Reynolds number and to recognize the type of resulting matrix.
+The resulting matrix which arise from the discretization is usually full
+and the linear system is solved by a direct solver. In the second half of
+the work, we try to solve the linear system araised from the
+discretization using the iterative method (GMRES) at high Reynolds number
+and compare it with the direct solver. If the time help, a preconditioner
+will be used to improve the ierations. At high Reynolds number, GMRES
+diverges while the direct solver can do higher than the GMRES for the
+same discretisation grid. To conclude, a relation between the direct
+solver and the GMRES can be drawn. Also, a relation between the Reynolds
+number and convergence of GMRES can be observed.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

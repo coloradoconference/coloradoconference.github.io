@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>schroder_jacobb093516</TITLE>
+<META NAME="description" CONTENT="schroder_jacobb093516">
+<META NAME="keywords" CONTENT="schroder_jacobb093516">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="schroder_jacobb093516.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jacob B. Schroder 
+<BR><B>Theoretical Advances Regarding Non-Galerkin Coarse-Grid Operators for Algebraic Multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Center for Applied Scientific Computing 
+<BR>
+Lawrence Livermore National Laboratory 
+<BR>
+Box 808 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94551-0808
+
+<BR><TT>schroder2@llnl.gov</TT>
+<BR>
+Robert D. Falgout
+<BR>
+Eran Treister
+</DIV>
+
+<P>
+Algebraic multigrid (AMG) is a popular and effective solver for systems
+of linear equations that arise from discretized partial differential
+equations. While AMG has been effectively implemented on large scale
+parallel machines, challenges remain, especially when moving to exascale.
+In particular, stencil sizes (the number of nonzeros in a row) tend to
+increase further down in the coarse grid hierarchy and this growth leads
+to more communication. Thus, as problem size increases and the number of
+levels in the hierarchy grows, the overall efficiency of the parallel AMG
+method decreases, sometimes dramatically. This growth in stencil size is
+due to the standard Galerkin coarse grid operator, <IMG
+ WIDTH="51" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ P^T A P$">
+, where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ P$">
+
+is the prolongation (i.e., interpolation) operator. For example, the
+coarse grid stencil size for a simple 3D 7-point finite differencing
+approximation to diffusion can increase into the thousands on present day
+machines, causing an associated increase in communication costs. Previous
+work by the authors has successfully truncated coarse grid stencils in an
+algebraic fashion. First, the sparsity pattern of the non-Galerkin coarse
+grid is determined by employing a heuristic minimal ``safe'' pattern
+together with strength-of-connection ideas. Second, the nonzero entries
+are determined by collapsing the stencils in the Galerkin operator using
+traditional AMG techniques. The purpose of this talk is to provide some
+theoretical foundation for the method. In particular if the original
+two-grid Galerkin method is optimal for M-matrices, then the two-grid
+non-Galerkin method is shown to also be optimal. The impact of the theory
+on the algorithm, together with supporting serial and parallel results
+will also be given.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

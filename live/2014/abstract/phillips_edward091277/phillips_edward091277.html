@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>phillips_edward091277</TITLE>
+<META NAME="description" CONTENT="phillips_edward091277">
+<META NAME="keywords" CONTENT="phillips_edward091277">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phillips_edward091277.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Edward Phillips 
+<BR><B>Block Preconditioners for Fully Coupled MHD with Lagrange Multipliers</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics Building 
+<BR>
+University of Maryland 
+<BR>
+College Park 
+<BR>
+MD 20742
+
+<BR><TT>egphillips@math.umd.edu</TT>
+<BR>
+Howard Elman
+<BR>
+Eric Cyr
+<BR>
+John Shadid
+</DIV>
+
+<P>
+Magnetohydrodynamics (MHD) models the flow of electrically conducting
+fluids by coupling the Navier-Stokes to Maxwell's equations. In this
+setting Maxwell's equations are often posed in mixed form to explicitly
+enforce the solenoidal condition <!-- MATH
+ $\nabla\cdot\vec{B} = 0$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \nabla\cdot\vec{B} = 0$">
+, which requires
+adding a Lagrange multiplier <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ r$">
+ to the induction equation governing the
+magnetic field. The resulting equations form a set of two coupled saddle
+point problems. Discretizing the fully coupled system results in a
+sequence of linear systems with the block form
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\left(\begin{array}{cccc} A & D^t & -Z^t & 0 \\D & 0 & 0 & 0 \\Z & 0 &
+F & B^t \\0 & 0 & B &
+0\end{array}\right)\left(\begin{array}{c}\mathbf{B}\\\mathbf{r}\\\mathbf{u}\\\mathbf{p}\end{array}\right)
+=
+\left(\begin{array}{c}\mathbf{g}\\\mathbf{0}\\\mathbf{f}\\\mathbf{0}\end{array}\right).
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="318" HEIGHT="94" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \left(\begin{array}{cccc} A &amp; D^t &amp; -Z^t &amp; 0 \\ D &amp; 0 &amp; 0 &amp; 0 \\ ...
+...n{array}{c}\mathbf{g}\\ \mathbf{0}\\ \mathbf{f}\\ \mathbf{0}\end{array}\right).$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+If we define the blocks
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\mathcal{M} = \left(\begin{array}{cc} A & D^t \\D & 0
+\end{array}\right), \quad \mathcal{Z} = \left(\begin{array}{cc} Z & 0
+\end{array}\right),
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="266" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \mathcal{M} = \left(\begin{array}{cc} A &amp; D^t \\ D &amp; 0 \end{array}\right), \quad \mathcal{Z} = \left(\begin{array}{cc} Z &amp; 0 \end{array}\right),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+then a block LU decomposition of the discrete MHD system suggests a
+preconditioner of the form
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\mathcal{P} = \left(\begin{array}{ccc} \hat{\mathcal{M}} & -\mathcal{Z}^t
+& 0 \\0 & \hat{X} & B^t \\0 & 0 & \hat{Y} \end{array}\right),
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="189" HEIGHT="80" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle \mathcal{P} = \left(\begin{array}{ccc} \hat{\mathcal{M}} &amp; -\mathcal{Z}^t &amp; 0 \\ 0 &amp; \hat{X} &amp; B^t \\ 0 &amp; 0 &amp; \hat{Y} \end{array}\right),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\hat{\mathcal{M}}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \hat{\mathcal{M}}$">
+ is an approximation to <!-- MATH
+ $\mathcal{M}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathcal{M}$">
+, and
+<IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \hat{X}$">
+ and <IMG
+ WIDTH="17" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \hat{Y}$">
+ are approximations to the Schur complements
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+X = F + \mathcal{Z}\mathcal{M}^{-1}\mathcal{Z}^t,\quad Y = -BX^{-1}B^t.
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="276" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle X = F + \mathcal{Z}\mathcal{M}^{-1}\mathcal{Z}^t,\quad Y = -BX^{-1}B^t.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+We consider expressions for <!-- MATH
+ $\hat{\mathcal{M}}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \hat{\mathcal{M}}$">
+ proposed for Maxwell's
+equations in mixed form and use these to develop the approximations
+<IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \hat{X}$">
+ and <IMG
+ WIDTH="17" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \hat{Y}$">
+. We test the performance of the resulting
+preconditioners for both stable and stabilized finite element
+discretizations, demonstrating their parallel scalability as well as
+their robustness over physical parameters on a set of two- and
+three-dimensional test problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

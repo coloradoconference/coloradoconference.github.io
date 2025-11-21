@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>blake_jackch___093582</TITLE>
+<META NAME="description" CONTENT="blake_jackch___093582">
+<META NAME="keywords" CONTENT="blake_jackch___093582">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="blake_jackch___093582.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jack C.H. Blake 
+<BR><B>An asymptotic analysis of preconditioned linear systems arising from discretisations of the transport equation within a diffusive regime.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematical Sciences 
+<BR>
+University of Bath 
+<BR>
+Claverton Down 
+<BR>
+Bath 
+<BR>
+UK 
+<BR>
+BA2 7AY
+
+<BR><TT>J.C.H.Blake@bath.ac.uk</TT>
+<BR>
+Ivan G. Graham
+<BR>
+Alastair Spence
+</DIV>
+
+<P>
+An important problem in applied nuclear physics is that of efficiently
+solving the neutron transport equation. In 5D (three spatial and two
+angular dimensions) this equation is given by
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:3DTE"></A><!-- MATH
+ \begin{equation}
+\Omega \cdot \nabla \psi (\textbf{r},\Omega) +
+\sigma_T\psi(\textbf{r},\Omega) =
+\dfrac{\sigma_S}{4\pi}\displaystyle{\int^{}_{\mathbb{S}^2}
+\psi(\textbf{r},\Omega) \; \textrm{d}\Omega} + Q(\textbf{r}),
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="377" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \Omega \cdot \nabla \psi (\textbf{r},\Omega) + \sigma_T\psi(\text...
+...{}_{\mathbb{S}^2} \psi(\textbf{r},\Omega) \; \textrm{d}\Omega} + Q(\textbf{r}),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\textbf{r} \in V \subset \mathbb{R}^3$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \textbf{r} \in V \subset \mathbb{R}^3$">
+ and <!-- MATH
+ $\Omega \in
+\mathbb{S}^2$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \Omega \in
+\mathbb{S}^2$">
+ (the unit sphere in <!-- MATH
+ $\mathbb{R}^3$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathbb{R}^3$">
+). Here:
+<!-- MATH
+ $\psi(\textbf{r},\Omega)$
+ -->
+<IMG
+ WIDTH="54" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \psi(\textbf{r},\Omega)$">
+ denotes the <EM>neutron flux</EM>, which is the
+density of neutrons passing through a unit space at <!-- MATH
+ $\textbf{r}$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \textbf{r}$">
+ in
+direction <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \Omega$">
+ per unit time; <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \sigma_T$">
+ and <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \sigma_S$">
+ are constants
+which describe the different interactions a neutron can undergo; and
+<!-- MATH
+ $Q(\textbf{r})$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ Q(\textbf{r})$">
+ denotes the <EM>neutron source</EM>, and is a known
+non-fission source term, isotropic in angle, of neutrons from position
+<!-- MATH
+ $\textbf{r}$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \textbf{r}$">
+. This equation is subject to suitable boundary conditions on
+the boundary of <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ V$">
+.
+
+<P>
+Due to its high dimension, (<A HREF="#eq:3DTE">1</A>) results in huge linear systems
+when discretised, and we are interested in fast methods for solving
+these. In this talk we will look at one solution method in the context of
+a 2D model problem, with one spatial dimension, <!-- MATH
+ $x \in [0,1]$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ x \in [0,1]$">
+, and one
+angular dimension, <!-- MATH
+ $\mu \in [-1,1]$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \mu \in [-1,1]$">
+. Under this restriction the transport
+equation is given by
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:1DTE"></A><!-- MATH
+ \begin{equation}
+\mu \frac{\partial}{\partial x}\psi(x,\mu) + \sigma_T \psi(x,\mu) =
+\sigma_S \phi(x) + Q(x),
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="301" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \mu \frac{\partial}{\partial x}\psi(x,\mu) + \sigma_T \psi(x,\mu) = \sigma_S \phi(x) + Q(x),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="35" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \phi(x)$">
+ is called the <EM>scalar flux</EM> and is defined as
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\phi(x) = \frac{1}{2}\displaystyle{\int^{1}_{-1} \psi(x,\mu) \; \textrm{d}\mu}.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="173" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle \phi(x) = \frac{1}{2}\displaystyle{\int^{1}_{-1} \psi(x,\mu) \; \textrm{d}\mu}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Along with this we specify boundary conditions
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="162" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle \psi(0,\mu) = 0, \textrm{ for } \mu &gt; 0,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="162" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle \psi(1,\mu) = 0, \textrm{ for } \mu &lt; 0.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+A fixed-point iteration based upon repeatedly solving (<A HREF="#eq:1DTE">2</A>) for
+<IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \psi$">
+ (with the right hand side of (<A HREF="#eq:1DTE">2</A>) formed from the
+previous value of <IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \psi$">
+) is known as <EM>source iteration</EM>. This
+suffers potentially very slow convergence when the ratio <!-- MATH
+ $\sigma_S /
+\sigma_T$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \sigma_S /
+\sigma_T$">
+ is close to 1, a situation often referred to as <EM>working
+within a diffusive regime</EM>. Using an asymptotic analysis of
+(<A HREF="#eq:1DTE">2</A>) and its solution, it is well known that a specific
+diffusion equation can be derived, given by
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:DE"></A><!-- MATH
+ \begin{equation}
+\frac{-1}{3 \sigma_T} \frac{\partial^2}{\partial x^2}\Theta(x) + \sigma_A
+\Theta(x) = Q(x),
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="231" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$\displaystyle \frac{-1}{3 \sigma_T} \frac{\partial^2}{\partial x^2}\Theta(x) + \sigma_A \Theta(x) = Q(x),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with associated boundary conditions, where <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \Theta$">
+ approximates <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \phi$">
+
+as described by Habetler &amp; Matkowsky [G. Habetler &amp; B. Matkowsky, 75]
+and later Jin &amp; Levermore [S. Jin &amp; D. Levermore, 91]. This
+approximation can be used to accelerate source iteration using ideas
+first proposed by Kopp [H.J. Kopp, 1963], leading to a scheme known as
+<EM>diffusion synthetic acceleration</EM> (DSA). Using (<A HREF="#eq:DE">4</A>), DSA
+can be defined as in [E. Larsen, 1984] as an accelerated `2-step'
+iterative process. Faber &amp; Manteuffel [V. Faber &amp; T.A. Manteuffel,
+1988] showed that this `2-step' DSA is equivalent to a preconditioned
+fixed-point iterative scheme.
+
+<P>
+In this talk we use the asymptotic approach to derive an explicit
+convergence rate (in terms of an asymptotic expansion coefficient) for
+the preconditioned source iteration of Faber &amp; Manteuffel. This provides
+a simple way to analyse the `2-step' DSA method, reinforcing the analysis
+of Faber &amp; Manteuffel. Next we use the asymptotic approach to look at
+the convergence of preconditioned Krylov methods. Numerical results will
+be given to support our analysis.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

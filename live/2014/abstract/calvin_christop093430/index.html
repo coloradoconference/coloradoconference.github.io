@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>calvin_christop093430</TITLE>
+<META NAME="description" CONTENT="calvin_christop093430">
+<META NAME="keywords" CONTENT="calvin_christop093430">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="calvin_christop093430.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christophe Calvin 
+<BR><B>Toward smart tuning on restarting strategies for the ERAM solver</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">CEA/DEN/DANS/DM2S CEA Saclay 91191 Gif Sur Yvette
+
+<BR><TT>christophe.calvin@cea.fr</TT>
+<BR>
+Christophe Calvin
+<BR>
+France Boillod Cerneux
+<BR>
+Serge Petiton
+</DIV>
+
+<P>
+Many scientific applications require solving large sparse or dense
+eigenvalue problems. We can cite, as a non-exhaustive list, the reactor
+physics, material science, life science, finance or indexing of large
+data volume.
+
+<P>
+During the last decades, Krylov methods were widely used as they are well
+suited to actual eigenvalue problems, wether it concerns the dominant or
+a susbset of eigenpairs. Due to their success, many research have been
+carried out to considerably improve the Krylov methods.
+
+<P>
+In this paper, we propose to focus on the Explicitly Restarted Arnoldi
+Method (ERAM), a Krylov eigensolver for non-hermitian matrices. The ERAM
+is numerically robust and others some good properties for parallel
+execution.
+However, the ERAM numerical quality, and especially convergence behavior,
+strongly depends on the Krylov subspace size (that we will denote by <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ m$">
+)
+and the initial guest (that we will denote by <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_0$">
+).
+But, finding an optimal pair for <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ m$">
+ and <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_0$">
+ depends on the matrix
+(size, structure, spectrum ) and the desired eigenpairs. One way to other
+the best couple (<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ m$">
+; <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_0$">
+) is to adapt dynamically these parameters at
+run-time using auto/smart-tuning techniques.
+
+<P>
+Regarding the parameter <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ m$">
+, there exists many auto/smart-tunings to
+dynamically adapt the subspace size. We assume that a large subspace size
+will produce more accurate results. However, a growing subspace size
+implies additional operations and mostly additional global
+communications. Such communications rapidly become bottleneck operations,
+especially for the ERAM with large matrices in the context of massive
+parallel computations. Fixing the right Krylov subspace size is
+equilibrium between the numerical and computational performances.
+
+<P>
+Regarding the second parameter <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_0$">
+, there is no general method to
+compute it at each restart. Traditionally, <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ v_0$">
+ is a linear combination
+of approximated desired eigenvectors, uniformly weighted.
+In this paper, we present several restarting strategies and compare their
+efficiency. Testing them on many matrices, the restarting strategy may
+improve the convergence of more than 50 restarts compared to the uniform
+weight scheme.
+However, there is neither rules/tools nor correlation to predict which
+restarting strategy will be the most efficient, as it depends dynamic
+parameters.
+We aim to dynamically adapt the best restarting strategy with respect to
+these parameters.
+As a comparison with subspace size auto-tunings, changing a restarting
+strategy is computationally costless, as we reuse computed data.
+Dynamically replace a restarting strategy by another one imply neither
+new operations nor communications at all. This is why a smart-tuning on
+restarting strategy presents a real benefit as it maximizes the ratio
+computational cost and numerical efficiency.
+In this paper, we present our work to establish such smart-tuning
+algorithm, and the first tools that will lead to it.
+
+<P>
+The first step to build such smart-tuning on restarting strategies is to
+evaluate the ERAM convergence. The Krylov methods applied to linear
+systems resolution benefit from mathematical background to evaluate the
+solver convergence.
+
+<P>
+Regarding the ERAM solver, there is neither such theory nor existing
+methods to evaluate its convergence. In this paper, we propose an
+algorithm that measure the ERAM convergence and fix whether it diverges,
+stagnates or converges. In case of divergence or stagnation, we will
+change the restarting strategy in order to ameliorate the convergence and
+avoid as much as possible the divergence behavior. We will then conclude
+on the ongoing work to ameliorate this convergence algorithm.
+
+<P>
+In this paper, we will first introduce with details the existing and new
+restarting strategies. We will then present results on restarting
+strategies and emphasize their convergence behavior. Based on the
+generated results, we apply our convergence algorithm for each restarting
+strategy. According to the convergence algorithm, we will replace the
+restarting strategy by another one and present the results. We will
+conclude on the results and develop many features for the smart-tuning on
+restarting strategies.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>siefert_christo091797</TITLE>
+<META NAME="description" CONTENT="siefert_christo091797">
+<META NAME="keywords" CONTENT="siefert_christo091797">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="siefert_christo091797.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christopher Siefert 
+<BR><B>Local Smoothers for CDFEM with Sub-Element Discontinuities</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+MS 1323 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1323
+
+<BR><TT>csiefer@sandia.gov</TT>
+<BR>
+Richard Kramer
+</DIV>
+
+<P>
+In multimaterial problems, surface and interface effects have the
+potential to be of great importance. In the case of electromagnetics,
+this may be due to currents concentrating on surfaces, whereas in the
+case of heat transfer, it may be due to the quality of thermal contact
+between two materials. In cases where Lagrangian (moving) meshes are
+untenable due to large-scale deformation, we are often left with the
+alternative of using Eulerian (non-moving) meshes coupled with some sort
+of mixture model. For some types of physics, these mixture models are
+quite good, in others they leave much to be desired.
+
+<P>
+The conformal decomposition finite element method (CDFEM), which was
+primarily developed for stationary fluid interface problems, is one
+technique for handling sub-cell discontinuities. Strongly related to
+eXtended finite elements (XFEM) and adaptive mesh refinement (AMR), CDFEM
+allows for Lagrangian-like interfaces in the context of a (basically)
+Eulerian mesh. Unfortunately, since the physics "chooses" the location of
+the interface, the interface can lie precariously close to an element
+boundary on the underlying fixed mesh. This problem, known as a "sliver
+cut," can have a deleterious effect on the conditioning of the matrix and
+the performance of the linear solver.
+
+<P>
+Contact conditions across the interface can complicate this even
+further. As opposed to "perfect contact," where the solution is
+single-valued on the interface, problems can have "imperfect contact,"
+where the solution has a different value on each side of the interface,
+but are coupled in some way. This can cause additional problems for
+multigrid coarsening, if these discontinuities aren't handled with care.
+
+<P>
+We present a local smoothing approach for CDFEM matrices, which uses
+information about the problem geometry near the interface to perform a
+single geometric coarsening to a problem with volume-averaged materials.
+As the coarse problem now lacks sliver cuts, it can be easily treated
+with standard algebraic multigrid techniques. We compare the performance
+of this technique with semi-coarsening in the context of smoothed
+aggregation and comment on the robustness of the proposed method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

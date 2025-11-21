@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>minion_michael_093757</TITLE>
+<META NAME="description" CONTENT="minion_michael_093757">
+<META NAME="keywords" CONTENT="minion_michael_093757">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="minion_michael_093757.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Michael Minion 
+<BR><B>Interweaving PFASST and Parallel Multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Lab 
+<BR>
+MS 50A-1148 
+<BR>
+1 Cyclotron Rd 
+<BR>
+Berkeley 
+<BR>
+CA 94720
+
+<BR><TT>mlminion@gmail.com</TT>
+<BR>
+Matthew Emmett
+<BR>
+Daniel Ruprecht
+<BR>
+Robert Speck
+<BR>
+Matthias Bolton
+</DIV>
+
+<P>
+The parallel full approximation scheme in space and time (PFASST)
+introduced by Emmett and Minion in 2012 is an iterative strategy for
+the temporal parallelization of ODEs and discretized PDEs. As the
+name suggests, PFASST is similar in spirit to a space-time FAS
+multigrid method performed over multiple timesteps in parallel. In
+the first papers on PFASST, the numerical examples involve the
+approximation of PDEs on regular Cartesian-grid spatial
+discretizations and utilize a hierarchy of space-time grid
+resolutions. Explicit, fully implicit, and semi-implicit (IMEX) variations of
+PFASST are easily constructed and have been tested on a wide class of
+model PDEs.
+
+<P>
+However, since the original focus of PFASST has been on the
+performance of the method in terms of time parallelism, the solution
+of any implicit spatial systems arising from the use of implicit or
+semi-implicit temporal methods within PFASST have simply been assumed
+to be solved to some desired accuracy completely at each substep and
+each iteration by some unspecified procedure. This is, in a sense,
+philosophically orthogonal to the vast majority of research on
+multigrid or iterative methods for time dependent PDEs that focus on
+the iterative solution of spatial equations arising from implicit
+(non-iterative) temporal integration methods. It hence is natural to
+investigate how iterative solvers in the spatial dimensions can be
+interwoven with the PFASST iterations and whether this strategy leads
+to a more efficient overall approach.
+
+<P>
+This talk will present some initial analysis on the relative
+performance of different strategies for coupling the PFASST iterations
+with multigrid methods for the implicit treatment of diffusion terms
+in PDEs. In particular, we compare full accuracy multigrid solves at each
+substep with a small fixed number of V-cycles or relaxation
+sweeps. This reduces the cost of each PFASST iteration at the expense
+of a corresponding increase in the number of PFASST iterations needed for
+convergence. Parallel efficiency is compared to recent results
+coupling PFASST and full solves done with the parallel multigrid
+code PMG, which achieved space-time parallelism for the
+three-dimensional heat equation on up to 448K cores.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

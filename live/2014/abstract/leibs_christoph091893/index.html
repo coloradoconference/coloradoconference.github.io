@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>leibs_christoph091893</TITLE>
+<META NAME="description" CONTENT="leibs_christoph091893">
+<META NAME="keywords" CONTENT="leibs_christoph091893">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="leibs_christoph091893.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christopher Leibs 
+<BR><B>Preconditioning a two-fluid electromagnetic model using Physics-Based Preconditioning and First-Order System Least Squares</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">3201 Arnett St 
+<BR>
+Boulder CO 
+<BR>
+80304
+
+<BR><TT>leibs@colorado.edu</TT>
+<BR>
+Thomas Manteuffel
+<BR>
+Luis Chacon
+</DIV>
+
+<P>
+In this talk we describe two approaches to preconditioning an
+electromagnetic two-fluid plasma model. In the first, a physics-based
+preconditioning (PBP) approach is used to extract a parabolic PDE that
+targets stiff plasma waves and can be efficiently inverted using
+multigrid methods. In the second approach we draw from the first-order
+system least squares (FOSLS) methodology and manipulate the full PDE
+system into being <IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H^1$">
+-elliptic.
+
+<P>
+Recently, fluid acceleration of a fully implicit particle-in-cell (PIC)
+simulation was successfully demonstrated. The fluid system features
+conservation equations for both ions and electrons coupled to field
+evolution equations. We concern ourselves with the electromagnetic
+two-fluid model in multiple dimensions. Electromagnetic fields are
+prescribed via the Darwin approximation in order to project out spurious
+lightwave time scales. Even with this removal, disparate time scales
+still exist among the supported plasma waves. The resulting nonlinear,
+stiff hyperbolic PDE system is solved using preconditioned Jacobian-free
+Newton-Krylov, for which the availability of a robust preconditioner is
+crucial.
+
+<P>
+Complimentary ideas from both PBP and FOSLS will be explored.
+Physics-based preconditioning promises to capture the correct fast wave
+physics, but care must be taken to generate a system compatible with fast
+iterative methods. In contrast, FOSLS generates a system suitable for
+multigrid iteration, but attention must be given to designing a system
+that picks up the correct physics. We present the benefits and
+difficulties that arise in both the PBP and FOSLS contexts.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

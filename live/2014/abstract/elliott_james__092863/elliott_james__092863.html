@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>elliott_james__092863</TITLE>
+<META NAME="description" CONTENT="elliott_james__092863">
+<META NAME="keywords" CONTENT="elliott_james__092863">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="elliott_james__092863.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">James Elliott 
+<BR><B>Making numerical algorithms tolerate silent data corruption</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1320
+
+<BR><TT>jjellio3@ncsu.edu</TT>
+<BR>
+Mark Hoemmen
+<BR>
+Frank Mueller
+</DIV>
+
+<P>
+Future extreme-scale computer systems may expose silent data
+corruption (SDC) to applications, in order to save energy or increase
+performance. However, resilience research struggles to come up with
+useful abstract programming models for reasoning about SDC in
+numerical algorithms. Existing work randomly flips bits in running
+iterative linear solvers, but this only shows average-case behavior
+for a low-level, artificial hardware model. Algorithm developers need
+predictions of worst-case behavior, especially if they plan to use
+their solvers for simulations that support making high-consequence
+decisions. Also, since we know so little about how SDC may manifest
+in future hardware, we think it premature to draw conclusions using a
+fault model that may have nothing to do with how future computers
+behave.
+
+<P>
+We argue instead for a <I>numerical unreliability</I> fault model,
+where SDC manifests as unbounded perturbations to floating-point data.
+This has minimal dependence on details of a hardware implementation,
+and puts SDC in terms that numerical analysts can understand. We
+apply this model to design iterative linear solvers that can tolerate
+such perturbations. These solvers depend on a few techniques that we
+consider generally applicable to all kinds of numerical algorithms.
+For example, they use inexpensive ``sanity'' checks that bound or
+exclude error in the results of computations. Given a <I>selective
+reliability</I> programming model that requires reliability only when
+and where needed, such checks can make algorithms reliable despite
+unbounded faults. Sanity checks, and in general a healthy skepticism
+about the correctness of subroutines, are wise even if hardware is
+perfectly reliable.
+
+<P>
+In general, we present a case for a radically different research
+methodology that merges numerical analysis with systems fault
+tolerance, and provides algorithm developers with programming models
+they can use to ensure correctness despite SDC. We solicit this
+community specifically for feedback, because this challenge requires
+researchers that are comfortable bridging mathematics and computer
+science.
+
+<P>
+This work was supported partly by the RX-Solvers grant from the
+Advanced Scientific Computing Research program of the U.S. Department
+of Energy's (DOE) Office of Science, and partly by the Consortium for
+Advanced Simulation of Light Water Reactors under U.S. DOE Contract
+No. DE-AC05-00OR22725. Sandia National Laboratories is a multiprogram
+laboratory managed and operated by Sandia Corporation, a wholly owned
+subsidiary of Lockheed Martin Corporation, for the U.S. DOE's
+National Nuclear Security Administration under Contract
+DE-AC04-94AL85000.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

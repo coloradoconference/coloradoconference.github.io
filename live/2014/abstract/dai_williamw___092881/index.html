@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dai_williamw___092881</TITLE>
+<META NAME="description" CONTENT="dai_williamw___092881">
+<META NAME="keywords" CONTENT="dai_williamw___092881">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dai_williamw___092881.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">William, W Dai 
+<BR><B>Interface- and Discontinuity-aware Numerical Schemes for 3-T Radiation Diffusion in Two and Three Dimensions</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">William W Dai 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Mail Stop D413 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>dai@lanl.gov</TT>
+<BR>
+A. J. Scannapieco
+</DIV>
+
+<P>
+Solving 3-T radiation diffusion equation is often a critical step in
+simulation of multi-physics,
+and material mixing often happens no matter how fine the resolution of a simulation is.
+Mesh refinement only can reduce
+the number of materials within a cell, but cannot eliminate mixing cells
+in simulations. Treatment
+of mixing cells is critical for many applications. Since material
+property of mixture of materials
+is unknown, a mixing cell is decomposed to a set of sub-cells through material interface
+reconstruction so that each sub-cell contains only one material. The sub
+cells ithus generated
+are general polygons and polyhedrons. Radiation diffusion equations are
+solved on the mesh
+with these general polygons in two dimensions and polyhedrons in three dimensions.
+
+<P>
+Two typical implicit methods are the backward Euler method and
+Crank-Nicolson method. The backward
+Euler method is first order accurate in time, but numerical errors in the
+method undergo quick damping
+for large time steps. Therefore the method is very useful for large time
+steps and steady states.
+Although Crank-Nicolson method is second order accurate, numerical errors
+do not damp out for large
+time steps, and significant numerical errors will be introduced when time
+steps are large.
+The formulation for large time steps is very important for problems
+involving dramatically different
+materials even for time-dependent problems. A given time step may be
+considered so large for some
+material that the formulation for steady state is more appropriate for
+the material than the
+formulation with the second order of accuracy, but the time step is so
+small for other materials
+that accuracy in time is more important for them. The scheme we will
+present is second order
+accurate in both space and time, works for any size of time steps, and
+will give exact steady
+states when time steps are very large.
+
+<P>
+For systems of multi-materials with dramatically different material
+properties, the correct treatment
+for the discontinuity of material properties is important. A typical
+approach for this is to use
+mathematical approximations, which
+could introduce numerical errors when thermal properties of two materials
+are very different. We use the governing physics to give formula for effective diffusion
+coefficient across a material
+interface for flux calculations on polyhedral meshes.
+
+<P>
+Another important aspect in numerical simulations for 3-T radiation
+equations is the numerical
+treatment for interaction between radiation and material. The 3-T
+radiation diffusion equations
+are often solved through operator splitting. One typical operator
+splitting method is to separate the
+diffusion process from the interaction, and another is to separate each diffusion process
+from each other. Both of the methods are first order accurate. More
+seriously, both would result
+in serious errors in simulation results for some problems.
+In the numerical scheme we will present, radiation and material are fully
+coupled, and three
+temperatures are solved simultaneously.
+
+<P>
+The equations we are solving is for a system of plasma with radiation.
+When the time scale for equilibration of photons, electrons, and ions is
+much shorter than the time
+scale for exchange in each species energy content due either to
+interaction between them or to
+external sources, photons, electrons, and ions are each in a state of
+local thermodynamic equilibrium,
+photons' energy distribution are given by the Planck distribution, and
+those for electrons and
+ions are Maxwellian. Their associated temperatures, <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ T_r$">
+, <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ T_e$">
+, and
+<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ T_i$">
+, do not need to be equal.
+The set of 3-T radiation diffusion equations is
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\frac{\partial a T_r^4}{\partial t} = - \bigtriangledown \cdot {\bf F}_r + S_r.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="163" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \frac{\partial a T_r^4}{\partial t} = - \bigtriangledown \cdot {\bf F}_r + S_r.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\rho c_{ve} \frac{\partial T_e}{\partial t} = - \bigtriangledown \cdot
+{\bf F}_e - S_r + S_e.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="217" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle \rho c_{ve} \frac{\partial T_e}{\partial t} = - \bigtriangledown \cdot {\bf F}_e - S_r + S_e.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\rho c_{vp} \frac{\partial T_p}{\partial t} = - \bigtriangledown \cdot {\bf F}_p - S_e.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="182" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle \rho c_{vp} \frac{\partial T_p}{\partial t} = - \bigtriangledown \cdot {\bf F}_p - S_e.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>Here <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ a$">
+ is the radiation constant, <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \rho$">
+ the material mass density, and
+<IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ c_{ve}$">
+ and <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ c_{vi}$">
+
+specific heat capacities of electrons and ions.
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ {\bf F}_r$">
+, <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ {\bf F}_e$">
+, and <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ {\bf F}_i$">
+ are energy fluxes of radiation,
+electrons, and ions
+respectively, and they are defined as
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+{\bf F}_r \equiv -{\sigma}_r \bigtriangledown T_r^4,
+\hspace{0.1in} {\bf F}_e \equiv -{\sigma}_e \bigtriangledown T_e,
+\hspace{0.1in} {\bf F}_p \equiv -{\sigma}_i \bigtriangledown T_p.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="364" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle {\bf F}_r \equiv -{\sigma}_r \bigtriangledown T_r^4, \hspace{0.1i...
+...ngledown T_e, \hspace{0.1in} {\bf F}_p \equiv -{\sigma}_i \bigtriangledown T_p.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Here <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \sigma_r$">
+, <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \sigma_e$">
+, and <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \sigma_p$">
+ are diffusion coefficients of
+temperatures of radiation,
+electrons, and ions. <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \sigma_r$">
+ is inversely proportional to the
+Rosseland mean opacity that includes
+atomic processes such as Bremsstrahlung, photo-ionization,
+line-absorption, and Thompson scattering.
+The source terms in Eqs.(1-3) are defined as
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+S_r \equiv a c \rho \kappa_p (T_e^4 - T_r^4),
+\hspace{0.1in} S_e \equiv \rho c_{ve} \kappa_{pe} (T_p - T_e).
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="328" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle S_r \equiv a c \rho \kappa_p (T_e^4 - T_r^4), \hspace{0.1in} S_e \equiv \rho c_{ve} \kappa_{pe} (T_p - T_e).$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In Eq.(5), <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ c$">
+ is the light speed, <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \kappa_p$">
+ Planck mean opacity, and
+<!-- MATH
+ $\kappa_{pk}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \kappa_{pk}$">
+ the coefficient
+for interaction between electrons and ions. The term, <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ S_r$">
+, in Eqs.(1,2)
+allows for the exchange
+of energy between radiation and electrons.
+
+<P>
+The numerical scheme to be presented is intended to be used in a code for multi-physics.
+It is an extension of previous work to include mixing cells and
+unstructured meshes. For mixing cells,
+we consider the interface reconstruction with any number of materials in both two- and
+three-dimensional meshes with AMR.
+
+<P>
+In this talk, we will first describe the procedure for interface
+reconstruction in both two- and
+three-dimensions within AMR meshes with any number of materials, and then
+we will present the scheme
+for Eqs.(1-3) in both two- and three-dimensions and an iterative
+solver to solve the set of resulting difference equations. We finally
+will demonstrate the features of the
+scheme through numerical examples in two- and three-dimensions.
+Particularly, we will show
+the difference in simulation results between the two approaches: fully coupling and
+operator-splitting.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

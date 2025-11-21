@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>draganescu_andr093627</TITLE>
+<META NAME="description" CONTENT="draganescu_andr093627">
+<META NAME="keywords" CONTENT="draganescu_andr093627">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="draganescu_andr093627.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrei Draganescu 
+<BR><B>Optimal-order multigrid preconditioners for linear systems arising in the semi-smooth Newton solution of certain PDE-constrained optimization problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Statistics 
+<BR>
+UMBC 
+<BR>
+1000 Hilltop Circle 
+<BR>
+Baltimore 
+<BR>
+MD 21250
+
+<BR><TT>draga@umbc.edu</TT>
+<BR>
+Jyoti Saraswat
+</DIV>
+
+<P>
+We present a new technique for constructing multigrid preconditioners
+arising in the semi-smooth Newton solution process of optimization
+problems of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:optform"></A><!-- MATH
+ \begin{equation}
+\min_{u\in L^2(\Omega)}\frac{1}{2}\|\mathcal{K} u- b\|^2 +\frac{\beta}{2}\|u\|^2\ ,
+\ \ \underline{u}\le u\le \overline{u}\ ,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="308" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min_{u\in L^2(\Omega)}\frac{1}{2}\Vert\mathcal{K} u- b\Vert^2 +\frac{\beta}{2}\Vert u\Vert^2 ,
+  \underline{u}\le u\le \overline{u} ,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\mathcal{K}:L^2(\Omega)\to\mathcal{Y}$
+ -->
+<IMG
+ WIDTH="109" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathcal{K}:L^2(\Omega)\to\mathcal{Y}$">
+ is a bounded linear operator, with
+the embedding <!-- MATH
+ $\mathcal{Y}\hookrightarrow L^2(\Omega)$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathcal{Y}\hookrightarrow L^2(\Omega)$">
+ being compact, and
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \Omega$">
+ is a bounded Lipschitz domain. The problem&nbsp;(<A HREF="#eq:optform">1</A>)
+can be regarded as the reduced form of a PDE-constrained optimization
+problem
+with <!-- MATH
+ $\mathcal{K}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathcal{K}$">
+ being the solution operator of a PDE (for example,
+<!-- MATH
+ $\mathcal{K}=(-\Delta)^{-1}:L^2(\Omega)\to H_0^1(\Omega)$
+ -->
+<IMG
+ WIDTH="219" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{K}=(-\Delta)^{-1}:L^2(\Omega)\to H_0^1(\Omega)$">
+).
+
+<P>
+For a piecewise constant discretization of the control space <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ V_h$">
+, each
+semi-smooth Newton (outer) iteration requires the solution of a linear
+system whose matrix is a principal submatrix of <!-- MATH
+ $G_h=K_h^TK_h +\beta I$
+ -->
+<IMG
+ WIDTH="130" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ G_h=K_h^TK_h +\beta I$">
+,
+where <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ K_h$">
+ is the matrix representing the discretization of
+<!-- MATH
+ $\mathcal{K}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathcal{K}$">
+, and <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ h$">
+ is the mesh size.
+In a large-scale context these (inner) linear systems are solved using
+preconditioned conjugate gradient. An earlier technique&nbsp;[<A
+ HREF="node1.html#Dra13">1</A>]
+produced a multigrid preconditioner <IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ M_h$">
+ for <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ G_h$">
+ that satisfies, under
+reasonable conditions,
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:suboptimalest"></A><!-- MATH
+ \begin{equation}
+1- C\frac{h^{\frac{1}{2}}}{\beta} \le
+\frac{\left< M_h u, u\right>}{\left< G_h u, u\right>}
+\le 1 + C\frac{h^{\frac{1}{2}}}{\beta},\ \ \forall u\in V_h\setminus\{0\}\ .
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="359" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle 1- C\frac{h^{\frac{1}{2}}}{\beta} \le \frac{\left&lt; M_h u, u\right...
+...&gt;} \le 1 + C\frac{h^{\frac{1}{2}}}{\beta},  \forall u\in V_h\setminus\{0\} .$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+As a result of&nbsp;(<A HREF="#eq:suboptimalest">2</A>), the number of inner linear
+iterations needed to solve the system at each outer iteration decreases
+with <!-- MATH
+ $h\downarrow 0$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ h\downarrow 0$">
+. While this result is interesting from a theoretical
+point of view (and qualitatively consistent with the behavior of the
+preconditioner for the full system), its practicality is limited by the
+suboptimal factor <IMG
+ WIDTH="34" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ h^{1/2}$">
+ in&nbsp;(<A HREF="#eq:suboptimalest">2</A>).
+
+<P>
+The new technique, relying on constructing larger coarse spaces than
+before, produces multigrid preconditioners <IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ M_h$">
+ that are able to capture
+the character of the
+operator <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ G_h$">
+ in an optimal way, namely we have
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:optimalest"></A><!-- MATH
+ \begin{equation}
+1- C\frac{h}{\beta} \le
+\frac{\left< M_h u, u\right>}{\left< G_h u, u\right>}
+\le 1 + C\frac{h}{\beta},\ \ \forall u\in V_h\setminus\{0\}\ .
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="341" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle 1- C\frac{h}{\beta} \le \frac{\left&lt; M_h u, u\right&gt;}{\left&lt; G_h u, u\right&gt;} \le 1 + C\frac{h}{\beta},  \forall u\in V_h\setminus\{0\} .$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html4"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

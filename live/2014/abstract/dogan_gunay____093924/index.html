@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dogan_gunay____093924</TITLE>
+<META NAME="description" CONTENT="dogan_gunay____093924">
+<META NAME="keywords" CONTENT="dogan_gunay____093924">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dogan_gunay____093924.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Gunay Dogan 
+<BR><B>A fast algorithm to compute the shape dissimilarity of elastic curves</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">National Institute of Standards and Technology 
+<BR>
+100 Bureau Dr Stop 8910 
+<BR>
+Gaithersburg 
+<BR>
+MD 20899-8910
+
+<BR><TT>gunay.dogan@nist.gov</TT>
+<BR>
+Javier Bernal
+<BR>
+Charles Hagwood
+</DIV>
+
+<P>
+In many scientific applications, one needs to compare the shapes of
+curves from different sources in a quantitative manner. These curves
+might correspond to real objects in imaging applications, e.g. cell
+populations in microscopy, or they might be a representation of an
+important physical characteristic, such as the spectrum of material
+specimens. A researcher working with such applications would often need
+to state of how similar or dissimilar the shapes are, and might also want
+to use the shape dissimilarity numbers (or distances) to pursue
+large-scale statistical analyses of the shape samples.
+
+<P>
+A rigorous and quantitative tool to compare curves and to compute their
+dissimilarity is shape geodesics. For this, one chooses an appropriate
+shape representation for the curves and identifies the Riemannian
+manifolds where the shapes lie and then tries to compute the shape
+geodesics between the shapes. The computation of shape geodesics usually
+reduces to optimization on Riemannian manifolds, specifically manifolds
+of curves.
+
+<P>
+In this work, we propose an efficient algorithm to compute the geodesic
+distances of shapes on a practical realization of such a shape manifold.
+The shape representation that we consider is the square root velocity
+representation of Srivastava et al (IEEE PAMI, 2011). For this choice,
+the Riemannian manifold is the <IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ L^2$">
+ unit hypersphere of curves and the
+computation of the geodesic distances can be reduced to minimizing the
+<IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ L^2$">
+ distance between the derived curves. As we require this distance to
+be invariant under various transformations of the curves, such as
+rotations and reparameterizations, this setup induces an optimization
+problem, in which the starting point of the curve, possible rotations and
+reparameterizations are the variables. We derive the optimality
+conditions of the corresponding energy formulation, and use the
+optimality conditions to devise an effective optimization scheme, in
+which one-dimensional global optimization and nonlinear least squares are
+key ingredients. We test and demonstrate our method on several synthetic
+and real examples, and achieve significant improvement in both speed and
+accuracy of the geodesic distance computations.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

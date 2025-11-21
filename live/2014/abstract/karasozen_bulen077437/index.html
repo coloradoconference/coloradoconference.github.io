@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>karasozen_bulen077437</TITLE>
+<META NAME="description" CONTENT="karasozen_bulen077437">
+<META NAME="keywords" CONTENT="karasozen_bulen077437">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="karasozen_bulen077437.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Bulent Karasozen 
+<BR><B>Efficient Solution of Linear Systems arising from Discontinuous Galerkin Discretization of nonlinear Diffusion-Convection-Reaction Equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute of Applied Mathematics 
+<BR>
+Middle East Technical University 
+<BR>
+Dumlupinar Bulvari 1 
+<BR>
+06800 Ankara 
+<BR>
+Turkey
+
+<BR><TT>bulent@metu.edu.tr</TT>
+<BR>
+Murat Manguoglu
+<BR>
+Mursat Uzunca
+</DIV>
+
+<P>
+Many engineering problems such as chemical reaction processes, heat
+conduction, population dynamics are governed by coupled
+convection-diffusion-reaction partial differential equations (PDEs) with
+nonlinear source or sink terms. It is a significant challenge to solve
+such PDEs numerically when they are convection/reaction-dominated. Such
+models describe chemical processes and they are strongly coupled as an
+inaccuracy in one unknown affects all the others. Hence, efficient
+numerical approximation of these systems is needed. For the
+convection/reaction-dominated problems due to the presence of sharp
+fronts in the solution, on boundary and interior layers.
+The numerical solution of such PDEs is particularly challenging and
+requires special numerical techniques, which take into account the
+structure of the advection.
+Similar to the stabilized conforming finite elements, discontinuous
+Galerkin finite element methods (DGFEMs) damp the unphysical oscillations
+for linear convection dominated problems. For an accurate solution of
+nonlinear convection dominated problems, higher order finite elements are
+used because they are less diffusive and avoid artificial mixing of
+chemical species under discretization. The main advantages of DGFEM are
+the flexibility in handling non-matching grids and in designing
+hp-refinement strategies. An important drawback is that the resulting
+linear systems are more dense than the continuous finite elements and
+ill-conditioned. The condition number grows rapidly with the number of
+elements and with the penalty parameter. Therefore, efficient solution
+strategies such as preconditioning are required to solve the linear
+systems. 
+<BR>
+<P>
+We apply the matrix reordering and partitioning technique in, which uses
+the largest eigenvalue and corresponding eigenvector of the Laplacian
+matrix. This reordering reflects very well the saddle point structure of
+the underlying sparse matrix. For a given sparse matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+, the weighted
+Laplacian matrix <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L_w$">
+ is defined
+<P><!-- MATH
+ \begin{displaymath}
+L_w(i,j) = \left \{
+\begin{array}{ll}
+\sum{i \neq j} \mid A(i,j)\mid & i =j,\\
+- \mid A(i,j)\mid & i \neq j
+\end{array} \right .
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="268" HEIGHT="54" BORDER="0"
+ SRC="img3.png"
+ ALT="\begin{displaymath}
+L_w(i,j) = \left \{
+\begin{array}{ll}
+\sum{i \neq j} \mid A(...
+...d &amp; i =j,\\
+- \mid A(i,j)\mid &amp; i \neq j
+\end{array} \right .
+\end{displaymath}">
+</DIV><P>
+</P>
+In the literature, certain eigenvalues and corresponding eigenvectors of
+the Laplacian matrix <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ L_w$">
+ have been studied extensively. Among them is
+the
+the second smallest eigenvalue of the Laplacian and the corresponding
+eigenvector, so called Fiedler vector. The eigenvectors corresponding to
+the eigenvalues other than the first and
+the second smallest eigenvalue give the connected components of the
+graph. We propose sparse matrix reordering for solving saddle point
+linear systems using the largest eigenvalue and the corresponding
+eigenvector of the
+Laplacian matrix. Using this reordering, we show that one can
+reveal an underlying structure of the a sparse matrix.
+<BR>
+<P>
+The linear systems arising from <IMG
+ WIDTH="23" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ i^{th}$">
+-Newton-Raphson iteration step
+has the form <IMG
+ WIDTH="65" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ Jw_i=b_i$">
+, where <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ J$">
+ is the Jacobian matrix and,
+<!-- MATH
+ $w_i=\alpha_{i+1}-\alpha_i$
+ -->
+<IMG
+ WIDTH="109" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ w_i=\alpha_{i+1}-\alpha_i$">
+ is the Newton correction, and <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ b_i$">
+ denotes
+the righthand side of the nonlinear system. We construct a permutation
+matrix <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P$">
+ using the matrix reordering technique described above..
+Then, we apply the permutation matrix <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P$">
+ to obtain the permuted system
+<IMG
+ WIDTH="59" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ Nw=b$">
+ where <IMG
+ WIDTH="86" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ N=PJP^T$">
+, <IMG
+ WIDTH="67" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ w=Pw_i$">
+ and <IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ b=Pb_i$">
+. After solving the permuted
+system, the solution of the unpermuted linear system can be obtained by
+applying the inverse permutation, <!-- MATH
+ $w_i = P^T w$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ w_i = P^T w$">
+. The permuted and
+partitioned linear system can be solved via the block LU factorization in
+which the coefficient matrix has the form
+<P><!-- MATH
+ \begin{displaymath}
+N=
+\begin{bmatrix}
+A & B\\
+C^T & D
+\end{bmatrix}
+=
+\begin{bmatrix}
+A & 0\\
+C^T & S
+\end{bmatrix}
+\begin{bmatrix}
+I & U\\
+0 & I \end{bmatrix} \nonumber
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="252" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle N=
+\begin{bmatrix}
+A &amp; B\\
+C^T &amp; D
+\end{bmatrix}=
+\begin{bmatrix...
+...\
+C^T &amp; S
+\end{bmatrix}\begin{bmatrix}
+I &amp; U\\
+0 &amp; I \end{bmatrix} \nonumber
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="80" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ U=A^{-1}B$">
+ and <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ S$">
+ is the Schur complement matrix: <IMG
+ WIDTH="105" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ S=D-C^TU$">
+.
+The saddle point system is solved with block LU decomposition and
+BiCGStab with ILU preconditioning. 
+<BR>
+<P>
+Numerical results for uniformly and adaptively discretizatized quasi
+steady-state diffusion-convection-equations with polynomial, Monod type
+and Arhenius nonlinearity, show the efficiency of the matrix reordering
+technique and resolving internal and boundary layers. With increasing
+degree of DGFEM polynomials, the condition numbers of the matrices <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+
+and <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ S$">
+ are decreased and their eigenvalues are well clustered, which
+reduces the number of iterations and accelerates the solution of the
+linear systems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

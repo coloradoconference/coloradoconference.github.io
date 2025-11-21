@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>naumov_maxim___093680</TITLE>
+<META NAME="description" CONTENT="naumov_maxim___093680">
+<META NAME="keywords" CONTENT="naumov_maxim___093680">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naumov_maxim___093680.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Maxim Naumov 
+<BR><B>AmgX: Algebraic Multigrid and Preconditioned Iterative Methods on GPUs </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">NVIDIA 
+<BR>
+2701 San Tomas Expressway 
+<BR>
+Santa Clara 
+<BR>
+CA 
+<BR>
+95050
+
+<BR><TT>mnaumov@nvidia.com</TT>
+<BR>
+Marat Arsaev
+<BR>
+Patrice Castonguay
+<BR>
+Jonathan Cohen
+<BR>
+Julien Demouth
+<BR>
+Joe Eaton
+<BR>
+Simon Layton
+<BR>
+Nikolay Markovskiy, Nikolai Sakharnykh, Robert Strzodka, Zhenhai Zhu
+</DIV>
+
+<P>
+The solution of large sparse linear systems arises in many applications,
+such as computational fluid dynamics and oil reservoir simulation. In
+realistic cases the matrices are often so large that they require large
+scale distributed parallel platforms to obtain the solution of interest.
+
+<P>
+In this talk we discuss the AmgX library, which encapsulates distributed
+algebraic multigrid and preconditioned iterative methods that take
+advantage of multiple-GPUs. AmgX is designed to fully utilize the large
+degree of parallelism with a single GPU, as well as scale to large
+numbers of GPUs connected via in-node buses and inter-node networks. AmgX
+fully parallelizes both the setup and solve phases required to implement
+complex iterative multilevel solvers, and attempts to increase
+performance without significantly weakening numerical convergence. In
+this talk, we focus on the parallel algorithms, their mapping to
+massively parallel computer architectures, such as GPUs, as well as the
+impact of many of the latest CUDA features, such as Unified Virtual
+Memory (UVA), Multi Process Service (MPS) and stream priorities.
+
+<P>
+The AmgX library implements both classical and aggregation based
+algebraic multigrid methods with different selector and interpolation
+strategies. The library also contains many of the standard and flexible
+preconditioned Krylov subspace iterative methods, which can be used as
+standalone or outer solvers for the algebraic multigrid. A variety of
+smoothers and preconditioners, including block-Jacobi, Gauss-Seidel, and
+incomplete-LU factorization has also been developed. The parallelism in
+the aggregation scheme exploits parallel graph matching techniques, while
+the smoothers and preconditioners often rely on parallel graph coloring
+algorithms. A highlight of the library is the full configurability of
+deep solver hierarchies in which the outer solver uses other solvers as
+preconditioners, which themselves can also be preconditioned by other
+user configured solvers.
+
+<P>
+The AmgX library takes advantage of multiple-GPUs and allows handling of
+very large sparse linear systems that fit into the aggregate memory of
+all GPUs present in the system. It has its own memory management system
+that allows it to avoid additional synchronization points during the
+computation. Moreover, it implements a thread manager which may take
+advantage of HyperQ and CUDA stream priorities to offload different tasks
+to the GPU. Thread and stream priorities are used to ensure that the
+tasks on the critical path are always executed first, which is important
+to achieving good performance.
+
+<P>
+In the distributed environment the AmgX library requires the matrix to be
+partitioned using a graph partitioner and uses techniques that rely on
+rings of nearest neighbors to keep track of communication. Only the
+required halo elements are communicated across different nodes. The
+latency of these transfers is hidden by overlaying communication and
+computation when possible. Moreover, if the problem becomes too small to
+fill multiple GPUs with work, consolidation of smaller problems is
+performed onto fewer GPUs, which again allows the library to minimize
+communication costs while fully taking advantage of computational
+resources at hand. Wherever possible, AmgX also takes advantage of
+advanced features like cudaIpc and GPUDirect to accelerate inter-GPU
+communication.
+
+<P>
+The algebraic multigrid algorithm implemented in the AmgX library
+achieves 2-4x speedup on a single GPU against a competitive commercial
+implementation on the CPU. It scales well across multiple nodes
+sustaining this performance advantage. The AmgX library has been
+integrated into Ansys Fluent 15.0 and has been shown to speed up total
+simulation time by about 2x for coupled incompressible unsteady flow
+calculations while delivering same results as the CPU version.
+
+<P>
+Finally, large scale numerical experiments will also be presented.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

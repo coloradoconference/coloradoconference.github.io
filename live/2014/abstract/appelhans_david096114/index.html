@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>appelhans_david096114</TITLE>
+<META NAME="description" CONTENT="appelhans_david096114">
+<META NAME="keywords" CONTENT="appelhans_david096114">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="appelhans_david096114.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">David Appelhans 
+<BR><B>Multi-level Range Decomposition for Massively Parallel Machines</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">1355 Agape Way 
+<BR>
+Lafayette 
+<BR>
+CO 80026
+
+<BR><TT>dappelha@gmail.com</TT>
+</DIV>
+
+<P>
+Multi-level Range Decomposition eliminates the 1-to-1 communications
+necessary at ever level of traditional parallel multigrid
+implementations, substituting a single all-to-all communication and a
+small amount of extra local computation. Range decomposition uses a
+partition of unity to assign each processor a forcing function that is
+zero outside of the processor's region of interest. Decomposing the range
+instead of the domain allows the functional, and thus the work, to be
+equally distributed among processors a priori. Leveraging FOSLS and
+adaptive mesh refinement, each processor independently solves the
+decomposed system on an optimal sub-mesh which is global but has
+relatively few elements outside of a processors region of interest. The
+sum of such solutions from each processor represents the solution to the
+global problem. The computational advantages of this approach are that
+complicated cycle types such as w-cycles can be used with no
+communication penalty, and the decomposed problems can be solved in
+parallel without any communication until the solutions need to be summed.
+This offers potential advantages in the paradigm of expensive
+communication but very cheap computation. Convergence to within a small
+multiple of discretization error within one to two iterations is
+demonstrated for several elliptic first order system (FOSLS) test
+problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

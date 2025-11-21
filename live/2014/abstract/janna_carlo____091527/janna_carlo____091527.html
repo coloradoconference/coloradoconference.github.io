@@ -1,0 +1,650 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>janna_carlo____091527</TITLE>
+<META NAME="description" CONTENT="janna_carlo____091527">
+<META NAME="keywords" CONTENT="janna_carlo____091527">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="janna_carlo____091527.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Carlo Janna 
+<BR><B>Supernodes in Factored Sparse Approximate Inverse preconditioning</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept ICEA - University of Padova 
+<BR>
+via Trieste 63 
+<BR>
+35121 Padova 
+<BR>
+Italy
+
+<BR><TT>carlo.janna@unipd.it</TT>
+<BR>
+Massimiliano Ferronato
+<BR>
+Giuseppe Gambolati
+</DIV>
+
+<P>
+
+<P>
+In the solution of sparse linear systems, the flop count required by
+direct methods is generally
+much higher than that of cost-effective iterative methods, especially in
+three dimensional problems.
+However, direct methods are still competitive, as they can reach much
+higher flop rates. This is possible
+by the use of supernodes, that is clusters of unknowns that are processed
+together with cache-efficient dense linear algebra kernels. On the
+contrary, iterative methods
+can rarely give the same flops performances as direct methods because
+they require an indirect
+memory indexing preventing intensive use of the processor cache. Supernodes have been
+successfully exploited in the field of incomplete LU preconditioning though with
+lower flops than in direct methods.
+
+<P>
+In this work we extend the concept of supernode to Factored Sparse
+Approximate Inverse (FSAI)
+preconditioning [2] to reduce the set-up cost and improve the overall solver
+convergence. The FSAI preconditioner <IMG
+ WIDTH="39" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ M^{-1}$">
+ is defined as:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fsai"></A><!-- MATH
+ \begin{equation}
+M^{-1} = G^T G
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="95" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle M^{-1} = G^T G$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ G$">
+ is an approximation of the inverse of the exact lower Cholesky
+factor <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ L$">
+ of the system
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A$">
+. The supernodes for FSAI preconditioning are developed for
+both a static and a dynamic
+pattern generation of <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ G$">
+.
+
+<P>
+<EM>Static FSAI.</EM>
+Suppose that the FSAI non-zero pattern <!-- MATH
+ $\mathcal{S}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{S}$">
+ is given and denote
+by <!-- MATH
+ $\mathcal{P}_i$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathcal{P}_i$">
+ the set of
+column indices with cardinality <!-- MATH
+ $m_i=\left|\mathcal{P}_i\right|$
+ -->
+<IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ m_i=\left\vert\mathcal{P}_i\right\vert$">
+ belonging to the <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ i$">
+-th row of
+<!-- MATH
+ $\mathcal{S}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{S}$">
+. Denoting by <!-- MATH
+ $A[\mathcal{P}_i,\mathcal{P}_i]$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ A[\mathcal{P}_i,\mathcal{P}_i]$">
+ the submatrix of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A$">
+
+constructed by using the indices
+in <!-- MATH
+ $\mathcal{P}_i$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathcal{P}_i$">
+ and by <!-- MATH
+ $\widetilde{\mbox{\boldmath $\  g$}}_i$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \widetilde{\mbox{\boldmath $ g$}}_i$">
+ the dense vector collecting the non-zero entries of
+<!-- MATH
+ $\widetilde{G}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \widetilde{G}$">
+, the following relation holds:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="syst_dens"></A><!-- MATH
+ \begin{equation}
+A[\mathcal{P}_i,\mathcal{P}_i] \widetilde{\mbox{\boldmath$ g$}}_i = \mbox{\boldmath$ e$}_{m_i} \qquad \qquad \qquad i = 1,\dots,n
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="302" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle A[\mathcal{P}_i,\mathcal{P}_i] \widetilde{\mbox{\boldmath$ g$}}_i = \mbox{\boldmath$ e$}_{m_i} \qquad \qquad \qquad i = 1,\dots,n$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+i.e., the coefficients of any row of <!-- MATH
+ $\widetilde{G}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \widetilde{G}$">
+ are obtained by
+solving a dense linear
+system where <!-- MATH
+ $\mbox{\boldmath $\  e$}_{m_i} = [0,0,\dots,1]^T$
+ -->
+<B><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$  e$"></B>
+<IMG
+ WIDTH="128" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ _{m_i} = [0,0,\dots,1]^T$">
+ is the <B><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ m_i$"></B>
+-th vector of the
+canonical basis of
+<!-- MATH
+ $\mathbb{R}^{m_i}$
+ -->
+<B><IMG
+ WIDTH="33" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \mathbb{R}^{m_i}$"></B>
+. If two rows, let us say <B><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ i_1$"></B>
+ and <B><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ i_2$"></B>
+, have a
+similar pattern, i.e.,
+<!-- MATH
+ $\mathcal{P}_{i_1} \simeq \mathcal{P}_{i_2}$
+ -->
+<B><IMG
+ WIDTH="71" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \mathcal{P}_{i_1} \simeq \mathcal{P}_{i_2}$"></B>
+, solving one enlarged system obtained from
+merging <!-- MATH
+ $\mathcal{P}_{i_1}$
+ -->
+<B><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \mathcal{P}_{i_1}$"></B>
+ and
+<!-- MATH
+ $\mathcal{P}_{i_2}$
+ -->
+<B><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \mathcal{P}_{i_2}$"></B>
+ into <!-- MATH
+ $\mathcal{P}_{\widetilde{i}}$
+ -->
+<B><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \mathcal{P}_{\widetilde{i}}$"></B>
+ can be less expensive than solving two
+smaller systems. This pair
+of rows form a supernode that can be compared to other rows and, if convenient, merged to
+other sets of indices, thus enlarging the supernode. The collapse of a
+row into a supernode
+is decided on the basis of the computational cost for solving
+(<A HREF="#syst_dens">2</A>). Defining a
+cost model <B><IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ c(m,l)$"></B>
+ for solving dense systems of size <B><IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ m$"></B>
+ with <B><IMG
+ WIDTH="10" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ l$"></B>
+
+right-hand sides, a supernode
+<!-- MATH
+ $\widetilde{i}$
+ -->
+<B><IMG
+ WIDTH="10" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \widetilde{i}$"></B>
+ merging <B><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ i_1$"></B>
+ and <B><IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ i_2$"></B>
+ is formed if:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="score"></A><!-- MATH
+ \begin{equation}
+c(\widetilde{m},2) < c(m_1,1) + c(m_2,1)
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="204" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$\displaystyle c(\widetilde{m},2) &lt; c(m_1,1) + c(m_2,1)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Similarly, a node <B><IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ i_k$"></B>
+ is incorporated into the supernode <!-- MATH
+ $\widetilde{i}$
+ -->
+<B><IMG
+ WIDTH="10" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \widetilde{i}$"></B>
+ that has
+already merged <B><IMG
+ WIDTH="10" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ l$"></B>
+ rows if:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="cond1"></A><!-- MATH
+ \begin{equation}
+c(\widetilde{m}+h,\widetilde{l}+1) < c(\widetilde{m},\widetilde{l}) + c(m_k,1)
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="248" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$\displaystyle c(\widetilde{m}+h,\widetilde{l}+1) &lt; c(\widetilde{m},\widetilde{l}) + c(m_k,1)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <B><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ m_k$"></B>
+ denote the cardinality of the set <!-- MATH
+ $\mathcal{P}_{i_k}$
+ -->
+<B><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \mathcal{P}_{i_k}$"></B>
+,
+<!-- MATH
+ $\widetilde{m}$
+ -->
+<B><IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$ \widetilde{m}$"></B>
+ the cardinality of
+<!-- MATH
+ $\mathcal{P}_{\widetilde{i}}$
+ -->
+<B><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \mathcal{P}_{\widetilde{i}}$"></B>
+ and <B><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$ h$"></B>
+ the number of mismatches, that is the number of
+column indices lying in <!-- MATH
+ $\mathcal{P}_{i_k}$
+ -->
+<B><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \mathcal{P}_{i_k}$"></B>
+
+but not in <!-- MATH
+ $\mathcal{P}_{\widetilde{i}}$
+ -->
+<B><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \mathcal{P}_{\widetilde{i}}$"></B>
+.
+
+<P>
+<EM>Dynamic FSAI.</EM>
+We follow the adaptive approach proposed in [1] for Block FSAI
+preconditioning and specified as
+pure FSAI in [2]. The idea is to start from an initial guess, say <B><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$ G_0$"></B>
+,
+and improve dynamically the
+pattern <!-- MATH
+ $\mathcal{S}_0$
+ -->
+<B><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \mathcal{S}_0$"></B>
+ by adding the entries that most reduce the
+Kaporin condition number of the
+preconditioned matrix <!-- MATH
+ $G_0 A G_0^T$
+ -->
+<B><IMG
+ WIDTH="59" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.png"
+ ALT="$ G_0 A G_0^T$"></B>
+. A new FSAI, <B><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ G_1$"></B>
+, is thus computed,
+and the procedure is repeated
+<B><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.png"
+ ALT="$ k$"></B>
+ times until either the maximum number of steps is reached or an
+appropriate exit criterion is met.
+To lower the computational cost of the above procedure we use the concept
+of supernode that merges
+together groups of rows. With no loss of generality, we merge a set of
+<B><IMG
+ WIDTH="10" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ l$"></B>
+ sequential rows of
+<!-- MATH
+ $\widetilde{G}$
+ -->
+<B><IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \widetilde{G}$"></B>
+ with indices in <!-- MATH
+ $\mathcal{R}= \{i_1, i_2,\dots,i_l \}$
+ -->
+<B><IMG
+ WIDTH="133" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$ \mathcal{R}= \{i_1, i_2,\dots,i_l \}$"></B>
+. A
+supernode is defined if:
+<DL COMPACT>
+<DT>(1)</DT>
+<DD>every row in the cluster has the same non-zero pattern outside
+<!-- MATH
+ $\widetilde{G}[\mathcal{R},\mathcal{R}]$
+ -->
+<B><IMG
+ WIDTH="60" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$ \widetilde{G}[\mathcal{R},\mathcal{R}]$"></B>
+;
+</DD>
+<DT>(2)</DT>
+<DD>the diagonal block is an <!-- MATH
+ $l \times l$
+ -->
+<B><IMG
+ WIDTH="34" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$ l \times l$"></B>
+ identity matrix,
+<!-- MATH
+ $\widetilde{G}[\mathcal{R},\mathcal{R}] \equiv I_l$
+ -->
+<B><IMG
+ WIDTH="93" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$ \widetilde{G}[\mathcal{R},\mathcal{R}] \equiv I_l$"></B>
+.
+</DD>
+</DL>
+It can be proved that the Kaporin number of <B><IMG
+ WIDTH="52" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img44.png"
+ ALT="$ GAG^T$"></B>
+ is minimum iff for
+each supernode <!-- MATH
+ $\widetilde{G}$
+ -->
+<B><IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \widetilde{G}$"></B>
+
+satisfy:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eqTheo"></A><!-- MATH
+ \begin{equation}
+A[\mathcal{C},\mathcal{C}] \; \widetilde{G}[\mathcal{R},\mathcal{C}]^T = -A[\mathcal{C},\mathcal{R}]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="201" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img45.png"
+ ALT="$\displaystyle A[\mathcal{C},\mathcal{C}] \; \widetilde{G}[\mathcal{R},\mathcal{C}]^T = -A[\mathcal{C},\mathcal{R}]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and <B><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ G$"></B>
+ is then obtained by scaling <!-- MATH
+ $\widetilde{G}$
+ -->
+<B><IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \widetilde{G}$"></B>
+ with a block diagonal
+matrix such that the diagonal
+entries of <B><IMG
+ WIDTH="52" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img44.png"
+ ALT="$ GAG^T$"></B>
+ are unitary. In equation (<A HREF="#eqTheo">5</A>) <!-- MATH
+ $\mathcal{C}$
+ -->
+<B><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \mathcal{C}$"></B>
+ is the
+set of column indices outside
+<!-- MATH
+ $\widetilde{G}[\mathcal{R},\mathcal{R}]$
+ -->
+<B><IMG
+ WIDTH="60" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img41.png"
+ ALT="$ \widetilde{G}[\mathcal{R},\mathcal{R}]$"></B>
+. With a dynamic FSAI supernodes size is user-specified, forcing
+groups of adjacent rows to merge. For these rows, the entries of
+<!-- MATH
+ $\widetilde{G}$
+ -->
+<B><IMG
+ WIDTH="17" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \widetilde{G}$"></B>
+ are computed by
+equation (<A HREF="#eqTheo">5</A>) where a new column is introduced whenever it
+allows for a significant decrease of
+the current value of the Kaporin number of <B><IMG
+ WIDTH="52" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img44.png"
+ ALT="$ GAG^T$"></B>
+. A score for each
+column index is computed and
+the supernode pattern is enlarged until either a maximum number of
+columns are added or an appropriate
+exit criterion is met.
+
+<P>
+The Supernodes performance is investigated in both static and dynamic
+FSAI with a set of numerical experiments.
+The results show that they are effective in reducing significantly the
+preconditioner set-up time.
+Experience indicates that super nodes can improve performance up to 6
+times better than the native FSAI.
+
+<P>
+References:
+
+<P>
+[1] C. Janna and M. Ferronato, Adaptive pattern research for Block FSAI preconditioners,
+SIAM Journal on Scientific Computing, 33 (2011), 3357-3380.
+
+<P>
+[2] C. Janna, M. Ferronato, F. Sartoretto and G. Gambolati, FSAIPACK: a
+software package for
+high performance Factored Sparse Approximate Inverse preconditioning, ACM Transactions on
+Mathematical Software, submitted.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

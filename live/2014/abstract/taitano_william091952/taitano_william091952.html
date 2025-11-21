@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>taitano_william091952</TITLE>
+<META NAME="description" CONTENT="taitano_william091952">
+<META NAME="keywords" CONTENT="taitano_william091952">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="taitano_william091952.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">William, T Taitano 
+<BR><B>Moment-Based Acceleration for a Collisional Kinetic Plasma Model</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Theoretical Division 
+<BR>
+MS B216 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>taitano@lanl.gov</TT>
+<BR>
+Luis Chacon
+<BR>
+Dana Knoll
+</DIV>
+
+<P>
+When one considers collisional kinetic plasmas with charge-separation,
+disparate separation in length and time scales arise. For the
+time-scales, many orders of magnitude separation exist between the
+inverse electron plasma frequency, collision time-scales, and the
+simulation time. Similarly, for the length-scales, there exist many
+orders of magnitude separation between the Debye length, collisional
+mean-free-path, and the system length. If one is interested in studying
+system time and length scales, explicit integration methods do not
+suffice. Explicit approaches are required to respect the CFL stability
+constraint, which imposes severe limitations on the time-step size that
+can be used. Implicit methods can effectively use a much larger time-step
+size, but require solving a nonlinear problem. Fixed point iteration
+methods such as Picard are simple to implement, but can be slow to
+converge when stepping over fast electron time-scales (e.g. inverse
+electron plasma frequency), and can diverge in certain cases [1].
+Moment-based accelerations have been demonstrated in various applications
+[2,3,4,5] to significantly improve both the convergence and the
+robustness of the Picard iteration algorithm. Moment-based acceleration
+algorithms employ low-order (LO) moment-field equations (PDE), which live
+in a reduced space (x, t), as a coarse-grid accelerator for the
+high-order (HO) integro-differential kinetic equations, which live in the
+phase-space (x, v, t).
+
+<P>
+In this work, we develop a HOLO moment-based nonlinear convergence
+acceleration method for a collisional plasma model with charge-separation
+effects. The model is described by the Vlasov-Fokker-Planck-Amp&#232;re
+(VFPA) system. When one considers long-time integration of collisional
+plasmas with charge-separation, preserving discrete conservation
+properties become an important accuracy concern. In particular, charge,
+and energy conservation are critical properties that must be conserved
+rigorously to prevent issues with <I>numerical charge-separation</I> and
+<I>numerical heating</I>. Standard discretizations of the VFPA equation
+are capable of preserving one of these properties, but not both. In order
+to simultaneously preserve both conservation properties, a new <I>nonlinear discretization</I> scheme is developed. The new discretization
+scheme is based on introducing and satisfying a set of <I>discrete
+nonlinear constraints</I>, which require nonlinear convergence to be
+enforced. In order to achieve nonlinear convergence acceleration, the
+continuity (0th moment), momentum (1st moment), and energy (2nd moment)
+equations must be included in the LO system, with stiff electron thermal
+conduction physics exposed. We use a multi-species, multi-length, and
+time scale model problem to demonstrate that the proposed algorithm can
+employ time-step sizes much larger than fast electron time-scales, yet
+obtain the solution very efficiently. Additionally, we show that the
+nonlinearity in the new conservative discretization scheme can be dealt
+with effectively through the HOLO moment acceleration algorithm.
+
+<P>
+[1] J.A. Willert, et al., J. Comp. Phys., submitted (2013).
+
+<P>
+[2] D.A. Knoll et al., Nuc. Sci. and Engn., Vol. 167 (2011).
+
+<P>
+[3] H.K. Park et al., Tranps. Theory and Stat. Phys., Vol. 41 (2012).
+
+<P>
+[4] W.T. Taitano et al., SIAM J. Sci. Comp., Vol 35 (2013).
+
+<P>
+[5] W.T. Taitano et al., Transp. Theory and Stat. Phys., submitted (2013).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

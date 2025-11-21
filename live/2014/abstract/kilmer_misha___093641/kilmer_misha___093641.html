@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kilmer_misha___093641</TITLE>
+<META NAME="description" CONTENT="kilmer_misha___093641">
+<META NAME="keywords" CONTENT="kilmer_misha___093641">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kilmer_misha___093641.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Misha Kilmer 
+<BR><B>An adaptive inner-outer iterative regularization method for edge recovery</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tufts University 
+<BR>
+Department of Mathematics 
+<BR>
+503 Boston Ave 
+<BR>
+Medford 
+<BR>
+MA 02155
+
+<BR><TT>misha.kilmer@tufts.edu</TT>
+<BR>
+Oguz Semerci
+<BR>
+Eric Miller
+</DIV>
+
+<P>
+In this talk we consider a new inner-outer iterative algorithm for edge
+recovery in image restoration and reconstruction problems. Specifically,
+we consider generating regularized solutions <IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ x_{reg}$">
+ to
+<P><!-- MATH
+ \begin{displaymath}
+Ax = b_{true} + \eta =b , \qquad \mbox{ with } b_{true} := A x_{true} ,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="139" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle Ax = b_{true} + \eta =b ,$">&nbsp; &nbsp; with <IMG
+ WIDTH="113" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle b_{true} := A x_{true} ,$">
+</DIV><P>
+</P>
+where <!-- MATH
+ $A \in \mathbb{R}^{m \times n}$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A \in \mathbb{R}^{m \times n}$">
+ is a known forward operator,
+<IMG
+ WIDTH="11" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ b$">
+ represents the known measured data but <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \eta$">
+ is unknown, and
+<IMG
+ WIDTH="39" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ x_{true}$">
+ is the unknown, vectorized version of the true image to which
+we would like to generate an approximation.
+
+<P>
+One of the most well-known methods of regularization is Tikhonov
+regularization
+<P><!-- MATH
+ \begin{displaymath}
+\min_{x} \| A x - b \|_2^2 + \lambda^2 R(x),
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="178" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle \min_{x} \Vert A x - b \Vert _2^2 + \lambda^2 R(x), $">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ R(x)$">
+ is referred to as the regularization term in the cost
+functional. The regularization
+parameter <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$">
+ determines the trade-off between the fidelity to the
+model, and damping of the noise through
+enforcement of apriori information via <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ R$">
+. Often, <!-- MATH
+ $R(x) := \|L x \|_2^2$
+ -->
+<IMG
+ WIDTH="107" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ R(x) := \Vert L x \Vert _2^2$">
+
+where <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ L$">
+ is often either the identity or a discrete gradient or discrete
+Laplacian operator.
+Due to the use of the 2-norm on the constraint term <!-- MATH
+ $\| L x \|_2^2$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \Vert L x \Vert _2^2$">
+, solutions tend to be
+smooth, assuming an appropriate value of <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$">
+ is known.
+On the other hand,
+solving this regularized least squares problem with a suitable Krylov
+method is straightforward if <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$">
+ is known, as <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ A$">
+ and <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ L$">
+ are
+usually
+structured. Even if <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$">
+ is not known, hybrid methods on the so-called standard form
+version of the problem, or joint-bidiagonalization approaches that seek to find <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$">
+
+by operating on the projected problem are possible alternatives.
+
+<P>
+Two well-known alternative choices for <IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ R(x)$">
+ when one desires
+regularized solutions with sharp edges are <IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ TV(x)$">
+ (total variation) and
+<!-- MATH
+ $\| Lx \|_p^p$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \Vert Lx \Vert _p^p$">
+
+with <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ L$">
+ the discrete gradient operator <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ p$">
+ close to 1. However,
+approaches such as these require overall more computational effort than
+if the 2-norm constraint is used, a problem that is further complicated
+by the fact that a good value of <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$">
+ is typically not known
+apriori.
+
+<P>
+We propose a novel, two-step approach, in which we solve a sequence of
+regularized least squares
+problems
+<P><!-- MATH
+ \begin{displaymath}
+\min_x \| A x - b \|_2^2 + \lambda_k^2 \| D_k x \|_2^2
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="194" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$\displaystyle \min_x \Vert A x - b \Vert _2^2 + \lambda_k^2 \Vert D_k x \Vert _2^2 $">
+</DIV><P>
+</P>
+where the near-optimal value of <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \lambda_k$">
+ is determined on-the-fly for each
+regularization operator <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ D_k$">
+
+through a hybrid regularization approach used in (Kilmer, Hansen,
+Espanol; SISC, 2007). We give a
+method for designing <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ D_k$">
+ adaptively
+in the outer iteration in such a way that edges are enhanced as <IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ k$">
+ increases.
+We will discuss expected behavior on a class of images.
+We present results on applications in X-ray CT and image deblurring that
+show that our algorithm
+has the potential to produce high-quality images in a computationally efficient manner.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

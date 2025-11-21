@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ho_nguyenho____093578</TITLE>
+<META NAME="description" CONTENT="ho_nguyenho____093578">
+<META NAME="keywords" CONTENT="ho_nguyenho____093578">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ho_nguyenho____093578.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Nguyenho Ho 
+<BR><B>Accelerated Uzawa Iteration for the Stokes Equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematical Sciences Department 
+<BR>
+Worcester Polytechnic Institute 
+<BR>
+100 Institute Road 
+<BR>
+Worcester 
+<BR>
+MA 01609-2280
+
+<BR><TT>nho@wpi.edu</TT>
+<BR>
+Sarah  Olsen
+<BR>
+Homer Walker
+</DIV>
+
+<P>
+The finite-element discretization of the Stokes equations leads to a saddle-point problem
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Saddle"></A><!-- MATH
+ \begin{equation}
+\left[\begin{array}{cc}
+{A} & {B}^T \\
+{B}& 0 \end{array} \right]
+\left[\begin{array}{c}
+{\bf u} \\
+p \end{array} \right]=
+\left[\begin{array}{c}
+{\bf f} \\
+0\end{array} \right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="196" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \left[\begin{array}{cc} {A} &amp; {B}^T \ {B}&amp; 0 \end{array} \right]...
+... p \end{array} \right]= \left[\begin{array}{c} {\bf f} \ 0\end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ is symmetric positive-definite and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ B$">
+ is full-rank.
+Saddle-point systems of this type arise from many sources, and their
+numerical solution has been extensively studied (see, e.g., [2]). Here,
+we focus on the Stokes system&nbsp;(<A HREF="#Saddle">1</A>) obtained using a P2/P0
+finite-element discretization and consider the Uzawa iteration [3]
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Uzawa"></A><!-- MATH
+ \begin{equation*}
+\begin{array}{rcl}
+A {\bf u}_{k+1} &=& {\bf f} - B^T p_k \\
+p_{k+1} &=& p_k + \omega B {\bf u}_{k+1}.
+\end{array}
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="186" HEIGHT="54" BORDER="0"
+ SRC="img4.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} A {\bf u}_{k+1} &amp;=&amp; {\bf f} - B^T p_k \ p_{k+1} &amp;=&amp; p_k + \omega B {\bf u}_{k+1}. \end{array}\end{displaymath}"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Regarding this as a fixed-point iteration on <IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\bf u}$">
+ and <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p$">
+, we
+augment it with Anderson acceleration&nbsp;[1] to improve the convergence. We
+show the results of a numerical study in which we compare the performance
+in several test cases of Uzawa iteration with and without Anderson
+acceleration as well as several alternative solution approaches.
+
+<P>
+
+<P><P>
+<BR>
+
+<P>
+
+<P>
+20pt[1]&nbsp;D. G. Anderson, <EM>Iterative procedures for nonlinear
+integral equations</EM>, J. Assoc. Comput. Mach., 12 (1965), pp. 547-560.
+
+<P>
+
+<P></P>
+
+<P>
+
+<P>
+20pt[2]&nbsp;M. Benzi, G. H. Golub, and J. Liesen, <EM>Numerical
+solution of saddle point problems</EM>, Acta Numerica (2005), Cambridge
+University Press, 2005, pp. 1-137,
+
+<P>
+
+<P></P>
+
+<P>
+
+<P>
+20pt[3]&nbsp;H. Uzawa, <EM>Iterative methods for concave programming</EM>,
+in Studies in Linear and Nonlinear Programming, K. J. Arrow, L. Hurwicz,
+and H. Uzawa, eds., Stanford University Press, Stanford, CA, 1958, pp.
+154-165.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>oseikuffuor_dan092919</TITLE>
+<META NAME="description" CONTENT="oseikuffuor_dan092919">
+<META NAME="keywords" CONTENT="oseikuffuor_dan092919">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="oseikuffuor_dan092919.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Daniel Osei-Kuffuor 
+<BR><B>An accurate and scalable O(N) algorithm for Large-Scale First-Principles Molecular Dynamics computations </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Livermore National Laboratory 
+<BR>
+P O Box 808 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94551
+
+<BR><TT>oseikuffuor1@llnl.gov</TT>
+<BR>
+Daniel Osei-Kuffuor
+<BR>
+Jean-Luc Fattebert
+</DIV>
+
+<P>
+Traditional algorithms for First-Principles Molecular Dynamics (FPMD)
+simulations only gain a modest capability increase from current petascale
+computers, due to their <IMG
+ WIDTH="51" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ O(N^3)$">
+ complexity. To address this issue, we
+are developing a truly scalable FPMD algorithm, based on density
+functional theory (DFT), with <IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ O(N)$">
+ complexity and controllable
+accuracy. The computational model uses a general non-orthogonal orbital
+formulation for the energy functional in the DFT equations, which
+requires knowledge of selected elements of the inverse of the associated
+overlap matrix. We present a scalable algorithm for approximately
+computing selected entries of the inverse of the overlap matrix, based on
+an approximate inverse technique, by inverting local blocks corresponding
+to principal submatrices of the global overlap matrix. The new FPMD
+algorithm exploits sparsity and uses nearest neighbor communication to
+provide a computational scheme capable of extreme scalability. Accuracy
+is controlled by the mesh spacing of the finite difference
+discretization, the size of the localization regions in which the
+electronic wave functions are confined, and a cutoff beyond which the
+entries of the overlap matrix can be omitted when computing selected
+entries of its inverse. We demonstrate the algorithm's excellent parallel
+scaling for up to <IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ O(100K)$">
+ atoms on <IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ O(100K)$">
+ processors, with a
+wall-clock time of <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ O(1)$">
+ minute per molecular dynamics time step.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

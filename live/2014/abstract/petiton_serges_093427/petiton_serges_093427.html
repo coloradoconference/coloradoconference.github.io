@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>petiton_serges_093427</TITLE>
+<META NAME="description" CONTENT="petiton_serges_093427">
+<META NAME="keywords" CONTENT="petiton_serges_093427">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="petiton_serges_093427.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Serge, S Petiton 
+<BR><B>Parallel algorithms for arbitrary size sparse and dense matrices with imposed spectrum</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">LIFL 
+<BR>
+Université de Lille 1 Sciences et Technologies 
+<BR>
+France
+
+<BR><TT>serge.petiton@lifl.fr</TT>
+<BR>
+Herv&#233;, H Galicher
+<BR>
+Christophe, C Calvin
+</DIV>
+
+<P>
+Since, at the present time, exascale machines are not available, it is
+quite difficult to provide input data (matrices) to evaluate the
+performance and the behaviour of the numerical algorithms (linear and
+eigen solvers) at this target scale. But it is compulsory to prepare such
+kind algorithms which could scale at this level. A solution proposed is
+to provide a matrix generator which could produce arbitrary size
+matrices, dense or sparse, with an imposed spectrum.
+We adress the following problem :
+
+<UL>
+<LI>given a set of eigenvalues and/or singular values, can we generate
+a matrix having these eigenvalues and/or singular values ?
+</LI>
+</UL>
+The answer is obvious if we do not add some constraints because, for <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ D$">
+
+and <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ S$">
+ two given eigenvalues and singular values vectors and for any
+invertible matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ and two orthogonal matrices <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ O_1$">
+ and <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ O_2$">
+, the
+expected matrices are immediately accessible if we perform the inversion
+of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ or make the product of <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ S$">
+ with two orthogonal matrices. However
+the constraints are the following :
+
+<UL>
+<LI>the matrix shall not be hermitian and shall not look like a trivial matrix,
+</LI>
+<LI>the algorithm must be tractable in very high dimension,
+</LI>
+<LI>the computer arithmetic must be controllable,
+</LI>
+<LI>the density and position of zeros must be controllable.
+</LI>
+</UL>
+The main implications of these constraints are that we cannot accept a
+generating algorithm that needs to invert a matrix and/or involving a lot
+of floating point divisions, and neither we can build it from small sized
+independent blocks solutions of our problem in small dimension as we want
+to have a final matrix with a quite random shape.
+<BR>
+Mathematically, building a matrix with at the same time a prescribed
+spectrum and a singular spectrum exactly falls into the application of
+the Horn-Weyl theorem. It leads to an algorithm that builds matrices with
+a fixed general shape and is recursive. We first propose a GPU
+implementation for this kind of generating algorithm. In order to
+circumvent to the lack of flexibility in the type of matrices resulting
+from this algorithm, we propose two new approches to generate our
+matrices. One is focused on an iterative use of the Bartlett's formula,
+its complexity is controllable and the density of zeros too. It is based
+on the construction of a class of matrices whose inverse is easily
+computable with standard matrix products.
+<BR>
+The other method is much more abstract and is based on ODE's and
+nilpotent semigroup generators. It has the advantage that, at the end,
+the final algorithm is surprisingly simple with parameters easily
+controllable to choose the shape of the final matrix, the most important
+aspect is that this algorithm allows us to produce matrices having a
+multidiagonal shape (beyond a controllable diagonal threshold, elements
+in the top-right and bottom-left corners are exactly zeros). We show that
+there exists a linear operator based on a Jordan representation whose
+exponential is exactly computable and its associated semigroup has a
+fixed spectrum. We also show that by applying this semigroup to a
+well-chosen initial condition we end up with a multidiagonal matrix as
+expected. The property of the algorithm depends on the nilpotency degree
+of the chosen operator. At the end we observe that the algorithm can be
+transformed in such a way that all the computations can be done exactly
+without rounding errors because we have no more floating point division.
+The matrices finally obtained will have the form :
+<P><!-- MATH
+ \begin{displaymath}
+M=\left(
+\begin{array}{ccccc}
+m_{11} & \cdots & m_{1N} & 0 & 0\\
+\vdots & \ddots & & \ddots & 0\\
+m_{N1} & & \ddots & & m_{(n-N)n}\\
+0 & \ddots & & \ddots & \vdots\\
+0 & 0 & m_{n(n-N)} & \cdots & m_{nn}
+\end{array}
+\right).
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="350" HEIGHT="143" BORDER="0"
+ SRC="img6.png"
+ ALT="\begin{displaymath}
+M=\left(
+\begin{array}{ccccc}
+m_{11} &amp; \cdots &amp; m_{1N} &amp; 0 &amp;...
+...ts\\
+0 &amp; 0 &amp; m_{n(n-N)} &amp; \cdots &amp; m_{nn}
+\end{array}\right).
+\end{displaymath}">
+</DIV><P>
+</P>
+This algorithm is implemented in parallel in order to accelerate the
+generation of matrices in very large dimension.
+We will present the different proposed algorithms and their capabilities
+to be implemented in parallel. Examples of generated matrices (around 1
+billion non-zeros elements) and test validation using Slepc will be
+adressed as some parallel perfomances.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

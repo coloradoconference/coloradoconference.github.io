@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kong_fande_____092193</TITLE>
+<META NAME="description" CONTENT="kong_fande_____092193">
+<META NAME="keywords" CONTENT="kong_fande_____092193">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kong_fande_____092193.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Fande Kong 
+<BR><B>A multilevel domain decomposition method with a boundary geometry preserving coarse space for elasticity equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+University of Colorado Boulder 
+<BR>
+Boulder 
+<BR>
+Colorado 80309-0430
+
+<BR><TT>fande.kong@colorado.edu</TT>
+<BR>
+Xiao-Chuan Cai
+</DIV>
+
+<P>
+Domain decomposition method is a popular approach for solving elasticity
+equations discretized by the finite element method on 3D unstructured
+meshes. The method is scalable in term of the number of iterations if
+appropriate coarse spaces are used. However, it is nontrivial to
+construct an algorithm that is highly scalable in term of the total
+compute time, especially when the number of processors is large and the
+computational domain is complex, because the coarse solver itself is not
+often scalable and accounts for a large percentage of the total compute
+time. To fix the issue, a new algorithm is introduced to construct coarse
+spaces by retaining a set of important boundary vertices and deleting a
+set of interior vertices such that they preserve the boundary geometry of
+the fine mesh and use only a small amount of compute time by giving up
+the solution accuracy in the interior. It turns out that the geometry
+preserving feature of the coarse space makes the method highly scalable
+in terms of the number of iterations and the total compute time even when
+the number of processors is large. The low coarse solution accuracy does
+not change the final solution accuracy since the coarse solver is only
+part of the preconditioner. We show numerically that the method is highly
+scalable for some 3D elasticity problems on a supercomputer with over
+10,000 cores.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

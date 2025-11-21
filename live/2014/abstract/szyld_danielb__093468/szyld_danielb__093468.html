@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>szyld_danielb__093468</TITLE>
+<META NAME="description" CONTENT="szyld_danielb__093468">
+<META NAME="keywords" CONTENT="szyld_danielb__093468">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="szyld_danielb__093468.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Daniel B Szyld 
+<BR><B>Classical iterative methods for the solution of Generalized Lyapunov Equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics 
+<BR>
+Temple University 
+<BR>
+1804 N Broad St 
+<BR>
+Philadelphia 
+<BR>
+PA 19122
+
+<BR><TT>szyld@temple.edu</TT>
+</DIV>
+
+<P>
+There has been a flurry of activity in recent years in the area of
+solution of matrix equations. In particular,
+a good understanding
+has been reached
+on how to approach the solution of large scale
+Lyapunov equations;
+see, e.g.,
+[<A
+ HREF="node1.html#Benner.Li.Penzl.08">1</A>]-[<A
+ HREF="node1.html#Simoncini.07">3</A>].
+An effective way to solve Lyapunov equations of the form
+<!-- MATH
+ $A^{T}X + XA +C^{T}C = 0$
+ -->
+<IMG
+ WIDTH="170" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A^{T}X + XA +C^{T}C = 0$">
+, where <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ and <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ X$">
+ are <!-- MATH
+ $n \times n$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ n \times n$">
+,
+is to use Galerkin projection with appropriate extended or rational
+Krylov subspaces. These methods work in part because the solution is known
+to be symmetric positive definite with rapidly decreasing singular values, and therefore
+it can be approximated by
+a low rank matrix <!-- MATH
+ $X_k= Z_k Z_k^T$
+ -->
+<IMG
+ WIDTH="87" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ X_k= Z_k Z_k^T$">
+.
+Thus the computations are performed usually with storage which is lower rank,
+i.e., much lower than order of <IMG
+ WIDTH="21" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ n^2$">
+.
+
+<P>
+Generalized Lyapunov
+equations have additional terms. In this
+paper, we concentrate on equations of the following form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Gen.Lyap"></A><!-- MATH
+ \begin{equation}
+A^{T}X + XA + \sum_{j=1}^m N_j X N_j^T + C^{T}C = 0,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="278" HEIGHT="62" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle A^{T}X + XA + \sum_{j=1}^m N_j X N_j^T + C^{T}C = 0,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Such equations arise for example in stochastic control [<A
+ HREF="node1.html#Damm.book.04">4</A>].
+It has been proposed, e.g., in [<A
+ HREF="node1.html#Benner.Breiten.NM.13">5</A>], to use approximations
+to conjugate gradients or to BiCGStab, appropriately preconditioned,
+where the basis vectors (matrices) and iterates are ``truncated" throughout the
+algorithm to keep all these elements represented by low-rank matrices.
+
+<P>
+In the present work, we propose a return to classical iterative methods, and consider
+instead stationary iterations, where the iterate
+<!-- MATH
+ $X_{k+1}= Z_{k+1} Z_{k+1}^T$
+ -->
+<IMG
+ WIDTH="132" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ X_{k+1}= Z_{k+1} Z_{k+1}^T$">
+ is the solution of
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Lyap.seq"></A><!-- MATH
+ \begin{equation}
+P(X):= A^{T}X + XA = Q(X_k), ~~~ k=0,1, \ldots
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="320" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle P(X):= A^{T}X + XA = Q(X_k),&nbsp;&nbsp;&nbsp; k=0,1, \ldots$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<!-- MATH
+ $Q(X) = - \sum_{j=1}^m N_j X N_j^T - C^{T}C$
+ -->
+<IMG
+ WIDTH="235" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ Q(X) = - \sum_{j=1}^m N_j X N_j^T - C^{T}C $">
+;
+cf.&nbsp;[<A
+ HREF="node1.html#Guo.Laub.00">6</A>].
+The classical theory of splittings applies here,
+while imposing certain
+conditions on <IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ P(X)$">
+ and <IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ Q(X)$">
+.
+
+<P>
+One of the advantages of this classical approach is that only the
+data and the low-rank factors of the old and new
+iterates <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ X_k$">
+ and <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ X_{k+1}$">
+ need to be kept in storage. Furthermore, the
+solutions of the
+Lyapunov equations (<A HREF="#Lyap.seq"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>)
+can be performed
+with the Galerkin projection methods mentioned above, where the growth
+of rank can usually be well contained.
+
+<P>
+In our work, we developed a general srategy for augmented Krylov projection methods for
+sequences of Lyapunov equations with converging right-hand sides, and we
+apply it to the sequence
+(<A HREF="#Lyap.seq"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>), whose solutions converge to the solution of
+(<A HREF="#Gen.Lyap"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>).
+
+<P>
+Numerical experiments show the competitiveness of the proposed approach.
+
+<P>
+This is joint work with Stephen D.&nbsp;Shank and Valeria Simoncini.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html4"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ferronato_massi091508</TITLE>
+<META NAME="description" CONTENT="ferronato_massi091508">
+<META NAME="keywords" CONTENT="ferronato_massi091508">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ferronato_massi091508.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Massimiliano Ferronato 
+<BR><B>A Factored Sparse Approximate Inverse software package (FSAIPACK) for the parallel preconditioning of linear systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Padova 
+<BR>
+via Trieste 63 
+<BR>
+35121 Padova 
+<BR>
+Italy
+
+<BR><TT>ferronat@dmsa.unipd.it</TT>
+<BR>
+Carlo Janna
+<BR>
+Giuseppe Gambolati
+<BR>
+Flavio Sartoretto
+</DIV>
+
+<P>
+The Factored Sparse Approximate Inverse (FSAI) is a well-known
+preconditioner for Symmetric Positive
+Definite (SPD) linear systems <!-- MATH
+ $A{\bf x}={\bf b}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A{\bf x}={\bf b}$">
+. The native FSAI
+algorithm was originally introduced by
+Kolotilina and Yeremin [1] about 20 years ago. They proposed a Frobenius
+norm minimization procedure for
+computing an explicit sparse approximation of the inverse of the exact
+lower Cholesky factor of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+.
+FSAI is a robust preconditioner featuring attractive theoretical
+properties, however its performance in the
+solution of SPD systems often proves lower than that of other competing
+approximate inverses, such as
+AINV [2] or SPAI [3]. Recently, FSAI has experienced a renewed interest
+in connection with the
+growing popularity and diffusion of parallel computers. Since its
+computation proceeds independently
+row-by-row, it can be easily and efficiently distributed among many
+processors. Such an interest has led
+to the development of a number of variants that aim at improving its performance.
+
+<P>
+A crucial factor for attaining good FSAI quality and efficiency is the
+selection of an appropriate sparsity
+pattern. Originally, the algorithm was conceived assuming that a pattern
+<IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \cal{S}$">
+ for the non-zero entries
+of the preconditioner is statically guessed by the user. Based upon
+Neumann series expansion of <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A^{-1}$">
+, a
+typical setting assumes taking as <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \cal{S}$">
+ the lower part of the pattern
+of a small power of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+, or of a
+sparsified <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ [4]. A post-filtration of the resulting FSAI factor is
+also recommended [5]. More recently,
+a dynamic pattern computation strategy has been proposed [6]. It is based
+upon adaptively choosing for
+each row the most significant terms to be retained. Another interesting
+strategy consists of building the
+preconditioner recursively, i.e., computing a dense and high quality FSAI
+as the product of a few sparse
+factors [7].
+
+<P>
+Identifying the most efficient technique for generating an FSAI non-zero
+pattern is strongly
+problem-dependent. In most cases, a combination of existing strategies
+provides the best efficiency.
+For example, it is often a good idea to generate a very sparse static
+pattern using a small power of the
+sparsified <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+, and then improve it by means of a few steps of a dynamic
+procedure. Alternatively, one can
+build a symbolic FSAI dynamically, and then compute the preconditioner
+using the symbolic factor as the pattern.
+
+<P>
+This communication describes a new software package, called FSAIPACK,
+that collects a comprehensive set
+of algorithms for computing FSAI preconditioners in a parallel
+computational environment. FSAIPACK implements
+the following methods:
+
+<UL>
+<LI>FSAI computation given a prescribed ``static'' pattern;
+</LI>
+<LI>generation of the pattern via a sparsified matrix power;
+</LI>
+<LI>dynamic computation using an adaptive pattern generation;
+</LI>
+<LI>dynamic computation using a self-preconditioned inner iteration;
+</LI>
+<LI>recurrent FSAI construction as the product of several factors;
+</LI>
+<LI>FSAI post-filtration strategy.
+</LI>
+</UL>
+The detailed algorithm of each method is given in [8]. In this context,
+the dynamic computation of FSAI
+via a self-preconditioned inner iteration is a novel method not advanced
+before. FSAIPACK allows for
+combining different strategies to build the non-zero pattern <IMG
+ WIDTH="15" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \cal{S}$">
+,
+both in static and dynamic ways,
+thus better exploiting the preconditioner potential. Different strategies
+can be easily combined
+by using an ad hoc command language, that offers high flexibility and
+ease of use. FSAIPACK is coded
+in Fortran90, using OpenMP directives for shared memory parallel
+computations. The package is freely
+available, for research purposes, at the website
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+<TT><TT><A NAME="tex2html1"
+  HREF="http://www.dmsa.unipd.it/~janna/software.html">http://www.dmsa.unipd.it/~janna/software.html</A></TT></TT></DIV>
+
+<P>
+<BR>
+An open source driver implementing the command language interface is included.
+
+<P>
+The scope of this work is to collect a comprehensive set of techniques
+for building FSAI preconditioners
+into an integrated computational environment, thus providing the user
+with a flexible and efficient tool
+that can be easily incorporated into existing codes. The FSAIPACK
+potential is demonstrated by a set of
+numerical experiments that combine static and dynamic preconditioners and
+prove more cost effective
+than any single algorithm. In particular, our experiments show that
+combining different methods for
+building FSAI can significantly improve the native preconditioner
+quality, becoming fully competitive
+with, and often superior to, other approximate inverse techniques.
+
+<P>
+<BR>
+<BR>
+<BR>
+
+<P>
+References:
+
+<P>
+<BR>
+<BR>
+[1] L.Y. Kolotilina and A.Y. Yeremin, Factorized sparse approximate
+inverse preconditioning
+I. Theory, SIAM Journal on Matrix Analysis and Applications, 14 (1993), 45-58.
+
+<P>
+[2] M. Benzi, C.D. Meyer, and M. Tuma, A sparse approximate inverse
+preconditioner for the
+conjugate gradient method, SIAM Journal on Scientific Computing, 17 (1996), 1135-1149.
+
+<P>
+[3] M. Grote and T. Huckle, Parallel preconditioning with sparse
+approximate inverses, SIAM
+Journal on Scientific Computing, 18 (1997), 838-853.
+
+<P>
+[4] E. Chow, A priori sparsity patterns for parallel sparse approximate
+inverse preconditioners,
+SIAM Journal on Scientific Computing, 21 (2000), 1804-1822.
+
+<P>
+[5] L.Y. Kolotilina and A.Y. Yeremin, Factorized sparse approximate
+inverse preconditioning. IV.
+Simple approaches to rising efficiency, Numerical Linear Algebra with
+Applications, 6 (1999),
+515-531.
+
+<P>
+[6] C. Janna and M. Ferronato, Adaptive pattern research for Block FSAI preconditioners,
+SIAM Journal on Scientific Computing, 33 (2011), 3357-3380.
+
+<P>
+[7] L. Bergamaschi and A. Martinez, Banded target matrices and recursive
+FSAI for parallel
+preconditioning, Numerical Algorithms, 61 (2012), 223-241.
+
+<P>
+[8] C. Janna, M. Ferronato, G. Gambolati, and F. Sartoretto, FSAIPACK: a
+software package for
+high performance Factored Sparse Approximate Inverse preconditioning, ACM Transactions on
+Mathematical Software, submitted.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

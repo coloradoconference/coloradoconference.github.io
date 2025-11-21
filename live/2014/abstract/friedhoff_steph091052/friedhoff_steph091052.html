@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>friedhoff_steph091052</TITLE>
+<META NAME="description" CONTENT="friedhoff_steph091052">
+<META NAME="keywords" CONTENT="friedhoff_steph091052">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="friedhoff_steph091052.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Stephanie Friedhoff 
+<BR><B>Parallel time integration with multigrid for parabolic problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tufts University 
+<BR>
+Department of Mathematics 
+<BR>
+503 Boston Ave 
+<BR>
+Medford MA 02155
+
+<BR><TT>Stephanie.Friedhoff@tufts.edu</TT>
+<BR>
+Robert D. Falgout
+<BR>
+Tzanio V. Kolev
+<BR>
+Scott P. MacLachlan
+<BR>
+Jacob B. Schroder
+</DIV>
+
+<P>
+The classic view of applying multigrid to parabolic (space-time) problems
+is based on a time-marching approach: discretization of the PDE leads to
+a discrete elliptic problem at each time step when an implicit scheme is
+used. Multigrid is then used as an iterative solver for these elliptic
+equations. Parallelization in this approach is limited to parallelization
+in the elliptic (spatial) solver, since the time-stepping procedure is
+sequential. However, with current trends in computer architectures
+leading towards systems with more, but not faster, processors, faster
+compute speeds must come from increased concurrency.
+
+<P>
+In this talk, we present a non-intrusive, optimal-scaling time-parallel
+method based on multigrid reduction (MGR). Being a non-intrusive approach
+which only uses an existing time propagator, this
+multigrid-reduction-in-time algorithm (MGRIT) easily allows one to
+exploit substantially more computational resources than standard
+sequential time stepping. We discuss progress to date in applying MGRIT
+to parabolic (space-time) problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

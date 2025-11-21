@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bakhos_tania___091933</TITLE>
+<META NAME="description" CONTENT="bakhos_tania___091933">
+<META NAME="keywords" CONTENT="bakhos_tania___091933">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="bakhos_tania___091933.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tania Bakhos 
+<BR><B>Fast Krylov solvers for parabolic PDE-based inverse problems </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute for Computational and Mathematical Engineering (ICME) 
+<BR>
+475 Via Ortega 
+<BR>
+Suite 060 
+<BR>
+Stanford 
+<BR>
+CA 94305
+
+<BR><TT>taniab@stanford.edu</TT>
+<BR>
+Arvind K. Saibaba
+<BR>
+Peter K.  Kitanidis
+</DIV>
+
+<P>
+We propose a fast iterative solver for large-scale PDE-based nonlinear
+inverse problems, where measurements are used to reconstruct the spatial
+variation of parameters. Our motivation is transient hydraulic
+tomography, which is a method to estimate hydraulic parameters related to
+the subsurface from pressure measurements obtained by a series of pumping
+tests. Standard approaches for solving the inverse problem require
+repeated construction of the Jacobian, which represents the sensitivity
+of the measurements to the unknown parameters. This is prohibitively
+expensive because it requires repeated solutions of time-dependent
+parabolic partial differential equations corresponding to multiple
+sources and receivers. Additionally, solving the differential equations
+by time-stepping methods requires computing and storing the entire time
+history. We use a Laplace Transform-based exponential time integrator to
+independently compute the solution at multiple times, thus reducing the
+computational cost.
+
+<P>
+The governing equations for the parabolic PDEs are
+<P><!-- MATH
+ \begin{displaymath}
+M(p) \partial_t u(t) + K(p) u(t)  =  f(t) b \\
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="221" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle M(p) \partial_t u(t) + K(p) u(t) = f(t) b \\
+$">
+</DIV><P>
+</P>
+<P><!-- MATH
+ \begin{displaymath}
+u(0)  = u_0 ,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle u(0) = u_0 ,
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ M$">
+ and <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ K$">
+ are the mass and stiffness matrices respectively and
+are the result of discretization by standard linear finite elements. We
+denote by <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ p$">
+ the spatially varying parameters we wish to estimate, given
+discrete pressure head measurements <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ u$">
+. The solution can be written in
+terms of solutions to shifted linear systems
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eqn:quadrature"></A><!-- MATH
+ \begin{equation}
+(K(p)+s_k M(p) )x_k = M u_0 + \hat{f}(s_k) b, \qquad u_N(t) = \sum_k {w}_k x_k,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="425" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle (K(p)+s_k M(p) )x_k = M u_0 + \hat{f}(s_k) b, \qquad u_N(t) = \sum_k {w}_k x_k,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+where <!-- MATH
+ $\hat{f}(s_k)$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \hat{f}(s_k)$">
+ denotes the Laplace Transform of <IMG
+ WIDTH="32" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ f(t)$">
+, <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ u_0$">
+ is
+the initial condition and <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ s_k$">
+, <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ w_k$">
+ are the <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ N$">
+ quadrature nodes and
+weights respectively, chosen corresponding to the modified Talbot
+contour. The approximate solution at a given time can thus be computed
+without computing the entire time history. However, solving the shifted
+sytem of equations can be computationally expensive for large-scale
+problems.
+
+<P>
+Krylov subspace methods are particularly attractive to solve these
+shifted systems of equations&nbsp;(<A HREF="#eqn:quadrature">1</A>) because the
+shift-invariance property of Krylov subspaces allows us to build a single
+solution space across all shifts and an approximate solution for each
+shift is then obtained by projecting into a smaller subspace. A single
+preconditioner of the form <IMG
+ WIDTH="65" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ K+\tau M$">
+, for an appropriately chosen
+<IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \tau$">
+, does not successfully precondition all the systems when the range
+of values of <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ s_k$">
+ is large. We consider a flexible Arnoldi algorithm for
+shifted systems that employs multiple preconditioners of the form
+<!-- MATH
+ $(K+\tau_j M)$
+ -->
+<IMG
+ WIDTH="82" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ (K+\tau_j M)$">
+ for <!-- MATH
+ $j = 1,\dots,m$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ j = 1,\dots,m$">
+. Changing the preconditioner at each
+iteration allows for better preconditioning of the shifted system across
+the entire range of shifts.
+
+<P>
+The performance of our algorithm will be demonstrated on some challenging
+synthetic examples of large-scale inverse problems arising from transient
+hydraulic tomography. We demonstrate that the Krylov subspace accelerated
+Laplace Transform solver provides a significantly cheaper alternative to
+time-stepping based solvers.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

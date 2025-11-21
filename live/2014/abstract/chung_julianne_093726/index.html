@@ -1,0 +1,379 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chung_julianne_093726</TITLE>
+<META NAME="description" CONTENT="chung_julianne_093726">
+<META NAME="keywords" CONTENT="chung_julianne_093726">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chung_julianne_093726.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Julianne Chung 
+<BR><B>Computing Optimal Low-Rank Regularized Inverse Matrices for Inverse Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics 
+<BR>
+McBryde 
+<BR>
+Virginia Tech 
+<BR>
+225 Stanger Street 
+<BR>
+Blacksburg 
+<BR>
+VA 24061
+
+<BR><TT>jmchung@vt.edu</TT>
+<BR>
+Matthias Chung
+</DIV>
+
+<P>
+Inverse problems arise in scientific applications such as biomedical
+imaging, computer graphics, computational biology, and geophysics, and
+computing accurate solutions to inverse problems can be both
+mathematically and computationally challenging.
+
+<P>
+Assume that <!-- MATH
+ ${\bf A} \in \mathbb{R}^{m \times n}$
+ -->
+<IMG
+ WIDTH="79" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\bf A} \in \mathbb{R}^{m \times n}$">
+ and <!-- MATH
+ ${\bf b} \in
+\mathbb{R}^{m}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\bf b} \in
+\mathbb{R}^{m}$">
+ are given, then a linear <I>inverse problem</I> can be
+written as
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:inverseproblem"></A><!-- MATH
+ \begin{equation}
+{\bf A} \boldsymbol{\xi} + \boldsymbol{\delta} = {\bf b},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="91" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle {\bf A} \boldsymbol{\xi} + \boldsymbol{\delta} = {\bf b},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\boldsymbol{\xi}\in\mathbb{R}^n$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \boldsymbol{\xi}\in\mathbb{R}^n$">
+ is the desired solution and
+<!-- MATH
+ $\boldsymbol{\delta}\in\mathbb{R}^m$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \boldsymbol{\delta}\in\mathbb{R}^m$">
+ is additive noise.
+We assume the underlying problem (<A HREF="#eq:inverseproblem">1</A>) is
+<I>ill-posed</I>. A main challenge of ill-posed inverse problems is that
+small errors in the data may result in large errors in the
+reconstruction. In order to obtain meaningful reconstructions,
+regularization is needed to stabilize the inversion process. This is
+typically done by incorporating <I>prior knowledge</I> of the unknown
+solution and of the noise in the data. Here, we incorporate probabilistic
+information and assume that the true parameters <!-- MATH
+ $\boldsymbol{\xi} \in
+\boldsymbol{\Xi}$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \boldsymbol{\xi} \in
+\boldsymbol{\Xi}$">
+ and the noise <!-- MATH
+ $\boldsymbol{\delta} \in
+\boldsymbol{\Delta}$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \boldsymbol{\delta} \in
+\boldsymbol{\Delta}$">
+ are realizations of random variables from some
+(eventually unknown) probability distributions
+<!-- MATH
+ $\mathcal{P}_{\boldsymbol{\Xi}}$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \mathcal{P}_{\boldsymbol{\Xi}}$">
+ and <!-- MATH
+ $\mathcal{P}_{\boldsymbol{\Delta}},$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \mathcal{P}_{\boldsymbol{\Delta}},$">
+
+both with finite second moments.
+
+<P>
+In this work, we are interested in finding a low rank <I>optimal
+regularized inverse matrix</I> <!-- MATH
+ ${\bf\hat Z} \in \mathbb{R}^{n \times m}$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\bf\hat Z} \in \mathbb{R}^{n \times m}$">
+
+that gives a small reconstruction error. That is, <!-- MATH
+ $\rho({\bf\hat Z} {\bf
+b} - \boldsymbol{\xi})$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \rho({\bf\hat Z} {\bf
+b} - \boldsymbol{\xi})$">
+ should be small for some given error measure
+<!-- MATH
+ $\rho:\mathbb{R}^n \to \mathbb{R}^+_0$
+ -->
+<IMG
+ WIDTH="93" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \rho:\mathbb{R}^n \to \mathbb{R}^+_0$">
+, e.g., <!-- MATH
+ $\rho({\bf x}) =
+\left\|{\bf x}\right\|_{p}$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \rho({\bf x}) =
+\left\Vert{\bf x}\right\Vert _{p}$">
+. The particular choice of <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \rho,$">
+
+<!-- MATH
+ $\mathcal{P}_{\boldsymbol{\Xi}},$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \mathcal{P}_{\boldsymbol{\Xi}},$">
+ and <!-- MATH
+ $\mathcal{P}_{\boldsymbol{\Delta}}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \mathcal{P}_{\boldsymbol{\Delta}}$">
+
+determine the regularization matrix <!-- MATH
+ ${\bf\hat Z}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ {\bf\hat Z}$">
+. Notice that once <!-- MATH
+ $\bf
+\hat Z$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \bf
+\hat Z$">
+ is found we can efficiently compute <!-- MATH
+ $\boldsymbol{\xi}$
+ -->
+<IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \boldsymbol{\xi}$">
+ by simple
+matrix-vector multiplication <!-- MATH
+ $\boldsymbol{\xi} = \bf\hat Z b$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \boldsymbol{\xi} = \bf\hat Z b$">
+. Our
+approach is especially suitable for large scale problems
+where&nbsp;(<A HREF="#eq:inverseproblem">1</A>) is solved repeatedly for various <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \bf b$">
+.
+
+<P>
+In this talk, we focus on efficient approaches to numerical compute
+optimal low-rank regularized inverse matrices. In real-life applications,
+probability distributions <!-- MATH
+ $\mathcal{P}_{\boldsymbol{\Xi}}$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \mathcal{P}_{\boldsymbol{\Xi}}$">
+ and
+<!-- MATH
+ $\mathcal{P}_{\boldsymbol{\Delta}}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \mathcal{P}_{\boldsymbol{\Delta}}$">
+ are typically not known explicitly.
+However, in many applications, calibration or training data are readily
+available, and this data can be used to compute a good regularization
+matrix.
+Let <!-- MATH
+ ${\bf b}^{(k)}= {\bf A} \boldsymbol{\xi}^{(k)} +
+\boldsymbol{\delta}^{(k)}$
+ -->
+<IMG
+ WIDTH="140" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ {\bf b}^{(k)}= {\bf A} \boldsymbol{\xi}^{(k)} +
+\boldsymbol{\delta}^{(k)}$">
+ for <!-- MATH
+ $k = 1,\ldots, K$
+ -->
+<IMG
+ WIDTH="93" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ k = 1,\ldots, K$">
+, where
+<!-- MATH
+ $\boldsymbol{\xi}^{(k)}$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \boldsymbol{\xi}^{(k)}$">
+ and <!-- MATH
+ $\boldsymbol{\delta}^{(k)}$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \boldsymbol{\delta}^{(k)}$">
+ are
+independently drawn from the corresponding probability distributions.
+Then the goal is to solve the <I>empirical Bayes risk minimization
+problem</I>,
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eqn:empiricalmin"></A><!-- MATH
+ \begin{equation}
+\min_{{\rm rank}({\bf Z})\leq r} \frac{1}{K} \sum_{k = 1}^K \rho({\bf Z
+b}^{(k)} - \boldsymbol{\xi}^{(k)})\,.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="227" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$\displaystyle \min_{{\rm rank}({\bf Z})\leq r} \frac{1}{K} \sum_{k = 1}^K \rho({\bf Z b}^{(k)} - \boldsymbol{\xi}^{(k)}) .$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+By using an empirical Bayes risk framework to compute an optimal
+regularized inverse matrix <I>directly</I>, we are able to avoid
+including <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \bf A$">
+ in the problem formulation and instead learn the
+necessary information from training data. Once the matrix is computed, a
+simple matrix-vector multiplication is required to solve the inverse
+problem. In this talk, we discuss an algorithm that uses a rank update
+technique to efficiently calculate an optimal low rank regularized
+inverse matrix <IMG
+ WIDTH="16" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \bf
+\hat Z$">
+.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-24
+</ADDRESS>
+</BODY>
+</HTML>

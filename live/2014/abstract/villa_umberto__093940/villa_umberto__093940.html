@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>villa_umberto__093940</TITLE>
+<META NAME="description" CONTENT="villa_umberto__093940">
+<META NAME="keywords" CONTENT="villa_umberto__093940">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="villa_umberto__093940.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Umberto Villa 
+<BR><B>AMG solvers for upscaled mixed finite element discretizations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Livermore National Laboratory 
+<BR>
+P O Box 808 
+<BR>
+L-560 
+<BR>
+Livermore 
+<BR>
+CA 94551 
+<BR>
+U S A
+
+<BR><TT>villa13@llnl.gov</TT>
+<BR>
+Panayot Vassilevski
+</DIV>
+
+<P>
+The <I>mixed finite element method</I> is a natural, conservation
+preserving, way to discretize large classes of partial differential
+equations (PDEs) that model physical processes of practical relevance in
+various fields of engineering, including fluid-dynamics, solid mechanics,
+and electromagnetism. Many applications of these models feature a
+multi-physics and multi-scale nature which poses substantial challenge to
+state-of-the-art solvers. Upscaling techniques can reduce computational
+cost and make repeated simulation feasible by solving accurate coarse
+scale models that incorporate the interactions at different scales.
+
+<P>
+Element-agglomeration based algebraic multigrid (AMGe) is shown to
+produce upscaled discretizations for wide classes of PDEs on general
+unstructured meshes, having the potential to be more accurate than
+classical upscaling techniques based on piecewise polynomials on
+practical computationally feasible (i.e., coarse enough) meshes.
+The AMGe approach, in fact, leads to operator-dependent coarse spaces and
+respective coarse models that possess the same stability and
+approximation properties as the original finite element discretization.
+Thanks to their guaranteed order of accuracy on arbitrary coarse meshes,
+these coarse spaces can then be employed as a discretization tool on a
+hierarchy of levels, which is useful in multilevel Monte Carlo
+simulations, as well as to construct robust
+algebraic multigrid (AMG) preconditioners.
+
+<P>
+In this talk, we will address the numerical solution of the upscaled
+coarse discretization of saddle point problems derived by
+element-agglomeration based coarse de Rham sequences.
+Two different approaches will be considered for the solution of the upscaled systems:
+<DL COMPACT>
+<DT>(a)</DT>
+<DD>block preconditioners for the saddle point problem and
+auxiliary space algebraic multigrid methods for <!-- MATH
+ $H({\rm curl})$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H({\rm curl})$">
+ and
+<!-- MATH
+ $H({\rm div})$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ H({\rm div})$">
+;
+</DD>
+<DT>(b)</DT>
+<DD>a direct AMG approach which exploits the hierarchy of our
+coarse de Rham sequences and respective Hiptmair smoothers.
+</DD>
+</DL>
+Numerical results will illustrate the validity of our derived by
+element-based agglomeration approach both as a discretization tool
+(upscaling) and as a solver (AMG). An application to subsurface flow
+simulation will also be presented.
+<BR>
+<BR>
+<P>
+<FONT SIZE="-1">This work is performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344.
+</FONT>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

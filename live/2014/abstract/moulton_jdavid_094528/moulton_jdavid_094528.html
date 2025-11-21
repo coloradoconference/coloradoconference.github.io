@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>moulton_jdavid_094528</TITLE>
+<META NAME="description" CONTENT="moulton_jdavid_094528">
+<META NAME="keywords" CONTENT="moulton_jdavid_094528">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="moulton_jdavid_094528.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">J. David Moulton 
+<BR><B>Exploring Parallelization and Performance of a Particle in Cell Method on Curvilinear Grids</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Applied Mathematics and Plasma Physics 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>moulton@lanl.gov</TT>
+<BR>
+Gian Luca Delzanno
+<BR>
+Joel E. Dendy
+</DIV>
+
+<P>
+A powerful technique for modeling kinetic simulations of plasmas is
+the Particle in Cell method (PIC). In a PIC algorithm a number of
+macro-particles move through a computational grid due to the
+electromagnetic fields. These fields are calculated in a
+self-consistent manner using the distribution of the charge
+captured by the macro-particles and external boundary conditions.
+Traditionally, PIC codes used a uniform Cartesian grid to establish
+the connection between macro-particles and the field. However,
+interest in complex geometries and multiscale problems led to
+development of PIC methods that use block-structured adaptive meshes
+and logically structured curvilinear body fitted grids. Since
+emerging multi-core and many-core architectures appear to favor
+structured data and access patterns, we are very interested in
+exploring the potential of this curvilinear PIC (CPIC) method.
+
+<P>
+In this work we explore parallelization of CPIC using both traditional
+MPI everywhere and on-node techniques such as OpenMP. In addition, we
+discuss the potential of combining these approaches in the emerging but
+uncertain MPI+X paradigm. Since we consider the electrostatic case,
+we use the structured variational-coarsening based Black Box Multigrid
+(BoxMG) to solve Poisson's equation in the transformed space. We
+comment on updates that were required in BoxMG to better handle
+periodic boundary conditions on large grids non-power of two grids, as
+well as its parallel versions. This study highlights that an
+important challenge in PIC methods is balancing the data needs of
+macro-particles and the field solves, a challenge shared with most
+multi-physics PDE applications.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>

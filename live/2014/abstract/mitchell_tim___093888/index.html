@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mitchell_tim___093888</TITLE>
+<META NAME="description" CONTENT="mitchell_tim___093888">
+<META NAME="keywords" CONTENT="mitchell_tim___093888">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mitchell_tim___093888.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tim Mitchell 
+<BR><B>Fast approximation of the H-infinity norm via hybrid expansion-contraction using spectral value sets</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Courant Institute of Mathematical Sciences 
+<BR>
+New York University 
+<BR>
+251 Mercer St  
+<BR>
+Rm 410 
+<BR>
+New York 
+<BR>
+NY 10012
+
+<BR><TT>tim.mitchell@cims.nyu.edu</TT>
+<BR>
+Michael L. Overton
+</DIV>
+
+<P>
+
+<P>
+We present a new spectral value set based algorithm for fast
+approximation of the <IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ norm, a well known and important robust
+stability measure for linear dynamical systems with inputs and outputs.
+Calculating the <IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ norm involves solving a nonconvex and nonsmooth
+optimization problem and although the standard algorithm by Boyd,
+Balakrishnan, Bruinsma, and Steinbuch (BBBS) finds the optimal solution,
+its cubic cost per iteration limits its applicability to rather small
+dimension control systems. One approach to handle larger problems is to
+use model reduction techniques that attempt to approximate a large scale
+input system by generating a reduced size surrogate model of which the
+<IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ can be tractably computed via the standard BBBS algorithm. On the
+other hand, in 2013, Guglielmi, G&#252;rb&#252;zbalaban and Overton
+presented the first fast algorithm (GGO) to approximate the <IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ norm
+that operates directly on the unreduced matrices of the original system,
+under the assumption that the dynamical system is sparse and has
+relatively few inputs and outputs. The GGO algorithm attempts to find
+local optima as proxies for the true value of the <IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ norm by
+bracketing stationary points of the optimization problem with lower and
+upper bound estimates using spectral value sets and converges to a
+solution via a hybrid Newton-bisection outer iteration. Unfortunately,
+despite its favorable scaling properties and apparent ability to provide
+good approximations to the <IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ norm, the algorithm can sometimes
+break down in practice, specifically by failing to return a stationary
+point of the optimization function or even a point that lies on the
+function itself. Our improved algorithm uses a novel hybrid
+expansion-contraction scheme that, under the same assumptions as GGO,
+guarantees convergence to a stationary point of the optimization problem
+but importantly does not incur any breakdown. We compare the two
+algorithms along with other recent algorithms designed for approximating
+the <IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H_\infty $">
+ norm of large and sparse control systems on a suite of
+challenging continuous and discrete-time example problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain
+2014-02-23
+</ADDRESS>
+</BODY>
+</HTML>
