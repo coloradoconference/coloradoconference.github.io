@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Multiscale Entropic Network Generation.</TITLE>
+<META NAME="description" CONTENT="Multiscale Entropic Network Generation.">
+<META NAME="keywords" CONTENT="safro078682">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="safro078682.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html443"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html441"
+  HREF="safro078682.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html435"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html444"
+  HREF="node3.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html442"
+  HREF="safro078682.html">safro078682</A>
+<B> Previous:</B> <A NAME="tex2html436"
+  HREF="node1.html">Heuristic for optimal response</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION00000020000000000000">
+Multiscale Entropic Network Generation.</A>
+</H4>
+High-quality, large-scale network data is
+often not available for scientists, because of economic, legal, technological,
+or other obstacles. For example, the human contact
+networks along with infectious diseases spread are notoriously
+difficult to estimate, and thus our understanding of
+the dynamics and control of epidemics stems from models that
+make highly simplifying assumptions or simulate contact networks
+from incomplete or proxy data. In another
+domain, the development of cybersecurity systems requires
+testing across diverse threat scenarios and validation across
+diverse network structures that are not yet known. In both
+examples, the systems of interest cannot be represented by a
+single exemplar network, but must instead be modeled as collections
+of networks in which the variation among them may
+be just as important as their common features. Such cases
+point to the importance of data-driven methods for synthesizing
+networks that capture both the essential features of a
+system and realistic variability in order to use them in such
+tasks as simulations and verification.
+
+<P>
+Because existing methods only reproduce a limited set of specified
+network properties, we introduce a novel strategy for synthesizing
+artificial networks, namely, the multiscale entropic network generation
+(MUSKETEER). We create a hierarchy of coarse networks;
+but, in contrast to the multiscale methods for computational
+and optimization problems, we do not optimize anything but
+<I>edit</I> the network at all scales of coarseness. During the editing
+process we allow only local changes in the network. The editing problem
+(or generation) is formulated and solved at all scales
+where primitives at the coarse scale (such as coarse nodes
+and edges) represent aggregates of primitives and their fractions
+at previous finer scale. Analogous to multiscale methods
+for computational problems, by using appropriate
+coarsening we are able to detect and use the “geometry” behind
+the original network at multiple scales, which can be
+interpreted as an additional property that is not captured by
+other network generation methods. It is known
+that the topology of many complex networks is hierarchical
+and thus might be produced through iterations of generative
+laws at multiple scales. In general, such generative laws often
+can be different at different scales, as evidenced by the
+finding that complex networks are self-dissimilar across scales. For
+example, the number of triangles
+in the original network that one can be interested in can be
+completely different from the number of triangles at coarse
+scales. These differences can naturally be reflected in the proposed
+multiscale framework.
+
+<P>
+To evaluate the performance of MUSKETEER
+(http://www.cs.clemson.edu/<!-- MATH
+ $\tilde{~~}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \tilde{&nbsp;&nbsp;}$">
+isafro/musketeer), we generated a
+large number of networks and compared them to the real-world networks
+(from epidemiology, social science, etc.) for a variety of local and
+global structural properties (such as clustering, modularity, and degree
+distribution). For most properties, the generated ensemble yields a
+median value close to the original value and range of values that is
+fairly symmetric about the median.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html443"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html441"
+  HREF="safro078682.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html435"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html444"
+  HREF="node3.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html442"
+  HREF="safro078682.html">safro078682</A>
+<B> Previous:</B> <A NAME="tex2html436"
+  HREF="node1.html">Heuristic for optimal response</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

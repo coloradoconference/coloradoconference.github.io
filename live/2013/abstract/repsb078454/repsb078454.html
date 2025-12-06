@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>repsb078454</TITLE>
+<META NAME="description" CONTENT="repsb078454">
+<META NAME="keywords" CONTENT="repsb078454">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html382"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html383"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Bram Reps 
+<BR><B>Communication avoiding strategies for linear solvers in a space-filling curve framework</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Computer Science 
+<BR>
+University of Antwerp 
+<BR>
+Middelheimlaan 1 
+<BR>
+B-2020 Antwerp 
+<BR>
+Belgium 
+<BR>
+Intel ExaScience Lab 
+<BR>
+Kapeldreef 75 
+<BR>
+B-3001 Leuven 
+<BR>
+Belgium
+
+<BR><TT>bram.reps@ua.ac.be</TT>
+<BR>
+Pieter Ghysels
+<BR>
+Wim Vanroose
+</DIV>
+
+<P>
+Iterative methods such as Krylov subspace and multigrid methods are
+typically used to solve large linear systems that arise from the
+discretization of a partial differential equation (PDE). As these
+equations mainly connect neighboring points in space, resulting in very
+sparse systems, a data structure that is based on space-filling curves
+can be exploited to develop numerical solvers, since the associated data
+mappings carry specific locality properties [<A
+ HREF="node1.html#B13">1</A>].
+
+<P>
+The cost of an iterative method is largely determined by the efficient
+use of two basic calculations: sparse matrix-vector multiplications
+(SpMV) for stencil operations, and vector multiplications (dot products)
+for computing projections and norms. Both of these common steps in a
+numerical algorithm require time-consuming data communication. The result
+of a SpMV is a vector and communication is locally restricted to a few
+neighboring points in space, as given by the sparsity pattern of the
+matrix, whereas a dot product results in a scalar that depends on all
+points in space.
+
+<P>
+We study a framework where a multidimensional numerical grid is traversed
+in a particular order defined by a one-dimensional space-filling curve.
+In each cell along this curve only local grid data, belonging to the cell
+and its adjacent vertices, is manipulated as specified by the iterative
+method, before moving on to the next cell in line. This approach is
+particularly interesting for the sequentialization of adaptive grids,
+since the curve can recursively be extended on-the-fly in refining
+regions and the underlying data is typically stored in a spacetree. In
+addition, the parallellization of a solver is straightforward if the
+space-filling curve is simply cut and divided over different processors.
+
+<P>
+Although the data dependency for the SpMV is usually relatively local in
+space, an exchange of information between cells is unavoidable in between
+computations. This can easily be invoked by simply running extra grid
+traversals dedicated to data communication through mutual vertices;
+however, it dramatically increases the runtime of a programming code,
+especially when communicating cells are handled by different parallel
+processors. The result of a dot product is stored in a state variable,
+accessible from all cells, and needs to be communicated back and forth
+between parallel processors at the end of a traversal.
+
+<P>
+It fits better to the state-of-the-art in high performance computing if
+the two phases of computation and communication are combined as much as
+possible. This means that from the point of view of space-filling curves,
+the current tendency of communication avoiding and hiding programming
+[<A
+ HREF="node1.html#H10">4</A>,<A
+ HREF="node1.html#GAMV12">2</A>] naturally translates into the basic concept of
+minimizing the number of grid traversals by postponing and bundling the
+communication of SpMV and dot product results.
+
+<P>
+To elucidate these strategies, we present a parallel implementation of
+both the Conjugant Gradient (CG) method [<A
+ HREF="node1.html#HS52">3</A>] and an additive
+multigrid method that respects the idea of minimal grid traversals and
+illustrate them in the space-filling curve framework Peano
+[<A
+ HREF="node1.html#W09">5</A>,<A
+ HREF="node1.html#W12">6</A>]. The necessary communication of dot product and SpMV
+results, is aggregated in few instances of the algorithm's main loop,
+requiring e.g. only one grid traversal per CG-iteration.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html384"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html385"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html382"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html383"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

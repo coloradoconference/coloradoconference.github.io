@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthias Bolten \\
+{\bf Local {Fourier} Analysis for Block Smoothers in Multigrid Methods}}
+
+Bergische Universit\"at Wuppertal \\ Fachbereich Mathematik und Naturwissenschaften \\ 42097 Wuppertal \\ Germany
+\\
+{\tt bolten@math.uni-wuppertal.de}\\
+Karsten Kahl\end{center}
+
+
+On parallel computers and nowadays computer architectures block smoothers
+possess the advantage of a high computation/communication and/or a
+computation/memory access ratio, especially when compared to traditional
+point smoothers. Therefore, multigrid methods should benefit from the use
+of block smoothers regarding time to solution.
+
+While block smoothers like block Jacobi are used in current parallel
+implementations of multigrid methods, they have not been studied
+extensively. We extended the traditional Local {Fourier} Analysis
+described in the literature in detail e.g.~in the book of Wienands and
+Joppich for the case of block smoothers. Unlike the previous study of
+overlapping smoothers in the recent paper by MacLachlan and Oosterlee
+(Num. Lin. Alg. Appl., 18) our approach is based on a decomposition of
+the infinite Toeplitz matrices and considers matrix-valued generating
+symbols instead of scalar generating symbols.
+
+We present our approach and provide numerical examples for different
+block smoothers, including smoothers with and without overlap and
+different coarsening ratios and block sizes. Additionally, we consider
+different solution strategies for the block solves, including direct
+solvers as well as iterative methods.
+
+
+\end{document}

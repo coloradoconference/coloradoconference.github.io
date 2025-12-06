@@ -1,0 +1,112 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bram Reps \\
+{\bf Communication avoiding strategies for linear solvers in a space-filling curve framework}}
+
+Department of Mathematics and Computer Science \\ University of Antwerp \\ Middelheimlaan 1 \\ B-2020 Antwerp \\ Belgium \\ Intel ExaScience Lab \\ Kapeldreef 75 \\ B-3001 Leuven \\ Belgium
+\\
+{\tt bram.reps@ua.ac.be}\\
+Bart Verleye\\
+Tobias Weinzierl\\
+Dirk Roose\\
+Pieter Ghysels\\
+Wim Vanroose\end{center}
+
+Iterative methods such as Krylov subspace and multigrid methods are
+typically used to solve large linear systems that arise from the
+discretization of a partial differential equation (PDE). As these
+equations mainly connect neighboring points in space, resulting in very
+sparse systems, a data structure that is based on space-filling curves
+can be exploited to develop numerical solvers, since the associated data
+mappings carry specific locality properties \cite{B13}.
+
+The cost of an iterative method is largely determined by the efficient
+use of two basic calculations: sparse matrix-vector multiplications
+(SpMV) for stencil operations, and vector multiplications (dot products)
+for computing projections and norms. Both of these common steps in a
+numerical algorithm require time-consuming data communication. The result
+of a SpMV is a vector and communication is locally restricted to a few
+neighboring points in space, as given by the sparsity pattern of the
+matrix, whereas a dot product results in a scalar that depends on all
+points in space.
+
+We study a framework where a multidimensional numerical grid is traversed
+in a particular order defined by a one-dimensional space-filling curve.
+In each cell along this curve only local grid data, belonging to the cell
+and its adjacent vertices, is manipulated as specified by the iterative
+method, before moving on to the next cell in line. This approach is
+particularly interesting for the sequentialization of adaptive grids,
+since the curve can recursively be extended on-the-fly in refining
+regions and the underlying data is typically stored in a spacetree. In
+addition, the parallellization of a solver is straightforward if the
+space-filling curve is simply cut and divided over different processors.
+
+Although the data dependency for the SpMV is usually relatively local in
+space, an exchange of information between cells is unavoidable in between
+computations. This can easily be invoked by simply running extra grid
+traversals dedicated to data communication through mutual vertices;
+however, it dramatically increases the runtime of a programming code,
+especially when communicating cells are handled by different parallel
+processors. The result of a dot product is stored in a state variable,
+accessible from all cells, and needs to be communicated back and forth
+between parallel processors at the end of a traversal.
+
+It fits better to the state-of-the-art in high performance computing if
+the two phases of computation and communication are combined as much as
+possible. This means that from the point of view of space-filling curves,
+the current tendency of communication avoiding and hiding programming
+\cite{H10,GAMV12} naturally translates into the basic concept of
+minimizing the number of grid traversals by postponing and bundling the
+communication of SpMV and dot product results.
+
+To elucidate these strategies, we present a parallel implementation of
+both the Conjugant Gradient (CG) method \cite{HS52} and an additive
+multigrid method that respects the idea of minimal grid traversals and
+illustrate them in the space-filling curve framework Peano
+\cite{W09,W12}. The necessary communication of dot product and SpMV
+results, is aggregated in few instances of the algorithm's main loop,
+requiring e.g.\ only one grid traversal per CG-iteration.
+
+\begin{thebibliography}{10}
+\bibitem{B13}
+M.~Bader.
+\newblock {\em Space-Filling Curves}.
+\newblock Springer-Verlag Berlin Heidelberg, 2013.
+
+\bibitem{GAMV12}
+P.~Ghysels, T.~J. Ashby, K.~Meerbergen, and W.~Vanroose.
+\newblock Hiding global communication latency in the {GMRES} algorithm on
+massively parallel machines.
+\newblock {\em SIAM Journal on Scientific Computing}, 2012.
+
+\bibitem{HS52}
+M.~Hestenes and E.~Stiefel.
+\newblock Methods of {C}onjugate {G}radients for solving linear systems.
+\newblock {\em Journal of Research of the National Bureau of Standards}, 49(6),
+December 1952.
+
+\bibitem{H10}
+M.~Hoemmen.
+\newblock {\em Communication-avoiding Krylov subspace methods}.
+\newblock PhD thesis, University of California, 2010.
+
+\bibitem{W09}
+T.~Weinzierl.
+\newblock {\em A Framework for Parallel PDE Solvers on Multiscale Adaptive
+Cartesian Grids}.
+\newblock PhD thesis, Technische Universität München, 2009.
+
+\bibitem{W12}
+T.~Weinzierl et~al.
+\newblock Peano -- a {F}ramework for {PDE} {S}olvers on {S}pacetree {G}rids,
+2012.
+\newblock http://www.peano-framework.org.
+\end{thebibliography}
+
+
+\end{document}

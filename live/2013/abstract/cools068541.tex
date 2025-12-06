@@ -1,0 +1,149 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Siegfried Cools \\
+{\bf An Efficient Multigrid Calculation of the Far Field Map for Helmholtz Equations}}
+
+Department of Mathematics and Computer Science \\ Universiteit Antwerpen \\ Middelheimlaan 1 \\ 2020 Antwerp \\ Belgium
+\\
+{\tt siegfried.cools@ua.ac.be}\\
+Bram Reps\\
+Wim Vanroose\end{center}
+
+\textbf{Introduction.}
+
+In this work we present a new efficient calculation method for the far
+field amplitude patterns that arise from scattering problems governed by
+the $d$-dimensional Helmholtz equation. The calculation of the far field
+mapping is typically a two step process. First a Helmholtz problem with
+absorbing boundary conditions (PML, ECS) is solved on a finite numerical
+box covering the object of interest. In the second step a volume integral
+over the Green's function involving the numerical solution yields the
+angular dependency of the far field amplitude. The main computational
+bottleneck generally lies within the first step, since it requires a
+suitable (iterative) method for the solution of a high dimensional
+indefinite Helmholtz system.
+
+Preconditioned Krylov subspace methods are currently among the most
+efficient numerical algorithms for the solution of high dimensional
+positive definite systems. A generalization of this approach led to the
+development of the Complex Shifted Laplacian (CSL) preconditioner,
+proposed in [1] as an effective Krylov subspace method preconditioner for
+Helmholtz problems. The key idea behind CSL is the formulation of a
+perturbed Helmholtz problem which includes a complex valued wave number.
+This implies a damping in the problem, thus making the preconditioning
+system solvable using multigrid in contrast to the original Helmholtz
+problem. Recently a variation on CSL by the name of Complex Stretched
+Grid (CSG) was proposed [2], introducing a complex valued grid distance
+(complex rotation) in the preconditioner.
+
+The far field map computation proposed in this work reformulates the
+standard real-valued Green's function integral expression for the far
+field amplitude on a complex contour. Hence, one requires the solution of
+the Helmholtz equation on a complex contour. It is shown that the latter
+problem is equivalent to a CSL problem that can be solved very
+efficiently using a multigrid method. However, whereas CSL was previously
+only used as a preconditioner, the proposed complex-valued far field map
+calculation effectively allows for multigrid to be used as a solver.
+
+\textbf{The far field map for Helmholtz problems.}
+
+The Helmholtz equation is a mathematical representation of the physics
+behind a wave scattering at an object $O$ located within a domain $\Omega
+\subset \mathbb{R}^d$. The equation is
+\begin{equation} \label{eq:helmholtz_in}
+\left(-\Delta - k^2(\boldsymbol{x})\right) u(\boldsymbol{x}) = k_0^2
+\chi(\boldsymbol{x})u_{in}(\boldsymbol{x}), \quad \boldsymbol{x} \in
+\Omega,
+\end{equation}
+where $\chi(\boldsymbol{x}) = (k^2(\boldsymbol{x})-k_0^2)/k_0^2$
+represents the object of interest. Note that $\chi(\boldsymbol{x}) = 0$
+for $\boldsymbol{x} \in \Omega \setminus O$. The above equation can in
+principle be solved in a numerical box (i.e.~a discretized subset of
+$\Omega$) covering the support of $\chi$, with absorbing boundary
+conditions along all boundaries, yielding a numerical solution denoted by
+$u^N$. The far field scattered wave then satisfies the following
+inhomogeneous Helmholtz equation with constant wave number
+\begin{equation} \label{eq:HHR}
+\left(-\Delta - k_0^2\right) \, u(\boldsymbol{x}) = g(\boldsymbol{x}),
+\quad \boldsymbol{x} \in \mathbb{R}^d,
+\end{equation}
+where $g(\boldsymbol{x})=k_0^2 \chi(\boldsymbol{x})
+(u_{in}(\boldsymbol{x})+u^N(\boldsymbol{x}))$. The analytical solution to
+the above equation is given by the Green's integral
+\begin{equation} \label{eq:scint}
+u(\boldsymbol{x}) = \int_{\Omega} G(\boldsymbol{x},
+\boldsymbol{x}^\prime) \, g(\boldsymbol{x}^\prime) \, d\boldsymbol{x}',
+\quad \boldsymbol{x} \in \mathbb{R}^d.
+\end{equation}
+Consequently, the asymptotic form of the scattered wave in the direction
+of the unit vector $\boldsymbol\alpha \in \mathbb{R}^d$ is
+\begin{equation} \label{eq:FFusc}
+\lim_{\rho \to \infty} u(\rho,\boldsymbol\alpha) = D(\rho)
+F(\boldsymbol\alpha), \qquad \boldsymbol\alpha \in \mathbb{R}^{d},
+\end{equation}
+where the far field (amplitude) mapping is given by
+\begin{equation} \label{eq:FFmap}
+F(\boldsymbol \alpha) = \int_\Omega e^{-ik_0 \boldsymbol{x}^\prime \cdot
+\boldsymbol \alpha} g(\boldsymbol{x}^\prime) \, d\boldsymbol{x}^\prime.
+\end{equation}
+
+\textbf{Calculation on a complex contour.}
+
+The above far field integral expression can be split into a sum of two
+contributions $F(\boldsymbol \alpha) = I_1 + I_2$, where
+\begin{align}
+I_1 &= \int_\Omega e^{-i k_0 \boldsymbol{x} \cdot \boldsymbol \alpha
+}\chi(\boldsymbol{x})u_{in}(\boldsymbol{x}) d\boldsymbol{x}, \\
+I_2 &= \int_\Omega e^{-i k_0 \boldsymbol{x} \cdot \boldsymbol \alpha }
+\chi(\boldsymbol{x}) u^N(\boldsymbol{x}) d\boldsymbol{x}.
+\end{align}
+Calculation of first integral $I_1$ is generally easy, since it only
+requires the expression for the incoming wave. The second integral
+however requires the solution $u^N$ of the Helmholtz equation on the
+numerical box, which is known to be notoriously hard to obtain using
+present-day iterative methods. However, if both $u$ and $\chi$ are
+analytical functions, the integral $I_2$ can be calculated over a complex
+contour defined by the rotated real domain $Z_1 = \{\boldsymbol{z} \in
+\mathbb{C} \,|\, \boldsymbol{z} = \boldsymbol{x} e^{i\gamma} :
+\boldsymbol{x} \in \Omega \}$, where $\gamma$ is a fixed rotation angle,
+followed by the curved segment $Z_2 = \{\boldsymbol{z} \in \mathbb{C}
+\,|\, \boldsymbol{z} = \boldsymbol{b} e^{i\theta} : \boldsymbol{b} \in
+\partial\Omega,~ 0 \leq \theta \leq \gamma\}$, closing the contour. The
+integral $I_2$ can then be written as
+\begin{equation}
+I_2 = \int_{Z_1} e^{-i k_0 \boldsymbol{z} \cdot \boldsymbol \alpha
+}\chi(\boldsymbol{z})u^N(\boldsymbol{z}) d\boldsymbol{z},
+\end{equation}
+where the integral over $Z_2$ has vanished because $\chi$ is per
+definition zero everywhere outside $O$, thus notably in all points of
+$Z_2$. The advantage of this approach is that we only need the value of
+$u^N$ evaluated along this complex contour, where the original Helmholtz
+problem is reduced to a damped equation. This problem is equivalent to a
+CSL problem, and can thus be solved very efficiently using multigrid,
+resulting in a fast and scalable computation of the far field mapping.
+The new approach is successfully validated on model problems in two and
+three spatial dimensions, where its effectiveness and scalability are
+demonstrated.
+
+\textbf{References.}
+
+[1] Y.A. Erlangga, C.W. Oosterlee and C. Vuik, \textit{On a class of
+preconditioners for solving the {H}elmholtz equation}, App. Num. Math.,
+\textbf{50}(3-4), 2004, pp. 409--425.
+
+[2] B. Reps, W. Vanroose and H. bin Zubair, \textit{On the indefinite
+{H}elmholtz equation: {C}omplex stretched absorbing boundary layers,
+iterative analysis, and preconditioning}, J. Comput. Phys.,
+\textbf{229}(22), 2010, pp. 8384--8405.
+
+[3] S. Cools, B. Reps and W. Vanroose, \textit{An efficient multigrid
+calculation of the far field map for Helmholtz problems},
+arXiv:1211.4461.
+
+
+\end{document}

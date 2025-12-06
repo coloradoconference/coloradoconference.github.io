@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Justin, W.L. Wan \\
+{\bf Multigrid Method for Solving Elliptic Monge-Ampere Equations Arising from Image Registration}}
+
+University of Waterloo \\ 200 University Avenue West \\ Waterloo \\ ON N2L 3G1 \\ Canada
+\\
+{\tt jwlwan@uwaterloo.ca}\\
+Ashmeen Soin\end{center}
+
+The Monge-Amp\`{e}re equation (MAE) is a nonlinear second order partial
+differential equation, which can be written as:
+\begin{equation}
+u_{xx} u_{yy} - u^2_{xy} = f, \qquad on \ \Omega
+\label{eqn:MAE}
+\end{equation}
+where $f>0$ so that the equation is elliptic with a unique convex solution.
+Monge-Amp\`{e}re equations arise in many areas such as differential geometry
+and other applications. In image registration, one is interested in
+transforming one image to align with another image. One approach is based on
+the Monge-Kantorovich mass transfer problem. The goal is to find the optimal
+mapping $M$ which minimizes the Kantorovich-Wasserstein distance. The
+optimal mapping can be written as $M=\nabla \psi$, where $\psi$ satisfies
+the following Monge-Amp\`{e}re equation
+$$
+det(D^2 \psi(x)) = \frac{I_1(x)}{I_2(\nabla \psi)},
+$$
+where $I_1$ and $I_2$ are the given images.
+Here $det(D^2 \psi(x))$ denotes the determinant of the Hessian of $\psi$.
+In $\mathbb{R}^2$, it is equivalent to (\ref{eqn:MAE}).
+In this talk, we will present a multigrid method for solving the
+Monge-Amp\`{e}re equation. We will discuss the discretization of the
+nonlinear equation and the issues of viscosity solutions and monotone
+finite difference and finite element schemes. We will then present a
+relaxation scheme which is a very slow convergent method as a standalone
+solver but it is very effective for reducing high frequency errors. We will
+adopt it as a smoother for multigrid and demonstrate its smoothing
+properties. Finally, numerical results will be presented to illustrate
+the effectiveness of the method.
+
+
+\end{document}

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>tsuji069785</TITLE>
+<META NAME="description" CONTENT="tsuji069785">
+<META NAME="keywords" CONTENT="tsuji069785">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html514"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html515"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Paul Tsuji 
+<BR><B>Analysis of Shifted Laplacian Preconditioners through Chebyshev Polynomials</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">731 Oakland Ave 
+<BR>
+Apt 10 
+<BR>
+Oakland 
+<BR>
+CA 94611
+
+<BR><TT>ptsuji@gmail.com</TT>
+<BR>
+Raymond Tuminaro
+</DIV>
+
+<P>
+In the areas of acoustics, elasticity, and electromagnetics, the
+frequency domain approach to wave propagation is very common,
+particularly when the bandwidth of the signal is narrow and only a few
+frequencies need to be investigated. Such computation requires the
+solution of the indefinite Helmholtz problem
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+-\Delta u - \frac{\omega^2}{c^2} u = f
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="120" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle -\Delta u - \frac{\omega^2}{c^2} u = f$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ u$">
+ is the field of interest, <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ f$">
+ is the source function, <IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \omega$">
+
+is the angular frequency, and <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ c$">
+ is the wavespeed of the medium. For
+infinite domain problems, approximations to the Sommerfeld radiation
+conditions are prescribed at the boundary; for cavity or resonance
+problems, Dirichlet boundary conditions are enforced.
+
+<P>
+Finite element and finite difference discretizations of the equation
+above result in sparse linear systems where the matrix is indefinite and
+badly conditioned; iterative methods and preconditioners which work
+nicely for positive-definite elliptic problems typically do not perform
+well. Traditional multigrid diverges when applied to these problems for a
+few reasons. First, the indefiniteness of the operator affects the
+damping
+properties of smoothers like Jacobi or Gauss-Seidel; these methods are no
+longer guaranteed to converge. Secondly, the <IMG
+ WIDTH="35" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ -\omega^2$">
+ term shifts the
+eigenvalues of the Laplacian, causing eigenfunctions associated with
+small eigenvalues to now be oscillatory; these modes are not represented
+accurately when projected onto the coarse grid.
+
+<P>
+A method which has gained popularity in the past few years is the Shifted
+Laplacian preconditioner. The basic idea is to apply an approximate
+inverse of the shifted problem
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:shifted"></A><!-- MATH
+ \begin{equation}
+-\Delta u - (\alpha + i \beta)\frac{\omega^2}{c^2} u = f
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="177" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle -\Delta u - (\alpha + i \beta)\frac{\omega^2}{c^2} u = f$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+as a preconditioner to the original problem. If <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \beta$">
+ is chosen to be
+small enough, the inverse operator of the shifted problem can act as a
+good preconditioner to the original problem. Adding the complex shift
+term to the operator creates the affect of damping in the system, making
+the problem more elliptic and more conducive to multigrid convergence. In
+practice, using multigrid with the shifted problem works well as a
+preconditioner for moderately sized problems.
+
+<P>
+This talk will present an analysis of Shifted Laplacian preconditioners
+through the use of Chebyshev polynomial smoothers in a two-grid setting,
+and will attempt to address questions regarding the choice of the
+shifting parameters <IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \alpha$">
+ and <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \beta$">
+. Namely, how can one choose
+these parameters to strike the right balance between multigrid
+convergence and accurate inversion of the original problem? Is it
+possible to use different shifting parameters on different levels of the
+multigrid hierarchy to improve convergence?
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html516"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html514"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html515"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

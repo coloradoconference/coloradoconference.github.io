@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ulrich Ruede \\
+{\bf A multi-scale algorithm to recover optimal convergence in the presence of corner singularities}}
+
+Universitaet Erlangen \\ Cauerstrasse 11 \\ 91080 Erlangen \\ Germany
+\\
+{\tt ruede@cs.fau.de}\\
+Christian Waluga\\
+Barbara Wohlmuth\\
+Herbert Egger\end{center}
+
+Elliptic problems with reentrant corners exhibit the well-known
+pollution-effect, i.e. the convergence deteriorates in global norms. This
+can be avoided by many techniques, such as a suitable mesh grading or by
+enriching the finite element spaces. Here we analyze a new method that
+restores optimal converge in weighted norms and that differs form
+alternatives in requiring only local corrections on uniform or
+quasi-uniform grids. We show that the corrections must be such that the
+modified finite element discretization reproduces the energy of the
+solution with sufficient accuracy. This can be achieved by a suitable
+modification in a small, fixed number of elements. The corresponding
+stiffness matrix differs from the uncorrected one in only a few numerical
+values. The correction parameter for each reentrant corner can be
+computed efficiently in a multi-scale approach that can be  integrated in
+a full multigrid method.
+
+
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tobias Jones \\
+{\bf Algebraic Multilevel Domain and Range Decomposition (aMLDD/aMLRD)}}
+
+4075 Spy Glass Lane \\ Longmont \\ CO
+\\
+{\tt jones_toby@yahoo.com}\\
+Steve McCormick\end{center}
+
+In modern large-scale supercomputing applications, Algebraic Multigrid
+(AMG) is a leading choice for solving linear systems. However, on the
+newest architectures, the relatively high cost of communications versus
+computations is a concern for the scalability of traditional
+implementations. A new algorithm is introduced that replaces the
+traditional iterative cycle with global domain decomposition cycles.
+Algebraic Multi-Level Domain Decomposition (aMLDD) and Algebraic Multi
+Level Range Decomposition (aMLRD) trade communication for computation by
+forming composite grids that replace many stages of multilevel
+communication with local computation using redundant information. While
+these methods achieve the goal of trading communication for computation
+the method is not a marked improvement aver traditional AMG scaling
+results for current architectures.
+
+
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Kai Hertel \\
+{\bf An iterative solver combined with extrapolation for steady-state Maxwell problems}}
+
+Universitaet Erlangen-Nuernberg \\ Lehrstuhl fuer Systemsimulation \\ Cauerstr 11 \\ 91058 Erlangen \\ Germany
+\\
+{\tt kai.hertel@cs.fau.de}\\
+Christoph Pflaum\end{center}
+
+We present an iterative finite difference frequency domain (FDFD) solver
+for a large scale time-harmonic Maxwell problem. The solver is based on
+an explicit leap-frog power iteration and is enhanced by a Prony method
+extrapolation scheme to speed up convergence.
+We take a look at the algebraic formulation of the problem, iteration and
+extrapolation schemes, and discuss challenges and results.
+The primary application is a thin-film solar cell simulation that
+consists of both layers of positive and negative permittivities with
+textured interfaces in between.
+Electrical permittivity parameters of the layer media as well as the
+textured interface profiles are important model parameters.
+Resulting quantities of interest are the simulated solar cell's
+absorption behavior, specifically its short circuit current density and
+its characteristic frequency dependent quantum efficiency.
+Considered boundary conditions are periodic or of Dirichlet type in
+connection with a perfectly matched layer (PML) to simulate free space
+propagation.
+The periodicity of the domain with respect to textured interfaces can be
+enforced either by a reformulation of the periodic boundary condition or
+a transition layer that extends on the classical approach to achieving
+periodicity by means of symmetrical domain extensions.
+The discussed method scales to large problem sizes, and obtained results
+are in good agreement with physical measurements of manufactured
+structures.
+
+
+\end{document}

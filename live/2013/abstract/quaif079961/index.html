@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>quaif079961</TITLE>
+<META NAME="description" CONTENT="quaif079961">
+<META NAME="keywords" CONTENT="quaif079961">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html373"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html374"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Bryan, D Quaife 
+<BR><B>Multigrid Applied to Two-Dimensional Vesicle Suspensions</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">ICES 
+<BR>
+University of Texas 
+<BR>
+201 East 24th St 
+<BR>
+Stop C0200 
+<BR>
+Austin 
+<BR>
+Texas 78712-1229
+
+<BR><TT>quaife@ices.utexas.edu</TT>
+<BR>
+George Biros
+</DIV>
+
+<P>
+
+<P>
+We are interested in simulating high concentration suspensions of
+deformable capsules suspended in a Stokesian fluid. Such capsules are
+typically modeled as infinitesimally thin membranes filled with a viscous
+fluid. In particular, we are interested in a specific type of capsule
+known as a <EM>vesicle</EM>. Vesicles are closed inextensible lipid
+membranes containing a viscous fluid. The membrane mechanics are
+characterized by bending resistance (derived by a Helfrich energy, or a
+minimization of the <IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ L^2$">
+ norm of the mean curvature), zero resistance to
+shear, and inextensibility (infinite resistance to elongation). Although
+we focus on vesicles, the resulting methodologies should be applicable in
+a broad range of phenomena in complex fluids and suspensions.
+
+<P>
+Vesicle evolution dynamics are given by a quasi-static Stokes equation
+driven by interface jump conditions derived by a balance of forces on the
+membrane. Given the position of the vesicles, the jump conditions can be
+evaluated, a Stokes problem with interface conditions can be solved, and
+the velocity at the interface advances the vesicle to its new location.
+We use a boundary integral formulation that results in a system of
+non-linear integro-differential equations for the vesicles's position and
+an auxiliary field that is a ``tension'' (it acts as a Lagrange
+multiplier to enforce the inextensibility constraint). Below we summarize
+the main equations.
+
+<P>
+Consider a single vesicle <!-- MATH
+ $\gamma \in {\mathbb{R}}^{2}$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \gamma \in {\mathbb{R}}^{2}$">
+ parameterized by the
+periodic function <!-- MATH
+ ${\mathbf{x}}$
+ -->
+<IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {\mathbf{x}}$">
+. The equations governing the motion of the
+vesicle are
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="308" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \frac{d{\mathbf{x}}}{dt} = {\mathcal{S}}[-{\mathbf{x}}_{ssss}+(\s...
+...})_{s}], \hspace{20pt} {\mathbf{x}}_{s} \cdot \frac{d{\mathbf{x}}_{s}}{dt} = 0,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \sigma$">
+ is the tension and <!-- MATH
+ ${\mathcal{S}}[{\mathbf{f}}]({\mathbf{x}}) =
+\int_{\gamma}G({\mathbf{x}}-{\mathbf{y}}){\mathbf{f}}({\mathbf{y}})ds_{{\mathbf{y}}}$
+ -->
+<IMG
+ WIDTH="211" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\mathcal{S}}[{\mathbf{f}}]({\mathbf{x}}) =
+\int_{\gamma}G({\mathbf{x}}-{\mathbf{y}}){\mathbf{f}}({\mathbf{y}})ds_{{\mathbf{y}}}$">
+, where <!-- MATH
+ $G({\mathbf{x}}) =
+\frac{1}{4\pi\mu}\left(-\log|{\mathbf{x}}| + \frac{{\mathbf{x}}\otimes
+{\mathbf{x}}}{|{\mathbf{x}}|^{2}}\right)$
+ -->
+<IMG
+ WIDTH="213" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ G({\mathbf{x}}) =
+\frac{1}{4\pi\mu}\left(-\log\vert{\mathbf{x}}\vert + \frac{{\mathbf{x}}\otimes
+{\mathbf{x}}}{\vert{\mathbf{x}}\vert^{2}}\right)$">
+, is the single-layer potential for Stokes flow.
+We introduce the operators <!-- MATH
+ ${\mathcal{B}}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ {\mathcal{B}}$">
+ (bending), <!-- MATH
+ ${\mathcal{T}}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ {\mathcal{T}}$">
+ (tension), and <!-- MATH
+ ${\mathcal{D}}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\mathcal{D}}$">
+
+(divergence) so that the governing equations are
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="249" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle \frac{d{\mathbf{x}}}{dt} = {\mathcal{S}}[-{\mathcal{B}}{\mathbf{x}}+{\mathcal{T}}\sigma], \hspace{20pt} {\mathcal{D}}\frac{d{\mathbf{x}}}{dt} = 0.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Discretizing in time and linearizing, the vesicle position and tension
+are updated by solving
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="332" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \left[ \begin{array}{cc} I + \Delta t {\mathcal{S}}{\mathcal{B}}&amp;...
+...y} \right] = \left[ \begin{array}{c} {\mathbf{x}}^{N}  0 \end{array} \right].$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="e:update">(1)</A></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This system is solved with a matrix-free fast-multipole accelerated GMRES
+for the new position and tension. However, the number of iterations
+depends on <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ N$">
+ since the system is ill-conditioned. This motivates the
+use of multigrid. In this talk we present the overall scheme and
+preliminary results that demonstrate the effectiveness of the proposed
+scheme.
+
+<P>
+As a first step, we are looking for efficient solvers for the Schur
+complement of the tension, <!-- MATH
+ ${\mathcal{L}}:={\mathcal{D}}{\mathcal{S}}{\mathcal{T}}$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ {\mathcal{L}}:={\mathcal{D}}{\mathcal{S}}{\mathcal{T}}$">
+. <!-- MATH
+ ${\mathcal{L}}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\mathcal{L}}$">
+ must be inverted for
+explicit schemes or it can be used to form block preconditioners for
+implicit schemes when solving&nbsp;(<A HREF="#e:update"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>). Standard smoothers
+applied to integral operators such as <!-- MATH
+ ${\mathcal{L}}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\mathcal{L}}$">
+ generally reduce low
+frequencies in the error. We propose using GMRES applied to the high
+frequency components as a smoother. In more detail, the smoother for <!-- MATH
+ ${\mathcal{L}}
+\sigma = b$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ {\mathcal{L}}
+\sigma = b$">
+ is <!-- MATH
+ $\sigma^{N+1} = P \sigma^{N} +
+\sigma_{H}$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \sigma^{N+1} = P \sigma^{N} +
+\sigma_{H}$">
+, where <!-- MATH
+ $\sigma_{H}$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \sigma_{H}$">
+ solves <!-- MATH
+ $(I-P) {\mathcal{L}}\sigma_{H} = (I-P) b -
+(I-P){\mathcal{L}}P\sigma^{N}$
+ -->
+<IMG
+ WIDTH="287" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ (I-P) {\mathcal{L}}\sigma_{H} = (I-P) b -
+(I-P){\mathcal{L}}P\sigma^{N}$">
+, and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ P$">
+ is the projection onto the low frequency
+space.
+
+<P>
+We use a V-cycle multigrid solver for <!-- MATH
+ ${\mathcal{L}}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\mathcal{L}}$">
+ and report results in
+Table&nbsp;<A HREF="#t:multiSolver"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>. We see that only a few GMRES iterations are
+required to apply the smoother. We set the GMRES tolerance of the
+smoother to <IMG
+ WIDTH="38" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ 10^{-8}$">
+, the coarsest level to <IMG
+ WIDTH="48" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ N=8$">
+, and stop the solver
+when the relative error is less than <IMG
+ WIDTH="38" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ 10^{-8}$">
+. We are currently
+experimenting with using multigrid to precondition a GMRES solver for
+<!-- MATH
+ ${\mathcal{L}}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\mathcal{L}}$">
+.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="102"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+ <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ N$">
+ is the problem size, <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \rho$">
+ is the average
+convergence rate, <IMG
+ WIDTH="27" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ nV$">
+ is the number of V-cycles, and GMRES is the number
+of GMRES iterations required by the smoother at the finest level.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \rho$">
+</TD>
+<TD ALIGN="CENTER"><IMG
+ WIDTH="27" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ nV$">
+</TD>
+<TD ALIGN="CENTER">GMRES</TD>
+</TR>
+<TR><TD ALIGN="CENTER">16</TD>
+<TD ALIGN="CENTER">0.138</TD>
+<TD ALIGN="CENTER">10</TD>
+<TD ALIGN="CENTER">2</TD>
+</TR>
+<TR><TD ALIGN="CENTER">32</TD>
+<TD ALIGN="CENTER">0.365</TD>
+<TD ALIGN="CENTER">19</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="CENTER">64</TD>
+<TD ALIGN="CENTER">0.448</TD>
+<TD ALIGN="CENTER">23</TD>
+<TD ALIGN="CENTER">8</TD>
+</TR>
+<TR><TD ALIGN="CENTER">128</TD>
+<TD ALIGN="CENTER">0.573</TD>
+<TD ALIGN="CENTER">35</TD>
+<TD ALIGN="CENTER">13</TD>
+</TR>
+</TABLE>
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html375"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html373"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html374"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

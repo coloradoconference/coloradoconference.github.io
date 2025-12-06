@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vanro078247</TITLE>
+<META NAME="description" CONTENT="vanro078247">
+<META NAME="keywords" CONTENT="vanro078247">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html523"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html524"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Wim I Vanroose 
+<BR><B>An efficient Multigrid calculation of the Far Field Map for Schr&#246;dinger Equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept Mathematics and Computer Science 
+<BR>
+Middelheimlaan 1 
+<BR>
+2020 Antwerpen 
+<BR>
+Belgium
+
+<BR><TT>wim.vanroose@ua.ac.be</TT>
+<BR>
+Siegfried Cools
+<BR>
+Bram Reps
+</DIV>
+
+<P>
+Predicting the outcome of collisions between small atomic and
+molecular systems is of fundamental importance for many areas of
+science. Understanding their dynamics is crucial for example for
+plasma physics, combustion and electron driven chemistry, amongst
+other examples. However, it is computationally very challenging to
+predict from first principles the outcome of these collisions since it
+requires the solution of high-dimensional Schr&#246;dinger
+equation. These are known to be hard to solve even with the best
+current iterative methods. To calculate, for example, the breakup
+reaction rates of the hydrogen molecule requires the solution of a
+7-dimensional scattering problem. The reaction rates, also known as
+the cross sections, are the far field amplitudes of solution. The
+development of efficient solvers for this problem remains important
+challenge. In this talk we discuss the development of solvers for
+these scattering based on multigrid.
+
+<P>
+The Schr&#246;dinger equation in <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d$">
+-dimensions is
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:schr"></A><!-- MATH
+ \begin{equation}
+(-\frac{1}{2}\Delta + V(\mathbf{x}) - E)\psi(\mathbf{x}) =
+\phi(\mathbf{x}), \quad \text{for} \quad \mathbf{x} \in \mathbb{R}^d
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="231" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle (-\frac{1}{2}\Delta + V(\mathbf{x}) - E)\psi(\mathbf{x}) = \phi(\mathbf{x}),$">&nbsp; &nbsp;for<IMG
+ WIDTH="68" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \quad \mathbf{x} \in \mathbb{R}^d$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $V(\mathbf{x})$
+ -->
+<IMG
+ WIDTH="39" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ V(\mathbf{x})$">
+ is the potential, <IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \psi$">
+ is the wave function
+and <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \phi$">
+ is the right hand side that is related to the initial state
+of the system.
+
+<P>
+Scattering problems are described by solutions of (<A HREF="#eq:schr"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) with
+a positive energy <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ E$">
+ and for these energies the equation is
+equivalent to a Helmholtz equation
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+(-\Delta -k^2(\mathbf{x}))u = f
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="140" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle (-\Delta -k^2(\mathbf{x}))u = f$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with a wave number <!-- MATH
+ $k^2(\mathbf{x}) = 2\left(E-V(\mathbf{x})\right)$
+ -->
+<IMG
+ WIDTH="154" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k^2(\mathbf{x}) = 2\left(E-V(\mathbf{x})\right)$">
+
+solved with absorbing boundary conditions.
+
+<P>
+In this talk we discusses the current practices in solving the
+Schrodinger equation [<A
+ HREF="node1.html#c2">1</A>,<A
+ HREF="node1.html#c3">2</A>] and relate them to the challenges of
+solving the Helmholtz equation. We also illustrate how advances such
+as Complex Shifted Laplacian [<A
+ HREF="node1.html#c5">3</A>] and complex countour multigrid
+[<A
+ HREF="node1.html#c1">4</A>] are applied to solve the Schr&#246;dinger equation.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html525"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html526"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html523"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html524"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

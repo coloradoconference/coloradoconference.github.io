@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bryan, D Quaife \\
+{\bf Multigrid Applied to Two-Dimensional Vesicle Suspensions}}
+
+ICES \\ University of Texas \\ 201 East 24th St \\ Stop C0200 \\ Austin \\ Texas 78712-1229
+\\
+{\tt quaife@ices.utexas.edu}\\
+George Biros\end{center}
+
+\newcommand{\xx}{{\mathbf{x}}}
+\newcommand{\yy}{{\mathbf{y}}}
+\newcommand{\ff}{{\mathbf{f}}}
+\renewcommand{\SS}{{\mathcal{S}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\BB}{{\mathcal{B}}}
+\newcommand{\DD}{{\mathcal{D}}}
+\newcommand{\TT}{{\mathcal{T}}}
+\newcommand{\LL}{{\mathcal{L}}}
+
+We are interested in simulating high concentration suspensions of
+deformable capsules suspended in a Stokesian fluid. Such capsules are
+typically modeled as infinitesimally thin membranes filled with a viscous
+fluid. In particular, we are interested in a specific type of capsule
+known as a {\em vesicle}. Vesicles are closed inextensible lipid
+membranes containing a viscous fluid. The membrane mechanics are
+characterized by bending resistance (derived by a Helfrich energy, or a
+minimization of the $L^2$ norm of the mean curvature), zero resistance to
+shear, and inextensibility (infinite resistance to elongation). Although
+we focus on vesicles, the resulting methodologies should be applicable in
+a broad range of phenomena in complex fluids and suspensions.
+
+Vesicle evolution dynamics are given by a quasi-static Stokes equation
+driven by interface jump conditions derived by a balance of forces on the
+membrane. Given the position of the vesicles, the jump conditions can be
+evaluated, a Stokes problem with interface conditions can be solved, and
+the velocity at the interface advances the vesicle to its new location.
+We use a boundary integral formulation that results in a system of
+non-linear integro-differential equations for the vesicles's position and
+an auxiliary field that is a ``tension'' (it acts as a Lagrange
+multiplier to enforce the inextensibility constraint). Below we summarize
+the main equations.
+
+Consider a single vesicle $\gamma \in \RR^{2}$ parameterized by the
+periodic function $\xx$. The equations governing the motion of the
+vesicle are
+\begin{align*}
+\frac{d\xx}{dt} = \SS[-\xx_{ssss}+(\sigma \xx_{s})_{s}],
+\hspace{20pt} \xx_{s} \cdot \frac{d\xx_{s}}{dt} = 0,
+\end{align*}
+where $\sigma$ is the tension and $\SS[\ff](\xx) =
+\int_{\gamma}G(\xx-\yy)\ff(\yy)ds_{\yy}$, where $G(\xx) =
+\frac{1}{4\pi\mu}\left(-\log|\xx| + \frac{\xx \otimes
+\xx}{|\xx|^{2}}\right)$, is the single-layer potential for Stokes flow.
+We introduce the operators $\BB$ (bending), $\TT$ (tension), and $\DD$
+(divergence) so that the governing equations are
+\begin{align*}
+\frac{d\xx}{dt} = \SS[-\BB\xx+\TT\sigma], \hspace{20pt}
+\DD\frac{d\xx}{dt} = 0.
+\end{align*}
+
+Discretizing in time and linearizing, the vesicle position and tension
+are updated by solving
+\begin{align}
+\left[ \begin{array}{cc}
+I + \Delta t \SS\BB & -\Delta t \SS\TT \\
+-\DD\SS\BB & \DD\SS\TT
+\end{array} \right]
+\left[ \begin{array}{c}
+\xx^{N+1} \\ \sigma^{N+1}
+\end{array} \right] =
+\left[ \begin{array}{c}
+\xx^{N} \\ 0
+\end{array} \right].
+\label{e:update}
+\end{align}
+This system is solved with a matrix-free fast-multipole accelerated GMRES
+for the new position and tension. However, the number of iterations
+depends on $N$ since the system is ill-conditioned. This motivates the
+use of multigrid. In this talk we present the overall scheme and
+preliminary results that demonstrate the effectiveness of the proposed
+scheme.
+
+As a first step, we are looking for efficient solvers for the Schur
+complement of the tension, $\LL:=\DD\SS\TT$. $\LL$ must be inverted for
+explicit schemes or it can be used to form block preconditioners for
+implicit schemes when solving~\eqref{e:update}. Standard smoothers
+applied to integral operators such as $\LL$ generally reduce low
+frequencies in the error. We propose using GMRES applied to the high
+frequency components as a smoother. In more detail, the smoother for $\LL
+\sigma = b$ is $ \sigma^{N+1} = P \sigma^{N} +
+\sigma_{H}$, where $\sigma_{H}$ solves $(I-P) \LL \sigma_{H} = (I-P) b -
+(I-P)\LL P\sigma^{N}$, and $P$ is the projection onto the low frequency
+space.
+
+We use a V-cycle multigrid solver for $\LL$ and report results in
+Table~\ref{t:multiSolver}. We see that only a few GMRES iterations are
+required to apply the smoother. We set the GMRES tolerance of the
+smoother to $10^{-8}$, the coarsest level to $N=8$, and stop the solver
+when the relative error is less than $10^{-8}$. We are currently
+experimenting with using multigrid to precondition a GMRES solver for
+$\LL$.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+N & $\rho$ & $nV$ & GMRES \\
+\hline 16 & 0.138 & 10 & 2 \\
+32 & 0.365 & 19 & 4 \\
+64 & 0.448 & 23 & 8 \\
+128 & 0.573 & 35 & 13 \\
+\end{tabular}
+\caption{\label{t:multiSolver} $N$ is the problem size, $\rho$ is the average
+convergence rate, $nV$ is the number of V-cycles, and GMRES is the number
+of GMRES iterations required by the smoother at the finest level.}
+\end{table}
+
+
+\end{document}

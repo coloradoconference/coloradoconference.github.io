@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tom Jonsthovel \\
+{\bf A comparison of a rigid body mode deflation method and AMG for simulation of 3D mechanics}}
+
+Schlumberger Technology Center \\ Lambourn Court \\ Wyndyke Furlong \\ OX14 1UJ \\ Abingdon
+\\
+{\tt tjonsthovel@slb.com}\\
+Scott MacLachlan\\
+Martin van Gijzen\end{center}
+
+In many real life engineering problems the analysis of mechanical systems
+by simulation plays an important role. Moreover, studying the behavior of
+these mechanical systems is important as they are often coupled to other
+physical phenomena, an example is geomechanics and fluid flow in
+reservoir engineering. Simulation of mechanical problems involves
+modeling of materials with non-linear material properties like hyper
+elasticity, plasticity and viscosity. These non-linear equations are
+often solved by the Newton-Raphson method which involves solving one
+linear system per Newton-Raphson iteration. Solving the linear systems
+dominates the total runtime of the simulation and hence has to be fast.
+For realistic three dimensional mechanical problems that are defined on
+meshes with a large number of elements and that involve different
+materials, the resulting stiffness matrix is often sparse and ill
+conditioned. We need powerful preconditioners to solve these linear
+systems with iterative solution methods. In this talk we compare the
+performance of two preconditioners for the conjugate gradient method: the
+deflation method based on the elimination of the rigid body modes and
+Smoothed Aggregation Algebraic Multigrid (SA AMG). We show and discuss
+the results for matrices from two different real life applications,
+structural mechanics and geomechanics.
+
+
+\end{document}

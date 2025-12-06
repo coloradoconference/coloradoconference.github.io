@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>jonst068598</TITLE>
+<META NAME="description" CONTENT="jonst068598">
+<META NAME="keywords" CONTENT="jonst068598">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html246"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html247"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tom Jonsthovel 
+<BR><B>A comparison of a rigid body mode deflation method and AMG for simulation of 3D mechanics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Schlumberger Technology Center 
+<BR>
+Lambourn Court 
+<BR>
+Wyndyke Furlong 
+<BR>
+OX14 1UJ 
+<BR>
+Abingdon
+
+<BR><TT>tjonsthovel@slb.com</TT>
+<BR>
+Scott MacLachlan
+<BR>
+Martin van Gijzen
+</DIV>
+
+<P>
+In many real life engineering problems the analysis of mechanical systems
+by simulation plays an important role. Moreover, studying the behavior of
+these mechanical systems is important as they are often coupled to other
+physical phenomena, an example is geomechanics and fluid flow in
+reservoir engineering. Simulation of mechanical problems involves
+modeling of materials with non-linear material properties like hyper
+elasticity, plasticity and viscosity. These non-linear equations are
+often solved by the Newton-Raphson method which involves solving one
+linear system per Newton-Raphson iteration. Solving the linear systems
+dominates the total runtime of the simulation and hence has to be fast.
+For realistic three dimensional mechanical problems that are defined on
+meshes with a large number of elements and that involve different
+materials, the resulting stiffness matrix is often sparse and ill
+conditioned. We need powerful preconditioners to solve these linear
+systems with iterative solution methods. In this talk we compare the
+performance of two preconditioners for the conjugate gradient method: the
+deflation method based on the elimination of the rigid body modes and
+Smoothed Aggregation Algebraic Multigrid (SA AMG). We show and discuss
+the results for matrices from two different real life applications,
+structural mechanics and geomechanics.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html248"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html246"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html247"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

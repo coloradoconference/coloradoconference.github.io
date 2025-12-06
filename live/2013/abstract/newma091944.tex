@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christopher Newman \\
+{\bf Preconditioners for Ocean Simulation}}
+
+Los Alamos National Laboratory \\ T-3 \\ PO Box 1663 MS B216 \\ Los Alamos \\ NM 87545
+\\
+{\tt cnewman@lanl.gov}\\
+Dana A Knoll\end{center}
+
+We examine preconditioners for free-surface, fully implicit, fully
+coupled time integration of the momentum and
+continuity equations of ocean dynamics;
+thus reducing errors and increasing stability due to traditional operator splitting.
+We consider two solution strategies to the problem.
+
+In the first approach, the full nonlinear system is solved via
+Jacobian-free Newton-Krylov (JFNK), where we reformulate semi-implicit
+barotropic-baroclinic splitting as a preconditioner.
+This preconditioner has the property that it can be reduced to a lower
+dimensional, horizontal problem of a scalar variable that can
+be made amenable to multigrid methods.
+
+In the second approach, JFNK is applied to the lower dimensional,
+barotropic problem and the remaining three dimensional problem is
+treated via nonlinear elimination within the function evaluation of JFNK.
+This method is appealing because
+the Krylov vector and JFNK machinery reside in the lower dimensional problem.
+In addition, the preconditioner is formulated in a similar way to the first approach.
+
+In each approach, the key to effective preconditioning is the ability to
+transform a hyperbolic system to
+a single parabolic problem of a scalar variable
+which can be treated effectively by multigrid methods.
+We provide numerical examples and compararisons among the approaches.
+
+
+\end{document}

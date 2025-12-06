@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ben Bergen \\
+{\bf BoxMG with OpenCL}}
+
+7009 Camino Rojo \\ Satna Fe \\ NM 87507
+\\
+{\tt bergen@lanl.gov}\\
+David Moulton\\
+Scott MacGlachlan\\
+Matthew Darsney\end{center}
+
+OpenCL is an important new standard that offers portability and
+performance across a wide variety of modern computing architectures,
+including CPUs, GPUs and various accelerators. Because modern
+architecture designs require high degrees of data parallelism to fully
+reach their potential efficiency, adapting algorithms to expose more
+parallel operations is of critical importance. In this talk, we present
+work on adapting BoxMG to use OpenCL for a full device-side V-cycle
+implementation that includes smoothing, residual calculation,
+interpolation and restriction. Additionally, we present an extension to
+the parallel cyclic-reduction (PCR) algorithm used to perform line
+relaxation that removes constraints on problem size by using PCR in
+conjunction with Wang's algorithm.
+
+
+\end{document}

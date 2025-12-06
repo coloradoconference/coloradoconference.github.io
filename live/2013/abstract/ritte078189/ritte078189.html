@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ritte078189</TITLE>
+<META NAME="description" CONTENT="ritte078189">
+<META NAME="keywords" CONTENT="ritte078189">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html402"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html403"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Daniel Ritter 
+<BR><B>Compact high-order finite differences for elliptic variable coefficient and interface problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Chair for System Simulation 
+<BR>
+FAU Erlangen 
+<BR>
+Cauerstr 11 
+<BR>
+91058 Erlangen 
+<BR>
+Germany
+
+<BR><TT>daniel.ritter@fau.de</TT>
+<BR>
+Rochus Schmid
+<BR>
+Ulrich R&#252;de
+</DIV>
+
+<P>
+Compact high-order finite difference stencils are an interesting option
+for the discretizing elliptic equations on structured girds, since they
+can achieve high accuracy while maintaining the simplicity of a finite
+difference approach. In the world of ubiquitous parallelism, and in
+particular for massively parallel computing in distributed memory
+environments, they can profit from the simplicity of the data
+dependencies. This simplifies the communication structure and may improve
+the parallel efficiency by reducing message passing overhead.
+
+<P>
+Introduced in the 1960s by Lothar Collatz as "Hermitian methods" (in
+German "Mehrstellenverfahren") the method has been extended by Zhilin Li,
+Kazufumi Ito and others to the Immersed Interface Method and is thus
+applicable to cases with discontinuous coefficients.
+
+<P>
+One important application for these methods comes from problems in
+electrochemistry where the potential equation imposed by an ensemble of
+atoms has to be solved accurately and efficiently. Here not only the
+conservation of energy plays a major role, but the solution must be
+accurate enough so that also its derivatives, i.e. the forces, can be
+reconstructed accurately. Though frequency space methods based on the FFT
+are often used as solvers, multigrid methods are increasingly considered
+as interesting alternatives, since they are more flexible, have
+asymptotically better complexity, and may be enjoy better parallel
+efficiency.
+
+<P>
+In this article, we show how compact high-order finite difference
+stencils can be designed efficiently for elliptic problems with variable
+and jumping coefficients that arise from the field of electrochemistry.
+The application induces special constraints for the discretization, so
+that our problem is posed on a structured 3D rectilinear grid that has
+different step size in all dimensions. Techniques to choose the stencil
+coefficients optimally are developed. We demonstrate how the new
+high-order finite differences for variable and jumping coefficients can
+be integrated into the parallel, multigrid solver of the molecular
+dynamics code "rsdft" that is used for ab initio simulations. Finally, we
+show numerical results for typical application benchmarks as well as a
+runtime performance evaluation.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html404"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html402"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html403"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

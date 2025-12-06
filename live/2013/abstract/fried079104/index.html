@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>fried079104</TITLE>
+<META NAME="description" CONTENT="fried079104">
+<META NAME="keywords" CONTENT="fried079104">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html145"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html146"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Stephanie Friedhoff 
+<BR><B>A multigrid-in-time algorithm for solving evolution equations in parallel</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tufts University 
+<BR>
+Department of Mathematics 
+<BR>
+503 Boston Avenue 
+<BR>
+Medford MA 02155
+
+<BR><TT>Stephanie.Friedhoff@tufts.edu</TT>
+<BR>
+Robert Falgout
+<BR>
+Tzanio Kolev
+<BR>
+Scott MacLachlan
+<BR>
+Jacob Schroder
+</DIV>
+
+<P>
+We consider optimal-scaling multigrid solvers for the linear systems that
+arise from the discretization of problems with evolutionary behavior.
+Typically, solution algorithms for evolution equations are based on a
+time-marching approach, meaning solving for one time step after the
+other. These traditional time integration techniques lead to
+optimal-scaling but not parallelizable algorithms. However, current
+trends in computer architectures are leading towards more, but slower,
+processors and, therefore, driving the need for greater parallelism. One
+approach to achieve parallelism in time is with multigrid, but while
+classical multigrid methods rely on multiscale representations in space,
+that arise naturally from decomposing a function into a hierarchy of
+frequencies from global smooth modes to local oscillations, these
+approaches do not extend to evolutionary variables in a straightforward
+manner, because of the fundamentally local structure of the evolution. In
+this talk, we present an optimal and scalable multigrid-in-time algorithm
+for diffusion equations as simple examples of evolution equations. Our
+algorithm is based on interpreting the parareal time integration method
+[J. L. Lions, Y. Maday, and G. Turinici, R&#233;solution d'EDP par un
+sch&#233;ma en temps parar&#233;el, C.R. Acad. Sci. Paris, S&#233;r. I Math,
+332 (2001), pp. 661-668] as a two-level reduction scheme, and developing
+a multilevel algorithm from this viewpoint. We demonstrate optimality of
+our algorithm for solving the one-dimensional diffusion equation in
+numerical experiments. Furthermore, by using parallel performance models,
+we show that we can expect speedup in comparison to sequential
+time-marching on modern architectures.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html147"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html145"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html146"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

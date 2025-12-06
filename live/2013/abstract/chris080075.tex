@@ -1,0 +1,80 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Max la Cour Christensen \\
+{\bf Nonlinear Multigrid for Reservoir Simulation}}
+
+Viggo Jarlsvej 2 \\ 207 \\ 2830 Virum \\ Denmark
+\\
+{\tt max@maxlacour.com}\\
+Klaus Langgren Eskildsen\\
+Allan P. Engsig-Karup\\
+Mark Wakefield\end{center}
+
+In the pursuit of higher resolution simulation models that use all
+seismic, geological, and dynamic reservoir data - and to make use of
+modern parallel computing architectures - we consider alternative
+numerical methods to solve the system of equations governing subsurface
+porous media flow.
+
+The subject of this work is a thorough investigation of the application
+of nonlinear multigrid techniques, specifically the Full Approximation
+Scheme (FAS), for simulation of subsurface multiphase porous media flow.
+The main motivation for addressing this topic is a need for higher
+resolution and efficient simulations leading to better decision making in
+the production of oil and gas. Higher resolution simulations require
+efficient utilization of many-core parallel architectures. Current
+numerical methods employed in industrial reservoir simulators are memory
+intensive and not readily scalable on large-scale distributed systems and
+modern many-core architectures such as GPUs or Intel MICs.
+
+In a first step, we investigate alternative numerical methods to
+establish algorithmic performance in serial computations. The nonlinear
+multigrid technique FAS uses local linearization, which allows for local
+components suitable for parallel implementation. Furthermore, FAS is a
+memory lean algorithm.
+By using FAS, we avoid having to assemble the Jacobian on the finest
+grid, which results in major memory savings. To our knowledge, very
+little work is published on FAS for reservoir simulation. Previous work
+by Molenaar considers the application of FAS on a simple 2D immiscible
+two-phase no gravity homogeneous example. To our knowledge, FAS has not
+been applied successfully to more complicated heterogeneous reservoir
+problems.
+
+Two reservoir simulators have been implemented in C++ in serial. The
+first simulator is based on conventional techniques with global
+linearization in Newton’s method and state-of-the-art choice of methods
+for the linear solver. Specifically, we use the Krylov subspace method
+FGMRES preconditioned with the Constrained Pressure Residual (CPR)
+method. CPR is a two-stage preconditioner based on a decomposition of the
+full system into a pressure system, for which the solution is then used
+to correct the full system. The intermediate pressure system is solved by
+an algebraic multigrid method. The second stage of CPR is done by
+applying ILU(0) to the corrected full system.
+
+The second simulator is based on the nonlinear multigrid method FAS. Both
+simulators solve the same system of PDEs governing 3D three-phase flow of
+oil, water and gas in a subsurface porous medium taking into account
+gravitational effects. The same discretization techniques are used for
+both simulators. For spatial discretization, the Finite Volume Method is
+used and for temporal integration, the backward Euler method is used.
+This enables fair comparisons between the conventional methods and FAS.
+
+The two reservoir simulators have been tested extensively to compare the
+nonlinear multigrid approach FAS with the conventional techniques applied
+in modern reservoir simulation. The test models range from homogeneous to
+highly heterogeneous models. It has been demonstrated that, without loss
+of robustness, FAS outperforms the conventional techniques in terms of
+algorithmic and numerical efficiency for the model equations considered.
+Furthermore, memory comparisons have been carried out, which show that
+FAS provides a significant memory reduction in comparison with
+conventional techniques. This memory reduction is an attractive feature,
+which enables higher resolution simulation for the before mentioned
+modern many-core architectures.
+
+
+\end{document}

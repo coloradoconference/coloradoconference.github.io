@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrey Prokopenko \\
+{\bf Energy minimization in parallel setting}}
+
+Sandia National Laboratories \\ PO Box 5800 MS 1320 \\ Albuquerque \\ NM 87185
+\\
+{\tt aprokop@sandia.gov}\\
+Jeremie Gaidamour\\
+Jonathan Hu\\
+Ray Tuminaro\end{center}
+
+The linear systems arising from multi-physics simulations may present
+significant challenges for traditional algebraic multigrid (AMG) solvers.
+AMG methods based on energy minimization prove to be an effective
+approach to some of these problems. The flexibility of these methods is
+based on two components: an {\it a priori} chosen nonzero pattern of a
+prolongator, and interpolation of low energy modes, both of which act as
+constraints in an optimization problem. The parallel solution of this
+constrained problem presents some practical challenges, e.g. how to
+handle situations where the problem is over-constrained, or when the
+nonzero pattern is non-local. In this talk, we discuss a parallel
+implementation of energy minimization AMG, developed using a flexible
+parallel multigrid framework called MueLu, part of the Sandia Trilinos
+project. We discuss the challenges, and demonstrate that the resulting
+algorithms are effective and scalable on challenging problems.
+
+
+\end{document}

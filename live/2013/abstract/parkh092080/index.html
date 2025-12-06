@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>parkh092080</TITLE>
+<META NAME="description" CONTENT="parkh092080">
+<META NAME="keywords" CONTENT="parkh092080">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html354"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html355"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">HyeongKae Park 
+<BR><B>Multigrid preconditioning for Monte Carlo solution of thermal radiative transfer problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Los Alamos National Laboratory 
+<BR>
+P O Box 1663 T-3 MS-B216 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>hkpark@lanl.gov</TT>
+<BR>
+Dana A. Knoll
+<BR>
+Rick M. Rauenzahn
+</DIV>
+
+<P>
+Thermal radiative transfer problems appear in many different physical
+applications such as combustion systems, inertial confinement fusion, and
+astrophysics. We are developing a moment-based scale-bridging algorithm,
+which utilizes the phase-space moments of the original transport equation
+to accelerate the convergence of isotropic physics, such as
+absorption-emission physics. In thermal radiative transfer problems, the
+resulting low-order (LO), continuum system consists of coupled hyperbolic
+equations and a ODE.
+
+<P>
+An efficient and accurate solver for the LO system is a key for
+successful application of the moment-based, scale-bridging algorithm. The
+LO system is solved using the Jacobian-free, Newton-Krylov (JFNK) method.
+JFNK together with nonlinear elimination of the radiation flux and
+material temperature equations, we can effectively reduce the LO system
+to a scalar PDE for the radiation energy density. This scalar PDE takes a
+form of an advection-diffusion equation that is amenable to effective
+multigrid preconditioning.
+
+<P>
+However, when a Monte Carlo method is used to solve a (simplified)
+high-order transport method, we encounter a difficulty due to the
+presence of a stochastic noise in an advection (consistency) term. The
+stochastic noise reduces the diagonal dominance of the preconditioning
+system, which may lead to an eventual failure of multigrid
+preconditioning. In this talk, we present effectiveness of multigrid
+preconditioning in Monte Carlo thermal radiative transfer problems and
+discuss a strength and weakness.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html356"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html354"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html355"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

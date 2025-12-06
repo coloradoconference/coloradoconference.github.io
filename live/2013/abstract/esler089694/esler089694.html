@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>esler089694</TITLE>
+<META NAME="description" CONTENT="esler089694">
+<META NAME="keywords" CONTENT="esler089694">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html136"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html137"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kenneth Esler 
+<BR><B>Fully Accelerating Classical AMG with GAMPACK (GPU Algebraic Multigrid PACKage)</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Stone Ridge Technology 
+<BR>
+2015 Emmorton Rd Suite 204 
+<BR>
+Bel Air 
+<BR>
+MD 21015
+
+<BR><TT>kesler@stoneridgetechnology.com</TT>
+<BR>
+Vincent Natoli
+<BR>
+Yongpeng Zhang
+<BR>
+Aleksander Samardzic
+</DIV>
+
+<P>
+Algebraic multigrid (AMG) has become the defacto standard for the
+solution and preconditioning of difficult linear systems arising from
+elliptic and parabolic PDEs in a broad range of domains. Its robust
+convergence rates, linear complexity in system size, and ability to
+handle unstructured and heterogeneous problems make it a nearly
+indispensible tool in fields such as reservoir simulation.
+
+<P>
+In the last few years, the underlying computational architectures on
+which high performance computing is performed have begun to undergo a
+dramatic shift. As CPU clock frequencies have plateaued due to power
+constraints, researchers have been forced to seek performance growth
+through increasing parallelism. Multicore processors have provided an
+evolutionary approach for which the methodologies based on coarse-grained
+parallelism that were developed for distributed memory computers have
+proved mostly adequate.
+
+<P>
+GPUs, however, require the simultaneous execution of thousands of
+threads and a careful orchestration of memory access to achieve good
+performance. This degree of multithreading, in turn, requires a more
+fine-grained approach to parallelism. The regular access patterns and
+naturally parallel smoothing methods of geometric multigrid has allowed
+this method to benefit relatively easily from the increased memory
+bandwidth and FLOP rate of GPUs. In contrast, the "branchy" execution and
+largely random memory access patterns of AMG algorithms have made
+acceleration with GPUs extremely challenging.
+
+<P>
+Initially, sparse matrix methods as a whole were largely dismissed by the
+HPC community as inappropriate for acceleration on GPUs. Soon, however,
+researchers proved this belief false by demonstrating significant
+speedups by applying GPUs to iterative solvers with trivial or no
+preconditioning. More complex preconditioners were gradually ported,
+including those based on incomplete factorizations. Early work on
+accelerating AMG focused solely on the solution stage, and again
+dismissed AMG setup as impossible to accelerate. Later work demonstrated
+that by selecting appropriate algorithms, constructing an AMG hierarchy
+on GPU was possible, though the speedups achieved were more modest than
+those typical of simpler algorithms.
+
+<P>
+In this talk, we discuss our efforts to fully accelerate AMG
+algorithms on GPUs. By selecting appropriate algorithms and through
+careful implementation, we find that it is possible to achieve a good
+acceleration of classical AMG algorithms in both the setup and solve
+stages. In particular, we find that partitioning the unknowns with a PMIS
+approach and making use of distance-2 interpolators can provide a robust
+hierarchy with ample fine-grained parallelism. Combining these algorithms
+with an appropriate selection of smoothers and Krylov acceleration yields
+a complete solver package with good speedup relative to available CPU AMG
+solvers. We give examples, primarily drawn from reservoir simulation, and
+compare performance with open-source CPU solutions. Finally, we discuss
+our work to provide a solution which scales across multiple GPUs.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html138"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html136"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html137"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

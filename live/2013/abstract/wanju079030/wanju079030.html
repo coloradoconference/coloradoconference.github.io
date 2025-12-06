@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wanju079030</TITLE>
+<META NAME="description" CONTENT="wanju079030">
+<META NAME="keywords" CONTENT="wanju079030">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html570"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html571"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Justin, W.L. Wan 
+<BR><B>Multigrid Method for Solving Elliptic Monge-Ampere Equations Arising from Image Registration</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Waterloo 
+<BR>
+200 University Avenue West 
+<BR>
+Waterloo 
+<BR>
+ON N2L 3G1 
+<BR>
+Canada
+
+<BR><TT>jwlwan@uwaterloo.ca</TT>
+<BR>
+Ashmeen Soin
+</DIV>
+
+<P>
+The Monge-Amp&#232;re equation (MAE) is a nonlinear second order partial
+differential equation, which can be written as:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eqn:MAE"></A><!-- MATH
+ \begin{equation}
+u_{xx} u_{yy} - u^2_{xy} = f, \qquad on \ \Omega
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="199" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle u_{xx} u_{yy} - u^2_{xy} = f, \qquad on  \Omega$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ f&gt;0$">
+ so that the equation is elliptic with a unique convex solution.
+Monge-Amp&#232;re equations arise in many areas such as differential geometry
+and other applications. In image registration, one is interested in
+transforming one image to align with another image. One approach is based on
+the Monge-Kantorovich mass transfer problem. The goal is to find the optimal
+mapping <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ M$">
+ which minimizes the Kantorovich-Wasserstein distance. The
+optimal mapping can be written as <!-- MATH
+ $M=\nabla \psi$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M=\nabla \psi$">
+, where <IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \psi$">
+ satisfies
+the following Monge-Amp&#232;re equation
+<P><!-- MATH
+ \begin{displaymath}
+det(D^2 \psi(x)) = \frac{I_1(x)}{I_2(\nabla \psi)},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="172" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle det(D^2 \psi(x)) = \frac{I_1(x)}{I_2(\nabla \psi)},
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ I_1$">
+ and <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ I_2$">
+ are the given images.
+Here <!-- MATH
+ $det(D^2 \psi(x))$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ det(D^2 \psi(x))$">
+ denotes the determinant of the Hessian of <IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \psi$">
+.
+In <!-- MATH
+ $\mathbb{R}^2$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbb{R}^2$">
+, it is equivalent to (<A HREF="#eqn:MAE"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>).
+In this talk, we will present a multigrid method for solving the
+Monge-Amp&#232;re equation. We will discuss the discretization of the
+nonlinear equation and the issues of viscosity solutions and monotone
+finite difference and finite element schemes. We will then present a
+relaxation scheme which is a very slow convergent method as a standalone
+solver but it is very effective for reducing high frequency errors. We will
+adopt it as a smoother for multigrid and demonstrate its smoothing
+properties. Finally, numerical results will be presented to illustrate
+the effectiveness of the method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html572"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html570"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html571"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Carmen Rodrigo \\
+{\bf An efficient multigrid algorithm for finite difference discretizations on triangular grids}}
+
+Department of Applied Mathematics \\ University of Zaragoza \\ C/ Maria de Luna \\ 3 \\ 50018 Zaragoza \\ Spain
+\\
+{\tt carmenr@unizar.es}\\
+Francisco J. Gaspar\\
+Francisco J.  Lisbona\end{center}
+
+The differential operators divergence, gradient and rotor are often used
+to formulate mathematical physics problems. To approximate the solution
+of this type of problems it is convenient to use irregular grids to fit
+better the spatial domain. A natural way to discretize the differential
+problem is to define the corresponding discrete grid operators. These
+must satisfy the main properties of the continuous operators and also
+some compatibility
+relations between them. In the literature the associated methods are
+called mimetic finite difference methods. In a recent paper [1], a
+specially clear approach, called VAGO (Vector Analysis Grid Operators)
+method, has been proposed on Delaunay triangular grids. For this
+discretization, it is not necessary to use a concrete coordinate system.
+This fact is specially interesting when computational irregular grids are
+considered.
+
+An important issue in solving this type of problems is the efficient
+solution of the corresponding algebraic system of equations which results
+after the discretization process, and multigrid methods are generally
+accepted as the fastest numerical methods for the solution of elliptic
+partial differential equations. Although the algebraic multigrid is a
+useful tool to solve problems on unstructured grids, we consider in this
+work an efficient and robust geometric multigrid algorithm to solve
+problems on triangular grids in a free-matrix version. This is achieved
+by using an adequate data structure resulting in a very fast solver with
+very low memory requirements. Finally, we consider some test problems to
+show the goodness of this multigrid method.
+
+[1] P.N. Vabishchevich, Finite difference approximation of mathematical
+physics problems on irregular grids,
+Comp. Meth. Appl. Math. 5 (2005) pp. 294--330.
+
+
+\end{document}

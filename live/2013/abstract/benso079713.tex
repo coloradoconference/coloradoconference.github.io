@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Thomas R. Benson \\
+{\bf Multigrid Smoothers for Magnetohydrodynamics}}
+
+Department of Mathematics \\ Tufts University \\ 503 Boston Avenue \\ Medford \\ MA 02155
+\\
+{\tt thomas.benson@tufts.edu}\\
+James H. Adler\\
+Eric C. Cyr\\
+Scott P. MacLachlan\\
+Raymond S. Tuminaro\end{center}
+
+Magnetohydrodynamic models are used to model a wide range of plasma
+physics applications. The system of partial differential equations
+that characterizes these models is nonlinear and strongly couples
+fluid interactions with electromagnetic interactions. As a result, the
+linear systems that arise from discretization and linearization of the
+nonlinear problem can be difficult to solve. In thistalk, we
+consider a multigrid preconditioner for GMRES as a solver for these
+systems. We compare three potential smoothers for this system, two of
+which are motivated by well-known smoothers for the incompressible
+fluids system and the other is a new smoother that splits the physics
+into a magnetics-velocity operator and a Navier-Stokes operator. While
+we examine these smoothers in the context of geometric multigrid, they
+can be extended to relaxation schemes for algebraic multigrid. Results
+for a two-dimensional, steady-state test problem are shown.
+
+
+\end{document}

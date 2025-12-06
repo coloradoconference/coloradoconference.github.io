@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert Strzodka \\
+{\bf nvAMG: Multi-level linear solvers with fine-grained parallelism}}
+
+2701 San Tomas Expressway \\ Santa Clara \\ CA 95050 \\ USA
+\\
+{\tt strzodka@mpi-inf.mpg.de}\\
+Robert Strzodka\end{center}
+
+NVIDIA’s nvAMG library is a sophisticated suite of multi-level linear
+solvers. It allows arbitrary nesting of solvers, use of mixed precision
+and matrices with both scalar and block coefficients.
+
+I will present an overview of our approach to fine-grained
+parallelization of all phases of algebraic multigrid, including hierarchy
+construction, graph coloring, ILU factorization and solve. I will also
+describe how nvAMG provides GPU acceleration to the coupled
+incompressible solver in ANSYS Fluent 14.5.
+
+Recent work focuses on the integration of MPI support and the interaction
+of fine-grained and coarse-grained parallelism.
+
+
+\end{document}

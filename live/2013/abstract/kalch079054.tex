@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Delyan Kalchev \\
+{\bf Adaptive Multilevel AMG for Sequences of Problems with Gradually Changing Random Coefficients}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ 7000 East avenue \\ Mail-Stop L-560 \\ Livermore \\ CA 94551 \\ U S A
+\\
+{\tt delyank@gmail.com}\\
+Delyan Kalchev\\
+Christian Ketelsen\\
+Panayot S. Vassilevski\end{center}
+
+In this talk we present an adaptive algebraic multigrid method based on
+[Brezina M, Vassilevski P. Smoothed aggregation spectral element
+agglomeration AMG: SA &#8722; &#961;AMGe. ”Large-Scale Scientific
+Computing, 8th International Conference, LSSC 2011, Sozopol, Bulgaria,
+June 6-10th, 2011. Revised Selected Papers”. Lecture Notes in Computer
+Science, vol. 7116, Springer, 2012; 3–15] and [Kalchev D, Ketelsen C,
+Vassilevski P. Adaptive algebraic multigrid for sequence of problems with
+slowly varying random coefficients. Submitted 2012; ]. The target is to
+efficiently solve large sequences of problems. To this purpose, already
+built hierarchies of spaces are reused and adapted so that efficient
+algebraic multilevel preconditioners are quickly constructed for nearby
+problems. The main considered application is the solution of linear
+systems arising in Markov chain Monte Carlo simulations of subsurface
+flow with uncertainty in the conductivity field. A set of numerical
+experiments demonstrate the efficiency of the method for the targeted
+application.
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344.
+
+KEYWORDS: iterative methods; multigrid; algebraic multigrid; adaptive
+algebraic multigrid; Monte Carlo; Markov chain Monte Carlo; subsurface
+flow
+
+
+\end{document}

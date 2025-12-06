@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>adler061950</TITLE>
+<META NAME="description" CONTENT="adler061950">
+<META NAME="keywords" CONTENT="adler061950">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="adler061950.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">James Adler 
+<BR><B>Constrained First-Order System Least Squares for Improved Mass Conservation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tufts University 
+<BR>
+Department of Mathematics 
+<BR>
+503 Boston Ave 
+<BR>
+Medford 
+<BR>
+MA 02155
+
+<BR><TT>james.adler@tufts.edu</TT>
+<BR>
+Panayot Vassilevski
+</DIV>
+
+<P>
+In complex fluid flow simulations, there is a tradeoff between obtaining
+solutions that are accurate with a reasonable amount of computational
+work and satisfying certain conservation laws exactly. For instance, in
+incompressible fluid flow, conservation of mass takes the form of making
+sure the fluid velocities are divergence-free. In magnetohydrodynamics,
+one must satisfy conservation of mass as well as the solenoidal
+constraint that the magnetic field is divergence-free (i.e. there are no
+magnetic monopoles). Many methods have been applied to such systems, some
+being conservative at the cost of accuracy of the momentum equations and
+others at the cost of efficiency in the solver. First-order system
+least-squares approaches have also been applied and yield efficient
+methods for approximating solutions to coupled fluid mechanics problems.
+However, without proper care, the auxiliary conservation equations may
+not be solved to a sufficient accuracy. In this talk, we propose a
+constrained least-squares approach, where we augment the first-order
+system and minimize the least-squares functional subject to some
+constraint. Here, we only look at a simple diffusion equation, but
+present the main ideas, including what types of finite-element spaces to
+use and the solution algorithm. A domain decomposition or multilevel
+approach is employed to solve the constrained problem on local subdomains
+and coarse grids and used to update the unconstrained solution as needed.
+Thus, we approximate the solution accurately and efficiently using the
+least-squares method, while still conserving the appropriate quantity.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

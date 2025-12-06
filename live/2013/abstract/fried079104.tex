@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stephanie Friedhoff \\
+{\bf A multigrid-in-time algorithm for solving evolution equations in parallel}}
+
+Tufts University \\ Department of Mathematics \\ 503 Boston Avenue \\ Medford MA 02155
+\\
+{\tt Stephanie.Friedhoff@tufts.edu}\\
+Robert Falgout\\
+Tzanio Kolev\\
+Scott MacLachlan\\
+Jacob Schroder\end{center}
+
+We consider optimal-scaling multigrid solvers for the linear systems that
+arise from the discretization of problems with evolutionary behavior.
+Typically, solution algorithms for evolution equations are based on a
+time-marching approach, meaning solving for one time step after the
+other. These traditional time integration techniques lead to
+optimal-scaling but not parallelizable algorithms. However, current
+trends in computer architectures are leading towards more, but slower,
+processors and, therefore, driving the need for greater parallelism. One
+approach to achieve parallelism in time is with multigrid, but while
+classical multigrid methods rely on multiscale representations in space,
+that arise naturally from decomposing a function into a hierarchy of
+frequencies from global smooth modes to local oscillations, these
+approaches do not extend to evolutionary variables in a straightforward
+manner, because of the fundamentally local structure of the evolution. In
+this talk, we present an optimal and scalable multigrid-in-time algorithm
+for diffusion equations as simple examples of evolution equations. Our
+algorithm is based on interpreting the parareal time integration method
+[J. L. Lions, Y. Maday, and G. Turinici, R\'{e}solution d'EDP par un
+sch\'{e}ma en temps parar\'{e}el, C.R. Acad. Sci. Paris, S\'{e}r. I Math,
+332 (2001), pp. 661-668] as a two-level reduction scheme, and developing
+a multilevel algorithm from this viewpoint. We demonstrate optimality of
+our algorithm for solving the one-dimensional diffusion equation in
+numerical experiments. Furthermore, by using parallel performance models,
+we show that we can expect speedup in comparison to sequential
+time-marching on modern architectures.
+
+
+\end{document}

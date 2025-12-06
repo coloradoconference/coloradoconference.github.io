@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large James Adler \\
+{\bf Constrained First-Order System Least Squares for Improved Mass Conservation}}
+
+Tufts University \\ Department of Mathematics \\ 503 Boston Ave \\ Medford \\ MA 02155
+\\
+{\tt james.adler@tufts.edu}\\
+Panayot Vassilevski\end{center}
+
+In complex fluid flow simulations, there is a tradeoff between obtaining
+solutions that are accurate with a reasonable amount of computational
+work and satisfying certain conservation laws exactly. For instance, in
+incompressible fluid flow, conservation of mass takes the form of making
+sure the fluid velocities are divergence-free. In magnetohydrodynamics,
+one must satisfy conservation of mass as well as the solenoidal
+constraint that the magnetic field is divergence-free (i.e. there are no
+magnetic monopoles). Many methods have been applied to such systems, some
+being conservative at the cost of accuracy of the momentum equations and
+others at the cost of efficiency in the solver. First-order system
+least-squares approaches have also been applied and yield efficient
+methods for approximating solutions to coupled fluid mechanics problems.
+However, without proper care, the auxiliary conservation equations may
+not be solved to a sufficient accuracy. In this talk, we propose a
+constrained least-squares approach, where we augment the first-order
+system and minimize the least-squares functional subject to some
+constraint. Here, we only look at a simple diffusion equation, but
+present the main ideas, including what types of finite-element spaces to
+use and the solution algorithm. A domain decomposition or multilevel
+approach is employed to solve the constrained problem on local subdomains
+and coarse grids and used to update the unconstrained solution as needed.
+Thus, we approximate the solution accurately and efficiently using the
+least-squares method, while still conserving the appropriate quantity.
+
+
+\end{document}

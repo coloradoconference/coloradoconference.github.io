@@ -1,0 +1,477 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>jiaox079023</TITLE>
+<META NAME="description" CONTENT="jiaox079023">
+<META NAME="keywords" CONTENT="jiaox079023">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html219"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html220"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Xiangmin Jiao 
+<BR><B>A Multigrid Generalized Finite Difference (GFD) Method</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept of Applied Math &amp; Stat  
+<BR>
+Stony Brook University 
+<BR>
+Stony Brook 
+<BR>
+NY 11794
+
+<BR><TT>xiangmin.jiao@stonybrook.edu</TT>
+<BR>
+Cao Lu
+</DIV>
+
+<P>
+
+<P>
+Finite differences are well-established numerical methods for solving
+differential equations, but they were limited to structured meshes.
+The <I>generalized finite differences</I> (<I>GFDs</I>) extend the
+classical finite differences to unstructured meshes with high-order
+accuracy. In this paper, we propose a GFD method for elliptic PDEs,
+and tightly integrate it with a multigrid solver. We refer to this
+integrated approach as <I>multigrid GFD</I>. Specifically, our method
+discretizes the PDE and the boundary conditions using GFD to obtain
+a sparse linear system
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:linearsys"></A><!-- MATH
+ \begin{equation}
+\vec{A}\vec{u}=\vec{b},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \vec{A}\vec{u}=\vec{b},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \vec{A}$">
+ is in general asymmetric and may be singular for
+PDEs with Neumann or periodic boundary conditions. We solve the resulting
+linear system using a hybrid geometric+algebraic method, or <I>HyGA</I>.
+The core of <I>HyGA</I> is a geometric multigrid method, which rediscretizes
+the PDE using GFD over a series of hierarchical meshes, combined with
+an algebraic multigrid at the coarsest level.
+
+<P>
+We develop GFD methods based on a <I>weighted least squares</I> (<I>WLS</I>)
+formulation locally over a weighted stencil at each point, which generalizes
+the classical interpolation-based finite differences. We have shown
+recently that the WLS can deliver the same order of accuracy as the
+interpolation-based approximations, while delivering superior stability,
+flexibility, and robustness for multivariate approximations over irregular
+unstructured meshes. The GFD method for PDEs is formulated as follows.
+Consider a general form of linear, time-independent partial differential
+equations
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:linearPDE"></A><!-- MATH
+ \begin{equation}
+\mathcal{P}\, u(\vec{x})=f(\vec{x})
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="105" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \mathcal{P}  u(\vec{x})=f(\vec{x})$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with some Dirichlet or Neumman boundary conditions, where <!-- MATH
+ $\mathcal{P}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathcal{P}$">
+
+is a linear differential operator (such as the Laplacian operator)
+and <!-- MATH
+ $\vec{x}\in\mathbb{R}^{d}$
+ -->
+<IMG
+ WIDTH="53" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \vec{x}\in\mathbb{R}^{d}$">
+ for <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ d\ge1$">
+. Let <!-- MATH
+ $\Psi(\vec{x})=\{\psi_{j}(\vec{x})\}$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \Psi(\vec{x})=\{\psi_{j}(\vec{x})\}$">
+
+denote the set of Dirac delta functions at the vertices of a mesh.
+We obtain a linear equation for each <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \psi_{j}$">
+ as
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:weak_form"></A><!-- MATH
+ \begin{equation}
+\int_{\Omega}\mathcal{P}\, u(\vec{x})\psi_{j}(\vec{x})\,
+d\vec{x}=\int_{\Omega}f(\vec{x})\psi_{j}(\vec{x})\,
+d\vec{x},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="275" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle \int_{\Omega}\mathcal{P}  u(\vec{x})\psi_{j}(\vec{x})  d\vec{x}=\int_{\Omega}f(\vec{x})\psi_{j}(\vec{x})  d\vec{x},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and then the boundary conditions may modify the linear system. We
+then introduce a set of basis functions <!-- MATH
+ $\Phi(\vec{x})=\{\phi_{i}(\vec{x})\}$
+ -->
+<IMG
+ WIDTH="114" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \Phi(\vec{x})=\{\phi_{i}(\vec{x})\}$">
+
+to approximate <!-- MATH
+ $\mathcal{P}u$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \mathcal{P}u$">
+ as <!-- MATH
+ $\mathcal{P}\,
+u(\vec{x}_{0})=\vec{u}^{T}\mathcal{P}\,\Phi(\vec{x}_{0})\approx\vec{u}^{T}\vec{d}$
+ -->
+<IMG
+ WIDTH="209" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \mathcal{P} 
+u(\vec{x}_{0})=\vec{u}^{T}\mathcal{P} \Phi(\vec{x}_{0})\approx\vec{u}^{T}\vec{d}$">
+,
+where <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \vec{d}$">
+ is obtained from weighted least squares over the
+stencil around point <!-- MATH
+ $\vec{x}_{0}$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \vec{x}_{0}$">
+. Suppose <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \Phi$">
+ and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \Psi$">
+ are
+both stored in column vectors. Then in (<A HREF="#eq:linearsys"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>)
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:coeff_mat"></A><!-- MATH
+ \begin{equation}
+\vec{A}=\int_{\Omega}\Psi(\vec{x})\left(\mathcal{P}\,\Phi(\vec{x})\right)^{T}\,
+d\vec{x}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="195" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle \vec{A}=\int_{\Omega}\Psi(\vec{x})\left(\mathcal{P} \Phi(\vec{x})\right)^{T}  d\vec{x}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and <!-- MATH
+ $\vec{b}=\int_{\Omega}\Psi(\vec{x})f(\vec{x})\, d\vec{x}$
+ -->
+<IMG
+ WIDTH="143" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \vec{b}=\int_{\Omega}\Psi(\vec{x})f(\vec{x})  d\vec{x}$">
+.
+
+<P>
+To construct the geometric multigrid GFD, which is the core of our
+multigrid GFD approach, we derive the restriction and prolongation
+operators rigorously for hierarchical meshes. Specifically, let <!-- MATH
+ $\Phi^{(k)}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \Phi^{(k)}$">
+
+denote the set of basis functions on the <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ k$">
+th finest mesh, and let
+<!-- MATH
+ $\Psi^{(k)}$
+ -->
+<IMG
+ WIDTH="35" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \Psi^{(k)}$">
+ denote the Dirac delta functions on the <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ k$">
+th finest
+mesh. Let <!-- MATH
+ $\vec{A}^{(k)}$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \vec{A}^{(k)}$">
+ denote the coefficient matrix at the <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ k$">
+th
+level, i.e.,
+<!-- MATH
+ $\vec{A}^{(k)}=\int_{\Omega}\Psi^{(k)}(\vec{x})\left(\mathcal{P}\,\Phi^{(k)}(\vec{x})\right)^{T}\,
+d\vec{x}.$
+ -->
+<IMG
+ WIDTH="253" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \vec{A}^{(k)}=\int_{\Omega}\Psi^{(k)}(\vec{x})\left(\mathcal{P} \Phi^{(k)}(\vec{x})\right)^{T} 
+d\vec{x}.$">
+
+In a two-level setting, let <!-- MATH
+ $\vec{R}_{\Phi}^{(1,2)}$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \vec{R}_{\Phi}^{(1,2)}$">
+ denote a <I>restriction
+matrix</I> of the functional space such that <!-- MATH
+ $\Phi^{(2)}=\vec{R}_{\Phi}^{(1,2)}\Phi^{(1)}$
+ -->
+<IMG
+ WIDTH="124" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \Phi^{(2)}=\vec{R}_{\Phi}^{(1,2)}\Phi^{(1)}$">
+,
+where <!-- MATH
+ $\vec{R}_{\Phi}^{(1,2)}\in\mathbb{R}^{n_{2}\times n_{1}}$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \vec{R}_{\Phi}^{(1,2)}\in\mathbb{R}^{n_{2}\times n_{1}}$">
+ with
+<!-- MATH
+ $n_{k}=\vert\Phi^{(k)}\vert$
+ -->
+<IMG
+ WIDTH="81" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ n_{k}=\vert\Phi^{(k)}\vert$">
+. Similarly, <!-- MATH
+ $\Psi^{(2)}=\vec{R}_{\Psi}^{(1,2)}\Psi^{(1)}$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \Psi^{(2)}=\vec{R}_{\Psi}^{(1,2)}\Psi^{(1)}$">
+
+for <!-- MATH
+ $\vec{R}_{\Psi}^{(1,2)}\in\mathbb{R}^{n_{2}\times n_{1}}$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ \vec{R}_{\Psi}^{(1,2)}\in\mathbb{R}^{n_{2}\times n_{1}}$">
+. We
+show that the restriction matrix <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.png"
+ ALT="$ \vec{R}$">
+ and the prolongation matrix
+<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \vec{P}$">
+ in a two-grid method are
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:restrict_prolong"></A><!-- MATH
+ \begin{equation}
+\vec{R}=\vec{R}_{\Psi}^{(1,2)}\mbox{ and
+}\vec{P}=\left(\vec{R}_{\Phi}^{(1,2)}\right)^{T},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="81" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$\displaystyle \vec{R}=\vec{R}_{\Psi}^{(1,2)}$"> and <IMG
+ WIDTH="117" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$\displaystyle \vec{P}=\left(\vec{R}_{\Phi}^{(1,2)}\right)^{T},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+so that <!-- MATH
+ $\vec{A}^{(2)}=\vec{R}\,\vec{A}^{(1)}\vec{P}$
+ -->
+<IMG
+ WIDTH="118" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$ \vec{A}^{(2)}=\vec{R} \vec{A}^{(1)}\vec{P}$">
+. In other words,
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.png"
+ ALT="$ \vec{R}$">
+ corresponds to an <!-- MATH
+ $n_{2}\times n_{1}$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$ n_{2}\times n_{1}$">
+ permutation matrix
+(i.e., an injection operator) that selects the entries in the residual
+vector corresponding to the coarse-level nodes in the fine-level mesh.
+<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \vec{P}$">
+ is the transpose of of the restriction operator from the
+basis functions <!-- MATH
+ $\Phi^{(1)}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \Phi^{(1)}$">
+ to <!-- MATH
+ $\Phi^{(2)}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \Phi^{(2)}$">
+, and it would correspond
+to the interpolation of nodal values if <!-- MATH
+ $\Phi^{(k)}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \Phi^{(k)}$">
+ were composed
+of Lagrange basis functions. Applying these operators to adjacent
+grids in a multilevel method, we then obtain a geometric multigrid
+for GFD, where the coefficient matrices at all levels are obtained
+directly from GFD discretizations without performing sparse matrix-matrix
+multiplications. By coupling this geometric multigrid with algebraic
+multigrid at the coarsest level, our proposed HyGA method then combines
+the rigor, high accuracy and runtime-and-memory efficiency of geometric
+multigrid with the flexibility of algebraic multigrid, and at the
+same time it is relatively easy to implement.
+
+<P>
+In this work, we also investigate the convergence properties of the
+multigrid solver for the GFDs of elliptic PDEs. We show the multigrid
+solver may fail to converge for high-order GFD discretizations when
+using Jacobi or Gauss-Seidel iterations as smoothers. To overcome
+this issue, we propose new weighting schemes for WLS to improve the
+diagonal dominance of the linear system from the GFD, and also adopt
+a damped Gauss-Seidel iteration to enable more robust convergence
+of multigrid methods. We present the derivations and the numerical
+experimentations of our method for a number of test problems with
+various boundary conditions.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html221"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html219"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html220"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

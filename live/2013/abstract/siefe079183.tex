@@ -1,0 +1,51 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christopher Siefert \\
+{\bf Multilevel Preconditioners for the XFEM with Weak Discontinuities}}
+
+Computational Shock and Multiphysics Department \\ Sandia National Laboratories \\ P O Box 5800 \\ MS 1323 \\ Albuquerque \\ NM 87185-1323
+\\
+{\tt csiefer@sandia.gov}\\
+Richard Kramer\\
+Thomas Voth\end{center}
+
+In multimaterial problems, surface and interface effects have the
+potential to be of great importance, for instance in electromagnetics,
+where current tends to concentrate on material surfaces, In cases
+where Lagrangian (moving) meshes are untenable due to large-scale
+deformation, we are often left with the alternative of using an
+Eulerian (non-moving) meshes coupled with some sort of mixture model.
+For some types of physics, these mixture models are quite good, in others they
+leave much to be desired.
+
+The extended finite element method (XFEM) has primarily attracted attention
+in the computational mechanics for its ability to handle strong
+discontinuities in the solution field such as cracks. However, the XFEM
+has also been shown to be applicable to weak discontinuities as well,
+such as the material interface problems discussed above.
+Unfortunately, the state of multilevel preconditioners for the XFEM
+is somewhat behind the state of the discretizations themselves, as
+many of these discretizations are presented without a solver to
+accompany them.
+
+We present a simplified XFEM employing pointwise constraints to
+enforce $C^0$ continuity, which displays almost identical convergence
+behavior to the method of vital vertices [1]. We show two
+multilevel preconditioners for this method. The first is an auxiliary
+preconditioner based on a FEM discretization without the material
+interface. The second method is based on a change of basis to an
+equivalent body-fit FEM problem. Results for both multilevel
+preconditioners are presented for model problems in two dimensions.
+
+
+[1] M. Hautefeuille, C. Annavarapu, and J. Dolbow. Robust imposition
+of Dirichlet boundary conditions on embedded surfaces, IJNME, in
+press, 2012.
+
+
+\end{document}

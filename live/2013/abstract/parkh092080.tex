@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large HyeongKae Park \\
+{\bf Multigrid preconditioning for Monte Carlo solution of thermal radiative transfer problems}}
+
+Los Alamos National Laboratory \\ P O Box 1663 T-3 MS-B216 \\ Los Alamos \\ NM 87545
+\\
+{\tt hkpark@lanl.gov}\\
+Dana A. Knoll\\
+Rick M. Rauenzahn\end{center}
+
+Thermal radiative transfer problems appear in many different physical
+applications such as combustion systems, inertial confinement fusion, and
+astrophysics. We are developing a moment-based scale-bridging algorithm,
+which utilizes the phase-space moments of the original transport equation
+to accelerate the convergence of isotropic physics, such as
+absorption-emission physics. In thermal radiative transfer problems, the
+resulting low-order (LO), continuum system consists of coupled hyperbolic
+equations and a ODE.
+
+An efficient and accurate solver for the LO system is a key for
+successful application of the moment-based, scale-bridging algorithm. The
+LO system is solved using the Jacobian-free, Newton-Krylov (JFNK) method.
+JFNK together with nonlinear elimination of the radiation flux and
+material temperature equations, we can effectively reduce the LO system
+to a scalar PDE for the radiation energy density. This scalar PDE takes a
+form of an advection-diffusion equation that is amenable to effective
+multigrid preconditioning.
+
+However, when a Monte Carlo method is used to solve a (simplified)
+high-order transport method, we encounter a difficulty due to the
+presence of a stochastic noise in an advection (consistency) term. The
+stochastic noise reduces the diagonal dominance of the preconditioning
+system, which may lead to an eventual failure of multigrid
+preconditioning. In this talk, we present effectiveness of multigrid
+preconditioning in Monte Carlo thermal radiative transfer problems and
+discuss a strength and weakness.
+
+
+\end{document}

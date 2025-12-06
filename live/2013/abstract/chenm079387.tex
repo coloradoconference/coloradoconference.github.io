@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Meng-Huo (Alan) Chen \\
+{\bf Analysis Of an Aggregation-Based Algebraic Multigrid Methods On Matrices Related to a 1D Model Problem}}
+
+Department of Applied Mathematics \\ University of Washington \\ Guggenheim Hall #414 \\ Box 352420 \\ Seattle \\ WA 98195-2420 USA
+\\
+{\tt mchen01@uw.edu}\end{center}
+
+We show that a pairwise aggregation-based algebraic 2-grid method,
+applied to the linear system $Ax = b$ arising from a 1D model problem for
+Poisson's equation with Dirichlet boundary conditions, reduces the
+$A$-norm of the error at each step by at least the factor $\sqrt{5/8}$.
+We then generalize this result to problems with the same eigenvectors but
+different eigenvalues from the model problem, and also to problems with
+different eigenvectors that are especially well-suited to the method.
+Finally, we discuss the reduction in the A-norm of the error when the
+2-grid method is replaced by a multigrid V-cycle and indicate that
+conjugate gradient acceleration is required in order to improve the
+degraded performance of multigrid V-cycle.
+
+
+\end{document}

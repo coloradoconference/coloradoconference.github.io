@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large J. Zhao \\
+{\bf A multigrid method with an FFT smoother and deflation techniques for elastic contact problems}}
+
+HB03 060 \\ Mekelweg 4 \\ 2628 CD Delft \\ The Netherlands
+\\
+{\tt J.Zhao-1@tudelft.nl}\\
+E.A.H. Vollebregt\\
+C.W.  Oosterlee\end{center}
+
+In the simulation of railway vehicles dynamics, the interaction between
+the vehicles' wheels and rails attracts a lot of interest. It involves
+the solution of the so-called {\it contact problems}, concerning the
+normal and tangential tractions on the inter-surface. The formulation
+based on Kalker's variational half-space approach is regarded as an
+accurate model for contact problems, particularly those involving a
+rolling contact with friction. Fast solvers are demanded for such
+problems.
+
+
+In this talk, multigrid methods are used to solve the discretized
+governing system, which is derived from an integral equation and its
+coefficient matrix $A$ is full, symmetric and Toeplitz. A smoother is
+proposed, which is based on the Richardson iteration, where the residual
+in each iteration is preconditioned by a matrix $M^{-1}$. The idea of
+constructing this matrix comes from the fact that each column of the
+inverse of the coefficient matrix $A^{-1}$ is similar, and we approximate
+any one of these by a fast Fourier transform (FFT) technique. The
+resultant vector defines a Toeplitz matrix which is the preconditioner
+$M^{-1}$.
+
+
+This smoother possesses the advantages of easy construction, and fast
+computation of matrix-vector multiplications using FFT. It is able to
+eliminate the high frequency modes of the errors to a great extent,
+however, it also enlarges several very low frequency modes. This is
+remedied by a subdomain deflation approach, where only a few
+piecewise-constant deflation vectors are required.
+
+
+The numerical tests and some spectral analysis indicate very fast
+convergence and mesh-independence of our method. Hence this method may
+accelerate the solution procedure for the contact problems. In view of
+other applications, on the one hand, it can be applied for systems with
+Toeplitz coefficient matrices arising in other engineering fields such as
+image processing. On the other hand, a preconditioner based on these
+techniques also performs well in combination with Krylov subspace methods
+aiming at even faster convergence.
+
+
+\end{document}

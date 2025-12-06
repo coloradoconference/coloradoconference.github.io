@@ -1,0 +1,468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>cools068541</TITLE>
+<META NAME="description" CONTENT="cools068541">
+<META NAME="keywords" CONTENT="cools068541">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html91"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html92"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Siegfried Cools 
+<BR><B>An Efficient Multigrid Calculation of the Far Field Map for Helmholtz Equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Computer Science 
+<BR>
+Universiteit Antwerpen 
+<BR>
+Middelheimlaan 1 
+<BR>
+2020 Antwerp 
+<BR>
+Belgium
+
+<BR><TT>siegfried.cools@ua.ac.be</TT>
+<BR>
+Bram Reps
+<BR>
+Wim Vanroose
+</DIV>
+
+<P>
+<B>Introduction.</B>
+
+<P>
+In this work we present a new efficient calculation method for the far
+field amplitude patterns that arise from scattering problems governed by
+the <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d$">
+-dimensional Helmholtz equation. The calculation of the far field
+mapping is typically a two step process. First a Helmholtz problem with
+absorbing boundary conditions (PML, ECS) is solved on a finite numerical
+box covering the object of interest. In the second step a volume integral
+over the Green's function involving the numerical solution yields the
+angular dependency of the far field amplitude. The main computational
+bottleneck generally lies within the first step, since it requires a
+suitable (iterative) method for the solution of a high dimensional
+indefinite Helmholtz system.
+
+<P>
+Preconditioned Krylov subspace methods are currently among the most
+efficient numerical algorithms for the solution of high dimensional
+positive definite systems. A generalization of this approach led to the
+development of the Complex Shifted Laplacian (CSL) preconditioner,
+proposed in [1] as an effective Krylov subspace method preconditioner for
+Helmholtz problems. The key idea behind CSL is the formulation of a
+perturbed Helmholtz problem which includes a complex valued wave number.
+This implies a damping in the problem, thus making the preconditioning
+system solvable using multigrid in contrast to the original Helmholtz
+problem. Recently a variation on CSL by the name of Complex Stretched
+Grid (CSG) was proposed [2], introducing a complex valued grid distance
+(complex rotation) in the preconditioner.
+
+<P>
+The far field map computation proposed in this work reformulates the
+standard real-valued Green's function integral expression for the far
+field amplitude on a complex contour. Hence, one requires the solution of
+the Helmholtz equation on a complex contour. It is shown that the latter
+problem is equivalent to a CSL problem that can be solved very
+efficiently using a multigrid method. However, whereas CSL was previously
+only used as a preconditioner, the proposed complex-valued far field map
+calculation effectively allows for multigrid to be used as a solver.
+
+<P>
+<B>The far field map for Helmholtz problems.</B>
+
+<P>
+The Helmholtz equation is a mathematical representation of the physics
+behind a wave scattering at an object <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ O$">
+ located within a domain <!-- MATH
+ $\Omega
+\subset \mathbb{R}^d$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \Omega
+\subset \mathbb{R}^d$">
+. The equation is
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:helmholtz_in"></A><!-- MATH
+ \begin{equation}
+\left(-\Delta - k^2(\boldsymbol{x})\right) u(\boldsymbol{x}) = k_0^2
+\chi(\boldsymbol{x})u_{in}(\boldsymbol{x}), \quad \boldsymbol{x} \in
+\Omega,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="322" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \left(-\Delta - k^2(\boldsymbol{x})\right) u(\boldsymbol{x}) = k_0^2 \chi(\boldsymbol{x})u_{in}(\boldsymbol{x}), \quad \boldsymbol{x} \in \Omega,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\chi(\boldsymbol{x}) = (k^2(\boldsymbol{x})-k_0^2)/k_0^2$
+ -->
+<IMG
+ WIDTH="169" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \chi(\boldsymbol{x}) = (k^2(\boldsymbol{x})-k_0^2)/k_0^2$">
+
+represents the object of interest. Note that <!-- MATH
+ $\chi(\boldsymbol{x}) = 0$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \chi(\boldsymbol{x}) = 0$">
+
+for <!-- MATH
+ $\boldsymbol{x} \in \Omega \setminus O$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \boldsymbol{x} \in \Omega \setminus O$">
+. The above equation can in
+principle be solved in a numerical box (i.e.&nbsp;a discretized subset of
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \Omega$">
+) covering the support of <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \chi$">
+, with absorbing boundary
+conditions along all boundaries, yielding a numerical solution denoted by
+<IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ u^N$">
+. The far field scattered wave then satisfies the following
+inhomogeneous Helmholtz equation with constant wave number
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:HHR"></A><!-- MATH
+ \begin{equation}
+\left(-\Delta - k_0^2\right) \, u(\boldsymbol{x}) = g(\boldsymbol{x}),
+\quad \boldsymbol{x} \in \mathbb{R}^d,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="246" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle \left(-\Delta - k_0^2\right)   u(\boldsymbol{x}) = g(\boldsymbol{x}), \quad \boldsymbol{x} \in \mathbb{R}^d,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $g(\boldsymbol{x})=k_0^2 \chi(\boldsymbol{x})
+(u_{in}(\boldsymbol{x})+u^N(\boldsymbol{x}))$
+ -->
+<IMG
+ WIDTH="227" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ g(\boldsymbol{x})=k_0^2 \chi(\boldsymbol{x})
+(u_{in}(\boldsymbol{x})+u^N(\boldsymbol{x}))$">
+. The analytical solution to
+the above equation is given by the Green's integral
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:scint"></A><!-- MATH
+ \begin{equation}
+u(\boldsymbol{x}) = \int_{\Omega} G(\boldsymbol{x},
+\boldsymbol{x}^\prime) \, g(\boldsymbol{x}^\prime) \, d\boldsymbol{x}',
+\quad \boldsymbol{x} \in \mathbb{R}^d.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="277" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle u(\boldsymbol{x}) = \int_{\Omega} G(\boldsymbol{x}, \boldsymbol{x...
+...ldsymbol{x}^\prime)   d\boldsymbol{x}', \quad \boldsymbol{x} \in \mathbb{R}^d.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Consequently, the asymptotic form of the scattered wave in the direction
+of the unit vector <!-- MATH
+ $\boldsymbol\alpha \in \mathbb{R}^d$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \boldsymbol\alpha \in \mathbb{R}^d$">
+ is
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:FFusc"></A><!-- MATH
+ \begin{equation}
+\lim_{\rho \to \infty} u(\rho,\boldsymbol\alpha) = D(\rho)
+F(\boldsymbol\alpha), \qquad \boldsymbol\alpha \in \mathbb{R}^{d},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="274" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \lim_{\rho \to \infty} u(\rho,\boldsymbol\alpha) = D(\rho) F(\boldsymbol\alpha), \qquad \boldsymbol\alpha \in \mathbb{R}^{d},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the far field (amplitude) mapping is given by
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:FFmap"></A><!-- MATH
+ \begin{equation}
+F(\boldsymbol \alpha) = \int_\Omega e^{-ik_0 \boldsymbol{x}^\prime \cdot
+\boldsymbol \alpha} g(\boldsymbol{x}^\prime) \, d\boldsymbol{x}^\prime.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="211" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle F(\boldsymbol \alpha) = \int_\Omega e^{-ik_0 \boldsymbol{x}^\prime \cdot \boldsymbol \alpha} g(\boldsymbol{x}^\prime)   d\boldsymbol{x}^\prime.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<B>Calculation on a complex contour.</B>
+
+<P>
+The above far field integral expression can be split into a sum of two
+contributions <!-- MATH
+ $F(\boldsymbol \alpha) = I_1 + I_2$
+ -->
+<IMG
+ WIDTH="110" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ F(\boldsymbol \alpha) = I_1 + I_2$">
+, where
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle I_1$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="201" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$\displaystyle = \int_\Omega e^{-i k_0 \boldsymbol{x} \cdot \boldsymbol \alpha }\chi(\boldsymbol{x})u_{in}(\boldsymbol{x}) d\boldsymbol{x},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(6)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle I_2$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="200" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$\displaystyle = \int_\Omega e^{-i k_0 \boldsymbol{x} \cdot \boldsymbol \alpha } \chi(\boldsymbol{x}) u^N(\boldsymbol{x}) d\boldsymbol{x}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(7)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Calculation of first integral <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ I_1$">
+ is generally easy, since it only
+requires the expression for the incoming wave. The second integral
+however requires the solution <IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ u^N$">
+ of the Helmholtz equation on the
+numerical box, which is known to be notoriously hard to obtain using
+present-day iterative methods. However, if both <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ u$">
+ and <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \chi$">
+ are
+analytical functions, the integral <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ I_2$">
+ can be calculated over a complex
+contour defined by the rotated real domain <!-- MATH
+ $Z_1 = \{\boldsymbol{z} \in
+\mathbb{C} \,|\, \boldsymbol{z} = \boldsymbol{x} e^{i\gamma} :
+\boldsymbol{x} \in \Omega \}$
+ -->
+<IMG
+ WIDTH="226" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ Z_1 = \{\boldsymbol{z} \in
+\mathbb{C}  \vert  \boldsymbol{z} = \boldsymbol{x} e^{i\gamma} :
+\boldsymbol{x} \in \Omega \}$">
+, where <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \gamma$">
+ is a fixed rotation angle,
+followed by the curved segment <!-- MATH
+ $Z_2 = \{\boldsymbol{z} \in \mathbb{C}
+\,|\, \boldsymbol{z} = \boldsymbol{b} e^{i\theta} : \boldsymbol{b} \in
+\partial\Omega,~ 0 \leq \theta \leq \gamma\}$
+ -->
+<IMG
+ WIDTH="310" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ Z_2 = \{\boldsymbol{z} \in \mathbb{C}
+ \vert  \boldsymbol{z} = \boldsymbol{b} e^{i\theta} : \boldsymbol{b} \in
+\partial\Omega,&nbsp; 0 \leq \theta \leq \gamma\}$">
+, closing the contour. The
+integral <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ I_2$">
+ can then be written as
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+I_2 = \int_{Z_1} e^{-i k_0 \boldsymbol{z} \cdot \boldsymbol \alpha
+}\chi(\boldsymbol{z})u^N(\boldsymbol{z}) d\boldsymbol{z},
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="221" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$\displaystyle I_2 = \int_{Z_1} e^{-i k_0 \boldsymbol{z} \cdot \boldsymbol \alpha }\chi(\boldsymbol{z})u^N(\boldsymbol{z}) d\boldsymbol{z},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(8)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the integral over <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ Z_2$">
+ has vanished because <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \chi$">
+ is per
+definition zero everywhere outside <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ O$">
+, thus notably in all points of
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ Z_2$">
+. The advantage of this approach is that we only need the value of
+<IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ u^N$">
+ evaluated along this complex contour, where the original Helmholtz
+problem is reduced to a damped equation. This problem is equivalent to a
+CSL problem, and can thus be solved very efficiently using multigrid,
+resulting in a fast and scalable computation of the far field mapping.
+The new approach is successfully validated on model problems in two and
+three spatial dimensions, where its effectiveness and scalability are
+demonstrated.
+
+<P>
+<B>References.</B>
+
+<P>
+[1] Y.A. Erlangga, C.W. Oosterlee and C. Vuik, <I>On a class of
+preconditioners for solving the Helmholtz equation</I>, App. Num. Math.,
+<B>50</B>(3-4), 2004, pp. 409-425.
+
+<P>
+[2] B. Reps, W. Vanroose and H. bin Zubair, <I>On the indefinite
+Helmholtz equation: Complex stretched absorbing boundary layers,
+iterative analysis, and preconditioning</I>, J. Comput. Phys.,
+<B>229</B>(22), 2010, pp. 8384-8405.
+
+<P>
+[3] S. Cools, B. Reps and W. Vanroose, <I>An efficient multigrid
+calculation of the far field map for Helmholtz problems</I>,
+arXiv:1211.4461.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html93"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html91"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html92"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

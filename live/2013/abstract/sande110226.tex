@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Geoffrey D. Sanders \\
+{\bf Eigenvectors of Matrices Associated with Scale-Free Graphs}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ 7000 East Avenue \\ Livermore CA 94551
+\\
+{\tt sanders29@llnl.gov}\end{center}
+
+A scale-free graph is characterized as having vertices with a degree
+distribution that follows a power law. Clustering, ranking, and measuring
+similarity of vertices on scale-free graphs are all quantities that
+network scientists often calculate. We describe a few network
+calculations that are obtained by solving linear systems, eigensystems,
+nonlinear constrained optimization problems, and tensor decompositions
+involving matrices (or tensors) whose sparsity structure is related to an
+underlying scale-free graph. In each of these settings, linear solves are
+often fundamental calculations performed as subroutines within the larger
+iterative solution process. For many large systems of interest, classical
+iterative solvers (such as conjugate gradient) converge with
+prohibitively slow rates, due to ill-conditioned matrices and small
+spectral gap ratios. Scalable preconditioners for this class of problem
+are of considerable research interest.
+
+We consider constructing algebraic multigrid (AMG) preconditioners, which
+make use of coarse approximation of eigenspaces to accelerate
+convergence. We discuss several interesting properties the eigenvectors
+of scale-free graphs have that are not present in mesh-like graphs. For
+example, these graphs often have a large number of locally supported
+eigenvectors (LSEVs), eigenvectors that are each nonzero only in a small,
+connected region. Another common related property is that eigenvectors in
+a matrix’s near-nullspace are essentially local, having significant
+magnitude in a very small region of the graph and rapidly decaying away
+from this region. We discuss how such properties can be used to coarsen
+graphs with potentially high spectral accuracy and ultimately improve the
+scalability of preconditioned iterative methods.
+
+Additionally, these properties are important for understanding how the
+quality of a numerical solution relates to the quality of the data mining
+task, loosely analogous to the relationship between discretization error
+and optimal convergence tolerances in numerical solutions to partial
+differential equations.
+
+
+\end{document}

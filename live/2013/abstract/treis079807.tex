@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eran Treister \\
+{\bf Sparsified Coarsening Multigrid for Convection Diffusion}}
+
+Computer Science Department \\ Technion \\ Technion city \\ Haifa 32000 \\ Israel
+\\
+{\tt eran@cs.technion.ac.il}\\
+Irad Yavneh\end{center}
+
+Traditional algebraic multigrid (AMG) methods use (Petrov-)Galerkin
+coarsening where the sparsity pattern and operator complexity of the
+multigrid hierarchy is dictated by the multigrid transfer operators.
+Therefore, AMG algorithms usually compromise between the quality of these
+operators and the aggressiveness of the coarsening, which affects their
+rate of convergence and operator complexity. In many scenarios, the
+multigrid coarse operators tend to be much denser than the fine operator
+as the coarsening progresses. Such behavior is especially problematic in
+parallel AMG computations where it imposes expensive communication
+overhead. In this work we present a new algebraic technique for
+controlling the sparsity pattern of the operators in the multigrid
+hierarchy, independently of the choice of transfer operators. Our
+algorithm sparsifies the (Petrov-)Galerking operators while preserving
+their right and left near null-spaces. Numerical experiments for
+Convection Diffusion problems demonstrate the efficiency and potential of
+this multigrid approach.
+
+
+\end{document}

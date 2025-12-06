@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dirk Abbeloos \\
+{\bf A HALF-SPACE ANALYSIS FRAMEWORK FOR BOUNDARY CONTROL PROBLEMS }}
+
+Celestijnenlaan 200A \\ 3001 Heverlee (Belgium)
+\\
+{\tt dirk.abbeloos@cs.kuleuven.be}\\
+Stefan Vandewalle\end{center}
+
+Optimization problems are locally characterized by the spectrum of the
+Hessian. By default, this spectrum is not a priori known and very
+expensive to compute. A classical Fourier analysis yields a sufficient
+approximation of the spectrum, if boundary conditions are not crucial.
+This makes this type of analysis useless for boundary control problems,
+i.e. a class of optimization problems where right-hand sides of the
+boundary conditions needs to be found in order to minimize an objective.
+
+In this talk we present a mode analysis based on a half-space domain
+where the effect of only one boundary condition at a time can be
+included. The resulting half-space analysis is complementary to the
+classical Fourier analysis. Both a discrete and continuous version of the
+analysis exists, yielding invaluable information for designing textbook
+efficient multigrid methods. We present a complete framework as well as
+it's application to parabolic boundary control problems.
+
+
+\end{document}

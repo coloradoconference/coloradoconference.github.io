@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Zhen Wang \\
+{\bf The Fast Adaptive Composite-grid Method for a 3-temperature Radiation Diffusion System with Adaptive Mesh Refinement}}
+
+Oak Ridge National Laboratory \\ 1 Bethel Valley Road \\ P O Box 2008 \\ MS-6164 \\ Oak Ridge \\ TN 37831-6164
+\\
+{\tt wangz@ornl.gov}\\
+Bobby Philip\\
+Manuel Rodriguez Rodriguez\\
+Mark Berrill\end{center}
+
+We describe the fast adaptive composite-grid (FAC) preconditioner
+applied to a non-equilibrium 3-temperature radiation diffusion problem on
+dynamic adaptively refined grids. Multiple temporal and spatial scales
+make the associated initial value problems strongly stiff and very
+challenging to solve. In this talk we address these challenges by using
+fully implicit time integration and adaptive mesh refinement for spatial
+discretization. Furthermore, at every time step, a large scale nonlinear
+system is solved by the Jacobian-free Newton Krylov approach
+preconditioned by the FAC method. We will demonstrate the performance of
+the proposed method with temporal and spatial accuracy, efficiency and
+scalability results.
+
+
+\end{document}

@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lucao079035</TITLE>
+<META NAME="description" CONTENT="lucao079035">
+<META NAME="keywords" CONTENT="lucao079035">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html291"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html292"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Cao Lu 
+<BR><B>HyGA: A Hybrid Geometric+Algebraic Multigrid Solver for Weighted-Residual Methods with Hierarchical Meshes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept of Applied Math &amp; Stat  
+<BR>
+Stony Brook University 
+<BR>
+Stony Brook 
+<BR>
+NY 11794
+
+<BR><TT>clu@ams.sunysb.edu</TT>
+<BR>
+Xiangmin Jiao
+<BR>
+Xiongfei Wei
+</DIV>
+
+<P>
+Multigrid methods are efficient and effective for solving large-scale
+sparse linear systems, especially those from the discretizations of
+partial differential equations (PDEs). Generally speaking, multigrid
+may be classified into <I>geometric</I> (<I>GMG</I>) and <I>algebraic</I>
+(<I>AMG</I>), each of which has advantages and disadvantages. The
+primary advantages of GMG include its better convergence with smooth
+solutions, better efficiency in terms of computational time, and also
+better efficiency in storage especially with a matrix-free implementation.
+However, the GMG tends to have difficulties for non-smooth problems
+and irregular domains, and it is difficult to implement and to scale
+with unstructured meshes, especially for domains with complex topologies.
+The primary advantages of AMG include its simplicity and flexibility,
+and its robustness for non-smooth solutions. However, AMG tends to
+be more expensive, especially for its setup stage. It also tends to
+generate denser matrices than GMG and cannot be easily implemented
+in a matrix-free fashion, so it has higher memory and computational
+costs. A more serious problem is that AMG has no guarantee on the
+condition numbers of the matrices at the coarse level, which may lead
+to non-convergence.
+
+<P>
+The goal of this work is to develop a novel and general <I>hybrid
+geometric+algebraic multigrid method</I>, or <I>HyGA</I>, which will
+combine the advantages and overcome the disadvantages of the GMG and
+AMG. We focus on linear systems arising from a weighted residual
+method for linear PDEs over unstructured meshes. Linear PDEs cover
+a wide range of mathematical models, such as Poisson equations, and
+the weighted residuals are general discretization techniques, which
+can unify many commonly used finite elements and finite differences
+by defining different weighting functions. In addition, unstructured
+meshes are very general in resolving complex geometries. An important
+contribution of this work is a new, unified derivation of restriction
+and prolongation operators for weighted residuals with hierarchical
+basis functions. This rigorous analysis coupled with the generality
+of our formulation will allow us to address a large class of linear
+systems arising from arising from scientific and engineering applications.
+
+<P>
+At the algorithmic level, the main contribution of this work is the
+hybrid multigrid solver <I>HyGA</I>, which combines a high-quality
+hierarchical mesh generator, a geometric multigrid solver with a multilevel
+weighted residual formulation, and an algebraic multigrid solver at
+the coarsest levels. Our proposed algorithm may be summarized as follows.
+Our hierarchical mesh generator starts from a good-quality coarse
+unstructured mesh that is sufficiently accurate for representing the
+topology and for reconstructing the geometry of the domain. It iteratively
+refines the mesh with guaranteed mesh quality (by uniform refinements)
+and geometric accuracy (by high-order boundary reconstruction). Because
+this refinement involves only local operations, it is efficient and
+scalable. We apply GMG with a multilevel weighted-residual formulation
+on these hierarchical meshes using our unified prolongation and restriction
+operators, which are coupled with PDE rediscretizations over coarse
+meshes. This combination allows efficient matrix-free implementations
+on the coarse levels, and also effective control of the sparsity and
+the condition numbers of the resulting matrices. At the coarsest level,
+we employ the classical AMG, which allow us to resolve complex topologies
+easily and handle non-smooth solutions robustly. In addition, the
+relatively high setup cost and memory requirement of AMG become negligible
+due to the significantly reduced problem size. Therefore, our approach
+effectively combines the rigor, high accuracy and runtime-and-memory
+efficiency of GMG with the flexibility of AMG, and at the same time
+it is relatively easy to implement.
+
+<P>
+We present numerical experiments to demonstrate the effectiveness
+of HyGA compared with GMG and AMG for 2-D and 3-D problems. Our experimental
+results show that both HyGA and GMG deliver better convergence and
+better efficiency than AMG for weighted residual methods over unstructured
+meshes. In addition, HyGA delivers similar, and sometimes better efficiency
+and convergence rate than GMG due to the flexibility of AMG at the
+coarse levels. In summary, our theoretical analysis and numerical
+experimentations demonstrate that HyGA is an effective and robust
+multigrid approach for weighted-residual methods with hierarchical
+meshes.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html293"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html291"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html292"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

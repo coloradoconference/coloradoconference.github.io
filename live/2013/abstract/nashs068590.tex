@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stephen Nash \\
+{\bf Using Inexact Gradients in a Multilevel Optimization Algorithm}}
+
+Volgenau School of Engineering \\ George Mason University \\ Nguyen Engineering Building \\ Room 2500 \\ Mailstop 5C8 \\ Fairfax \\ VA 22030
+\\
+{\tt snash@gmu.edu}\\
+Michael Lewis\end{center}
+
+Many optimization algorithms require gradients of the model functions,
+but computing accurate gradients can be computationally expensive. We
+study the implications of using inexact gradients in the context of the
+multilevel optimization algorithm MG/OPT. MG/OPT recursively uses
+(typically cheaper) coarse models to obtain search directions for
+finer-level models. However, MG/OPT requires the gradient on the fine
+level to define the recursion. Our primary focus here is the impact of
+the gradient errors on the multilevel recursion. We analyze, partly
+through model problems, how MG/OPT is affected under various assumptions
+about the source of the error in the gradients, and demonstrate that in
+many cases the effect of the errors is benign. Computational experiments
+are presented.
+
+
+\end{document}

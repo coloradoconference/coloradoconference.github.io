@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Harald Koestler \\
+{\bf Sparse Solving}}
+
+Lehrstuhl fuer Systemsimulation \\ University of Erlangen-Nuremberg \\ Cauerstr 11 \\ 91058 Erlangen \\ Germany
+\\
+{\tt harald.koestler@cs.fau.de}\end{center}
+
+Imaging applications like high dynamic range compression or stitching can
+be done efficiently in the gradient space.
+While the transformation to gradient space is fast, the
+transformation back requires to solve a Poisson equation in order to
+reconstruct the resulting image.
+Our applied multigrid method for this purpose is based on sparse coding,
+where we assume that the solution of the linear system can be
+respresented by sparse approximation with a given dictionary consisting
+of small image patches.
+One is then able to apply the linear operator to the dictionary and use
+the resulting dictionary to represent the right-hand-side of the linear
+system sparsely.
+In this way no explicit solving of linear system is required.
+We embed the sparse approximation instead of a smoother in a multigrid
+method and show that the typical multigrid convergence rates can be
+obtained.
+In addition to that one does not have to store the full solution but only
+its sparse approximation.
+
+
+
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rob Falgout \\
+{\bf {HYPRE}: High Performance Preconditioners}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ Box 808 \\ L-560 \\ Livermore \\ CA 94551
+\\
+{\tt falgout2@llnl.gov}\end{center}
+
+The hypre software library is being developed with the aim of providing scalable solvers for the solution of large, sparse linear systems on massively parallel computers. To this end, the notion of conceptual interfaces was introduced. These interfaces give application users a more natural means for describing their linear systems, and they provide access to methods such as geometric multigrid which require additional information beyond just the matrix. In this talk, we will give an overview of the hypre library, paying particular attention to its conceptual interfaces. We will spend the majority of the discussion on the semi-structured grid interface, which was designed for problems that are mostly, but not entirely, structured. We will also give a brief overview of the solvers and preconditioners available through the different interfaces. UCRL-ABS-202432.
+\end{document}

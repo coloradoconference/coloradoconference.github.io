@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>glimb080033</TITLE>
+<META NAME="description" CONTENT="glimb080033">
+<META NAME="keywords" CONTENT="glimb080033">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html181"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html182"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Stefan L. Glimberg 
+<BR><B>Multi-level parallelization via spatial and temporal decomposition on heterogeneous hardware</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Technical University of Denmark 
+<BR>
+Richard Petersens Plads 
+<BR>
+Building 321/020 
+<BR>
+2800 Kgs -Lyngby
+
+<BR><TT>slgl@imm.dtu.dk</TT>
+<BR>
+Allan P. Engsig-Karup
+<BR>
+Allan S. Nielsen
+</DIV>
+
+<P>
+In this talk we present an efficient solution strategy for fully
+nonlinear free surface water waves, based on unified potential flow
+theory, with the bottleneck problem of solving a <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \sigma$">
+-transformed
+Laplace problem in three dimensions at every time integration step. A
+geometric multigrid preconditioned defect correction scheme is used to
+attain high-order accurate solutions with fast convergence and scalable
+work effort. The numerical method is based on matrix-free finite
+difference approximations, implemented to run efficiently on many-core
+GPUs&nbsp;[<A
+ HREF="node1.html#EngsigKarupEtAl2011">1</A>,<A
+ HREF="node1.html#GlimbergEtAl2011">2</A>]. In this talk we present
+the extension of previous work, with the addition of both spatial and
+temporal decomposition techniques for fast simulation of large scale
+phenomenons, such as long distance wave propagation over varying depths
+or within large coastal regions. Simulations that have novel value within
+maritime engineering because of the tunable properties that follow from
+the flexible-order implementation.
+
+<P>
+The architectural changes in hardware design within the last two decades,
+from single to multi- and many-core architectures, require software
+developers to identify and properly implement methods that both exploit
+concurrency and maintain numerical efficiency. We discuss the challenges
+of implementing an effective multigrid solver on modern many-core GPUs
+and in particular how multiple devices are used to further improve
+performance via distributed heterogeneous computing without compromising
+numerical convergence. We present a multi-block approach that decompose
+and numerically solve the Laplace problem within each subdomain,
+supporting flexible block structures to match the physical domain.
+Messages are sent using MPI to repeatedly update artificial boundary
+information between adjacent subdomains. The impact on convergence and
+performance scalability using the proposed multi-block strategy will be
+discussed.
+
+<P>
+We find that spatial domain decomposition scales well for large problems
+sizes, but for problems of limited sizes, the maximum attainable speedup
+is reached for a low number of processors, as it leads to an unfavorable
+communication to compute ratio. To circumvent this, we exploit the
+Parareal algorithm to introduce parallelism via parallel time
+integration. Parareal may be perceived as a two level multigrid method in
+time, where the numerical solution is first sequentially advanced via
+course integration and then updated simultaneously on multiple GPUs in a
+predictor-corrector fashion&nbsp;[<A
+ HREF="node1.html#LSY02">3</A>]. A parameter study is performed
+to establish proper choices for maximizing speedup and parallel
+efficiency. The parareal algorithm is found to be sensitive to a number
+of numerical and physical parameters, making practical speedup a matter
+of parameter tuning. Results are presented to confirm that it is possible
+to attain reasonable speedups, independently of the problem size.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html183"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html184"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html181"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html182"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

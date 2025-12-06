@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sunda079351</TITLE>
+<META NAME="description" CONTENT="sunda079351">
+<META NAME="keywords" CONTENT="sunda079351">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html487"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html488"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Hari Sundar 
+<BR><B>Geometric Multigrid for Higher-order Discretizations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute for Computational Engineering &amp; Sciences 
+<BR>
+University of Texas at Austin 
+<BR>
+201 East 24th St 
+<BR>
+Stop C0200 
+<BR>
+Austin 
+<BR>
+Texas 78712-1229
+
+<BR><TT>hari@ices.utexas.edu</TT>
+<BR>
+Georg Stadler
+<BR>
+Omar Ghattas
+<BR>
+George Biros
+</DIV>
+
+<P>
+We are interested on asymptotically
+optimal--<!-- MATH
+ $\mathcal{O}(N)$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mathcal{O}(N)$">
+--complexity solvers for approximating the
+solution of elliptic partial differential equations (PDEs), where <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ N$">
+ is
+the number of unknowns. Multigrid is such a solver. In practice however,
+multigrid performs best for low-order uniform discretizations with smooth
+coefficients.
+
+<P>
+Our goal is to develop a parallel geometric multigrid for solving systems
+arising from higher-order discretizations of variable-coefficient
+elliptic partial differential equations on arbitrary geometries using
+highly adapted meshes. High-order discretizations offer several
+advantages. According to standard isoparametric polynomial approximation
+theory, by using a finite element basis of at least degree <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+, we can
+achieve very fast <!-- MATH
+ $\mathcal{O}(N^{-(p+1)})$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathcal{O}(N^{-(p+1)})$">
+ convergence for sufficiently
+smooth problems while improving the locality and thus the CPU efficiency
+of the calculations.
+
+<P>
+Our method is designed for meshes that are built from an unstructured
+hexahedral macro mesh, in which each macro element is adaptively refined
+as an octree. This forest-of-octrees approach enables us to generate
+meshes for complex geometries with arbitrary levels of local refinement.
+We use geometric multigrid (GMG) for each of the octrees and algebraic
+multigrid (AMG) as the coarse grid solver. We designed
+our GMG sweeps to entirely avoid collectives, thus minimizing
+communication cost. Recently, we presented weak and strong scaling
+results for the 3D variable-coefficient Poisson problem using linear
+discretization that demonstrate high parallel scalability. Here we
+explore various approaches for extending our geometric multigrid solver
+to support higher-order discretizations.
+
+<P>
+For higher-order finite-element discretizations, the following approaches
+are commonly used,
+<DL>
+<DT><STRONG>Schwarz-based methods</STRONG></DT>
+<DD>This is the most common approach for
+solving systems arising from higher-order discretizations, which
+consists of local block solves and a coarse-grid solve. The main
+challenge with these approaches is they require solving dense local
+blocks with direct methods. Additionally, the coarse-grid solve can
+become fairly expensive and is not straightforward to achieve good
+parallel scalability.
+</DD>
+<DT><STRONG><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+-multigrid</STRONG></DT>
+<DD>These methods are a direct extension of
+multigrid concepts to higher-order discretization. The usual
+approach has been to use coarse grids based on lower-order
+polynomials. Starting from a fine grid with order-<IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+ polynomial
+basis, the coarser grids correspond to polynomials of order <!-- MATH
+ $p/2,
+p/4,\ldots,1$
+ -->
+<IMG
+ WIDTH="103" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ p/2,
+p/4,\ldots,1$">
+, followed by geometric coarsening of the <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p=1$">
+
+grid. The main shortcoming of this approach has been the dependence
+of the convergence factor on the order of the polynomial
+basis.
+</DD>
+<DT><STRONG>precondition using lower-order operator</STRONG></DT>
+<DD>This
+approach preconditions the higher-order operator using a lower-order
+operator obtained by overlaying the higher-order nodes with a
+lower-order (typically linear) finite element mesh. Multigrid is
+used to solve the lower-order operator. Although this approach is
+nearly independent of <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+, and is relatively straightforward to
+parallelize, it is not work optimal and the convergence factors are
+lower than multigrid applied directly to the higher-order
+operator.
+</DD>
+<DT><STRONG>direct</STRONG></DT>
+<DD>Directly apply multigrid to iteratively
+solve the linear systems that result from the higher-order
+discretizations. This approach is more difficult to implement and
+the cost per iteration increases. However, our preliminary results
+suggest that such an approach is the most general.
+</DD>
+</DL>
+
+<P>
+In summary, the overall theme of existing work appears to use low-order
+approximations as preconditioners. The advantages of doing this are
+mainly in the simplicity of the approach and the availability of parallel
+multigrid solvers capable of solving such lower-order operators. The
+sparsity of the lower-order operators also permits the use of AMG for
+solving the lower-order operators, possibly obtained
+via discretizations on unstructured meshes. Although there are examples
+of using Algebraic Multigrid directly on operators resulting from
+higher-order discretizations, limited work has been done on using
+geometric multigrid with higher-order discretizations. To the best of our
+knowledge, no prior work on using geometric multigrid for solving systems
+arising from higher-order discretizations on arbitrary
+geometries using highly adapted meshes. In this work, we develop
+geometric multigrid methods to support higher-order discretizations
+(<!-- MATH
+ $1\le p\le 8$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ 1\le p\le 8$">
+) and compare compare against preconditioning using the
+co-located linear operator. We evaluate using variable-coefficient
+Poisson problems on <IMG
+ WIDTH="26" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ 2D$">
+ and <IMG
+ WIDTH="26" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ 3D$">
+ domains. We demonstrate that by using
+appropriate inter-grid transfer operators and smoothers,
+mesh-independent convergence is possible (<!-- MATH
+ $1\le p\le8$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ 1\le p\le 8$">
+) for the <EM>direct</EM> approach. For the direct approach, best results are obtained
+using the symmetric successive over-relaxation (SSOR) smoother. We
+conclude with thoughts on the parallelization of the proposed approach.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html489"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html487"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html488"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

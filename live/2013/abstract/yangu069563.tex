@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ulrike Yang \\
+{\bf Reducing Communication in Algebraic Multigrid using Additive Variants}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ Box 808 \\ L-561 \\ Livermore \\ CA 94551
+\\
+{\tt umyang@llnl.gov}\\
+P. Vassilevski\end{center}
+
+Algebraic multigrid (AMG) has proven to be an effective scalable solver
+on many high performance computers, however its increasing communication
+complexity on coarser levels has shown to seriously impact its
+performance on computers with high communication cost. Additive AMG
+variants provide increased parallelism as well as decreased numbers of
+messages per cycle, but can also lead to decreased convergence. We
+present an additive variant which guarantees the same convergence rate as
+multiplicative algebraic multigrid and investigate its potential for
+decreased communication as well as improved efficiency on emerging
+architectures.
+
+
+\end{document}

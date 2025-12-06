@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ghyse077526</TITLE>
+<META NAME="description" CONTENT="ghyse077526">
+<META NAME="keywords" CONTENT="ghyse077526">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Pieter Ghysels 
+<BR><B>Increasing the Arithmetic Intensity of Multigrid on Many-Core Chips</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Middelheimcampus M G 320b 
+<BR>
+Middelheimlaan 1 
+<BR>
+2020 Antwerpen
+
+<BR><TT>pieter.ghysels@ua.ac.be</TT>
+<BR>
+Wim I. Vanroose
+</DIV>
+
+<P>
+The basic building blocks of a classic multigrid algorithm, which are
+essentially stencil computations, all have a low ratio of executed
+floating point operations per byte fetched from memory. This important
+ratio can be identified as the arithmetic intensity. According to the
+roofline model [1], applications with a low arithmetic intensity are
+typically bounded by memory traffic, whereas applications with higher
+arithmetic intensity are bounded by the floating point unit throughput.
+It is well known that many bandwidth limited algorithms typically perform
+at a small percentage of the theoretical peak performance of the
+underlying hardware.
+
+<P>
+In this work we look at changes to both the multigrid algorithm and its
+implementation in order to increase the arithmetic intensity.
+
+<P>
+We present a theoretical model for the cost of a multigrid cycle (V-cycle
+or full multigrid) that includes the cost of communication, based on the
+roofline model. Our multigrid model predicts performance benefits for
+code optimization strategies such as: fusion of operations, tiling,
+parallelization, vectorization (SIMDization) and cache prefetching. The
+multigrid convergence rate is taken into account in the model for
+different smoothers, different coarsening and interpolation strategies,
+different cycles and different coarsest grid solvers.
+
+<P>
+Our theoretical model is validated using numerical experiments on modern
+multi and many-core hardware. Instead of resorting to manual and tedious
+low level code optimizations, we piggyback on recent compiler
+improvements, such as stencil compilers, automatic
+parallelizers and automatic loop transformers for cache locality
+optimization [2,3]. An important observation is that the underlying
+hardware can only be used efficiently when the number of consecutive
+smoothing steps is large enough. In that case, the arithmetic intensity
+can be increased sufficiently such that SIMD vector units can be kept
+busy and the extra smoothing steps pay off in the overall performance of
+the algorithm. It is thus important to look for algorithmic changes that
+can put these extra smoothing steps to
+effective use.
+
+<P>
+[1] Williams S, Waterman A and Patterson DA. Roofline: an insightful
+Visual Performance model for multicore architectures. Communications of
+the ACM 2009; 52(4):65–76
+
+<P>
+[2] Christen M, Schenk O, and Burkhart H. Patus: A code generation and
+autotuning framework for parallel iterative stencil computations on
+modern microarchitectures. In Parallel &amp; Distributed Processing
+Symposium (IPDPS), 2011 IEEE International, pages 676–687. IEEE, 2011.
+
+<P>
+[3] Bondhugula U, Baskaran M, Krishnamoorthy S, Ramanujam J, Rountev A,
+and Sadayappan P. Automatic Transformations for Communication-Minimized
+Parallelization and Locality Optimization in the Polyhedral Model.
+International Conference on Compiler Construction (ETAPS CC), Apr 2008,
+Budapest, Hungary.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html174"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html172"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html173"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

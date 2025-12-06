@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bj\"orn Gmeiner \\
+{\bf PetaScale Finite Element Methods for Hierarchical Hybrid Grids using Hybrid Parallelization}}
+
+Chair for Computer Science 10 \\ Cauerstr 11 \\ 91058 Erlangen \\ University of Erlangen-N\"urnberg \\ Germany
+\\
+{\tt bjoern.gmeiner@informatik.uni-erlangen.de}\\
+Daniel Ritter\\
+Ulrich R\"ude\end{center}
+
+In this talk we present a performance study of our finite element package
+Hierarchical Hybrid Grids (HHG) on current European supercomputers.
+HHG is designed to close the gap between the flexibility of finite
+elements and the efficiency of geometric multigrid by using a compromise
+between structured and unstructured grids. A coarse input FE mesh is
+refined in a structured way, resulting in semi-structured meshes. First
+we compare and analyze the efficiencies of the stencil-based code on
+those clusters. In a second step we discuss the $\tau$-extrapolation
+multigrid technique to improve the FE accuracy for an exemplary
+electrochemistry application.
+
+
+\end{document}

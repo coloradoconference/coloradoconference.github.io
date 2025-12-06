@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>schro064599</TITLE>
+<META NAME="description" CONTENT="schro064599">
+<META NAME="keywords" CONTENT="schro064599">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html460"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html461"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jacob B. Schroder 
+<BR><B>Non-Galerkin Coarse-Grid Operators for Parallel Algebraic Multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Livermore National Laboratory 
+<BR>
+Box 808 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94551-0808
+
+<BR><TT>schroder2@llnl.gov</TT>
+<BR>
+Robert F. Falgout
+</DIV>
+
+<P>
+While algebraic multigrid (AMG) has been effectively implemented for parallel
+machines, challenges remain, especially when moving to exascale. In
+particular, as problem size and the corresponding number of multigrid levels both
+increase, it is typical for the density of coarse-grid operators to also
+increase. This coarse-grid fill-in is a result of the standard Galerkin
+coarse-grid operator, <!-- MATH
+ $A_{coarse} = P^T A P$
+ -->
+<IMG
+ WIDTH="122" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A_{coarse} = P^T A P$">
+, where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ P$">
+ is the prolongation
+(i.e., interpolation) operator. This triple matrix product can increase the
+density by coupling most distance-two and many distance-three connections in
+the graph of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+. The result is that as problem size increases, denser
+coarse-grid matrices are produced, and the communication pattern and overall
+parallel AMG scheme become less efficient. To address this, we consider a
+general stencil collapsing technique that eliminates non-zeros in the Galerkin
+operator. The chosen sparsity pattern is based on distance-two connections in
+the graph of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+. The collapsing technique is general, in that it can be
+adjusted to the specific problem type through user-provided near nullspace
+modes, e.g., the constant for diffusion and rigid-body-modes for elasticity.
+The resulting method produces a non-Galerkin coarse-grid and is effective at
+controlling coarse-grid density and maintaining good AMG convergence rates. The
+talk concludes with supporting parallel numerical results.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html462"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html460"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html461"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

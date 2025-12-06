@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hans De Sterck \\
+{\bf Adaptive Algebraic Multigrid for Singular Value Decomposition}}
+
+Department of Applied Mathematics \\ University of Waterloo \\ 200 University Avenue West \\ Waterloo \\ ON N2L 3G1 \\ Canada
+\\
+{\tt hdesterck@uwaterloo.ca}\end{center}
+
+An adaptive (or `self-learning') algebraic multigrid (AMG) method is
+described for computing a few of the largest or smallest singular values
+of a rectangular matrix, and their associated singular vectors. The
+proposed algorithm combines and extends two existing AMG approaches for
+symmetric positive definite eigenvalue problems. The method consists of
+two multilevel phases. In the first, multiplicative phase (setup phase),
+tentative singular triplets are calculated along with a multigrid
+hierarchy of interpolation operators that approximately fit the tentative
+singular vectors in a collective and self-learning manner, using
+multiplicative update formulas and bootstrap AMG interpolation. In the
+second, additive phase (solve phase), the tentative singular triplets are
+improved up to the desired accuracy by using an additive correction
+scheme with fixed interpolation operators, combined with a Ritz update. A
+suitable generalization of the singular value decomposition is formulated
+that applies to the coarse levels of the multilevel cycles. The combined
+multiplicative-additive approach results in an AMG method for extremal
+singular triplets that combines two desirable properties: it allows for
+high-accuracy convergence when desired, and it is flexible enough to deal
+efficiently with a variety of problems due to its self-learning
+properties. Numerical tests show that the algorithm converges to high
+accuracy in a modest number of iterations for singular value and
+eigenvalue problems from different application areas. Extension of the
+approach to canonical tensor decomposition is also briefly discussed.
+
+
+\end{document}

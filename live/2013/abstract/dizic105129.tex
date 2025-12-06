@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Zichao Di \\
+{\bf Applications and Recent Developments of Multilevel Optimization Framework(MG/OPT)}}
+
+5541 Ridgeton Hill Ct Fairfax \\ VA \\ 22032
+\\
+{\tt zdi@masonlive.gmu.edu}\\
+Maria Emelianenko\\
+Stephen Nash\end{center}
+
+This talk will present recent progress related to the theory and
+applications of the multilevel optimization approach MG/OPT. Inspired by
+the traditional multigrid, the intent of MG/OPT is to use calculations on
+coarser levels to accelerate the progress of the optimization on the
+finest level. There are several advantages of MG/OPT: first of all, the
+optimization perspective is broader than systems of equations since it
+can handle the constraints in a more natural way. Also, MG/OPT has
+stronger guarantees of convergence than traditional multigrid.
+Furthermore, in many cases the reduced Hessian of the optimization model
+is an elliptic operator making MG/OPT an effective algorithm.
+So far, MG/OPT has been successfully applied to many PDE-constrained
+optimization problems which have regular geometric structures. However,
+in practice, more sophisticated implementations that provide an easier
+way to apply MG/OPT to specific problems are still under exploration.
+In order to investigate the potential of MG/OPT to solve the problems
+with irregular geometric structures, MG/OPT is applied to a particular
+type of tessellation problems called centroidal Voronoi
+tessellations(CVTs). Significant speedup by using MG/OPT comparing to
+other existing techniques has shown.
+
+Furthermore, the constrained version of MG/OPT has also been developed
+and it has been applied to successfully solve a variety of other
+constrained optimization problems.
+
+
+\end{document}

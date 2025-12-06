@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Henricus Bouwmeester \\
+{\bf Nonsymmetric multigrid preconditioning for conjugate gradient methods}}
+
+1250 14th St., Suite 600 \\ Denver \\ CO 80202
+\\
+{\tt henricus.bouwmeester@ucdenver.edu}\\
+Andrew Dougherty\\
+Andrew V. Knyazev\end{center}
+
+We numerically analyze the possibility of turning off post-smoothing
+(relaxation) in geometric multigrid when used as a preconditioner in
+conjugate gradient linear and eigenvalue solvers for the 3D Laplacian.
+The geometric Semicoarsening Multigrid (SMG) method is provided by the
+hypre parallel software package. We solve linear systems using two
+variants (standard and flexible) of the preconditioned conjugate gradient
+(PCG) and preconditioned steepest descent (PSD) methods. The eigenvalue
+problems are solved using the locally optimal block preconditioned
+conjugate gradient (LOBPCG) method available in hypre through BLOPEX
+software. We observe that turning off the post-smoothing in SMG
+dramatically slows down the standard PCG-SMG. For the flexible PCG and
+LOBPCG, our numerical results show that post-smoothing can be avoided,
+resulting in overall acceleration, due to the high costs of smoothing and
+relatively insignificant decrease in convergence speed. We numerically
+demonstrate for linear systems that PSD-SMG converges nearly identical to
+flexible PCG-SMG if SMG post-smoothing is off. A theoretical
+justification is provided.
+
+
+\end{document}

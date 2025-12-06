@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Moulton \\
+{\bf Using Manycore and Accelerated Architectures to Improve Performance of Robust Structured Multigrid Methods}}
+
+Applied Mathematics and Plasma Physics \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87544
+\\
+{\tt moulton@lanl.gov}\\
+Matthew Darsney\\
+Ben Bergen\\
+Scott MacLachlan\\
+James Adler\end{center}
+
+Multigrid methods have long been used as efficient solvers for a large
+class of discrete differential equations. Recently, parallel multigrid
+solvers have been primarily implemented within an MPI model, with
+scalability to thousands of cores. With manycore GPU architectures
+gaining popularity, there is an increased desire to extend multigrid
+solvers to these architectures. In these environments, algebraic
+multigrid methods can be cumbersome due to their reliance on indirect
+addressing. In contrast, structured-grid methods, such as Dendy's Black
+Box Multigrid (BoxMG), achieve efficiency for heterogeneous problems with
+only direct addressing. We will discuss parallelization of BoxMG on a
+variety of architectures, and outline the implementation of accelerated
+BoxMG using OpenCL. By minimizing the data transfer between the CPU and
+GPU, we will show that significant performance improvements can be
+achieved over serial BoxMG, close to the bounds predicted by Amdahl's
+Law.
+
+
+\end{document}

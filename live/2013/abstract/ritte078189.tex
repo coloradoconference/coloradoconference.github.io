@@ -1,0 +1,56 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel Ritter \\
+{\bf Compact high-order finite differences for elliptic variable coefficient and interface problems}}
+
+Chair for System Simulation \\ FAU Erlangen \\ Cauerstr 11 \\ 91058 Erlangen \\ Germany
+\\
+{\tt daniel.ritter@fau.de}\\
+Rochus Schmid\\
+Ulrich R\"ude\end{center}
+
+Compact high-order finite difference stencils are an interesting option
+for the discretizing elliptic equations on structured girds, since they
+can achieve high accuracy while maintaining the simplicity of a finite
+difference approach. In the world of ubiquitous parallelism, and in
+particular for massively parallel computing in distributed memory
+environments, they can profit from the simplicity of the data
+dependencies. This simplifies the communication structure and may improve
+the parallel efficiency by reducing message passing overhead.
+
+Introduced in the 1960s by Lothar Collatz as "Hermitian methods" (in
+German "Mehrstellenverfahren") the method has been extended by Zhilin Li,
+Kazufumi Ito and others to the Immersed Interface Method and is thus
+applicable to cases with discontinuous coefficients.
+
+One important application for these methods comes from problems in
+electrochemistry where the potential equation imposed by an ensemble of
+atoms has to be solved accurately and efficiently. Here not only the
+conservation of energy plays a major role, but the solution must be
+accurate enough so that also its derivatives, i.e. the forces, can be
+reconstructed accurately. Though frequency space methods based on the FFT
+are often used as solvers, multigrid methods are increasingly considered
+as interesting alternatives, since they are more flexible, have
+asymptotically better complexity, and may be enjoy better parallel
+efficiency.
+
+In this article, we show how compact high-order finite difference
+stencils can be designed efficiently for elliptic problems with variable
+and jumping coefficients that arise from the field of electrochemistry.
+The application induces special constraints for the discretization, so
+that our problem is posed on a structured 3D rectilinear grid that has
+different step size in all dimensions. Techniques to choose the stencil
+coefficients optimally are developed. We demonstrate how the new
+high-order finite differences for variable and jumping coefficients can
+be integrated into the parallel, multigrid solver of the molecular
+dynamics code "rsdft" that is used for ab initio simulations. Finally, we
+show numerical results for typical application benchmarks as well as a
+runtime performance evaluation.
+
+
+\end{document}

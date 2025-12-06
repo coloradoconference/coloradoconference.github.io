@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hormozd Gahvari \\
+{\bf Systematically Reducing Data Movement in Algebraic Multigrid}}
+
+University of Illinois at Urbana-Champaign \\ Department of Computer Science \\ 4305 Siebel Center \\ 201 N Goodwin Avenue \\ Urbana \\ IL 61801
+\\
+{\tt gahvari@illinois.edu}\\
+William Gropp\\
+Kirk E. Jordan\\
+Martin Schulz\\
+Ulrike Meier Yang\end{center}
+
+Computers today are becoming more and more massively parallel.
+Applications, including algebraic multigrid (AMG), will have to adapt to
+this future. While AMG is well-suited to solving large problems on
+massively parallel machines due to its ideal computational complexity, it
+faces challenges from having to move a substantial amount of data. In
+this talk, we discuss our work to systematically reduce data movement in
+AMG. Aided by a performance model, we gather data into locations where
+data movement becomes only local, resulting in improved performance and
+scalability.
+
+
+\end{document}

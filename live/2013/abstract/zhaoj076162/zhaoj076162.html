@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>zhaoj076162</TITLE>
+<META NAME="description" CONTENT="zhaoj076162">
+<META NAME="keywords" CONTENT="zhaoj076162">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html588"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html589"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">J. Zhao 
+<BR><B>A multigrid method with an FFT smoother and deflation techniques for elastic contact problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">HB03 060 
+<BR>
+Mekelweg 4 
+<BR>
+2628 CD Delft 
+<BR>
+The Netherlands
+
+<BR><TT>J.Zhao-1@tudelft.nl</TT>
+<BR>
+E.A.H. Vollebregt
+<BR>
+C.W.  Oosterlee
+</DIV>
+
+<P>
+In the simulation of railway vehicles dynamics, the interaction between
+the vehicles' wheels and rails attracts a lot of interest. It involves
+the solution of the so-called <I>contact problems</I>, concerning the
+normal and tangential tractions on the inter-surface. The formulation
+based on Kalker's variational half-space approach is regarded as an
+accurate model for contact problems, particularly those involving a
+rolling contact with friction. Fast solvers are demanded for such
+problems.
+
+<P>
+In this talk, multigrid methods are used to solve the discretized
+governing system, which is derived from an integral equation and its
+coefficient matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">
+ is full, symmetric and Toeplitz. A smoother is
+proposed, which is based on the Richardson iteration, where the residual
+in each iteration is preconditioned by a matrix <IMG
+ WIDTH="39" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ M^{-1}$">
+. The idea of
+constructing this matrix comes from the fact that each column of the
+inverse of the coefficient matrix <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A^{-1}$">
+ is similar, and we approximate
+any one of these by a fast Fourier transform (FFT) technique. The
+resultant vector defines a Toeplitz matrix which is the preconditioner
+<IMG
+ WIDTH="39" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ M^{-1}$">
+.
+
+<P>
+This smoother possesses the advantages of easy construction, and fast
+computation of matrix-vector multiplications using FFT. It is able to
+eliminate the high frequency modes of the errors to a great extent,
+however, it also enlarges several very low frequency modes. This is
+remedied by a subdomain deflation approach, where only a few
+piecewise-constant deflation vectors are required.
+
+<P>
+The numerical tests and some spectral analysis indicate very fast
+convergence and mesh-independence of our method. Hence this method may
+accelerate the solution procedure for the contact problems. In view of
+other applications, on the one hand, it can be applied for systems with
+Toeplitz coefficient matrices arising in other engineering fields such as
+image processing. On the other hand, a preconditioner based on these
+techniques also performs well in combination with Krylov subspace methods
+aiming at even faster convergence.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html590"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html588"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html589"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

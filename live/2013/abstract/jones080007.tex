@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jim E. Jones \\
+{\bf Parallel multigrid solvers in coastal ocean simulations}}
+
+Mathematical Sciences \\ Florida Institute of Technology \\ 150 W University Blvd \\ Melbourne \\ FL 32901
+\\
+{\tt jim@fit.edu}\\
+Steven Jachec\end{center}
+
+
+
+This work aims to incorporate a parallel multigrid solver for the
+nonhydrostatic pressure with application to coastal ocean internal waves
+and baroclinic flows. This is accomplished by usage of two packages: the
+the Stanford Unstructured Nonhydrostatic Terrain-following Adaptive
+Navier-Stokes Simulator (SUNTANS) and the hypre linear solver package
+from Lawrence Livermore National Laboratory.
+
+In this talk we discuss the implementation approach in joining these two
+codes, including specific parallel computing issues arising due to the
+use of z-level grids in SUNTANS. These grids are unstructured in the
+xy-plane, but structured in the z-direction. We include discussion of the
+parallel performance of the resulting SUNTANS+BoomerAMG code on the 500+
+core cluster at Florida Tech.
+
+
+\end{document}

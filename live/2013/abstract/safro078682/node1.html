@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Heuristic for optimal response to epidemics and cyber attacks.</TITLE>
+<META NAME="description" CONTENT="Heuristic for optimal response to epidemics and cyber attacks.">
+<META NAME="keywords" CONTENT="safro078682">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="safro078682.html">
+<LINK REL="up" HREF="safro078682.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html433"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html431"
+  HREF="safro078682.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html425"
+  HREF="safro078682.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html434"
+  HREF="node2.html">Multiscale Entropic Network Generation.</A>
+<B> Up:</B> <A NAME="tex2html432"
+  HREF="safro078682.html">safro078682</A>
+<B> Previous:</B> <A NAME="tex2html426"
+  HREF="safro078682.html">safro078682</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION00000010000000000000">
+Heuristic for optimal response to epidemics and cyber attacks.</A>
+</H4>
+We consider a traditional infection-spread SIS model in which network
+nodes can be in one of two possible states, namely, <I>infected</I> and
+<I>susceptible</I>, and each node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ i$">
+ is associated with probability of
+being infected at time <IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ t$">
+, <!-- MATH
+ $\phi_{i,t}$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \phi_{i,t}$">
+. This model has been extensively
+analyzed in epidemiology and adapted in the cyber security area for
+analysis of computer viruses propagation.
+We now formulate the optimization problem whose goal is to keep the level
+of infection at each node low while maximizing the (weighted) number of
+``alive'' connections. This is motivated by the infection spread response
+policies that are often driven by the number of resources available for
+the realization. We denote the graph of a network by <!-- MATH
+ $G=(V, E, w)$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ G=(V, E, w)$">
+, where
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ V$">
+ and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ E$">
+ are sets of nodes and edgfes, respectively, and
+<!-- MATH
+ $w:V\rightarrow \mathbb{R}_{\geq 0}$
+ -->
+<IMG
+ WIDTH="96" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ w:V\rightarrow \mathbb{R}_{\geq 0}$">
+ represents the strength of
+connectivity (such as the number of shared users in a cyber system).
+Assuming that the probabilities of infection transition from <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \Gamma_i$">
+
+(neighbors of <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ i$">
+) to <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ i$">
+ are independent, the problem is formulated as
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="PROBFORM"></A><!-- MATH
+ \begin{equation}
+\begin{aligned}
+& \max_{x} && \sum_{ij\in E} w_{ij} x_i x_j && \\
+& \text{subject to} && x_i-\prod_{j\in \Gamma_i}\left(1-p_{ij}
+\phi_{j,t-1} x_j\right)\leq b_i && \forall i\in V,\\
+& && x_i \in\{0,1\} && \forall i\in V,
+\end{aligned}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="360" HEIGHT="127" BORDER="0"
+ SRC="img9.png"
+ ALT="\begin{equation*}\begin{aligned}&amp; \max_{x} &amp;&amp; \sum_{ij\in E} w_{ij} x_i x_j &amp;&amp; \...
+...ll i\in V, &amp; &amp;&amp; x_i \in\{0,1\} &amp;&amp; \forall i\in V, \end{aligned}\end{equation*}"></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ w_{ij}$">
+ is the link weight between nodes <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ i$">
+ and <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ j$">
+; <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ b_i$">
+ is a
+threshold for the level of allowed probability of infection at <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ i$">
+; and
+<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ x_i$">
+ are binary variables (1 - if we decide to leave the node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ i$">
+
+functioning, 0 - closed, requiring special attention). In general,
+(<A HREF="#PROBFORM"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is a nonconvex integer nonlinear program and known to be
+<IMG
+ WIDTH="31" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ NP$">
+-complete. We demonstrate a strategy for designing fast multiscale
+methods for this class of problems.
+The refinement represents the collective improvement for sufficiently
+small subsets of variables. This phase can easily be performed in
+parallel by using the red-black order. Single subset refinement solves
+problem for subset of nodes by choosing a connected subgraph and fixing
+the <I>boundary conditions</I> for the rest of the nodes.
+
+<P>
+We evaluate our method on a set of small networks with known optimal
+solutions, two case studies (HIV spread and cyber infrastructure
+networks), and one massive data set. The two case study networks are
+typical complex network instances on which solving this particular
+optimization is of great practical importance. The massive dataset
+evaluation contains networks of different structures and sources that can
+potentially represent hard structures for the method. In all experiments
+our method improved best known results (quality and/or running time)
+significantly.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html433"
+  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html431"
+  HREF="safro078682.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html425"
+  HREF="safro078682.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev.png"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html434"
+  HREF="node2.html">Multiscale Entropic Network Generation.</A>
+<B> Up:</B> <A NAME="tex2html432"
+  HREF="safro078682.html">safro078682</A>
+<B> Previous:</B> <A NAME="tex2html426"
+  HREF="safro078682.html">safro078682</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Wim I Vanroose \\
+{\bf An efficient Multigrid calculation of the Far Field Map for Schr\"odinger Equations}}
+
+Dept Mathematics and Computer Science \\ Middelheimlaan 1 \\ 2020 Antwerpen \\ Belgium
+\\
+{\tt wim.vanroose@ua.ac.be}\\
+Siegfried Cools\\
+Bram Reps\end{center}
+
+
+Predicting the outcome of collisions between small atomic and
+molecular systems is of fundamental importance for many areas of
+science. Understanding their dynamics is crucial for example for
+plasma physics, combustion and electron driven chemistry, amongst
+other examples. However, it is computationally very challenging to
+predict from first principles the outcome of these collisions since it
+requires the solution of high--dimensional Schr\"odinger
+equation. These are known to be hard to solve even with the best
+current iterative methods. To calculate, for example, the breakup
+reaction rates of the hydrogen molecule requires the solution of a
+7--dimensional scattering problem. The reaction rates, also known as
+the cross sections, are the far field amplitudes of solution. The
+development of efficient solvers for this problem remains important
+challenge. In this talk we discuss the development of solvers for
+these scattering based on multigrid.
+
+
+The Schr\"odinger equation in $d$-dimensions is
+\begin{equation} \label{eq:schr}
+(-\frac{1}{2}\Delta + V(\mathbf{x}) - E)\psi(\mathbf{x}) =
+\phi(\mathbf{x}), \quad \text{for} \quad \mathbf{x} \in \mathbb{R}^d
+\end{equation}
+where $V(\mathbf{x})$ is the potential, $\psi$ is the wave function
+and $\phi$ is the right hand side that is related to the initial state
+of the system.
+
+Scattering problems are described by solutions of \eqref{eq:schr} with
+a positive energy $E$ and for these energies the equation is
+equivalent to a Helmholtz equation
+\begin{equation}
+(-\Delta -k^2(\mathbf{x}))u = f
+\end{equation}
+with a wave number $k^2(\mathbf{x}) = 2\left(E-V(\mathbf{x})\right)$
+solved with absorbing boundary conditions.
+
+In this talk we discusses the current practices in solving the
+Schrodinger equation \cite{c2,c3} and relate them to the challenges of
+solving the Helmholtz equation. We also illustrate how advances such
+as Complex Shifted Laplacian \cite{c5} and complex countour multigrid
+\cite{c1} are applied to solve the Schr\"odinger equation.
+
+
+\begin{thebibliography}{99}
+\bibitem{c2}
+T.N.~Rescigno, M.~Baertschy, W.A.~Isaacs and C.W.~McCurdy,
+Science, 286, p 2474 (1999).
+\bibitem{c3}
+W.~Vanroose, F.~Martin, T.N.~Rescigno, Science, 310, p~1787, (2005).
+\bibitem{c5}
+Y.A~Erlangga, C.W.~Oosterlee and C.~Vuik, SIAM journal on Scientific
+Computing, 27 p 1471 (2006).
+\bibitem{c1}
+S.~Cools, B.~Reps and W.~Vanroose, arxiv:1211.4461 (2012).
+\end{thebibliography}
+
+
+\end{document}

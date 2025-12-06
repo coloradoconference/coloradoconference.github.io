@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>newma091944</TITLE>
+<META NAME="description" CONTENT="newma091944">
+<META NAME="keywords" CONTENT="newma091944">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html336"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html337"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christopher Newman 
+<BR><B>Preconditioners for Ocean Simulation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Los Alamos National Laboratory 
+<BR>
+T-3 
+<BR>
+PO Box 1663 MS B216 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>cnewman@lanl.gov</TT>
+<BR>
+Dana A Knoll
+</DIV>
+
+<P>
+We examine preconditioners for free-surface, fully implicit, fully
+coupled time integration of the momentum and
+continuity equations of ocean dynamics;
+thus reducing errors and increasing stability due to traditional operator splitting.
+We consider two solution strategies to the problem.
+
+<P>
+In the first approach, the full nonlinear system is solved via
+Jacobian-free Newton-Krylov (JFNK), where we reformulate semi-implicit
+barotropic-baroclinic splitting as a preconditioner.
+This preconditioner has the property that it can be reduced to a lower
+dimensional, horizontal problem of a scalar variable that can
+be made amenable to multigrid methods.
+
+<P>
+In the second approach, JFNK is applied to the lower dimensional,
+barotropic problem and the remaining three dimensional problem is
+treated via nonlinear elimination within the function evaluation of JFNK.
+This method is appealing because
+the Krylov vector and JFNK machinery reside in the lower dimensional problem.
+In addition, the preconditioner is formulated in a similar way to the first approach.
+
+<P>
+In each approach, the key to effective preconditioning is the ability to
+transform a hyperbolic system to
+a single parabolic problem of a scalar variable
+which can be treated effectively by multigrid methods.
+We provide numerical examples and compararisons among the approaches.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html338"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html336"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html337"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mntn
+2013-01-30
+</ADDRESS>
+</BODY>
+</HTML>
