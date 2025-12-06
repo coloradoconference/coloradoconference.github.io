@@ -1,0 +1,118 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rafael LAGO \\
+{\bf Inexact Block GMRES with Deflation}}
+
+CERFACS 42 Avenue Gaspard Coriolis \\ 31057 Toulouse Cedex 1 \\ France
+\\
+{\tt lago@cerfacs.fr}\\
+Serge GRATTON\\
+Xavier VASSEUR\end{center}
+
+We address the solution of linear systems with multiple right-hand sides
+given at once: \[A~X=B, \quad
+X, B \in\mathbb{C}^{n\times p}, \quad A\in\mathbb{C}^{n\times n}, \]
+when matrix-vector products with $A$ are performed only approximately.
+Given $V\in\mathbb{C}^{n\times q}$ the matrix-matrix product is thus
+represented as $(A+E)V$, where $E$ is a \emph{``perturbation matrix''}
+allowed to change at each application (we always suppose that the
+spectral norm of $E$ is controllable). This kind of situation arises for
+instance when we do not dispose of $A$, but of a function which
+approximates
+$AV$ based on a threshold $\varepsilon$.
+
+In the single right-hand side case ($p=1$) previous works (e.g.
+\cite{Simoncini03}, \cite{Giraud07}, and
+\cite{Eshof05}) have shown that variants of GMRES \cite{Saad86} allow $||E||_2$ to grow
+with the number of iterations, provided that some bounds are
+respected. Supposing that the cost of approximating $AV$ is inversely
+proportional to the chosen threshold $\varepsilon$, controlling
+$||E||_2$ at each iteration potentially reduces the computational cost.
+
+In the multiple right-hand side case, rather than solving the systems in sequence
+(that is, applying the chosen algorithm for each right hand-side)
+we could treat them in a \emph{``block wise''} manner and use a variant of
+block GMRES \cite{Vital90}. Indeed the literature has shown the interest of
+using block Krylov subspace methods in such a situation; see, e.g., \cite{Gutknecht07},
+\cite{Robbe06} and \cite{Pinel11}. The latter two mainly rely
+on the singular value decomposition of the block residual to perform
+\emph{``deflation''}, a mechanism which has been considered crucial
+for the reduction of the computational cost of block iterative
+solvers. This deflation strategy aims at detecting
+when a linear combination of the systems has approximately converged.
+
+In this talk we will thus analyze an inexact block GMRES with deflation.
+Our concern arises from the fact that inexact matrix-vector product
+introduces a perturbation in the residual computation. First we analyze
+the
+impact of the perturbation $E$ on the block residual and on its singular values
+and study the behavior of two algorithms proposed in \cite{Robbe06}
+and \cite{Pinel11} in the presence of inexact matrix-vector product.
+Then we show some numerical experiments with well-known problems from
+University of Florida collection \cite{UFCollection} and discuss the
+results obtained so far.
+
+
+\begin{thebibliography}{1}
+
+\bibitem{Pinel11}
+H.~Calandra, J.~Langou, S.~Gratton, X.~Pinel, and X.~Vasseur.
+\newblock Flexible variants of block restarted {GMRES} methods with application
+to geophysics.
+\newblock {T}echnical {R}eport TR/PA/11/14, CERFACS, Toulouse, France, 2011.
+
+\bibitem{UFCollection}
+T.~A. Davis and Y.~Hu.
+\newblock The {U}niversity of {F}lorida sparse matrix collection.
+\newblock {\em ACM Trans. Math. Softw.}, 38:1:1--1:25, 2011.
+
+\bibitem{Eshof05}
+J.~v. Eshof and G.~L.~G. Sleijpen.
+\newblock Inexact {K}rylov subspace methods for linear systems.
+\newblock {\em SIAM J. Matrix Anal. Appl.}, 26:125--153, January 2005.
+
+\bibitem{Giraud07}
+L.~Giraud, S.~Gratton, and J.~Langou.
+\newblock Convergence in backward error of relaxed {GMRES}.
+\newblock {\em SIAM J. Sci. Comput.}, 29:710--728, March 2007.
+
+\bibitem{Gutknecht07}
+M.~H. Gutknecht.
+\newblock Block {K}rylov space methods for linear systems with multiple
+right-hand sides: An introduction.
+\newblock {\em Modern Mathematical Models, Methods and Algorithms for Real
+World Systems}, page 420–447, 2007.
+
+\bibitem{Robbe06}
+M.~Robb\'e and M.~Sadkane.
+\newblock Exact and inexact breakdowns in the block {GMRES} method.
+\newblock {\em Linear Algebra and its Applications}, 419(1):265–285, 2006.
+
+\bibitem{Saad86}
+Y.~Saad and M.~H. Schultz.
+\newblock {GMRES}: A generalized minimal residual algorithm for solving
+nonsymmetric linear systems.
+\newblock {\em SIAM J. Scientific and Statistical Computing}, 7(3):856–869,
+1986.
+
+\bibitem{Simoncini03}
+V.~Simoncini and D.~B. Szyld.
+\newblock Theory of inexact {K}rylov subspace methods and applications to
+scientific computing.
+\newblock {\em SIAM J. Sci. Comput.}, 25:454--477, February 2003.
+
+\bibitem{Vital90}
+B.~Vital.
+\newblock {\em \'Etude de Quelques M\'ethodes de R\'esolution de Probl\`emes
+Lin\'eaires de Grande Taille Sur Multiprocesseur}.
+\newblock PhD thesis, Universit\'e de Rennes,, November 1990.
+
+\end{thebibliography}
+
+
+\end{document}

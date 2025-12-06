@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Benjamin M\"uller \\
+{\bf Least\,-\,Squares FEM for nonlinear elasticity problems}}
+
+Institute for Applied Mathematics \\ Gottfried Wilhelm Leibniz University Hannover \\ Welfengarten 1 \\ D-30167 Hannover \\ Germany
+\\
+{\tt bmueller@ifam.uni-hannover.de}\\
+Gerhard Starke \\
+J\"org Schr\"oder\\
+Alexander Schwarz\end{center}
+
+Elastic deformation processes play an important role in solid mechanics.
+In this talk, we consider nonlinear elastic behavior with a hyperelastic
+material law. Combined with the equations of equilibrium this forms a
+nonlinear first order system of partial differential equations for the
+displacement $u$ and the first Piola\,-\,Kirchhoff stress tensor $P$. In
+order to solve this system, we consider a nonlinear least squares
+functional, which has to be minimized. For the minimization we use the
+iterative Gauss\,-\,Newton method, which results in a sequence of linear
+least squares problems.\\
+For the finite element approximation of the associated variational
+problem we use quadratic Raviart\,-\,Thomas elements for the stress and
+continuous quadratic finite elements for the displacement.
+At the end of the talk we will give a numerical example and an outlook.
+
+
+\end{document}

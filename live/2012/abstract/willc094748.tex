@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Karen Willcox \\
+{\bf Model Reduction for Uncertainty Quantification of Large-scale Systems}}
+
+77 Massachusetts Avenue \\ Room 33-207 \\ Cambridge \\ MA 02139 \\ USA
+\\
+{\tt kwillcox@mit.edu}\\
+Phuong Hunyh\\
+Chad Lieberman\\
+Leo Ng\end{center}
+
+Uncertainty quantification is becoming recognized as an essential aspect
+of development and use of numerical simulation tools, yet it remains
+computationally intractable for large-scale complex systems characterized
+by high-dimensional uncertainty spaces. For example, efficient numerical
+tools to support decision under uncertainty are essential in many
+settings. Examples include the design, optimization and control of
+complex engineered systems, and the real-time characterization of and
+response to hazardous events. In both these settings, it is essential to
+address the many different sources and types of uncertainty, including
+those stemming from the fidelity of the underlying mathematical models.
+However, solving the resulting stochastic optimization problem may be
+computationally infeasible, especially when the underlying simulation
+models result from discretization of systems of partial differential
+equations. Model reduction thus has an important role to play in
+producing low-order approximate models that retain the essential system
+dynamics but that are fast to solve.
+
+Reduced-order models are commonly derived using a projection framework in
+which the governing equations of the forward model are projected onto a
+subspace of reduced dimension. This reduced
+subspace is defined via a set of basis vectors. Methods to compute the
+basis in the large-scale setting include approximate balanced truncation,
+Krylov-subspace methods, proper orthogonal decomposition (POD), and
+reduced basis methods. Balanced truncation and Krylov-subspace methods
+are in general restricted to linear systems. POD and reduced basis
+methods use empirical information generated from sampled solutions
+(``snapshots") of the large-scale system to create the reduced basis.
+
+This talk will discuss formulation and derivation of projection-based
+reduced-order models for uncertainty quantification of systems governed
+by partial differential equations. In particular, we demonstrate the use
+of reduced models for uncertainty propagation, solution of statistical
+inverse problems, and optimization under uncertainty. Our methods use
+state approximations through the POD, reductions in parameter
+dimensionality through parameter basis approximations, and the discrete
+empirical interpolation method for efficient evaluation of nonlinear
+terms.
+
+
+\end{document}

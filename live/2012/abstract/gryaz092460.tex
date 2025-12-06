@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yury Gryazin \\
+{\bf Simplified Krylov subspace algorithm for a high-order compact approximation of 3-D Helmholtz equation.}}
+
+Mathematics Department \\ Idaho State University \\ Stop 8085 \\ Pocatello ID 83209
+\\
+{\tt gryazin@isu.edu}\end{center}
+
+In recent years, the problem of increasing the resolution of existing
+numerical solvers has become an urgent task in many areas of science and
+engineering. Most of the existing efficient solvers for structured
+matrices were developed for lower-order approximation discretized partial
+differential equations. The need for improved accuracy of underlying
+algorithms leads to modified discretized systems and as a result to the
+modification of the numerical solvers. As an example, one can consider a
+modification of Fast Fourier Transform (FFT) type algorithms for the
+solution of the Helmholtz equation when the accuracy of the
+discretization of the original equation changes from a second to a fourth
+order approximation. In many situations, this modification has been
+successfully implemented but it usually has taken a major revision of the
+underlying numerical algorithm.
+In this paper, we consider the use of the lower-order approximation
+solver as a preconditioner for an efficient implementation of a
+high-order approximation scheme for the Helmholtz equation in the Krylov
+subspace method framework. As a first step, we develop a compact
+sixth-order approximation finite-difference scheme for the 3D Helmholtz
+equation with Dirichlet, Neumann and Sommerfeld-like boundary conditions.
+Then we consider the solution of the proposed discretized system by using
+the Generalized Minimal Residual (GMRES) method with a second order
+approximation system as a preconditioner. The numerical implementation of
+this approach requires the solution of the low-order approximation system
+on each step of the iterative algorithm, which can be efficiently done by
+a FFT-type method.
+The convergence analysis of the GMRES method in the case of a 1-D
+preconditioned system suggests a simplified Krylov subspace method which
+theoretically converges slower than the original GMRES algorithm but that
+does not require the Arnoldi orthogonalization procedure. We will use the
+abbreviation SKSM to describe this algorithm.
+In our numerical experiments, we demonstrate the accuracy of the proposed
+compact six-order approximation scheme and the efficiency of the proposed
+iterative procedures based on the combination of GMRES-FFT and SKSM-FFT.
+Both methods exhibit excellent convergence in most considered test
+problems and can be viewed as general blueprints for the improvement of
+the accuracy of existing lower-order approximation solvers. We also
+present the results of a numerical experiment which demonstrates that in
+some situations the GMRES-FFT combination experiences stagnation and
+needs to be restarted, while the SKSM-FFT method continues to exhibit
+excellent convergence properties.
+
+
+\end{document}

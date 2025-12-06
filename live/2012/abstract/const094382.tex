@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Paul G. Constantine \\
+{\bf A Lanczos Method for Approximating Composite Functions}}
+
+2286 Williams Street \\ Palo Alto \\ CA 94306
+\\
+{\tt paul.constantine@stanford.edu}\\
+Eric T. Phipps\end{center}
+
+Many complex multiphysics models employ composite functions, where each
+member function represents a different physics. A simple example of this
+is a chemical reaction model; the decay of the concentration depends on
+the decay rate parameter, but the model for the decay rate (e.g., the
+Arrhenius model) depends on the temperature, the gas constant, the
+activation energy, and the prefactor. We consider the general setting
+\[
+f = f(x) \quad g = g(f)
+\]
+where $x$ are the inputs to the physics defined by $f$, and $f$ are the
+inputs for the physics defined by $g$. One may be interested in
+understanding how $g$ behaves as $x$ changes, so sensitivity and
+uncertainty studies can be performed on the composite function $h(x) =
+g(f(x))$. Evaluating $h$ is often a computationally demanding task,
+rendering studies that require many evaluations infeasible, particularly
+when the dimension of $x$ is large. In this work, we propose a strategy
+to take advantage of the composite structure of $h$ to build surrogate
+models. The strategy is particularly advantageous when $g(f)$ is much
+more expensive to evaluate than $f(x)$. The essence of the strategy is to
+use the relatively cheap evaluations of $f$ to determine a small set of
+points in its range space to evaluate $g$. This is especially applicable
+when the dimension of $x$ is large -- when methods that require
+evaluating $h$ at many points in the high dimensional $x$-space become
+infeasible.
+
+The strategy is closely linked to Gaussian quadrature. We implicitly
+approximate the density function of $f$ and construct a set of
+polynomials of $f$ that are orthonormal with respect to its density
+function. The function $g$ is then approximated as a truncated series in
+these basis polynomials of $f$, which is in contrast to the standard
+methods of approximating $h$ as an orthonormal polynomial series in $x$.
+In the context of uncertainty quantification, such polynomial
+approximations appear under the names polynomial chaos or stochastic
+collocation, amongst others. We use a discrete Stieltjes procedure to
+compute the recurrence coefficients of the orthogonal polynomials in $f$,
+and we show how this is equivalent to a Lanczos' method on a diagonal
+matrix with a weighted inner product. The basis vectors from the Lanczos
+iteration can be used to linearly map a few evaluations of $g(f)$ to many
+evaluations of $g(f(x))$, which can then be used to study dependence of
+$h$ on $x$.
+
+
+\end{document}

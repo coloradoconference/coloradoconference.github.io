@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sou-Cheng Choi \\
+{\bf CS-MINRES: A Krylov Subspace Method for Complex Symmetric Linear Systems and Least-Squares Problems}}
+
+Computation Institute \\ University of Chicago \\ Searle Chemistry Laboratory \\ 5735 South Ellis Avenue \\ Chicago \\ IL 60637
+\\
+{\tt sctchoi@uchicago.edu}\end{center}
+
+While there is no lack of high-quality Krylov subspace solvers for
+(complex) Hermitian systems, there are few for complex symmetric systems,
+which have become increasingly important in modern applications including
+quantum dynamics, electromagnetics, power systems, and many more.
+
+For a large consistent complex symmetric system $Ax=b$, i.e., $A=A^T$,
+one may apply a non-Hermitian Krylov subspace method such as BiCG, CGS,
+or GMRES, overlooking the symmetry of $A$, or a Hermitian Krylov solver
+such as CG, SYMMLQ, or MINRES on the equivalent normal equation or an
+augmented system twice the original dimension. These have the
+disadvantages of increasing either memory, conditioning, or computational
+costs. An exception is a special version of QMR by Freund (1992), but
+that may be affected by non-benign breakdowns unless look-ahead is
+implemented; furthermore, it is designed for consistent problems only.
+
+We describe CS-MINRES, a new algorithm for solving linear systems and
+least-squares problems with complex symmetric coefficient matrices. In
+all cases, CS-MINRES computes the unique minimum-length, i.e.,
+pseudoinverse, solution. It may be regarded as an extension of MINRES by
+Paige and Saunders (1975) or the more recent MINRES-QLP by Choi, Paige
+and Saunders (2011). CS-MINRES does not suffer from non-benign breakdowns
+and is immediately applicable to real symmetric problems, in which case
+it is mathematically equivalent to MINRES-QLP.
+
+Like MINRES and MINRES-QLP, CS-MINRES has elegant theoretical properties,
+and is sufficiently robust for ill-conditioned and ill-posed problems. We
+will present extensive numerical experiments to demonstrate the
+scalability and robustness of CS-MINRES.
+
+
+\end{document}

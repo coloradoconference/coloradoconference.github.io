@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>metsc088591</TITLE>
+<META NAME="description" CONTENT="metsc088591">
+<META NAME="keywords" CONTENT="metsc088591">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="metsc088591.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Bram Metsch 
+<BR><B>Algebraic Multigrid (AMG) for Saddle Point Systems - A self-stabilizing approach</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Universitaet Bonn 
+<BR>
+Institut fuer Numerische Simulation 
+<BR>
+Wegelerstrasse 6 
+<BR>
+53115 Bonn 
+<BR>
+GERMANY
+
+<BR><TT>metsch@ins.uni-bonn.de</TT>
+</DIV>
+
+<P>
+We present an Algebraic Multigrid (AMG) approach to the solution of
+Stokes-type saddle point problems of the form
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\mathcal{K}: \begin{pmatrix} \mathcal{V} \\\mathcal{W} \end{pmatrix}
+\rightarrow\begin{pmatrix} \mathcal{V} \\\mathcal{W} \end{pmatrix},
+\qquad \mathcal{K} = \begin{pmatrix} A & B^T \\B & -C \end{pmatrix}
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="288" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \mathcal{K}: \begin{pmatrix}\mathcal{V} \\ \mathcal{W} \end{pmatr...
+...d{pmatrix}, \qquad \mathcal{K} = \begin{pmatrix}A &amp; B^T \\ B &amp; -C \end{pmatrix}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ is positive definite and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ C$">
+ is positive semi-definite.
+<BR>
+In particular, we address the two main challenges to the
+construction of a saddle point AMG method,
+
+<OL>
+<LI>The indefinite matrix <!-- MATH
+ $\mathcal{K}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \mathcal{K}$">
+ does not define an inner product
+and norm, hence, it is not possible to carry out the AMG convergence
+proof in terms of the energy norm (as is done in AMG for symmetric
+positive matrices),
+</LI>
+<LI>The coarse grid matrix computed by the Galerkin product may not
+be invertible at all.
+</LI>
+</OL>
+The starting point for the construction of our AMG method for saddle
+point systems is the inexact symmetric Uzawa smoothing scheme
+introduced in [<A
+ HREF="node1.html#Schoeberl.Zulehner:2003">1</A>]. We set up the
+coarse grids and prolongation operators for the spaces <!-- MATH
+ $\mathcal{V}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathcal{V}$">
+
+and <!-- MATH
+ $\mathcal{W}$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{W}$">
+ independently. From these per-space interpolation operators,
+we assemble the global interpolation and restriction operators
+<!-- MATH
+ $\mathcal{P}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathcal{P}$">
+ and <!-- MATH
+ $\mathcal{R}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \mathcal{R}$">
+ such that an inf-sup condition for <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ K$">
+
+implies an inf-sup-condition for the coarse system computed by the
+Galerkin product
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\mathcal{K}^C = \mathcal{R} \mathcal{K} \mathcal{P}.
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="91" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle \mathcal{K}^C = \mathcal{R} \mathcal{K} \mathcal{P}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Especially, our approach does not require that the coarse grids for
+<!-- MATH
+ $\mathcal{V}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathcal{V}$">
+ and <!-- MATH
+ $\mathcal{W}$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{W}$">
+ are adapted to each other. Instead,
+the stability and thus the invertibility of the coarse grid operator is ensured by the
+construction of the transfer operators.
+<BR>
+We also give a two-grid convergence proof for our method based
+on the framework of [<A
+ HREF="node1.html#Notay:2009">2</A>], which does not depend on the
+existence of an energy norm.
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

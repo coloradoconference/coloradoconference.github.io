@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>saund094785</TITLE>
+<META NAME="description" CONTENT="saund094785">
+<META NAME="keywords" CONTENT="saund094785">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="saund094785.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Michael Saunders 
+<BR><B>Experiments with iterative computation of search directions within interior methods for constrained optimization</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept of Management Science &amp; Engineering 
+<BR>
+Huang Engineering Center 
+<BR>
+475 Via Ortega 
+<BR>
+Stanford University 
+<BR>
+Stanford 
+<BR>
+CA 94305-4121
+
+<BR><TT>saunders@stanford.edu</TT>
+<BR>
+Santiago Akle
+</DIV>
+
+<P>
+Our primal-dual interior-point optimizer PDCO has found many applications
+for optimization problems of the form
+<P><!-- MATH
+ \begin{displaymath}
+\min\, \varphi(x) \text{ \ st\ \ } Ax=b, \quad l \le x \le u,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min\, \varphi(x)$">&nbsp; &nbsp; st &nbsp;<IMG
+ WIDTH="147" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle Ax=b, \quad l \le x \le u,
+$">
+</DIV><P>
+</P>
+in which <!-- MATH
+ $\varphi(x)$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \varphi(x)$">
+ is convex and <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$">
+ is a sparse matrix or a linear
+operator. We focus on the latter case and the need for iterative
+methods to compute dual search directions from linear systems of the
+form
+<P><!-- MATH
+ \begin{displaymath}
+A D^2 \!A^T \Delta y = r, \qquad \text{$D$\  diagonal and positive definite}.
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="111" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle A D^2 \!A^T \Delta y = r,$">&nbsp; &nbsp;<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ D$">
+ diagonal and positive definite<IMG
+ WIDTH="9" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle .
+$">
+</DIV><P>
+</P>
+Although the systems are positive definite, they do not need to be
+solved accurately and there is reason to use MINRES rather than
+CG (see PhD thesis of David Fong (2011)). When the original problem
+is regularized, the systems can be converted to least-squares
+problems and there is similar reason to use LSMR rather than LSQR.
+Also, <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ D$">
+ becomes increasingly ill-conditioned as the interior method
+proceeds and there is need for some kind of preconditioning, such as
+the partial Cholesky approach of Bellavia, Gondzio and Morini (2011).
+
+<P>
+We present numerical results on matters such as these.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

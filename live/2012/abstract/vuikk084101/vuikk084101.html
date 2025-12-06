@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vuikk084101</TITLE>
+<META NAME="description" CONTENT="vuikk084101">
+<META NAME="keywords" CONTENT="vuikk084101">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vuikk084101.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kees Vuik 
+<BR><B>On the Convergence of Shifted Laplace Preconditioner Combined with Multigrid Deflation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Delft University of Technology 
+<BR>
+Delft Institute of Applied Mathematics 
+<BR>
+Mekelweg 4 
+<BR>
+2628 CD Delft 
+<BR>
+The Netherlands
+
+<BR><TT>c.vuik@tudelft.nl</TT>
+<BR>
+Abdul Sheikh
+<BR>
+Domenico Lahaye
+</DIV>
+
+<P>
+In this paper, a solver for the discretized time-harmonic wave equation
+in heterogeneous media
+is considered.
+The underlying equation governs wave propagations and scattering
+phenomena arising in many area's, e.g., in aeronautics, geophysics, and optical
+problems. In particular, we look for efficient iterative
+solution techniques for the Helmholtz equation
+discretized by finite difference discretizations. Since the number of
+grid points per wavelength should be sufficiently large for accurate
+solutions, for very high wavenumbers the discrete problem becomes
+extremely large, thus prohibiting the use of direct solvers.
+However, since the coefficient matrix is sparse,
+iterative solvers are an interesting alternative.
+
+<P>
+Starting point of our research is the multilevel Krylov method proposed in [1]
+which consists of a combination of the Shifted Laplace Preconditioner (SLP) given in [2]
+and a second level preconditioner based on Deflation [3]. It is well known that
+the coefficient matrix of the discretized Helmholtz equation has eigenvalues both
+in the positive and negative complex plane. Such a spectrum leads to a very slow
+convergence of Krylov type solvers. Combining the matrix with a Shifted
+Laplace Preconditioner
+leads to a spectrum which is enclosed in a circle in the positive complex plane.
+If no damping is included this circle passes through the origin.
+It appears that the resulting
+method is scalable in step size <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ h$">
+ but the number of iterations increases linearly
+with the increase of the wave number. The reason for this increase is that the number
+of eigenvalues close to zero increase considerably for large wave numbers. Motivated
+by the success of multigrid, where a smoother and coarse grid solver are combined,
+Erlangga and Nabben [1] use a combination of SLP and projection Deflation
+in a multilevel way.
+From their paper it appears that the number of iterations is much smaller
+and furthermore the method seems to be scalable also in the wave number. To gain insight
+in this method, we analyze the method proposed in more detail.
+
+<P>
+In this paper we perform a Rigorous Fourier Analysis of a two-level variant of the
+multilevel Krylov method for the Helmholtz equation proposed in [1]. The
+distinct feature of the solver analyzed is the two-grid deflation of the Shifted
+Laplace Preconditioner at each step of an outer Krylov subspace acceleration.
+Our analysis of 1D and 2D models reveals two properties of the solver. The
+first is that with deflation, the solver performs better than without deflation.
+However, above a certain large wave number, the solver
+depends again linearly on the wave number. The reason is that the spectrum
+contains more small eigenvalues with increasing wave number. The second
+is that the Shifted Laplace Preconditioner can be made arbitrarily diagonally
+dominant by increasing the imaginary part of the shift without paying any
+penalty in the number of Krylov iterations.
+These properties are verified by numerical experiments on Helmholtz problems with
+heterogeneous media and may lead to faster methods to approximate the
+Shifted Laplace Preconditioner.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">References</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">References</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

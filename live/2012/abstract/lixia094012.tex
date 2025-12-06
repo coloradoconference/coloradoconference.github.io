@@ -1,0 +1,62 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Xiaoye, Sherry Li \\
+{\bf Enhancing Scalability and Robustness of the Schur Complement Method Using Hierarchical Parallelism}}
+
+Lawrence Berkeley National Laboratory \\ MS 50F-1650 \\ 1 Cyclotron Rd \\ Berkeley \\ CA 94720-8139
+\\
+{\tt xsli@lbl.gov}\\
+Ichitaro Yamazaki\end{center}
+
+Modern numerical simulations give rise to sparse linear systems of
+equations that are becoming increasingly difficult to solve using
+standard techniques. Matrices that can be directly factorized
+are limited in size due to large memory and inter-node communication
+requirements. Preconditioned iterative solvers require less memory
+and communication, but often require an effective preconditioner, which
+is not readily available.
+The Schur-complement-based domain decomposition method
+has great potential for providing reliable solution of large-scale,
+highly-indefinite algebraic equations.
+
+We developed a hybrid direct-iterative linear solver PDSLin,
+Parallel Domain-decomposition Schur complement based LINear
+solver, which employs techniques from both sparse direct and
+iterative methods.
+In this method, the global system is first partitioned into smaller
+interior subdomain systems, which are connected only through
+separators. To compute the solution of the global system,
+the unknowns associated with the interior subdomain systems are
+first eliminated to form the Schur complement system, which is defined
+only on the separators. Since most of the fill occurs in
+the Schur complement, the Schur complement system is solved
+using a preconditioned iterative method. Then, the solution on the
+subdomains is computed by using this solution on the separators and
+solving another set of subdomain systems.
+
+For a scalable implementation, it is imperative to exploit multiple
+levels of parallelism; namely, solving independent subdomains
+in parallel and using multiple processors per subdomain.
+This hierarchical parallelism can maintain numerical stability
+as well as scalability.
+In this multilevel parallelization framework, performance
+bottlenecks due to load imbalance and excessive communication
+occur at two levels: in an intra-processor group assigned to the
+same subdomain and among inter-processor groups assigned to different
+subdomains. We developed several techniques to address these issues,
+such as taking advantage of the sparsity of right-hand-side columns
+during sparse triangular solutions with interfaces, load balancing
+sparse matrix-matrix multiplication to form update matrices, and
+designing an effective asynchronous point-to-point communication
+of the update matrices. We present experimental results to demonstrate
+that with the aid of these techniques, our hybrid solver can efficiently
+solve very large highly-indefinite linear systems on thousands
+of processors.
+
+
+\end{document}

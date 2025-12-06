@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>appel094718</TITLE>
+<META NAME="description" CONTENT="appel094718">
+<META NAME="keywords" CONTENT="appel094718">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="appel094718.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">David Appelhans 
+<BR><B>Parallel Solution of PDEs using weighted FOSLS-AMR-AMG</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">1115 35th St Apt A 
+<BR>
+Boulder 
+<BR>
+CO 80303
+
+<BR><TT>dappelha@gmail.com</TT>
+<BR>
+Toby Jones
+<BR>
+Tom Manteuffel
+</DIV>
+
+<P>
+This talk presents results on a domain decomposition multigrid method
+that builds a patchwork global solution from overlapping processor grids
+that do not communicate during a V-cycle. Typical domain decomposition
+parallel multigrid implementations exchange information along processor
+boundaries on each grid level; however, modern supercomputer architecture
+continues to add more computational power while communication remains
+expensive. This necessitates a new breed of numerical algorithms that are
+designed to minimize communication from the start, even at the expense of
+more on-processor computation. The method presented in this talk
+leverages the power of ACE adaptive mesh refinement and weighted FOSLS by
+specifying a weighted functional that emphasizes a processor’s domain and
+falls off with distance. By using this weighted functional with ACE, a
+grid is adaptively generated that focuses on the processor domain while
+still allocating grid points to areas outside the processor domain where
+the functional is large and, importantly, extends to the boundary of the
+global domain. The total number of grid points used by each processor is
+a small multiple of the grid points within the home domain. The solutions
+from each processor are then patched into a gloabal approximation and the
+process can be iterated.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

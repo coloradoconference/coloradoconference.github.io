@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Heidi Thornquist \\
+{\bf Enabling Next-Generation Circuit Simulation Using Trilinos}}
+
+Sandia National Laboratories \\ PO Box 5800 \\ Albuquerque \\ NM 87185
+\\
+{\tt hkthorn@sandia.gov}\\
+Erik Boman\\
+Eric Keiter\\
+Siva Rajamanickam\\
+Rich Schiek\end{center}
+
+The Xyce Parallel Circuit Simulator, which has demonstrated scalable
+circuit simulation on hundreds of processors, heavily leverages the
+high-performance scientific libraries provided by Trilinos. With the move
+towards multi-core CPUs and GPU technology, retaining this scalability on
+future parallel architectures will be a challenge. The computational
+expense in traditional analog circuit simulation is in repeatedly solving
+linear systems of equations, which are at the center of a nested solver
+loop. Solving these linear systems requires their assembly, which depends
+upon device evaluations for the whole circuit. So, the computational
+expense is dominated by either the device evaluations or the numerical
+method used to solve the linear systems. This talk will present the
+enabling technologies provided by Trilinos to exploit both coarse and
+fine-grained parallelism, including a new effort in hybrid linear
+solvers, that will allow Xyce to retain scalable performance on
+next-generation architectures.
+
+
+\end{document}

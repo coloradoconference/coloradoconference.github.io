@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large C. T. Kelley \\
+{\bf Sparse Interpolatory Models for Molecular Dynamics}}
+
+NC State University \\ Dept of Mathematics \\ Box 8205 \\ Raleigh \\ NC 27695-8205
+\\
+{\tt tim\_kelley@ncsu.edu}\\
+David Mokrauer\end{center}
+
+We describe a method for using interpolatory models to accurately and
+efficiently simulate molecular excitation and relaxation. We use
+sparse interpolation for efficiency and local error estimation and
+control for robustness and accuracy.
+
+The objective of the project is to design an efficient
+algorithm for simulation of light-induced molecular transformations.
+The simulation seeks to follow the relaxation path of a molecule
+after excitation by light. The simulator is a predictive tool to
+see if light excitation and subsequent return to the unexcited
+or ground state will produce a different configuration than
+the initial one.
+
+We simulate the results of the excitation, rather than the excitation
+itself. The excitation will change the quantum state of a molecule. Our
+objective is to design software that will let one explore the possible
+changes in a molecule after a sequence of excitations.
+
+The goals of the simulation are not only
+to identify the end point, but to report the entire path in
+an high-dimensional configuration space so that
+one can look for nearby paths to interesting configurations and examine
+the energy landscape near the path to see if low energy barriers make
+jumping to a different path possible.
+
+
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large James Adler \\
+{\bf Numerical Approximation of Asymptotically Disappearing Solutions of Maxwell’s Equations}}
+
+503 Boston Ave \\ Tufts University \\ Mathematics Department \\ Medford \\ MA 02155
+\\
+{\tt james.adler@tufts.edu}\\
+Vesselin  Petkov\\
+Ludmil Zikatanov\end{center}
+
+This work is on the numerical approximation of incoming solutions to
+Maxwell's equations, whose energy decays exponentially with time
+(asymptotically disappearing), meaning that the leading term of the
+back-scattering matrix becomes negligible. For the exterior of a sphere,
+such solutions are obtained by Colombini, Petkov and Rauch by specifying
+a maximal dissipative boundary condition on the sphere and setting
+appropriate initial conditions.
+
+We consider a mixed finite element approximation of Maxwell's equations
+in the exterior of a polyhedron whose boundary approximates the sphere.
+We use the standard Nedelec-Raviart-Thomas elements and a Crank-Nicholson
+scheme to approximate the electric and magnetic fields. We set discrete
+initial conditions with standard interpolation, modified so that these
+initial conditions are divergence-free. We prove that with such initial
+conditions, the fully discrete approximation to the electric field is
+weakly divergence-free for all time. We show numerically that the
+finite-element solution approximates well the asymptotically disappearing
+solutions constructed analytically when the mesh size becomes small.
+
+
+\end{document}

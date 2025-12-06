@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chenj097301</TITLE>
+<META NAME="description" CONTENT="chenj097301">
+<META NAME="keywords" CONTENT="chenj097301">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chenj097301.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jie Chen 
+<BR><B>Scalable Statistical Analysis of Gaussian Models for Petascale Spatiotemporal Data</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 S Cass Ave Bldg 240 
+<BR>
+Argonne 
+<BR>
+IL 60439
+
+<BR><TT>jiechen@mcs.anl.gov</TT>
+<BR>
+Mihai Anitescu
+<BR>
+Michael Stein
+</DIV>
+
+<P>
+Gaussian processes are widely used throughout the statistical and machine
+learning communities for modeling natural processes with broad
+applications to fields such as nuclear engineering and climate science.
+Such models typically have some vector of unknown parameters that must be
+estimated to carry out further data analysis tasks such as regression,
+classification and interpolation. A standard statistical approach to
+estimating these parameters is to choose the parameter values that
+maximum the likelihood function (the joint density of the observations).
+Simple in principle, the technique is difficult to apply in practice in
+the case of very large data sets due to the need to work with the
+covariance matrices of the observations. In some cases, the covariance
+matrices (or their inverse) may have some exploitable properties
+(sparseness, Toeplitz) to reduce computations and/or storage, but in many
+applications, the covariance matrices are dense and unstructured. The
+likelihood function for Gaussian processes involves a quadratic form in
+the inverse covariance matrix and the log determinant of the covariance
+matrix. Existing algorithms for maximizing the likelihood heavily rely on
+the Cholesky factorization, the computation of which is prohibitively
+costly for many problems of practical interest. We propose a sample
+average formulation of the optimization framework, which narrows down the
+several linear algebra challenges to solving a linear system with the
+covariance matrix for multiple right-hand sides. We further investigate
+two of the most important ingredients in the conjugate gradient solver:
+the conditioning of the covariance matrix and the multiplication of a
+vector to a covariance matrix. These two aspects require different
+designs of the preconditioner and the matrix-vector multiplication in
+different grid configurations. We demonstrate the successful scalable
+resolution of the maximum likelihood problem for data sizes as large as a
+million points on a grid on a single desktop machine, whereas the
+Cholesky factorization approach would have needed a moderate-size
+supercomputer. In addition, we have proved that in some circumstances
+optimal preconditioning is achievable by means of a filtering approach.
+Parallel programs are under development to solve the problem for much
+larger data sets and in higher dimensions.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

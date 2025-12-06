@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large P. A. Lott \\
+{\bf  Block Preconditioners for Fully Implicit Atmospheric Climate Simulation in CAM-SE}}
+
+Lawrence Livermore National Laboratory \\ Box 808 \\ L-561 \\ Livermore \\ CA 94551-0808
+\\
+{\tt Aaron.Lott@llnl.gov}\\
+C.S. Woodward\\
+K.J. Evans\end{center}
+
+Atmosphere is a key component of the multiphysics climate system.
+Understanding the sensitivity of Earth's climate to radiative forcing
+requires ensemble forecasts over long time periods. Dynamical models of
+atmospheric climate account for phenomena occurring on multiple
+timescales including gravity, advection and background waves. Explicit
+time integration methods render long-term forecasts intractable at high
+resolution due to CFL restriction. Implicit time-integration methods
+allow simulations to be performed more efficiently by stepping over
+time-scales that are not relevant. However, implicit methods require
+efficient and scalable nonlinear and linear solvers. We will discuss the
+application of preconditioning techniques based on approximate block
+factorizations of the shallow-water equations as part of the spectral
+element dynamical core of the Community Atmospheric Model (CAM-SE).
+
+
+\end{document}

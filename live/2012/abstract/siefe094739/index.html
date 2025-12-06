@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>siefe094739</TITLE>
+<META NAME="description" CONTENT="siefe094739">
+<META NAME="keywords" CONTENT="siefe094739">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="siefe094739.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christopher Siefert 
+<BR><B>Mimetic Least Squares Methods with Preconditioners for Darcy Flow</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+MS 1323 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1323
+
+<BR><TT>csiefer@sandia.gov</TT>
+<BR>
+Pavel Bochev
+<BR>
+Oksana Guba
+</DIV>
+
+<P>
+We present a mimetic least squares method for Darcy flow,
+using nodal elements for pressure and lowest order face elements for the
+fluxes. Because the pressure and flux are not subject to a joint inf-sup
+condition, we can choose the discrete spaces independently. The choice of
+a face element discretization for the fluxes gives us a method with
+improved stability, accuracy and conservation properties.
+
+<P>
+The mimetic least-squares functional is norm-equivalent to a norm on
+<!-- MATH
+ $H^1(\Omega)\times H(div)$
+ -->
+<IMG
+ WIDTH="118" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H^1(\Omega)\times H(div)$">
+. As a result, the associated linear system,
+though positive definite, has a 2x2 block structure, where one diagonal
+element is a nodal Laplacian, and the other is a grad-div problem. Owing
+to the norm-equivalence of the least-squares functional, the system can
+be effectively preconditioned by its diagonal.
+
+<P>
+We treat the least-squares algebraic equations with smoothed
+aggregation algebraic multigrid and the latter with the compatible
+gauge approach of Bochev et al. [1]. The structure of the equations
+allows us to combine these into a simple block preconditioner. We
+demonstrate good algorithmic and parallel scalability of our problem on
+up to 17,000 cores on NERSC's hopper machine.
+
+<P>
+[1] P. Bochev, C. Siefert, R. Tuminaro, J. Xu and Y. Zhu. Compatible
+Gauge Approaches for H(div) Equations. Technical Report, SAND 2007-5384P,
+Sandia National Laboratories, August 2007.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

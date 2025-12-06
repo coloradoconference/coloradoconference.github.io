@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrei Draganescu \\
+{\bf Multigrid preconditioning of linear systems for semismooth Newton methods applied to optimization problems constrained by smoothing operators}}
+
+Department of Mathematics and Statistics \\ University of Maryland Baltimore County \\ 1000 Hilltop Circle \\ Baltimore MD 21250
+\\
+{\tt draga@umbc.edu}\end{center}
+
+In this work we address the question of constructing efficient multigrid
+preconditioners for the linear systems arising when applying semismooth
+Newton methods to large-scale linear-quadratic optimization problems
+constrained by smoothing operators with box-constraints on the controls.
+It is shown that, for certain discretizations of the optimization
+problem, the linear systems to be solved at each semismooth Newton
+iteration reduce to inverting principal minors of the Hessian of the
+associated unconstrained problem. As in the case when box-constraints on
+the controls are absent, the multigrid preconditioner introduced here is
+shown to increase in quality as the mesh-size decreases, resulting in a
+number of iterations that decreases with mesh-size. However, unlike the
+unconstrained case, the spectral distance between the preconditioners and
+the Hessian is shown to be of suboptimal order in general.
+
+
+\end{document}

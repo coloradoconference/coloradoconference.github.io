@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jianlin Xia \\
+{\bf Recent developments on fast structured solutions and effective structured preconditioning}}
+
+Department of Mathematics \\ Purdue University \\ West Lafayette \\ IN 47907
+\\
+{\tt xiaj@math.purdue.edu}\end{center}
+
+We consider the fast solution and preconditioning for large
+sparse linear systems arising from the discretization of PDEs
+such as Helmholtz equations. We study hidden rank structures
+in the problems and develop fast structured matrix techniques
+for sparse solutions. The new solvers we develop have the
+following features:
+
+1. They cost roughly $O(n)$ flops for 2D PDEs and at most
+$O(n^{4/3})$ for 3D ones, in contrast with classical optimal
+costs of $O(n^{3/2})$ and $O(n^2)$ in exact solutions,
+respectively.
+2. We propose a rank relaxation strategy so as to accomodate
+rank structures more flexible than existing methods.
+3. For certain problems, the rank structures are relatively
+insensitive to parameters such as frequencies and Poisson
+Ratios.
+
+The solvers are thus especially useful for problems such as
+seismic imaging, where ill-conditioned systems as solved with
+many right-hand sides and many parameters (frequencies),
+but with only modest accuracy desired.
+
+We also talk about the potential of robust and effective
+structured preconditioning when the structures are
+insignificant. We analyze the criterion for compressing
+off-diagonal blocks so as to achieve nearly optimal
+effectiveness and efficiency in our preconditioner.
+
+Examples are used to demonstrate the performance.
+
+
+\end{document}

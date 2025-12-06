@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Geoffrey Sanders \\
+{\bf Eigenvectors of Matrices Associated with Scale-Free Graphs}}
+
+Lawrence Livermore National Laboratory \\ Box 808 \\ L-561 \\ Livermore \\ CA 94551-0808
+\\
+{\tt sanders29@llnl.gov}\\
+Van Emden Henson\\
+Panayot Vassilevski\end{center}
+
+A scale-free graph is characterized as having vertices with a degree
+distribution that follows a power law. Clustering, ranking, and measuring
+similarity of vertices on scale-free graphs are all quantities that
+network scientists often calculate. We describe a few network
+calculations that are obtained by solving eigensystems or linear systems
+involving matrices whose sparsity structure is related to an underlying
+scale-free graph. For many large systems of interest, classical iterative
+solvers (such as conjugate gradient and lanczos) converge with
+prohibitively slow rates, due to ill-conditioned matrices and small
+spectral gap ratios. Scalable preconditioners for this class of problem
+are of considerable research interest. We consider constructing algebraic
+multigrid (AMG) preconditioners, which make use of coarse approximation
+of eigenspaces to accelerate convergence. We discuss several interesting
+properties the eigenvectors of scale-free graphs have that are not
+present in mesh-like graphs. For example, these graphs have a large
+number of locally supported eigenvectors (LSEVs), eigenvectors that are
+each nonzero only in a small, connected region. We discuss how such
+properties can be used to coarsen graphs with potentially high spectral
+accuracy and ultimately improve the scalability of preconditioned
+iterative methods.
+
+
+\end{document}

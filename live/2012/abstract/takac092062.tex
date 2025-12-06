@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Martin Takac \\
+{\bf Efficiency of Randomized Coordinate Descent Methods on Minimization Problems with a Composite Objective Function }}
+
+2 Cameron Terrace \\ Edunburgh \\ EH16 5LD \\ Scotland
+\\
+{\tt martin.taki@gmail.com}\\
+Peter Richtarik\\
+Martin Takac\end{center}
+
+In this work we develop a randomized block-coordinate descent method for
+minimizing the sum of a smooth and a simple nonsmooth block-separable
+convex function and establish iteration complexity bounds. This extends
+recent results of Nesterov (Efficiency of coordinate descent methods on
+huge-scale optimization problems 2010), which cover the smooth case, to
+composite minimization, while improving the complexity and simplifying
+the analysis. In the smooth case we allow for arbitrary norms and
+probability vectors.
+
+Using both synthetic and real data, we demonstrate numerically that the
+method is able to solve various optimization problems with a billion
+variables. Such problems can be found, for example, in Compressed Sensing
+(lasso), Statistics (group lasso), Machine Learning (L1-regularized
+logistic or L2 loss function) and Engineering (truss topology design).
+
+For the L1-regularized least squares problem we implement a
+GPU-accelerated parallel version of our algorithm (CUDA) and observe
+speedups of up to two orders of magnitude when compared with an efficient
+serial code (C).
+
+
+\end{document}

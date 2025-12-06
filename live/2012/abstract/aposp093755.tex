@@ -1,0 +1,53 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Alexis Aposporidis \\
+{\bf A Multilevel Preconditioner for the Bingham Fluid Flow in Mixed Variables}}
+
+Emory University \\ 400 Dowman Drive \\ W401 \\ Atlanta \\ GA30322
+\\
+{\tt aapospo@emory.edu}\\
+Panayot Vassilevski\\
+Alessandro Veneziani\end{center}
+
+\newcommand{\Du}{\textbf{Du}}
+\newcommand{\bu}{\textbf{u}}
+\newcommand{\f}{\textbf{f}}
+\newcommand{\tr}{\textnormal{tr}}
+\newcommand{\bW}{\textbf{W}}
+
+The Bingham fluid flow is a Stokes-type flow with shear-dependent
+viscosity. If $\Du=\frac{1}{2}(\nabla \bu + \nabla \bu^T)$ and
+$|\Du|=\sqrt{\tr(\Du^2)}$, its equations read
+\[ \left\{ \begin{array}{rl} -\nabla \cdot \tau +\nabla p &= \f, \\
+-\nabla \cdot \bu &=0 \\ +B.C., \end{array} \right. \]
+and
+\[ \left\{ \begin{array}{rl} \tau=2\mu \Du+\tau_s \frac{\Du}{|\Du|},
+&\textnormal{ if } |\Du| \not=0, \\ |\tau| \leq \tau_s, & \textnormal{ if
+} |\Du|=0, \end{array} \right. \]
+where the velocity $\bu \in \mathbb{R}^n$, $n=2,3$ and $p \in \mathbb{R}$
+are the unknowns and $\mu$, $\tau_s$ are given constants. A major
+difficulty of solving the Bingham equations numerically is the fact that
+its equations are singular for $\Du = 0$. We circumvent this by
+introducing an auxiliary variable $\bW = \frac{\Du}{|\Du|}$, the
+equations for the Bingham flow are then reformulated as
+\[ \left\{ \begin{array}{rl} -\nabla \cdot \left( 2\mu \Du + \tau_s \bW
+\right) +\nabla p &=\f, \\ -\nabla \cdot \bu &=0, \\ \bW |\Du| &=\Du \\
++B.C. \end{array} \right. \]
+In this talk we will address the discretization and linearization of
+these (nonlinear) equations. We will then propose a multilevel
+preconditioner with additive Schwartz smoothings for efficiently solving
+the resulting linear systems. Numerical experiments will be presented to
+demonstrate the effectiveness of both the nonlinear and linear solver.
+
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344.
+
+
+\end{document}

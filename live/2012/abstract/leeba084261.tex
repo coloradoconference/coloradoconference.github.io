@@ -1,0 +1,53 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Barry Lee \\
+{\bf Preconditioners/Multigrid for Stochastic Polynomial Chaos Formulations of the Diffusion Equation}}
+
+Computational Sciences & Mathematics Division \\ Pacific Northwest National Laboratory \\ Richland \\ WA 99354
+\\
+{\tt barry.lee@pnnl.gov}\end{center}
+
+This talk presents (parallel) preconditioners and multigrid solvers for
+solving linear systems of equations arising from stochastic polynomial
+chaos (PC) formulations of the diffusion equation with random
+coefficients. These preconditioners/solvers are an extension of the
+preconditioner developed in \cite{Lee3} for strongly coupled systems of
+elliptic partial equations
+(PDEs) that are norm equivalent to systems that can be factored into an
+algebraic coupling component and a diagonal differential component, as is
+the case for the systems produced by PC formulations of the diffusion
+equation. The first preconditioner, which is applied to the norm
+equivalent system, is obtained by sparsifying the inverse of the
+algebraic coupling component. This sparsification leads to an efficient
+method for solving
+these PC systems on the large scale, even for problems with large
+statistical variations in the random coefficients. An extension of this
+preconditioner leads to stand-alone multigrid methods that are applied
+directly to the actual system of PDEs rather
+than to the norm equivalent system. These multigrid methods exploit the
+algebraic/differential factorization of
+the norm equivalent systems to produce variable decoupled systems on the
+coarse levels, and lead to simplified software implementation through
+re-use of existing high-performance software such as the Hypre library
+package (\cite{hypre}).
+Two-grid matrix bounds are established and numerical results are given.
+
+\begin{thebibliography}{99}
+
+\bibitem{hypre}
+Available at https://computation.llnl.gov/casc/hypre/software.html.
+
+\bibitem{Lee3}
+{\sc B. Lee}, {\em Guidance for choosing multigrid preconditioners for
+systems of elliptic partial differential equations}, SIAM J. of
+Scientific Computing, 31 (2009), pp. 2803-2831.
+
+\end{thebibliography}
+
+
+\end{document}

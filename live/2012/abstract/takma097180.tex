@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Martin Tak\'{a}\v{c} \\
+{\bf Efficient Serial and Parallel Coordinate Descent Methods for Huge-Scale Truss Topology Design}}
+
+2 Cameron Terrace \\ Edinburgh \\ EH16 5LD
+\\
+{\tt martin.taki@gmail.com}\\
+Peter Richtarik\\
+Martin Takac\end{center}
+
+In this work we propose solving \emph{huge-scale} instances of the truss
+topology design problem with coordinate descent methods.
+We develop four efficient codes: \emph{serial} and \emph{parallel}
+implementations of \emph{randomized} and \emph{greedy} rules for the
+selection of the variable (potential bar) to be updated in the next
+iteration. Both serial methods enjoy an $O(n/k)$ iteration complexity
+guarantee, where $n$ is the number of potential bars and $k$ the
+iteration counter. Our parallel implementations, written in CUDA and
+running on a graphical processing unit (GPU), are capable of speedups of
+up to two orders of magnitude when compared to their serial counterparts.
+Numerical experiments were performed on instances with up to 30 million
+potential bars.
+
+
+\end{document}

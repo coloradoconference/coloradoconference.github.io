@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yasunori Aoki \\
+{\bf Cluster Approximation method for Inverse Problems: applied to Model Parameter Estimation}}
+
+University of Waterloo \\ Department of Applied Mathematics \\ 200 University Ave West \\ Waterloo \\ Ontario \\ N2L 3G1 \\ Canada
+\\
+{\tt yaoki@uwaterloo.ca}\\
+Ken Hayami\\
+Hans De Sterck\\
+Ben Holder\\
+Akihiko Konagaya\end{center}
+
+We describe a new method for inverse problem that proceeds by
+simultaneously finding multiple solutions of the parameter estimation
+problem. Estimation of the parameter of a finitely parameterized ODE
+based mathematical model from an experimental data is required in many
+fields of science. This problem can be thought as solving a system of
+nonlinear equations
+\begin{eqnarray}
+\boldsymbol{f}(\boldsymbol{\theta})&=&\boldsymbol{y}^*\,, \label{eq_1}
+\end{eqnarray}
+where $\boldsymbol{f}$ is a map from $\mathbb{R}^m$ to $\mathbb{R}^n$,
+$\boldsymbol{\theta}$ is the parameter vector, and $\boldsymbol{y}^*$ is
+the experimental data. A standard approach for solving this type of
+system of nonlinear equations is a gradient based method such as the
+Newton method or the Levenberg-Marquard method. However, in the case of
+finding parameters from experimental data the problem may be more
+complicated than just solving \eqref{eq_1} in the following ways, and
+standard nonlinear solvers may not be adequate:
+\begin{itemize}
+\item There is no guarantee that a solution to \eqref{eq_1} exists, nor
+that it is unique.
+\item We often do not have a good initial guess for the parameter value
+$\boldsymbol{\theta}$.
+\item The experimental data contains a lot of error.
+\end{itemize}
+In order to overcome these challenges we have constructed a numerical
+algorithm called the Cluster Approximation method that approximately
+solves the system of nonlinear equations. This method differs from
+traditional nonlinear equation solvers in the following ways:
+\begin{itemize}
+\item It find multiple possible solutions that approximately satisfy \eqref{eq_1}.
+\item It is more robust against the local minima of the objective
+function compare to other gradient based algorithms since it constructs a
+linear approximation from multiple points.
+\item It is faster than population based stochastic method as it is a
+gradient base algorithm.
+\end{itemize}
+Simply put, the Cluster Approximation method combines the desirable
+properties of a population based global optimization method (like
+semi-global convergence) and with properties of gradient based method
+(like convergence speed), as it moves cluster of tentitive solution
+points using gradient like information.
+We demonstrate these points through solving three different types of
+inverse problems in mathematical biology: underdetermined inverse problem
+(number of observations less than the number of parameters),
+overdetermined inverse problem (number of observations more than the
+number of parameters), and parameter identifiability analysis problem (an
+approximation of an inverse image of a set).
+
+
+\end{document}

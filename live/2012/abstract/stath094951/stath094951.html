@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>stath094951</TITLE>
+<META NAME="description" CONTENT="stath094951">
+<META NAME="keywords" CONTENT="stath094951">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="stath094951.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andreas Stathopoulos 
+<BR><B>Approximating <!-- MATH
+ $Tr(A^{-1})$
+ -->
+<IMG
+ WIDTH="65" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Tr(A^{-1})$">
+ with hierarchical probing on regular stencils</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+College of William and Mary 
+<BR>
+Williamsburg 
+<BR>
+VA 23187-8795
+
+<BR><TT>andreas@cs.wm.edu</TT>
+<BR>
+Jesse Laeuchli 
+<BR>
+Konstantinos Orginos
+</DIV>
+
+<P>
+The problem of finding the trace of the inverse of a large, sparse
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ appears in many applications, including lattice quantum
+chromodynamics (LQCD), data mining, and uncertainty quantification.
+When the dimension of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+, <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ N$">
+, is sufficiently small, the problem is
+trivially solved by direct factorization methods.
+For large <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ N$">
+, where factorization of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ is not possible, the problem is
+surprisingly difficult, and all current approaches resort to a Monte
+Carlo method, based on the following:
+Given <!-- MATH
+ $x \in Z_2^N$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ x \in Z_2^N$">
+, i.e., random vectors of <IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ 1,-1$">
+,
+<P><!-- MATH
+ \begin{displaymath}
+E( x^T A^{-1} x) = {\rm Tr}(A^{-1}).
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="170" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle E( x^T A^{-1} x) = {\rm Tr}(A^{-1}).$">
+</DIV><P>
+</P>
+A model algorithm generates a list of <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ s$">
+ vectors, and either solves
+a series of linear systems of equations, or computes directly a series
+of Gaussian quadratures (<!-- MATH
+ $x^TA^{-1}x$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ x^TA^{-1}x$">
+).
+Because of the rate of Monte Carlo convergence, several hundreds
+of systems need to be solved to obtain even a single digit of
+accuracy. The need for algorithmic improvements at any level is obvious.
+
+<P>
+Our driving application is LQCD, where the matrix structure is based on
+a four dimensional torus-lattice.
+In our previous work, we focused on speeding up the systems with multiple
+right hand sides using deflation of a large number of eigenvectors which
+are obtained with negligible additional cost to solving the linear systems.
+Because of the large number of required right hand sides, we showed
+speedups up to an order of magnitude.
+
+<P>
+In this research we focus on the orthogonal issue of the quality of the
+right hand sides. We seek sequences of vectors that are provide better
+approximations than random vectors.
+
+<P>
+Over the last ten years there has been quite some interest in this topic.
+Bekas, Kokkiopoulou, and Saad discussed algorithms that use the Hadamard
+low disparity vectors that work well for matrices with certain diagonal
+structure. They also discussed probing which is our focus below.
+Recently, Avron and Toledo did a study of various random vector choices.
+Tang and Saad, also discussed a method based on probing.
+
+<P>
+Probing is a method for obtaining the diagonal (or the trace) of a sparse
+matrix. If the graph of the sparse matrix is <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">
+ colorable,
+consider the set of <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">
+ vectors <!-- MATH
+ $X = [x^1, x^2, ..., x^k]$
+ -->
+<IMG
+ WIDTH="133" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ X = [x^1, x^2, ..., x^k]$">
+,
+where <IMG
+ WIDTH="50" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ x^j_i = 1$">
+ if node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ i$">
+ has color <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ j$">
+, and zero otherwise.
+It is not hard to see that <!-- MATH
+ ${\rm Tr}(A) = {\rm Tr}(X^T AX)$
+ -->
+<IMG
+ WIDTH="146" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ {\rm Tr}(A) = {\rm Tr}(X^T AX)$">
+.
+For example, in LQCD where the 4-D lattice is 2-colorable, only two
+vectors would suffice to find its trace. The problem, however, is that
+we need <!-- MATH
+ ${\rm Tr}(A^{-1})$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\rm Tr}(A^{-1})$">
+, which in general is a dense matrix.
+
+<P>
+Bekas et al. and Tang et al. exploited the fact that for a large class
+of PDE based matrices, the elements of the <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A^{-1}$">
+ decay exponentially
+away from the non zero elements of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+. Therefore, the largest elements
+of <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A^{-1}$">
+ are on the same sparsity pattern as <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+, which for the LQCD
+case is <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ 2$">
+-colorable. Thus with 2 vectors we get a rough approximation
+of <!-- MATH
+ ${\rm Tr}(A^{-1})$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\rm Tr}(A^{-1})$">
+. To improve this, we have to consider a ``denser''
+approximation of <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A^{-1}$">
+, specifically the values of <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A^{-1}$">
+ on the
+sparsity pattern of <IMG
+ WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ A^2$">
+. This is known as the distance-2 coloring
+of the graph of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+. If this approximation is not satisfactory, we
+can continue up to <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+, obtain a <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">
+-coloring of its graph, and use
+the <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ X$">
+ as defined above to obtain the trace. This is the approach
+followed by Tang and Saad. However, such approach is wasteful as
+all computations performed up to step <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ m-1$">
+ must be discarded.
+
+<P>
+In this work, we attempt to avoid this waste; at step <IMG
+ WIDTH="19" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m$">
+ we build
+on top of what we have already computed in steps <IMG
+ WIDTH="81" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ 1,...,m-1$">
+.
+However, we are faced with the problem that the vector subspace <IMG
+ WIDTH="57" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ X^{(m-1)}$">
+,
+computed from the <IMG
+ WIDTH="52" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ k^{(m-1)}$">
+ colors needed for <IMG
+ WIDTH="45" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ A^{m-1}$">
+, may not be
+contained in the subspace <IMG
+ WIDTH="41" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ X^{(m)}$">
+ for the next step. Therefore,
+previous computations cannot be reused in <!-- MATH
+ $X^{(m)T} AX^{(m)}$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ X^{(m)T} AX^{(m)}$">
+.
+We address this problem by considering a hierarchical graph coloring of <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+.
+We start with the bipartite, red-black partitioning of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ (for LQCD).
+Then we consider a subset of the graph of <IMG
+ WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ A^2$">
+ on the red partition only.
+We color it with <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ k_r$">
+ colors.
+Then, we color the black partition subset of the <IMG
+ WIDTH="24" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ A^2$">
+ with <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ k_b$">
+ colors.
+We can now build <IMG
+ WIDTH="36" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.png"
+ ALT="$ X^{(2)}$">
+ with <IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ k_r+k_b$">
+ vectors, which by construction
+also span <IMG
+ WIDTH="36" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$ X^{(1)}$">
+. Thus, only the complement space needs to be used.
+To avoid expensive orthogonalization, we can identify the complement
+based on a judicious use of Hadamard vectors.
+
+<P>
+A concern with the above method is that the number of colors for
+any <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+ is larger than the minimum (chromatic number of <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+).
+We are currently investigating how much larger this can be, in
+particular for a regular lattice. However, it is unclear whether this is
+a real disadvantage, as the sparsity structure of <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+ is used only as
+an approximation to <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A^{-1}$">
+. In fact, more vectors yield more
+accurate results.
+
+<P>
+We will discuss also two variants of this method. First, it is not
+necessary to start with a red-black ordering of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+, as we know that
+more vectors will be needed. We can start with a <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ k$">
+ coloring of <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+
+(say for <IMG
+ WIDTH="48" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$ m=2$">
+ or <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ 3$">
+), and then apply the hierarchical graph coloring.
+Second, we can stop the hierarchical graph coloring at a certain
+distance-<IMG
+ WIDTH="19" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ m$">
+, i.e., <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ A^m$">
+. If more accuracy is needed, each of the
+vectors in <IMG
+ WIDTH="41" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ X^{(m)}$">
+ can be extended with the regular sequence of
+Hadamard vectors, or with random vectors, if we want to remove the bias from
+the deterministic approximation.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Appelhans \\
+{\bf Massively Parallel Domain Decomposition Multigrid}}
+
+1115 35th St Apt A \\ Boulder \\ CO 80303
+\\
+{\tt dappelha@gmail.com}\\
+Toby Jones\\
+Tom Manteuffel\end{center}
+
+This talk presents results on a domain decomposition multigrid method
+that builds a patchwork global solution from overlapping processor grids
+that do not communicate during a V-cycle. Typical domain decomposition
+parallel multigrid implementations exchange information along processor
+boundaries on each grid level; however, modern supercomputer architecture
+continues to add more computational power while communication remains
+expensive. This necessitates a new breed of numerical algorithms that are
+designed to minimize communication from the start, even at the expense of
+more on-processor computation. The method presented in this talk
+leverages the power of ACE adaptive mesh refinement and weighted FOSLS by
+specifying a weighted functional that emphasizes a processor’s domain and
+falls off with distance. By using this weighted functional with ACE, a
+grid is adaptively generated that focuses on the processor domain while
+still allocating grid points to areas outside the processor domain where
+the functional is large. The solutions from each processor are then
+patched into a gloabal approximation and the process can be iterated.
+
+
+\end{document}

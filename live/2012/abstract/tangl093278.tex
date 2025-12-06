@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lei Tang \\
+{\bf Parallel FOSLS-AMG for MHD Equations}}
+
+1475 Folsom St Apt 384 \\ Boulder \\ CO 80302
+\\
+{\tt tangl@colorado.edu}\\
+Marian Brezina\\
+Jose Garcia\\
+Tom Manteuffel\\
+Steve McCormick\\
+John Ruge\end{center}
+
+We describe the use of an efficiency-based adaptive mesh refinement (AMR)
+scheme on a 2D reduced model of the incompressible, resistive
+magnetohydrodynamic (MHD) equations. The fully implicit 2-step BDF scheme
+is considered for time discretization. At each time step, a First-order
+System Least Squares (FOSLS) finite element formulation and algebraic
+multigrid (AMG) methods are used in the context of nested iteration. The
+AMR scheme chooses elements to refine on the basis of minimizing the
+`accuracy-per-computational-cost' efficiency (ACE) measure that takes
+into account both error reduction and computational cost. Accommodations
+of the ACE approach to massively distributed memory architectures involve
+binning strategy to reduce communication cost. Load balancing begins at
+very coarse levels and is guided by a space filling curve. To evaluate
+solutions at previous time steps on the current mesh, we employ the
+quad-tree(forest) structure associated with the mesh at each time step to
+reduce communication cost. Numerical results are presented for the
+simulation of a large aspect-ratio tokamak instability. We show that
+these methods are able to resolve the physics using a lot less
+computational cost than uniformly refined mesh to approximate the
+solution within the same error tolerance. Weak and strong scalability are
+demonstrated up to thousands of processors on an IBM Blue Gene/L
+supercomputer.
+
+
+\end{document}

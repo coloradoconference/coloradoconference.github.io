@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vansl094329</TITLE>
+<META NAME="description" CONTENT="vansl094329">
+<META NAME="keywords" CONTENT="vansl094329">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vansl094329.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">P. van Slingerland 
+<BR><B>A preconditioner for CG that does not need symmetry</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Delft Institute of Applied Mathematics 
+<BR>
+Delft University of Technology 
+<BR>
+Mekelweg 4 
+<BR>
+2628 CD 
+<BR>
+Delft 
+<BR>
+The Netherlands
+
+<BR><TT>P.vanSlingerland@tudelft.nl</TT>
+<BR>
+C. Vuik
+</DIV>
+
+<P>
+Although it is common to use a <I>symmetric</I> preconditioner for the
+conjugate gradient method, in this presentation, we demonstrate that a
+<I>non-symmetric</I> preconditioning strategy can be significantly more
+efficient. The focus, motivation and conclusions of this research can be
+summarized as follows.
+
+<P>
+This work is focused on an effective preconditioning strategy to increase
+the efficiency of the Conjugate Gradient (CG) method for Symmetric and
+Positive-Definite (SPD) linear systems resulting from Symmetric Interior
+Penalty (discontinuous) Galerkin (SIPG) discretizations for diffusion
+problems with extreme contrasts in the coefficients, such as those
+encountered in oil reservoir simulations.
+
+<P>
+A Discontinuous Galerkin (DG) method can be thought of as a higher-order
+generalization of the finite volume method that uses (discontinuous)
+piecewise polynomials of degree <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ p$">
+ rather than piecewise constants. As
+such, it combines the best of both classical finite element methods and
+finite volume methods, and it is particularly suitable for handling
+non-matching grids and designing hp-refinement strategies. However, a
+relevant drawback is that its resulting linear system is often
+ill-conditioned and relatively large due to the large number of unknowns
+per mesh element. In search of suitable iterative solution techniques,
+much attention has been paid to subspace correction methods, such as
+Schwarz domain decomposition; geometric (h-)multigrid; spectral
+(p-)multigrid; and algebraic multigrid.
+
+<P>
+In particular, Dobrev et al. [<I>Numer. Linear Algebra Appl</I>., 13
+(2006), pp. 753-770] have proposed a spectral two-level preconditioner
+that makes use of coarse corrections based on the solution approximation
+with polynomial degree <IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ p=0$">
+. They have shown theoretically that this
+preconditioner yields scalable convergence of the CG method (independent
+of the mesh element diameter) for a large class of problems. Another nice
+property is that the use of only two levels offers an appealing
+simplicity. More importantly, the coefficient matrix that is used for the
+coarse correction is quite similar to a matrix resulting from a central
+difference discretization, for which very efficient solution techniques
+are readily available.
+
+<P>
+However, two main issues remain when using this preconditioner for a SIPG matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+:
+first, <I>two</I> smoothing steps must be applied during each iteration,
+and the smoother needs to satisfy an inconvenient criterion to ensure
+that the preconditioning operator is SPD. The second issue is that the
+SIPG method involves a stabilizing penalty parameter, whose influence on
+both <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ and the preconditioner is not well understood for problems with
+strongly varying coefficients. On the one hand, this parameter needs to
+be chosen suffciently large to ensure that the SIPG method is stable and
+convergent, and that <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+ is SPD. At the same time, it needs to be chosen
+as small as possible to avoid an unnecessarily large condition number.
+Known computable theoretical lower bounds [<I>J. Comput. Appl.
+Math.</I>, 206 (2007), pp. 843-872] are based on the ratio between the
+<I>global</I> maximum and minimum of the diffusion coefficient, and are
+therefore impractical for our application.
+
+<P>
+To eliminate one of the two smoothing steps and the inconvenient
+restriction on the smoother at the same time, we have cast the spectral
+two-level preconditioner into the deflation framework by using the
+analysis by Tang et al. [<I>J. Sci. Comput.</I>, 39 (2009), pp.
+340-370]. Additionally, we have studied the potential of a penalty
+parameter that is based on <I>local</I> values of the diffusion
+coefficient, instead of the usual strategy to use one global constant for
+the entire domain.
+
+<P>
+During the presentation, we discuss how and why the proposed spectral
+two-level deflation method can be incorporated in a CG algorithm in the
+form of an <I>asymmetric</I> preconditioning operator. Furthermore, we
+demonstrate numerically how the resulting iterative scheme performs for
+diffusion problems with strongly varying coefficients, for both a
+constant and a diffusion-dependent penalty parameter.
+
+<P>
+Our main findings can be summarized as follows: by reformulating the
+spectral two-level preconditioner as a deflation method and using a
+diffusion-dependent penalty parameter, the CG method can become over
+<IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ 100$">
+ times faster, while retaining scalable convergence (independent of
+the mesh element diameter). Additionally, the SIPG convergence is
+significantly better.
+Altogether, the SIPG penalty parameter can best be chosen
+diffusion-dependent, and the efficiency of a symmetric two-level
+preconditioner can be significantly improved by switching to an
+asymmetric deflation variant.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

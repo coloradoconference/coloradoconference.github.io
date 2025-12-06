@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>missi094310</TITLE>
+<META NAME="description" CONTENT="missi094310">
+<META NAME="keywords" CONTENT="missi094310">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="missi094310.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Nikolaos, N M Missirlis 
+<BR><B>Preconditioning augmented linear systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Informatics and Telecommunications 
+<BR>
+University of Athens 
+<BR>
+Panepistimiopolis 
+<BR>
+15784 
+<BR>
+Ilisia 
+<BR>
+Athens 
+<BR>
+Greece
+
+<BR><TT>nmis@di.uoa.gr</TT>
+<BR>
+Maria Louka
+</DIV>
+
+<P>
+Let <!-- MATH
+ $A \in \mathbb{R}^{m\times m}$
+ -->
+<IMG
+ WIDTH="81" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A \in \mathbb{R}^{m\times m}$">
+ be a symmetric positive definite
+matrix and <!-- MATH
+ $B\in\mathbb{R}^{m\times n}$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ B\in\mathbb{R}^{m\times n}$">
+ be a matrix of full column rank,
+where <IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ m\geq n$">
+. Then, the augmented linear system is of the form
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:01"></A><!-- MATH
+ \begin{equation}
+\ca u=b
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle \ca u=b$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:02"></A><!-- MATH
+ \begin{equation}
+\ca=\left(
+\begin{array}{cc}
+A & B\\
+-B^{T} & 0
+\end{array}
+\right), \;\; u=
+\left(
+\begin{array}{cc}
+x\\
+y
+\end{array}
+\right),\;\; b=
+\left(
+\begin{array}{cc}
+b_1\\
+-b_2
+\end{array}
+\right)
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="334" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle \ca=\left( \begin{array}{cc} A &amp; B\\ -B^{T} &amp; 0 \end{array} \righ...
+...{array} \right),\;\; b= \left( \begin{array}{cc} b_1\\ -b_2 \end{array} \right)$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <IMG
+ WIDTH="27" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ B^T$">
+ be the transpose of the matrix B.
+When A and B are large and sparse, iterative methods for solving
+(<A HREF="#eq:01"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) are effective and more attractive than direct methods,
+because of storage requirements and preservation of sparsity.
+
+<BR>
+The difficulty in applying iterative methods such as the
+successive overrelaxation (SOR) method [<A
+ HREF="node1.html#Young">10</A>] to system
+(<A HREF="#eq:01"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is the singularity of the block diagonal part of the
+coefficient matrix. Some methods have been developed to overcome this
+difficulty such as the Uzawa and the Preconditioned Uzawa method
+[<A
+ HREF="node1.html#ArHurUz58">1</A>]. In 2001, Golub et al. [<A
+ HREF="node1.html#GolWuYuan2001">4</A>] generalized
+the Uzawa and the Preconditioned Uzawa method for the augmented system
+(<A HREF="#eq:01"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) by introducing an additional acceleration parameter and
+produced the SOR-like method. Other known methods, competitive and
+specially attractive for solving (<A HREF="#eq:01"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) are the preconditioned
+MINRES and GMRES methods [<A
+ HREF="node1.html#FiRaSiWa98">3</A>]. In case where the matrix A is
+symmetric and positive definite, the Preconditioned Conjugate Gradient
+(PCG) method [<A
+ HREF="node1.html#HestSt52">5</A>] is the most suitable. In 2003, Li, Evans and
+Zhang [<A
+ HREF="node1.html#LiEvansZha2003">6</A>] proved that the PCG method is at least as
+accurate as the SOR-like method. In 2005, Bai et al.
+[<A
+ HREF="node1.html#BaiParlWang2005">2</A>] proposed the Generalized SOR (GSOR) method and
+proved that it has the same rate of convergence but less complexity than
+the PCG method. Furthermore, the Generalized Modified Extrapolated SOR
+(GMESOR) method, a generalization of the GSOR method, was also proposed
+for further study.
+The latter is a generalization of the GSOR method as it uses one additional parameter. 
+<BR>
+In this paper, we study the Generalized Modified Extrapolated
+SOR (GMESOR) method and the Generalized Modified Preconditioned
+Simultaneous Displacement (GMPSD) method. The latter is derived by using
+as preconditioning matrix the product of a lower and upper triangular
+part of <IMG
+ WIDTH="5" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \ca$">
+ [<A
+ HREF="node1.html#Louka">7</A>], [<A
+ HREF="node1.html#LoukMis2">8</A>].
+In an attempt to generalize our theory, we introduce an additional
+parameter <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ a$">
+ in the structure of the matrix <IMG
+ WIDTH="5" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \ca$">
+, with the hope of
+increasing the rate of convergence for the aforementioned methods. Our
+starting point, for studying these methods, is the derivation of
+functional relations which relate the eigenvalues of their iteration
+matrices with those of the key matrix <!-- MATH
+ $J=Q^{-1}B^TA^{-1}B$
+ -->
+<IMG
+ WIDTH="131" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ J=Q^{-1}B^TA^{-1}B$">
+. Assuming that
+the matrix Q is symmetric positive or negative definite matrix, the
+eigenvalues of the matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ J$">
+ are real and either positive if the matrix
+Q is positive definite or negative if the matrix Q is negative definite.
+Under these assumptions we find sufficient conditions for the convergence
+of the aforementioned methods and determine the optimum values of their
+parameters. For the determination of the optimum values of the parameters
+in GMESOR and GMPSD methods we followed a similar approach to Varga
+[<A
+ HREF="node1.html#Var1">9</A>] p. 110, for the optimum <IMG
+ WIDTH="15" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \omega$">
+ of SOR.
+
+<P>
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

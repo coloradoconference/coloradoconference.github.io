@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>nataf083159</TITLE>
+<META NAME="description" CONTENT="nataf083159">
+<META NAME="keywords" CONTENT="nataf083159">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="nataf083159.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Frederic Nataf 
+<BR><B>Abstract Robust Coarse Spaces for Systems of PDEs via Generalized Eigenproblems in the Overlaps</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Universite P M Curie 
+<BR>
+Laboratoire J L Lions 
+<BR>
+4 place Jussieu 
+<BR>
+75005 Paris
+
+<BR><TT>nataf@ann.jussieu.fr</TT>
+<BR>
+Nicole Spillance
+<BR>
+Victorita Dolean
+<BR>
+Patrice Hauret
+<BR>
+Clemens Pechstein
+<BR>
+Robert Scheichl
+</DIV>
+
+<P>
+<B>(session on hybrid direct-iterative linear solvers)</B>
+
+<P>
+Domain decomposition methods are hybrid direct-iterative parallel
+solvers. The effort to reach scalability in domain decomposition methods
+has led to the design of so called two-level methods. Each of these
+methods is characterized by two ingredients: a coarse space and a
+formulation of how this coarse space is incorporated into the domain
+decomposition method. We will work in the already extensively studied
+framework of the overlapping additive Schwarz preconditioner and focus on
+the definition of a suitable coarse space with the aim to achieve
+robustness with regard to heterogeneities in any of the coefficients in
+the PDEs. This type of problem arises in many applications, such as
+subsurface flows or linear elasticity. One way to avoid long stagnation
+in Schwarz methods is to build the subdomains in such a way that the
+variations in the coefficients are small or nonexistent inside each
+subdomain. In this configuration, classical coarse spaces that are based
+on these subdomain partitions are known to be robust, see. Recently, some
+authors also extended these results for scalar elliptic problems to
+certain classes of coefficients that are not resolved by the subdomain
+partition and to operator dependent coarse spaces.
+
+<P>
+However, ideally we would prefer methods that are robust for any
+partition into subdomains and regardless of the coefficient distribution.
+A class of such stable coarse spaces has been presented among the
+literature on Schwarz methods for scalar elliptic PDEs as well as in
+earlier work on algebraic multigrid (AMG) method. The key ingredient in
+these coarse spaces is the solution of a generalized eigenvalue problem
+on each subdomain (or on each coarse element in spectral AMGe). While
+these spaces are indeed robust for any arbitrary coefficient
+distribution, they do not discriminate between coefficient variations
+that influence only the solution in the interior of the subdomains and
+those that are actually responsible for the lack of robustness of
+standard coarse spaces. A consequence of this is that the resulting
+coarse space is often unnecessarily large.
+<BR>
+<P>
+Here, we introduce in a variational setting a new coarse space that is
+robust and of minimal size. We achieve this by solving local generalized
+eigenvalue problems in the overlaps of subdomains that isolate the terms
+responsible for slow convergence. The right hand side of the generalized
+eigenproblems is constructed from element stiffness matrices and a family
+of partition of unity functions/operators. Thus, we only have to assume
+access to some topological information to build a suitable partition of
+unity and to the element stiffness matrices (as in AMGe methods), which
+is reasonable in standard FE packages such as FreeFEM++. The
+preconditioners can then be implemented fully algebraically, providing a
+viable option for simulations on physical problems without the need to
+rewrite entire codes.
+
+<P>
+We prove a general theoretical result that rigorously establishes the
+robustness of the new coarse space and give some numerical examples on
+two and three dimensional heterogeneous PDEs and systems of PDEs that
+confirm this property.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

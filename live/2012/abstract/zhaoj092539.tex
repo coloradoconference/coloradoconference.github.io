@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jing Zhao \\
+{\bf A Full Multigrid Method for Linear Complementarity Problems arising from Elastic Normal Contact Problems}}
+
+HB 07 240 \\ Mekelweg 4 \\ 2628 CD Delft \\ The Netherlands
+\\
+{\tt J.Zhao-1@tudelft.nl}\\
+Jing Zhao\\
+E.A.H. Vollebregt\\
+C.W. Oosterlee\end{center}
+
+This paper presents a full multigrid (FMG) method, which combines a
+multigrid method, an active set algorithm and a nested iteration
+technique, to solve a linear complementarity problem (LCP) modeling
+elastic normal contact problems. The governing system in this LCP is
+derived from an integral equation and its coefficient matrix is dense,
+symmetric and block Toeplitz. An efficient and accurate initial guess of
+pressures and contact area is provided by the FMG method. One multigrid
+cycle is applied to solve this system approximately in each active set
+iteration. The results of our numerical experiments indicate that, on the
+one hand, one multigrid cycle is sufficient to obtain a satisfactory
+active set, and, on the other hand, our method can reduce the number of
+matrix-vector products and hence reduce the computational time to a great
+extent, compared to the original active set algorithm "NORM" developed by
+Kalker and implemented in his CONTACT software.
+
+
+\end{document}

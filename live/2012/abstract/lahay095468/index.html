@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lahay095468</TITLE>
+<META NAME="description" CONTENT="lahay095468">
+<META NAME="keywords" CONTENT="lahay095468">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lahay095468.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">D. Lahaye 
+<BR><B>On the Complex Shifted Laplacian as Multigrid Smoother for the Helmholtz Equation </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">DIAM - TU Delft 
+<BR>
+Mekelweg 4 
+<BR>
+2624 CD Delft 
+<BR>
+The Netherlands
+
+<BR><TT>d.j.p.lahaye@tudelft.nl</TT>
+<BR>
+I. Livshits
+</DIV>
+
+<P>
+Solving the discretized Helmholtz equation on large scale remains to date a
+challenging problem. The idea of using the complex shifted Laplacian as a
+preconditioner for an outer Krylov subspace iteration was introduced in [1].
+This paper constitutes a landmark in the development of fast solution
+algorithms as can be judged from the number of citations. The combination
+of the complex shifted Laplacian with a multigrid deflation technique was
+first proposed in [2] and later analyzed in [3]. In these works the shifted
+Laplacian is attributed the role of a multigrid smoother. Fourier analysis
+and numerical results show that while the use of a coarse grid correction
+type iteration does bring the required number of iterations down, the
+resulting algorithm fails to be scalable especially at high wave number
+values. Indeed, the linear interpolation employed fails to sufficiently
+remove the near-null space components of the kernel. Inspired by this work
+we consider other ways to remove the error components that are slow to
+converge for the shifted Laplacian. We show that a V-cycle that converges
+for the high energy modes can be build and exploit this fact to expose the
+near-null space modes. This modes are used subsequently to build an effective
+deflation operator. Numerical results will illustrate the effectiveness of
+our approach.
+
+<P>
+[1] Y. A. Erlangga, C. Vuik and C.W. Oosterlee, On a Class of Preconditioners
+for Solving the Helmholtz Equation, Appl. Numer. Math., pp. 409-425, 50,
+(3-4), 2004.
+
+<P>
+[2] Y. A. Erlangga and R. Nabben, On a Multilevel Krylov Method for the
+Helmholtz Equation Preconditioned by Shifted Laplacian, ETNA, pp. 403-424,
+31, 2008.
+
+<P>
+[3] A. Sheikh, D. Lahaye and C. Vuik, On the Convergence of the Shifted
+Laplace Preconditioner Combined with Multigrid Deflation, submitted to NLAA.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

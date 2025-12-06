@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ghyse093472</TITLE>
+<META NAME="description" CONTENT="ghyse093472">
+<META NAME="keywords" CONTENT="ghyse093472">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ghyse093472.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Pieter Ghysels 
+<BR><B>Hiding global communication in the GMRES algorithm</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Middelheimcampus MG113 
+<BR>
+Middelheimlaan 1 
+<BR>
+2020 Antwerp 
+<BR>
+Belgium
+
+<BR><TT>pieter.ghysels@ua.ac.be</TT>
+<BR>
+Tom Ashby
+<BR>
+Karl Meerbergen
+<BR>
+Wim I. Vanroose
+</DIV>
+
+<P>
+In many Krylov solvers running on current large scale compute clusters,
+global reductions for both inner products and norms is starting to become
+a bottleneck; a problem which will only get worse as we approach the era
+of exascale machines. Although flop rates keep increasing through
+additional parallelism, link latencies hit their physical limits. As
+compute nodes are often distributed over large datacenters, these
+latencies start to play an important role in algorithm design.
+Furthermore, load imbalance, system noise and processor variability (due
+to extreme reduction in scale and voltage) will make global communication
+an even more costly global <I>synchronization</I> step&nbsp;[1].
+
+<P>
+Recently there has been much interest in so called <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$">
+-step Krylov
+methods&nbsp;[2] that expand the Krylov base with <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$">
+ new vectors at once
+before performing an orthogonalization step. This reduces the number of
+global communications by a factor <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$">
+.
+
+<P>
+In this work, we propose the use of non-blocking or asynchronous global
+collective operations to hide the latency of global communication in the
+GMRES algorithm. A standard GMRES iteration&nbsp;[3], based on classical
+(iterated) Gram-Schmidt orthogonalization, requires at least two global
+reductions, one for orthogonalization and one for normalization. First of
+all, we show that this can be reduced to just a single reduction. To
+avoid stability problems, the matrix vector product <!-- MATH
+ $z_{i+1} = Av_i$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ z_{i+1} = Av_i$">
+ is
+modified with a shift <!-- MATH
+ $\sigma_{i}$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \sigma_{i}$">
+ as <!-- MATH
+ $z_{i+1} = \left( A - \sigma_i I
+\right) v_{i}$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ z_{i+1} = \left( A - \sigma_i I
+\right) v_{i}$">
+. Proper choices of the shifts are discussed. Furthermore,
+we present a class of pipelined GMRES algorithms that allow overlapping
+of the inner product latency with other computations and communications.
+Depending on the total reduction latency, a larger pipelining depth <IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ l$">
+
+can be used. The resulting algorithm keeps two sets of Krylov base
+vectors <P><!-- MATH
+ \begin{displaymath}
+V_{i-l+1}=[v_0,v_1,\ldots v_{i-l}] \quad \text{and} \quad
+Z_{i+1}=[z_0,z_1, \ldots z_{i-l},z_{i-l+1},\ldots z_{i}] \, ,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="171" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle V_{i-l+1}=[v_0,v_1,\ldots v_{i-l}]$">&nbsp; &nbsp;and<IMG
+ WIDTH="272" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle \quad
+Z_{i+1}=[z_0,z_1, \ldots z_{i-l},z_{i-l+1},\ldots z_{i}] \, , $">
+</DIV><P>
+</P>
+with
+<IMG
+ WIDTH="70" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ V^TV = I$">
+. Iteration <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ i$">
+ expands the <IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ V_{i-l+1}$">
+ base using only results
+of reductions started <IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ l$">
+ iterations ago while the <IMG
+ WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ Z_{i+1}$">
+ base is
+expanded by a vector created by the (shifted) matrix vector product. To
+prevent a blow-up of the condition number of the <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ Z_i$">
+ base, a
+<I>correction</I> is applied to <IMG
+ WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ Z_{i+1}$">
+, which introduces some
+redundant calculations compared to the original GMRES algorithm.
+
+<P>
+The numerical stability of the presented GMRES variation is examined
+using a collection of test matrices from applications. To assess the
+scalability and overall performance of the pipelined algorithms, we
+developed an analytical performance model, which allows us to study
+scaling aspects and determine bottlenecks on large numbers of nodes. As
+non-blocking collective operations are proposed for the upcoming MPI-3
+standard, they will likely become available in most MPI libraries soon.
+
+<P>
+We compare our approach with <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$">
+-step or <I>communication-avoiding</I>
+GMRES, as presented in&nbsp;[2]. We present some preliminary results on
+pipelining applied to the CG algorithm, for which the results look
+promising since the short recurrence keeps the amount of redundant
+calculations small.
+
+<P>
+In the pipelined GMRES algorithms, data dependencies between subsequent
+steps in the algorithm have been relaxed. As a result, the network
+hardware constraints can be relaxed. Apart from hiding global reduction
+latencies on large distributed clusters, this could also allow more
+efficient fine grained work scheduling on current multicore and
+heterogeneous (CPU + accelerator) architectures.
+
+<P>
+<B>References</B>
+<DL COMPACT>
+<DT>1.</DT>
+<DD>T.&nbsp;Hoefler, T.&nbsp;Schneider, A.&nbsp;Lumsdaine, <I>Characterizing
+the Influence of System Noise on Large-Scale Applications by Simulation</I>.
+International Conference for High Performance Computing, Networking,
+Storage and Analysis (SC'10), Nov, 2010.
+
+<P>
+</DD>
+<DT>2.</DT>
+<DD>M.&nbsp;Hoemmen, <I>Communication-avoiding Krylov subspace
+methods</I>. PhD, University of California, 2010.
+
+<P>
+</DD>
+<DT>3.</DT>
+<DD>Y.&nbsp;Saad, M.H.&nbsp;Schultz, <I>GMRES: A generalized minimal
+residual algorithm for solving nonsymmetric linear systems</I>. SIAM J. Sci.
+Stat. Comput., 7:3, 856-869, 1986.
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

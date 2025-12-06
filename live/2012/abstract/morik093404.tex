@@ -1,0 +1,122 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Keiichi Morikuni \\
+{\bf Statioary inner-iteration preconditioned GMRES method for least squares problems}}
+
+The Graduate University for Advanced Studies \\ 2-1-2 Hitotsubashi \\ Chiyoda-ku \\ Tokyo 101-8430 Japan
+\\
+{\tt morikuni@nii.ac.jp}\\
+Ken Hayami\end{center}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+Consider solving large sparse linear least squares problems
+\begin{align}
+\min_{\boldsymbol{x} \in \mathbf{R}^n}{\left\| \boldsymbol{b} - A
+\boldsymbol{x} \right\|_2},
+\label{eq:1.1}
+\end{align}
+where $A \in \mathbf{R}^{m \times n}$, $\boldsymbol{b} \in \mathbf{R}^m$,
+and $A$ is not necessarily of full rank.
+The least squares problem \eqref{eq:1.1} is equivalent to the following normal equation
+\begin{align}
+A^\mathsf{T} A \boldsymbol{x} = A^\mathsf{T} \boldsymbol{b}.
+\label{eq:1.2}
+\end{align}
+The standard iterative methods are the (preconditioned) CGLS [M. R.
+\break Hestenes and E. Stiefel, J. Research Nat. Bur. Standards, 49
+(1952), pp.~409--436] and LSQR [C. C. Paige and M. A. Saunders, ACM
+Trans. Math. Software, 8 (1982), pp.~43--71] methods.
+However, since $\kappa_2 (A^\mathsf{T}A) = {\kappa_2 (A)}^2$, iterative
+methods may be slow to converge.
+Here, $\kappa_2 (A) = \sigma_\mathrm{max} / \sigma_\mathrm{min}$ is the condition number,
+where $\sigma_\mathrm{max}$ and $\sigma_\mathrm{min}$ are the largest and
+smallest positive singular values of $A$.
+Hence, when iterative methods are used, good preconditioners are
+necessary to achieve better convergence.
+
+In this paper, we propose using stationary inner-iteration
+preconditioners for the generalized minimal residual method (GMRES) for
+solving least squares problems, and present theoretical justifications
+for using the inner iteration as preconditioners even for rank-deficient
+matrices.
+For the preconditioners, the Jacobi overrelaxation and successive
+overrelaxation (SOR)-type iterative methods designed for least squares
+problems are employed.
+These inner iterations are efficient in terms of computational work and memory.
+A significant advantage of such inner-iteration preconditioners is that
+one can avoid explicitly computing and storing the preconditioning
+matrix.
+Numerical experiments for large sparse least squares problems including
+ill-conditioned and rank-deficient ones show that the proposed methods
+outperform previous methods.
+
+The main motivation for proposing the new preconditioners is to reduce
+CPU time and memory significantly, and to broaden the scope of problems
+that can be solved.
+Note that, previously, GMRES preconditioned by the robust incomplete
+factorization (RIF) [M. Benzi and M. T{\r u}ma, SIAM J. Sci. Comp., 25
+(2003), pp.~499--512] was comparable with, but not definitely superior
+to, reorthogonalized CGLS with RIF in terms of CPU time for
+ill-conditioned problems [K. Hayami, J.-F. Yin and T. Ito, SIAM J. Matrix
+Anal. Appl., 31 (2010), pp.~2400--2430].
+Moreover, RIF for least squares problems will break down for rank-deficient matrices.
+We aim to improve on these points.
+
+The left-pre\-con\-di\-tioned GMRES method for least squares problems
+proposed in [Hayami \textit{et al.}, 2010] is called the BA-GMRES method.
+It applies GMRES to $\displaystyle \min_{\boldsymbol{x} \in
+\mathbf{R}^n}\| B \boldsymbol{b} - B A \boldsymbol{x} \|_2$, where $B \in
+\mathbf{R}^{n \times m}$ denotes the preconditioning matrix.
+Conditions for the preconditioner $B$ for BA-GMRES were given in [Hayami
+\textit{et al.}, 2010].
+
+Instead of explicitly forming and storing an preconditioning matrix $B$,
+we propose applying several steps of a certain stationary iterative
+method for solving the normal equation \eqref{eq:1.2} of the form
+\begin{align}
+\boldsymbol{x}^{(l+1)} = M^{-1} N \boldsymbol{x}^{(l)} + M^{-1}
+A^\mathsf{T} \boldsymbol{b}, \quad l = 0, 1, \dots, \quad
+\boldsymbol{x}^{(0)} = \boldsymbol{0},
+\label{eq:2.1}
+\end{align}
+inside BA-GMRES, where $A^\mathsf{T} A = M - N$, $M$ is nonsingular, and
+$l$ is the number of inner iterations.
+Define the iteration matrix by $H = M^{-1} N$.
+Tanabe [Numer. Math., 22 (1974), pp.~349--359] defined the following.
+\begin{definition}
+$H$ is convergent if $\displaystyle \lim_{l \rightarrow \infty} H^l$
+exists, and divergent otherwise.
+\end{definition}
+
+Then, we obtain the following theorem for the stationary inner-iteration BA-GMRES method.
+\begin{theorem} \label{th:2.6}
+Assume that $H$ is convergent.
+Then, BA-GMRES with the inner-iteration preconditioning of the form
+\eqref{eq:2.1} determines a least squares solution of $\displaystyle
+\min_{\boldsymbol{x} \in \mathbf{R}^{n}} \| \boldsymbol{b} - A
+\boldsymbol{x} \|_2$ without breakdown for all $\boldsymbol{b} \in
+\mathbf{R}^m$.
+\end{theorem}
+According to [A. Dax, SIAM Review, 32 (1990), pp.~611--635], the
+Cimmino-NR and NR-SOR methods [Y. Saad, 2nd ed., SIAM, Philadelphia,
+2003] give a convergent iteration matrix so that these methods can be
+used as the inner iterations for BA-GMRES.
+
+Moreover, we show that the stationary inner-iteration BA-GMRES residual
+bound depends on the spectral radius of $H$.
+
+Finally, we will present numerical results that show BA-GMRES
+preconditioned by the NR-SOR inner iteration outperforms conventional
+methods for ill-conditioned, rank-deficient, and practical problems.
+A strategy for tuning the parameters for the NR-SOR inner iteration will
+be also proposed and shown to be effective.
+
+
+\end{document}

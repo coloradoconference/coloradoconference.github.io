@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Veselin Dobrev \\
+{\bf Iterative Relaxation of High-order Curvilinear Meshes}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ P O Box 808 \\ L-560 \\ Livermore \\ CA 94551
+\\
+%{\tt tzanio@llnl.gov}\\
+{\tt dobrev1@llnl.gov}\\
+Robert Anderson\\
+%Veselin Dobrev\\
+Tzanio Kolev\\
+Robert Rieben\end{center}
+
+In this talk we discuss our experience with iterative methods for
+relaxation of high-order curvilinear meshes, which aim to improve
+the quality of the curved mesh elements through successive
+iterates for the coordinates of the high-order mesh
+nodes (control points). The motivation for our work is the need
+for new mesh optimization algorithms in the development of
+high-order finite element discretizations of shock hydrodynamics
+problems in the Arbitrary Lagrangian-Eulerian (ALE) framework
+[1], but the need for mesh improvement is present also in other
+areas of computational science, and is of general interest. The
+goal of mesh relaxation is to define a new computational mesh
+that is better than the current mesh with respect to some metric
+related to mesh distortion. We will review several such metrics,
+obtained by defining an appropriate high-order topological ``mesh
+Laplacian'' operator. We will focus on harmonic-type mesh
+relaxation, where a simple iterative scheme is applied to a
+linear system involving the mesh Laplacian and the high-order
+node coordinates. We will also investigate different
+smoothers/preconditioners for this iteration, such as the
+recently proposed polynomial method [2], as well as the effect of
+different choices for the high-order basis. The harmonic approach
+will be compared with other local and global high-order
+optimization methods available in the Mesquite mesh quality
+improvement toolkit [3].
+
+[1] BLAST: High-order curvilinear finite elements for shock
+hydrodynamics}, http://www.llnl.gov/CASC/blast.
+
+[2] M.Berndt and N.Carlson, "Using Polynomial Filtering for Rezoning in
+ALE", Talk at the International Conference on Numerical Methods for
+Multi-Material Fluid Flows, Archachon, France, Sep 5--9, 2011, LA-UR
+11-05015.
+
+[3] Mesquite: Mesh Quality Improvement Toolkit,
+http://www.cs.sandia.gov/optimization/knupp/Mesquite.html.
+
+
+\end{document}

@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>morik093404</TITLE>
+<META NAME="description" CONTENT="morik093404">
+<META NAME="keywords" CONTENT="morik093404">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="morik093404.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Keiichi Morikuni 
+<BR><B>Statioary inner-iteration preconditioned GMRES method for least squares problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">The Graduate University for Advanced Studies 
+<BR>
+2-1-2 Hitotsubashi 
+<BR>
+Chiyoda-ku 
+<BR>
+Tokyo 101-8430 Japan
+
+<BR><TT>morikuni@nii.ac.jp</TT>
+<BR>
+Ken Hayami
+</DIV>
+
+<P>
+  
+<P>
+Consider solving large sparse linear least squares problems
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="120" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \min_{\boldsymbol{x} \in \mathbf{R}^n}{\left\Vert \boldsymbol{b} - A \boldsymbol{x} \right\Vert _2},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="eq:1.1">(1)</A></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $A \in \mathbf{R}^{m \times n}$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A \in \mathbf{R}^{m \times n}$">
+, <!-- MATH
+ $\boldsymbol{b} \in \mathbf{R}^m$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \boldsymbol{b} \in \mathbf{R}^m$">
+,
+and <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$">
+ is not necessarily of full rank.
+The least squares problem (<A HREF="#eq:1.1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is equivalent to the following normal equation
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="103" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle A^\mathsf{T} A \boldsymbol{x} = A^\mathsf{T} \boldsymbol{b}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="eq:1.2">(2)</A></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The standard iterative methods are the (preconditioned) CGLS [M. R.
+<BR>
+Hestenes and E. Stiefel, J. Research Nat. Bur. Standards, 49
+(1952), pp.&nbsp;409-436] and LSQR [C. C. Paige and M. A. Saunders, ACM
+Trans. Math. Software, 8 (1982), pp.&nbsp;43-71] methods.
+However, since <!-- MATH
+ $\kappa_2 (A^\mathsf{T}A) = {\kappa_2 (A)}^2$
+ -->
+<IMG
+ WIDTH="135" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \kappa_2 (A^\mathsf{T}A) = {\kappa_2 (A)}^2$">
+, iterative
+methods may be slow to converge.
+Here, <!-- MATH
+ $\kappa_2 (A) = \sigma_\mathrm{max} / \sigma_\mathrm{min}$
+ -->
+<IMG
+ WIDTH="139" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \kappa_2 (A) = \sigma_\mathrm{max} / \sigma_\mathrm{min}$">
+ is the condition number,
+where <!-- MATH
+ $\sigma_\mathrm{max}$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \sigma_\mathrm{max}$">
+ and <!-- MATH
+ $\sigma_\mathrm{min}$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \sigma_\mathrm{min}$">
+ are the largest and
+smallest positive singular values of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$">
+.
+Hence, when iterative methods are used, good preconditioners are
+necessary to achieve better convergence.
+
+<P>
+In this paper, we propose using stationary inner-iteration
+preconditioners for the generalized minimal residual method (GMRES) for
+solving least squares problems, and present theoretical justifications
+for using the inner iteration as preconditioners even for rank-deficient
+matrices.
+For the preconditioners, the Jacobi overrelaxation and successive
+overrelaxation (SOR)-type iterative methods designed for least squares
+problems are employed.
+These inner iterations are efficient in terms of computational work and memory.
+A significant advantage of such inner-iteration preconditioners is that
+one can avoid explicitly computing and storing the preconditioning
+matrix.
+Numerical experiments for large sparse least squares problems including
+ill-conditioned and rank-deficient ones show that the proposed methods
+outperform previous methods.
+
+<P>
+The main motivation for proposing the new preconditioners is to reduce
+CPU time and memory significantly, and to broaden the scope of problems
+that can be solved.
+Note that, previously, GMRES preconditioned by the robust incomplete
+factorization (RIF) [M. Benzi and M. Tuma, SIAM J. Sci. Comp., 25
+(2003), pp.&nbsp;499-512] was comparable with, but not definitely superior
+to, reorthogonalized CGLS with RIF in terms of CPU time for
+ill-conditioned problems [K. Hayami, J.-F. Yin and T. Ito, SIAM J. Matrix
+Anal. Appl., 31 (2010), pp.&nbsp;2400-2430].
+Moreover, RIF for least squares problems will break down for rank-deficient matrices.
+We aim to improve on these points.
+
+<P>
+The left-preconditioned GMRES method for least squares problems
+proposed in [Hayami <I>et al.</I>, 2010] is called the BA-GMRES method.
+It applies GMRES to <!-- MATH
+ $\displaystyle \min_{\boldsymbol{x} \in
+\mathbf{R}^n}\| B \boldsymbol{b} - B A \boldsymbol{x} \|_2$
+ -->
+<IMG
+ WIDTH="141" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \displaystyle \min_{\boldsymbol{x} \in
+\mathbf{R}^n}\Vert B \boldsymbol{b} - B A \boldsymbol{x} \Vert _2$">
+, where <!-- MATH
+ $B \in
+\mathbf{R}^{n \times m}$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ B \in
+\mathbf{R}^{n \times m}$">
+ denotes the preconditioning matrix.
+Conditions for the preconditioner <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ B$">
+ for BA-GMRES were given in [Hayami
+<I>et al.</I>, 2010].
+
+<P>
+Instead of explicitly forming and storing an preconditioning matrix <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ B$">
+,
+we propose applying several steps of a certain stationary iterative
+method for solving the normal equation (<A HREF="#eq:1.2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) of the form
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="410" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle \boldsymbol{x}^{(l+1)} = M^{-1} N \boldsymbol{x}^{(l)} + M^{-1} A...
+...dsymbol{b}, \quad l = 0, 1, \dots, \quad \boldsymbol{x}^{(0)} = \boldsymbol{0},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="eq:2.1">(3)</A></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+inside BA-GMRES, where <!-- MATH
+ $A^\mathsf{T} A = M - N$
+ -->
+<IMG
+ WIDTH="110" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A^\mathsf{T} A = M - N$">
+, <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ M$">
+ is nonsingular, and
+<IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ l$">
+ is the number of inner iterations.
+Define the iteration matrix by <!-- MATH
+ $H = M^{-1} N$
+ -->
+<IMG
+ WIDTH="89" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ H = M^{-1} N$">
+.
+Tanabe [Numer. Math., 22 (1974), pp.&nbsp;349-359] defined the following.
+<P>
+<DIV><B>Definition  1</B> &nbsp; 
+<I><IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ H$">
+ is convergent if <!-- MATH
+ $\displaystyle \lim_{l \rightarrow \infty} H^l$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \displaystyle \lim_{l \rightarrow \infty} H^l$">
+
+exists, and divergent otherwise.</I></DIV><P></P>
+
+<P>
+Then, we obtain the following theorem for the stationary inner-iteration BA-GMRES method.
+<P>
+<DIV><A NAME="th:2.6"><B>Theorem  1</B></A> &nbsp; 
+<I>Assume that <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ H$">
+ is convergent.
+Then, BA-GMRES with the inner-iteration preconditioning of the form
+(<A HREF="#eq:2.1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) determines a least squares solution of <!-- MATH
+ $\displaystyle
+\min_{\boldsymbol{x} \in \mathbf{R}^{n}} \| \boldsymbol{b} - A
+\boldsymbol{x} \|_2$
+ -->
+<IMG
+ WIDTH="116" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \displaystyle
+\min_{\boldsymbol{x} \in \mathbf{R}^{n}} \Vert \boldsymbol{b} - A
+\boldsymbol{x} \Vert _2$">
+ without breakdown for all <!-- MATH
+ $\boldsymbol{b} \in
+\mathbf{R}^m$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \boldsymbol{b} \in \mathbf{R}^m$">
+.</I></DIV><P></P>
+According to [A. Dax, SIAM Review, 32 (1990), pp.&nbsp;611-635], the
+Cimmino-NR and NR-SOR methods [Y. Saad, 2nd ed., SIAM, Philadelphia,
+2003] give a convergent iteration matrix so that these methods can be
+used as the inner iterations for BA-GMRES.
+
+<P>
+Moreover, we show that the stationary inner-iteration BA-GMRES residual
+bound depends on the spectral radius of <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ H$">
+.
+
+<P>
+Finally, we will present numerical results that show BA-GMRES
+preconditioned by the NR-SOR inner iteration outperforms conventional
+methods for ill-conditioned, rank-deficient, and practical problems.
+A strategy for tuning the parameters for the NR-SOR inner iteration will
+be also proposed and shown to be effective.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

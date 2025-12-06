@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michael Brutz \\
+{\bf A Least-Squares Finite Element Method for a Glacier Model Using a Generalized Glen's Flow Law}}
+
+2210 Walnut St \\ Unit 1 \\ Boulder \\ CO 80302
+\\
+{\tt m.brutz@gmail.com}\\
+Chad Westphal\\
+Marian Brezina\end{center}
+
+In this talk we present progress towards an efficient and accurate
+computational model for non-Newtonain glacier flow. As a part this, we
+generalize Glen's Law which is a widely used power law model for the
+material. A common criticism of the standard law is it has difficulty
+matching data in both low and high stress regimes simultaneously. Our
+generalization of the law largely overcomes this difficulty and
+furthermore does not suffer from numerical difficulties that have been
+observed in the literature for standard Glen's law flow. In regards to
+the flow model itself, we focus on a stress-velocity-pressure formulation
+that resembles a Stokes system with a nonlinear viscosity. The
+discretization we use employs a least squares finite element principle to
+minimize the error in an appropriate norm. This produces symmetric
+positive definite linear systems that are amenable to efficient multigrid
+solvers. Aside from an overview of the model, we also present some
+preliminary numerical results for 2-D test problems and discuss current
+work.
+
+
+\end{document}

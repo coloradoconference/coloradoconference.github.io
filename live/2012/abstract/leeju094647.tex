@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jungho Lee \\
+{\bf Scalable DVI and Multigrid for phase-field equations }}
+
+Argonne National Laboratory \\ 9700 South Cass Avenue \\ Building 240 \\ Argonne \\ IL 60439
+\\
+{\tt julee@mcs.anl.gov}\\
+Shrirang Abhyankar \\
+Mihai Anitescu\\
+Lois McInnes\\
+Todd Munson\\
+Barry Smith\\
+Lei Wang \end{center}
+
+Recent progress on the development of scalable differential
+variational inequality multigrid-based solvers for the
+phase-field approach to mesoscale materials modeling is described. We
+have developed an active-set method for variational inequalities
+in PETSc, leveraging experience by the optimization community in TAO. A geometric
+multigrid solver in PETSc is used to solve the resulting linear
+systems. We present strong and weak scaling results for 2D coupled
+Allen-Cahn/Cahn-Hilliard systems.
+
+
+\end{document}

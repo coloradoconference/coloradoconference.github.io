@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lawre088659</TITLE>
+<META NAME="description" CONTENT="lawre088659">
+<META NAME="keywords" CONTENT="lawre088659">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lawre088659.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Albert F. Lawrence 
+<BR><B>Iterative Methods in Large Field Electron Microscope Tomography </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">National Center for Microscopy and Imaging Research (NCMIR) 
+<BR>
+University of California 
+<BR>
+San Diego 
+<BR>
+9500 Gilman Drive 
+<BR>
+La Jolla 
+<BR>
+CA 92093-0608 USA
+
+<BR><TT>albert.rick.lawrence@gmail.com</TT>
+<BR>
+Xiaohua Wan
+<BR>
+Sebastien Phan
+<BR>
+Mark Ellisman
+<BR>
+Fa Zhang
+</DIV>
+
+<P>
+Electron tomography is an emerging technology for the three dimensional
+imaging of cellular ultrastructure. In combination with other techniques
+this technology can provide three dimensional reconstructions of protein
+assemblies, correlate 3D structures with functional investigations at the
+light microscope level and provide structural information which extends
+the findings of genomics and molecular biology. Because of rapid advances
+in instrumentation and computer-based reconstruction, the routine imaging
+of molecular structure in context appears to be likely within the next
+few years.
+
+<P>
+Tomographic reconstruction from large format electron microscope images
+requires special procedures to handle geometric distortions arising from
+electron optics as opposed to light-ray optics. In particular, electrons
+travel in curvilinear paths through the sample, defocus and other
+aberrations can be more severe. We have developed a software package,
+TxBR, which is based on a generalization of the inverse problem
+associated with the ray transform. This software compensates for
+instrument optics, sample degradation, and other deleterious effects.
+
+<P>
+TxBR utilizes a filtered backprojection algorithm for reconstruction, so
+geometric compensation for curvilinear electron paths should also be
+accompanied by a filtering algorithm which is accurate for the three
+dimensional optics. This would require a pointwise treatment of the
+filtering problem, which is, in effect, a six-dimensional kernel. At
+present we employ an image warping technique which gives a usable
+approximation to the correct kernel and reduces the problem to one
+dimension. Further improvements would require alternative inversion
+algorithms which bypass the filtering problem. Algorithms which employ
+iterative techniques constitute an attractive class of alternatives. In
+this case it is necessary to code corrections for the beam geometry into
+the projections.
+
+<P>
+We present an adaptive simultaneous algebraic reconstruction technique
+(ASART) in which a modified multilevel access scheme and an adaptive
+relaxation parameter adjustment method are developed to improve the
+quality of the reconstructed 3D structure. The reconstruction process is
+facilitated by using a column-sum substitution approach. This modified
+multilevel access scheme is adopted to arrange the order of projections
+so as to minimize the correlations between consecutive views within a
+limited angle range. In the adaptive relaxation parameter adjustment
+method, not only the weight matrix (as in the existing methods) but the
+gray levels of the pixels are employed to adjust the relaxation
+parameters so that the quality of the reconstruction is improved while
+the convergence process of the reconstruction is accelerated. In the
+column-sum substitution approach, the computation to obtain the
+reciprocal of the sum for the columns in each view is avoided so that the
+needed computations for each iteration can be reduced.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

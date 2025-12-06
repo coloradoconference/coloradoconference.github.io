@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>boman092379</TITLE>
+<META NAME="description" CONTENT="boman092379">
+<META NAME="keywords" CONTENT="boman092379">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="boman092379.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Erik G. Boman 
+<BR><B>ShyLU: A new hybrid direct-iterative preconditioner and solver for sparse linear systems.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Labs 
+<BR>
+PO Box 5800 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1318
+
+<BR><TT>egboman@sandia.gov</TT>
+<BR>
+Sivasankaran Rajamanickam
+<BR>
+Michael A. Heroux
+<BR>
+Heidi Thornquist
+</DIV>
+
+<P>
+We present ShyLU, a new hybrid direct-iterative preconditioner and solver
+for general sparse linear systems.
+We use a Schur complement approach where subproblems are solved using a
+direct solver while the Schur complement is solved iteratively.
+We employ a block decomposition, which is formed in a fully automatic way
+using state-of-the-art partitioning and ordering algorithms in
+the Zoltan and Scotch software packages. We discuss the choice of
+partitioning strategy, and in particular, narrow vs. wide separators,
+and study the impact on the Schur complement system.
+
+<P>
+ShyLU was developed in Trilinos and will become a Trilinos package.
+We have two main goals: First, we wish ShyLU to be a fast and robust
+solver/preconditioner for multicore compute nodes. Second, due to its
+modular design, ShyLU can serve as an research platform to compare
+algorithms. For example, ShyLU supports two different approaches
+to forming a sparse preconditioner for the Schur complement:
+dropping and probing.
+
+<P>
+We show results that demonstrate the robustness and effectiveness
+of ShyLU for problems from a variety of applications. We have found
+it is particularly effective on circuit simulation problems where
+many iterative methods fail.
+
+<P>
+We also show results from a hybrid MPI + threads version of ShyLU.
+We observe that on multicore systems with many cores per node, it
+is advantageous to use MPI even within a single compute node.
+
+<P>
+Finally, we describe how ShyLU in future work can be used as a
+subdomain solver within a domain decomposition framework. This
+will help overcome scalability issues in our Schur complement approach
+for very large problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

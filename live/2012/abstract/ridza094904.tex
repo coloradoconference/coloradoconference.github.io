@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Denis Ridzal \\
+{\bf Preconditioning of Full-Space Trust-Region SQP Algorithms for Nonlinear PDE Optimization}}
+
+Optimization and Uncertainty Quantification \\ Sandia National Laboratories \\ P O Box 5800 \\ Albuquerque NM 87185-1320
+\\
+{\tt dridzal@sandia.gov}\\
+Joseph Young\\
+Miguel Aguil\'o\end{center}
+
+We study a preconditioning technique designed for the
+scalable solution of linear systems arising in a full-space
+trust-region sequential quadratic programming (SQP)
+algorithm with applications to optimization problems
+governed by nonlinear partial differential equations (PDEs).
+
+SQP methods are based on the successive minimization of a
+quadratic model of the Lagrangian functional subject to a
+linear Taylor approximation of the (PDE) constraints.
+While our full-space trust-region approach follows this
+algorithmic framework, the linear systems solved at each
+step of our algorithm are related to convex quadratic
+programs that involve only the linearized PDE constraints,
+i.e., are independent of the model of the Lagrangian
+functional.
+As a consequence, our approach extends the applicability
+of the recently studied optimal solvers for PDE-constrained
+optimization to a large range of optimal control, optimal
+design and inverse problems.
+We present numerical examples in fluid flow optimization,
+acoustic design and estimation of elasticity parameters.
+
+
+\end{document}

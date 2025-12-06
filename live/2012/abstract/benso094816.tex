@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Thomas R Benson \\
+{\bf Monolithic Multigrid for the Stokes Equations}}
+
+16 Hume Ave \\ Medford \\ MA 02155
+\\
+{\tt thomas.benson@tufts.edu}\\
+Scott MacLachlan\end{center}
+
+Recent years have seen renewed interest in the numerical solution of the
+Stokes Equations. Much of the resulting work has focused on
+block-factorization approaches using algebraic multigrid as a solver for
+the vector Poisson block. Monolithic methods, in contrast, offer the
+possibility of better overall efficiency by avoiding costly inner--outer
+iteration strategies and inaccurate approximations of the true Schur
+complement. In this talk, we present preliminary numerical experiments
+using overlapping Vanka smoothers within geometric multigrid, implemented
+in the MueMat framework from Sandia Labs. We explore both the classic
+Taylor--Hood discretization and a new BDM--based discretization that
+ensures local conservation of mass.
+
+
+\end{document}

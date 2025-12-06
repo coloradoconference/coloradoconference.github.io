@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Kendall Pierson \\
+{\bf Nonlinear Solid Mechanics: Efficient Preconditioning Strategies}}
+
+Sandia National Laboratories \\ PO Box 5800 \\ Albuquerque \\ NM 87185
+\\
+{\tt khpiers@sandia.gov}\end{center}
+
+Solving linear systems is critical in enabling large-scale
+implicit nonlinear solid mechanics applications. These
+linear systems can be solved with direct or iterative
+solution algorithms which provide the direction to a
+nonlinear solution algorihthm (typically Newton's method,
+Arclength methods, and/or Nonlinear conjugate gradient).
+The dominant cost in these types of computations is the
+linear system assembly and solve. This work explores using
+domain decomposition algorithms (FETI-DP) as the preconditioner
+to a conjugate gradient iterative algorithm to improve
+efficiency and robustness for an Implicit Nonlinear solid
+mechanics application. A series of increasingly complex
+nonlinear solid mechanics application problems will be used
+to demonstrate the efficiency and robustness of the proposed
+algorithm. Detailed discussion on software design towards
+providing flexibility in preconditioner choice will also
+be discussed.
+
+
+\end{document}

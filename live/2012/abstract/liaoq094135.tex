@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Qifeng Liao \\
+{\bf Reduced Basis Approximation for the Sparse Grid Stochastic Collocation Method}}
+
+Department of Computer Science \\ University of Maryland \\ College Park \\ MD 20742 \\ USA
+\\
+{\tt qliao@umd.edu}\\
+Howard Elman \end{center}
+
+The sparse grid stochastic collocation method is widely used for solving
+PDEs with random coefficients. However, when the probability space has a
+high dimensionality, the number of sparse girds can be large. It then
+becomes every inefficient to construct the collocation solution by
+directly solving the fully discretized problems, associated with
+stochastic realizations at all sampling points. In order to speed up the
+collocation process, we apply a reduced basis approximation with a greedy
+algorithm, which can lead to Galerkin equations with very small degrees
+of freedom. Numerical experiments demonstrate the satisfactory
+performance of this model reduction technique.
+
+
+\end{document}

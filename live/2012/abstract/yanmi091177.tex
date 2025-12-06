@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ming Yan \\
+{\bf Binary Matching Pursuit for Impulse Noise Removal}}
+
+520 Portola Plaza \\ LOS ANGELES \\ California \\ United States \\ 90095
+\\
+{\tt yanm@ucla.edu}\end{center}
+
+This article studies the problem of image restoration of observed images
+corrupted by impulse noise and other types of noise (e.g. zero-mean
+Gaussian white noise). Since the pixels damaged by impulse noise contain
+no information about the true image, the damaged pixels can also be
+considered as missing information. If the pixels corrupted by impulse
+noise are known, then the image restoration becomes a standard image
+inpainting problem. However, the set of damaged pixels is usually
+unknown, thus how to find this set correctly is a very important problem.
+We proposed a method using binary matching pursuit that can
+simultaneously find the damaged pixels and restore the image. This method
+can also be applied to situations where the damaged pixels are not
+randomly chosen, but follow some unknown procedure. By iteratively
+restoring the image and updating the set of damaged pixels, this method
+has better performance than other methods, as shown in the experiments.
+
+
+\end{document}

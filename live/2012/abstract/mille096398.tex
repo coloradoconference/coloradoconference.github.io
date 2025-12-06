@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Killian, L Miller \\
+{\bf An adaptive algebraic multigrid algorithm for low-rank canonical tensor decomposition}}
+
+Department of Applied Mathematics \\ University of Waterloo \\ Waterloo \\ Ontario \\ N2L3G1 \\ Canada
+\\
+{\tt killianmiller@gmail.com}\\
+Hans De Sterck\end{center}
+
+A new algorithm based on algebraic multigrid is presented for computing
+the rank-$R$ canonical decomposition of a tensor for small $R$. Standard
+alternating least squares (ALS) is used as the relaxation method.
+Transfer operators and coarse-level tensors are constructed in an
+adaptive setup phase that combines multiplicative correction and
+Bootstrap algebraic multigrid. An accurate solution is computed by an
+additive solve phase based on the Full Approximation Scheme. Numerical
+tests show that for certain test problems, our multilevel method
+significantly outperforms standalone ALS when a high level of accuracy is
+required.
+
+
+\end{document}

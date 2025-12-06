@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sven Leyffer \\
+{\bf Augmented Lagrangian Filter Methods for Large-Scale Optimization }}
+
+MCS Division \\ Argonne National Laboratory \\ 9700 South Cass Ave \\ Argonne \\ IL 60439
+\\
+{\tt leyffer@mcs.anl.gov}\end{center}
+
+We present a two-phase method for large-scale nonlinear constrained
+optimization that can readily take advantage of iterative subproblem
+solves. In the first phase, projected-gradient iterations approximately
+minimize the augmented Lagrangian to estimate the optimal active set. In
+the second phase, we solve an equality-constrained quadratic optimization
+problem to obtain fast convergence. We employ an augmented Lagrangian
+filter to determine the accuracy of the iterative augmented Lagrangian
+minimization and to promote global convergence. Our algorithm is designed
+for large-scale optimization, and we present preliminary numerical
+results.
+
+
+\end{document}

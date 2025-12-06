@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dinap094610</TITLE>
+<META NAME="description" CONTENT="dinap094610">
+<META NAME="keywords" CONTENT="dinap094610">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dinap094610.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Edoardo Angelo Di Napoli 
+<BR><B>Block Iterative Solvers and Sequences of Eigenproblems arising in Electronic Structure Calculations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">J&#252;lich Supercomputing Centre 
+<BR>
+Institute for Advanced Simulation 
+<BR>
+Forschungszentrum J&#252;lich GmbH 
+<BR>
+Wilhelm-Johnen Strasse 
+<BR>
+52425 J&#252;lich
+
+<BR><TT>e.di.napoli@fz-juelich.de</TT>
+</DIV>
+
+<P>
+Research in several branches of chemistry and materials science
+relies on large ab initio numerical simulations. The majority of these
+simulations are based on computational methods developed within the
+framework of Density Functional Theory (DFT). DFT provides the means to
+solve a high-dimensional quantum mechanical problem by transforming it
+into a large set of coupled one-dimensional equations, which is
+ultimately represented as a non-linear generalized eigenvalue problem.
+The latter is solved self-consistently through a series of successive
+iteration cycles: the solution computed at the end of one cycle is used
+to generate the input in the next until the distance between two
+successive solutions is negligible.
+
+<P>
+Typically a simulations requires tens of cycles before reaching
+convergence. After the discretization - intended in the general sense of
+reducing a continuous problem to one with a finite number of unknowns -
+each cycle comprises dozens of large generalized eigenproblems
+<!-- MATH
+ $P^{(i)}_{\bf k}: A^{(i)}_{\bf k} x - \lambda B^{(i)}_{\bf k} x$
+ -->
+<IMG
+ WIDTH="148" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ P^{(i)}_{\bf k}: A^{(i)}_{\bf k} x - \lambda B^{(i)}_{\bf k} x$">
+ where
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ is hermitian and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ B$">
+ hermitian positive definite. Within every cycle
+the eigenproblems are parametrized by the reciprocal lattice vector <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ {\bf
+k}$">
+ while the iteration index <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ i$">
+ denotes the iteration cycle. The size
+of each problem ranges from 10 to 40 thousand and the interest lays in
+the eigenpairs corresponding to the lower 10-20% part of the spectrum.
+Due to the dense nature of the eigenproblems and the large portion of the
+spectrum requested, iterative solvers are generally not competitive; as a
+consequence, current simulation codes uniquely use direct methods.
+
+<P>
+Generally, the eigenproblem <!-- MATH
+ $P^{(i+1)}_{\bf k}$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ P^{(i+1)}_{\bf k}$">
+ is solved in complete
+isolation from all <IMG
+ WIDTH="32" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^{(i)}$">
+s. This is surprising in light of the fact
+that each <!-- MATH
+ $P^{(i+1)}_{\bf k}$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ P^{(i+1)}_{\bf k}$">
+ is constructed by manipulating the
+solutions of all the problems at iteration <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ i$">
+. In a recent study, the
+author harnessed this last observation by considering every simulation as
+made of dozens of sequences <!-- MATH
+ $\{P_{\bf k}\}$
+ -->
+<IMG
+ WIDTH="39" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \{P_{\bf k}\}$">
+, where each sequence groups
+together eigenproblems with equal <B>k</B>-vector and increasing iteration
+index <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ i$">
+. It was then demonstrated that successive eigenproblems in a
+sequence are strongly correlated to one another. In particular, by
+tracking the evolution over iterations of the angle between eigenvectors
+<IMG
+ WIDTH="29" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ x^{(i)}$">
+ and <IMG
+ WIDTH="45" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ x^{(i+1)}$">
+, it was shown the angles decrease noticeably
+after the first few iterations. Even though the overall simulation has
+not yet converged, the eigenvectors of <!-- MATH
+ $P^{(i)}_{\bf k}$
+ -->
+<IMG
+ WIDTH="32" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ P^{(i)}_{\bf k}$">
+ and
+<!-- MATH
+ $P^{(i+1)}_{\bf k}$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ P^{(i+1)}_{\bf k}$">
+ are close to collinear.
+
+<P>
+This result suggests we could use the eigenvectors of <IMG
+ WIDTH="32" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ P^{(i)}$">
+ as an
+educated guess for the eigenvectors of the successive problem
+<IMG
+ WIDTH="48" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ P^{(i+1)}$">
+. The key element is to exploit the collinearity between
+vectors of adjacent problems in order to improve the performance of the
+solver. While implementing this strategy naturally leads to the use of
+iterative solvers, not all the methods are well suited to the task at
+hand.
+
+<P>
+In light of these considerations, exploiting the evolution of
+eigenvectors depends on two distinct key properties of the iterative
+method of choice: 1) the ability to receive as input a sizable set of
+approximate eigenvectors and exploit them to efficiently compute the
+required eigenpairs, and 2) the capacity to solve simultaneously for a
+substantial portion of eigenpairs. The first property implies the solver
+achieves a moderate-to-substantial reduction in the number of
+matrix-vector operations as well as an improved convergence. The second
+characteristic results in a solver capable of filtering away as
+efficiently as possible the unwanted components of the approximate
+eigenvectors.
+
+<P>
+In accord to these requirements, the class of block iterative methods
+constitutes the natural choice in order to satisfy property 1); by
+accepting a variable set of multiple starting vectors, these methods have
+a faster convergence rate and avoid stalling when facing small clusters
+of eigenvalues. When block methods are augmented with polynomial
+accelerators they also satisfy property 2) and their performance is
+further improved.
+
+<P>
+In this study we present preliminary results that would eventually open
+the way to a widespread use of iterative solvers in ab initio electronic
+structure codes. We provide numerical examples where opportunely selected
+iterative solvers benefit from the re-use of eigenvectors when applied to
+sequences of eigenproblems extracted from simulations of real-world
+materials. At first we experimented with a block method (block
+Krylov-Schur) satisfying only property 1). At a later stage we selected a
+solver satisfying both properties (block Chebyshev-Davidson) and
+performed similar experiments.
+
+<P>
+In our investigation we vary several parameters in order to address how
+the solvers behave under different conditions. We selected different size
+for the sequence of eigenproblems as well as an increasing number of
+eigenpairs to be computed. We also vary the block size in relation with
+the fraction of eigenpairs sought after and analyze its influence on the
+performance of the solver. In most cases our study shows that, when the
+solvers are fed approximated eigenvectors as opposed to random vectors,
+they obtain a substantial speed-up. The increase in performance changes
+with the variation of the parameters but strongly indicates that
+iterative solvers could become a valid alternative to direct methods.
+
+<P>
+The pivotal element allowing the achievement of such a result resides in
+the transposition of the ``matrix'' of eigenproblems emerging from
+electronic structure calculations; while the computational physicist
+solves many rows of <B>k</B>-eigenproblems (one for each cycle) we look at
+the entire computation as made of <B>k</B>-sequences. This shift in focus
+enables one to harness the inherent essence of the iterative cycles and
+translate it to an efficient use of opportunely tailored iterative
+solvers. In the long term such a result will positively impact a large
+community of computational scientists working on DFT-based methods.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

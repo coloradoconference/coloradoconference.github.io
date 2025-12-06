@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>srini094636</TITLE>
+<META NAME="description" CONTENT="srini094636">
+<META NAME="keywords" CONTENT="srini094636">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="srini094636.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Bhuvana Srinivasan 
+<BR><B>Semi-implicit nonlinear solvers for the full two-fluid plasma model</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Los Alamos National Laboratory 
+<BR>
+MS B268 
+<BR>
+P O Box 1663 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>bhuvana@lanl.gov</TT>
+<BR>
+Dana A. Knoll
+</DIV>
+
+<P>
+Plasma fluid models have frequently employed single-fluid descriptions
+of the ion species and often neglect electron physics. While
+single-fluid models have worked for a number of macroscale
+applications, a number of applications in fusion as well as space
+plasma physics require two-fluid descriptions of plasmas. Two-fluid
+descriptions involve solving the Euler equations for each of the ion
+and electron species with Maxwell's equations describing the electric
+and magnetic fields. Two-fluid effects become significant when spatial
+scales <!-- MATH
+ $L\sim \delta_i$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ L\sim \delta_i$">
+ and temporal scales <!-- MATH
+ $\tau \sim 1/\omega_{ci}$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \tau \sim 1/\omega_{ci}$">
+
+with <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \delta_i$">
+ being the ion skin depth and <!-- MATH
+ $\omega_{ci}$
+ -->
+<IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \omega_{ci}$">
+ being the
+ion cyclotron frequency. Neglecting electron inertia, neglecting the
+speed of light, and assuming quasineutrality leads to the more
+commonly used Hall-MHD model. However, to capture local non-neutral
+effects accurately, a full two-fluid plasma model is needed.
+
+<P>
+An explicit full two-fluid plasma model has been developed using the
+discontinuous Galerkin method in the code WARPX (Washington
+Approximate Riemann Plasma) for applications of plasma shocks,
+Z-pinches, field reversed configurations, magnetic reconnection, and
+plasma sheaths to name a few. The explicit implementation has severe
+time-step restrictions due to the need to resolve the speed of light
+and the plasma frequencies at every time-step. For simulations with
+large magnetic fields, the cyclotron frequencies can be very
+restrictive as well. Additionally higher spatial orders of the
+explicit discontinuous Galerkin method require more restrictive CFL
+conditions. Artificial ion-to-electron mass ratios and artificial
+light speeds are used to obtain results with reasonable computational
+effort when using an explicit two-fluid plasma model. This provides
+the motivation for a semi-implicit implementation which would allow
+the use of realistic parameters and geometries. The ion fluid is
+solved explicitly due to the need to resolve ion physics as a minimum,
+while the restrictive operators in the electron equations and
+Maxwell's equations are evolved implicitly. Due to the stiff nature of
+the equations, physics-based preconditioners need to be employed with
+Jacobian-free Newton-Krylov (JFNK) nonlinear solvers.
+
+<P>
+A <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ 1$">
+-D, single-fluid, electrostatic electron fluid description is
+studied first for simplicity. This system is solved using several
+methods namely, using JFNK solvers, using physics-based linearized
+semi-implicit solvers, and using physics-based preconditioners with
+JFNK. The method of manufactured solutions is used to artificially
+create a problem with large time-scale separation. Once this is
+tested, it will be extended to a two-fluid description by including
+explicit solutions of an ion fluid. Picard iterations are expected to
+be used to couple the implicit and explicit solutions and obtain
+higher order accuracy. Results will be presented using a semi-implicit
+single-fluid description with the method of manufactured
+solutions. Additionally, two-fluid electrostatic solutions of the ion
+acoustic shock wave are expected to be presented.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

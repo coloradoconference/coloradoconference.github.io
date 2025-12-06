@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>tiede088618</TITLE>
+<META NAME="description" CONTENT="tiede088618">
+<META NAME="keywords" CONTENT="tiede088618">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tiede088618.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Hilari C. Tiedeman 
+<BR><B>Multilevel Schur Complement Preconditioning for Multi-Physics Simulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Southern Methodist University 
+<BR>
+Department of Mathematics 
+<BR>
+PO Box 750156 
+<BR>
+Dallas 
+<BR>
+Texas 75275-0156
+
+<BR><TT>htiedeman@smu.edu</TT>
+<BR>
+Daniel R. Reynolds
+</DIV>
+
+<P>
+Advection-diffusion PDEs are prevalent in models of many physical
+applications in science and engineering. In this talk, we focus on a
+scalar-valued advection-diffusion-reaction equation of the form
+<P><!-- MATH
+ \begin{displaymath}
+\partial_t u = \nabla\cdot(\beta u)+\mu\nabla\cdot(D\nabla u)+f,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="240" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \partial_t u = \nabla\cdot(\beta u)+\mu\nabla\cdot(D\nabla u)+f,
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \beta$">
+ is a vector-valued advection coefficient that may
+depend on <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$">
+, <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ D$">
+ is a matrix of diffusion coefficients, and
+<IMG
+ WIDTH="48" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f(u,t)$">
+ is a forcing term. Within different parameter regimes, there
+exist optimally scalable solvers for problems of this type, however no
+single solver yet applies well within all regimes of physical interest.
+
+<P>
+Domain decomposition methods display nearly optimal parallel
+scalability within the advection-dominated regime, but typically do
+not scale well for diffusion-dominated problems. The converse occurs
+when using multigrid methods. Our goal is to find one method that is
+scalable in both regimes, through using a hybrid approach combining
+restrictive additive Schwarz (domain decomposition) and geometric
+multigrid.
+
+<P>
+Our approach begins with a Schur complement formulation of the
+linearized implicit system (<IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ Au=f$">
+) as with the FETI (Farhat and
+Roux, 1991), BDD (Mandel, 1993), and BDDC (Dohrmann, 2003) algorithms, where the
+unknowns <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$">
+ are split into two sets: those residing in a domain
+interior, <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ u_I$">
+, and those residing at inter-processor boundaries,
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ u_\Gamma$">
+. With this decomposition, one may similarly decompose the
+full Jacobian matrix into four associated blocks,
+<P><!-- MATH
+ \begin{displaymath}
+A = \left[\begin{array}{cc}
+A_{I,I} & A_{I,\Gamma} \\
+A_{\Gamma,I} & A_{\Gamma,\Gamma} \\
+\end{array}\right].
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="157" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle A = \left[\begin{array}{cc}
+A_{I,I} &amp; A_{I,\Gamma} \\
+A_{\Gamma,I} &amp; A_{\Gamma,\Gamma} \\
+\end{array}\right].
+$">
+</DIV><P>
+</P>
+Since the <IMG
+ WIDTH="34" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ A_{I,I}$">
+ matrix is itself block-diagonal, with each block
+corresponding to the Jacobian matrix dependencies within a single
+processor, we can apply <!-- MATH
+ $A^{-1}_{I,I}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A^{-1}_{I,I}$">
+ using a standard sparse direct
+solver. Elimination of this block results in a Schur complement system
+for the interface nodes,
+<P><!-- MATH
+ \begin{displaymath}
+\left(A_{\Gamma,\Gamma}-A_{\Gamma,I}A^{-1}_{I,I}A_{I,\Gamma}\right)u_\Gamma=g_\Gamma,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="229" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \left(A_{\Gamma,\Gamma}-A_{\Gamma,I}A^{-1}_{I,I}A_{I,\Gamma}\right)u_\Gamma=g_\Gamma,
+$">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ g_\Gamma$">
+ is formed during the first elimination step, and the
+Schur complement matrix is given by <!-- MATH
+ $S =
+A_{\Gamma,\Gamma}-A_{\Gamma,I}A^{-1}_{I,I}A_{I,\Gamma}$
+ -->
+<IMG
+ WIDTH="179" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ S =
+A_{\Gamma,\Gamma}-A_{\Gamma,I}A^{-1}_{I,I}A_{I,\Gamma}$">
+.
+
+<P>
+While traditional domain-decomposition methods do not solve this
+global Schur complement system directly (and instead solve an
+interface system based on only a small fraction of unknowns), we solve
+the full interface system using a multilevel technique similar to
+multigrid. Here, our fine grid problem consists of the entire
+Schur complement (interface) system. We then proceed through a
+traditional set of V-cycle iterations, where at each level we obtain
+an increasingly coarse subset of the full interface system. However,
+due to the <!-- MATH
+ $A^{-1}_{I,I}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ A^{-1}_{I,I}$">
+ term in <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$">
+, all residual corrections are
+evaluated in a matrix-free fashion, using FGMRES as a smoother.
+
+<P>
+After presenting the details of our algorithm, we present simulation
+results using the Ranger supercomputer at TACC. We investigate
+problems in both the advection- and diffusion-dominated regimes, and
+examine scalability of both iteration count and wall-clock time.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

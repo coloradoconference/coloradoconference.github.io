@@ -1,0 +1,21 @@
+# LaTeX2HTML 2008 (1.71)
+# Associate labels original text with physical files.
+
+
+$key = q/PDE/;
+$external_labels{$key} = "$URL/" . q|ketel094822.html|; 
+$noresave{$key} = "$nosave";
+
+$key = q/discrete_problem/;
+$external_labels{$key} = "$URL/" . q|ketel094822.html|; 
+$noresave{$key} = "$nosave";
+
+1;
+
+
+# LaTeX2HTML 2008 (1.71)
+# labels from external_latex_labels array.
+
+
+1;
+

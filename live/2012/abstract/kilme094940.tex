@@ -1,0 +1,103 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Misha Kilmer \\
+{\bf Tensor-diamond Approximation for Construction of Kronecker Product-based Preconditioners }}
+
+Dept of Mathematics \\ Tufts University \\ 503 Boston Ave \\ Medford \\ MA 02155
+\\
+{\tt misha.kilmer@tufts.edu}\\
+Tamara Kolda\end{center}
+
+\newcommand{\bfA}{{\bf A}}
+\newcommand{\bfb}{{\bf b}}
+\newcommand{\bfx}{{\bf x}}
+\newcommand{\bfe}{{\bf e}}
+\newcommand{\bfM}{{\bf M}}
+
+\newcommand{\Mout}{\diamondsuit}
+
+
+\newcommand{\M}[1]{{\bf {\boldmath {\MakeUppercase{#1}}}}}
+
+\newcommand{\T}[1]{\boldsymbol{\cal {\MakeUppercase{#1}}}}
+
+
+\newcommand{\TA}{\T{A}}
+
+
+\begin{center} Tensor-diamond Approximation for Construction of Kronecker
+Product-based Preconditioners \end{center}
+
+Suppose $\bfA$ is a square, invertible, block $\ell \times \ell$ matrix
+with $n \times n$ blocks, that is characterized by either (or both) of
+the following
+conditions:
+\begin{itemize}
+\item $\bfA$ is block Toeplitz (or can be permuted to be block Toeplitz);
+\vspace*{-8pt}
+\item $\bfA$ has small block-bandwidth $k \ll \ell$ (or, more generally,
+the number of non-zero blocks is much less than $\ell$).
+\end{itemize}
+Such matrices might arise, for example, in image deblurring or
+discretization of a PDE. In this talk, we will primarily focus on
+on image deblurring applications.
+
+We consider the problem of determining an approximation $\bfM$ to $\bfA$ such that either
+\[ \bfM = \bfA_R \otimes \bfA_L \qquad \mbox{ or } \qquad \bfM = (\M{I}
+\otimes \bfA_L)\M{C}, \]
+where $\otimes$ denotes the Kronecker product, and $\M{C}$ is a matrix
+with circulant blocks.
+The leftmost problem has been studied previously (see, for example, [1,2]).
+Our approach differs from previous approaches in that we produce the
+desired factorization by representing
+the approximation problem as a third-order tensor (i.e. 3D array) approximation problem.
+In the context of PDEs, the approximation $\bfM$ has the advantage of
+being relatively easy to directly invert and therefore is attractive as a
+preconditioner.
+In the context of image deblurring, we can relatively easily compute
+rank-revealing factorizations of $\bfM$, which can then be used to
+generate regularized preconditioners
+or surrogate filters, etc.
+
+Specifically,
+we take the relevant descriptive information from $\bfA$ and put this
+into an appropriately oriented $n \times m \times n$, third-order tensor,
+denoted $\TA$.
+We then consider the tensor approximation problem
+\[ \min_{\M{G},\M{H}} \| \TA - \M{G} \Mout \M{H} \|_F, \qquad \mbox{with
+possible constraints on \M{H}},\]
+where the $\M{G} \Mout \M{H}$ is the product-cyclic tensor, first defined
+in [3], given by
+\[ \M{G} \Mout \M{H} \in \mathbb{R}^{n \times m \times n}, \qquad (\M{G}
+\Mout \M{H})_{:,:,j} = \M{G} \M{Z}^{j-1} \M{H}^T, \]
+and $\M{Z}$ is the $n \times n$ downshift matrix.
+We will discuss how the entries of $\bfA_L, \bfA_R$ or $\bfA_R, \M{C}$ are
+constructed from entries in $\M{G}$ and $\M{H}$.
+
+Numerical results for spatially variant blurring operators show the
+possible utility of this approach.
+
+\vspace*{8pt}
+
+{\bf References:} \newline
+\noindent{[1]} C.~F.~{Van Loan} and N.~P.~Pitsianis, ``Approximation with
+{K}ronecker Products," in {\bf Linear Algebra for Large Scale and Real
+Time Applications},
+Kluwer Publications, 1993, M. S. Moonen and G. H. Golub eds, pages 293-314. \newline
+
+\noindent{[2]} J. Kamm and J. G. Nagy, ``Optimal {K}ronecker Product
+Approximation of Block {T}oeplitz Matrices," SIAM Journal on Matrix
+Analysis and Applications,
+volume 22, 2000, pages 155-172. \newline
+
+\noindent{[3]} M. E. Kilmer and T. G. Kolda, ``Approximations of Third Order Tensors as
+Sums of (Non-negative) Product Cyclic Tensors," Plenary Presentation,
+Householder Symposium, June 2011.
+
+
+\end{document}

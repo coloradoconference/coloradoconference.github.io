@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>kilme094940</TITLE>
+<META NAME="description" CONTENT="kilme094940">
+<META NAME="keywords" CONTENT="kilme094940">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="kilme094940.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Misha Kilmer 
+<BR><B>Tensor-diamond Approximation for Construction of Kronecker Product-based Preconditioners </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept of Mathematics 
+<BR>
+Tufts University 
+<BR>
+503 Boston Ave 
+<BR>
+Medford 
+<BR>
+MA 02155
+
+<BR><TT>misha.kilmer@tufts.edu</TT>
+<BR>
+Tamara Kolda
+</DIV>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+<DIV ALIGN="CENTER">
+Tensor-diamond Approximation for Construction of Kronecker
+Product-based Preconditioners 
+</DIV>
+
+<P>
+Suppose <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\bf A}$">
+ is a square, invertible, block <!-- MATH
+ $\ell \times \ell$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \ell \times \ell$">
+ matrix
+with <!-- MATH
+ $n \times n$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ n \times n$">
+ blocks, that is characterized by either (or both) of
+the following
+conditions:
+
+<UL>
+<LI><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\bf A}$">
+ is block Toeplitz (or can be permuted to be block Toeplitz);
+<BR>
+</LI>
+<LI><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\bf A}$">
+ has small block-bandwidth <!-- MATH
+ $k \ll \ell$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ k \ll \ell$">
+ (or, more generally,
+the number of non-zero blocks is much less than <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \ell$">
+).
+</LI>
+</UL>
+Such matrices might arise, for example, in image deblurring or
+discretization of a PDE. In this talk, we will primarily focus on
+on image deblurring applications.
+
+<P>
+We consider the problem of determining an approximation <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\bf M}$">
+ to <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\bf A}$">
+ such that either
+<P><!-- MATH
+ \begin{displaymath}
+{\bf M}= {\bf A}_R \otimes {\bf A}_L \qquad \mbox{ or } \qquad {\bf M}= ({\bf {\boldmath {\MakeUppercase{I}}}}
+\otimes {\bf A}_L){\bf {\boldmath {\MakeUppercase{C}}}},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="110" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle {\bf M}= {\bf A}_R \otimes {\bf A}_L$">&nbsp; &nbsp; or <IMG
+ WIDTH="155" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle \qquad {\bf M}= ({\bf {\boldmath {\MakeUppercase{I}}}}
+\otimes {\bf A}_L){\bf {\boldmath {\MakeUppercase{C}}}}, $">
+</DIV><P>
+</P>
+where <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \otimes$">
+ denotes the Kronecker product, and <!-- MATH
+ ${\bf {\boldmath {\MakeUppercase{C}}}}$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ {\bf {\boldmath {\MakeUppercase{C}}}}$">
+ is a matrix
+with circulant blocks.
+The leftmost problem has been studied previously (see, for example, [1,2]).
+Our approach differs from previous approaches in that we produce the
+desired factorization by representing
+the approximation problem as a third-order tensor (i.e. 3D array) approximation problem.
+In the context of PDEs, the approximation <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\bf M}$">
+ has the advantage of
+being relatively easy to directly invert and therefore is attractive as a
+preconditioner.
+In the context of image deblurring, we can relatively easily compute
+rank-revealing factorizations of <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\bf M}$">
+, which can then be used to
+generate regularized preconditioners
+or surrogate filters, etc.
+
+<P>
+Specifically,
+we take the relevant descriptive information from <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\bf A}$">
+ and put this
+into an appropriately oriented <!-- MATH
+ $n \times m \times n$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ n \times m \times n$">
+, third-order tensor,
+denoted <!-- MATH
+ $\boldsymbol{\cal {\MakeUppercase{A}}}$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \boldsymbol{\cal {\MakeUppercase{A}}}$">
+.
+We then consider the tensor approximation problem
+<P><!-- MATH
+ \begin{displaymath}
+\min_{{\bf {\boldmath {\MakeUppercase{G}}}},{\bf {\boldmath {\MakeUppercase{H}}}}} \| \boldsymbol{\cal {\MakeUppercase{A}}}- {\bf {\boldmath {\MakeUppercase{G}}}} \diamondsuit {\bf {\boldmath {\MakeUppercase{H}}}} \|_F, \qquad \mbox{with
+possible constraints on {\bf {\boldmath {\MakeUppercase{H}}}}},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="140" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle \min_{{\bf {\boldmath {\MakeUppercase{G}}}},{\bf {\boldmath {\Mak...
+...akeUppercase{G}}}} \diamondsuit {\bf {\boldmath {\MakeUppercase{H}}}} \Vert _F,$">&nbsp; &nbsp;with
+possible constraints on <B>H</B><IMG
+ WIDTH="9" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle ,$">
+</DIV><P>
+</P>
+where the <!-- MATH
+ ${\bf {\boldmath {\MakeUppercase{G}}}} \diamondsuit {\bf {\boldmath {\MakeUppercase{H}}}}$
+ -->
+<B><IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\bf {\boldmath {\MakeUppercase{G}}}} \diamondsuit {\bf {\boldmath {\MakeUppercase{H}}}}$"></B>
+ is the product-cyclic tensor, first defined
+in [3], given by
+<P><!-- MATH
+ \begin{displaymath}
+{\bf {\boldmath {\MakeUppercase{G}}}} \diamondsuit {\bf {\boldmath {\MakeUppercase{H}}}} \in \mathbb{R}^{n \times m \times n}, \qquad ({\bf {\boldmath {\MakeUppercase{G}}}}
+\diamondsuit {\bf {\boldmath {\MakeUppercase{H}}}})_{:,:,j} = {\bf {\boldmath {\MakeUppercase{G}}}} {\bf {\boldmath {\MakeUppercase{Z}}}}^{j-1} {\bf {\boldmath {\MakeUppercase{H}}}}^T,
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<B><IMG
+ WIDTH="337" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle {\bf {\boldmath {\MakeUppercase{G}}}} \diamondsuit {\bf {\boldmat...
+...\boldmath {\MakeUppercase{Z}}}}^{j-1} {\bf {\boldmath {\MakeUppercase{H}}}}^T, $"></B>
+</DIV><P>
+</P>
+and <!-- MATH
+ ${\bf {\boldmath {\MakeUppercase{Z}}}}$
+ -->
+<B><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ {\bf {\boldmath {\MakeUppercase{Z}}}}$"></B>
+ is the <!-- MATH
+ $n \times n$
+ -->
+<B><IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ n \times n$"></B>
+ downshift matrix.
+We will discuss how the entries of <!-- MATH
+ ${\bf A}_L, {\bf A}_R$
+ -->
+<B><IMG
+ WIDTH="59" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ {\bf A}_L, {\bf A}_R$"></B>
+ or <!-- MATH
+ ${\bf A}_R, {\bf {\boldmath {\MakeUppercase{C}}}}$
+ -->
+<B><IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ {\bf A}_R, {\bf {\boldmath {\MakeUppercase{C}}}}$"></B>
+ are
+constructed from entries in <!-- MATH
+ ${\bf {\boldmath {\MakeUppercase{G}}}}$
+ -->
+<B><IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ {\bf {\boldmath {\MakeUppercase{G}}}}$"></B>
+ and <!-- MATH
+ ${\bf {\boldmath {\MakeUppercase{H}}}}$
+ -->
+<B><IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ {\bf {\boldmath {\MakeUppercase{H}}}}$"></B>
+.
+
+<P>
+Numerical results for spatially variant blurring operators show the
+possible utility of this approach.
+
+<P>
+<BR>
+<BR>
+
+<P>
+<B>References:</B> <BR>
+[1] C.&nbsp;F.&nbsp;Van Loan and N.&nbsp;P.&nbsp;Pitsianis, ``Approximation with
+Kronecker Products," in <B>Linear Algebra for Large Scale and Real
+Time Applications</B>,
+Kluwer Publications, 1993, M. S. Moonen and G. H. Golub eds, pages 293-314. <BR>
+
+<P>
+[2] J. Kamm and J. G. Nagy, ``Optimal Kronecker Product
+Approximation of Block Toeplitz Matrices," SIAM Journal on Matrix
+Analysis and Applications,
+volume 22, 2000, pages 155-172. <BR>
+
+<P>
+[3] M. E. Kilmer and T. G. Kolda, ``Approximations of Third Order Tensors as
+Sums of (Non-negative) Product Cyclic Tensors," Plenary Presentation,
+Householder Symposium, June 2011.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

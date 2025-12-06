@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yuqi Wu \\
+{\bf A Domain Decomposition Based ALE Framework for Three-dimensional Fluid-structure Interaction with Application in Blood Flow Computation}}
+
+Department of Applied Mathematics \\ University of Colorado at Boulder \\ Boulder CO 80309
+\\
+{\tt yuqi.wu@colorado.edu}\\
+Xiao-Chuan Cai\end{center}
+
+We introduce and study a parallel scalable domain decomposition method
+for the simulation of blood flows in three-dimensional compliant
+arteries, by using a fully coupled system of linear elasticity equation
+and incompressible Navier-Stokes equations in an arbitrary
+Lagrangian-Eulerian framework. The system is discretized with a
+fully-implicit finite element method on unstructured moving meshes and
+solved by a Newton-Krylov algorithm preconditioned with an overlapping
+additive Schwarz method. The investigation focuses on the accuracy and
+parallel scalability of the algorithm. Simulations based on the
+patient-specific pulmonary artery geometries are performed on a
+supercomputer with thousands of processors. Our algorithm is shown to be
+scalable with a large number of processors and for problems with millions
+of unknowns.
+
+
+\end{document}

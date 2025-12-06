@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large John N. Shadid \\
+{\bf Approximate Block Factorization Preconditioners for 2D Incompressible Resistive MHD}}
+
+Computational Sciences & Mathematics Group \\ Sandia National Laboratories \\ PO Box 5800 MS 1321 \\ Albuquerque \\ NM 87185 - 1321
+\\
+{\tt jnshadi@sandia.gov}\\
+Eric C. Cyr \\
+Ray S. Tuminaro\\
+Roger P. Pawlowski\\
+Luis  Chacon\end{center}
+
+The resistive magnetohydrodynamics (MHD) model describes the dynamics of
+charged fluids in the presence of electromagnetic fields. MHD models are
+used to describe important phenomena in the natural physical world and in
+technological applications.
+This model is strongly coupled, highly nonlinear, and characterized by
+physical mechnisms that span a wide-range of interacting time scales.
+Solutions of this system can include very fast component time-scales to
+slowly-varying dynamical time-scales that are long relative to the
+normal-modes of the model equations. For this reason fully-implicit time
+stepping is an attractive choice for simulating a wide range of physical
+phenomena exhibited by the resistive MHD model. However, for efficient
+and scalable solutions fully-implicit methods require an effective
+preconditioner. In this paper, we propose and explore the
+performance of several candidate approximate block preconditioners for
+this system. One of these preconditioners is based
+on an operator-split approximation. This method reduces the system into
+two 2x2 operators; a Navier-Stokes operator and a magnetics-velocity
+operator with a Lorentz force coupling. Using previously
+developed preconditioners for Navier-Stokes, and an initial
+Schur-complement approximation for the magnetics-velocity system, we show
+that the split preconditoner is scalable and
+competitive with other preconditioners, including a fully-coupled
+algebraic multigrid method.
+
+
+\end{document}

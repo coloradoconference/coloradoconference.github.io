@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>smith093908</TITLE>
+<META NAME="description" CONTENT="smith093908">
+<META NAME="keywords" CONTENT="smith093908">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="smith093908.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kord Smith 
+<BR><B>Challenges and Approaches to Coupled Monte Carlo Neutronic/Fluid Flow Analysis of Commercial Nuclear Reactors</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">MIT 
+<BR>
+77 Massachusetts Ave 
+<BR>
+Room 24-221 
+<BR>
+Cambridge 
+<BR>
+MA 02139
+
+<BR><TT>kord@mit.edu</TT>
+<BR>
+Kord Smith
+<BR>
+Benoit Forget
+<BR>
+Paul Romano
+<BR>
+Bryan Herman
+<BR>
+Andrew Siegel
+</DIV>
+
+<P>
+Despite the great advancements in Monte Carlo neutral particle transport
+methods and their implementation on advanced computing platforms, Monte
+Carlo methods have achieved decidedly little impact on either the design
+or licensing of commercial light water reactors (LWRs). There are
+numerous reasons that contribute to this lack of penetration:
+
+<P>
+1) Conventional Monte Carlo analysis requires 10’s to 100’s of billions
+of neutron histories to resolve local spatial details in high dominance
+ratio reactor cores
+(e.g. source convergence is extremely difficult, even without multi-physics effects).
+
+<P>
+2) Traditional Monte Carlo statistical treatments lead to
+non-conservative estimates of spatial parameter uncertainties because of
+inter-cycle correlation effects in high dominance ratio cores (e.g.,
+central limit theorem can not be applied directly).
+
+<P>
+3) Reactor core depletion requires tracking several hundred nuclides in
+each radial ring of&nbsp;100,000 fuel pins at each of several hundred axial
+levels (e.g., 100’s of billions of tallies are required).
+
+<P>
+4) Each fuel depletion region and each feedback region has unique physical properties
+(e.g., nuclear data in each region must be treated as functions of local temperatures).
+
+<P>
+5) Accurate analysis requires dynamic coupling of Monte Carlo neutronics
+to nuclear fuel/fluid flow models (e.g. coupled physics is crucial to
+accuracy).
+
+<P>
+6) Steady-state core analysis cannot answer safety questions that require
+dynamic multi-physics analysis (e.g., Monte Carlo methods must be
+extended to the time domain for both rapid and long-duration transient
+applications).
+
+<P>
+The authors will present a formal LWR cycle depletion benchmark that can
+be used to test coupled neutronic/fluid flow models in pseudo
+steady-state (reactor cycle depletion) applications. This benchmark will
+be based on two cycles of operation of a commercial LWR, and measured
+reactor data will be provided to assess computational model uncertainties
+in core reactivity and 3D fission rate distributions. The inherent
+challenges and difficulties in developing methods to solve this challenge
+problem will be outlined and discussed in detail. In particular,
+limitations of parallelization of Monte Carlo by replication and
+challenges arising from massive storage requirements (for
+temperature-dependent nuclear data and detailed spatial tallies) will be
+discussed. A summary of recent algorithmic testing of alternative
+parallelization strategies to overcome these limitations will be
+presented.
+
+<P>
+The authors’ experiences in applying one class of non-linear operators to
+the acceleration of deterministic multi-physics methods will be
+summarized, and computational results from recent extensions of these
+methods to steady-state Monte Carlo analysis will be presented. Authors
+will present results from recent parallel algorithm computational tests
+and a proposed strategy for using non-linear operators to solve coupled
+Monte Carlo neutronics and nuclear fuel/flow problems.
+
+<P>
+The authors will also present their proposed approach for extending these
+non-linear operators to the development of transient Monte Carlo coupled
+multi-physics reactor analysis methods. Key developments needed for
+success will be outlined, and prospects for future success will be
+discussed.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

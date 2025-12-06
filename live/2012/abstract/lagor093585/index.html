@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lagor093585</TITLE>
+<META NAME="description" CONTENT="lagor093585">
+<META NAME="keywords" CONTENT="lagor093585">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lagor093585.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Rafael LAGO 
+<BR><B>Inexact Block GMRES with Deflation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">CERFACS 42 Avenue Gaspard Coriolis 
+<BR>
+31057 Toulouse Cedex 1 
+<BR>
+France
+
+<BR><TT>lago@cerfacs.fr</TT>
+<BR>
+Serge GRATTON
+<BR>
+Xavier VASSEUR
+</DIV>
+
+<P>
+We address the solution of linear systems with multiple right-hand sides
+given at once: <P><!-- MATH
+ \begin{displaymath}
+A~X=B, \quad
+X, B \in\mathbb{C}^{n\times p}, \quad A\in\mathbb{C}^{n\times n},
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="280" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle A~X=B, \quad
+X, B \in\mathbb{C}^{n\times p}, \quad A\in\mathbb{C}^{n\times n}, $">
+</DIV><P>
+</P>
+when matrix-vector products with <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+ are performed only approximately.
+Given <!-- MATH
+ $V\in\mathbb{C}^{n\times q}$
+ -->
+<IMG
+ WIDTH="73" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ V\in\mathbb{C}^{n\times q}$">
+ the matrix-matrix product is thus
+represented as <IMG
+ WIDTH="74" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ (A+E)V$">
+, where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ E$">
+ is a <I>``perturbation matrix''</I>
+allowed to change at each application (we always suppose that the
+spectral norm of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ E$">
+ is controllable). This kind of situation arises for
+instance when we do not dispose of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">
+, but of a function which
+approximates
+<IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ AV$">
+ based on a threshold <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \varepsilon$">
+.
+
+<P>
+In the single right-hand side case (<IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ p=1$">
+) previous works (e.g.
+[<A
+ HREF="node1.html#Simoncini03">8</A>], [<A
+ HREF="node1.html#Giraud07">4</A>], and
+[<A
+ HREF="node1.html#Eshof05">3</A>]) have shown that variants of GMRES [<A
+ HREF="node1.html#Saad86">7</A>] allow <IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \vert\vert E\vert\vert _2$">
+ to grow
+with the number of iterations, provided that some bounds are
+respected. Supposing that the cost of approximating <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ AV$">
+ is inversely
+proportional to the chosen threshold <!-- MATH
+ $\varepsilon$
+ -->
+<IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \varepsilon$">
+, controlling
+<IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \vert\vert E\vert\vert _2$">
+ at each iteration potentially reduces the computational cost.
+
+<P>
+In the multiple right-hand side case, rather than solving the systems in sequence
+(that is, applying the chosen algorithm for each right hand-side)
+we could treat them in a <I>``block wise''</I> manner and use a variant of
+block GMRES [<A
+ HREF="node1.html#Vital90">9</A>]. Indeed the literature has shown the interest of
+using block Krylov subspace methods in such a situation; see, e.g., [<A
+ HREF="node1.html#Gutknecht07">5</A>],
+[<A
+ HREF="node1.html#Robbe06">6</A>] and [<A
+ HREF="node1.html#Pinel11">1</A>]. The latter two mainly rely
+on the singular value decomposition of the block residual to perform
+<I>``deflation''</I>, a mechanism which has been considered crucial
+for the reduction of the computational cost of block iterative
+solvers. This deflation strategy aims at detecting
+when a linear combination of the systems has approximately converged.
+
+<P>
+In this talk we will thus analyze an inexact block GMRES with deflation.
+Our concern arises from the fact that inexact matrix-vector product
+introduces a perturbation in the residual computation. First we analyze
+the
+impact of the perturbation <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ E$">
+ on the block residual and on its singular values
+and study the behavior of two algorithms proposed in [<A
+ HREF="node1.html#Robbe06">6</A>]
+and [<A
+ HREF="node1.html#Pinel11">1</A>] in the presence of inexact matrix-vector product.
+Then we show some numerical experiments with well-known problems from
+University of Florida collection [<A
+ HREF="node1.html#UFCollection">2</A>] and discuss the
+results obtained so far.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

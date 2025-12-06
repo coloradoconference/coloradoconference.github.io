@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Karsten Kahl \\
+{\bf Using block smoothers in multigrid methods}}
+
+University of Wuppertal \\ Faculty of Mathematics and Natural Sciences \\ Gauﬂstraﬂe 20 \\ D-42119 Wuppertal \\ Germany
+\\
+{\tt kkahl@math.uni-wuppertal.de}\\
+Matthias Bolten\end{center}
+
+On up to date massively parallel computers domain decomposition
+approaches possess the advantage of a high computation/communication
+and/or computation/memory access ratio, especially when compared to
+traditional point-wise iterative schemes. Thus it suggests itself to use
+such block iterative methods with overlapping or non-overlapping blocks
+as well as smoothers in multigrid methods. However, numerical results
+show evidence that these block smoothers are not as efficient as expected
+when standard coarsening procedures are in effect. In order to fully
+benefit from block smoothers we thus propose a different coarsening
+scheme and an associated new local interpolation for the usage of block
+smoothers in multigrid methods. Using this scheme, we obtain textbook
+multigrid efficiency with fast convergence rate albeit we are able to
+coarsen very aggressively. Using this scheme we are able to benefit from
+the large amount of work that can be moved to solving the block systems
+locally in the block smoother on one hand and on the other hand reduce
+the global part of computations by allowing for very aggressive
+coarsening. In this talk, we present the resulting method in detail, give
+an overview over the theoretical analysis, show numerical results and
+give an outlook on possible extensions of the method from an
+geometric-algebraic to a completely algebraic context.
+
+
+\end{document}

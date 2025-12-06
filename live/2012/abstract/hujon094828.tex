@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jonathan Hu \\
+{\bf MueLu: A Flexible, Parallel Multigrid Framework}}
+
+PO Box 969 \\ MS 9159 \\ Livermore \\ CA 94551-0969
+\\
+{\tt jhu@sandia.gov}\\
+Jeremie Gaidamour\\
+Ray Tuminaro\\
+Tobias Wiesner\\
+Axel Gerstenberger\\
+Chris Siefert\end{center}
+
+We have developed a flexible parallel multigrid framework called MueLu
+for developing and deploying multigrid algorithms.
+The framework is designed with a user-friendly front end, and so provides
+the standard complement of smoothers and direct solvers.
+Prolongator algorithms include smoothed aggregation and Petrov Galerkin
+methods, with plans to include others such as energy
+minimization.
+The design allows advanced users to customize almost any aspect of the
+multigrid solver, e.g., introducing new smoothers,
+alternative coarsening algorithms, specialized strength-of-connection
+measures, and even hybrids of different multigrid
+algorithms. MueLu leverages existing capabilities from Sandia's Trilinos
+project in order to manage issues such as parallelism and data types. In
+this talk we'll discuss the main design features, illustrate library
+usage with examples, and provide parallel examples.
+
+
+\end{document}

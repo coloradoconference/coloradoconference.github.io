@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Armando Coco \\
+{\bf Second Order Multigrid Methods for Elliptic Problems with Discontinuous Coefficients on an Arbitrary Interface}}
+
+Via Procida \\ 54 \\ 96012 Avola (SR) \\ Italy
+\\
+{\tt coco@dmi.unict.it}\\
+Giovanni Russo\end{center}
+
+In this talk we present a multigrid second order accurate method to solve
+Elliptic equations with discontinuous coefficients on an arbitrary
+interface. Second order accuracy for the gradient derivative is obtained
+as well. The method is based on the Ghost Fluid Method, making use of
+ghost points on which the value is defined by suitable interface
+conditions. The multi-domain formulation is adopted, where the problem is
+split in two sub-problems and interface conditions will be enforced to
+close the problem. Interface conditions are relaxed together with the
+internal equations, leading to an iterative method on all the set of grid
+values (inside points and ghost points). A multigrid approach with a
+suitable definition of the restriction operator is provided. The
+restriction of the defect is performed separately for both sub-problems,
+providing a convergence factor close to the one measured in the case of
+smooth coefficient and independent on the magnitude of the jump in the
+coefficient.
+Numerical tests will confirm the second order accuracy.
+
+\vspace{1 cm}
+
+[1] A. Coco and G. Russo. A fictitious time method for the solution of
+Poisson equation in an arbitrary domain embedded in a square grid.
+{\em Journal of Computation Physics.} Under revision.
+
+[2] A. Coco and G. Russo. Multigrid approach for Poisson's equation with
+mixed boundary condition in an arbitrary domain. Submitted. Preprint
+available in http://arxiv.org/pdf/1111.0983.
+
+[3] A. Coco and G. Russo. Second order multigrid methods for elliptic
+problems with discontinuous coefficients on an arbitrary interface, I:
+one dimensional problems.
+{\em Numerical Mathematics: Theory, Methods and Applications.}
+In press. Pre-print available in
+http://arxiv.org/pdf/1111.1167.
+
+[4] A. Coco, F. Gibou, and G. Russo. Adaptive solvers for Poisson
+problems with discontinuous coefficients on Cartesian grids. Submitted.
+
+
+
+\end{document}

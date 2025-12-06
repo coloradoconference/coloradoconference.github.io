@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthew R Darsney \\
+{\bf Accelerating structured-grid multigrid methods on manycore architectures}}
+
+92 Pearson Rd \\ Somerville MA 02144
+\\
+{\tt matthew.darsney@tufts.edu}\\
+Scott Maclachlan\end{center}
+
+Multigrid methods have long been used as efficient solvers for a large
+class of discrete differential equations. Recently, parallel multigrid
+solvers have been primarily implemented within an MPI model, with
+scalability to thousands of cores. With manycore GPU architectures
+gaining popularity, there is an increased desire to extend multigrid
+solvers to these architectures. In these environments, algebraic
+multigrid methods can be cumbersome due to their reliance on indirect
+addressing. In contrast, structured-grid methods, such as BoxMG, achieve
+efficiency for heterogeneous problems with only direct addressing. In
+this talk, I will discuss the advantages of structured-grid multigrid
+methods over algebraic methods on GPU architectures. I will also present
+preliminary results of accelerating parallel BoxMG with GPUs.
+
+
+\end{document}

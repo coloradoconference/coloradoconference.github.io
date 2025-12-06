@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>missi094446</TITLE>
+<META NAME="description" CONTENT="missi094446">
+<META NAME="keywords" CONTENT="missi094446">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="missi094446.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Nikolaos M Missirlis 
+<BR><B>The nine neighbor Extrapolated Diffusion</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Informatics and Telecommunications 
+<BR>
+University of Athens 
+<BR>
+Panepistimiopolis 
+<BR>
+15784 
+<BR>
+Ilisia 
+<BR>
+Athens 
+<BR>
+Greece
+
+<BR><TT>nmis@di.uoa.gr</TT>
+<BR>
+Aikaterini Dimitrakopoulou
+</DIV>
+
+<P>
+The performance of a balancing algorithm can
+be measured in terms of number of iterations it requires to reach a
+balanced state and in terms of the amount of load moved over the
+edges of the underlying processor graph. In the Diffusion (DF)
+method [<A
+ HREF="node1.html#Cybe89">3</A>], [<A
+ HREF="node1.html#Boil90">1</A>] a processor simultaneously sends
+workload to its neighbors with lighter workload and receives from
+its neighbors with heavier workload.
+More specifically DF is given by the
+following iterative scheme
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="It:000"></A><!-- MATH
+ \begin{equation}
+u^{(n+1)}_i = u^{(n)}_i - \sum_{j \in N(i)} c_{ij} (u^{(n)}_i-
+u^{(n)}_j),\ \ n=0,1,2, \dots,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="384" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle u^{(n+1)}_i = u^{(n)}_i - \sum_{j \in N(i)} c_{ij} (u^{(n)}_i- u^{(n)}_j),\ \ n=0,1,2, \dots,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $c_{ij} > 0$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ c_{ij} &gt; 0$">
+ are the edge weights (or diffusion parameters),
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ N(i)$">
+ is the set of the nearest neighbors of node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ i$">
+ of the graph
+<IMG
+ WIDTH="81" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ G=(V,E)$">
+ and <!-- MATH
+ $u^{(n)}_i, i=0,1,2, \dots,|V|$
+ -->
+<IMG
+ WIDTH="161" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ u^{(n)}_i, i=0,1,2, \dots,\vert V\vert $">
+ is the load after the
+nth iteration on node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ i$">
+. The main problem here is the
+determination of the parameters <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ c_{ij}$">
+ such that the rate of
+convergence of DF is maximized.
+Various attempts to solve this problem are presented in
+[<A
+ HREF="node1.html#Cybe89">3</A>,<A
+ HREF="node1.html#Hong88">6</A>,<A
+ HREF="node1.html#Diek97">4</A>,<A
+ HREF="node1.html#Elsa04">5</A>] and [<A
+ HREF="node1.html#Xu97">9</A>].
+In [<A
+ HREF="node1.html#Kara04">7</A>] the following Extrapolated Diffusion (EDF) method was introduced
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="It:00"></A><!-- MATH
+ \begin{equation}
+u^{(n+1)}_i = u^{(n)}_i - \tau \sum_{j \in\mathcal{N}_1(i)} c_{ij} (u^{(n)}_i-
+u^{(n)}_j),\ \ n=0,1,2, \dots,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="401" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle u^{(n+1)}_i = u^{(n)}_i - \tau \sum_{j \in\mathcal{N}_1(i)} c_{ij} (u^{(n)}_i- u^{(n)}_j),\ \ n=0,1,2, \dots,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\tau\in\mathbb{R}\setminus\{0\}$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \tau\in\mathbb{R}\setminus\{0\}$">
+ and <!-- MATH
+ $c_{ij} > 0$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ c_{ij} &gt; 0$">
+ are the
+extrapolation parameter and the edge weights,
+respectively, <!-- MATH
+ $\mathcal{N}_1(i)$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathcal{N}_1(i)$">
+ is the set of the nearest neighbors of
+the node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ i$">
+ of the graph <IMG
+ WIDTH="81" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ G=(V,E)$">
+ and <!-- MATH
+ $u^{(n)}_i, i=0,1,2, \dots,|V|$
+ -->
+<IMG
+ WIDTH="161" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ u^{(n)}_i, i=0,1,2, \dots,\vert V\vert $">
+
+is the load after the
+nth iteration on node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ i$">
+.
+In fact, we let the extrapolation parameter vary for each node <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ i$">
+, so
+instead of <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \tau $">
+ in (<A HREF="#It:00"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>)
+we introduced a set of parameters <!-- MATH
+ $\tau _i, i=0,1,2, \dots,|V|$
+ -->
+<IMG
+ WIDTH="146" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \tau _i, i=0,1,2, \dots,\vert V\vert $">
+ and called (<A HREF="#It:00"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>)
+the local EDF method [<A
+ HREF="node1.html#Kara04">7</A>,<A
+ HREF="node1.html#MarkoMiss10">8</A>]. Note that if <IMG
+ WIDTH="42" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \tau=1$">
+,
+(<A HREF="#It:00"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is the classical Diffusion (DF) method
+[<A
+ HREF="node1.html#Cybe89">3</A>,<A
+ HREF="node1.html#Boil90">1</A>]. In [<A
+ HREF="node1.html#Xu97">9</A>] optimum values for the edge weights
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ c_{ij}$">
+ were determined under the hypothesis that they are all equal.
+The generalized problem of determining optimum values for the edge
+weights <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ c_{ij}$">
+ and <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \tau_{i}$">
+ was first solved in [<A
+ HREF="node1.html#Kara04">7</A>]. In
+particular, closed form formulae for the optimum values for <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \tau _i$">
+s
+and <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ c_{ij}$">
+s were determined for the nD-torus [<A
+ HREF="node1.html#Kara04">7</A>] and nD-mesh
+[<A
+ HREF="node1.html#MarkoMiss10">8</A>]
+by applying local Fourier analysis [<A
+ HREF="node1.html#Bra77">2</A>]. As a result, it was
+found that for square tori and meshes EDF coincides with DF whereas for
+orthogonal tori and meshes it becomes twice as fast as DF.
+In addition, it was shown that EDF for orthogonal tori is four times
+faster than orthogonal meshes [<A
+ HREF="node1.html#MarkoMiss10">8</A>].
+
+<BR>
+In the present work we consider the case of increasing the number of
+neighbors of node i for the computation of its load.
+In other words we consider the nine neighbor weighted Laplacian matrix
+formed not only by the five nearest neighbor nodes but also by their four
+neighbors with path length two from node i in an attempt to increase the
+convergence rate of the EDF method. As a consequence, we show that the
+rate of convergence of EDF is improved asymptotically by <IMG
+ WIDTH="34" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ 60\%$">
+ for torus
+graphs.
+
+<BR>
+The rest of the paper is organized as follows: In section 2 we
+introduce the local NEDF method using nine neighbors of node i. In
+section 3 we find closed form formulae for the optimum values of the
+parameters <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \tau _i$">
+ such that the convergence of the local NEDF method is
+maximized. The determination of the optimum values for the edge weights
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ c_{ij}$">
+ is presented in section 4 with a comparison of the NEDF and EDF
+methods with five and nine neighbors, respectively for torus graphs.
+Section 5 presents our numerical experiments and finally, in section 6 we
+state our conclusions.
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

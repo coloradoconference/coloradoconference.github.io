@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Miguel Aguilo \\
+{\bf Solving Large-Scale Inverse Problems in Elasticity Using Sequential Quadratic Programming}}
+
+Optimization and Uncertainty Quantification \\ P O Box 5800 \\ MS 1318 \\ Sandia National Laboratories \\ Albuquerque \\ NM \\ USA
+\\
+{\tt maguilo@sandia.gov}\\
+Denis Ridzal\\
+Joseph Young\end{center}
+
+In this work we use a matrix-free trust-region sequential
+quadratic programming (SQP) algorithm to solve inverse
+problems governed by the partial differential equations
+(PDEs) of linear and nonlinear elasticity.
+SQP methods are based on the successive minimization of a
+quadratic model of the Lagrangian functional subject to a
+linear Taylor model of the PDE constraints.
+We derive first-order and second-order derivative operators
+that are necessary for an accurate and efficient
+implementation of these models in the context of elasticity
+equations.
+
+The linear systems arising in our approach are related to
+convex quadratic programs that involve the model of the PDE
+constraints, but not the model of the Lagrangian functional.
+Such linear systems can be solved efficiently using
+preconditioners based on available iterative PDE solvers.
+The effectiveness of our approach is demonstrated through
+numerical examples in linear elastodynamics and nonlinear
+elastostatics.
+
+
+\end{document}

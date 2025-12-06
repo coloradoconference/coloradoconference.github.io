@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Erik G. Boman \\
+{\bf Partitioning for Hybrid Direct-Iterative Preconditioners and Solvers}}
+
+Sandia National Labs \\ PO Box 5800 \\ Albuquerque \\ NM 87185-1318
+\\
+{\tt egboman@sandia.gov}\\
+Sivasankaran Rajamanickam\\
+Jeremie Gaidamour\end{center}
+
+Hybrid direct-iterative methods are attractive since they attempt
+to combine ``the best of two worlds''. Several such solvers have been
+developed recently. We focus on ShyLU and HIPS in this talk.
+First we describe ShyLU, which will become a new Trilinos package.
+We use a Schur complement method where subproblems are solved using a
+direct solver while the Schur complement is solved iteratively.
+We employ a block decomposition, which is formed in a fully automatic way
+using state-of-the-art partitioning and ordering algorithms in
+the Zoltan and Scotch software packages. We discuss the choice of
+partitioning strategy, and in particular, narrow vs. wide separators,
+and study the impact on the Schur complement system.
+
+We have two main goals with ShyLU: First, we want a fast and robust
+solver/preconditioner for multicore compute nodes. Second, due to its
+modular design, ShyLU can serve as an research platform to compare
+algorithms. For example, ShyLU supports two different approaches
+to forming a sparse preconditioner for the Schur complement:
+dropping and probing.
+
+We demonstrate the robustness and effectiveness of ShyLU
+for problems from a variety of applications. We have found
+it is particularly effective on circuit simulation problems where
+many iterative methods fail.
+
+Finally, we compare ShyLU to HIPS, another parallel hybrid solver.
+HIPS uses a hierarchical decomposition since it was designed for
+large-scale problems, while ShyLU is intended to be used in conjunction
+with domain decomposition or multigrid for very large problems.
+We explain differences in the design and algorithms, and compare
+their performance.
+
+
+\end{document}

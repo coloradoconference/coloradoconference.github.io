@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wilds093678</TITLE>
+<META NAME="description" CONTENT="wilds093678">
+<META NAME="keywords" CONTENT="wilds093678">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="wilds093678.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html5"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html6"
+  HREF="node1.html">References</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Stefan M. Wild 
+<BR><B>Optimal Finite Difference Derivatives of Noisy, Iterative Simulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 S Cass Ave Bldg 240-1154 
+<BR>
+Argonne IL 60439
+
+<BR><TT>wild@mcs.anl.gov</TT>
+<BR>
+Jorge Mor&#233;
+</DIV>
+
+<P>
+We have developed new mathematical theory and tools for estimating the
+computational noise that arises in numerical simulations throughout
+scientific computing
+[4].
+Roundoff errors, discretizations, numerical solutions to systems of
+equations, and adaptive techniques are among the many sources
+of computational noise, which can destroy the smoothness of
+the processes underlying a simulation and complicate optimization,
+sensitivity analysis, and other applications depending on the
+simulation output.
+Our theory is based on a stochastic model but does not
+assume a specific form (e.g., Gaussian or mean zero)
+for the distribution of the noise. Our technique is similar to that of
+Hamming
+[3]
+and has been validated empirically on
+deterministic simulations where the theory does not hold.
+
+<P>
+In this talk, we use an estimate of the computational noise to address a
+longstanding problem in derivative estimation:
+<I>How should finite difference parameters be determined
+when working with a noisy function?</I>
+
+<P>
+We have derived optimal finite difference parameters that are easy to
+compute, depending only on an estimate of the computational noise and a
+coarse bound on a higher-order derivative (typically requiring just a few
+additional simulations)
+[5].
+Our estimates, <!-- MATH
+ $h_{\rm opt}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ h_{\rm opt}$">
+,
+come with provable
+approximation bounds for the resulting mean-squared error between the
+finite difference estimate and the directional derivative of a smooth
+function,
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:bound"></A><!-- MATH
+ \begin{equation*}
+\mathcal{E}(h_{\rm opt}) \leq \gamma \min \limits_{h\leq h_U}
+\mathcal{E}(h), \qquad
+\mathcal{E}(h) = \mathbb{E}
+\left\{\left(\frac{f(x_0+hp)-f(x_0)}{h}-f'_s(x_0;p) \right)^2 \right\}.
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="538" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \mathcal{E}(h_{\rm opt}) \leq \gamma \min \limits_{h\leq h_U} \ma...
+...thbb{E} \left\{\left(\frac{f(x_0+hp)-f(x_0)}{h}-f'_s(x_0;p) \right)^2 \right\}.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+An exciting aspect of this work is that we can obtain bounds on the number
+of correct digits in the noisy derivative estimate. For example, for
+forward differences, a typical approach is to use a multiple of the square
+root of the machine's precision. Our numerical experiments show that in
+many applications our estimate obtains 2-3 more digits of accuracy in the
+derivative than does the classical approach.
+
+<P>
+Here we use the symmetric positive definite matrices
+in the Florida Sparse Matrix collection
+[2]
+to
+define noisy, deterministic quadratics of the form
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+f(x) = \|y_{\tau}\|_2^2, \mbox{ where } Ay_{\tau}=x,
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="100" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle f(x) = \Vert y_{\tau}\Vert _2^2,$">&nbsp; &nbsp; where <IMG
+ WIDTH="67" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle Ay_{\tau}=x,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ y_{\tau}$">
+ is obtained using an iterative solver with tolerance
+<IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \tau$">
+.
+We consider Krylov solvers in <TT>MATLAB</TT>
+[1],
+but the
+numerical results are similar for other solvers.
+
+<P>
+We use these finite difference estimates to show how computational
+noise can destroy the accuracy of derived calculations, for example, the
+computation of derivatives.
+In some cases, the accuracy of derivative estimates based on function
+values is many times better than that of finite-precision evaluation of
+derivatives obtained by hand-coded or automatically differentiated codes.
+Our experiments also illustrate that the relationship between
+truncation errors and the computational noise can be surprisingly
+nonintuitive.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html7"
+  HREF="node1.html">References</A>
+<LI><A NAME="tex2html8"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html5"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html6"
+  HREF="node1.html">References</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,63 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large William, T Taitano \\
+{\bf Development of a fully implicit physics-based multi-grid Accelerator for Vlasov-Ampere Particle in Cell (PIC) system}}
+
+5577 Wyoming Blvd NE \\ 207N \\ Albuquerque \\ NM \\ 87109
+\\
+{\tt williamtaitano1208@hotmail.com}\\
+Dana, A Knoll\\
+Luis Chacon\end{center}
+
+\noindent Explicit time integration is predominant in particle-in-cell
+(PIC) methods for kinetic plasma
+simulation. In explicit methods, the time-step size is restricted by the
+CFL condition. This makes
+detailed investigation of problems that occurs on ion time-scales
+challenging. Implicit methods
+are not restricted by any of the numerical time-scales.
+Jacobian-Free-Newton-Krylov (JFNK) is one method that solves a coupled
+set of non-linear system of equations that promises investigation of
+implicit multi-time-scale kinetic plasma physics simulation possible [1].
+With appropriate discretization, one can also use a mesh spacing which is
+larger than the Debye length. An alternative implicit approach have also
+been investigated by Degond et al [2]. The approach is formulated around
+a semi-implicit, reformulated Poisson's equation in order to remove the
+stiffness associated with the pure Poisson equation to solve for the
+electric-field. \\
+
+\noindent Our work is based on developing a moment-based approach which
+may allow us to abandon the tight JFNK iteration between fields and
+particles. The work is an extension of [1]. The method achieves
+acceleration of the fine-scale transport equation solution that lives in
+a 6D phase-space through the coarse-resolution moment system which lives
+in the 3D physical space. This is analogous to the multi-grid method in
+which the coarse grid solution damps out the short wavelength solutions
+and accelerates the solution of the fine grid system through series of
+prolongation and restriction steps for iterative methods. In our method,
+we will perform a similar prolongation and restriction process between
+the two physical scale. The prolongation process that transfers
+information from the coarse scale moment system to the fine scale
+transport system can be regarded as the coarse space moment expansion of
+transport operators (such as the scattering operator in neutron
+transport). The restriction process, which transfers information from the
+fine-scale transport system to the coarse-scale moment system is the
+phase-space averaging of the transport solution to obtain quantities for
+the moment system (such as the Eddington tensor in neutron transport or
+the stress tensor in plasma physics). \\
+
+\noindent Hence, the approach may be truly interpreted as a
+"physics-based" multi-grid method. We present our progress on this new
+multi-scale algorithm and contrast it with the approaches of [1] and [2].
+We will also show a connection to moment-based acceleration of transport
+iteration used to solve for the neutron transport equation.\\[4pt] [1] G.
+Chen, et al., J. Comp. Phys., vol. 230 (2011)
+\\[0pt] [2] P. Degond, et al., J. Comp. Phys., vol. 229 (2010)
+
+
+\end{document}

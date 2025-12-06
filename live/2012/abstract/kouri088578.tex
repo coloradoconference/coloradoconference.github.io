@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Drew P. Kouri \\
+{\bf An Approach for the Adaptive Solution of Optimization Problems Governed by PDEs with Uncertain Coefficients}}
+
+6100 Main St - MS 134 \\ Houston \\ TX 77005-1892
+\\
+{\tt dk3@rice.edu}\end{center}
+
+Using derivative based numerical optimization routines to solve
+optimization problems governed by partial differential equations (PDE)
+with uncertain coefficients is computationally expensive due to the large
+number of PDE solves required at each iteration. I propose a framework
+for the adaptive solution of such optimization problems based on the
+retrospective trust region algorithm. I prove global convergence of the
+retrospective trust region algorithm under weak assumptions on gradient
+inexactness. If one can bound the error between actual and modeled
+gradients using reliable and efficient a posteriori error estimators,
+then the global convergence of the proposed algorithm follows. I present
+a stochastic collocation finite element method for the solution of the
+PDE constrained optimization problems. In the stochastic collocation
+framework, the state and adjoint equations can be solved in parallel.
+Initial numerical results for the adaptive solution of these optimization
+problems are presented.
+
+
+\end{document}

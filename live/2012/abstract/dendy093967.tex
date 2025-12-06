@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Joel E. Dendy \\
+{\bf Black Box Multigrid for Checkerboard Problems}}
+
+Los Alamos National Laboratory \\ MS-B284 \\ Los Alamos \\ NM 87545
+\\
+{\tt jed@lanl.gov}\\
+John D. Moulton\end{center}
+
+Black Box Multigrid for Checkerboard Problems
+
+In the 1981 paper by Alcouffe, et. al., the two-dimensional
+diffusion equation with discontinuous diffusion coefficients is
+considered. Finite volume discretization is considered, giving rise to
+a five-point operator on the finest grid. Example II in that paper is
+a problem with a four corner junction problem, otherwise known as a
+checkerboard problem. The diffusion coefficient is constant on four
+quadrants that meet at the center point, with values in the northwest,
+northeast, southwest, and southeast quadrants of 1000, 1, 1, and 1000,
+leading to values of 500.5 at the center point. Results are given for
+these values and for 500.5 replaced by, presumably, 1. Reference is
+made to modification using (5.8), but the discussion in that section of
+the paper is in terms of normalized coefficients 1, \epsilon,
+\epsilon, and 1. Therefore, it is not clear what problem is being
+reported on, what the convergence criterion is, etc. In any case, Alan
+Chen of the University of Washingtion was unable to obtain good
+convergence for this modified problem using the current version of
+BoxMG, with red-black point relaxation. Curiously, convergence is good
+for the values 500.5. Brandt's motivation for replacing 500.5 by,
+presumably 1, is to facilitate communication between the northeast and
+southwest regions. We show how to modify BoxMG to achieve good
+convergence for this modified problem. The modification is consistent
+with Brandt's intuition. We also investigate the adaptive method of Chartier,
+MacLachlan, and Moulton for the modified problem. Finally, AMG
+would presumably perform well for the modified problem, since the weak
+connections to the center point would lead to the center point not
+being a grid point on coarser grids. Therefore, there may be
+implications for improving AMG in the cases that bad coarse grids are
+chosen.
+
+
+\end{document}

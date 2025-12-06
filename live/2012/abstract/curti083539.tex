@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Frank E. Curtis \\
+{\bf Infeasibility Detection in Nonlinear Optimization}}
+
+Lehigh University \\ Department of ISE \\ 200 W Packer Ave \\ Bethlehem \\ PA 18015
+\\
+{\tt frank.e.curtis@gmail.com}\\
+Jim Burke\\
+Hao Wang\end{center}
+
+Contemporary numerical methods for nonlinear optimization possess strong
+global and fast local convergence guarantees for feasible problems under
+common assumptions. They also often provide guarantees for (eventually)
+detecting if a problem is infeasible, though in such cases there are
+typically no guarantees of \emph{fast} local convergence. This is a
+critical deficiency as in the optimization of complex systems, one often
+finds that nonlinear optimization methods can fail or stall due to minor
+constraint incompatibilities. This may \emph{suggest} that the problem is
+infeasible, but without an infeasibility certificate, no useful result is
+provided to the user. We present a sequential quadratic optimization
+(SQO) method that possesses strong global and fast local convergence
+guarantees for both feasible and infeasible problem instances.
+Theoretical results are presented along with numerical results indicating
+the practical advantages of our approach.
+
+
+\end{document}

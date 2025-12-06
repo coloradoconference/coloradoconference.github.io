@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Irad Yavneh \\
+{\bf Algebraic Collocation Coarse Approximation (ACCA) Multigrid}}
+
+Computer Science Department \\ Technion city 32000 \\ Haifa \\ Israel
+\\
+{\tt irad@cs.technion.ac.il}\\
+Ran Zemach\\
+Eran Treister\end{center}
+
+Most algebraic multigrid (AMG) methods define the coarse operators by
+applying the (Petrov-)Galerkin coarse
+approximation where the sparsity pattern and operator complexity of the
+multigrid hierarchy is
+dictated by the multigrid prolongation and restriction. Therefore, AMG
+algorithms usually must settle on some compromise between the quality of
+these operators and the aggressiveness of the coarsening, which affects their
+rate of convergence and operator complexity. In this paper we propose an
+algebraic generalization of the
+collocation coarse approximation (CCA) approach of Wienands and Yavneh,
+where the choice of the sparsity pattern
+of the coarse operators is independent of the choice of the high-quality
+transfer operators. The new algorithm is based on the
+aggregation framework (smoothed and non-smoothed). Using a small set of
+low-energy eigenvectors, it computes the coarse grid operator
+by a weighted least squares process. Numerical experiments for two
+dimensional diffusion problems with sharply varying coefficients
+demonstrate the efficacy and potential of this multigrid algorithm.
+
+
+\end{document}

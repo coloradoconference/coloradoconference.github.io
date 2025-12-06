@@ -1,0 +1,80 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ray Tuminaro \\
+{\bf A Galerkin-based Methodology for Constructing AMG Grid Transfers}}
+
+MS 9159 \\ PO Box 969 \\ Livermore \\ CA 94551
+\\
+{\tt rstumin@sandia.gov}\\
+Michael Gee\\
+Tobias Wiesner\end{center}
+
+A methodology is proposed for constructing algebraic multigrid (AMG)
+transfer operators. A key feature of the approach is generality
+as it can be applied to nonsymmetric systems,
+can emphasize accuracy for different user-defined modes,
+and can incorporate a variety of
+coarsening strategies and grid transfer sparsity patterns.
+The basic concept centers on
+approximation of idealized Schur complement-based grid transfers via a Galerkin
+projection. To explain the idea,
+consider the solution of the matrix equations
+\begin{equation} \label{matrix equation}
+A u = b
+\end{equation}
+via an algebraic multigrid algorithm.
+Let $P$ and $R$ represent prolongation and restriction matrices respectively
+and now examine
+the equations
+\begin{equation} \label{core transfer equation}
+A P = 0 ~~\mbox{and}~~ R A = 0 .
+\end{equation}
+Obviously, only trivial solutions are obtained if $A$ is square
+and nonsingular and no restrictions are placed on $P$ and $R$.
+As in classical AMG, let the vertices be partitioned into two sets.
+The $c$-point set corresponds to vertices that remain on the next
+coarsest level while all other vertices are in the $f$-point set.
+These sets induce a partitioning of $P$ and $R$:
+\begin{equation}
+\label{lab:prolongatorandrestrictor}
+R = \bigl(R_f~~~~R_c\bigr) ~~\mbox{and}~~
+P =\begin{pmatrix}P_f\\ P_c\end{pmatrix} .
+\end{equation}
+It is easy to show that idealized Schur complement-based grid
+transfers are obtained if we restrict the solution spaces so that
+$P_c = I$ and $R_c = I$ and if we enforce zero residuals
+only at $f$-points. That is, $(AP)_f = 0 $ and $(RA)_f = 0 $. More
+generally, this can be formulated as a Galerkin process where
+spaces for solutions and residuals define a projection
+of~\eqref{core transfer equation}. While Schur
+complements are generally not computationally attractive,
+we investigate other test and trial spaces for residuals and solutions.
+In particular, spaces are discussed which limit the sparsity pattern
+of the grid transfers while ensuring that a few modes (e.g. constants)
+are accurately transferred. We then illustrate that
+these spaces lead to practical and efficient AMG grid transfer
+operators which can be computed by a few iterations of a Krylov
+process.
+The final algorithm is closely
+related to energy minimizing algebraic multigrid ideas (where the minimization
+properties of the Krylov method implicitly define minimization properties and
+norms associated with the grid transfer basis functions),
+but it is also suitable for nonsymmetric systems.
+
+Numerical results are given to demonstrate flexibility/adaptability
+and to highlight how this mathematical flexibility leads to some
+interesting possibilities for AMG software.
+Examples are taken from
+applications in fluid flow, semiconductor modeling, and ice sheet fracture.
+These includes cases where
+grid transfers with irregular sparsity patterns are needed
+as well as some
+challenging nonsymmetric linear systems.
+
+
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Mark Berrill \\
+{\bf Adaptive Magnetohydrodynamics Simulations with SAMRAI}}
+
+Oak Ridge National Laboratory \\ PO BOX 2008 MS6164 \\ Oak Ridge \\ TN 37831-6164
+\\
+{\tt berrillma@ornl.gob}\\
+Luis Chacon\\
+Bobby Philip\end{center}
+
+A wide variety of plasma problems require both high resolution and large
+spatial domains that present a problem for existing models. Adaptive Mesh
+Refinement (AMR) provides an efficient method of obtaining both high
+resolution and a large spatial domain. AMR allows for the possibility of
+simultaneously achieving high resolution over part of a spatial domain,
+while maintaining a large computational domain. For structure AMR, this
+is achieved by providing different levels of refinement over different
+parts of the computational domain by dividing the domain into different
+patches and then providing refinement over part of those patches. To
+achieve these goals we are combining a MHD plasma model with structured
+adaptive mesh refinement through the SAMRAI framework [1]. This allows
+for the continued use of a relatively simple discretization of the
+spatial domain with the flexibility of a spatially and time-varying
+resolution. It also lends itself to large scale parallelism through
+splitting of the domain and spatial scales. The coupled model uses SAMRAI
+to provide a structured AMR hierarchy that maintains the global problem
+solution. For each patch, we apply the physics operators by using an
+existing magneto-hydrodynamic (MHD) model PIXIE3D [2]. PIXIE3D is a fully
+implicit, fully nonlinear finite-volume code that solves the extended MHD
+set of equations in generalized curvilinear geometry [2,3]. Its
+non-linearly stable collocated discretization, combined with its fully
+nonlinear character, lends it exceptional numerical robustness and
+conservation properties [2]. Algorithmically, PIXIE3D has demonstrated
+excellent scalability serially and in parallel with up to 4092 processors
+[4]. Global time integrators and implicit solvers over the entire AMR
+hierarchy are then applied to solve the resulting problem over the
+complete domain.
+
+We test the algorithm using the island coalescence MHD problem [4]. The
+island coalescence is a self-contained, multiscale MHD driven
+reconnection problem in which two co-flowing current channels attract and
+reconnect. In the reconnection process, extremely thin current sheets of
+thickness sqrt(eta) (with eta the normalized resistivity) develop
+non-linearly. Capturing such nonlinear current sheet thinning behavior is
+essential for the accurate modeling of the macroscopic dynamics, and thus
+mesh adaptivity is of the essence. Furthermore, because the MHD system is
+a stiff hyperbolic system, finer meshes are accompanied by more stringent
+CFL time step stability constraints, and hence an implicit temporal
+scheme is desirable.
+
+1. http://computation.llnl.gov/casc/SAMRAI/index.html
+
+2. L. Chacón. Comput. Phys. Comm., 163, p. 143 (2004).
+
+3. L. Chacón. Phys. Plasmas, 15, 056103 (2008).
+
+4. J. Finn and P. Kaw, Phys. Fluids, Vol. 20, p. 72 (1977).
+
+
+\end{document}

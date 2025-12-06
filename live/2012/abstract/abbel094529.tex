@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dirk Abbeloos \\
+{\bf A FMG half-space analysis for boundary control problems.}}
+
+University of Leuven \\ Celestijnenlaan 200A \\ 3001 Heverlee
+\\
+{\tt dirk.abbeloos@cs.kuleuven.be}\\
+Stefan Vandewalle\end{center}
+
+We present a full multigrid (FMG) half-space analysis for one-shot
+multigrid methods for time-dependent boundary control problems. The
+control problem is written as an optimization problem consisting of a
+linear parabolic PDE constraint and a quadratic tracking objective. More
+precisely, we want to find the optimal control which steers the state of
+the system as close as
+possible to a given, predetermined state. In addition we regularize the
+problem with a Tikhonov regularization term given by the squared L2-norm
+of the control, which can be interpreted as the cost of the control.
+
+Numerical experiments reveal strong divergence of classical multigrid
+methods for small weights of the regularization term. Here classical is
+interpreted as using well known modifications of standard multigrid
+components near the boundary, e.g. restriction, prolongation, boundary
+condition discretization, etc. For the interior equations well
+established multigrid components were choosen, which illustrate that the
+divergence is induced by the boundary control and not the interior
+equations.
+
+In order to analyse our multigrid method classical tools as for example
+Fourier analysis are insufficient. They fail to incorporate the effect of
+the boundary condition on the multigrid method. More precisely, they only
+analyse the interior equations on an infinite or periodic grid, i.e. they
+analyse the control problem without the boundary control. A more
+complicated FMG half-space analysis allows us to analyse the effect of
+the boundary. In our talk we present this FMG half-space analysis for a
+selection of boundary control problems, as well as the insights obtained
+from it. In addition we propose a modified multigrid method to solve the
+given boundary control problem.
+
+
+\end{document}

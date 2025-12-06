@@ -1,0 +1,185 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Carlo Janna \\
+{\bf Enhanced Block FSAI preconditioning with Domain Decomposition}}
+
+University of Padova \\ via Trieste 63 \\ 35121 Padova \\ Italy
+\\
+{\tt janna@dmsa.unipd.it}\\
+Massimiliano Ferronato\\
+Giuseppe Gambolati\end{center}
+
+Adaptive Block FSAI (ABF) [1,2] is a novel and effective preconditioning
+technique to solve
+Symmetric Positive Definite (SPD) linear systems of equations $Ax=b$ in a
+parallel computing environment.
+ABF is a generalization of the well-known Factored Sparse Approximate
+Inverse (FSAI) [3] with
+the key feature of providing a lower triangular factor $F$ such that
+$FAF^T$ resembles as much as
+possible a block diagonal matrix. $F$ is to some extent an "inner
+preconditioner" which aims at decoupling
+every diagonal block one from another. At the single processor level, ABF
+may be linked to any other
+scalar preconditioner, or even direct solver, which therefore performs as
+an "outer preconditioner".
+Recently it has been noticed that graph partitioning techniques can be
+very conveniently used
+to improve the ABF performance reducing both
+the communication overhead and the number of iterations required for
+convegence, thus greatly
+enhancing the preconditioner scalability [4]. This suggests to look for a
+stronger connection between ABF
+and Domain Decomposition.
+
+Consider of computing an ABF preconditioner with a set of $m$ consecutive
+unknowns assigned
+to the current processor $c$. The SPD matrix $A$ can be ideally partitioned as follows:
+\begin{equation}
+A = \left[
+\begin{array}{ccc}
+B & E & G \\
+E^T & C & H \\
+G^T & H^T & D \\
+\end{array}
+\right]
+\end{equation}
+where $\left[ \begin{array}{ccc} E^T & C & H \end{array} \right]$ includes the rows
+assigned to $c$. It can be shown that the corresponding stripe of $F$ is
+actually computed as:
+\begin{equation}
+F_i = \left[
+\begin{array}{ccc}
+-E^T \tilde{B}^{-1} & I_m & 0 \\
+\end{array}
+\right]
+\end{equation}
+with $\tilde{B}$ an approximation of $B$ obtained through our adaptive technique.
+The $c$-th diagonal block of $FAF^T$ of size $m$, which is stored in the
+current processor and is
+needed for computing the outer preconditioner, takes on the following expression:
+\begin{equation}
+[FAF^T]_{cc} = C - E^T(2 \tilde{B}^{-1} - \tilde{B}^{-1} B \tilde{B}^{-1}
+) E = C - E^T \hat{B}^{-1} E
+\end{equation}
+As is usually done in domain decomposition, we distinguish between
+"inner" and "boundary" unknowns,
+and number for each subdomain first the former and second the latter
+using pedices $i_p$ and $b_p$ for
+the previous processors and $i_c$ and $b_c$ for the current processor, respectively.
+The matrices $E$ and $\hat{B}^{-1}$ can be written in the following block form:
+\begin{equation}
+E = \left[
+\begin{array}{cc}
+E_{i_p i_c} & E_{i_p b_c} \\
+E_{b_p i_c} & E_{b_p b_c} \\
+\end{array}
+\right] = \left[
+\begin{array}{cc}
+0 & 0 \\
+0 & E_{b_p b_c} \\
+\end{array}
+\right]
+\qquad
+\hat{B}^{-1} = \left[
+\begin{array}{cc}
+\hat{B}^{-1}_{i_p i_p} & \hat{B}^{-1}_{i_p b_p} \\
+\hat{B}^{-1}_{b_p i_p} & \hat{B}^{-1}_{b_p b_p} \\
+\end{array}
+\right]
+\label{blkEq}
+\end{equation}
+Three out of four blocks in $E$ are obviously zero because there is no
+connection between internal
+unknowns of different subdomains.
+Thus the $c$-th diagonal block of $FAF^T$ becomes:
+\begin{equation}
+[FAF^T]_{cc} = \left[
+\begin{array}{cc}
+C_{i_c i_c} & C_{i_c b_c} \\
+C_{i_c b_c}^T & C_{b_c b_c} - E_{b_p b_c}^T \hat{B}^{-1}_{b_p b_p} E_{b_p b_c} \\
+\end{array}
+\right]
+\label{FAFT_cc}
+\end{equation}
+Equation~(\ref{FAFT_cc}) shows that ABF effects only the boundary
+unknowns of the diagonal block $C$.
+Then, $[FAF^T]_{cc}$ can be exactly factored and used as the outer
+preconditioner for the current processor.
+
+Assume to make a standard domain decomposition of $A$, i.e.~we exactly
+factorize $C_{i_c i_c}$,
+compute the Schur complement $S$ and solve an inner system with $S$.
+The diagonal block of $S$ in processor $c$ reads:
+\begin{equation}
+S_{b_c b_c} = C_{b_c b_c} - C_{i_c b_c}^T C_{i_c i_c}^{-1} C_{i_c b_c}
+\end{equation}
+while the extra-diagonal blocks are equal to $E_{b_p b_c}$ and $E_{b_p
+b_c}^T$ of eq.~(\ref{blkEq}).
+It can be shown that solving the previous Schur complement system using
+ABF as a preconditioner is equivalent
+to preconditioning the whole matrix $A$ with ABF where $\tilde{B}^{-1}$
+is exactly $B^{-1}$ in the computation
+of $\hat{B}^{-1}_{b_p b_p}$ in~(\ref{FAFT_cc}).
+
+Using a Schur complement domain decomposition in full leads to a more
+accurate, though expensive,
+approximation of $A$, while using a full matrix ABF preconditioner is
+cheaper but, generally, less effective.
+A good trade-off between the two approaches may be provided by using an
+incomplete factorization for the "inner" blocks.
+Let us number all the inner unknowns of each block first, and the
+boundary unknowns second. The global
+matrix $A$ can be now written as:
+\begin{equation}
+A = \left[
+\begin{array}{cc}
+A_{ii} & A_{ib} \\
+A_{ib}^T & A_{bb} \\
+\end{array}
+\right]
+\label{DDMAT}
+\end{equation}
+where $A_{ii}$ is a block diagonal matrix including the $C_{i_c i_c}$
+blocks, $A_{ib}$ is a rectangular
+matrix with the $C_{i_c b_c}$ blocks, and $A_{bb}$ is a generally sparse
+matrix with the $E_{b_p b_c}$
+and $C_{b_c b_c}$ blocks. $A$ in~(\ref{DDMAT}) can be preconditioned by
+the incomplete factorization of
+$A_{ii}$ and the computation of the approximate Schur complement $S$.
+Then, the ABF preconditioner can be used to
+approximately solve the inner system with $S$.
+
+Numerical tests on large size applications show that the resulting DD-ABF
+preconditioner is generally
+more efficient than ABF, especially for a large number of processors,
+thus ensuring a much better scalability.
+
+\vspace{1cm}
+
+References:
+
+[1] C. Janna, M. Ferronato and G. Gambolati, A Block FSAI-ILU parallel preconditioner
+for symmetric positive definite linear systems, SIAM Journal on
+Scientific Computing, 32 (5) (2010),
+pp. 2468-2484.
+
+[2] C. Janna and M. Ferronato, Adaptive pattern research for Block FSAI preconditioners,
+SIAM Journal on Scientific Computing, 33 (6) (2011), pp. 3357-3380.
+
+[3] L. Y. Kolotilina and A. Y. Yeremin, Factorized sparse approximate
+inverse preconditioning
+I. Theory, SIAM J. Matrix Anal. Appl., 14 (1993), pp. 45-58.
+
+[4] C. Janna, M. Ferronato and N. Castelletto, Graph partitioning to
+improve the adaptive block
+FSAI parallel preconditioner, Computer Methods in Applied Mechanics and
+Engineering, submitted.
+
+
+\end{document}

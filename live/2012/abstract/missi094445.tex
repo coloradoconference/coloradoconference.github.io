@@ -1,0 +1,111 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Nikolaos M Missirlis \\
+{\bf The nine neighbor Extrapolated Diffusion}}
+
+Department of Informatics and Telecommunications \\ University of Athens \\ Panepistimiopolis \\ 15784 \\ Ilisia \\ Athens \\ Greece
+\\
+{\tt nmis@di.uoa.gr}\\
+Aikaterini Dimitrakopoulou\end{center}
+
+The performance of a balancing algorithm can
+be measured in terms of number of iterations it requires to reach a
+balanced state and in terms of the amount of load moved over the
+edges of the underlying processor graph. In the Diffusion (DF)
+method \cite{Cybe89}, \cite{Boil90} a processor simultaneously sends
+workload to its neighbors with lighter workload and receives from
+its neighbors with heavier workload.
+More specifically DF is given by the
+following iterative scheme
+\begin{equation}
+u^{(n+1)}_i = u^{(n)}_i - \sum_{j \in N(i)} c_{ij} (u^{(n)}_i-
+u^{(n)}_j),\ \ n=0,1,2, \dots, \label{It:000}
+\end{equation}
+where $c_{ij} > 0$ are the edge weights (or diffusion parameters),
+$N(i)$ is the set of the nearest neighbors of node $i$ of the graph
+$G=(V,E)$ and $u^{(n)}_i, i=0,1,2, \dots,|V| $ is the load after the
+nth iteration on node $i$. The main problem here is the
+determination of the parameters $c_{ij}$ such that the rate of
+convergence of DF is maximized.
+Various attempts to solve this problem are presented in
+\cite{Cybe89,Hong88,Diek97,Elsa04} and \cite{Xu97}.
+In \cite{Kara04} the following Extrapolated Diffusion (EDF) method was introduced
+\begin{equation}
+u^{(n+1)}_i = u^{(n)}_i - \tau \sum_{j \in\mathcal{N}_1(i)} c_{ij} (u^{(n)}_i-
+u^{(n)}_j),\ \ n=0,1,2, \dots, \label{It:00}
+\end{equation}
+where $\tau\in\mathbb{R}\setminus\{0\}$ and $c_{ij} > 0$ are the
+extrapolation parameter and the edge weights,
+respectively, $\mathcal{N}_1(i)$ is the set of the nearest neighbors of
+the node $i$ of the graph $G=(V,E)$ and $u^{(n)}_i, i=0,1,2, \dots,|V| $
+is the load after the
+nth iteration on node $i$.
+In fact, we let the extrapolation parameter vary for each node $i$, so
+instead of $\tau $ in (\ref{It:00})
+we introduced a set of parameters $\tau _i, i=0,1,2, \dots,|V| $ and called (\ref{It:00})
+the local EDF method \cite{Kara04,MarkoMiss10}. Note that if $\tau=1$,
+(\ref{It:00}) is the classical Diffusion (DF) method
+\cite{Cybe89,Boil90}. In \cite{Xu97} optimum values for the edge weights
+$c_{ij}$ were determined under the hypothesis that they are all equal.
+The generalized problem of determining optimum values for the edge
+weights $c_{ij}$ and $\tau_{i}$ was first solved in \cite{Kara04}. In
+particular, closed form formulae for the optimum values for $\tau _i$s
+and $c_{ij}$s were determined for the nD-torus \cite{Kara04} and nD-mesh
+\cite{MarkoMiss10}
+by applying local Fourier analysis \cite{Bra77}. As a result, it was
+found that for square tori and meshes EDF coincides with DF whereas for
+orthogonal tori and meshes it becomes twice as fast as DF.
+In addition, it was shown that EDF for orthogonal tori is four times
+faster than orthogonal meshes \cite{MarkoMiss10}.
+\\In the present work we consider the case of increasing the number of
+neighbors of node i for the computation of its load.
+In other words we consider the nine neighbor weighted Laplacian matrix
+formed not only by the five nearest neighbor nodes but also by their four
+neighbors with path length two from node i in an attempt to increase the
+convergence rate of the EDF method. As a consequence, we show that the
+rate of convergence of EDF is improved asymptotically by $60\%$ for torus
+graphs.
+\\ The rest of the paper is organized as follows: In section 2 we
+introduce the local NEDF method using nine neighbors of node i. In
+section 3 we find closed form formulae for the optimum values of the
+parameters $\tau_i$ such that the convergence of the local NEDF method is
+maximized. The determination of the optimum values for the edge weights
+$c_{ij}$ is presented in section 4 with a comparison of the NEDF and EDF
+methods with five and nine neighbors, respectively for torus graphs.
+Section 5 presents our numerical experiments and finally, in section 6 we
+state our conclusions.
+\noindent
+\begin{thebibliography}{99}
+\bibitem{Boil90} J. E. Boillat, Load balancing and poisson equation in a
+graph, Concurrency: Practice and Experience, 2, 289-313, 1990.
+\bibitem{Bra77} A. Brandt, Multi-level adaptive solutions to boundary-value problems,
+Math. Comput. 31,
+333-390,1977,
+\bibitem{Cybe89} G. Cybenko, Dynamic load balancing for distributed
+memory multi-processors, J. Parallel and Distr. Comp., 7, 1989, 279-301.
+\bibitem{Diek97} R. Diekmann, S. Muthukrishnan, M. V. Nayakkankuppam,
+Engineering diffusive load balancing algorithms using experiments. LNCS
+1253, 111-122, 1997.
+\bibitem{Elsa04} R. Els\"asser, B. Monien and R. Preis, Optimal Diffusion
+schemes and Load Balancing on Product Graphs,
+Parallel Proc. Letters, 14, 61-73, 2004.
+\bibitem{Hong88} J. Hong, X. Tau and M. Cheu, From local to global:
+an analysis of nearest neighbor balancing on hypercube, in Proc
+ACM Symp. on SIGMETRICS, 73-82, 1988.
+\bibitem{Kara04} G. Karagiorgos and N. Missirlis, Convergence of the
+diffusion method for weighted torus graphs using Fourier analysis, J.
+Theor. Comp. Sc., 401 (1-3)1-16,2008.
+\bibitem{MarkoMiss10} G. S. Markomanolis and N. M. Missirlis,Optimum
+Diffusion for Load Balancing in mesh networks,Euro-Par 2010,230-241,2010.
+\bibitem{Xu97}C.Xu and F. M. Lau, Load balancing in parallel computers:
+Theory and Practice
+\bibitem{dY71} D. M. Young, Iterative Solution of Large Linear Systems, Academic, 2003.
+\end{thebibliography}
+
+
+\end{document}

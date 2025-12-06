@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Alexander Hullmann \\
+{\bf On preconditioners for\\generalized sparse grid generating systems}}
+
+Institute for Numerical Simulation \\ University of Bonn \\ Wegelerstr 6 \\ D-53115 Bonn \\ Germany
+\\
+{\tt hullmann@ins.uni-bonn.de}\end{center}
+
+%-orig: \subsection*{On preconditioners for generalized sparse grid generating systems}
+%{\bf On preconditioners for generalized sparse grid generating systems}
+Tensor products of one-dimensional multilevel systems can be used to
+represent multivariate functions. Then, by a proper truncation of the
+resulting series expansion, we can construct problem-dependent sparse
+grids, which allow us to efficiently approximate higher-dimensional
+problems for various norms and smoothness classes.
+
+We discuss additive Schwarz preconditioners for the corresponding systems
+of linear equations. The problem of finding the optimal diagonal scaling
+for the generating system subspaces can be solved by means of Linear
+Programming. For e.g. $H^1$-elliptic problems, an optimally scaled
+regular sparse grid generating system exhibits a condition number of the
+order $O(k^{d-2})$ for level~$k$ in $d$~dimensions.
+
+This is suboptimal compared to the $O(1)$ condition numbers realized by
+prewavelet discretizations that directly rely on multiresolution norm
+equivalences. However, we will discuss an approach that likewise realizes
+$O(1)$ condition numbers in the generating system without specifically
+discretizing the detail
+spaces via more complicated basis functions.
+
+This is joint work with M.~Griebel (University of Bonn) and P.~Oswald
+(Jacobs University Bremen).
+
+
+\end{document}

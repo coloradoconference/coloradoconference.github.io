@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Umberto Villa \\
+{\bf A block-diagonal algebraic multigrid preconditioner for the Brinkman problem}}
+
+Dept of Mathematics & Computer Science \\ Emory University \\ 400 Dowman Dr \\ Atlanta \\ GA \\ 30322
+\\
+{\tt uvilla@emory.edu}\\
+Panayot S. Vassilevski\end{center}
+
+\newcommand{\curl}{\operatorname{curl}}
+\renewcommand{\div}{\operatorname{div}}
+
+The Brinkman model is a unified law governing the flow of a viscous fluid
+in cavity (Stokes equations) and in porous media (Darcy equations).
+It was initially proposed as a homogenization technique for the Navier-Stokes equations.
+Typical applications of this model are in underground water hydrology,
+petroleum industry, automotive industry, biomedical engineering, and heat
+pipes modeling.
+In this talk, we present a novel mixed formulation of the Brinkman
+problem. Introducing the flow's vorticity as additional unknown, this
+formulation leads to a uniformly stable and conforming discretization by
+standard finite element (N\'ed\'elec, Raviart-Thomas, piecewise
+discontinuous). Based on stability analysis of the problem in the
+$H(\curl)-H(\div)-L^2$ norms, we derive a scalable block diagonal
+preconditioner which is optimal in the constant coefficient case. Such
+preconditioner is based on the auxiliary space AMG solvers for $H(\curl)$
+and $H(\div)$ problems available in hypre
+(http://www.llnl.gov/CASC/hypre/). The theoretical results are
+illustrated by numerical experiments.\\
+
+This work was performed under the auspices of the U.S. Department
+of Energy by Lawrence Livermore National Laboratory under Contract
+DE-AC52-07NA27344.\\
+
+{\bf keywords}: Brinkman problem; Stokes-Darcy coupling; saddle point
+problems; block preconditioners; algebraic multigrid.
+
+
+\end{document}

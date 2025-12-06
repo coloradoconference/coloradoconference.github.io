@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>aktul094998</TITLE>
+<META NAME="description" CONTENT="aktul094998">
+<META NAME="keywords" CONTENT="aktul094998">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="aktul094998.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Hasan Metin Aktulga 
+<BR><B>Solving Large-scale Eigenvalue Problems in Nuclear Configuration Interaction Calculations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Lab 
+<BR>
+1 Cyclotron Rd 
+<BR>
+MS 50F-1650 
+<BR>
+Berkeley 
+<BR>
+CA 94720
+
+<BR><TT>hmaktulga@lbl.gov</TT>
+<BR>
+Chao Yang
+<BR>
+Esmond G. Ng
+<BR>
+Pieter Maris
+<BR>
+James P. Vary
+</DIV>
+
+<P>
+The structures of nuclei can be analyzed by computing the eigenvalues and
+eigenvectors of a Hamiltonian matrix <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H$">
+ constructed by what is known in
+quantum mechanics as the configuration interaction (CI) technique.In most
+cases, we are interested in the lowest few eigenvalues of <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H$">
+. In some
+applications, we may be interested in a relatively large number of low
+energy states (eigenvalues) with a prescribed total angular momentum,
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ J$">
+. This type of calculation, which we will refer to as a total-J
+calculation, is particularly useful for investigating, among others,
+nuclear level densities as a function of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ J$">
+ and excitation energy and
+for evaluating scattering amplitudes as a function of channel <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ J$">
+. To
+achieve this goal, we perform a simultaneous diagonalization of <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ H$">
+ and
+<IMG
+ WIDTH="22" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ J^2$">
+, where <IMG
+ WIDTH="22" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ J^2$">
+ is the total angular momentum square operator.
+
+<P>
+The Hamiltonian and the angular momentum matrices constructed from the
+configuration interaction approximation are sparse. However, their
+dimensions can be extremely large. Therefore, the matrix eigenvalue
+problem must be solved by iterative methods.
+
+<P>
+In this talk, we discuss how to efficiently solve this type of
+eigenvalue problem on multi-core machines with tens of thousands
+of processing units. In particular, we will examine efficient
+strategies for distributing matrices to achieve good load balance,
+the communication overhead associated with orthogonalization and
+efficient ways to perform sparse matrix vector multiplications.
+
+<P>
+In addition to discussing these issues in the context of the Lanczos
+algorithm which is currently used in several nuclear CI codes, we will
+also examine how we may benefit from the use of a block iterative solver
+such as a polynomial accelerated subspace
+iteration or the locally optimal block conjugate gradient (LOBPCG)
+method, especially when the Hamiltonian is so large that it cannot
+be completely stored in the main memory.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

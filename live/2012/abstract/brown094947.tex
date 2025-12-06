@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jed Brown \\
+{\bf Commuting block preconditioning with multigrid}}
+
+Mathematics and Computer Science Division \\ Argonne National Laboratory \\ 9700 S Cass Ave \\ Bldg 240 \\ Argonne \\ IL 60439
+\\
+{\tt jedbrown@mcs.anl.gov}\\
+Mark Adams\\
+Matthew Knepley\\
+Dave May\\
+Lois Curfman McInnes\\
+Barry Smith\end{center}
+
+Implicit solution methods for multiphysics problems are either monolithic
+(treating the coupled problem directly) or split (solving reduced systems
+independently).
+Multilevel methods must be employed for algorithmic scalability and the
+block preconditioners developed for split methods can be used as
+smoothers for coupled multigrid.
+Monolithic methods require a hierarchical approximation to the coupled
+system, but the required number of iterations may be smaller due to
+coupling on all levels.
+Software is typically structured differently to support ``multigrid
+inside splitting'' versus ``splitting inside multigrid'', so there are
+few direct comparisons of the relative effectiveness of these approaches.
+When splitting is used as a smoother, there is also opportunity to
+transform the splitting into a multiplicative relaxation scheme similar
+to ``distributed relaxation''.
+We describe generic software support for these approaches and compare
+effectiveness for multiphysics applications in glaciology and
+geodynamics.
+
+
+\end{document}

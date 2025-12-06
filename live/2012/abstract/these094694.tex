@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ralph Thesen \\
+{\bf Efficent adaptive solution of multilevel-systems}}
+
+Fraunhofer Institute for Algorithms and Scientific Computing SCAI \\ Schloss Birlinghoven \\ D-53754 Sankt Augustin \\ Germany
+\\
+{\tt ralph.thesen@scai.fraunhofer.de}\end{center}
+
+The Gauss-Southwell-algorithm is the greedy grandfather of the
+well known Gauss-Seidel-algorithm. This adaptive algorithm solves
+in every step the equation with the largest current residual
+instead of a priori fixed running order. We present a method to
+find the maximum residual with minimum costs. We employ a heap
+data structure to store the residual which allows us not only to
+find the maximum residual very fast, but also to update entries
+in an incremental manner.
+
+The greedy choice of the largest residual leads to a fast
+convergence, since the iterative solver adapts itself to the
+structure of the linear system. The beneficial effects from
+utilizing the structural information in a greedy manner dominate
+the extra costs in a total balance. In particular multilevel
+systems, which are highly structured, are well suited for such an
+adaptive algorithm.
+
+This adaptive strategy shows a dramatic speedup for anisotropic
+problems compared with the non-adaptive methods. Convergence
+rates are shown for a class of highly anisotropic linear elliptic
+problems. In all examples our proposed method is substantially
+faster than the Gauss-Seidel-algorithm.
+
+
+\end{document}

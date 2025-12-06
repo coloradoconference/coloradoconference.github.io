@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>botch093573</TITLE>
+<META NAME="description" CONTENT="botch093573">
+<META NAME="keywords" CONTENT="botch093573">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="botch093573.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Mike A. Botchev 
+<BR><B>A new block-Krylov subspace method
+<BR>
+for time-exact solution of linear ODEs</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept of Applied Mathematics 
+<BR>
+University of Twente 
+<BR>
+P O Box 217 
+<BR>
+7500 AE Enschede 
+<BR>
+The Netherlands
+
+<BR><TT>m.a.botchev@utwente.nl</TT>
+</DIV>
+
+<P>
+We propose a time-exact Krylov-subspace method for solving linear ODE
+(ordinary differential equation) systems of the form <!-- MATH
+ $y'=-Ay + g(t)$
+ -->
+<IMG
+ WIDTH="117" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ y'=-Ay + g(t)$">
+ and
+<!-- MATH
+ $y''=-Ay + g(t)$
+ -->
+<IMG
+ WIDTH="121" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ y''=-Ay + g(t)$">
+, where <IMG
+ WIDTH="31" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ y(t)$">
+ is the unknown function. The method
+consists of two stages. The first stage is an accurate piecewise
+polynomial approximation of the source term <IMG
+ WIDTH="31" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ g(t)$">
+, constructed with the
+help of the truncated SVD (singular value decomposition). The second
+stage is a special residual-based block Krylov subspace method.
+
+<P>
+The accuracy of the method is only restricted by the accuracy of the
+piecewise polynomial approximation and by the error of the block Krylov
+process. Since both errors can, in principle, be made arbitrarily small,
+this yields, at some costs, a time-exact method. Numerical experiments
+are presented to demonstrate efficiency of the new method, as compared to
+an exponential time integrator with Krylov subspace matrix function
+evaluations.
+
+<P>
+This talk is based on the following report:
+<TT>http://eprints.eemcs.utwente.nl/21277/</TT>.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

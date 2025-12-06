@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>these094694</TITLE>
+<META NAME="description" CONTENT="these094694">
+<META NAME="keywords" CONTENT="these094694">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="these094694.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Ralph Thesen 
+<BR><B>Efficent adaptive solution of multilevel-systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Fraunhofer Institute for Algorithms and Scientific Computing SCAI 
+<BR>
+Schloss Birlinghoven 
+<BR>
+D-53754 Sankt Augustin 
+<BR>
+Germany
+
+<BR><TT>ralph.thesen@scai.fraunhofer.de</TT>
+</DIV>
+
+<P>
+The Gauss-Southwell-algorithm is the greedy grandfather of the
+well known Gauss-Seidel-algorithm. This adaptive algorithm solves
+in every step the equation with the largest current residual
+instead of a priori fixed running order. We present a method to
+find the maximum residual with minimum costs. We employ a heap
+data structure to store the residual which allows us not only to
+find the maximum residual very fast, but also to update entries
+in an incremental manner.
+
+<P>
+The greedy choice of the largest residual leads to a fast
+convergence, since the iterative solver adapts itself to the
+structure of the linear system. The beneficial effects from
+utilizing the structural information in a greedy manner dominate
+the extra costs in a total balance. In particular multilevel
+systems, which are highly structured, are well suited for such an
+adaptive algorithm.
+
+<P>
+This adaptive strategy shows a dramatic speedup for anisotropic
+problems compared with the non-adaptive methods. Convergence
+rates are shown for a class of highly anisotropic linear elliptic
+problems. In all examples our proposed method is substantially
+faster than the Gauss-Seidel-algorithm.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

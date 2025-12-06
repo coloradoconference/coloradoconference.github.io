@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Denis Jarema \\
+{\bf A Multiscale Approach for Particle Transport Simulation in Low Reynolds Number Flows}}
+
+Traunsteiner Str 5/0405 \\ 81549 Munich \\ Germany
+\\
+{\tt denis.jarema@mytum.de}\\
+Philipp Neumann\\
+Tobias Weinzierl\end{center}
+
+In this paper, we study a nanoparticle suspended in water within a
+channel with a complex wall geometry in a laminar flow regime. We combine
+two independent iterative methods into one multiscale approach to compute
+the movement of the particle: a Lattice Boltzmann fluid-structure
+interaction code and a Navier-Stokes solver with the Fax\'{e}n particle
+force estimation. A new switching strategy between these two methods is
+developed. On the one hand, the computationally expensive Lattice
+Boltzmann fluid-structure code is used in time intervals when short-time
+effects may yield a strong impact on the particle simulation. On the
+other hand, the Navier-Stokes solver with the Fax\'{e}n correction is
+used to compute the particle movement when long-time predictions to the
+particle motion are possible and sufficient. We describe our coupling
+strategy, the mapping of unknowns between the two solvers and provide
+results for different particulate flow scenarios. Due to coupling of the
+two systems and the automatic switching we reduce the total computing
+time by magnitudes.
+
+
+\end{document}

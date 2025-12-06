@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeffrey J. Heys \\
+{\bf Comparison of Continuous and Discontinuous Galerkin Finite Element Methods for Parabolic Differential Equations}}
+
+Chemical and Biological Engineering \\ Montana State University \\ Box 173920 \\ Bozeman \\ MT 59715
+\\
+{\tt jeff.heys@gmail.com}\\
+Prathish Kumar Rajaraman\\
+Garret Vo\\
+Glen Hansen\end{center}
+
+A number of different discretization techniques and algorithms have been
+developed for approximating the solution of parabolic partial
+differential equations. A standard approach, especially for applications
+that involve complex geometries, is the classic continuous Galerkin
+Finite Element Method (GFEM). This approach has a strong theoretical
+foundation and has been widely and successfully applied to this catagory
+of differential equations. One challenging catagory of problems, however,
+are equations that include an advective term that large relative to the
+second-order, diffusive term. For these advection dominated problems, the
+continuous GFEM discretization can become unstable and yield highly
+inaccurate results. An alternative to the continuous GFEM is the
+discontinuous GFEM, and, through the use of a numerical flux term used in
+deriving the weak form, the discontinuous approach has the potential to
+be much more stable in highly advective problems. However, the
+discontinuous GFEM also has significantly more degrees-of-freedom due to
+the replication of nodes along element edges and vertices. This paper
+compares the computational cost, stability, and accuracy (when possible)
+of continuous and discontinuous GFEM for four different test problems
+including the advection-diffusion equation, viscous Burgers' equation,
+and the Turing pattern formation equation system. The comparison is
+performed using as much shared code as possible between the two
+algorithms and direct, iterative, and multilevel linear solvers. The
+results show that, for implicit time stepping, the continuous GFEM is
+typically 5-20 times less computationally expensive than the
+discontinuous GFEM using the same finite element mesh and element order.
+However, the discontinuous GFEM is significantly more stable than the
+continuous GFEM for advection dominated problems and is able to obtain
+accurate approximate solutions for cases where the classic, unstabilized
+continuous GFEM fails.
+
+
+\end{document}

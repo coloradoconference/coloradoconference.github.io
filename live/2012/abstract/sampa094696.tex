@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rahul Sampath \\
+{\bf Recursive Schur Decomposition}}
+
+Oak Ridge National Laboratory \\ 1 Bethel Valley Road \\ Oak Ridge \\ TN - 37830
+\\
+{\tt sampathrs@ornl.gov}\\
+Bobby Philip\\
+Srdjan Simunovic\end{center}
+
+We will present a new preconditioner to solve the linear systems of
+equations arising from the discretization of elliptic partial
+differential equations (PDEs) using the finite element method. This is a
+recursive algorithm that uses (a) non-overlapping domain decomposition,
+(b) Schur decomposition, (c) Krylov subspace method and (d) a fast solver
+such as multigrid. We will also describe the parallel implementation of
+this algorithm. Although the algorithm is general enough to be applied to
+solve a wide variety of elliptic PDEs, we will focus on a model Poisson
+problem for demonstration purposes. The algorithm can also be extended to
+other discretizations such as finite difference or finite volume methods.
+
+
+\end{document}

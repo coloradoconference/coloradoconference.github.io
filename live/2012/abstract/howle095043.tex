@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Victoria Howle \\
+{\bf Block-structured preconditioners for equal-order finite element discretization of coupled fluid problems}}
+
+Texas Tech University \\ Department of Mathematics and Statistics \\ Broadway and Boston \\ Lubbock \\ TX 79409-1042
+\\
+{\tt victoria.howle@ttu.edu}\\
+Robert C.  Kirby\end{center}
+
+Many important engineering and scientific systems require the solution of
+extensions of standard incompressible flow models, whether by coupling
+them to other processes or by incorporating additional nonlinear effects.
+Finite element methods and other numerical techniques provide effective
+discretizations of these systems, and the generation of the resulting
+algebraic systems may be automated by high-level software tools such
+those in the Sundance project, but the efficient solution of these
+algebraic equations remains an important challenge.
+
+Frequently, the nonlinear equations are linearized by a fixed point or
+Newton technique, and then the linear systems are solved by a
+preconditioned Krylov method such as GMRES. We have extended the
+methodology and analysis of preconditioning such systems, in particular,
+extending existing block-structured preconditioners
+(such as those of Elman, et al.) to address coupled systems, showing how
+an effective preconditioner for Navier-Stokes combined with a process
+such as convection-diffusion of temperature to obtain a preconditioner
+for the Newton linearization of a nonlinearly coupled system such as
+B\'enard convection. We examine these preconditioners in the case of
+inf-sup stable finite element discretizations as well as equal-order
+finite elements with pressure stabilization.
+
+
+\end{document}

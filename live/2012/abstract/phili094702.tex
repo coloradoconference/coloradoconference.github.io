@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Bobby Philip \\
+{\bf A Jacobian Free Newton Krylov Method With Multilevel Block Preconditioning for Multi-Domain Quasistatic Thermomechanics}}
+
+OAK RIDGE NATIONAL LABORATORY \\ PO BOX 2008 MS6164 \\ OAK RIDGE TN 37831-6164
+\\
+{\tt philipb@ornl.gov}\\
+Kevin Clarno\\
+Rahul Sampath\\
+Mark Berrill\\
+Srikanth Allu\end{center}
+
+
+The source-term for most of the physics in nuclear fuel is the heat
+generated from nuclear fission and the resulting transmutation (which
+includes fission) of the materials due to irradiation. The heat,
+primarily generated in the fuel, is transported through the fuel, across
+a gap, through a cladding material, and removed by a coolant. The
+irradiation and temperature change in turn produce a mechanical response
+in the solid bodies (fuel and cladding). This problem is described by a
+multi-domain (pellet, gap, and clad) multi-physics (nonlinear
+thermomechanics) nonlinear system of PDE's. This talk will describe
+recent work on fully coupled quasistatic nonlinear thermomechanics
+simulations for this problem. The solution method used is a Jacobian free
+Newton-Krylov method preconditioned by a block diagonal preconditioner
+consisting of inverting thermal diffusion and mechanics diagonal block
+operators using multigrid. We describe the solution method as implemented
+within the AMP multiphysics framework and applied to a fuel pin
+consisting of 360 pellets and an outer 12 foot clad.
+
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large HyeongKae Park \\
+{\bf Physics-Based Preconditioning and Accurate Time Integration for A Moment-based Scale-Bridging Algorithm}}
+
+Theoretical Division \\ MS B216 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545
+\\
+{\tt hkpark@lanl.gov}\\
+Dana Knoll\\
+Chris Newman\\
+Rick Rauenzahn\\
+Jeff Densmore\\
+Allan Wollaber\end{center}
+
+Accurate modeling of neutral particle transport behavior is of great
+importance in many science and engineering applications.
+Many numerical transport algorithms suffer from slow convergence in
+optically thick regions, where particles undergo a large number of
+scattering and/or absorption re-emission events. We are developing a
+moment-based, scale-bridging algorithm that can mitigate slow convergence
+of transport algorithms. Our algorithm utilizes the low-order (LO)
+continuum equations that are consistently derived from the high-order
+(HO) transport equation. Due to discrete consistency, the LO system can
+be used not only for accelerating the HO solution, but also coupling to
+other physics.
+
+In this talk, we present physics-based preconditioning strategy that
+utilizes the nonlinear elimination technique for the solution of the LO
+problem. The nonlinear elimination technique can reduce coupled PDEs/ODE
+to a scalar parabolic PDE via block Gauss elimination. This technique
+allows one to eliminate stiff nonlinear coupling from the system and
+hence reduces the number of required Newton iterations, with a trade-off
+of more complex Jacobian and nonlinear residual evaluations. We can then
+solve the LO system efficiently via multigrid preconditioned
+Newton-Krylov method with physics-based preconditioning. We discuss
+computational efficiency with different preconditioning operators.
+
+We also discuss time stepping strategy of our moment-based scale-bridging
+algorithm for time-dependent thermal radiative transfer problems. Our
+goal is to obtain (asymptotically) second-order time accurate and
+consistent solutions without nonlinear iterations between the HO and LO
+systems within a time step.
+We compare the accuracy and efficiency of a predictor-corrector algorithm
+with the nonlinearly consistent algorithm.
+
+
+\end{document}

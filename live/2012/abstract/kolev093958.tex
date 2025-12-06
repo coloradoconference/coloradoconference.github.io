@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tzanio Kolev \\
+{\bf Parallel Auxiliary Space AMG Solver for H(Div) Problems}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory \\ P O Box 808 \\ L-560 \\ Livermore \\ CA 94551
+\\
+{\tt tzanio@llnl.gov}\\
+Panayot Vassilevski\end{center}
+
+In this talk we present a family of scalable preconditioners for
+matrices arising in the discretization of H(div) problems using
+the lowest order Raviart-Thomas finite elements. Our approach
+belongs to the class of ``auxiliary space''-based methods and
+requires only the finite element stiffness matrix plus some
+minimal additional discretization information about the topology
+and orientation of the mesh entities. We outline the theory
+which is based on certain regular decompositions for H(div)
+spaces by relating them to a previously studied ``inf-sup''
+condition for parameter-dependent Stokes problems. We provide a
+detailed algebraic description of the method, its parallel
+implementation and different variants of this parallel auxiliary
+space divergence solver. Also, we discuss its relations to the
+Hiptmair-Xu auxiliary space decomposition of Raviart-Thomas
+spaces [1], the related approaches [4,5], as well as the
+auxiliary space Maxwell solver (AMS) [2] from the hypre library
+[3]. An extensive set of numerical experiments demonstrate the
+robustness and scalability of our implementation on large-scale
+parallel H(div) problems with large jumps in the material
+coefficients.
+
+[1] R.Hiptmair and J.Xu, Nodal auxiliary space preconditioning in H(curl)
+and H(div) spaces, SIAM J. Num. Anal., 45 (2007), pp. 2483-2509.
+
+[2] Tz. Kolev and P. Vassilevski, Parallel Auxiliary Space AMG for
+H(curl) Problems, special issue on ``Adaptive and Multilevel Methods in
+Electromagnetics'', Journal of Computational Mathematics, (27) 2009, pp.
+604-623.
+
+[3] hypre}: a library of high performance preconditioners,
+http://www.llnl.gov/CASC/hypre/
+
+[4] R.Tuminaro, J.Xu, and Y.Zhu, Auxiliary space preconditioners for
+mixed finite element methods, in Domain Decomposition Methods in Science
+and Engineering XVIII, vol.70 of Lecture Notes in Computational Science
+and Engineering, Springer, 2009, pp. 99-109.
+
+[5] P.Bochev, C.Siefert, R.Tuminaro, J.Xu, and Y.Zhu, Compatible gauge
+approaches for H(div) equations, Tech. Rep. SAND 2007-5384P, Sandia
+National Laboratories, 2007.
+
+
+\end{document}

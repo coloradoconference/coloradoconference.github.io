@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Albert F. Lawrence \\
+{\bf Iterative Methods in Large Field Electron Microscope Tomography }}
+
+National Center for Microscopy and Imaging Research (NCMIR) \\ University of California \\ San Diego \\ 9500 Gilman Drive \\ La Jolla \\ CA 92093-0608 USA
+\\
+{\tt albert.rick.lawrence@gmail.com}\\
+Xiaohua Wan\\
+Sebastien Phan\\
+Mark Ellisman\\
+Fa Zhang\end{center}
+
+Electron tomography is an emerging technology for the three dimensional
+imaging of cellular ultrastructure. In combination with other techniques
+this technology can provide three dimensional reconstructions of protein
+assemblies, correlate 3D structures with functional investigations at the
+light microscope level and provide structural information which extends
+the findings of genomics and molecular biology. Because of rapid advances
+in instrumentation and computer-based reconstruction, the routine imaging
+of molecular structure in context appears to be likely within the next
+few years.
+
+Tomographic reconstruction from large format electron microscope images
+requires special procedures to handle geometric distortions arising from
+electron optics as opposed to light-ray optics. In particular, electrons
+travel in curvilinear paths through the sample, defocus and other
+aberrations can be more severe. We have developed a software package,
+TxBR, which is based on a generalization of the inverse problem
+associated with the ray transform. This software compensates for
+instrument optics, sample degradation, and other deleterious effects.
+
+TxBR utilizes a filtered backprojection algorithm for reconstruction, so
+geometric compensation for curvilinear electron paths should also be
+accompanied by a filtering algorithm which is accurate for the three
+dimensional optics. This would require a pointwise treatment of the
+filtering problem, which is, in effect, a six-dimensional kernel. At
+present we employ an image warping technique which gives a usable
+approximation to the correct kernel and reduces the problem to one
+dimension. Further improvements would require alternative inversion
+algorithms which bypass the filtering problem. Algorithms which employ
+iterative techniques constitute an attractive class of alternatives. In
+this case it is necessary to code corrections for the beam geometry into
+the projections.
+
+We present an adaptive simultaneous algebraic reconstruction technique
+(ASART) in which a modified multilevel access scheme and an adaptive
+relaxation parameter adjustment method are developed to improve the
+quality of the reconstructed 3D structure. The reconstruction process is
+facilitated by using a column-sum substitution approach. This modified
+multilevel access scheme is adopted to arrange the order of projections
+so as to minimize the correlations between consecutive views within a
+limited angle range. In the adaptive relaxation parameter adjustment
+method, not only the weight matrix (as in the existing methods) but the
+gray levels of the pixels are employed to adjust the relaxation
+parameters so that the quality of the reconstruction is improved while
+the convergence process of the reconstruction is accelerated. In the
+column-sum substitution approach, the computation to obtain the
+reciprocal of the sum for the columns in each view is avoided so that the
+needed computations for each iteration can be reduced.
+
+
+\end{document}

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>aokiy133453</TITLE>
+<META NAME="description" CONTENT="aokiy133453">
+<META NAME="keywords" CONTENT="aokiy133453">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="aokiy133453.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Yasunori Aoki 
+<BR><B>Cluster Approximation method for Inverse Problems: application to Model Parameter Estimation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Mathematics 
+<BR>
+University of Waterloo 
+<BR>
+200 University Ave West 
+<BR>
+Waterloo Ontario Canada
+
+<BR><TT>yaoki@uwaterloo.ca</TT>
+<BR>
+Ken Hayami
+<BR>
+Hans De Sterck
+<BR>
+Ben Holder
+<BR>
+Akihiko Konagaya
+</DIV>
+
+<P>
+We describe a new method for inverse problems that proceeds by
+simultaneously finding multiple solutions of the parameter estimation
+problem. Estimation of the parameters of a finitely parameterized ODE
+based mathematical model from experimental data is required in many
+fields of science. This problem can be thought of as solving a system of
+nonlinear equations
+<BR>
+<DIV ALIGN="CENTER"><A NAME="eq_1"></A><!-- MATH
+ \begin{eqnarray}
+\boldsymbol{f}(\boldsymbol{\theta})&=&\boldsymbol{y}^*\,,
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \boldsymbol{f}(\boldsymbol{\theta})$"></TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle =$"></TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="29" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \boldsymbol{y}^*\,,$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+where <!-- MATH
+ $\boldsymbol{f}$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \boldsymbol{f}$">
+ is a map from <!-- MATH
+ $\mathbb{R}^m$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathbb{R}^m$">
+ to <!-- MATH
+ $\mathbb{R}^n$
+ -->
+<IMG
+ WIDTH="25" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbb{R}^n$">
+,
+<!-- MATH
+ $\boldsymbol{\theta}$
+ -->
+<IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \boldsymbol{\theta}$">
+ is the parameter vector, and <!-- MATH
+ $\boldsymbol{y}^*$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \boldsymbol{y}^*$">
+ is
+the experimental data. A standard approach for solving this type of
+system of nonlinear equations is a gradient based method such as the
+Newton method or the Levenberg-Marquard method. However, in the case of
+finding parameters from experimental data the problem may be more
+complicated than just solving (<A HREF="#eq_1">1</A>) in the following ways, and
+standard nonlinear solvers may not be adequate:
+
+<UL>
+<LI>There is no guarantee that a solution to (<A HREF="#eq_1">1</A>) exists, nor
+that it is unique.
+</LI>
+<LI>We often do not have a good initial guess for the parameter value
+<!-- MATH
+ $\boldsymbol{\theta}$
+ -->
+<IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \boldsymbol{\theta}$">
+.
+</LI>
+<LI>The experimental data contains a lot of error.
+</LI>
+</UL>
+In order to overcome these challenges we have constructed a numerical
+algorithm called the Cluster Approximation method that approximately
+solves the system of nonlinear equations. This method differs from
+traditional nonlinear equation solvers in the following ways:
+
+<UL>
+<LI>It finds multiple possible solutions that approximately satisfy (<A HREF="#eq_1">1</A>).
+</LI>
+<LI>It is more robust against local minima of the objective function
+compared to other gradient based algorithms since it constructs a linear
+approximation from multiple points.
+</LI>
+<LI>It is faster than population based stochastic methods as it is a
+gradient based algorithm.
+</LI>
+</UL>
+Simply put, the Cluster Approximation method combines the desirable
+properties of a population based global optimization method (like
+semi-global convergence) with properties of gradient based methods (like
+convergence speed), as it moves a cluster of tentative solution points
+using gradient like information.
+We demonstrate these points through solving three different types of
+inverse problems in mathematical biology: underdetermined inverse
+problems (number of observations smaller than the number of parameters,
+i.e., <IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ m&gt;n$">
+), overdetermined inverse problem (number of observations
+greater than the number of parameters, i.e., <IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ m&lt;n$">
+), and parameter
+identifiability analysis problems (approximating an inverse image of a
+set).
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html2"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-03-03
+</ADDRESS>
+</BODY>
+</HTML>

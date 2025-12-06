@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jyoti Saraswat \\
+{\bf Multigrid solution of a distributed optimal control problem constrained by a semilinear elliptic PDE}}
+
+Department Of Mathematics and Statistics \\ 1000 Hilltop Circle \\ Baltimore MD-21250
+\\
+{\tt jyo1@umbc.edu}\\
+Andrei Draganescu\end{center}
+
+In this work we discuss the approximation properties of multigrid
+preconditioners for the linear systems arising in the solution process of
+a distributed optimal control problem constrained by a semilinear
+elliptic PDE. After discretizing the PDE using standard finite elements,
+we solve the resulting discrete optimal control problem via Newton's
+method. As is standard for large-scale problems, adjoints are used for
+gradient computations and for Hessian-vector multiplications, and the
+linear systems are solved using matrix-free conjugate gradient
+preconditioned by multigrid preconditioners related to the ones
+introduced by Draganescu and Dupont (2008) for linear ill-posed problems.
+The main contribution of this work is to show that, as in the case of
+optimal control of linear elliptic PDEs, the multigrid preconditioners
+approximate the Hessian to optimal order with respect to the mesh-size.
+
+
+\end{document}

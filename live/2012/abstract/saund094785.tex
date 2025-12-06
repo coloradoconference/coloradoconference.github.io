@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michael Saunders \\
+{\bf Experiments with iterative computation of search directions within interior methods for constrained optimization}}
+
+Dept of Management Science & Engineering \\ Huang Engineering Center \\ 475 Via Ortega \\ Stanford University \\ Stanford \\ CA 94305-4121
+\\
+{\tt saunders@stanford.edu}\\
+Santiago Akle\end{center}
+
+Our primal-dual interior-point optimizer PDCO has found many applications
+for optimization problems of the form
+\[
+\min\, \varphi(x) \text{ \ st\ \ } Ax=b, \quad l \le x \le u,
+\]
+in which $\varphi(x)$ is convex and $A$ is a sparse matrix or a linear
+operator. We focus on the latter case and the need for iterative
+methods to compute dual search directions from linear systems of the
+form
+\[
+A D^2 \!A^T \Delta y = r, \qquad \text{$D$ diagonal and positive definite}.
+\]
+Although the systems are positive definite, they do not need to be
+solved accurately and there is reason to use MINRES rather than
+CG (see PhD thesis of David Fong (2011)). When the original problem
+is regularized, the systems can be converted to least-squares
+problems and there is similar reason to use LSMR rather than LSQR.
+Also, $D$ becomes increasingly ill-conditioned as the interior method
+proceeds and there is need for some kind of preconditioning, such as
+the partial Cholesky approach of Bellavia, Gondzio and Morini (2011).
+
+We present numerical results on matters such as these.
+
+
+\end{document}

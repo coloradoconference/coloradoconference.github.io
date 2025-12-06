@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eugene Vecharynski \\
+{\bf Graph partitioning with matrix coefficients for symmetric positive definite linear systems}}
+
+Department of Computer Science and Engineering \\ University of Minnesota Twin Cities Campus \\ 4-192 Keller Hall \\ 200 Union Street S E \\ Minneapolis \\ MN 55455
+\\
+{\tt eugenev@cs.umn.edu}\\
+Yousef Saad\\
+Masha Sosonkina\end{center}
+
+Prior to the parallel solution of a large linear system, it is required
+to perform a partitioning of its equations/unknowns. Standard
+partitioning algorithms are designed using the considerations of the
+efficiency of the parallel matrix-vector multiplication, and typically
+disregard the information on the coefficients of the matrix.
+This information, however, may have a significant impact on the quality
+of the preconditioning procedure used within the chosen iterative scheme.
+In this talk, we
+describe a partitioning algorithm, which takes into account the
+information on the matrix coefficients and constructs partitions with
+respect to the objective of increasing the quality of the additive
+Schwarz preconditioning for symmetric positive definite linear systems.
+We demonstrate the effects of the new partitioning strategy
+on the robustness of an iterative scheme
+for a set of test problems.
+
+
+\end{document}

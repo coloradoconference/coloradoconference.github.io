@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ana Maria Soane \\
+{\bf Multigrid solution of a distributed optimal control problem constrained by the Stokes equations }}
+
+Department of Mathematics and Statistics \\ University of Maryland \\ Baltimore County \\ 1000 Hilltop Circle \\ Baltimore \\ MD 21250
+\\
+{\tt asoane@umbc.edu}\\
+Andrei Draganescu\end{center}
+
+In this work we construct multigrid preconditioners to speed up the
+solution process of a linear-quadratic optimal control problem
+constrained by the Stokes system. The first order optimality conditions
+of the control problem form a linear system (the KKT system) connecting
+the state, adjoint, and control variables. Our approach is to eliminate
+the state and adjoint variables by essentially solving two Stokes
+systems, and to construct efficient multigrid preconditioners for the
+Schur-complement of the block associated to the state and adjoint
+variables. These multigrid preconditioners are shown to be of optimal
+order with respect to the convergence properties of the discrete methods
+used to solve the Stokes system. In particular, the number of conjugate
+gradient iterations is shown to decrease as the resolution increases,
+a feature shared by similar multigrid preconditioners for elliptic
+constrained optimal control problems.
+
+
+\end{document}

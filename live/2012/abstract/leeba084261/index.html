@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>leeba084261</TITLE>
+<META NAME="description" CONTENT="leeba084261">
+<META NAME="keywords" CONTENT="leeba084261">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="leeba084261.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Barry Lee 
+<BR><B>Preconditioners/Multigrid for Stochastic Polynomial Chaos Formulations of the Diffusion Equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Computational Sciences &amp; Mathematics Division 
+<BR>
+Pacific Northwest National Laboratory 
+<BR>
+Richland 
+<BR>
+WA 99354
+
+<BR><TT>barry.lee@pnnl.gov</TT>
+</DIV>
+
+<P>
+This talk presents (parallel) preconditioners and multigrid solvers for
+solving linear systems of equations arising from stochastic polynomial
+chaos (PC) formulations of the diffusion equation with random
+coefficients. These preconditioners/solvers are an extension of the
+preconditioner developed in [<A
+ HREF="node1.html#Lee3">2</A>] for strongly coupled systems of
+elliptic partial equations
+(PDEs) that are norm equivalent to systems that can be factored into an
+algebraic coupling component and a diagonal differential component, as is
+the case for the systems produced by PC formulations of the diffusion
+equation. The first preconditioner, which is applied to the norm
+equivalent system, is obtained by sparsifying the inverse of the
+algebraic coupling component. This sparsification leads to an efficient
+method for solving
+these PC systems on the large scale, even for problems with large
+statistical variations in the random coefficients. An extension of this
+preconditioner leads to stand-alone multigrid methods that are applied
+directly to the actual system of PDEs rather
+than to the norm equivalent system. These multigrid methods exploit the
+algebraic/differential factorization of
+the norm equivalent systems to produce variable decoupled systems on the
+coarse levels, and lead to simplified software implementation through
+re-use of existing high-performance software such as the Hypre library
+package ([<A
+ HREF="node1.html#hypre">1</A>]).
+Two-grid matrix bounds are established and numerical results are given.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

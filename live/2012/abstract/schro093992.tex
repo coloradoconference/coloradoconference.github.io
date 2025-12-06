@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jacob B. Schroder \\
+{\bf Non-Galerkin Coarse-Grid Operators for Parallel Algebraic Multigrid}}
+
+Lawrence Livermore National Laboratory \\ Box 808 \\ L-561 \\ Livermore \\ CA 94551-0808
+\\
+{\tt schroder2@llnl.gov}\\
+Robert D. Falgout\end{center}
+
+Algebraic multigrid (AMG) is a popular and effective solver for systems of
+linear equations that arise from discretized partial differential equations.
+While AMG has been effectively implemented on large scale parallel machines,
+challenges remain, especially when moving to exascale. In particular, as
+problem size increases, so does the number of levels in the hierarchy of
+coarse-grids, with the pernicious result that coarse-grid operators tend to
+become denser further down in the hierarchy. This produces denser
+communication patterns than existed on fine grids and as a result, as problem
+size increases, denser coarse-grid matrices are produced, and the communication
+pattern and overall parallel AMG scheme become less efficient. This increase
+in density is due to the standard Galerkin coarse-grid operator, $A_{coarse} =
+P^T A P$, where $P$ is the prolongation (i.e., interpolation) operator.
+Typical choices for $P$ couple most distance-two and many distance-three
+connections in the graph of $A$, and this results in the increasing fill. For
+a simple 7-point 3D diffusion problem, coarse-grid stencil size can increase to
+over 1,000 on present day machines. We therefore consider algebraically
+truncating coarse-grid stencils to obtain a non-Galerkin coarse-grid, i.e.,
+$A_{coarse} \neq P^T A P$. First, the sparsity pattern of $A_{coarse}$ is
+determined through the fine-grid matrix graph, which indicates important
+distance-two and -three connections that should be maintained on the
+coarse-grid. Second, the nonzero entries are determined by collapsing the
+stencils in the Galerkin operator using traditional AMG techniques. The result
+is a reduction in coarse-grid stencil size, and overall operator complexity,
+with the trade-off that AMG convergence deteriorates only a small to moderate
+amount for the problems considered.
+
+
+\end{document}

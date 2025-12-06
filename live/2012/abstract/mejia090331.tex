@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Veronica Mejia Bustamante \\
+{\bf Implementation of Iterative Solvers for the Digital Tomosynthesis Problem in GPUs}}
+
+Dept of Math & CS \\ Emory University \\ 400 Dowman Dr  \\ W401 \\ Atlanta \\ GA 30322
+\\
+{\tt vmejia@emory.edu}\end{center}
+
+Tomosynthesis imaging provides a viable alternative to computed
+tomography (CT) and has obtained significant interest from the medical
+community as a means for diagnostic radiology and radiation therapy. In
+digital tomosynthesis imaging, multiple projections of an object are
+obtained along a small range of different incident angles in order to
+reconstruct a 3D representation of the object. In this paper we discuss
+the implementation details of the polyenergetic digital breast
+tomosynthesis reconstruction algorithm in a GPU using OpenCL. We describe
+three different algorithm implementations: a serial implementation, a GPU
+implementation threaded by functionality of the model, and a GPU fused
+kernel implementation which is threaded to increase performance,
+throughput, and GPU utilization in the application. We show that the
+explicit kernel fusion achieves significant speed-up in the
+reconstruction process of a clinical size patient data set, from running
+over 100X faster than the version threaded by functionality to 200X
+faster than the serial approach.
+
+
+\end{document}

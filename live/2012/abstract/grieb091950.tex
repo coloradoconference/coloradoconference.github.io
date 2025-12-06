@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michael Griebel \\
+{\bf Greedy and Randomized Versions of the Multiplicative Schwarz Method}}
+
+Institut f\"ur Numerische Simulation \\ Universit\"at Bonn \\ Wegelerstr 6 \\ D-53115 Bonn \\ and \\ Fraunhofer Institute for Algorithms and Scientific Computing SCAI \\ Schloss Birlinghoven \\ D-53754 Sankt Augustin
+\\
+{\tt griebel@ins.uni-bonn.de}\end{center}
+
+We consider sequential, i.e., Gauss-Seidel type, subspace correction
+methods for the iterative solution of symmetric positive definite
+variational problems, where the order of subspace correction steps is
+not deterministically fixed as in standard multiplicative Schwarz
+methods. Here, we greedily choose the subspace with the largest (or at
+least a relatively large) residual norm for the next update step, which
+is also known as the Gauss-Southwell method. We prove exponential
+convergence in the energy norm, with a reduction factor per iteration
+step directly related to the spectral properties, e.g., the condition
+number, of the underlying space splitting. To avoid the additional
+computational cost associated with the greedy pick, we alternatively
+consider choosing the next subspace randomly, and show similar estimates
+for the expected error reduction. We give some numerical examples, in
+particular applications to a Toeplitz system and to multilevel
+discretizations of an elliptic boundary value problem, which illustrate
+the theoretical estimates.
+
+This is joint work with Peter Oswald (JU Bremen).
+
+
+\end{document}

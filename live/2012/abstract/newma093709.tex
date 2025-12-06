@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chris Newman \\
+{\bf Physics-based Preconditioners for Ocean Simulation}}
+
+Los Alamos National Laboratory \\ T-3 \\ PO Box 1663 MS B216 \\ Los Alamos \\ NM 87545
+\\
+{\tt cnewman@lanl.gov}\\
+Dana Knoll\end{center}
+
+We examine physics-based preconditioners for ocean simulation based on
+barotropic-baroclinic splitting. Physics-based preconditioning is a
+highly successful approach for multiple time scale problems where an
+accurate simulation is desired on the dynamical time scale. Our approach
+is a fully implicit, fully coupled time integration of the momentum and
+continuity equations of ocean dynamics; thus reducing errors and
+increasing stability due to traditional operator splitting. The nonlinear
+system is solved via preconditioned Jacobian-free Newton-Krylov, where we
+reformulate traditional barotropic-baroclinic splitting as a
+preconditioner. Thus the desired solution is timestep converged with
+timesteps on the order of the dynamical timescale. We provide numerical
+examples to support the study and compare to explicit methods and methods
+based on operator splitting.
+
+
+\end{document}

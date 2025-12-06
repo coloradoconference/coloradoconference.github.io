@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chois094873</TITLE>
+<META NAME="description" CONTENT="chois094873">
+<META NAME="keywords" CONTENT="chois094873">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chois094873.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Sou-Cheng Choi 
+<BR><B>CS-MINRES: A Krylov Subspace Method for Complex Symmetric Linear Systems and Least-Squares Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Computation Institute 
+<BR>
+University of Chicago 
+<BR>
+Searle Chemistry Laboratory 
+<BR>
+5735 South Ellis Avenue 
+<BR>
+Chicago 
+<BR>
+IL 60637
+
+<BR><TT>sctchoi@uchicago.edu</TT>
+</DIV>
+
+<P>
+While there is no lack of high-quality Krylov subspace solvers for
+(complex) Hermitian systems, there are few for complex symmetric systems,
+which have become increasingly important in modern applications including
+quantum dynamics, electromagnetics, power systems, and many more.
+
+<P>
+For a large consistent complex symmetric system <IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax=b$">
+, i.e., <IMG
+ WIDTH="60" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A=A^T$">
+,
+one may apply a non-Hermitian Krylov subspace method such as BiCG, CGS,
+or GMRES, overlooking the symmetry of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$">
+, or a Hermitian Krylov solver
+such as CG, SYMMLQ, or MINRES on the equivalent normal equation or an
+augmented system twice the original dimension. These have the
+disadvantages of increasing either memory, conditioning, or computational
+costs. An exception is a special version of QMR by Freund (1992), but
+that may be affected by non-benign breakdowns unless look-ahead is
+implemented; furthermore, it is designed for consistent problems only.
+
+<P>
+We describe CS-MINRES, a new algorithm for solving linear systems and
+least-squares problems with complex symmetric coefficient matrices. In
+all cases, CS-MINRES computes the unique minimum-length, i.e.,
+pseudoinverse, solution. It may be regarded as an extension of MINRES by
+Paige and Saunders (1975) or the more recent MINRES-QLP by Choi, Paige
+and Saunders (2011). CS-MINRES does not suffer from non-benign breakdowns
+and is immediately applicable to real symmetric problems, in which case
+it is mathematically equivalent to MINRES-QLP.
+
+<P>
+Like MINRES and MINRES-QLP, CS-MINRES has elegant theoretical properties,
+and is sufficiently robust for ill-conditioned and ill-posed problems. We
+will present extensive numerical experiments to demonstrate the
+scalability and robustness of CS-MINRES.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

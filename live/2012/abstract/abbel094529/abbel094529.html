@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>abbel094529</TITLE>
+<META NAME="description" CONTENT="abbel094529">
+<META NAME="keywords" CONTENT="abbel094529">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="abbel094529.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Dirk Abbeloos 
+<BR><B>A FMG half-space analysis for boundary control problems.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Leuven 
+<BR>
+Celestijnenlaan 200A 
+<BR>
+3001 Heverlee
+
+<BR><TT>dirk.abbeloos@cs.kuleuven.be</TT>
+<BR>
+Stefan Vandewalle
+</DIV>
+
+<P>
+We present a full multigrid (FMG) half-space analysis for one-shot
+multigrid methods for time-dependent boundary control problems. The
+control problem is written as an optimization problem consisting of a
+linear parabolic PDE constraint and a quadratic tracking objective. More
+precisely, we want to find the optimal control which steers the state of
+the system as close as
+possible to a given, predetermined state. In addition we regularize the
+problem with a Tikhonov regularization term given by the squared L2-norm
+of the control, which can be interpreted as the cost of the control.
+
+<P>
+Numerical experiments reveal strong divergence of classical multigrid
+methods for small weights of the regularization term. Here classical is
+interpreted as using well known modifications of standard multigrid
+components near the boundary, e.g. restriction, prolongation, boundary
+condition discretization, etc. For the interior equations well
+established multigrid components were choosen, which illustrate that the
+divergence is induced by the boundary control and not the interior
+equations.
+
+<P>
+In order to analyse our multigrid method classical tools as for example
+Fourier analysis are insufficient. They fail to incorporate the effect of
+the boundary condition on the multigrid method. More precisely, they only
+analyse the interior equations on an infinite or periodic grid, i.e. they
+analyse the control problem without the boundary control. A more
+complicated FMG half-space analysis allows us to analyse the effect of
+the boundary. In our talk we present this FMG half-space analysis for a
+selection of boundary control problems, as well as the insights obtained
+from it. In addition we propose a modified multigrid method to solve the
+given boundary control problem.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

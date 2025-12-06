@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lixia094012</TITLE>
+<META NAME="description" CONTENT="lixia094012">
+<META NAME="keywords" CONTENT="lixia094012">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="lixia094012.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Xiaoye, Sherry Li 
+<BR><B>Enhancing Scalability and Robustness of the Schur Complement Method Using Hierarchical Parallelism</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Berkeley National Laboratory 
+<BR>
+MS 50F-1650 
+<BR>
+1 Cyclotron Rd 
+<BR>
+Berkeley 
+<BR>
+CA 94720-8139
+
+<BR><TT>xsli@lbl.gov</TT>
+<BR>
+Ichitaro Yamazaki
+</DIV>
+
+<P>
+Modern numerical simulations give rise to sparse linear systems of
+equations that are becoming increasingly difficult to solve using
+standard techniques. Matrices that can be directly factorized
+are limited in size due to large memory and inter-node communication
+requirements. Preconditioned iterative solvers require less memory
+and communication, but often require an effective preconditioner, which
+is not readily available.
+The Schur-complement-based domain decomposition method
+has great potential for providing reliable solution of large-scale,
+highly-indefinite algebraic equations.
+
+<P>
+We developed a hybrid direct-iterative linear solver PDSLin,
+Parallel Domain-decomposition Schur complement based LINear
+solver, which employs techniques from both sparse direct and
+iterative methods.
+In this method, the global system is first partitioned into smaller
+interior subdomain systems, which are connected only through
+separators. To compute the solution of the global system,
+the unknowns associated with the interior subdomain systems are
+first eliminated to form the Schur complement system, which is defined
+only on the separators. Since most of the fill occurs in
+the Schur complement, the Schur complement system is solved
+using a preconditioned iterative method. Then, the solution on the
+subdomains is computed by using this solution on the separators and
+solving another set of subdomain systems.
+
+<P>
+For a scalable implementation, it is imperative to exploit multiple
+levels of parallelism; namely, solving independent subdomains
+in parallel and using multiple processors per subdomain.
+This hierarchical parallelism can maintain numerical stability
+as well as scalability.
+In this multilevel parallelization framework, performance
+bottlenecks due to load imbalance and excessive communication
+occur at two levels: in an intra-processor group assigned to the
+same subdomain and among inter-processor groups assigned to different
+subdomains. We developed several techniques to address these issues,
+such as taking advantage of the sparsity of right-hand-side columns
+during sparse triangular solutions with interfaces, load balancing
+sparse matrix-matrix multiplication to form update matrices, and
+designing an effective asynchronous point-to-point communication
+of the update matrices. We present experimental results to demonstrate
+that with the aid of these techniques, our hybrid solver can efficiently
+solve very large highly-indefinite linear systems on thousands
+of processors.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

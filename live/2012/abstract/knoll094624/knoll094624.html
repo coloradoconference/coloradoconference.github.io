@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>knoll094624</TITLE>
+<META NAME="description" CONTENT="knoll094624">
+<META NAME="keywords" CONTENT="knoll094624">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="knoll094624.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Dana Knoll 
+<BR><B>Computational Co-design of a moment-based scale-bridging algorithm </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Los Alamos National Laboratory 
+<BR>
+PO BoX 1663 
+<BR>
+MS B216 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>nol@lanl.gov</TT>
+<BR>
+M. Daniels
+<BR>
+C.N. Newman
+<BR>
+H. Park
+<BR>
+R.M. Rauenzahn
+<BR>
+W. Taitano
+<BR>
+J. Willert
+</DIV>
+
+<P>
+The foundations of the algorithmic scale-bridging ideas we will build on
+reside in statistical mechanics, kinetic theory, and transport theory.
+These ideas have matured in steady-state neutron transport for nuclear
+reactors. In steady-state neutron transport, using this algorithm, the
+transport (Boltzmann) equation would be referred to as the high order
+(HO) problem and is six-dimensional (6-D). The low order (LO) problem is
+constructed from combining the 0th and 1st phase-space moments of the
+transport equation. This LO equation is only three-dimensional (3-D), and
+thus is a reduced space representation of the HO problem. In the
+appropriate limit, the LO problem asymptotes to the neutron diffusion
+equation. This LO (moment-based) problem is used to accelerate the
+convergence of a brute force transport source iteration via bridging the
+transport and diffusion scales. This algorithm has characteristics of a
+multigrid method. The LO problem lives in a reduced dimensional space
+(3-D). It is an efficient way to relax the system-scale “diffusion”
+features that naturally reside in the HO problem. The more expensive HO
+problem (which lives in 6-D space) is only required to relax the
+fine-scale transport features. The HO and LO problem are connected with
+restriction and prolongation processes related to the moments.
+Additionally, the LO problem is frequently on a coarser configuration
+space mesh as compared to the HO problem. While this algorithmic idea is
+frequently referred to as an accelerator for the transport (HO) solver,
+it can also be viewed as a powerful physics-based scale-bridging
+algorithm.
+
+<P>
+Development and use of similar moment-based acceleration methods can be
+found in a variety of application areas such as neutron transport,
+thermal radiation (photon) transport, kinetic plasma simulation, rarified
+gas dynamics, and material science. We have ongoing efforts to advance
+these algorithms in the areas of thermal radiation transport, kinetic
+plasma simulation and neutron transport. In this talk we will draw the
+majority of our example results from photon and neutron transport.
+
+<P>
+While much is known about these algorithms, and they are highly utilized
+by some, further algorithm development and analysis remains. In this talk
+we will provide an algorithmic overview with some application specific
+details. Next we will discuss two important algorithmic issues. The first
+issue is enforcing discrete consistency between the HO solver and the LO
+solver. The second issue is related to challenges that arise when the HO
+solver is stochastic, such as the use of Monte Carlo as the HO solver for
+photon transport. At that point we have a hybrid algorithm with both
+deterministic features and stochastic features. Finally, this algorithm
+has a number of characteristics that will be beneficial in moving to
+exascale computing. This general moment-based HO/LO algorithm has natural
+heterogeneity and concurrency. We will discuss our ongoing computation
+co-design efforts on emerging architectures to maximize the impact of
+these algorithms for future multiphysics, multiscale simulation.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

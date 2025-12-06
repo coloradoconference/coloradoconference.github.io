@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>saiba094861</TITLE>
+<META NAME="description" CONTENT="saiba094861">
+<META NAME="keywords" CONTENT="saiba094861">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="saiba094861.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Arvind K. Saibaba 
+<BR><B>Fast algorithms for the Geostatistical approach for solving Linear Inverse problems based on Hierarchical matrices</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute for Computational &amp;Mathematical Engg 
+<BR>
+Jen-Hsun Huang Engineering Center 
+<BR>#53T 
+<BR>
+475 Via Ortega 
+<BR>
+Stanford 
+<BR>
+CA 94305-4121
+
+<BR><TT>arvindks@stanford.edu</TT>
+<BR>
+Peter K. Kitanidis
+</DIV>
+
+<P>
+In several inverse problems that arise from geophysical applications,
+such as identifying the contaminant source from time history of spatially
+distributed contaminant measurements, the prevalent approach is to use
+the Geostatistical approach with Gaussian priors. There are two main
+computational bottlenecks in the large-scale implementation of this
+approach: (1) covariance matrices that arise from finely spaced
+discretizations on irregular grids, can be extremely large and moreover,
+dense. (2) for certain problems with a large number of measurements, the
+measurement operator is not only dense, forming it explicitly would
+require the repeated solution of (possibly) time-dependent partial
+differential equations. In this talk we propose to show, how to deal with
+each one of these issues.
+<BR>
+<P>
+The covariance matrices that arise in practice, are extremely large and
+dense and this usually places a heavy burden both in terms of storage and
+computational requirements. Covariance kernels which are stationary and
+translation invariant, discretized on a uniformly spaced, regular grid,
+result in Toeplitz (or Block-Toeplitz) matrices. Toeplitz matrices can be
+embedded inside circulant matrices, for which operations such as
+matrix-vector products, matrix-matrix products can be efficiently
+computed using Fast Fourier Transforms (FFT). However, their primary
+deficiency is that these algorithms don't extend very easily to other
+types of grids that are predominant in realistic problems. Covariance
+matrices, although dense, have special structure which can be exploited.
+They are similar to dense matrices that arise from the discretization of
+integral equations. Using the Hierarchical matrix approach, we will show
+how to reduce the storage and computational complexity of matrix-vector
+products to <!-- MATH
+ ${\cal{O}}(N\log N)$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\cal{O}}(N\log N)$">
+, where <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ N$">
+ is the number of unknowns
+that we are solving for. 
+<BR>
+<P>
+Then, using Bayes' rule, we can write down the posterior probability
+distribution of the unknowns, given the measurements, and assuming a
+Gaussian prior for the unknowns. The maximum a posteriori (MAP) estimate
+can be computed by solving the system of equations. We propose to use a
+matrix-free Krylov subspace approach to solve the resulting system of
+equations. This approach has a huge computation advantage because it
+avoids the explicit construction of the matrix and only relies on
+matrix-vector products, which can be accelerated using the Hierarchical
+matrix approach. We also propose a preconditioner that serves to cluster
+the eigenvalues and therefore reduce the number of iterations taken by
+the iterative solver. We will also provide numerical evidence for the
+clustering of the eigenvalues. Another important aspect of the
+Geostatistical approach is that, it not only allows us to obtain the best
+estimate via maximizing the likelihood, we can also quantify the
+uncertainty associated with our estimate. This can be done by generating
+conditional realizations from our posterior probability distribution of
+the unknowns. We show how to do this efficiently by using Chebyshev
+matrix polynomial approximation for the square root of the covariance
+matrix, to compute unconditional realizations and using these
+unconditional realizations to generate conditional realizations by
+solving a modification of the system of equations used to compute the MAP
+estimate. Finally, we demonstrate the performance of our algorithm on a
+large-scale inverse model problem on unstructured grids from contaminant
+source identification.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

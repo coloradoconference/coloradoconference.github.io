@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>phipp141437</TITLE>
+<META NAME="description" CONTENT="phipp141437">
+<META NAME="keywords" CONTENT="phipp141437">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phipp141437.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Eric Phipps 
+<BR><B>Preliminary Investigations of Multi-Core Accelerated Embedded Uncertainty Quantification</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+PO Box 5800 MS-1318 
+<BR>
+Albuquerque NM 87185
+
+<BR><TT>etphipp@sandia.gov</TT>
+<BR>
+H. Carter Edwards
+<BR>
+Jonathan Hu
+</DIV>
+
+<P>
+Quantifying uncertainties in computational simulations is a key challenge
+for predictive computational science. An important task within
+uncertainty quantification is the propagation of input data uncertainty
+to the corresponding simulation output quantities of interest. While many
+uncertainty propagation approaches have been investigated throughout the
+literature, one approach of interest is the embedded stochastic Galerkin
+method. Unlike sampling-based methods that only require evaluating the
+forward simulation at an independent set of realizations of the uncertain
+input data, and thus decouple the corresponding deterministic and
+stochastic discretizations, stochastic Galerkin methods couple these
+degrees-of-freedom together. For a given level of accuracy, they trade
+fewer stochastic degrees-of-freedom for the additional burden of
+formulating and solving the resulting coupled (and much larger) system.
+When applied to partial differential equations (PDEs) with random input
+data, they have generally been found to efficient for certain types of
+linear PDEs, but inefficient for PDEs with nonlinear dependence on either
+the random variables or the unknown solution. This difference is
+attributed to the often dramatically greater number of non-zeros in the
+resulting stochastic Galerkin operator for the nonlinear case.
+
+<P>
+The stochastic Galerkin operator has a Kronecker product structure
+arising from the stochastic and deterministic discretizations, and thus
+it is typically organized hierarchically as a block-operator where the
+sparsity between the blocks is dictated by the stochastic discretization
+and each block has the structure of the deterministic discretization.
+This allows for greater code reuse when modifying a code to implement the
+stochastic Galerkin method, as well as reuse of solvers and
+preconditioners designed for the deterministic problem. However, as
+described above, this block operator is much denser in the nonlinear
+case, and can even be fully block-dense. Therefore in this work, we
+investigate commuting this layout to arrive at a sparse block operator
+arising from the deterministic discretization where each (possibly dense)
+block has the structure of the stochastic discretization. We investigate
+the amenability of this layout to emerging multi-core architectures
+containing a high-degree of on-node shared-memory parallelism. We develop
+several approaches for implementing the stochastic Galerkin matrix-vector
+product using threading for the stochastic blocks, and study their
+performance on contemporary multi-core CPUs and many-core GPUs.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-03-12
+</ADDRESS>
+</BODY>
+</HTML>

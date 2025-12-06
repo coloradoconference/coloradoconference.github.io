@@ -1,0 +1,84 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Kord Smith \\
+{\bf Challenges and Approaches to Coupled Monte Carlo Neutronic/Fluid Flow Analysis of Commercial Nuclear Reactors}}
+
+MIT \\ 77 Massachusetts Ave \\ Room 24-221 \\ Cambridge \\ MA 02139
+\\
+{\tt kord@mit.edu}\\
+Kord Smith\\
+Benoit Forget\\
+Paul Romano\\
+Bryan Herman\\
+Andrew Siegel\end{center}
+
+
+
+Despite the great advancements in Monte Carlo neutral particle transport
+methods and their implementation on advanced computing platforms, Monte
+Carlo methods have achieved decidedly little impact on either the design
+or licensing of commercial light water reactors (LWRs). There are
+numerous reasons that contribute to this lack of penetration:
+
+1) Conventional Monte Carlo analysis requires 10’s to 100’s of billions
+of neutron histories to resolve local spatial details in high dominance
+ratio reactor cores
+(e.g. source convergence is extremely difficult, even without multi-physics effects).
+
+2) Traditional Monte Carlo statistical treatments lead to
+non-conservative estimates of spatial parameter uncertainties because of
+inter-cycle correlation effects in high dominance ratio cores (e.g.,
+central limit theorem can not be applied directly).
+
+3) Reactor core depletion requires tracking several hundred nuclides in
+each radial ring of ~100,000 fuel pins at each of several hundred axial
+levels (e.g., 100’s of billions of tallies are required).
+
+4) Each fuel depletion region and each feedback region has unique physical properties
+(e.g., nuclear data in each region must be treated as functions of local temperatures).
+
+5) Accurate analysis requires dynamic coupling of Monte Carlo neutronics
+to nuclear fuel/fluid flow models (e.g. coupled physics is crucial to
+accuracy).
+
+6) Steady-state core analysis cannot answer safety questions that require
+dynamic multi-physics analysis (e.g., Monte Carlo methods must be
+extended to the time domain for both rapid and long-duration transient
+applications).
+
+The authors will present a formal LWR cycle depletion benchmark that can
+be used to test coupled neutronic/fluid flow models in pseudo
+steady-state (reactor cycle depletion) applications. This benchmark will
+be based on two cycles of operation of a commercial LWR, and measured
+reactor data will be provided to assess computational model uncertainties
+in core reactivity and 3D fission rate distributions. The inherent
+challenges and difficulties in developing methods to solve this challenge
+problem will be outlined and discussed in detail. In particular,
+limitations of parallelization of Monte Carlo by replication and
+challenges arising from massive storage requirements (for
+temperature-dependent nuclear data and detailed spatial tallies) will be
+discussed. A summary of recent algorithmic testing of alternative
+parallelization strategies to overcome these limitations will be
+presented.
+
+The authors’ experiences in applying one class of non-linear operators to
+the acceleration of deterministic multi-physics methods will be
+summarized, and computational results from recent extensions of these
+methods to steady-state Monte Carlo analysis will be presented. Authors
+will present results from recent parallel algorithm computational tests
+and a proposed strategy for using non-linear operators to solve coupled
+Monte Carlo neutronics and nuclear fuel/flow problems.
+
+The authors will also present their proposed approach for extending these
+non-linear operators to the development of transient Monte Carlo coupled
+multi-physics reactor analysis methods. Key developments needed for
+success will be outlined, and prospects for future success will be
+discussed.
+
+
+\end{document}

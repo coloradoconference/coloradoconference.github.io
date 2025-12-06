@@ -1,0 +1,604 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>janna090215</TITLE>
+<META NAME="description" CONTENT="janna090215">
+<META NAME="keywords" CONTENT="janna090215">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="janna090215.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Carlo Janna 
+<BR><B>Enhanced Block FSAI preconditioning with Domain Decomposition</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Padova 
+<BR>
+via Trieste 63 
+<BR>
+35121 Padova 
+<BR>
+Italy
+
+<BR><TT>janna@dmsa.unipd.it</TT>
+<BR>
+Massimiliano Ferronato
+<BR>
+Giuseppe Gambolati
+</DIV>
+
+<P>
+Adaptive Block FSAI (ABF) [1,2] is a novel and effective preconditioning
+technique to solve
+Symmetric Positive Definite (SPD) linear systems of equations <IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax=b$">
+ in a
+parallel computing environment.
+ABF is a generalization of the well-known Factored Sparse Approximate
+Inverse (FSAI) [3] with
+the key feature of providing a lower triangular factor <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ F$">
+ such that
+<IMG
+ WIDTH="51" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ FAF^T$">
+ resembles as much as
+possible a block diagonal matrix. <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ F$">
+ is to some extent an "inner
+preconditioner" which aims at decoupling
+every diagonal block one from another. At the single processor level, ABF
+may be linked to any other
+scalar preconditioner, or even direct solver, which therefore performs as
+an "outer preconditioner".
+Recently it has been noticed that graph partitioning techniques can be
+very conveniently used
+to improve the ABF performance reducing both
+the communication overhead and the number of iterations required for
+convegence, thus greatly
+enhancing the preconditioner scalability [4]. This suggests to look for a
+stronger connection between ABF
+and Domain Decomposition.
+
+<P>
+Consider of computing an ABF preconditioner with a set of <IMG
+ WIDTH="19" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m$">
+ consecutive
+unknowns assigned
+to the current processor <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ c$">
+. The SPD matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$">
+ can be ideally partitioned as follows:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+A = \left[
+\begin{array}{ccc}
+B & E & G \\
+E^T & C & H \\
+G^T & H^T & D \\
+\end{array}
+\right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="168" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle A = \left[ \begin{array}{ccc} B &amp; E &amp; G \\ E^T &amp; C &amp; H \\ G^T &amp; H^T &amp; D \\ \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\left[ \begin{array}{ccc} E^T & C & H \end{array} \right]$
+ -->
+<IMG
+ WIDTH="115" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \left[ \begin{array}{ccc} E^T &amp; C &amp; H \end{array} \right]$">
+ includes the rows
+assigned to <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ c$">
+. It can be shown that the corresponding stripe of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ F$">
+ is
+actually computed as:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+F_i = \left[
+\begin{array}{ccc}
+-E^T \tilde{B}^{-1} & I_m & 0 \\
+\end{array}
+\right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="194" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle F_i = \left[ \begin{array}{ccc} -E^T \tilde{B}^{-1} &amp; I_m &amp; 0 \\ \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <IMG
+ WIDTH="17" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \tilde{B}$">
+ an approximation of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ B$">
+ obtained through our adaptive technique.
+The <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ c$">
+-th diagonal block of <IMG
+ WIDTH="51" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ FAF^T$">
+ of size <IMG
+ WIDTH="19" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ m$">
+, which is stored in the
+current processor and is
+needed for computing the outer preconditioner, takes on the following expression:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+[FAF^T]_{cc} = C - E^T(2 \tilde{B}^{-1} - \tilde{B}^{-1} B \tilde{B}^{-1}
+) E = C - E^T \hat{B}^{-1} E
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="422" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle [FAF^T]_{cc} = C - E^T(2 \tilde{B}^{-1} - \tilde{B}^{-1} B \tilde{B}^{-1} ) E = C - E^T \hat{B}^{-1} E$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+As is usually done in domain decomposition, we distinguish between
+"inner" and "boundary" unknowns,
+and number for each subdomain first the former and second the latter
+using pedices <IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ i_p$">
+ and <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ b_p$">
+ for
+the previous processors and <IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ i_c$">
+ and <IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ b_c$">
+ for the current processor, respectively.
+The matrices <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ E$">
+ and <!-- MATH
+ $\hat{B}^{-1}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \hat{B}^{-1}$">
+ can be written in the following block form:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="blkEq"></A><!-- MATH
+ \begin{equation}
+E = \left[
+\begin{array}{cc}
+E_{i_p i_c} & E_{i_p b_c} \\
+E_{b_p i_c} & E_{b_p b_c} \\
+\end{array}
+\right] = \left[
+\begin{array}{cc}
+0 & 0 \\
+0 & E_{b_p b_c} \\
+\end{array}
+\right]
+\qquad
+\hat{B}^{-1} = \left[
+\begin{array}{cc}
+\hat{B}^{-1}_{i_p i_p} & \hat{B}^{-1}_{i_p b_p} \\
+\hat{B}^{-1}_{b_p i_p} & \hat{B}^{-1}_{b_p b_p} \\
+\end{array}
+\right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="483" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$\displaystyle E = \left[ \begin{array}{cc} E_{i_p i_c} &amp; E_{i_p b_c} \\ E_{b_p ...
+... b_p} \\ \hat{B}^{-1}_{b_p i_p} &amp; \hat{B}^{-1}_{b_p b_p} \\ \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Three out of four blocks in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ E$">
+ are obviously zero because there is no
+connection between internal
+unknowns of different subdomains.
+Thus the <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ c$">
+-th diagonal block of <IMG
+ WIDTH="51" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ FAF^T$">
+ becomes:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="FAFT_cc"></A><!-- MATH
+ \begin{equation}
+[FAF^T]_{cc} = \left[
+\begin{array}{cc}
+C_{i_c i_c} & C_{i_c b_c} \\
+C_{i_c b_c}^T & C_{b_c b_c} - E_{b_p b_c}^T \hat{B}^{-1}_{b_p b_p} E_{b_p b_c} \\
+\end{array}
+\right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="341" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle [FAF^T]_{cc} = \left[ \begin{array}{cc} C_{i_c i_c} &amp; C_{i_c b_c}...
+... b_c} - E_{b_p b_c}^T \hat{B}^{-1}_{b_p b_p} E_{b_p b_c} \\ \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Equation&nbsp;(<A HREF="#FAFT_cc"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) shows that ABF effects only the boundary
+unknowns of the diagonal block <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ C$">
+.
+Then, <!-- MATH
+ $[FAF^T]_{cc}$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ [FAF^T]_{cc}$">
+ can be exactly factored and used as the outer
+preconditioner for the current processor.
+
+<P>
+Assume to make a standard domain decomposition of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$">
+, i.e.&nbsp;we exactly
+factorize <!-- MATH
+ $C_{i_c i_c}$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ C_{i_c i_c}$">
+,
+compute the Schur complement <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ S$">
+ and solve an inner system with <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ S$">
+.
+The diagonal block of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ S$">
+ in processor <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ c$">
+ reads:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+S_{b_c b_c} = C_{b_c b_c} - C_{i_c b_c}^T C_{i_c i_c}^{-1} C_{i_c b_c}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="216" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$\displaystyle S_{b_c b_c} = C_{b_c b_c} - C_{i_c b_c}^T C_{i_c i_c}^{-1} C_{i_c b_c}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(6)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+while the extra-diagonal blocks are equal to <!-- MATH
+ $E_{b_p b_c}$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ E_{b_p b_c}$">
+ and <!-- MATH
+ $E_{b_p
+b_c}^T$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ E_{b_p
+b_c}^T$">
+ of eq.&nbsp;(<A HREF="#blkEq"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>).
+It can be shown that solving the previous Schur complement system using
+ABF as a preconditioner is equivalent
+to preconditioning the whole matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$">
+ with ABF where <!-- MATH
+ $\tilde{B}^{-1}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \tilde{B}^{-1}$">
+
+is exactly <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ B^{-1}$">
+ in the computation
+of <!-- MATH
+ $\hat{B}^{-1}_{b_p b_p}$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ \hat{B}^{-1}_{b_p b_p}$">
+ in&nbsp;(<A HREF="#FAFT_cc"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>).
+
+<P>
+Using a Schur complement domain decomposition in full leads to a more
+accurate, though expensive,
+approximation of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$">
+, while using a full matrix ABF preconditioner is
+cheaper but, generally, less effective.
+A good trade-off between the two approaches may be provided by using an
+incomplete factorization for the "inner" blocks.
+Let us number all the inner unknowns of each block first, and the
+boundary unknowns second. The global
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$">
+ can be now written as:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="DDMAT"></A><!-- MATH
+ \begin{equation}
+A = \left[
+\begin{array}{cc}
+A_{ii} & A_{ib} \\
+A_{ib}^T & A_{bb} \\
+\end{array}
+\right]
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="133" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$\displaystyle A = \left[ \begin{array}{cc} A_{ii} &amp; A_{ib} \\ A_{ib}^T &amp; A_{bb} \\ \end{array} \right]$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(7)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ A_{ii}$">
+ is a block diagonal matrix including the <!-- MATH
+ $C_{i_c i_c}$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ C_{i_c i_c}$">
+
+blocks, <IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ A_{ib}$">
+ is a rectangular
+matrix with the <!-- MATH
+ $C_{i_c b_c}$
+ -->
+<IMG
+ WIDTH="39" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$ C_{i_c b_c}$">
+ blocks, and <IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$ A_{bb}$">
+ is a generally sparse
+matrix with the <!-- MATH
+ $E_{b_p b_c}$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ E_{b_p b_c}$">
+
+and <!-- MATH
+ $C_{b_c b_c}$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ C_{b_c b_c}$">
+ blocks. <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$">
+ in&nbsp;(<A HREF="#DDMAT"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) can be preconditioned by
+the incomplete factorization of
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ A_{ii}$">
+ and the computation of the approximate Schur complement <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ S$">
+.
+Then, the ABF preconditioner can be used to
+approximately solve the inner system with <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ S$">
+.
+
+<P>
+Numerical tests on large size applications show that the resulting DD-ABF
+preconditioner is generally
+more efficient than ABF, especially for a large number of processors,
+thus ensuring a much better scalability.
+
+<P>
+<BR>
+<BR>
+<BR>
+
+<P>
+References:
+
+<P>
+[1] C. Janna, M. Ferronato and G. Gambolati, A Block FSAI-ILU parallel preconditioner
+for symmetric positive definite linear systems, SIAM Journal on
+Scientific Computing, 32 (5) (2010),
+pp. 2468-2484.
+
+<P>
+[2] C. Janna and M. Ferronato, Adaptive pattern research for Block FSAI preconditioners,
+SIAM Journal on Scientific Computing, 33 (6) (2011), pp. 3357-3380.
+
+<P>
+[3] L. Y. Kolotilina and A. Y. Yeremin, Factorized sparse approximate
+inverse preconditioning
+I. Theory, SIAM J. Matrix Anal. Appl., 14 (1993), pp. 45-58.
+
+<P>
+[4] C. Janna, M. Ferronato and N. Castelletto, Graph partitioning to
+improve the adaptive block
+FSAI parallel preconditioner, Computer Methods in Applied Mechanics and
+Engineering, submitted.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

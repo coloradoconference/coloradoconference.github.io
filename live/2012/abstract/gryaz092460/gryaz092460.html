@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>gryaz092460</TITLE>
+<META NAME="description" CONTENT="gryaz092460">
+<META NAME="keywords" CONTENT="gryaz092460">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="gryaz092460.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Yury Gryazin 
+<BR><B>Simplified Krylov subspace algorithm for a high-order compact approximation of 3-D Helmholtz equation.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics Department 
+<BR>
+Idaho State University 
+<BR>
+Stop 8085 
+<BR>
+Pocatello ID 83209
+
+<BR><TT>gryazin@isu.edu</TT>
+</DIV>
+
+<P>
+In recent years, the problem of increasing the resolution of existing
+numerical solvers has become an urgent task in many areas of science and
+engineering. Most of the existing efficient solvers for structured
+matrices were developed for lower-order approximation discretized partial
+differential equations. The need for improved accuracy of underlying
+algorithms leads to modified discretized systems and as a result to the
+modification of the numerical solvers. As an example, one can consider a
+modification of Fast Fourier Transform (FFT) type algorithms for the
+solution of the Helmholtz equation when the accuracy of the
+discretization of the original equation changes from a second to a fourth
+order approximation. In many situations, this modification has been
+successfully implemented but it usually has taken a major revision of the
+underlying numerical algorithm.
+In this paper, we consider the use of the lower-order approximation
+solver as a preconditioner for an efficient implementation of a
+high-order approximation scheme for the Helmholtz equation in the Krylov
+subspace method framework. As a first step, we develop a compact
+sixth-order approximation finite-difference scheme for the 3D Helmholtz
+equation with Dirichlet, Neumann and Sommerfeld-like boundary conditions.
+Then we consider the solution of the proposed discretized system by using
+the Generalized Minimal Residual (GMRES) method with a second order
+approximation system as a preconditioner. The numerical implementation of
+this approach requires the solution of the low-order approximation system
+on each step of the iterative algorithm, which can be efficiently done by
+a FFT-type method.
+The convergence analysis of the GMRES method in the case of a 1-D
+preconditioned system suggests a simplified Krylov subspace method which
+theoretically converges slower than the original GMRES algorithm but that
+does not require the Arnoldi orthogonalization procedure. We will use the
+abbreviation SKSM to describe this algorithm.
+In our numerical experiments, we demonstrate the accuracy of the proposed
+compact six-order approximation scheme and the efficiency of the proposed
+iterative procedures based on the combination of GMRES-FFT and SKSM-FFT.
+Both methods exhibit excellent convergence in most considered test
+problems and can be viewed as general blueprints for the improvement of
+the accuracy of existing lower-order approximation solvers. We also
+present the results of a numerical experiment which demonstrates that in
+some situations the GMRES-FFT combination experiences stagnation and
+needs to be restarted, while the SKSM-FFT method continues to exhibit
+excellent convergence properties.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

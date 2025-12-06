@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Verena Kuhlemann \\
+{\bf Improving the communication pattern in mat-vec operations for large scale-free graphs by disaggregation}}
+
+Mathematics & Computer Science \\ Emory University \\ Suite W401 \\ 400 Dowman Drive \\ Atlanta \\ GA 30322
+\\
+{\tt vkuhlem@emory.edu}\\
+Panayot S. Vassilevski\end{center}
+
+Matrix vector multiplication (mat-vec) is the key operation in any
+Krylov-subspace iteration method. We are interested in Krylov methods
+applied to problems associated
+with graph Laplacians arising from large scale-free graphs. Computations
+with graphs of this type on parallel distributed-memory computers are
+challenging. This is due to the fact that scale-free graphs have a degree
+distribution that follows a power-law and currently available graph
+partitioners are not efficient for such an irregular degree distribution.
+The lack of a good partitioning leads to excessive inter-processor
+communication requirements during every mat-vec. We present an approach
+to alleviate this problem based on embedding the original irregular graph
+into a more regular one by disaggregating (splitting up) vertices in the
+original graph. The mat-vec operations for the original graph are
+performed via a triple matrix product involving the embedding graph. Even
+though the latter graph is larger, we are able to decrease the
+communication requirements considerably and improve the performance of
+mat-vec.
+
+This work was performed under the auspices of the U.S. Department of
+Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
+
+
+\end{document}

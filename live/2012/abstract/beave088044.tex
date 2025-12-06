@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dieter Beaven \\
+{\bf Linear Time Complexity Solvers for Wilson-Dirac Matrices in Lattice Quantum Field Calculations.}}
+
+Room 236 Building 3 \\ University of Wollongong \\ Wollongong \\ NSW 2522 \\ Australia
+\\
+{\tt djdb684@uowmail.edu.au}\\
+Dieter Beaven\\
+Greg Doherty\\
+John Fulcher\\
+Chao Zhang\end{center}
+
+Lattice Quantum Dynamics can be used to investigate quark structure in
+nuclei or electron transport in graphene, but useful calculations require
+the solution of matrices of sizes running into the 100's of millions.
+Solvers that scale linearly with matrix size and perform well over large
+cluster parallelization or GPU accelerators are critical. The performance
+of the solvers for low mass values, leading poorly conditioned matrices,
+is also an important consideration to support the investigation of
+interesting physical properties. This paper presents results for BiCGStab
+and CGNE with an Algebraic Multigrid preconditioner that achieves the
+desired linear time complexity over the range of possible mass
+parameters.
+
+
+\end{document}

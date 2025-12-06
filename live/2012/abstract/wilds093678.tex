@@ -1,0 +1,119 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Stefan M. Wild \\
+{\bf Optimal Finite Difference Derivatives of Noisy, Iterative Simulations}}
+
+Mathematics and Computer Science Division \\ Argonne National Laboratory \\ 9700 S Cass Ave Bldg 240-1154 \\ Argonne IL 60439
+\\
+{\tt wild@mcs.anl.gov}\\
+Jorge Mor\'e\end{center}
+
+We have developed new mathematical theory and tools for estimating the
+computational noise that arises in numerical simulations throughout
+scientific computing
+[4].
+Roundoff errors, discretizations, numerical solutions to systems of
+equations, and adaptive techniques are among the many sources
+of computational noise, which can destroy the smoothness of
+the processes underlying a simulation and complicate optimization,
+sensitivity analysis, and other applications depending on the
+simulation output.
+Our theory is based on a stochastic model but does not
+assume a specific form (e.g., Gaussian or mean zero)
+for the distribution of the noise. Our technique is similar to that of
+Hamming
+[3]
+and has been validated empirically on
+deterministic simulations where the theory does not hold.
+
+In this talk, we use an estimate of the computational noise to address a
+longstanding problem in derivative estimation:
+\emph{How should finite difference parameters be determined
+when working with a noisy function?}
+
+We have derived optimal finite difference parameters that are easy to
+compute, depending only on an estimate of the computational noise and a
+coarse bound on a higher-order derivative (typically requiring just a few
+additional simulations)
+[5].
+Our estimates, $h_{\rm opt}$,
+come with provable
+approximation bounds for the resulting mean-squared error between the
+finite difference estimate and the directional derivative of a smooth
+function,
+\begin{equation*}
+\mathcal{E}(h_{\rm opt}) \leq \gamma \min \limits_{h\leq h_U}
+\mathcal{E}(h), \qquad
+\mathcal{E}(h) = \mathbb{E}
+\left\{\left(\frac{f(x_0+hp)-f(x_0)}{h}-f'_s(x_0;p) \right)^2 \right\}.
+\label{eq:bound}
+\end{equation*}
+An exciting aspect of this work is that we can obtain bounds on the number
+of correct digits in the noisy derivative estimate. For example, for
+forward differences, a typical approach is to use a multiple of the square
+root of the machine's precision. Our numerical experiments show that in
+many applications our estimate obtains 2-3 more digits of accuracy in the
+derivative than does the classical approach.
+
+Here we use the symmetric positive definite matrices
+in the Florida Sparse Matrix collection
+[2]
+to
+define noisy, deterministic quadratics of the form
+\begin{equation*}
+f(x) = \|y_{\tau}\|_2^2, \mbox{ where } Ay_{\tau}=x,
+\end{equation*}
+where $y_{\tau}$ is obtained using an iterative solver with tolerance
+$\tau$.
+We consider Krylov solvers in \texttt{MATLAB}
+[1],
+but the
+numerical results are similar for other solvers.
+
+We use these finite difference estimates to show how computational
+noise can destroy the accuracy of derived calculations, for example, the
+computation of derivatives.
+In some cases, the accuracy of derivative estimates based on function
+values is many times better than that of finite-precision evaluation of
+derivatives obtained by hand-coded or automatically differentiated codes.
+Our experiments also illustrate that the relationship between
+truncation errors and the computational noise can be surprisingly
+nonintuitive.
+
+\paragraph{References}
+\begin{enumerate}
+\item[{[1]}] R. Barrett, M. Berry, T. F. Chan, J. Demmel, J.
+Donato, J. Dongarra, V. Eijkhout, R. Pozo, C. Romine, and H. Van der Vorst.
+{\em Templates for the Solution of Linear Systems: Building Blocks for
+Iterative Methods, 2nd Edition}. SIAM, Philadelphia, PA, 1994.
+
+\item[{[2]}] T. A. Davis and Y. F. Hu.
+``The University of Florida Sparse Matrix Collection.''
+\textit{ACM Transactions on Mathematical Software}, Vol.~38(1), pp.
+1--25, (2011).
+DOI \url{http://dx.doi.org/10.1145/2049662.2049663}
+
+\item[{[3]}] R. W. Hamming. {\em Introduction to Applied
+Numerical Analysis.} McGraw-Hill, 1971.
+
+\item[{[4]}]
+J.~Mor\'e and S. M.~Wild.
+``Estimating Computational Noise.''
+{\em SIAM J.~Scientific Computing}, Vol.~33(3), pp. 1292--1314, (2011). \\
+DOI \url{http://dx.doi.org/10.1137/100786125}
+
+\item[{[5]}]
+J.~Mor\'e and S. M.~Wild.
+``Estimating Derivatives of Noisy Simulations.''
+\textit{ACM Transactions on Mathematical Software}, Vol.~38(3), to
+appear, (2012).
+URL \url{http://www.mcs.anl.gov/uploads/cels/papers/P1785.pdf}
+\end{enumerate}
+
+
+\end{document}

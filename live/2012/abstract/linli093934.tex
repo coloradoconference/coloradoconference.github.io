@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lin Lin \\
+{\bf Accelerating the convergence of the SCF Iteration through charge mixing and preconditioning}}
+
+Lawrence Berkeley National Laboratory \\ 1 Cyclotron Road Mail Stop 50F-1650 \\ Berkeley \\ CA 94720
+\\
+{\tt linlin@lbl.gov}\\
+Chao Yang\end{center}
+
+Kohn-Sham density functional theory (KSDFT) is the most widely used
+electronic structure theory for condensed matter systems. Although KSDFT
+is often stated as a nonlinear eigenvalue problem, an alternative
+formulation of the problem, which is more convenient for understanding
+the convergence of numerical algorithms for solving this type of problem,
+is based on a nonlinear map known as the Kohn-Sham map. The solution to
+the KSDFT problem is a fixed point of this nonlinear map. The simplest
+way to solve the KSDFT problem is to apply a fixed point iteration to the
+nonlinear equation defined by the Kohn-Sham map. This is commonly known
+as the self-consistent field (SCF) iteration in the condensed matter
+physics and chemistry communities. However, this simple approach often
+fails to converge. The difficulty of reaching convergence can be seen
+from the analysis of the Jacobian matrix of the Kohn-Sham map, which we
+will present in this talk. The Jacobian matrix is directly related to the
+dielectric matrix or the linear response operator in the condense matter
+community. We will show the different behaviors of insulating and
+metallic systems in terms of the spectral property of the Jacobian
+matrix. We discuss how to use these properties to approximate the
+Jacobian matrix and to develop effective preconditioners to accelerate
+the convergence of the SCF iteration. Approximations to the Jacobian can
+also be constructed directly using the Broyden-like technique. In
+computational condense matter physics, this is often known as the charge
+mixing scheme. We will present and compare different mixing schemes and
+point out some open questions regarding the effects of mixing and
+preconditioning on the convergence of the SCF iteration.
+
+
+\end{document}

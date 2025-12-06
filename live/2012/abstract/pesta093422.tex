@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jennifer Pestana \\
+{\bf Combination preconditioning of saddle point systems for positive definiteness }}
+
+Mathematical Institute \\ University of Oxford \\ 24-29 St Giles\’ \\ Oxford OX1 3LB \\ United Kingdom
+\\
+{\tt pestana@maths.ox.ac.uk}\end{center}
+
+Preconditioned iterative methods in nonstandard inner products for saddle
+point systems have recently received attention. Krzy\.zanowski
+(\emph{Numer. Linear Algebra Appl.} 2011; {\bf18}:123--140) identified a
+two-parameter family of preconditioners in this context and Stoll and
+Wathen (\emph{SIAM J. Matrix Anal. Appl.} 2008; {\bf 30}:582--608)
+proposed combination preconditioning, where two different
+preconditioners---for each of which the preconditioned saddle point
+matrix is self-adjoint with respect to an inner product---can be blended
+to create additional preconditioners and associated bilinear forms or
+inner products. If a preconditioned saddle point matrix is nonsymmetric
+but self-adjoint with respect to a nonstandard inner product a
+MINRES-type method ($\cal W$-PMINRES) can be applied in the relevant
+inner product. If the preconditioned matrix is also positive definite
+with respect to this inner product a more efficient CG-like method ($\cal
+W$-PCG) can be used reliably.
+
+In this talk we provide explicit expressions for the combination of
+certain Krzy\.{z}anowski preconditioners. We additionally give an example
+of the rather counterintuitive result that the combination of two
+preconditioners for which only $\cal W$-PMINRES can be reliably used can
+lead to a preconditioner for which, for certain parameter choices, $\cal
+W$-PCG is applicable. That is, the resulting preconditioned saddle point
+matrix is positive definite with respect to an inner product. We show
+that this combination preconditioner outperforms either of the two
+preconditioners from which it is formed for a number of test problems.
+
+
+\end{document}

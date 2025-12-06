@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>marev094594</TITLE>
+<META NAME="description" CONTENT="marev094594">
+<META NAME="keywords" CONTENT="marev094594">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="marev094594.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jakub Marecek 
+<BR><B>Iterative Methods for Integer Least Squares</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">School of Mathematics 
+<BR>
+The University of Edinburgh 
+<BR>
+James Clerk Maxwell Building 
+<BR>
+The King's Buildings 
+<BR>
+Edinburgh EH9 3JZ
+
+<BR><TT>jakub.marecek@ed.ac.uk</TT>
+<BR>
+Danny Kershaw
+</DIV>
+
+<P>
+
+<P>
+Least squares rank among the most fundamental problems in Scientific
+Computing, Signal Processing, and Statistics.
+Over the years, numerous variants of the problem have been studied. A
+variant, which has attracted much attention in recent years, is:
+
+<P>
+B<SMALL>OX-CONSTRAINED </SMALL>I<SMALL>NTEGER </SMALL>L<SMALL>EAST </SMALL>S<SMALL>QUARES (</SMALL>BILS): Given integers <IMG
+ WIDTH="64" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ m, n
+&gt; 0$">
+, a subset of integers <IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ Q$">
+, matrix <!-- MATH
+ $H \in \ensuremath{\mathbbm{R}}^{m \times n}$
+ -->
+<IMG
+ WIDTH="81" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ H \in \ensuremath{\mathbbm{R}}^{m \times n}$">
+,
+and <!-- MATH
+ $y \in \ensuremath{\mathbbm{R}}^m$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ y \in \ensuremath{\mathbbm{R}}^m$">
+, return <IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ x\in Q^n$">
+ minimising <!-- MATH
+ $\left\| {y - Hx} \right\|^2$
+ -->
+<IMG
+ WIDTH="79" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \left\Vert {y - Hx} \right\Vert^2$">
+.
+
+<P>
+The solving BILS to optimality is hard, in a number of precise
+senses. Notably, it is NP-hard to approximate within any constant factor
+[#!MR1462727!#]. We present an iterative solver for the problem, based
+on novel convex programming relaxations.
+Such relaxations strengthen the least squares relaxation, obtained by
+omitting the integrality constraints. In each iteration, a small number
+of violated valid inequalities are added, and the relaxation is
+reoptimised.
+
+<P>
+There have been proposed numerous convex programming relaxations of BILS. (See Table&nbsp;<A HREF="#tab:relaxations"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A> in the Appendix.)
+They seem to be, however, either too expensive to compute (e.g.
+high-dimensional semidefinite programming), or too weak (e.g. linear
+programming). We propose a hierarchy of progressively stronger
+relaxations in second order-cone programming (SOCP):
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="60" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle \min c^T x$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="109" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle {\mathrm{s. t.}}\left\Vert A_i x + b_i \right\Vert _2$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="187" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle \leq c_i^T x + d_i, \quad i = 1,\dots,m$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle Ax$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle = b,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Notice that solving a SOCP is only moderately more expensive than solving
+a linear program,
+but allows one to express the least-squares objective.
+
+<P>
+Our relaxations are based on the reformulation attributed to Atamt&#252;rk:
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD>&nbsp;</TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="108" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \min_{x \in Q^n} \left\Vert {y - Hx} \right\Vert$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="eqn:ils">(2)</A></TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle =$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="224" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle \min_{x \in Q^n} x^T H^T H x - 2 y^T H x + y^T y$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle =$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="282" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \min_{x \in Q^n, t \in \ensuremath{\mathbbm{R}}^n} t^T t {\mathrm{s. t.}}Hx - y \le t, y - Hx \le t$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle =$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="297" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle \min_{x \in Q^n, t_0 \in \ensuremath{\mathbbm{R}}, t \in \ensuremath{\mathbbm{R}}^n} t_0 {\mathrm{s. t.}}\vert y - Hx\vert \le t, t^T t \le t_0.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="eqn:reformulated">(5)</A></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+By removing the constraint <IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ x\in Q^n$">
+ in the original problem (<A HREF="#eqn:ils"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>),
+we would obtain the usual least squares relaxation.
+By removing the same constraint in the reformulated problem (<A HREF="#eqn:reformulated"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>),
+we obtain the single-cone SOCP relaxation:
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="332" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle z_r = \min_{x \in R^n, t_0 \in \ensuremath{\mathbbm{R}}, t \in \e...
+...th{\mathbbm{R}}^n } t_0 {\mathrm{s. t.}}\vert Hx - y\vert \le t, t^T t \le t_0.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+<A NAME="socp">(6)</A></TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This relaxation (<A HREF="#socp"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) can be strengthened by the addition of
+violated valid inequalities (``cuts''), including variants of
+Chv&#225;tal-Gomory cuts [#!Cezik2005!#] and mixed-integer rounding (MIR)
+cuts [#!Atamturk2007!#].
+
+<P>
+Let us define the Conic Mixed Integer Rounding (MIR) function.
+For <!-- MATH
+ $0 \le f \le 1$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ 0 \le f \le 1$">
+, the conic rounding function <!-- MATH
+ $\phi_f : \ensuremath{\mathbbm{R}}\to \ensuremath{\mathbbm{R}}$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \phi_f : \ensuremath{\mathbbm{R}}\to \ensuremath{\mathbbm{R}}$">
+ is:
+<P><!-- MATH
+ \begin{displaymath}
+\phi_f(a) = \begin{cases} (1 - 2f)n - (a - n) & \text{if $n \le a \le n + f$,} \\
+(1 - 2f)n + (a - n) - 2f &\text{if $n + f \le a \le n + 1$.}
+\end{cases}
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="413" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle \phi_f(a) = \begin{cases}(1 - 2f)n - (a - n) &amp; \text{if $n \le a ...
+...,} \\
+(1 - 2f)n + (a - n) - 2f &amp;\text{if $n + f \le a \le n + 1$.}
+\end{cases}$">
+</DIV><P>
+</P>
+The extension to vectors is element-wise.
+For pure integer programs (<A HREF="#socp"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) and <!-- MATH
+ $\alpha \ne 1$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \alpha \ne 1$">
+, the conic
+rounding cut hence is:
+<P><!-- MATH
+ \begin{displaymath}
+\sum_{j = 1}^{n} \phi_{f_{\alpha}}(a_j / \alpha) - \phi_{f_{\alpha}}(b
+/ \alpha) \le t / |\alpha|.
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="240" HEIGHT="62" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$\displaystyle \sum_{j = 1}^{n} \phi_{f_{\alpha}}(a_j / \alpha) - \phi_{f_{\alpha}}(b
+/ \alpha) \le t / \vert\alpha\vert.
+$">
+</DIV><P>
+</P>
+It is easy to see that for <!-- MATH
+ $\alpha \ne 1$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \alpha \ne 1$">
+ and <!-- MATH
+ $f_{\alpha} = b/\alpha -
+\left\lfloor {b / \alpha} \right\rfloor$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ f_{\alpha} = b/\alpha -
+\left\lfloor {b / \alpha} \right\rfloor$">
+, conic rounding cuts are valid
+for pure integer programs (<A HREF="#socp"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>).
+With each cut added, we obtain a new relaxation.
+
+<P>
+The choice of a cut has to take into account its violation and numerical
+safety [#!Cook2009!#]. After adding at most three cuts in a row, the
+newly obtain relaxation is optimised, possibly using the previous
+solution. The optimisation of the second-order cone program is, again,
+performed using an iterative method, such as the primal-dual interior
+point method.
+The complexity of each iteration of the interior point method is
+dominated the complexity of a matrix inversion of a <!-- MATH
+ $(m+c) \times (n+ m +
+1)$
+ -->
+<IMG
+ WIDTH="159" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ (m+c) \times (n+ m +
+1)$">
+ matrix, where <IMG
+ WIDTH="35" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ n,m$">
+ are the dimensions of the original matrix <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ H$">
+,
+and <IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ c$">
+ is the number of cuts added. The appendix details promising
+computational performance of this approach.
+
+<P>
+This approach lead to the development of low-power application specific
+integrated circuits for the problem, which is of great importance in
+mobile communications. There are systolic digital designs for much of the
+interior point method already available.
+This could be seen as an extension of Boyd's notion of real-time convex
+programming to real-time integer convex programming.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

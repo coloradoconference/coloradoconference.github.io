@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>chaco094723</TITLE>
+<META NAME="description" CONTENT="chaco094723">
+<META NAME="keywords" CONTENT="chaco094723">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="chaco094723.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Luis Chacon 
+<BR><B>An optimal asymptotic-preserving solver for the extremely anisotropic heat transport equation in magnetized plasmas</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Oak Ridge National Laboratory 
+<BR>
+PO Box 2008 
+<BR>
+Oak Ridge 
+<BR>
+TN 37831
+
+<BR><TT>chaconl@ornl.gov</TT>
+<BR>
+Diego del-Castillo-Negrete
+</DIV>
+
+<P>
+Transport in magnetized plasmas is of fundamental interest in controlled
+fusion and astrophysics research. Two issues make this problem particularly
+difficult to study: (i) The <I>extreme anisotropy</I> between the
+parallel (i.e., along the magnetic field), <!-- MATH
+ $\chi_{\parallel}$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \chi_{\parallel}$">
+, and
+the perpendicular, <!-- MATH
+ $\chi_{\perp}$
+ -->
+<IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \chi_{\perp}$">
+, conductivities (<!-- MATH
+ $\chi_{\parallel}/\chi_{\perp}$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \chi_{\parallel}/\chi_{\perp}$">
+
+may exceed <IMG
+ WIDTH="34" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ 10^{10}$">
+ in fusion plasmas); and (ii) <I>magnetic</I>
+<I>field-line chaos,</I> which in general precludes the construction
+of magnetic field line coordinates. In fact, to date, and despite
+significant work on the subject (see e.g. [1-6]), a suitable numerical
+approach that is at the same time high-order (to avoid numerical pollution
+of the perpendicular dynamics), robustly positivity-preserving (i.e.,
+that enforces a maximum principle and thus a positive temperature
+at all times), and algorithmically scalable (i.e., amenable to modern
+iterative methods) does not exist. Approaches that enforce the maximum
+principle of the parallel transport operator in finite differences
+[5] and finite elements [6] have been proposed. However, they
+rely on limiters which result in formally first-order accurate discrete
+representations (thus introducing numerical pollution) and result
+in strongly nonlinear algebraic systems which tend to break modern
+nonlinear iterative methods. Moreover, the condition number of the
+Jacobian matrix associated with the anisotropic transport equation
+can be shown to scale as the anisotropy ratio <!-- MATH
+ $\chi_{\parallel}/\chi_{\perp}\ggg1$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \chi_{\parallel}/\chi_{\perp}\ggg1$">
+,
+thus effectively precluding the use of scalable iterative methods.
+
+<P>
+Recently [7], a novel Lagrangian Green&#39;s function
+method has been proposed to solve the <I>purely</I>
+parallel transport equation, which is applicable to both integrable
+and chaotic magnetic fields. The approach excels in all counts, namely,
+it is very accurate (in fact, it respects transport barriers -flux
+surfaces- exactly by construction), inherently positivity-preserving,
+and scalable algorithmically (i.e., work per degree-of-freedom is
+grid-independent). However, it is of limited applicability to practical
+applications, as it does not account for more general physics such
+as perpendicular transport and sources.
+
+<P>
+In this talk, we will review the Lagrangian strategy for purely parallel
+transport, and describe its extension to include perpendicular transport
+and arbitrary sources. The formulation is asymptotic-preserving (AP)
+by construction, which ensures a consistent numerical discretization
+temporally and spatially for <I>arbitrary</I> <!-- MATH
+ $\chi_{\parallel}/\chi_{\perp}$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \chi_{\parallel}/\chi_{\perp}$">
+
+ratios (from arbitrarily large to <!-- MATH
+ $\mathcal{O}(1)$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{O}(1)$">
+ values). This
+is of particular importance, as parallel and perpendicular transport
+terms may become comparable in particular regions of the plasma (e.g.,
+at incipient islands), while remaining disparate elsewhere. Algorithmically,
+the approach uses a simple operator-split approach, consisting of
+an Eulerian update (employing multilevel-preconditioned Newton-Krylov
+methods), and a Lagrangian step. Both steps scale optimally in that
+the cost per degree-of-freedom is grid-independent. The AP character
+of the formulation ensures that the splitting error is small in all
+regimes, and in fact it becomes negligible in the asymptotic regime
+<!-- MATH
+ $\chi_{\parallel}/\chi_{\perp}\ggg1$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \chi_{\parallel}/\chi_{\perp}\ggg1$">
+. We will present numerical evidence
+that demonstrates the advertised properties of the approach.
+
+<P>
+
+<P>
+<BR>
+
+
+<P>
+[1] C. Sovinec et al., <I>J. Comput. Phys.</I>, <B>195</B>
+(2004) 355-386
+
+<P>
+[2] S. G&#252;nter, Q. Yu, J. Kr&#252;ger, K. Lackner, <I>J.
+Comput. Phys.</I>, <B>209</B> (2005) 354-370
+
+<P>
+[3] S. G&#252;nter, K. Lackner, C. Tichmann, <I>J. Comp.
+Phys.</I>, <B>226</B> (2), 2306-2316 (2007)
+
+<P>
+[4] S. G&#252;nter, K. Lackner, <I>J. Comp. Phys.</I>, <B>228</B>
+(2), 282-293 (2009)
+
+<P>
+[5] P. Sharma, G. W. Hammett, <I>J. Comput. Phys.</I>,
+<B>227</B> (2007) 123-142
+
+<P>
+[6] D. Kuzmin, M.J. Shashkov, D. Svyatskiy, <I>J.
+Comput. Phys.</I>, <B>228</B> (2009) 3448-3463
+
+<P>
+[7] D. del-Castillo-Negrete, L. Chacón, <I>Phys.
+Rev. Lett.</I>, 195004 (2011)
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,67 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Gunay Dogan \\
+{\bf Fast iterative algorithm for shape reconstruction in image processing}}
+
+Theiss Research \\ National Institute of Standards and Technology \\ 100 Bureau Drive \\ Stop 8910 \\ Gaithersburg \\ MD 20899-8910
+\\
+{\tt gunay.dogan@nist.gov}\end{center}
+
+Many image processing tasks are naturally expressed as shape optimization
+problems, in which the main goal is to reconstruct a set of shapes, such
+as curves in 2d or surfaces in 3d, based on some given data. Examples of
+such tasks are image segmentation, the task of identifying the objects or
+uniform regions in a given image, or certain inverse problems, where the
+target is not the material medium itself, but the structures or anomalies
+in the medium. Often, at the outset of such problems, one has the data at
+hand and some rough idea of what the shapes should or should not look
+like, but does not have a direct way to compute the shapes from the data.
+In such a situation, an effective approach is to define a shape energy
+and to compute shapes that minimize this problem-specific shape energy.
+The shape energy would typically have a data fidelity component minimized
+by the correct shapes (based on the physics that relates the shape to the
+data), also a smoothness term, such a length or area penalty that favors
+smoother shapes over nonsmooth shapes.
+
+In this work, we propose an efficient and robust iterative algorithm to
+compute the solutions of such shape reconstruction problems in image
+processing. At each iteration of the algorithm, we compute a gradient
+descent velocity and use it to deform a candidate shape in a way that
+keeps decreasing its energy until the algorithm stops at a minimum of the
+energy. The starting point of our method is a continuous shape
+optimization formulation and analytical computation of the first and
+second shape derivatives based on the energy formulation. This
+information enables us to devise Newton-type gradient descent methods
+that converge in reduced number of iterations and significantly reduce
+the actual computation time. Moreover we are able to impose the choice of
+descent velocities to be in $H^1$ Sobolev spaces defined on the shape and
+perform the gradient descent with smoother velocities. This proves to be
+advantageous in the case of noisy and incomplete data; it reduces the
+computation time and helps preserve a quality representation.
+
+We discretize the continuous algorithm using the finite element method.
+Unlike typical partial differential equation (PDE) applications, we need
+to discretize both the geometry (which is also an unknown) and the
+continuous equations (PDEs and integrals) associated with the gradient
+descent. As the meshes representing the shapes and regions move and
+deform through the iterations, we need to continually update and maintain
+the mesh in order to preserve accuracy. Geometric accuracy, as well as
+numerical accuracy, is achieved by maintaining a few errors indicators,
+the total of which is used to ensure that we have a valid gradient
+descent direction at each iteration. These error indicators, in
+conjunction with geometric mesh adaptivity, are used to tune the accuracy
+of the method at each iteration and are key to the economy of the
+algorithm. In particular, we employ a coarse-to-fine continuation
+approach and impose accuracy gradually as we get close to the solution,
+thus save in computation when we are far away from the optimum. Putting
+these ingredients together results in an effective algorithm applicable
+to many shape reconstruction problem in imaging. We demonstrate the power
+of the method with several examples.
+
+
+\end{document}

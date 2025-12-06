@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>liuku094070</TITLE>
+<META NAME="description" CONTENT="liuku094070">
+<META NAME="keywords" CONTENT="liuku094070">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="liuku094070.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Kuo Liu 
+<BR><B>Hybrid First-order System Least Squares Finite Element Methods With Application to Stokes Equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">1320 Grandview Ave 
+<BR>
+Boulder 
+<BR>
+CO 80302
+
+<BR><TT>kuol@colorado.edu</TT>
+<BR>
+Thomas Manteuffel
+<BR>
+Stephen McCormick
+<BR>
+John Ruge
+<BR>
+Lei Tang
+</DIV>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+In this talk, we combine the FOSLS method with the FOSLL<IMG
+ WIDTH="12" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^*$">
+ method to
+create a Hybrid method.
+The FOSLS approach minimizes the error, <!-- MATH
+ ${\bf e}^h = {\bf u}^h - {\bf u}$
+ -->
+<IMG
+ WIDTH="90" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\bf e}^h = {\bf u}^h - {\bf u}$">
+, over a finite element
+subspace, <!-- MATH
+ ${\cal V}^h$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {\cal V}^h$">
+,
+in the operator norm, <!-- MATH
+ $\min_{{\bf u}^h\in{\cal V}^h}\| L ({\bf u}^h-{\bf u}) \|$
+ -->
+<IMG
+ WIDTH="162" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \min_{{\bf u}^h\in{\cal V}^h}\Vert L ({\bf u}^h-{\bf u}) \Vert$">
+. The FOSLL<IMG
+ WIDTH="12" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^*$">
+ method
+looks for an approximation
+in the range of <IMG
+ WIDTH="23" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ L^*$">
+, setting <!-- MATH
+ ${\bf u}^h = L^*{\bf w}^h$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\bf u}^h = L^*{\bf w}^h$">
+ and choosing <!-- MATH
+ ${\bf w}^h \in {\cal W}^h$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ {\bf w}^h \in {\cal W}^h$">
+, a
+standard finite element space.
+FOSLL<IMG
+ WIDTH="12" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^*$">
+ minimizes the <IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ {\bf L}^2$">
+ norm of the error over <!-- MATH
+ $L^*({\cal W}^h)$
+ -->
+<IMG
+ WIDTH="60" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ L^*({\cal W}^h)$">
+, that is,
+<!-- MATH
+ $\min_{{\bf w}^h\in{\cal W}^h} \| L^*{\bf w}^h - {\bf u}\|$
+ -->
+<IMG
+ WIDTH="167" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \min_{{\bf w}^h\in{\cal W}^h} \Vert L^*{\bf w}^h - {\bf u}\Vert$">
+.
+FOSLS enjoys a locally sharp, globally reliable, and easily computable a posterior error
+estimate, while FOSLL<IMG
+ WIDTH="12" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^*$">
+
+does not.
+
+<P>
+The hybrid method attempts to retain the best properties of both FOSLS and FOSLL<IMG
+ WIDTH="12" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^*$">
+.
+This is accomplished by combining the FOSLS functional, the FOSLL<IMG
+ WIDTH="12" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^*$">
+ functional, and an
+intermediate term that draws them together. The Hybrid method produces an approximation,
+<IMG
+ WIDTH="23" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ {\bf u}^h$">
+, that is nearly the optimal over <!-- MATH
+ ${\cal V}^h$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {\cal V}^h$">
+ in the graph norm,
+<!-- MATH
+ $\|{\bf e}^h\|_{{\cal G}}^2:= \frac{1}{2}\|{\bf e}^h\|^2 + \|L{\bf e}^h\|^2$
+ -->
+<IMG
+ WIDTH="192" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \Vert{\bf e}^h\Vert _{{\cal G}}^2:= \frac{1}{2}\Vert{\bf e}^h\Vert^2 + \Vert L{\bf e}^h\Vert^2$">
+.
+The FOSLS and intermediate terms in the Hybrid functional provide a very effective a
+posteriori error measure.
+
+<P>
+We show that the hybrid functional is coercive and continuous in the
+graph-like
+norm with modest constants, <IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ c_0 = 1/3$">
+ and <IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ c_1=3$">
+; that both <!-- MATH
+ $\|{\bf e}^h \|$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \Vert{\bf e}^h \Vert$">
+ and <!-- MATH
+ $\|L
+{\bf e}^h\|$
+ -->
+<IMG
+ WIDTH="48" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \Vert L
+{\bf e}^h\Vert$">
+
+converge with rates based on standard interpolation bounds; and that if <IMG
+ WIDTH="34" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ LL^*$">
+ has full
+<IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ H^2$">
+ regularity,
+the <IMG
+ WIDTH="23" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ {\bf L}^2$">
+ error, <!-- MATH
+ $\|{\bf e}^h\|$
+ -->
+<IMG
+ WIDTH="37" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \Vert{\bf e}^h \Vert$">
+, converges with a full power of the discretization
+parameter, <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ h$">
+, faster
+than the functional norm. Letting <!-- MATH
+ $\tilde{{\bf u}}^h$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \tilde{{\bf u}}^h$">
+ denote the optimum over <!-- MATH
+ ${\cal V}^h$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {\cal V}^h$">
+ in the
+graph norm, we also
+show that if superposition is used, then <!-- MATH
+ $\| {\bf u}^h -\tilde{{\bf u}}^h\|_{{\cal G}}$
+ -->
+<IMG
+ WIDTH="86" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \Vert {\bf u}^h -\tilde{{\bf u}}^h\Vert _{{\cal G}}$">
+
+converges two powers of <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ h$">
+ faster than the functional norm. Numerical tests are provided
+to confirm the efficiency of the Hybrid method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

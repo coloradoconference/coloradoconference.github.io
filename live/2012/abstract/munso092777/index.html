@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>munso092777</TITLE>
+<META NAME="description" CONTENT="munso092777">
+<META NAME="keywords" CONTENT="munso092777">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="munso092777.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Todd Munson 
+<BR><B>The TAO Augmented Lagrangian Method for PDE-Constrained Optimization</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Math and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 S Cass Ave 
+<BR>
+Argonne 
+<BR>
+IL 60439
+
+<BR><TT>tmunson@mcs.anl.gov</TT>
+<BR>
+Evan Gawlik
+<BR>
+Jason Sarich
+<BR>
+Stefan Wild
+</DIV>
+
+<P>
+Parameter estimation, inverse problems, and optimal control problems
+frequently appear in physical applications and can be cast
+as constrained optimization problems with partial differential equation
+constraints. In particular, we are interested in solving
+discretized optimization problems of the form
+<P><!-- MATH
+ \begin{displaymath}
+\begin{array}{ll}
+\displaystyle \min_{u,v} & f(u,v) \\
+\mbox{subject to} & g(u,v) = 0,
+\end{array}
+\end{displaymath}
+ -->
+</P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="163" HEIGHT="62" BORDER="0"
+ SRC="img1.png"
+ ALT="\begin{displaymath}
+\begin{array}{ll}
+\displaystyle \min_{u,v} &amp; f(u,v) \\
+\mbox{subject to} &amp; g(u,v) = 0,
+\end{array}\end{displaymath}">
+</DIV><P>
+</P>
+where the state variable <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ u$">
+ is the solution to the discretized partial
+differential equation defined by <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ g$">
+ and parametrized by the design
+variable <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ v$">
+, and <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ f$">
+ is the discretized objective function, whose
+form depends on the application. Examples include estimating the
+porosity and permeability parameters from observables such as the
+piezometric head at monitoring wells for reactive flows,
+to applications in optical tomography and electromagnetic imaging.
+
+<P>
+In this talk, we will discuss the linearly-constrained augmented
+Lagrangian method available in the Toolkit for Advanced Optimization (TAO)
+for solving PDE-constrained optimization problems. This method computes
+the direction in two phases, a Newton direction to reduce the constraint violation
+and a reduced-space direction to improve the augmented Lagrangian merit
+function. The reduced-space direction is computed from a limited-memory
+quasi-Newton approximation to the reduced Hessian matrix. This method
+requires a minimal amount of information from the user to solve the
+optimization problem. The computational time for the method is dominated
+by computing the necessary directions using iterative methods and
+preconditioners supplied by the user for solving the linearized forward
+and adjoint problems. The parallel performance is strongly influenced
+by the parallel performance of these solves.
+
+<P>
+To evaluate the performance of our linearly-constrained augmented Lagrangian
+method, we use the Haber-Hansen test problems, which include elliptic,
+parabolic, and hyperbolic partial differential equations, and their
+corresponding discretizations. We implemented parallel versions of these
+applications in
+the Toolkit for Advanced Optimization to investigate the scalability
+of the method on high-performance architectures. Results from these
+studies will be presented.
+
+<P>
+Our algorithms and test problems are available in the latest release
+of the Toolkit for Advanced Optimization, which also includes methods
+for derivative-free optimization, unconstrained and bound-constrained
+optimization problems using derivative information, and complementarity
+problems and variational inequalities on high-performance architectures.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large D. Lahaye \\
+{\bf On the Complex Shifted Laplacian as Multigrid Smoother for the Helmholtz Equation }}
+
+DIAM - TU Delft \\ Mekelweg 4 \\ 2624 CD Delft \\ The Netherlands
+\\
+{\tt d.j.p.lahaye@tudelft.nl}\\
+I. Livshits\end{center}
+
+Solving the discretized Helmholtz equation on large scale remains to date a
+challenging problem. The idea of using the complex shifted Laplacian as a
+preconditioner for an outer Krylov subspace iteration was introduced in [1].
+This paper constitutes a landmark in the development of fast solution
+algorithms as can be judged from the number of citations. The combination
+of the complex shifted Laplacian with a multigrid deflation technique was
+first proposed in [2] and later analyzed in [3]. In these works the shifted
+Laplacian is attributed the role of a multigrid smoother. Fourier analysis
+and numerical results show that while the use of a coarse grid correction
+type iteration does bring the required number of iterations down, the
+resulting algorithm fails to be scalable especially at high wave number
+values. Indeed, the linear interpolation employed fails to sufficiently
+remove the near-null space components of the kernel. Inspired by this work
+we consider other ways to remove the error components that are slow to
+converge for the shifted Laplacian. We show that a V-cycle that converges
+for the high energy modes can be build and exploit this fact to expose the
+near-null space modes. This modes are used subsequently to build an effective
+deflation operator. Numerical results will illustrate the effectiveness of
+our approach.
+
+[1] Y. A. Erlangga, C. Vuik and C.W. Oosterlee, On a Class of Preconditioners
+for Solving the Helmholtz Equation, Appl. Numer. Math., pp. 409--425, 50,
+(3-4), 2004.
+
+[2] Y. A. Erlangga and R. Nabben, On a Multilevel Krylov Method for the
+Helmholtz Equation Preconditioned by Shifted Laplacian, ETNA, pp. 403--424,
+31, 2008.
+
+[3] A. Sheikh, D. Lahaye and C. Vuik, On the Convergence of the Shifted
+Laplace Preconditioner Combined with Multigrid Deflation, submitted to NLAA.
+
+
+\end{document}

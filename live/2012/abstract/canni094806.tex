@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew Canning \\
+{\bf A Fourier Multi-level Hybrid OpenMP/MPI Approach for Eigenvalue Problems in First-principles Materials Science Calculations }}
+
+Computational Research Division \\ LBNL \\ Berkeley CA94720 \\ USA
+\\
+{\tt acanning@lbl.gov}\\
+Mi Jiang\end{center}
+
+We present a multi-level approach in Fourier space to solve the Kohn-Sham
+equations from Density Functional Theory (DFT) using a plane wave
+(Fourier) basis and replacing the ionic cores by pseudopotentials. By
+increasing the cutoff energy and associated other parameters in
+subsequent levels, we demonstrate that this approach efficiently speeds
+up solving the Kohn-Sham equations. The method was implemented in the
+PARATEC first principles plane wave code. Examples of multi-level
+calculations for bulk silicon, quantum dots and an aluminum
+surface are presented. In some case using the multilevel approach the
+total computation time is reduced by half compared to the original single
+level approach.
+We will also discuss the advantages of our hybrid OpenMP/MPI
+implementation over a pure MPI version for running on multi-core
+architectures.
+
+
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chao Yang \\
+{\bf Parallel implicit phase-field solver based on domain decomposition methods}}
+
+Institute of Software \\ Chinese Academy of Sciences \\ China
+\\
+{\tt yangchao@iscas.ac.cn}\\
+Xiao-Chuan Cai\end{center}
+
+Phase-field modeling has found numerous applications in material
+sciences. Due to the multi-scale nature, partial differential equations
+arising in many phase-field models are typically high-order nonlinear
+parabolic PDEs containing both diffusive and anti-diffusive terms and are
+often stiff and highly ill-conditioned. In this work, stabilized implicit
+schemes with an adaptive time-stepping strategy for some typical
+phase-field problems are investigated. We apply a Newton-Krylov-Schwarz
+algorithm to solve the nonlinear system of equations arising at each time
+step. Low-order homogeneous boundary conditions for the overlapping
+subdomains are imposed in the Schwarz preconditioner to achieve promising
+convergence result. Numerical tests on a supercomputer with thousands of
+processor cores are provided to show the scalability of the parallel
+solver.
+
+
+\end{document}

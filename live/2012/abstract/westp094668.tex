@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chad Westphal \\
+{\bf FOSLL$^*$ For Nonlinear Partial Differential Equations}}
+
+Dept of Math \& CS \\ Wabash College \\ Crawfordsville \\ IN 47933
+\\
+{\tt westphac@wabash.edu}\\
+Eunjung Lee\\
+Thomas Manteuffel\end{center}
+
+Least-squares finite element methods are designed around the idea of
+minimizing discretization error in an appropriate norm. For sufficiently
+regular, elliptic-like problems, a first-order system least squares
+(FOSLS) approach may be continuous and coercive in the $H^1$ norm,
+yielding solutions accurate in $H^1$. For problems posed in high aspect
+ratio domains (e.g., flow through a long channel), approximations on
+coarse resolutions may have error whose $L^2$ norm is large relative to
+the $H^1$ seminorm. The first order system $LL^*$ (FOSLL$^*$) approach
+seeks to minimize the residual of the equations in a dual norm induced by
+the differential operator, yielding a better $L^2$ approximation. Mass
+conservation in fluid flow, for example, is greatly enhanced by such an
+approach. In this talk, we extend this general framework to nonlinear
+problems.
+
+Newton's method is a typical outer iteration for an efficient finite
+element approximation of nonlinear partial differential equations. We
+present the framework for an inexact Newton iteration based on a
+FOSLL$^*$ approximation to each linearization step and establish theory
+for convergence. Numerical results are presented for a
+velocity-vorticity-pressure formulation of the steady incompressible
+Navier-Stokes equations, and we discuss extensions and comparisons to the
+more typical Newton-FOSLS approach.
+
+
+\end{document}

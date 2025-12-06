@@ -1,0 +1,141 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Nikolaos, N M Missirlis \\
+{\bf Preconditioning augmented linear systems}}
+
+Department of Informatics and Telecommunications \\ University of Athens \\ Panepistimiopolis \\ 15784 \\ Ilisia \\ Athens \\ Greece
+\\
+{\tt nmis@di.uoa.gr}\\
+Maria Louka\end{center}
+
+Let $A \in \mathbb{R}^{m\times m}$ be a symmetric positive definite
+matrix and $B\in\mathbb{R}^{m\times n}$ be a matrix of full column rank,
+where $m\geq n$. Then, the augmented linear system is of the form
+
+\begin{equation}
+\tilde Au=b\label{eq:01}
+\end{equation}
+where
+\begin{equation}\label{eq:02}
+\tilde A=\left(
+\begin{array}{cc}
+A & B\\
+-B^{T} & 0
+\end{array}
+\right), \;\; u=
+\left(
+\begin{array}{cc}
+x\\
+y
+\end{array}
+\right),\;\; b=
+\left(
+\begin{array}{cc}
+b_1\\
+-b_2
+\end{array}
+\right)
+\end{equation}
+with $B^T$ be the transpose of the matrix B.
+When A and B are large and sparse, iterative methods for solving
+(\ref{eq:01}) are effective and more attractive than direct methods,
+because of storage requirements and preservation of sparsity.
+\\ \noindent The difficulty in applying iterative methods such as the
+successive overrelaxation (SOR) method \cite{Young} to system
+(\ref{eq:01}) is the singularity of the block diagonal part of the
+coefficient matrix. Some methods have been developed to overcome this
+difficulty such as the Uzawa and the Preconditioned Uzawa method
+\cite{ArHurUz58}. In 2001, Golub et al. \cite{GolWuYuan2001} generalized
+the Uzawa and the Preconditioned Uzawa method for the augmented system
+(\ref{eq:01}) by introducing an additional acceleration parameter and
+produced the SOR-like method. Other known methods, competitive and
+specially attractive for solving (\ref{eq:01}) are the preconditioned
+MINRES and GMRES methods \cite{FiRaSiWa98}. In case where the matrix A is
+symmetric and positive definite, the Preconditioned Conjugate Gradient
+(PCG) method \cite{HestSt52} is the most suitable. In 2003, Li, Evans and
+Zhang \cite{LiEvansZha2003} proved that the PCG method is at least as
+accurate as the SOR-like method. In 2005, Bai et al.
+\cite{BaiParlWang2005} proposed the Generalized SOR (GSOR) method and
+proved that it has the same rate of convergence but less complexity than
+the PCG method. Furthermore, the Generalized Modified Extrapolated SOR
+(GMESOR) method, a generalization of the GSOR method, was also proposed
+for further study.
+The latter is a generalization of the GSOR method as it uses one additional parameter. \\
+\noindent In this paper, we study the Generalized Modified Extrapolated
+SOR (GMESOR) method and the Generalized Modified Preconditioned
+Simultaneous Displacement (GMPSD) method. The latter is derived by using
+as preconditioning matrix the product of a lower and upper triangular
+part of $\tilde A$ \cite{Louka}, \cite{LoukMis2}.
+In an attempt to generalize our theory, we introduce an additional
+parameter $a$ in the structure of the matrix $\tilde A$, with the hope of
+increasing the rate of convergence for the aforementioned methods. Our
+starting point, for studying these methods, is the derivation of
+functional relations which relate the eigenvalues of their iteration
+matrices with those of the key matrix $J=Q^{-1}B^TA^{-1}B$. Assuming that
+the matrix Q is symmetric positive or negative definite matrix, the
+eigenvalues of the matrix $J$ are real and either positive if the matrix
+Q is positive definite or negative if the matrix Q is negative definite.
+Under these assumptions we find sufficient conditions for the convergence
+of the aforementioned methods and determine the optimum values of their
+parameters. For the determination of the optimum values of the parameters
+in GMESOR and GMPSD methods we followed a similar approach to Varga
+\cite{Var1} p. 110, for the optimum $\omega$ of SOR.
+
+
+\begin{thebibliography}{4}
+
+\bibitem{ArHurUz58} K. Arrow, L. Hurwicz and H. Uzawa, Studies in
+Nonlinear Programming, Stanford University Press, Stanford, 1958.
+
+\bibitem{BaiParlWang2005} Z.-Z. Bai, B. N. Parlett and Z.-Q. Wang, On
+generalized succesive overrelaxation methods for augmented linear
+systems, Numer. Math. 102, (2005), 1-38.
+
+
+
+
+\bibitem{FiRaSiWa98} B. Fischer, R. Ramage, D. J. Silvester, A. J.
+Wathen, Minimum residual methods for augmented systems, BIT 38, (1998),
+527-543.
+
+
+\bibitem{GolWuYuan2001} G. H. Golub, X. Wu and J.-Y Yuan, SOR-like
+methods for augmented systems, BIT 41, (2001), 71-85.
+
+
+\bibitem{HestSt52} M. R. Hestenes and E. Stiefel, Methods of Conjugate
+Gradients for Solving Linear Systems, Journal of Research of the National
+Bureau of Standards, vol. 49, No. 6, (1952), 409-436.
+
+
+\bibitem{LiEvansZha2003} C.-J. Li, Z. Li, D. J. Evans and T. Zhang, A
+note on an SOR-like method for augmented
+systems, IMA J. Numer. Anal. 23, (2003), 581-592.
+
+\bibitem{Louka} M. A. Louka, Iterative Methods for solving linear
+systems, Ph.D thesis (in Greek), 2011.
+
+\bibitem{LoukMis2} M. A. Louka, N. M. Missirlis and F. I. Tzaferis, Is
+modified PSD equivalent to modified SOR for two-cyclic matrices? Lin.
+Alg. and its Appl., Vol. 432, No. 11, (2010), 2798-2815.
+
+
+\bibitem{Var1} R. S. Varga, Matrix Iterative Analysis, Prentice-Hall, Inc.
+Englewood Cliffs, N.J., 1962.
+
+
+
+
+
+\bibitem{Young} D. M. Young, Iterative Solution of Large Linear Systems,
+Academic Press, New York, 1971.
+
+\end{thebibliography}
+
+
+\end{document}

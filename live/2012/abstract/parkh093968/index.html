@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>parkh093968</TITLE>
+<META NAME="description" CONTENT="parkh093968">
+<META NAME="keywords" CONTENT="parkh093968">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="parkh093968.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">HyeongKae Park 
+<BR><B>Physics-Based Preconditioning and Accurate Time Integration for A Moment-based Scale-Bridging Algorithm</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Theoretical Division 
+<BR>
+MS B216 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>hkpark@lanl.gov</TT>
+<BR>
+Dana Knoll
+<BR>
+Chris Newman
+<BR>
+Rick Rauenzahn
+<BR>
+Jeff Densmore
+<BR>
+Allan Wollaber
+</DIV>
+
+<P>
+Accurate modeling of neutral particle transport behavior is of great
+importance in many science and engineering applications.
+Many numerical transport algorithms suffer from slow convergence in
+optically thick regions, where particles undergo a large number of
+scattering and/or absorption re-emission events. We are developing a
+moment-based, scale-bridging algorithm that can mitigate slow convergence
+of transport algorithms. Our algorithm utilizes the low-order (LO)
+continuum equations that are consistently derived from the high-order
+(HO) transport equation. Due to discrete consistency, the LO system can
+be used not only for accelerating the HO solution, but also coupling to
+other physics.
+
+<P>
+In this talk, we present physics-based preconditioning strategy that
+utilizes the nonlinear elimination technique for the solution of the LO
+problem. The nonlinear elimination technique can reduce coupled PDEs/ODE
+to a scalar parabolic PDE via block Gauss elimination. This technique
+allows one to eliminate stiff nonlinear coupling from the system and
+hence reduces the number of required Newton iterations, with a trade-off
+of more complex Jacobian and nonlinear residual evaluations. We can then
+solve the LO system efficiently via multigrid preconditioned
+Newton-Krylov method with physics-based preconditioning. We discuss
+computational efficiency with different preconditioning operators.
+
+<P>
+We also discuss time stepping strategy of our moment-based scale-bridging
+algorithm for time-dependent thermal radiative transfer problems. Our
+goal is to obtain (asymptotically) second-order time accurate and
+consistent solutions without nonlinear iterations between the HO and LO
+systems within a time step.
+We compare the accuracy and efficiency of a predictor-corrector algorithm
+with the nonlinearly consistent algorithm.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2012-02-20
+</ADDRESS>
+</BODY>
+</HTML>
