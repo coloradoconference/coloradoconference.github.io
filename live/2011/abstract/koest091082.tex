@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Harald Koestler \\
+{\bf A robust geometric multigrid solver within the WaLBerla framework}}
+
+Cauerstr 6 \\ 91058 Erlangen \\ Germany
+\\
+{\tt harald.koestler@informatik.uni-erlangen.de}\end{center}
+
+Recently, more and more GPU HPC clusters are installed and thus there is
+a need to adapt existing software design concepts and algorithms to
+multi-GPU environments. We have developed a
+modular and easily extensible software framework called WaLBerla
+working on block-structured domains.
+It covers a wide range of applications ranging from particulate flows
+over free surface flows to nano fluids coupled with temperature
+simulations and medical imaging.
+
+In this talk we report on our experiences to extend WaLBerla in order to
+support geometric multigrid algorithms for the numerical solution of
+partial differential equations (PDEs) on
+multi-GPU clusters. As building blocks we use a damped Jacobi or
+red-black Gauss-Seidel smoother,
+collocation coarse approximation (CCA) to compute the coarse grid
+stencils and standard or matrix-dependent intergrid transfer operators.
+CCA allows us to force a certain size of the coarse grid stencil and
+coincides with Galerkin coarsening, if both
+have the same number of stencil entries.
+
+We discuss the object-oriented software and
+performance engineering concepts necessary to integrate efficient compute
+kernels into our WaLBerla framework and show that a large fraction of the
+high computational performance offered by current heterogeneous HPC
+clusters can be sustained for geometric multigrid algorithms.
+
+
+\end{document}

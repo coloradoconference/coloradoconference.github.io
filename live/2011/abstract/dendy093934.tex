@@ -1,0 +1,52 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Joel E Dendy \\
+{\bf Using Refined Operators to Define A Cell-Structure-Preserving Multigrid Method for the Diffusion Equation}}
+
+Los Alamos National Laboratory \\ P O Box 1663 \\ MS-B284 \\ Los Alamos \\ NM 87545
+\\
+{\tt jed@lanl.gov}\\
+John D. Moulton\end{center}
+
+We consider the standard cell-centered discretization of the diffusion
+equation on a rectangle with discontinuous diffusion coefficient.
+Multigrid methods that preserve this cell-based structure are desirable
+in some applications, such as those that employ local grid refinement.
+Previously we considered an extension of black box multigrid with a
+coarsening factor of three, as this approach naturally preserves the
+cell-based structure. However, a coarsening factor of two is more common
+in grid refinement algorithms, and in this case the standard application
+of black box multigrid ignores the cell-based structure and coarsens the
+structured dual grid. Moreover, using a naive generalization of the
+interpolation operator that preserves the cell-based structure in
+conjunction with variational coarsening leads to a twenty-five point
+coarse-grid
+stencil.
+
+In this work we develop a variational coarsening algorithm that
+coarsens by a factor of two, generates nine-point coarse-grid
+stencils, and preserves the cell-based structure. We first consider the
+zero-removal case and extend the difference operator on the cell-centers
+of the finest grid to be a difference operator on the underlying grid
+consisting of cell-centers, cell-vertices and cell-edges. For this
+extended operator we derive an operator-induced interpolation, which is
+used to coarsen variationally to a difference operator on the grid of
+cell-vertices. This second operator is coarsened in the standard black
+box multigrid fashion to the grid of coarse-grid cell centers. The
+resulting operator has a nine-point stencil, and the resulting
+interpolation operator from fine-grid cell-centers to coarse-grid
+cell-centers has the same stencil as the transpose of bilinear
+interpolation. Next we consider non-zero-removal and show how to extend
+the above method to handle this case. We consider anisotropic coefficient
+problems and show how to modify the above method to handle this case. We
+show that the method also works for grids with dimensions that are not
+powers of two. We present some comparisons of the new method with classic
+BoxMG.
+
+
+\end{document}

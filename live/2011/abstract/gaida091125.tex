@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jeremie Gaidamour \\
+{\bf MueLu: Designing an extensible framework for multigrid algorithm research.}}
+
+Sandia National Laboratories \\ Mailstop 1320 \\ P O Box 5800 \\ Albuquerque \\ NM \\ 87185-1320
+\\
+{\tt jngaida@sandia.gov}\\
+Jonathan J. Hu\\
+Christopher M. Siefert\\
+Raymond S. Tuminaro\end{center}
+
+As part of the Sandia Trilinos project, we are developing a new
+object-oriented multigrid solver. This new library allows for great
+flexibility on the choice of inter-grid operators (geometric,
+aggregate-based, F/C) and can be tuned to choose strategies that are
+tailored for specific problems. In particular, the library is intended to
+make available new multigrid methods based on energy minimization. These
+methods extend the applicability of AMG methods to challenging problems
+like those arising from systems of PDEs. For instance, the sparsity
+pattern of the intergrid operator can be explicitly specified to control
+the cost and robustness of the method.
+
+To take advantage of the flexibility of such algorithms, control over all
+the components of the algorithm must be available via the high-level
+interface. We want to enable advanced users to customize deeply all the
+components of a multigrid solver in an easy way. Special attention was
+paid to the code design during development to provide a large and
+straight-forward extensibility.
+
+In this talk, we first discuss the underlying design philosophies. We
+then give an overview of the framework. We discuss how and why modern
+programming concepts facilitate the development of such framework. We
+illustrate how various multigrid methods can be assembled, with a
+particular focus on energy minimization. We will conclude with some
+numerical examples that demonstrate the new capabilities. Finally, we
+discuss future plans.
+
+
+\end{document}

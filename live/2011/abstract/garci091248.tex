@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jose Garcia \\
+{\bf Geometric Multigrid for the Barotropic Momentum Equation in the Parallel Ocean Program.}}
+
+National Center for Atmospheric Research \\ PO Box 3000 Boulder \\ CO \\ 80307
+\\
+{\tt jgarcia@ucar.edu}\\
+Jose Garcia\\
+John Dennis \end{center}
+
+The Parallel Ocean Program (POP) is a general circulation model that
+solves the three-dimensional primitive equations for ocean dynamics. In
+this model, the barotropic momentum equation is formulated as an elliptic
+partial differential equation, and a finite difference scheme based on a
+staggered B-grid is used as the discretization scheme. The resulting
+linear system is symmetric positive definite, and it seems very well
+suited for a multigrid solver. However, due to the type of grid used for
+the finite difference operators, off-the-shell multigrid solvers have not
+been able to perform better than the standard preconditioned conjugate
+gradient solver used in POP. In this presentation, we explore new
+prolongation and coarsening operators for a geometric multigrid solver
+tailored to this problem, which could lead to a significant improvement
+in the performance of POP.
+
+
+\end{document}

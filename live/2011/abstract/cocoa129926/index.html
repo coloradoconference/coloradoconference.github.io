@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>cocoa129926</TITLE>
+<META NAME="description" CONTENT="cocoa129926">
+<META NAME="keywords" CONTENT="cocoa129926">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cocoa129926.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Armando Coco 
+<BR><B>Multigrid technique for non-eliminated boundary conditions in arbitrary domain</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Via Procida 
+<BR>
+54 
+<BR>
+96012 Avola (SR) 
+<BR>
+Italy
+
+<BR><TT>coco@dmi.unict.it</TT>
+<BR>
+Giovanni Russo
+</DIV>
+
+<P>
+Poisson equation in arbitrary domain (possibly with moving boundary) is
+central to many applications, such as diffusion phenomena,fluid dynamics,
+charge transport in semiconductors, crystal growth, electromagnetism and
+many others.
+We present a rather simple iterative method&nbsp;[<A
+ HREF="node1.html#CocoRusso:Elliptic">2</A>] to
+solve the Poisson equation in arbitrary domain <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Omega$">, identified by a
+level set function <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \phi$"> in such a way <!-- MATH
+ $\Omega=\left\{ x \in
+\mathbb{R}^d \colon \phi(x)<0 \right\}$
+ -->
+<IMG
+ WIDTH="175" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \Omega=\left\{ x \in
+\mathbb{R}^d \colon \phi(x)&lt;0 \right\}$">, and mixed boundary conditions.
+Such iterative scheme is just the building-block for a proper multigrid
+approach&nbsp;[<A
+ HREF="node1.html#CocoRusso:MG">3</A>].
+
+<P>
+The method is based on ghost-cell technique for finite difference
+discretization on a regular Cartesian grid. The structure of ghost points
+is complex and elimination of discrete boundary conditions from the
+system is hard to perform. In addition, a simple Gauss-Seidel scheme for
+the whole system does not converge. Therefore, in order to provide a good
+smoother for the multigrid approach, we relax the whole problem
+introducing a fictitious time and looking for the steady-state solution.
+The iterations on the boundary are performed in order to provide smooth
+errors. The iterative scheme is proved to converge, at least for first
+order accurate discretization.
+
+<P>
+Multigrid techniques for ghost points are well-studied in literature,
+especially in the case of rectangular domain, where the restriction of
+the boundary is performed using a restriction operator of codimension
+<IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ 1$">, since ghost points are aligned with the Cartesian axis.
+In the case of arbitrary domain, ghost points have an irregular structure
+and we provide a reasonable definition of the restriction operator for
+the boundary.
+
+<P>
+We also show that a proper treatment of the boundary iterations can
+improve the rate of convergence of the multigrid and the cost of this
+extra computational work is negligible&nbsp;[<A
+ HREF="node1.html#Brandt:analysis">1</A>].
+
+<P>
+The method can also be extended to the interesting case of discontinuous
+coefficients across an interface. Some preliminary numerical
+results&nbsp;[<A
+ HREF="node1.html#CocoRusso:DiscoCoeff1D">4</A>] are provided in this talk.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-03-01
+</ADDRESS>
+</BODY>
+</HTML>

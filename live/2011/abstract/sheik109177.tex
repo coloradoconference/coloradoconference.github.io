@@ -1,0 +1,52 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Abdul Hanan Sheikh \\
+{\bf A scalable Helmholtz solver combining the deflation with shifted Laplace preconditioner.}}
+
+Mekelweg 4 \\ EWI Building \\ Delft University of Technology \\ 2628CD Delft \\ Netherlands
+\\
+{\tt hanangul12@yahoo.co.uk}\\
+Domenico Lahaye\\
+Kees Vuik\end{center}
+
+Our object is to develop high performance iterative solution algorithm
+for solving the discrete Helmholtz equation modeling wave propagation on
+large scale. Ingredients in our work are the shifted Laplace
+preconditioner and deflation. The development of the shifted Laplace
+preconditioner for the Helmholtz equation was a breakthrough in the
+development of efficient solution techniques for the Helmholtz equation.
+The distinct feature of this preconditioner is the introduction of a
+complex shift, effective introducing damping of wave propagation in the
+approximate solve. This preconditioner was extensively discussed in
+various texts and applied in a number of different contexts. Although
+performant, the resulting algorithm is not truly scalable. The bigger the
+wavenumber, the more spectrum scatters away from one, hampering the
+convergence. Idea of projection has been used since long to deflate
+unfavorable eigenvalues. By inducting eigenvectors corresponding to
+unwanted eigenvalues, better convergence for CG and GMRES has been
+reported in various texts. We also combine the idea of deflation with
+shifted Laplace preconditioner, which leads to a scalable Helmholtz
+solver, in the sense iterations does not depend upon parameters.
+We provide a convergence analysis. We perform a Fourier two-grid analysis
+of one-dimensional model problem with Dirichlet boundary conditions
+discretized by a second order accurate finite difference scheme. The
+components analyzed are the shifted Laplace preconditioner used as
+smoother, full-weighting and linear interpolation intergrid transfer
+operators, and a Galerkin coarsening scheme. This Fourier analysis
+results in a closed form expression for the eigenvalues of the two-grid
+operator. This expressions shows that the spectrum is favourable for
+convergence of Krylov subspace methods.
+We apply the deflated shifted Laplace preconditioner to two-dimensional
+model problems method with constant and non-constant wave numbers and
+Sommerfeld boundary conditions discretized by second order accurate
+finite difference scheme on uniform meshes. Numerical results show that
+the number of GMRES iterations is wave-number independent.
+
+
+
+\end{document}

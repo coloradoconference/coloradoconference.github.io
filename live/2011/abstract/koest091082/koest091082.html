@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>koest091082</TITLE>
+<META NAME="description" CONTENT="koest091082">
+<META NAME="keywords" CONTENT="koest091082">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="koest091082.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Harald Koestler 
+<BR><B>A robust geometric multigrid solver within the WaLBerla framework</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Cauerstr 6 
+<BR>
+91058 Erlangen 
+<BR>
+Germany
+
+<BR><TT>harald.koestler@informatik.uni-erlangen.de</TT>
+</DIV>
+
+<P>
+Recently, more and more GPU HPC clusters are installed and thus there is
+a need to adapt existing software design concepts and algorithms to
+multi-GPU environments. We have developed a
+modular and easily extensible software framework called WaLBerla
+working on block-structured domains.
+It covers a wide range of applications ranging from particulate flows
+over free surface flows to nano fluids coupled with temperature
+simulations and medical imaging.
+
+<P>
+In this talk we report on our experiences to extend WaLBerla in order to
+support geometric multigrid algorithms for the numerical solution of
+partial differential equations (PDEs) on
+multi-GPU clusters. As building blocks we use a damped Jacobi or
+red-black Gauss-Seidel smoother,
+collocation coarse approximation (CCA) to compute the coarse grid
+stencils and standard or matrix-dependent intergrid transfer operators.
+CCA allows us to force a certain size of the coarse grid stencil and
+coincides with Galerkin coarsening, if both
+have the same number of stencil entries.
+
+<P>
+We discuss the object-oriented software and
+performance engineering concepts necessary to integrate efficient compute
+kernels into our WaLBerla framework and show that a large fraction of the
+high computational performance offered by current heterogeneous HPC
+clusters can be sustained for geometric multigrid algorithms.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

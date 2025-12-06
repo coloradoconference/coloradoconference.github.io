@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>vanro091189</TITLE>
+<META NAME="description" CONTENT="vanro091189">
+<META NAME="keywords" CONTENT="vanro091189">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="vanro091189.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Wim, I Vanroose 
+<BR><B>A polynomial multigrid smoother for the iterative solution of the heterogeneous Helmholtz problem</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dept Mathematics and Computer Science 
+<BR>
+Universiteit Antwerpen 
+<BR>
+Middelheimlaan 1 
+<BR>
+2020 Antwerpen 
+<BR>
+Belgium
+
+<BR><TT>wim.vanroose@ua.ac.be</TT>
+<BR>
+Bram Reps
+<BR>
+Hisham bin Zubair
+</DIV>
+
+<P>
+This contribution is focused on the numerical solution of the
+indefinite Helmholtz equation
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:helmholtz"></A><!-- MATH
+ \begin{equation}
+Hu \equiv -(\Delta+k^2(x,y))u= f \mbox{ in } \Omega
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="199" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle Hu \equiv -(\Delta+k^2(x,y))u= f$">&nbsp; &nbsp; in <IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \Omega$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with a space a space dependent wave number <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k$"> and exterior complex
+stretching as absorbing boundary conditions. The solution method is
+based on a preconditioned Krylov subspace, however, the preconditioner
+operator is the Helmholtz equation discretized on a grid with a
+complex grid distance, which is approximately inverted with one
+multigrid cycle.
+
+<P>
+The failure of multigrid on the Helmholtz problem have been widely
+documented and is caused by the indefinite spectrum of the operator
+<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ H$">. Discretized on a grid with grid distance <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ h$">, the negative
+Laplacian, <IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ -\Delta$">, leads to a spectrum that is spread between 0 and
+<!-- MATH
+ $\mathcal{O}(1/h^2)$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathcal{O}(1/h^2)$"> on the real axis. However, the wave number will
+shift this spectrum in the negative direction. This leads to an
+indefinite matrix for wave numbers <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k$"> larger than a certain
+threshold. This means that the spectrum is spread over both the
+positive real part as the negative real part of the complex plane, not
+necessarily excluding zero as an eigenvalue. Realistic problems have
+absorbing boundary conditions, that move the eigenvalues slightly below
+the real axis.
+
+<P>
+Two difficulties emerge when multigrid is applied. First, typical
+smoothers like weighted Jacobi or Gauss-Seidel become unstable for
+indefinite problems. However, the unstable modes are the smoothest
+modes and should be stabilized by the coarse grid correction, for
+problems that are slightly indefinite. The second problem is the
+appearance of diverging coarse grid corrections for certain wave
+numbers. This has been analyzed in detail by [1]. The peaks
+in the convergence plots can be interpreted as resonances.
+
+<P>
+These difficulties are avoided when multigrid is applied to a complex
+shifted Laplacian [2,3]. Then the wave number is complex
+valued which cannot cause resonances in the coarse grid correction.
+In [4], we show that the complex shifting is equivalent with
+discretizing the Laplacian with a complex valued grid distance.
+
+<P>
+It is important to stress that introducing the complex shift
+suppresses and broadens the resonances during the coarse grid
+correction, but it leaves the possibility that the smoother is
+unstable. In this contribution we report on our analysis of replacing
+the standard smoother such as weighted Jacobi or Gauss-Seidel with a
+polynomial smoother.
+
+<P>
+In particular we have analysed the performance of polynomial
+smoothers [5] on Helmholtz problems discretized with finite
+difference and an exterior complex scaling as an absorbing boundary
+conditions. The spectrum of the operator is bounded by a
+triangle [4] where the first corner lies in <IMG
+ WIDTH="33" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ -k^2$"> and
+the second in <!-- MATH
+ $-k^2+4/h^2$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ -k^2+4/h^2$"> and a third corner lies in down in the
+complex plane. This triangle lies entirely in the lower half of the
+complex plane. The eigenvalues of the smooth modes lie near <IMG
+ WIDTH="33" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ -k^2$"> while
+in the other corners the modes are rapidly oscillating.
+
+<P>
+The smoothers we have studied have the form
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+f(t) = (1 -\omega_1 t) (1 -\omega_2 t)(1 -\omega_3 t),
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="245" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle f(t) = (1 -\omega_1 t) (1 -\omega_2 t)(1 -\omega_3 t),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the weights are choosen such that the error iteration,
+<!-- MATH
+ $e^{(k+1)} = f(A) e^{(k)}$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ e^{(k+1)} = f(A) e^{(k)}$">, fits the following requirements. It
+satisfies the fixed point property since <IMG
+ WIDTH="63" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ f(0)=1$">. The smoothest
+modes near <IMG
+ WIDTH="33" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ -k^2$"> are mapped close to the unit cirlcle since <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ f$"> is
+such that <!-- MATH
+ $f(-k^2)=e^{\imath\varphi}$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ f(-k^2)=e^{\imath\varphi}$"> with <!-- MATH
+ $\varphi \in [0,2\pi[$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \varphi \in [0,2\pi[$">. The
+two other corners are
+mapped to zero such that the oscillatory modes are
+smoothed. In [5] we show that the coefficients <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \omega_1$">,
+<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \omega_2$"> en <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \omega_3$"> can be choosen such that the <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ f$"> is stable and
+behaves as a smoother given certain conditions on the complex grid of
+the preconditioner operator.
+
+<P>
+In practice, however, this hand tuned particular polynomial can be
+replaced by GMRES(3), which optimizes the coefficients <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \omega_i$"> each
+iteration. Since the particular polynomial provides a upper bound the
+GMRES(3) convergence, the GMRES(3) smoother inherits all the
+properties from the hand tuned polynomials. Note that since we use a
+complex grid, we only need a restart of three, while [1]
+requires a complicated smoothing strategy.
+
+<P>
+We have extensively tested this solution strategy and it gives a
+satisfactory multigrid convergence for the complex stretched problem that
+is independent of the wave
+number. However, the Krylov convergence increases linearly in the
+wave number.
+
+<P>
+<B>References</B>
+<BR>[1]H.C. Elman, O.G. Ernst, and D.P. O'Leary, <I>A multigrid method enhanced by
+Krylov subspace iteration for discrete Helmholtz equations</I>, SIAM Journal of
+Scientific Computing <B>23</B> (2002), no.&nbsp;4, 1291-1315.
+
+<P>
+[2]
+Y.A. Erlangga, CW&nbsp;Oosterlee, and C.&nbsp;Vuik, <I>A novel multigrid based
+preconditioner for heterogeneous Helmholtz problems</I>, SIAM Journal on
+Scientific Computing <B>27</B> (2006), no.&nbsp;4, 1471-1492.
+
+<P>
+[3]
+YA&nbsp;Erlangga, C.&nbsp;Vuik, and CW&nbsp;Oosterlee, <I>On a class of preconditioners
+for solving the Helmholtz equation</I>, Applied Numerical Mathematics
+<B>50</B> (2004), no.&nbsp;3-4, 409-425.
+
+<P>
+[4]
+B.&nbsp;Reps, W.&nbsp;Vanroose, and H.&nbsp;Zubair, <I>On the indefinite Helmholtz
+equation: Complex stretched absorbing boundary layers, iterative analysis,
+and preconditioning</I>, Journal of Computational Physics <B>229</B> (2010),
+no.&nbsp;22, 8384-8405.
+
+<P>
+[5]
+W.&nbsp;Vanroose, B.&nbsp;Reps, and H.&nbsp;Zubair, <I>The discrete helmholtz equation
+preconditioned with multigrid with a polynomial smoother</I>, Submitted to SIAM
+journal of Numerical Analysis, http://arxiv.org/abs/1012.5379. (2010).
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

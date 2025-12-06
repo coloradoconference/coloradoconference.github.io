@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Lei Tang \\
+{\bf Parallel Adaptive Mesh Refinement for FOSLS-AMG}}
+
+Department of Applied Math \\ 526 UCB \\ Boulder CO \\ 80309-0526
+\\
+{\tt tangl@colorado.edu}\\
+Marian Brezina\\
+Tom Manteuffel\\
+Steve McCormick\\
+John Ruge\end{center}
+
+This talk introduces new adaptive mesh refinement (AMR) strategies for first-order system
+least-squares (FOSLS) finite elements in conjunction with algebraic
+multigrid (AMG) methods in the context of nested iteration (NI). The goal
+is to reach a certain error tolerance with the least amount of
+computational cost and nearly uniform distribution of the error over all
+elements. To accomplish this, the refinement decisions at each refinement
+level are determined based on minimizing the
+``accuracy-per-computational-cost" (ACE) efficiency measure that take
+into account both error reduction and computational cost. The
+NI-FOSLS-AMG-ACE approach
+produces a sequence of refinement levels in which the error is equally
+distributed across elements on a relatively coarse grid. Once the
+solution is numerically resolved, refinement becomes nearly uniform.
+Accommodations of the ACE approach to massively distributed memory
+architectures involve a geometric binning strategy to reduce
+communication cost. Load balancing begins at very coarse levels. Elements
+and nodes are redistributed using parallel quadtree structures and a
+space filling curve. This automatically ameliorates load balancing issues
+at finer levels. Numerical results show that the NI-FOSLS-AMG-pACE
+approach is able to provide highly accurate approximations to rapidly
+varying solutions using a small number of work units. Excellent weak and
+strong scalability are demonstrated on 4,096 processors for problems with
+15 million biquadratic elements.
+
+
+\end{document}

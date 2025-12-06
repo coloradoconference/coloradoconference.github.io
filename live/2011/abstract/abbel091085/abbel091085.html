@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>abbel091085</TITLE>
+<META NAME="description" CONTENT="abbel091085">
+<META NAME="keywords" CONTENT="abbel091085">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="abbel091085.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Dirk Abbeloos 
+<BR><B>Nested multigrid methods for time-periodic, parabolic optimal control problems.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">K U Leuven 
+<BR>
+Celestijnenlaan 200A 
+<BR>
+3001 Heverlee
+
+<BR><TT>dirk.abbeloos@cs.kuleuven.be</TT>
+<BR>
+Stefan Vandewalle 
+<BR>
+Michael Hinze
+<BR>
+Moritz Diehl
+</DIV>
+
+<P>
+We present a nested multigrid method to optimize time-periodic,
+parabolic, partial differential equations (PDE). We consider a quadratic
+tracking objective with a linear parabolic PDE constraint. The goal of
+the optimization is to find the optimal control which minimizes the
+objective over a set of admissible controls and in addition induces a
+prescribed cyclic state with the correct period. More precisely the state
+of the system at a certain instance of time should be identical to the
+one a fixed period of time later. We do not assume the existence of
+autonomous periodic behavior of the PDE and as a consequence the
+time-periodicity should be enforced by the applied control. Our problem
+differs from the initial value problem, where the goal is to find the
+optimal control to steer the system from a given state to a final state.
+
+<P>
+The proposed method relies on the reduction of the first order optimality
+conditions to a Fredholm integral equation of the second kind. The
+resulting equation will be solved by a multigrid method of the second
+kind. The cost of this method is dominated by the evaluation of the
+kernel of the integral, which involves solving the state and the
+corresponding adjoint equation. For the evaluation of these two
+subproblems a space-time multigrid approach of the first kind will be
+applied. Combining both multigrid methods results in a nested multigrid
+algorithm where an outer method is used for solving the integral equation
+and an inner method to evaluate the integral kernel.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

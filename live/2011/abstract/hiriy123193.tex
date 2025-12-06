@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Badri Hiriyur \\
+{\bf A quasi-algebraic multigrid approach based on Schur complements for linear systems associated with XFEM}}
+
+626A Seeley W Mudd Hall \\ 500 West 120th Street \\ New York \\ NY 10027
+\\
+{\tt bkh2112@columbia.edu}\\
+Ray Tuminaro\\
+Haim Waisman\\
+Erik Boman\\
+David Keyes\end{center}
+
+An algebraic multigrid method is proposed that is suitable for the linear
+systems associated with modeling fracture via extended finite element
+method (XFEM). The new method follows naturally from an energy minimizing
+algebraic multigrid framework and is suitable to be used as a
+preconditioner to accelerate Krylov subspace based iterative methods. The
+key idea is the modification of the prolongator sparsity pattern to
+prevent interpolation across cracks. The proposed method is
+quasi-algebraic since the geometric levelset information relating to
+cracks are used to modify the prolongator sparsity pattern. This levelset
+information is readily available from the XFEM discretization process. It
+is shown that algebraic multigrid using these modified transfer operators
+is highly efficient when applied to the Schur complement of the XFEM
+stiffness matrix in which the enriched degrees of freedom are condensed
+out. In the proposed method, suitable modifications are made to avoid the
+explicit computation of the Schur complement. Numerical experiments
+illustrate that the resulting method is scalable since the convergence
+properties are relatively insensitive to the mesh density and to the
+number of cracks or their location.
+
+
+\end{document}

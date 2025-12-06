@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>parkm091344</TITLE>
+<META NAME="description" CONTENT="parkm091344">
+<META NAME="keywords" CONTENT="parkm091344">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="parkm091344.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Minho Park 
+<BR><B>Relaxation-corrected Bootstrap Algebraic Multigrid (<I>r</I>BAMG)</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">1300 30TH ST APT E1-14 Boulder 
+<BR>
+CO 80303
+
+<BR><TT>parkmh@colorado.edu</TT>
+</DIV>
+
+<P>
+Bootstrap Algebraic Multigrid (BAMG) is a multigrid-based solver for
+matrix equations of the form <IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax=b$">. Its aim is to automatically
+determine the interpolation weights used in algebraic multigrid (AMG) by
+locally fitting a set of test vectors that have been relaxed as solutions
+to the corresponding homogeneous equation, <IMG
+ WIDTH="55" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ Ax=0$">. This paper develops
+another form of BAMG, called <I>r</I>BAMG, that involves modifying the
+least-squares process by temporarily relaxing on the test vectors at the
+fine-grid interpolation points.
+
+<P>
+The <I>r</I>BAMG setup process involves several components that are
+developed in this paper. Besides the new least-squares principle
+involving the residuals of the test vectors, a simple extrapolation
+scheme is developed to accurately estimate the convergence factors of the
+evolving AMG solver. Such a capability is essential to effective
+development of a fast solver, and the approach introduced here proves to
+be much more effective than the conventional approach of just observing
+successive error reduction factors. Another component of the setup
+process is the use of the current V-cycle to ensure its effectiveness or,
+when poor convergence is observed, to expose error components that are
+not being properly attenuated. Another related component is the scaling
+and recombination Ritz process that targets the so-called weak
+approximation property in an attempt to reveal the important elements of
+these evolving error and test vector spaces.
+
+<P>
+The study of <I>r</I>BAMG here is an attempt to systematically analyze
+the behavior of the algorithm in terms relative to several parameters.
+The focus here is on the number of test vectors, the number of
+relaxations applied to them, and the dimension of the matrix to which the
+scheme is applied. A large number of other parameters and options could
+also be considered, including different cycling strategies, other
+coarsening strategies (e. g., computing several eigenvector
+approximations on coarse levels), different numbers of relaxation sweeps
+on coarse levels, different possible strategies for combining test
+vectors and error components produced by the current cycles, and so on.
+Studying all of these options and parameters would not be feasible here.
+Instead, reasonable choices are made based on some sample studies (that,
+in the interest of space, we choose not to document here), with the hope
+that the <I>r</I>BAMG algorithm studied here is generally fairly
+effective and robust. Our analysis is thus able to focus on how this
+scheme behaves numerically in the face of increasing the numbers of test
+vectors and relaxation sweeps performed on them, as well as the problem
+sizes.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>

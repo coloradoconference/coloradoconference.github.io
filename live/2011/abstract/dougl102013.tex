@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Craig C. Douglas \\
+{\bf Isogeometric Multigrid }}
+
+University of Wyoming Math Dept \\ 1000 E University Ave  \\ Dept 3036 \\ Laramie \\ WY 82072-3036
+\\
+{\tt craig.c.douglas@gmail.com}\\
+Victor Calo\\
+Nathan Collier\\
+Hyoseop Lee\end{center}
+
+In engineering design, geometry is a major bottleneck in
+obtaining finite element solutions for a particular problem.
+A design is usually born inside a CAD package and
+subsequently needs to be tessellated (or meshed) such that
+the geometry is approximated by a finite element space.
+This process, while semi-automatic in some cases, is not
+without pitfalls and often requires human interaction to
+verify the resulting mesh. Furthermore, mesh refinements
+require a return to the CAD system and a re-tessellation of
+the CAD object. This means that convergence studies are
+prohibitively expensive for complex geometries and seldom
+performed.
+
+Isogeometric analysis [1] has been developed as a solution
+to this problem, simplifying, and in some cases eliminating,
+the problem of converting geometric discretizations in the
+engineering design process. Isogeometric analysis is an
+isoparametric finite element method that uses the
+Non-Uniform Rational B-spline basis (NURBS), which dominates
+the CAD market. It is hoped that in using this basis form,
+which is prevalent in the CAD community, that the bridge
+between analysis and design can be bridged.
+
+A NURBS basis may be $h$-refined via a process known as knot
+insertion. This process can be likened to the splitting of
+elements in traditional finite elements, however knot
+insertion may also be used to control the continuity between
+elements. More importantly the knot insertion process may
+be captured as a linear operator that interpolates a vector
+from one function space to a refined space exactly. We
+exploit these operators to develop a multigrid approach for
+isogeometric systems.
+
+In this talk we introduce isogeometric multigrid analysis
+and the NURBS basis in more detail as well as define the
+interpolation operator and finally show numerical results.
+
+[1] T. J. R. Hughes, J. Cottrell, Y. Bazilevs, Isogeometric
+analysis: CAD, finite elements, NURBS, exact geometry and
+mesh refinement, Computer Methods in Applied Mechanics and
+Engineering, 194 (2005), pp. 4135-4195.
+
+
+\end{document}

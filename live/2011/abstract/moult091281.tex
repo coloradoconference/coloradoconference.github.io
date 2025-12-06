@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David Moulton \\
+{\bf Robust and Adaptive Multigrid Methods: comparing structured and algebraic approaches }}
+
+Applied Mathematics and Plasma Physics \\ MS B284 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545
+\\
+{\tt moulton@lanl.gov}\\
+Scott MacLachlan\\
+Tim Chartier\end{center}
+
+Although there have been significant advances in robust algebraic
+multigrid methods in recent years, numerical studies and emerging
+hardware architectures continue to favor structured-grid approaches.
+Specifically, implementations of logically structured robust variatoinal
+multigrid algorithms, such as the Black Box Multigrid (BoxMG) solver,
+have been shown to be 10 times faster than AMG for three-dimensional
+heterogeneous diffusion problems on structured grids. BoxMG offers
+important features such as operator-induced interpolation for robustness,
+while taking advantage of direct data access and bounded complexity in
+the Galerkin coarse-grid operator. Moreover, since BoxMG uses a
+variational framework, it can be used to explore advances of modern
+adaptive AMG approaches in a structured setting. In this work, we show
+how to extend the adaptive multigrid methodology to the BoxMG setting.
+This extension not only retains the favorable properties of the adaptive
+framework, but also sheds light on the relationship between BoxMG and
+AMG. In particular, we show how BoxMG can be viewed as a \emph{special
+case} of classical AMG, and how this viewpoint leads to a richer family
+of adaptive BoxMG approaches.
+
+
+\end{document}

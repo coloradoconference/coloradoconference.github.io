@@ -1,0 +1,149 @@
+<html>
+<head>
+
+<title>Registration for 2011 Copper Mountain Conference</title>
+<body bgcolor="#ccccbf">
+<center>
+<h2>Registration</h2>
+<h3>2011 Copper Mountain Conference<br>Multigrid Methods<br>27 March - 1 April, 2011 2011</h3>
+
+<form method="POST" action="/cgi-bin/copper2011/register.cgi">
+
+
+
+<table cellpadding=4>
+
+<tr><td align=right>Name<font color=red>*</font></td>
+	<td> <input type="text" name="fullname" size=40></td></tr>
+
+<tr><td align=right>E-mail address<font color=red>*</font></td>
+	<td> <input type="text" name="email" size=40></td></tr>
+
+<tr><td align=right>Phone #</td>
+	<td> <input type="text" name="phonenum" size=40></td></tr>
+
+<tr><td align=right>Street Address<font color=red>*</font></td>
+	<td><textarea name="address" cols=40 rows=3
+	align="top"></textarea></td></tr>
+
+<tr><td align=right>Country<font color=red>*</font></td>
+	<td> <input type="text" name="country"
+	value="USA" size=20></td></tr>
+
+<tr><td align=right>Affiliation<font color=red>*</font></td>
+	<td> <input type="text" name="affiliation" size=40></td></tr>
+
+<tr><td align=right>Dates of planned attendance<font color=red>*</font></td>
+	<td> <input type="text" name="dates" size=40></td></tr>
+
+</table>
+
+
+<h4>Please check the appropriate Registration Fee:</h4>
+<table cellpadding=8><tr>
+<td bgcolor="#9fef9f">Postmarked <font color=blue>
+
+
+<b>on or before</b></font> February 25, 2011:<p>
+<input name="category" type="radio" value="siam" checked>
+SIAM Member (early) $400.00
+<br>
+<input name="category" type="radio" value="nonsiam">
+Non-SIAM Member (early) $445.00
+<br>
+<input name="category" type="radio" value="student">
+Student $150.00
+<br>
+
+</td><td bgcolor="#cfcfff">Postmarked <font color=blue>
+<b>after</b></font> February 25, 2011:<p>
+<input name="category" type="radio" value="siam_late">
+SIAM Member $445.00
+<br>
+<input name="category" type="radio" value="nonsiam_late">
+Non-SIAM Member $485.00
+<br>
+<input name="category" type="radio" value="student_late">
+Student $150.00
+<br>
+</td></tr></table>
+
+<h4>Will you be attending the banquet on Wednesday evening?</h4>
+<!-- <h4>Will you be attending the banquet on Wednesday evening?</h4> -->
+<table cellpadding=8>
+<tr>
+<td bgcolor="#9fef9f">
+
+<input name="banquet" type="radio" value="YES" checked> <b> YES </b>
+<input name="banquet" type="radio" value="NO"> <b> NO </b>
+</td></tr></table>
+
+<h4>Is the attendee male or female?</h4>
+<table cellpadding=8>
+<tr>
+<td bgcolor="#9fef9f">
+<input name="sex" type="radio" value="Female" checked> <b> Female </b>
+<input name="sex" type="radio" value="Male"> <b> Male </b>
+</td></tr></table>
+
+
+
+<h4>Method of Payment</h4>
+<table cellpadding=4><tr bgcolor="#bfdfbf">
+<td>	<input name="method" type="radio" value="check" checked>
+	<b>Check or money order</b>
+</td><td> Checks written to: <b>Copper Mtn. Conference.</b><br>
+	Must be in U.S. Funds on a U.S. bank.<br>
+	If paying with a EuroCheque, please add $6 to your fee
+	for bank processing.
+</td></tr>
+
+<tr bgcolor="#bfdfbf">
+<td>
+	<input name="method" type="radio" value="verisign">
+	<b>Credit&nbsp;Card&nbsp;ONLINE&nbsp(<i>VeriSign/PayPal</i>)</b>
+</td><td> (Visa or MasterCard only)
+</td></tr>
+
+<tr bgcolor="#bfdfbf">
+<td>
+	<input name="method" type="radio" value="cardother">
+	<b>Credit&nbsp;Card</b>, sending information<br>
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	via phone or snail mail
+</td><td> (Visa or MasterCard only) Please call or mail <a href=http://grandmaster.colorado.edu/~copper/frsc.html>Front Range Scientific Computations</a>.
+</td></tr>
+</table>
+
+	<p>
+	<input type="submit" value="Register">
+	&nbsp &nbsp &nbsp &nbsp
+	<input type="reset" value="Clear Values">
+
+
+<p><hr><p>
+
+
+<h4>Room Sharing Bulletin Board</h4>
+
+<table cellpadding=8 width="84%"><tr><td bgcolor="#bfbfbf">
+We have a bulletin board so you can leave
+messages about sharing rooms at Copper Mountain.
+The theory is that you can use this system to
+post your needs and questions about room-sharing
+so that other attendees can respond.  We take no
+responsibility concerning the contents of any
+message on the bulletin board. In addition, the
+bulletin board may be cleared out without
+notice.
+</td></tr></table>
+
+<p><a href="../Messages/add.html">Post</a> a message on the bulletin board.
+<!--
+<p><a href="../Messages/read.cgi">Scan</a> the bulletin board for messages.
+-->
+<p><a href="/cgi-bin/copper2011/read.cgi">Scan</a> the bulletin board for messages.
+
+</center>
+</body>
+</html>

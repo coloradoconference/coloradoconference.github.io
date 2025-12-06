@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>sheik109177</TITLE>
+<META NAME="description" CONTENT="sheik109177">
+<META NAME="keywords" CONTENT="sheik109177">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="sheik109177.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Abdul Hanan Sheikh 
+<BR><B>A scalable Helmholtz solver combining the deflation with shifted Laplace preconditioner.</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mekelweg 4 
+<BR>
+EWI Building 
+<BR>
+Delft University of Technology 
+<BR>
+2628CD Delft 
+<BR>
+Netherlands
+
+<BR><TT>hanangul12@yahoo.co.uk</TT>
+<BR>
+Domenico Lahaye
+<BR>
+Kees Vuik
+</DIV>
+
+<P>
+Our object is to develop high performance iterative solution algorithm
+for solving the discrete Helmholtz equation modeling wave propagation on
+large scale. Ingredients in our work are the shifted Laplace
+preconditioner and deflation. The development of the shifted Laplace
+preconditioner for the Helmholtz equation was a breakthrough in the
+development of efficient solution techniques for the Helmholtz equation.
+The distinct feature of this preconditioner is the introduction of a
+complex shift, effective introducing damping of wave propagation in the
+approximate solve. This preconditioner was extensively discussed in
+various texts and applied in a number of different contexts. Although
+performant, the resulting algorithm is not truly scalable. The bigger the
+wavenumber, the more spectrum scatters away from one, hampering the
+convergence. Idea of projection has been used since long to deflate
+unfavorable eigenvalues. By inducting eigenvectors corresponding to
+unwanted eigenvalues, better convergence for CG and GMRES has been
+reported in various texts. We also combine the idea of deflation with
+shifted Laplace preconditioner, which leads to a scalable Helmholtz
+solver, in the sense iterations does not depend upon parameters.
+We provide a convergence analysis. We perform a Fourier two-grid analysis
+of one-dimensional model problem with Dirichlet boundary conditions
+discretized by a second order accurate finite difference scheme. The
+components analyzed are the shifted Laplace preconditioner used as
+smoother, full-weighting and linear interpolation intergrid transfer
+operators, and a Galerkin coarsening scheme. This Fourier analysis
+results in a closed form expression for the eigenvalues of the two-grid
+operator. This expressions shows that the spectrum is favourable for
+convergence of Krylov subspace methods.
+We apply the deflated shifted Laplace preconditioner to two-dimensional
+model problems method with constant and non-constant wave numbers and
+Sommerfeld boundary conditions discretized by second order accurate
+finite difference scheme on uniform meshes. Numerical results show that
+the number of GMRES iterations is wave-number independent.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Copper Mountain Conference
+2011-02-20
+</ADDRESS>
+</BODY>
+</HTML>
