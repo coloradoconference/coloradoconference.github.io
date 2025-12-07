@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0125)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49571&id=2.2&actionID=113&mime=cc224fc04e76b8903b9dcd0dc5b68553 -->
+<HTML><HEAD><TITLE>cm conference abstract: Bolten</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Structured grid AMG with Stencil-collapsing for d-level Circulant 
+Matrices </CENTER>
+<P>
+<CENTER><A href="mailto:m.bolten@fz-juelich.de" target=_blank>Matthias 
+Bolten</A><BR><BR>Central Institute for Applied Mathematics<BR>Research Centre 
+Jülich<BR>D-52425 Jülich<BR>Germany<BR><BR><!-- PUT 2nd Author's name HERE<br> --><!-- PUT 3rd Author's name HERE...<br> --></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>Algebraic multigrid methods are efficient solvers for linear systems 
+involving d-level circulant matrices. As long as the generating function is a 
+d-variate trigonometric polynomial of fixed degree, they are optimal, i.e. O(N), 
+and better suited than FFT-methods, which scale like O(N log N) and which are 
+the common choice for such systems. 
+<P>Traditionally, algebraic multigrid uses the Galerkin operator on the coarse 
+grid. The use of the Galerkin operator is well-analyzed and works very good, but 
+it has the disadvantage of growing stencils. To circumvent this problem, there 
+exist approaches, which do not use the Galerkin operator on the coarse grid, but 
+a collapsed stencil instead(e.g. Ashby's and Falgout's solver for structured 
+grids [1]). 
+<P>In this talk, stencil-collapsing is analyzed for the special case of d-level 
+circulant matrices, as they arise in discretizing PDEs with constant 
+coefficients and periodic boundary conditions. Structured grid AMG for d-level 
+circulant matrices has been studied in detail in [2]. Instead of using the full 
+Galerkin coarse grid operator, a spectrally equivalent operator using a 
+collapsed stencil is used. Due to the collapsed stencil, the computational 
+complexity of a cycle is reduced. Furthermore, if the stencil collapsing scheme 
+is chosen properly, the use of two-color relaxation schemes is possible on the 
+coarse grid, as well. 
+<P>References<BR>[1] S. F. Ashby and R. D. Falgout, A parallel multigrid 
+preconditioned conjugate gradient algorithm for groundwater flow simulations, 
+Nucl. Sci. Eng., 124 (1996), pp. 145-159.<BR>[2] S. Serra-Capizzano and C. 
+Tablino-Possio, Multigrid methods for multilevel circulant matrices, SIAM 
+Journal on Scientific Computing, 26 (2004), pp. 55-85. </P></BODY></HTML>

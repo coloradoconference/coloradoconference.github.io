@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49597&id=2&actionID=113&mime=16175cf2672241d7b50927fa30a7525f -->
+<HTML><HEAD><TITLE>cm conference abstract: Tuminaro</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Title: Algebraic Multigrid and Algebraic Reformulations of the Eddy 
+Current Equation: Part I </CENTER>
+<P>
+<CENTER><A href="mailto:%20rstumin@sandia.gov" target=_blank>Ray 
+Tuminaro</A><BR><BR>MS 9159, Sandia National Laboratories, Livermore, Ca 94551 
+<BR><BR>Pavel Bochev, Sandia<BR>Jonathan Hu, Sandia<BR>Chris Siefert, 
+Sandia<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>With the rising popularity of compatible discretizations (edge elements) for 
+the eddy current Maxwell's equations, there is a corresponding need for fast 
+solvers. We propose an algebraic reformulation of the discrete system along with 
+a new AMG technique for this reformulated problem. This transforms the curl-curl 
+system into a block 2x2 system where the diagonal blocks are an edge Hodge 
+Laplacian and a nodal scalar Laplacian, respectively. 
+<P>In this talk, we describe some basic properties of the de Rham complex and 
+the Hodge Laplacian. Using these properties, we define a transformation that can 
+be applied to the linear system associated with an edge element discretization 
+of the eddy current equations. The key point is that the resulting linear system 
+is much more ameneable to algebraic mutlgrid (AMG) and yields an identical 
+discrete solution to the original eddy current system. In particular, an AMG 
+method must now be applied to two Laplace-type systems (one a vector Hodge 
+Laplacian and the other a scalar nodal Laplacian). A second talk will discuss 
+the AMG method and illustrate the computational efficiency of the reformulation. 
+</P></BODY></HTML>

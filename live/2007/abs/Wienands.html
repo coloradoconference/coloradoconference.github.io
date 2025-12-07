@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>cm conference abstract: Wienands</title>
+</head>
+
+<body>
+
+<center>
+ACA - Automatic Coarse Grid Approximation
+</center>
+
+<p>
+<center>
+<a href="mailto: wienands@math.uni-koeln.de">
+Roman Wienands</a><br><br>
+Mathematical Institute, University of Cologne, 50931 Cologne, Germany<br><br>
+Irad Yavneh<br>
+<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The two most common methods for constructing coarse-grid operators
+for multigrid solvers are so-called Discretization Coarse grid Approximation
+(DCA) and (Petrov-) Galerkin Coarse grid Approximation (GCA). DCA
+re-discretizes the differential equation on the coarse grid. It is
+very cheap, but generally not robust, and it is also specific to
+differential equations. GCA is algebraic and often robust
+(depending on the prolongation and restriction), but it incurs a
+computational overhead. Much of this overhead is due to the
+limited control over the coarse-grid stencil (sparsity pattern.)
+<br><br>
+
+The talk will present a new automatic coarsening method (ACA),
+that yields robust convergence behavior - thus far demonstrated
+only for structured grids - while allowing explicit control of the
+coarse-grid stencil. For a given restriction operator and a prescribed
+coarse-grid stencil pattern of size $N_L$, we choose $N_L$ local basis
+functions per coarse-grid variable and construct a coarse-grid
+operator that provides an exact approximation for all functions
+belonging to the subspace spanned by these basis functions. By
+pre-computing a unique and sparse set of so-called Canonical Basis
+Functions (CBFs), the computational effort required for setup is
+moderate. Using classical 
+Black-Box Multigrid (BBox) restriction
+and prolongation (Dendy, 1982), we obtain a solver that yields a
+convergence behavior comparable to that of classical BBox for a
+suite of diffusion problems with discontinuous coefficients, even
+when using a 5-point star coarse-grid stencil.
+<br><br>
+
+The new formalism can also be used for automatically constructing
+the restriction operator. This method, along with an algebraic
+viewpoint of ACA, is described in a companion talk by Irad Yavneh.
+
+</body>
+</html>

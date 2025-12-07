@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49604&id=2&actionID=113&mime=5ab4ae0c4dde2fbbf6abcb0b506b11e7 -->
+<HTML><HEAD><TITLE>cm conference abstract: Nathan Bell</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Algebraic Multigrid for Discrete Laplacians </CENTER>
+<P>
+<CENTER><A href="mailto:wnbell@gmail.com" target=_blank>Nathan 
+Bell</A><BR><BR>1727 Valley Rd. Champaign, IL 61820<BR><BR>Anil Hirani<BR>Luke 
+Olson<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>Discrete differential forms have numerous applications in the computational 
+sciences. A prominant example is the use of mimetic discretizations, such as 
+Whitney elements, in solving Maxwell's equations. In this case, preservation of 
+the differential complex is crucial to numerical stability. Other noteworthy 
+cases are discrete Hodge decompostions for divergence constraints and 
+visualization. Lastly, "holes" in the coverage of sensor networks and other 
+topological properties can be investigated with discrete k-form Laplacians. All 
+of these applications require the solution of systems of the form (d_k,d_k), 
+where d_k denotes the exterior derivative for k-forms. The most common cases, 
+(d_0,d_0) and (d_1,d_1) in Euclidean space, correspond to (grad,grad) and 
+(curl,curl) respectively. <BR><BR>In general, we seek efficient solutions of 
+(d_k,d_k) problems on unstructured meshes. While efficient AMG methods have been 
+developed for 0-forms (scalar) and more recently 1-form (vector) problems, the 
+higher dimensional problems have received less attention. Such problems arise, 
+for instance, in determining the presence of coverage gaps in two or three 
+dimensional sensor networks. In both cases, the null-space of the k-th 
+combinatorial Laplacian is used to identify potential holes. <BR><BR>Direct 
+factorization methods, such as the Smith Normal Form, have been the primary tool 
+in these topological problems. While suitable for small meshes, direct solvers 
+become prohibitively expensive for large-scale applications. However, in many 
+cases of interest only approximate solutions (e.g. to null vectors or hodge 
+decompositions) are required, which combined with the distributed nature of such 
+problems makes iterative methods more appealing. <BR><BR>In this talk we 
+highlight recent progress in using AMG for higher-dimensional topological 
+problems. We offer preliminary numerical evidence in support of this approach 
+and discuss directions to further extend this methodology to larger sets of 
+problems. </P></BODY></HTML>

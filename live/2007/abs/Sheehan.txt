@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>cm conference abstract: Sheehan</title>
+</head>
+
+<body>
+
+<center>
+A Subspace Correction Method for Isotropic Neutron Transport
+</center>
+
+<p>
+<center>
+<a href="mailto: ulmo22@yahoo.com">
+Brendan Sheehan</a><br><br>
+1155 Marine St. #112 Boulder, CO 80302<br><br>
+<br>
+<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+A multigrid algorithm for isotropic neutron transport is presented in x-y geometry, 
+using discrete ordinates in angle and corner balance finite differencing in space.  
+Like Diffusion Synthetic Acceleration (DSA), this algorithm employs transport sweeps, 
+followed by a correction from a coarse angular subspace.  
+While DSA uses a Galerkin P-1 closure to form the coarse-grid system, 
+the method presented here uses a scaled least squares minimization principle.  
+The goal of the minimization principle is to avoid the problems of 
+“consistent differencing” associated with DSA.  
+The algorithm is viewed as a “two-grid” scheme in angle, 
+where sweeps are the relaxation, and the coarse-grid system is 
+obtained from the scaled least squares minimization.  
+The coarse-grid system is subsequently solved with standard spatial multigrid.  
+Numerical results are presented.  
+
+</body>
+</html>

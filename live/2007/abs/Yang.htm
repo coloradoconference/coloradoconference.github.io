@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)https://webmail.colorado.edu/view.php?thismailbox=INBOX&index=49493&id=2&actionID=113&mime=fbcddd24d8885e22f98090f6614d504d -->
+<HTML><HEAD><TITLE>cm conference abstract: Yang</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Long-Range Interpolation for Parallel Algebraic Multigrid </CENTER>
+<P>
+<CENTER><A href="mailto:%20umyang@llnl.gov" target=_blank>Ulrike Meier 
+Yang</A><BR><BR>Lawrence Livermore National Laboratory, Box 808, Livermore, CA 
+94551<BR><BR>Hans De Sterck, University of Waterloo<BR>Joshua Nolting, 
+University of Colorado<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P>Algebraic multigrid (AMG) is one of the most efficient and scalable parallel 
+algorithms for solving sparse unstructured linear systems. However, for large 
+three-dimensional problems, the coarse grids that are normally used in AMG often 
+lead to growing complexity in terms of memory use and execution time per AMG 
+V-cycle. Sparser coarse grids, such as the grids obtained by the recently 
+introduced Parallel Modified Independent Set (PMIS) coarsening algorithm [SIAM 
+J. Matrix Anal. Appl. 27 (2006) 1019--1039], remedy this complexity growth, but 
+lead to non-scalable AMG convergence factors when traditional interpolation 
+methods are used that include only distance-one coarse grid points in the 
+interpolation stencils. In this paper we study the scalability of AMG methods 
+that use the sparser PMIS coarse grids, but combined with interpolation methods 
+that include distance-two coarse grid points in the interpolation stencils. AMG 
+performance and scalability is compared for previously described long-range 
+interpolation methods and new variants of them, for a variety of relevant test 
+problems on parallel computers. It is shown that the increased interpolation 
+accuracy largely restores the scalability of AMG convergence factors for 
+PMIS-coarsened grids, without significantly affecting memory and execution time 
+complexity per AMG V-cycle. This leads to a class of parallel AMG methods that 
+enjoy excellent scalability properties on very large parallel computers. 
+<P>*This work was performed under the auspices of the U.S. Department of Energy 
+by University of California Lawrence Livermore National Laboratory under 
+contract number W-7405-Eng-48. </P></BODY></HTML>

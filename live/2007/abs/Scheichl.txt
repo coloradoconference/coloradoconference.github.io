@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Scheichl</title>
+</head>
+
+<body>
+
+<center>
+Robust Coarsening for Multiscale PDEs
+</center>
+
+<p>
+<center>
+<a href="mailto:masrs@bath.ac.uk">
+Robert Scheichl</a><br><br>
+Department of Mathematical Sciences, 
+University of Bath<br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We consider two-level overlapping domain decomposition 
+preconditioners for piecewise linear  finite element 
+approximations of elliptic PDEs with highly variable
+coefficients, as they arise in practice, for example, 
+in the computation  of flows in
+heterogeneous porous media, in both the deterministic and
+(Monte-Carlo simulated) stochastic
+cases. We propose and analyse new robust coarsening strategies
+for these problems, e.g. based on smoothed aggregation and 
+multiscale finite elements, and study different ways of combining 
+the coarse solve with the local solves (i.e. additive, 
+multiplicative and deflation). We will use and extend 
+a recently developed general theoretical framework for analysing 
+the resulting preconditioners to show their robustness for a variety 
+of model situations. In particular, our estimates prove very  
+precisely the previously made empirical observation 
+that the use of low-energy coarse spaces can 
+lead to robust preconditioners.
+Numerical experiments will be used to illustrate the robustness and
+efficiency of the proposed methods and the sharpness of our
+theoretical results.<br><br>
+
+This is joint work with I.G. Graham and J. Van lent 
+(University of Bath) and E. Vainikko (University of Tartu, Estonia). 
+
+</body>
+</html>
