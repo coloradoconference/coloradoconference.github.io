@@ -1,0 +1,43 @@
+===firstname:
+C.
+===firstname3:
+J.-L.
+===lastname2:
+Charpentier
+===postal:
+Cedric Doucet
+CEDRAT SA
+15, chemin de Malacher
+38240 Meylan
+===lastname:
+Doucet
+===lastname3:
+Coulomb
+===ABSTRACT:
+As industrial problems may involve different kinds of physical parameters and different types of coupled equations, ill-conditionned sparse linear systems may arise from the discretization method. Let $Au=f$ be a nonsingular sparse linear system where $A\in \mathbb{C}^{n\times n}$, and $u,f\in \mathbb{C}^n$. If the spectral condition number $\kappa(A)$ is too far from one, direct solvers can lack of accuracy and iterative methods can fail to converge. An economical way of avoiding these difficulties is to find two diagonal matrices $D_r$ and $D_c$ such that $\kappa(D_rAD_c) \approx \underset{D_1,D_2}{min}{\kappa(D_1A,D_2)}$. Then, the solving process becomes
+\begin{enumerate}
+\item compute $\hat{u}$ such that $\hat{A}\hat{u}=\hat{f}$
+\item compute $u = D_c\hat{u}$
+\end{enumerate}
+where $\hat{A}= D_rAD_c$ and $\hat{f}=D_rf$. Numerical properties of $\hat{A}$ differ according to the scaling method : it can have normalized rows/columns[3] or it can be approximately doubly stochastic[1,5]. Other methods make the matrix have arbitrary row/column sums[2,4]. In this paper, we propose to make clear the interests of scaling corrections for supernodal and multifrontal direct solvers and for preconditioned iterative methods on industrial applications based on Maxwell equations (coupled problems, nonlinear materials, moving structures, transient problems) and discretized by means of nodal or edge finite elements. 
+\newline
+\newline
+\text{References}
+\newline
+[1] M. F\"{u}rer, Quadratic Convergence for Scaling of Matrices, ANALCO, 2004.
+\newline
+[2] N. Linial, A. Samorodnitsky, A. Wigderson, A deterministic strongly polynomial algorithm for matrix scaling and approximate permanents, Combinatorica, 20, pp. 531-544, 2000.
+\newline
+[3] O. E. Livine, G. H. Golub, Scaling by Binormalization.
+\newline
+[4] D. P. O'Leary, Scaling symmetric positive definite matrices to prescribed row sums, Linear Algebra and its Applications, 370, pp. 185-191, 2003.
+\newline
+[5] D. Ruiz, A Scaling Algorithm to Equilibrate Both Rows and Columns Norms in Matrices, RAL-TR-2001-034 
+===email:
+cedric.doucet@cedrat.com
+===otherauths:
+Guerin C.
+===title:
+Scaling models and data for solving large sparse linear systems : a comparison of methods
+===firstname2:
+I.

@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Marko Huhtanen \\
+{\bf SPLITTINGS FOR ITERATIVE SOLUTION OF LINEAR SYSTEMS}}
+
+Institute of Mathematics \\ Helsinki University of Technology \\ Box 1100 \\ FIN-02015 \\ Finland
+\\
+{\tt marko.huhtanen@tkk.fi}\end{center}
+
+\def\setC{\mathbb{C}}
+
+Consider iteratively solving
+a linear system
+\begin{equation}\label{eku}
+Ax=b,
+\end{equation}
+with invertible $A\in \setC^{n \times n}$ and $b\in \setC^n$,
+by splitting the matrix $A$ as
+\begin{equation}\label{toku}
+A=L+R,
+\end{equation}
+where $L$ and $R$ are both readily invertible.
+In such a case the recently introduced residual minimizing
+Krylov subspace method \cite{HN} can be executed, allowing,
+in a certain sense, preconditioning simultaneously with $L$ and $R$.
+
+Splittings satisfying \eqref{toku} result either form
+the structure of the problem, or are algebraic.
+Splittings of Gauss-Seidel type belong to the latter category.
+In this talk we discuss such splittings of $A$.
+
+\medskip
+This is joint work with Mikko Byckling.
+
+\begin{thebibliography}{1}
+\bibitem{HN} {\sc M. Huhtanen and O. Nevanlinna}, {\em A minimum residual
+algorithm for solving linear systems,} submitted manuscript available at
+\texttt{www.math.hut.fi/$\sim$mhuhtane/index.html}.
+\end{thebibliography}
+
+
+\end{document}

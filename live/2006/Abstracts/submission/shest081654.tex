@@ -1,0 +1,171 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Aleksei Shestakov \\
+{\bf Solution of the nonlinear multifrequency radiation diffusion equation in a multiphysics, high energy density, AMR code}}
+
+Lawrence Livermore National Laboratory \\ POB 808 \\ L-38 \\ Livermore CA 94551
+\\
+{\tt shestakov1@llnl.gov}\end{center}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bey}{\begin{eqnarray}}
+\newcommand{\eey}{\end{eqnarray}}
+
+\newcommand{\pref}[1]{(\ref{#1})}
+
+\newcommand{\cv}{c_v }
+\newcommand{\doo}{\partial \Omega }
+\newcommand{\doc}{\partial \Omega_c }
+\newcommand{\dof}{\partial \Omega_f }
+\newcommand{\dfcf}{\delta F_{cf} }
+\newcommand{\dfi}{\delta F_i }
+\newcommand{\dg}{\Delta_g}
+\newcommand{\dk}{\Delta_k}
+\newcommand{\dt}{\Delta t}
+\newcommand{\dtc}{\Delta t_{c}}
+\newcommand{\dtf}{\Delta t_{f}}
+\newcommand{\fIm}{F_{I-1/2} }
+\newcommand{\fim}{F_{i-1/2} }
+\newcommand{\fip}{F_{i+1/2} }
+\newcommand{\fjm}{F_{j-1/2} }
+\newcommand{\fjp}{F_{j+1/2} }
+\newcommand{\fJp}{F_{J+1/2} }
+\newcommand{\gb}{\beta }
+\newcommand{\gbf}{\beta_f }
+\newcommand{\gk}{\kappa }
+\newcommand{\gl}{\lambda }
+\newcommand{\glf}{\lambda_f }
+\newcommand{\oc}{\Omega_c }
+\newcommand{\of}{\Omega_f }
+\newcommand{\zl}{\zeta_{\ell}}
+
+
+We describe a scheme to solve the
+multifrequency radiation diffusion equation
+which is intended for a
+multiphysics, high energy density computer code
+with adaptive mesh refinement (AMR). In our code,
+AMR is implemented by refining in both space and time
+\cite{HowGre}. There may be several levels of refinement,
+which, going from fine to coarse, are nested
+within each other.
+
+We time-advance as follows. Assume there are
+only two levels, one coarse, with domain $\oc$ and boundary
+$\doc$, and one fine $\of$ with boundary $\dof$. Since the
+domains are nested, $\of \subseteq \oc$. At the start of the
+time cycle, the equations are first updated
+on $\oc$ using a
+timestep $\dtc$, a process defined as a
+{\em level solve\/} on $\oc$.
+If the spatial grid on $\of$
+is a twofold refinement of that discretizing $\oc$, we need
+two level solves on $\of$, each with
+timestep $\dtc/2$, in order to bring the $\of$ solution up
+to the advanced coarse level time.
+Boundary conditions (BC) are required on $\dof$.
+On parts of $\dof$ which do not extend to the physical
+boundary, BC are obtained by interpolating the
+coarse grid solution. For diffusion equations,
+e.g., $u_t = (D u_x)_x$, conventionally, one supplies
+Dirichlet data. This ensures
+that the coarse and fine grid solution is
+continuous across $\dof.$ However,
+the flux $-D u_x$ may be discontinuous,
+which is unacceptable since
+this results in a loss
+of conservation. To remedy the defect, after the
+level solves,
+the coarse and fine grid solutions are {\em synced.} One solves a related,
+nearly homogeneous, problem for corrections on the
+union of discretizations of $\of$ and $\oc$. The sole
+non-homogeneity of the system for the corrections is the
+miss-match of the fluxes on $\dof$. When the corrections
+are added to the result of the level solves, one obtains a
+conservative solution, continuous and with continuous flux.
+
+This paper describes the AMR implementation
+for the multigroup radiation diffusion and matter
+energy balance equations,
+\bey
+\partial_t u_g & = & \nabla \cdot D_g \nabla u_g +
+\gk_g \, ( \, B_g - u_g \, ) \, ,
+\;\; g = 1, \, \ldots, \, G \label{ugeq} \\
+\rho \, \cv \partial_t T & = & - \sum_{k=1}^G \dk \,
+\gk_k \, ( \, B_k - u_k \, ) \, . \label{emeq}
+\eey
+In \pref{ugeq}--\pref{emeq}, $u_g$ is the
+radiation energy density of the $g$th {\em group.}
+Groups arise by
+discretizing the frequency domain
+$0 \leq \nu \leq \infty$ into $G$ intervals.
+In \pref{ugeq}--\pref{emeq},
+$D_g$ and $\gk_g$ are the diffusion and
+coupling coefficients, $B_g$ is the Planck function,
+$\rho$ the mass density, $\cv$ the specific heat,
+and $\dk = \nu_k - \nu_{k-1}$.
+The system is nonlinear; $D_g$ and $\gk_g$,
+which in addition to being strong functions of frequency,
+depend on $\rho$ and $T$. For non-ideal gases, $\cv$
+depends on $\rho$ and $T$. Equations~\pref{ugeq}--\pref{emeq}
+describe the evolution of the
+$G$ + 1 unknowns $\{u_k\}_{k=1}^G$ and $T$.
+
+A single level solve of \pref{ugeq}--\pref{emeq}
+is a formidable task in itself. For the advance,
+we use the procedure described
+by Shestakov \cite{She}, generalized for ``real,''
+multiple materials whose properties ($\cv$, $k_g$, etc.) are
+given in tabular form.
+
+For simulations using AMR,
+after advancing on two levels, $\oc$ and $\of$, the
+solutions are synced using a generalization of the
+Howell and Greenough procedure (HG) \cite{HowGre},
+which may be directly applied to \pref{ugeq}--\pref{emeq}
+if $G = 1$. However, if $G > 1$, the situation is
+more complicated since the energies $u_g$
+are coupled. We
+resolve the difficulty by applying concepts of the ``Partial
+Temperature'' scheme (PT) of Lund and Wilson \cite{LunWil}.
+As in PT, we cycle through the groups in random order.
+Each group is synced as in HG, but the correction to
+$T$ is only a partial change. Only after all the groups
+have been addressed, do we obtain the final correction.
+
+Our AMR procedure is implemented in a multiphysics code. Results
+will be presented. We simulate effects of strong
+explosions in air and compare multigroup results
+with runs where the frequency domain is not
+discretized, so-called gray diffusion. The simulations
+also use the hydro and heat conduction modules. In addition
+to the coarse level, there are two levels of refinement.
+
+\begin{thebibliography}{99}
+
+\bibitem{HowGre}
+L.\ H.\ Howell and J.\ A. Greenough,
+{\em J. Comp.\ Phys.,} 2003, 184 (1), p.\ 53-78.
+
+\bibitem{LunWil}
+C.\ M.\ Lund and J.\ R.\ Wilson,
+Lawrence Livermore Natl. Lab. report UCRL-84678, July 29, 1980.
+
+\bibitem{She}
+A.\ I.\ Shestakov, {\em
+8th Copper Mountain Conference
+on Iterative Methods,}
+March 2004.
+
+
+\end{thebibliography}
+
+
+\end{document}

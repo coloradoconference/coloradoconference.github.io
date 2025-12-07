@@ -1,0 +1,87 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Nonsmooth, nonconvex optimization: theory, algorithms, and applications}}
+
+	Michael Overton \\
+	Courant Institute \\
+	251 Mercer St, New York NY 10012 \\
+	{\tt overton@cs.nyu.edu}
+\end{center}
+Theory: there are two standard approaches to generalizing
+derivatives to nonsmooth, nonconvex optimization: the Clarke
+subdifferential (or generalized gradient), and the MIRW
+subdifferential (or subgradient sets), as expounded in
+Rockafellar and Wets (Springer, 1998). We briefly discuss
+these and mention their advantages and disadvantages. They
+coincide for an important class of functions: those that are
+locally Lipschitz and regular, which includes continuously
+differentiable functions and convex functions.
+
+
+Algorithms: the usual approach is bundle methods, which are
+complicated. We describe some alternatives: BFGS (a new look
+at an old method), and Gradient Sampling (a simply stated
+method that, although computationally intensive, has solved
+some previously unsolved problems and has a nice convergence
+theory).
+
+ Applications: these abound in control, but
+surely in other areas too. Of particular interest to me are
+applications involving eigenvalues and singular values of
+nonsymmetric matrices. Sometimes even easily stated problems
+in a few variables are hard. Our new code HIFOO (H-Infinity
+Fixed-Order Optimization) is intended for use by practicing
+control engineers and has solved some open problems in
+control.
+
+ This is all joint work with James Burke and
+Adrian Lewis. HIFOO is also joint with Didier Henrion.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

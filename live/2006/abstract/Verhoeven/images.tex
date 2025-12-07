@@ -1,0 +1,518 @@
+\batchmode
+\documentclass{report}
+\RequirePackage{ifthen}
+
+
+\usepackage{amsmath,amssymb}
+
+%
+\providecommand{\gradt}{\nabla\cdot}%
+\providecommand{\Reals}{\mathbb{R}}%
+\providecommand{\Cplex}{\mathbb{C}} 
+
+%
+\providecommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\#2
+	\end{array}
+	\right) } 
+
+%
+\providecommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) } 
+
+%
+\providecommand{\calB}{{\mathcal B}}%
+\providecommand{\calBB}{{\mathcal B}^{\Box}}%
+\providecommand{\calK}{\mathcal{K}}%
+\providecommand{\bfA}{{\mathbf A}}%
+\providecommand{\bfb}{{\mathbf b}}%
+\providecommand{\bfr}{{\mathbf r}}%
+\providecommand{\bfx}{{\mathbf x}}%
+\providecommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}%
+\providecommand{\Dim}{\mathop{\mathrm{dim\ }}} 
+
+
+
+
+\usepackage[dvips]{color}
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+\providecommand{\Beta}{\textrm{B}}
+\providecommand{\Mu}{\textrm{M}}
+\providecommand{\Kappa}{\textrm{K}}
+\providecommand{\Rho}{\textrm{R}}
+\providecommand{\Epsilon}{\textrm{E}}
+\providecommand{\Chi}{\textrm{X}}
+\providecommand{\Iota}{\textrm{J}}
+\providecommand{\omicron}{\textrm{o}}
+\providecommand{\Zeta}{\textrm{Z}}
+\providecommand{\Eta}{\textrm{H}}
+\providecommand{\Omicron}{\textrm{O}}
+\providecommand{\Nu}{\textrm{N}}
+\providecommand{\Tau}{\textrm{T}}
+\providecommand{\Alpha}{\textrm{A}}
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay420}%
+$\displaystyle \qquad \qquad \qquad
+\frac{d}{dt}\left[
+\mathbf{q}(t,\mathbf{x})\right]+
+\mathbf{j}(t,\mathbf{x})=\mathbf{0},
+\qquad \qquad \qquad (1)
+$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline422}%
+$ \mathbf{x} \in \mathbb{R}^d$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline424}%
+$ \mathbf{x}(t)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline426}%
+$ [0,T]$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline428}%
+$ \mathbf{x}_A = \mathbf{B}_A
+\mathbf{x},\mathbf{x}_L = \mathbf{B}_L \mathbf{x}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline430}%
+$ \mathbf{B}_A,\mathbf{B}_L$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath432}%
+\begin{displaymath}
+\begin{array}{c} \frac{d}{dt}\left
+[\mathbf{q}_{A}(t,\mathbf{x}_A,\mathbf{x}_L)\right
+]+\mathbf{j}_{A}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0},\\
+\frac{d}{dt}\left
+[\mathbf{q}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)\right
+]+\mathbf{j}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0}.
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline434}%
+$ \{T_n,0\leq n \leq N\}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline436}%
+$ H_n = T_n -
+T_{n-1}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline438}%
+$ \{t_{n-1,m},1\leq n \leq
+N, 0 \leq m \leq q_n\}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline440}%
+$ h_{n,m} =
+t_{n,m} - t_{n,m-1}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline442}%
+$ q_n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline444}%
+$ T_n= t_{n,0} = t_{n-1,q_n}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline446}%
+$ n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline448}%
+$ \delta^n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline450}%
+$ \delta^n = O(H_n^{K+1})$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline452}%
+$ \bar{\mathbf{P}}^n,\bar{\mathbf{Q}}^n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline454}%
+$ \mathbf{q}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline458}%
+$ \hat{\delta}^n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay460}%
+$\displaystyle \hat{\delta}^n = \frac{-H_n}{T_n - T_{n-K-1}} \left
+[\bar{\mathbf{Q}}_{1}^{n}-\bar{\mathbf{P}}_{1}^{n} \right ].
+$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline462}%
+$ \hat r_C^n = \|\mathbf{B}_L
+\hat{\delta}^n\| + \tau\|\mathbf{B}_A \hat{\delta}^n\| $%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline464}%
+$ \hat r_C^n
+<$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline466}%
+$ _C$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline468}%
+$ \delta^{n,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline472}%
+$ \tilde{\delta}^{n,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay474}%
+$\displaystyle \mathbf{B}_A\delta^{n-1,m} \doteq
+\mathbf{B}_A\tilde{\delta}^{n-1,m} + \frac{1}{4}h
+\mathbf{K}_{n-1,m}\mathbf{B}_L\rho^{n-1,m}.
+$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline476}%
+$ \rho^{n-1,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline478}%
+$ \mathbf{K}_{n-1,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline480}%
+$ \mathbf{B}_A\tilde{\delta}^{n,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline482}%
+$ O(h_{n-1,m}^{k+1})$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline486}%
+$ \mathbf{B}_A\hat\delta^{n-1,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline488}%
+$ \mathbf{B}_A\hat\delta^{n-1,m} \doteq 
+\mathbf{B}_A\hat{\tilde{\delta}}^{n-1,m} + \frac{1}{4}h
+\hat{\mathbf{K}}_{n-1,m}\mathbf{B}_L\hat\rho^{n-1,m}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline490}%
+$ L$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline492}%
+$ \frac{1}{4}\|\hat{\mathbf{K}}_{n}\mathbf{B}_L\rho^{n-1,m}\|$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay494}%
+$\displaystyle \hat{r}_I^{n} =
+\frac{1}{4}\frac{H_n}{T_n - T_{n-L-1}}
+\|\hat{\mathbf{K}}_{n}\mathbf{B}_L
+\left[\bar{\mathbf{X}}_{1}^n
+-\bar{\mathbf{Y}}_{1}^n\right] \|.
+$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline496}%
+$ \bar{\mathbf{Y}}^n,\bar{\mathbf{X}}^n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline498}%
+$ \mathbf{x}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline500}%
+$ \hat{r}_I^n$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline502}%
+$ \hat{r}_I^{n} =
+O(H_n^{L+1})$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline504}%
+$ \|\mathbf{B}_A\hat{\delta}^{n,m}\|$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath506}%
+\begin{displaymath}
+\begin{array}{rcl}
+\|\mathbf{B}_A\hat{\delta}^{n-1,m}\| &\leq&
+\hat{\tilde{r}}_A^{n-1,m} + h\hat{r}_I^{n} =:
+\hat{r}_A^{n-1,m}. \end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline508}%
+$ \hat{r}_I^{n} \leq $%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline510}%
+$ _I = \sigma$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline512}%
+$ _A$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline514}%
+$ \hat{\tilde{r}}_A^{n-1,m} \leq \tilde{\mbox{TOL}}_A =
+(1-\sigma h)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline518}%
+$ \hat{r}_A^{n-1,m} \leq
+\tilde{\mbox{TOL}}_A + h$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline520}%
+$ _I =$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline524}%
+$ 5 \times 10$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline526}%
+$ [0,10^{-8}]$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline528}%
+$ \sigma = 0.5,\tau = 0$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+
+\end{document}

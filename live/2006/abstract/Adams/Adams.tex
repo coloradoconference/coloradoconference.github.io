@@ -1,0 +1,72 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+
+\begin{center}
+{\large
+{\bf Uncertainty and reliability analysis-based design \\
+optimization capabilities in the DAKOTA toolkit }}
+
+	Brian M.~Adams \\
+	Sandia National Laboratories, P.O.~Box 5800 \\
+	MS 0370, Albuquerque NM 87185-0370 \\
+	{\tt briadam@sandia.gov} \\
+	Michael S.~Eldred, Laura P.~Swiler
+\end{center}
+When using computational models to design devices or systems,
+appropriate modeling of uncertainties is crucial to ensure robust and
+reliable designs.  This talk offers a survey of uncertainty
+quantification and reliability analysis techniques and demonstrates
+how they can be tightly integrated with optimization algorithms to
+determine designs that meet reliability and robustness constraints in
+addition to optimality criteria.  Such optimization under uncertainty
+(OUU) capabilities, developed and implemented in Sandia National
+Laboratories' DAKOTA toolkit, will be surveyed.  Novel problem
+formulations for reliability-based design optimization in realistic
+physical applications will be presented and examples of how advanced
+reliability methods can provide more accurate estimates of output
+uncertainty given.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

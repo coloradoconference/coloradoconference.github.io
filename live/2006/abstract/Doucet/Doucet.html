@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Doucet</TITLE>
+<META NAME="description" CONTENT="Doucet">
+<META NAME="keywords" CONTENT="Doucet">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Doucet.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Scaling models and data for solving large sparse 
+<BR>
+linear systems: a comparison of methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Cedric Doucet 
+<BR>
+Cedrat SA 15, Chemin de Malacher 38240 Meylan 
+<BR>	<TT>cedric.doucet@cedrat.com</TT> 
+<BR>
+I.&nbsp;Charpentier, J.-L.&nbsp;Coulomb, C.&nbsp;Guerin
+
+</DIV>
+As industrial problems may involve different kinds of
+physical parameters and different types of coupled
+equations, ill-conditioned sparse linear systems may arise
+from the discretization method. Let <IMG
+ WIDTH="55" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Au=f$"> be a nonsingular
+sparse linear system where <!-- MATH
+ $A\in \mathbb{C}^{n\times n}$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A\in \mathbb{C}^{n\times n}$">,
+and <!-- MATH
+ $u,f\in \mathbb{C}^n$
+ -->
+<IMG
+ WIDTH="68" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u,f\in \mathbb{C}^n$">. If the spectral condition number
+<IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \kappa(A)$"> is too far from one, direct solvers can lack of
+accuracy and iterative methods can fail to converge. An
+economical way of avoiding these difficulties is to find two
+diagonal matrices <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ D_r$"> and <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ D_c$"> such that
+<!-- MATH
+ $\kappa(D_rAD_c) \approx
+\min_{D_1,D_2} \kappa(D_1A,D_2)$
+ -->
+<IMG
+ WIDTH="246" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \kappa(D_rAD_c) \approx
+\min_{D_1,D_2} \kappa(D_1A,D_2)$">.
+Then,
+the solving process becomes 
+<OL>
+<LI>compute
+<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \hat{u}$"> such that <!-- MATH
+ $\hat{A}\hat{u}=\hat{f}$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \hat{A}\hat{u}=\hat{f}$"> 
+</LI>
+<LI>compute
+<!-- MATH
+ $u = D_c\hat{u}$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ u = D_c\hat{u}$"> 
+</LI>
+</OL> where <!-- MATH
+ $\hat{A}= D_rAD_c$
+ -->
+<IMG
+ WIDTH="88" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \hat{A}= D_rAD_c$">
+and <!-- MATH
+ $\hat{f}=D_rf$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \hat{f}=D_rf$">.
+Numerical properties of <IMG
+ WIDTH="15" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \hat{A}$"> differ
+according to the scaling method; it can have normalized
+rows/columns [2] or it can be approximately doubly
+stochastic [3]. Other methods make the matrix have arbitrary
+row/column sums [1]. In this paper, we propose to make clear
+the interests of scaling corrections for supernodal and
+multifrontal direct solvers and for preconditioned iterative
+methods on industrial applications based on Maxwell
+equations (coupled problems, nonlinear materials, moving
+structures, transient problems) and discretized by means of
+nodal or edge finite elements.
+
+<P>
+[1] N.&nbsp;Linial, A.&nbsp;Samorodnitsky,
+A.&nbsp;Wigderson, <EM>A deterministic strongly polynomial
+algorithm for matrix scaling and approximate permanents</EM>,
+Combinatorica <B>20</B> (200) 531-544.
+
+<P>
+[2] O.&nbsp;E.&nbsp;Livine, G.&nbsp;H.&nbsp;Golub,
+<EM>Scaling by Binormalization</EM>.
+
+<P>
+[3] D.&nbsp;Ruiz, <EM>A Scaling Algorithm to Equilibrate
+Both Rows and Columns Norms in Matrices</EM>, RAL-TR-2001-034.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

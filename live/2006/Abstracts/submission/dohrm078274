@@ -1,0 +1,24 @@
+===firstname:
+Clark R.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Sandia National Laboratories
+Mail Stop 0847
+Albuquerque, NM 87185-0847
+===lastname:
+Dohrmann
+===lastname3:
+
+===ABSTRACT:
+An approach is presented to construct the interpolation operators of algebraic multigrid (AMG) based on solving a series of local optimization problems. Given a set of coarse nodes, the approach first attempts to maximize the support of these nodes without introducing additional nonzeros in the stiffness matrix of the next coarser level. By doing so, it is possible to reduce the energy of coarse interpolations without increasing operator complexity. The local optimization problems are formulated in such a way that the problem null space can be represented exactly at each multigrid level. In addition, a condition ensuring nonsingularity of a local matrix highlights the need for special considerations when the null space dimension exceeds the number of unknowns for each node. Numerical examples for the Poisson equation and linear elasticity demonstrate the effectiveness of the approach and the optimal performance of an ensuing AMG preconditioner. Connections with element-free AMGe are also described.
+===email:
+crdohrm@sandia.gov
+===otherauths:
+
+===title:
+Interpolation Operators for Algebraic Multigrid by Local Optimization
+===firstname2:
+

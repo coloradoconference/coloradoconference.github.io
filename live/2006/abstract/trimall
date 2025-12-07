@@ -1,0 +1,14 @@
+#!/bin/sh
+
+for file in *.tex
+do
+
+rt=`echo $file | sed 's/.tex//'`
+mv $file $rt
+chmod 711 $rt
+./trim ${rt}/index.html
+mv ${rt}/indexTR.html ${rt}/index.html
+chmod 644 ${rt}/*
+/bin/ls -l ${rt}/index.html
+
+done

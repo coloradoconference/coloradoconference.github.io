@@ -1,0 +1,79 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Space-time solution of large-scale PDE applications}}
+
+	Andrew Salinger \\
+	Sandia National Labs, PO Box 5800 \\
+	MS-1111, Albuquerque NM 87185 \\
+	{\tt agsalin@sandia.gov} \\
+	Daniel Dunalvy, Eric Phipps
+\end{center}
+Software and algorithms are being developed to efficiently
+formulate and solve transient PDE problems as ``steady''
+problems in a space-time domain. In this way, sophisticated
+design and analysis tools for steady problems, such as
+continuation methods, can be brought to bear on transient
+(and eventually periodic) problems. This new capability is
+being developed in the Trilinos solver framework, and is
+designed to present a simple interface to application codes.
+The software allows for parallelism over both the space and
+time domains.
+
+The main hurdle to make this approach
+viable is to be able to efficiently solve the very large
+Jacobian matrix for very large the space-time system, with
+its characteristic structure. We will present results for a
+number of preconditioners and solution methods that we have
+developed for this linear system. Numerical results for a
+PDE reacting flow application will be presented. These
+results will shed some light on the underlying question of
+whether it can pay to parallelize the time domain.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

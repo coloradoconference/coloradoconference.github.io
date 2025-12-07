@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rafael Bru \\
+{\bf &#56256;&#56320;                    Quasi-Newton preconditioners for the iterative solution of nonlinear equation in porous media}}
+
+Inst Matematica Multidisciplinar \\ Dept Matematica Aplicada \\ Univ Politecnica \\ Cami de Vera s/n \\ 46021 Valencia \\ Spain
+\\
+{\tt rbru@mat.upv.es}\\
+Luca Bergamaschi\\
+Andrea Comerlati\\
+	Martínez Angeles
+	Putti Mario\end{center}
+
+In this work preconditioners for solving the linear systems of the Newton
+method in each nonlinear iteration are studied. The preconditioners are
+defined by means of a Broyden-type rank-one update at each nonlinear
+iteration, as described in [1]. We report numerical results of the
+application of this approach for the solution of the nonlinear system of
+algebraic equations arising from the finite element discretization of
+two-phase flow model in porous media. Sequential and parallel results
+show that the efficiency of the proposed method. The parallel version of
+the algorithm uses the FSAI approximate inverse as initial preconditioner
+[2]. The obtained performances show that the high cost of the FSAI
+evaluation is amortized by the efficiency of the subsequent Broyden
+updates.
+
+[1] L. Bergamaschi, R. Bru, A. Martinez and M. Putti, ``Quasi-Newton
+Preconditioners for the Inexact Newton Method'', to appear in Electr.
+Trans. on Num. Analysis. 2006.
+
+[2] L. Yu. Kolotilina and A. Yu. Yeremin, Factorized sparse approximate
+inverse preconditionings I. Theory, SIAM J. MATRIX Anal. Appl., 14:45-58,
+1993.
+
+
+\end{document}

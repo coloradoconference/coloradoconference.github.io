@@ -1,0 +1,25 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tzanio V. Kolev \\
+{\bf H(curl) auxiliary mesh preconditioning}}
+
+Lawrence Livermore National Laboratory \\ P O Box 808 \\ L-560 \\ Livermore \\ CA 94551
+\\
+{\tt tzanio@llnl.gov}\\
+Joseph E. Pasciak\\
+Panayot S. Vassilevski\end{center}
+
+In this talk we present a two-level preconditioning scheme for H(curl)
+bilinear forms. The scheme utilizes an auxiliary problem on a related
+mesh that is more amenable for constructing optimal order multigrid
+methods. Combined with a domain embedding (or ``fictitious'' domain)
+technique our method can precondition a problem defined on a very
+complicated mesh by a standard geometric multigrid on a box.
+
+
+\end{document}

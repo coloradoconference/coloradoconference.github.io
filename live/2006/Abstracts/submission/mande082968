@@ -1,0 +1,43 @@
+===firstname:
+Jan
+===firstname3:
+
+===lastname2:
+Sousedik
+===postal:
+Department of Mathematical Sciences
+University of Colorado at Denver 
+and Health Sciences Center
+Campus Box 170
+P.O. Box 173364
+Denver, CO 80217-3364
+===lastname:
+Mandel
+===lastname3:
+
+===ABSTRACT:
+We propose adaptive selection of the coarse space of the BDDC and
+FETI-DP iterative substructuring methods by adding coarse degrees
+of freedom with support on selected intersections of
+adjacent substructures. The coarse degrees of freedom are constructed using
+eigenvectors associated with the intersections. The minimal number
+of coarse degrees of freedom on the selected intersections is added to decrease
+a heuristic indicator of the the condition number under a target
+value specified a priori. It is assumed that the starting coarse
+degrees of freedom are already sufficient to prevent relative rigid body motions
+of any selected pair of adjacent substructures. It is shown
+numerically on 2D elasticity problems that the indicator based on
+pairs of substructures with common edges predicts reasonably well
+the actual condition number, and that the method can select
+adaptively the hard part of the problem and concentrate
+computational work there to achieve good convergence of the
+iterations at a modest cost.
+
+===email:
+jmandel@math.cudenver.edu
+===otherauths:
+
+===title:
+Adaptive Selection of Face Coarse Degrees of Freedom in the BDDC and the FETI-DP Iterative Substructuring Methods
+===firstname2:
+B.

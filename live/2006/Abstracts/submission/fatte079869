@@ -1,0 +1,63 @@
+===firstname:
+J.-L.
+===firstname3:
+A.
+===lastname2:
+Hornung
+===postal:
+PO Box 808
+L-561
+Center for Applied Scientific Computing
+Lawrence Livermore National Laboratory
+Livermore, CA 94551
+===lastname:
+Fattebert
+===lastname3:
+Wissink
+===ABSTRACT:
+Density Functional Theory (DFT) is a simplified quantum model that
+has proved very successful in real applications. It introduces an
+independent particles description of the electronic structure of
+molecules or materials which is much simpler to treat that the
+original Schroedinger equations.
+Simulating realistic
+physical systems by DFT however is still computationally very
+demanding. More efficient numerical algorithms to reduce computer
+time and enable larger simulations are always in demand by
+chemists and physicists who are studying phenomenon at the
+molecular level.
+
+The finite element (FE) method, a very popular approach to solve
+partial differential equations, has only recently started being
+used for solving the Kohn-Sham equations of Density Functional
+Theory for realistic 3D applications. Traditionally, the
+pseudo-spectral approach has been the most popular in the field
+under the denomination Plane Waves method. The regular usage of
+periodic boundary conditions with simple geometries explains this
+preference. However with the increase in computer power and the
+growing interest in studying larger and more diverse systems,
+more flexible real-space discretizations by finite difference or finite 
+elements have recently attracted more interest. 
+
+In this work we focus on FE discretizations with local mesh refinement 
+for the Kohn-Sham equations, and propose an efficient iterative solver and 
+preconditioner for this problem.
+We present a hierarchical quadratic Finite Elements approach to discretize the
+equations on structured non-uniform meshes. 
+A multigrid FAC preconditioner is proposed to iteratively minimize the energy
+functional associated to the Kohn-Sham equations.
+It is based on an accelerated steepest descent-based scheme. 
+The method has been implemented using SAMRAI, a parallel software 
+infrastructure for general AMR applications.
+Numerical results of electronic structure calculations on small atomic 
+clusters show in particular a mesh-independent convergence rate for the iterative solver.
+
+===email:
+fattebert1@llnl.gov
+===otherauths:
+
+===title:
+Iterative solver for Density Functional Theory
+calculations on composite meshes by quadratic Finite Elements
+===firstname2:
+R.

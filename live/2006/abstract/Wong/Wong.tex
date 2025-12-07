@@ -1,0 +1,83 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf An embedding method for simulation of immobilized enzyme kinetics \\
+	and transport in sessile hydrogel drops}}
+
+	Chao-Jen Wong \\
+	School of Mathematical Sciences, Claremont Graduate University \\
+	710 N.~College Ave., Claremont CA 91711 \\
+	{\tt wongc@cgu.edu} \\
+	Ali Nadim
+\end{center}
+We
+present a new numerical method, termed the embedding method,
+to solve a system of nonlinear PDEs for multi-phase problems
+in asymmetric 3-D domains. The main feature of this method
+is its ability to perform interface calculation and account
+for conditions relating solution properties across phase
+interface using a finite difference / volume-fraction-based
+front-capturing hybrid technique.
+
+The approach begins by
+considering the computational domain as physically separated
+phases. A finite difference method with a Cartesian grid is
+employed on the whole domain while modifications are applied
+to correct boundary conditions at the interfaces. The
+volume-fraction-based front-capturing algorithm is used to
+capture each interface in terms of the volume fraction in
+each cell. The major aspect of this method is its
+implementation simplicity, which results in code generation
+that can be highly optimized. To highlight this method, an
+application is presented for simulation and investigation of
+enzyme reactions within a sessile hydrogel drop, where the
+Michaelis-Menten kinetics is used to model the reaction
+mechanism.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

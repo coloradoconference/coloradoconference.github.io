@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Balancing iteration accuracy in control problems governed by PDEs}}
+
+	Marian Karampataki \\
+	Emory University \\
+	{\tt mkaramp@emory.edu}
+\end{center}
+We consider the solution of large scale optimization
+problems governed by parabolic partial differential
+equations (PDEs). A quadratic functional containing a data
+misfit term, is minimized to approximately recover the
+parameter function.  The resulting constrained optimization
+problem is solved by using the reduced Hessian approach. The
+conjugate gradient method (CG) is employed for the solution
+of the system involving matrix vector multiplications which
+are nontrivial. These matrix vector products do not need to
+be computed exactly. We investigate two approaches for
+determining the inner iteration tolerance at each CG step
+and provide numerical experiments comparing these
+approaches.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,73 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf The return of the filter method}}
+
+	Sven Leyffer \\
+	9700 South Cass Ave \\
+	Argonne IL 60439 \\
+	{\tt leyffer@mcs.anl.gov} \\
+	Michael Friedlander
+\end{center}
+Filters have been introduced as an alternative to penalty
+functions to promote global convergence for nonlinear
+optimization algorithms. A filter borrows ideas from multi-
+objective optimization and accepts a trial point whenever
+the objective or the constraint violation is improved
+compared to previous iterates. We present new filter active
+set approaches to nonlinear optimization based on a two-
+phase methodology. The first finds an estimate of the
+optimal active set, and the second phase performs a Newton
+step on the corresponding equality constrained problem. The
+approach allows inexact subsystem solves, making it suitable
+for PDE constrained optimization. Time permitting we present
+numerical experience on large structured optimization
+problems.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

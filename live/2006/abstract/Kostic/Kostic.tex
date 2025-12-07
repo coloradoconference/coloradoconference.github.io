@@ -1,0 +1,74 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf How a step toward wider class of matrices could help improve \\
+	convergence area of relaxation methods}}
+
+	Vladimir Kostic \\
+	Kralja Petra I 69/44 \\
+	21000 Novi Sad, Serbia and Montenegro \\
+	{\tt vkostic@im.ns.ac.yu} \\
+	Ljiljana Cvetkovic
+\end{center}
+Investigations are related to several different relaxation
+methods for solving systems of linear equations, but the
+main idea is always the same: knowing that system matrix is
+strictly diagonally dominant (SDD), we can consider it as an
+S-SDD (see Lj. Cvetkovic, V.~Kostic and R.~S.~Varga,
+{\em A new Gerschgorin-type eigenvalue inclusion area},
+ETNA 18, 2004)
+matrix for every nonempty proper subset S of the set
+of indices, and from this fact we can derive, in some sense,
+an optimal convergence area for relaxation parameter(s).
+This convergence area is usually significantly wider than
+the corresponding one, obtained from the knowledge of SDD
+property, only. Instead of S-SDD class, some more subclasses
+of H-matrices can be used for the same purposes.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,86 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf An iterative projection method for solving large-scale nonlinear \\
+eigenproblems with application to next-generation accelerator design}}
+
+	Ben-Shan Liao \\
+	Dept.~of Mathematics \\
+	University of California, Davis CA 95616 \\
+	{\tt liao@math.ucdavis.edu} \\
+	Lie-Quan Lee, Zhaojun Bai, Kwok Ko
+\end{center}
+The emerging needs to solve large-scale nonlinear eigenvalue
+problems arising in many engineering applications have come
+into notice. More researches have been conducted on
+efficient algorithm development and computational theory.
+However, the nonlinearity varying greatly from problem to
+problem results in a challenging computational task. Instead
+of considering arbitrary nonlinear eigenvalue problems, we
+consider a certain type of problems for robust and efficient
+algorithm developments. This particular type nonlinear
+eigenvalue problems consist of a dominated linear and
+positive definite pencil and a ``small'' nonlinear component.
+A number of applications give rise of nonlinear eigenvalue
+problems of such type.  Examples include vibration study of
+fluid solid structures and eigencomputation problem from
+fiber optic design.
+
+In this talk, a nonlinear eigenvalue problem we particular
+interested in is from the finite element analysis of the
+resonant frequencies and external Q of a waveguide loaded
+cavity, as currently be studied by researchers for
+next-generation accelerator design. We study iterative
+subspace projection methods, such as nonlinear Arnoldi
+method. We focus on the critical stages of algorithms, such
+as the choice of initial projection subspace, and the
+expansion and the refinement of projection subspace. We
+present a notable improvement over the early iterative
+projection methods in our case study.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

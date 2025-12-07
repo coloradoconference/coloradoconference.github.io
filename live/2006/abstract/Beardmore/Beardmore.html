@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Beardmore</TITLE>
+<META NAME="description" CONTENT="Beardmore">
+<META NAME="keywords" CONTENT="Beardmore">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Beardmore.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A numerical bifurcation analysis of the Ornstein-Zernike equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Robert E Beardmore 
+<BR>
+Dept.&nbsp;of Mathematics, Imperial College London 
+<BR>
+South Kensington Campus,  London SW7 2AZ UK 
+<BR>	<TT>r.beardmore@ic.ac.uk</TT> 
+<BR>
+A Peplow, F Bresme
+
+</DIV>
+The isotropic Ornstein-Zernike (OZ) equation
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+h(r) = c(r) + \rho \int_{\mathbb{R}^{3}}
+h(\|{\bf x}-{\bf y}\|)c(\|{\bf y}\|)d{\bf y},
+\qquad
+\qquad
+\qquad
+(1)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="495" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \qquad
+\qquad
+\qquad
+h(r) = c(r) + \rho \int_{\mathbb{R}^{3}}
+h(\Vert{\bf x}-{\bf y}\Vert)c(\Vert{\bf y}\Vert)d{\bf y},
+\qquad
+\qquad
+\qquad
+(1)
+$">
+</DIV><P></P>
+that is the subject of this
+paper was presented almost a century ago to model the
+molecular structure of a fluid at varying densities. In
+order to form a well-posed mathematical system of equations
+from (1) that can be solved, at least in
+principle, we assume the existence of a closure
+relationship. This is an algebraic equation that augments
+(1) with a pointwise constraint that is deemed to
+hold throughout the fluid and it forces a relationship
+between the total and direct correlation functions (<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> and
+<IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ c$"> respectively).
+
+<P>
+Some closures have a mathematically
+appealing structure in the sense that the total correlation
+function is posed as a perturbation of the <EM>Mayer
+f-function</EM> given by <!-- MATH
+ \begin{displaymath}
+f(r)=-1+e^{-\beta u(r)}.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="148" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle f(r)=-1+e^{-\beta u(r)}.$">
+</DIV><P></P>
+This
+perturbation depends on the potential <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ u$">, temperature
+(essentially <IMG
+ WIDTH="29" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ 1/\beta$">) and the indirect correlation
+function through a nonlinear function that we denote <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ G$">:
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+h = f(r) + e^{-\beta u(r)}G(h-c),
+\qquad
+(G(0)= 0),
+\qquad
+\qquad
+\qquad
+(2)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="524" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle \qquad
+\qquad
+\qquad
+h = f(r) + e^{-\beta u(r)}G(h-c),
+\qquad
+(G(0)= 0),
+\qquad
+\qquad
+\qquad
+(2)
+$">
+</DIV><P></P>
+so that (1-2) are solved together with <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \beta$">
+and <IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \rho$"> as bifurcation parameters. There are many
+closures in use and if we write <!-- MATH
+ $\exp_1(z) = -1+e^z$
+ -->
+<IMG
+ WIDTH="131" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \exp_1(z) = -1+e^z$"> then
+the hyper-netted chain (HNC) closure
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+G(\gamma) = \exp_1(\gamma)
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+(3)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="450" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \qquad
+\qquad
+\qquad
+\qquad
+\qquad
+G(\gamma) = \exp_1(\gamma)
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+(3)
+$">
+</DIV><P></P>
+has the form of
+(2) and is popular in the physics and chemistry
+literature.
+
+<P>
+The purpose of the talk is show that <EM>any
+reasonable</EM> discretisation method applied to
+(1-2) suffers from an inherent defect if
+the HNC closure is used that can be summarised as follows:
+phase transitions lead to fold bifurcations. The existence
+of a phase transition is characterised by the existence of a
+bifurcation at infinity with respect to <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> in an <IMG
+ WIDTH="21" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ L^1$"> norm
+at a certain density, such that boundedness of <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> is
+maintained in a certain <IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ L^p$"> norm. This behaviour is
+difficult to mimic computationally by projecting onto a
+space of fixed and finite dimension and, as a result,
+projections of (1-2) can be shown to
+undergo at least one fold bifurcation if such a bifurcation
+at infinity is present. However, other popular closure
+relations do not necessarily suffer from the same defect.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

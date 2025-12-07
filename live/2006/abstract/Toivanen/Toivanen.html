@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Toivanen</TITLE>
+<META NAME="description" CONTENT="Toivanen">
+<META NAME="keywords" CONTENT="Toivanen">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Toivanen.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A fast iterative solver for acoustic scattering by objects 
+<BR>
+in layered media</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Jari Toivanen 
+<BR>
+Center for Research in Scientific Computation 
+<BR>
+Box 8205, North Carolina State University, Raleigh NC 27695-8205 
+<BR>	<TT>jatoivan@ncsu.edu</TT> 
+<BR>
+Kazufumi Ito
+
+</DIV>
+We consider the computation of time-harmonic acoustic
+scattering by objects in layered media. An example of such
+problem is the scattering by a mine buried in sediment. The
+computational domain can be tens or hundreds of meters long
+while the target requires modeling of details smaller than
+one centimeter. A discretized problem can have several
+billion degrees of freedom.
+
+<P>
+We decompose the
+computational domain into far-field and near-field domains
+and then we perform a finite element discretization. For the
+vastly larger far-field domain we use an orthogonal mesh and
+a preconditioner based on a fast direct solver. For the
+near-field domain a more standard preconditioner can be
+used. The combination of these two defines a preconditioner
+for the GMRES method. An essential implementation detail is
+the reduction of iterations into a small sparse subspace.
+Due to this the memory usage is essentially reduced and the
+GMRES method can be used without restarts.
+
+<P>
+We present
+numerical results with two-dimensional and three-dimensional
+problems demonstrating the efficiency of the proposed
+approach. For example, we show that it is possible to solve
+problems with more than a billion degrees of freedom on a
+modern PC.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,166 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Computing dominant poles of transfer functions}}
+
+	Joost Rommes \\
+	Mathematical Institute, Utrecht University \\
+	P.O.Box 80.010, 3508 TA Utrecht, The Netherlands \\
+	http://www.math.uu.nl/people/rommes \\
+	{\tt rommes@math.uu.nl} \\
+	Nelson Martins
+\end{center}
+Recent work on power system
+stability, controller design and electromagnetic transients
+has used several advanced model reduction techniques.
+Although these techniques, such as balanced truncation,
+produce good results, they impose high computational costs
+and hence are only applicable to moderately sized systems.
+Modal model reduction is a cost-effective alternative for
+large-scale systems, when only a fraction of the system pole
+spectrum is controllable-observable for the transfer
+function of interest. Modal reduction produces transfer
+function modal equivalents from the knowledge of the
+dominant poles and their corresponding residues. In this
+talk a specialized eigenvalue method will be presented that
+computes the most dominant poles and corresponding residues
+of a SISO transfer function.
+
+The transfer function of a
+single input single output (SISO) system is defined as
+$$
+\qquad
+\qquad
+\qquad
+\qquad
+H(s) = \mathbf{c}^T (sI - A)^{-1}\mathbf{b} + d,
+\qquad
+\qquad
+\qquad
+\qquad
+(1)
+$$
+where
+$A\in\Reals^{n\times n}$,
+$\mathbf{b},\mathbf{c}\in\Reals^n$, $d\in\Reals$ and
+$I\in\Reals^{n\times n}$ is the identity
+matrix and $s\in\Cplex$.
+Without loss of generality, $d=0$ in
+the following.
+
+Let the eigenvalues (poles) of $A$ and the
+corresponding right and left eigenvectors be given by the
+triplets $(\lambda_j,\mathbf{x}_j,\mathbf{v}_j)$,
+and let the right and
+left eigenvectors be scaled so that
+$\mathbf{v}_j^*\mathbf{x}_j=1$.
+It is
+assumed that $\mathbf{v}_j^*\mathbf{x}_k=0$ for $j\neq k$.
+The transfer function $H(s)$ in equation (1)
+can be expressed as a
+sum of residues $R_j$ over first order poles:
+$$
+H(s) = \sum_{j=1}^n
+\frac{R_j}{s - \lambda_j},
+$$
+where the residues $R_j$ are
+$$
+R_j = (\mathbf{x}_j^T\mathbf{c})(\mathbf{v}_j^*\mathbf{b}).
+$$
+
+A \textit{dominant} pole is a pole $\lambda_j$ that
+corresponds to a residue $R_j$ with large magnitude
+$|R_j| / |\mbox{Re}(\lambda_j)|$ , i.e.,
+a pole that is well
+observable and controllable in the transfer function. This
+can also be observed from the corresponding Bode magnitude
+plot of $H(s)$, where peaks occur at frequencies close to
+the imaginary parts of the dominant poles of $H(s)$. An
+approximation of $H(s)$ that consists of $k<n$ terms with
+$|R_j|/|\mbox{Re}(\lambda_j)|$ above some value, determines
+the effective transfer function behavior and is called the
+transfer function modal equivalent:
+$$ H_k(s) = \sum_{j=1}^k \frac{R_j}{s - \lambda_j}. $$
+The problem of concern can now be formulated as:
+\begin{quote}
+Given a SISO linear, time invariant,
+dynamical system
+$(A,\mathbf{b},\mathbf{c},d)$,
+compute $k\ll n$ dominant
+poles $\lambda_j$ and the corresponding right and left
+eigenvectors $\mathbf{x}_j$ and $\mathbf{v}_j$.
+\end{quote}
+
+The algorithm to be presented, called Subspace Accelerated
+Dominant Pole Algorithm (SADPA) [1],
+combines a Newton
+algorithm [2]
+with subspace
+acceleration, a clever selection strategy and deflation to
+efficiently compute the dominant poles and corresponding
+residues. It can easily be extended to handle MIMO systems
+as well [3].
+The performance of the algorithm will be illustrated by
+numerical examples of large scale power systems.
+
+[1] J.~Rommes, N.~Martins, {\em Efficient computation
+of transfer function dominant poles using subspace
+acceleration}, UU Preprint (2005) 1340.
+
+[2] N.~Martins, L.T.G.~Lima, H.J.C.P.~Pinto,
+{\em Computing dominant poles of power system transfer
+functions}, IEEE Trans.~Power Syst. {\bf 11}(1)
+(1996) 162--170.
+
+[3] J.~Rommes, N.~Martins,
+{\em Efficient computation of multivariable transfer
+function dominant poles using subspace acceleration},
+UU Preprint (2006) 1344.
+
+
+
+% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

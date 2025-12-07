@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Hu</TITLE>
+<META NAME="description" CONTENT="Hu">
+<META NAME="keywords" CONTENT="Hu">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Hu.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Alternatives to smoothed aggregation multigrid prolongators 
+<BR>
+for anisotrophic problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Jonathan Hu 
+<BR>
+Sandia National Laboratories, 7011 East Avenue 
+<BR>
+MS9159, Livermore CA 94551 
+<BR>	<TT>jhu@sandia.gov</TT> 
+<BR>
+Ray Tuminaro
+
+</DIV>
+We consider alternatives to the traditional methods in
+smoothed aggregation for generating prolongator operators.
+The goal is to produce prolongators that are appropriate for
+anisotropic operators.
+
+<P>
+Consider the linear problem
+<IMG
+ WIDTH="52" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax=b$">. In the first approach, smoothed aggregation with
+basis function shifting, we begin with the standard smoothed
+prolongator,
+<!-- MATH
+ $P^{(sm)} = (I - \omega D^{-1} A) P^{(t)}$
+ -->
+<IMG
+ WIDTH="186" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ P^{(sm)} = (I - \omega D^{-1} A) P^{(t)}$">,
+where <IMG
+ WIDTH="31" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ P^{(t)}$"> is the tentative prolongator.
+Given a
+prescribed prolongator sparsity pattern, this method moves
+basis function support (columns of <IMG
+ WIDTH="44" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ P^{(sm)}$">) from one
+aggregate to another to produce a new prolongator,
+<!-- MATH
+ $P^{(shift)}$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ P^{(shift)}$">.
+The shifting is done in such a way that null
+space interpolation is maintained.
+
+<P>
+In the second
+approach, we consider extensions to building prolongator
+operators via energy optimization (Vanek, Mandel, Brezina).
+In this method, the sum of the energies of the prolongator
+basis functions is minimized, subject to a fixed prolongator
+nonzero pattern and interpolation of low-energy modes. We
+consider modifications such as filtering <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ A$"> to account for
+anisotropies and applying a modified CG method to solve the
+optimization problem.
+
+<P>
+We present numerical experiments
+that compare the two methods to traditional smoothed
+aggregation on a variety of model problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

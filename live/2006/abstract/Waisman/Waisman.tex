@@ -1,0 +1,77 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A space-time multigrid approach for acceleration of \\
+	molecular dynamics simulations}}
+
+	Haim Waisman \\
+	Scientific Computation Research Center (SCOREC) \\
+	Rensselaer Polytechnic Institute,  Troy NY 12180-3590 \\
+	{\tt waismh@rpi.edu} \\
+	Jacob Fish
+\end{center}
+We present a novel space-time multigrid method for molecular
+dynamics simulations. It is aimed at bridging discrete
+scales with either coarse grained discrete or continuum
+scales. The method consists of the waveform relaxation
+scheme aimed at capturing the high frequency response of
+atomistic vibrations and a coarse scale solution in space
+and time aimed at resolving smooth features of the discrete
+medium. The formulation of the coarse grained model is based
+on the variational approach derived from Hamilton's
+principle. The time integration is performed in windows
+using the Newmark predictor-corrector method. The method is
+implicit, possesses superior stability properties and
+consequently enables larger time steps governed by accuracy
+considerations of coarse scale quantities of interest.
+Performance studies on polymer melts have shown significant
+speed-up compared to the classical explicit methods, in
+particular on parallel machines.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

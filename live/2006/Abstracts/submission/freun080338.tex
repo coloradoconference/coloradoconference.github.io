@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Roland W. Freund \\
+{\bf A Flexible Conjugate Gradient Method and its Application in Power Grid Analysis of VLSI Circuits }}
+
+Department of Mathematics \\ University of California \\ Davis \\ One Shields Avenue \\ Davis \\ CA 95616
+\\
+{\tt freund@math.ucdavis.edu}\end{center}
+
+The design and verification of today's very large-scale
+integrated (VLSI) circuits involve some extremely challenging
+numerical problems. One of the truly large-scale problems
+in this area is power grid analysis. Power grids are modeled
+as networks with up to 10 millions nodes. Steady-state analysis
+of power grids requires the solution of correspondingly large
+sparse symmetric positive definite linear systems. The
+coefficient matrices of these systems have the structure of
+weighted Laplacians on three-dimensional grids, but with `boundary'
+conditions given on a subset of the interior grid points.
+Strongly-varying weights and the interior boundary conditions
+have the effect that solutions of these linear systems are often
+very localized, with components of the solution being near zero
+in large parts of the grid. In this talk, we present a flexible
+conjugate gradient method that is tailored to the solution of the
+truly large-scale linear systems arising in VLSI power grid
+analysis. The algorithm allows changing preconditioners and
+sparsification of the search directions at each iteration.
+These are the key features to exploit the local nature of the
+solutions. We also discuss the problem of constructing
+efficient preconditioners for the linear systems in VLSI power grid
+analysis, and we present results of numerical experiments.
+
+
+\end{document}

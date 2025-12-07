@@ -1,0 +1,28 @@
+===firstname:
+Scott
+===firstname3:
+
+===lastname2:
+Saad
+===postal:
+Department of Computer Science and Engineering
+University of Minnesota
+4-192 EE/CS Building
+200 Union Street SE
+Minneapolis, MN 55455
+===lastname:
+MacLachlan
+===lastname3:
+
+===ABSTRACT:
+In recent years, substantial effort has been focused on developing methods capable of solving the large linear systems that arise from the discretization of partial differential equations. This research has been driven by application scientists' demands of higher accuracy, in both mathematical modelling and computational solution.  Efficient solution of many of these linear systems is possible only through the use of multilevel solution techniques.  While highly optimized algorithms may be developed using knowledge about the origins of the matrix problem to be considered, much current interest is in the development of purely algebraic approaches that may be applied in many situations, without extensive problem-specific tuning.
+
+In this talk, we present a new algebraic approach to finding the fine/coarse partitions needed in multilevel approaches.  The  algorithm is motivated by theoretical analysis of the performance of algebraic multigrid (AMG) and algebraic recursive multilevel solvers (ARMS).  From the AMG point of view, the coarsening is consistent with the ideas of compatible relaxation, while it may also be motivated by the algebraic criteria central to ARMS.  While no guarantee on the rate of coarsening is given, the splitting is shown to always yield an effective preconditioner in the two-level sense.  Numerical performance of two-level and multilevel variants of this approach is demonstrated.
+===email:
+maclach@cs.umn.edu
+===otherauths:
+
+===title:
+A greedy strategy for coarse-grid selection
+===firstname2:
+Yousef

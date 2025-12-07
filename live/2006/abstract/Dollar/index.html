@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Dollar</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Constraint-style preconditioners for regularized saddle point problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sue Dollar 
+<BR>
+Dept.&nbsp;of Mathematics, University of Reading 
+<BR>
+Whiteknights, P.O.Box 220, Reading, Berkshire, RG6 6AX, UK
+<BR><TT>h.s.dollar@reading.ac.uk</TT>
+</DIV>
+<p>
+The problem of finding good preconditioners for the numerical
+solution of a certain important class of indefinite linear
+systems is considered. These systems are of a saddle point
+structure
+<!-- MATH
+ \begin{displaymath}
+\left(
+	\begin{array}{cc}
+	A & B^T \\
+	B & -C
+	\end{array}
+	\right)   \left(
+	\begin{array}{c}
+	x \\y
+	\end{array}
+	\right)  =  \left(
+	\begin{array}{c}
+	c \\d
+	\end{array}
+	\right) ,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="223" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \left(
+\begin{array}{cc}
+A &amp; B^T \\
+B &amp; -C
+\end{array}\right) \l...
+... \\ y
+\end{array}\right) = \left(
+\begin{array}{c}
+c \\ d
+\end{array}\right) , $">
+</DIV><P></P>
+where <!-- MATH
+ $A\in\mathbb{R}^{n\times n}$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A\in\mathbb{R}^{n\times n}$">,
+<!-- MATH
+ $C\in\mathbb{R}^{m\times m}$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ C\in\mathbb{R}^{m\times m}$"> are symmetric,
+and <!-- MATH
+ $B\in\mathbb{R}^{m\times n}$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B\in\mathbb{R}^{m\times n}$"> has full rank.
+<P>
+In <EM>Constraint preconditioning for indefinite linear systems</EM>,
+SIAM J.&nbsp;Matrix Anal. Appl. <B>21</B> (2000),
+Keller, Gould and Wathen analyzed the idea of
+using constraint preconditioners that have a
+specific 2 by 2 block structure for the case of
+<IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ C$"> being zero. We
+shall extend this idea by allowing the (2,2) block to be
+non-zero. Results concerning the spectrum and form of the
+eigenvectors are presented, as are numerical results to validate
+our conclusions.
+We will also introduce the idea of
+implicit-factorization constraint preconditioners which allow us
+to efficiently carry out the required preconditioning steps.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

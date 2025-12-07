@@ -1,0 +1,50 @@
+===firstname:
+Peter, R.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Computing Department,
+University of Bradford,
+Bradford,
+West Yorks BD7 1DP,
+England.
+===lastname:
+Graves-Morris
+===lastname3:
+
+===ABSTRACT:
+
+BiCGStab [Van der Vorst, 1992] and GMRes [Saad and Schultz, 1986] are the names of two famous families of iterative methods
+for the solution of large linear systems. Subsequently, much research has focussed on
+appropriate generalizations for large nonlinear systems [Kelley, 1995]. Here, we will discuss a
+nonlinear generalization of BiCGStab, and see its performance on the $\phi$-2 equation
+and Bratu equations in 2D, and for Burghers' equation.
+
+The key equations of BiCGStab will be summarized, and then its connections with
+vector Pad\'{e} approximation of the Richardson series will be briefly reviewed. 
+These considerations lead naturally to the algorithm called VPAStab for 
+stabilised vector-Pad\'{e} approximation of a vector-valued function
+whose coefficients are linearly generated [Graves-Morris, 2003]. 
+VPAStab, when applied to systems of linear equations, is very similar to BiCGStab.
+A generalization of the algorithm for the acceleration of convergence of a 
+nonlinearly generated system of equations is proposed here using recursions of the form
+\begin{eqnarray}
+\mathbf{x}^{(2k)} & := & (1+\alpha_{k})\mathbf{x}^{(2k-1)}-\alpha_{k}\mathbf{x}^{(2k-2)}                              \nonumber \\ 
+              &   & \ \ \  +(1-\theta_{k})[(1+\alpha_{k})\mathbf{r}^{(2k-1)}-\alpha_{k}\mathbf{r}^{(2k-2)}],      \nonumber \\
+\mathbf{x}^{(2k+1)} & := & (1+\beta_{k})\mathbf{x}^{(2k)} - \beta_{k}\mathbf{x}^{(2k-1)} + (1+\beta_{k})\mathbf{r}^{(2k)} \nonumber \\
+              &   & \ \ \  - \beta_{k}(1-\theta_{k})\mathbf{r}^{(2k-1)}.                                      \nonumber
+\end{eqnarray}
+In these formulas, $\mathbf{x}^{(i)}$ are accelerated estimates of the solution of the equations,
+and $\mathbf{r}^{(i)}$ are their (preconditioned) residuals. The initialization of the recursions
+and the other parameters $\alpha_{k}$, $\beta_{k}$ and $\theta_{k}$
+are common to those of VPAStab. Some encouraging comparative numerical results will be shown. 
+===email:
+p.r.graves-morris@bradford.ac.uk
+===otherauths:
+
+===title:
+BiCGStab, VPAStab and an adaptation to mildly nonlinear systems.
+===firstname2:
+

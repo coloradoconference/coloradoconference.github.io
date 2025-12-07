@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Dyadechko</TITLE>
+<META NAME="description" CONTENT="Dyadechko">
+<META NAME="keywords" CONTENT="Dyadechko">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Dyadechko.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Moment-of-fluid interface reconstruction</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Vadim Dyadechko 
+<BR>
+MS B284 Los Alamos National Laboratory 
+<BR>
+Los Alamos, NM 87545 
+<BR>	<TT>vdyadechko@lanl.gov</TT> 
+<BR>
+Mikhail Shashkov
+
+</DIV>
+Volume-of-fluid&nbsp;(VoF) methods [2] are widely used in
+Eulerian simulations of multi-phase flows with mutable
+interface topology. The popularity of VoF methods is
+explained by their unique ability to preserves the mass of
+each fluid component on the discrete level. The strategy of
+VoF methods consists in calculating the interface location
+at each discrete moment of time from the volumes of the cell
+fractions occupied by different materials. Most VoF methods
+use a single linear interface to divide two materials in a
+mixed cell&nbsp;(Piecewise-Linear Interface Calculation&nbsp;(PLIC))
+[3,4,5]. Once the direction of the interface normal is know,
+the location of the interface is uniquely identified by the
+volumes of the cells fraction. Unfortunately the interface
+normal can not be evaluated without the volume fraction data
+from the surrounding cells, which prohibits the resulting
+approximation to resolve any interface details smaller than
+a characteristic size of the cell cluster involved in
+evaluation of the normal.
+
+<P>
+To overcome this limitation, we
+designed a new <I>mass-conservative</I> interface
+reconstruction method [1], which calculates the interface
+based on both <I>volumes and centroids</I> of the cell
+fractions. This choice of the input data allows to evaluate
+the interface normal in a mixed cell <I>even without the
+information from the adjacent elements</I>. The location of the
+linear interface in each mixed cell is determined by
+<I>fitting the centroid of the cell fraction behind the
+interface to the reference one</I>, which leads to
+(<IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d\!-\!1$">)-variate optimization problem in <!-- MATH
+ $\mathbb{R}^d$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbb{R}^d$">. The
+technique proposed, called Moment-of-Fluid&nbsp;(MoF) interface
+reconstruction, results in a <I>second order accurate</I>
+interface approximation&nbsp; (linear interfaces are
+reconstructed exactly), has higher resolution, and is shown
+to be <I>more accurate than VoF-PLIC methods</I>.
+
+<P>
+We
+present a detailed description of MoF interface
+reconstruction algorithm in 2D, which includes iterative
+procedure for centroid fitting and a new algorithm for
+cutting appropriate volume fractions from polygonal cells.
+
+<P>
+[1] V.&nbsp;Dyadechko and M.&nbsp;Shashkov, <EM>Moment-of-fluid interface reconstruction</EM>,
+Technical Report LA-UR-05-7571, Los Alamos
+National Laboratory, Los Alamos, NM, Oct 2005.
+<TT>http://math.lanl.gov/&nbsp;vdyadechko/doc/2005-mof.pdf</TT>
+
+<P>
+[2] C.&nbsp;W.&nbsp;Hirt and B.&nbsp;D.&nbsp;Nichols, <EM>Volume of
+fluid (VOF) method for the dynamics of free boundaries</EM>,
+J.&nbsp;Comp. Physics <B>39</B>(1) (1981) 201-25.
+
+<P>
+[3] J.&nbsp;E.&nbsp;Pilliod and E.&nbsp;G.&nbsp;Puckett, <EM>Second-order
+accurate volume-of-fluid algorithms for tracking
+material interfaces</EM>, J.&nbsp;Comp. Physics <B>199</B>(2)
+(2004) 465-502.
+
+<P>
+[4] B.&nbsp;Swartz, <EM>The second-order sharpening
+of blurred smooth borders</EM>, Mathematics of Computation,
+<B>52</B>(186) (1989) 675-714
+
+<P>
+[5] D.&nbsp;L.&nbsp;Youngs, <EM>An interface tracking method for a
+3D Eulerian hydrodynamics code</EM>, Technical Report
+AWRE/44/92/35, Atomic Weapon Research Establishment,
+Aldermaston, Berkshire, UK, Apr 1987.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

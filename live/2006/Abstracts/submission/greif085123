@@ -1,0 +1,26 @@
+===firstname:
+Chen
+===firstname3:
+
+===lastname2:
+Sch\"otzau
+===postal:
+University of British Columbia
+2366 Main Mall
+Vancouver B.C. V6T 1Z4
+Canada
+===lastname:
+Greif
+===lastname3:
+
+===ABSTRACT:
+We introduce a new preconditioning technique for iteratively solving linear systems arising from finite element discretizations of the mixed formulation of the time-harmonic Maxwell equations. The preconditioners are block diagonal with positive definite blocks and are based on discrete augmentation using the scalar Laplacian.  They are motivated by spectral equivalence properties of the discrete operators. Specifically, we show that augmenting the curl-curl operator by a discrete grad-div operator, weighed by the scalar Laplacian, yields almost immediate convergence when preconditioned MINRES is used. We also show that if the augmented term is replaced by the vector mass matrix we still obtain fast convergence. Similar (operator-independent) algebraic principles can be applied in general settings and give rise to preconditioners that work effectively for saddle-point linear systems whose (1,1) block is highly singular. Analytical observations and numerical results demonstrate the scalability and the convergence properties of the proposed approach.
+===email:
+greif@cs.ubc.ca
+===otherauths:
+
+===title:
+Preconditioners for the discretized time-harmonic Maxwell
+equations in mixed form
+===firstname2:
+Dominik

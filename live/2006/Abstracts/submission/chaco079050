@@ -1,0 +1,101 @@
+===firstname:
+Luis
+===firstname3:
+
+===lastname2:
+Knoll
+===postal:
+MS K717, Los Alamos National Laboratory, Los Alamos, NM 87545
+===lastname:
+Chacon
+===lastname3:
+
+===ABSTRACT:
+We present results from our research on Jacobian-free Newton-Krylov
+(JFNK) methods applied to the time-dependent, primitive-variable,
+3D extended magnetohydrodynamics (MHD) equations. MHD is a fluid description
+of the plasma state. While plasma is made up of independent (but coupled)
+ion and electron species, the standard MHD description of a plasma
+only includes ion time and length scales (one-fluid model). Extended
+MHD (XMHD) includes nonideal effects such as nonlinear, anisotropic
+transport and two-fluid (Hall and diamagnetic) effects. XMHD supports
+so-called dispersive waves (whistler, ion acoustic), which feature
+a quadratic dispersion relation $\omega \sim k^{2}$. In explicit
+time integration methods, this results in a stringent CFL limit $\Delta t_{CFL}\propto \Delta x^{2}$,
+which severely limits their applicability to the study of long-frequency
+phenomena in XMHD. 
+
+A fully implicit implementation promises efficiency (by removing the
+CFL constraint) without sacrificing numerical accuracy \cite{knoll-jcp-03}.
+However, the nonlinear nature of the XMHD system and the numerical
+stiffness of its fast waves make this endeavor very difficult. Newton-Krylov
+methods can meet the challenge provided suitable preconditioning is
+available. 
+
+We propose a successful preconditioning strategy for the 3D primitive-variable
+XMHD formalism. It is based on {}``physics-based'' ideas \cite{chacon-jcp-02,chacon-jcp-03},
+in which a hyperbolic system of equations (which is diagonally submissive
+for $\Delta t>\Delta t_{CFL}$ \cite{chacon-jcp-02}) is {}``parabolized''
+to arrive to a diagonally dominant approximation of the original system,
+which is multigrid-friendly. The use of approximate multigrid (MG)
+techniques to invert the {}``parabolized'' operator is a crucial
+step in the effectiveness of the preconditioner and the scalability
+of the overall algorithm. The parabolization procedure can be properly
+generalized using the well-known Schur decomposition of a 2$\times $2
+block matrix:{\small \[
+\left[\begin{array}{cc}
+ D_{1} & U\\
+ L & D_{2}\end{array}
+\right]=\left[\begin{array}{cc}
+ I & UD_{2}^{-1}\\
+ 0 & I\end{array}
+\right]\left[\begin{array}{cc}
+ D_{1}-UD_{2}^{-1}L & 0\\
+ 0 & D_{2}\end{array}
+\right]\left[\begin{array}{cc}
+ I & 0\\
+ D_{2}^{-1}L & I\end{array}
+\right].\]
+}In the context of XMHD, the resulting Schur complement $D_{1}-UD_{2}^{-1}L$
+is a system of PDE's that couples the three plasma velocity components,
+and needs to be inverted in a coupled manner. Nevertheless, a system
+MG treatment is still possible since, when properly discretized, the
+XMHD Schur complement is block diagonally dominant by construction,
+and block smoothing is effective. 
+
+In this presentation, we will discuss the derivation and validity
+of the physics-based preconditioner for resistive MHD and its generalization
+to XMHD, the connection with Schur complement analysis, and the system-MG
+treatment of the associated systems. A novel second-order, cell-centered,
+conservative finite-volume discretization has been recently developed
+in \cite{chacon-cpc-04} for the XMHD system above, and will be used
+in this work. It is suitable for general curvilinear geometries, solenoidal
+in $\mathbf{B}$ and $\mathbf{J}$, numerically non-dissipative, and
+linearly and nonlinearly stable. We will demonstrate the algorithm
+using the GEM challenge configuration \cite{gem}. Grid convergence
+studies will demonstrate that CPU time scales scale optimally as $\mathcal{O}(N)$,
+where $N$ is the number of unknowns, and that the number of Krylov
+iterations scales as $\mathcal{O}(N^{0})$. Time convergence studies
+will demonstrate a favorable scaling with time step $\mathcal{O}(\Delta t^{\alpha })$,
+with $\alpha <1.0$. 
+
+\begin{thebibliography}{1}
+\bibitem{knoll-jcp-03}D. A. Knoll, L. Chac\'{o}n, L. G. Margolin, and V. A. Mousseau, J.
+Comput. Phys. \textbf{185}, 583 (2003) 
+\bibitem{chacon-cpc-04} \vspace{-8pt} L. Chac\'{o}n, Comp. Phys. Comm., \textbf{163}, 143
+(2004) 
+\bibitem{chacon-jcp-02} \vspace{-8pt} L. Chac\'{o}n, D. A. Knoll, and J. M. Finn, J. Comput.
+Phys., \textbf{178}, 15 (2002) 
+\bibitem{chacon-jcp-03} \vspace{-8pt} L. Chac\'{o}n and D. A. Knoll, J. Comput. Phys.,
+\textbf{188}, 573 (2003) 
+\bibitem{gem} \vspace{-8pt} J. Birn et al., J. Geophys. Res., \textbf{106}, 3715
+(2001)\end{thebibliography}
+
+===email:
+chacon@lanl.gov
+===otherauths:
+
+===title:
+A fully implicit extended 3D MHD solver
+===firstname2:
+Dana A.

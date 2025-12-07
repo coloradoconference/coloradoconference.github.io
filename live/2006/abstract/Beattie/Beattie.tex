@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Model reduction of large scale second-order systems with modal damping}}
+
+	Christopher Beattie \\
+	Dept.~of Mathematics,
+	Virginia Polytechnic Institute \& State University \\
+	Blacksburg VA 24061 \\
+	{\tt beattie@vt.edu} \\
+	Serkan Gugercin
+\end{center}
+An approach is described for model reduction of second-order
+systems with types of normal mode damping that include the
+most common varieties: proportional damping and square-root
+damping. We show that unlike the general case that requires
+usage of a second-order Krylov subspace structure, one can
+build up instead approximating subspaces satisfying all
+required conditions much more cheaply as direct sums of
+standard rational Krylov subspaces within much smaller
+component subspaces.
+
+We give a detailed analysis of the
+distribution of system poles, and then, through descriptive
+bounds that carry the flavor of classical approximation
+theory, we are able to exploit the structure of these poles
+to obtain asymptotically optimal shift selection strategies.
+Numerical examples are provided to illustrate and support
+the analysis.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

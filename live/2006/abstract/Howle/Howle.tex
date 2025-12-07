@@ -1,0 +1,107 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf The effect of boundary conditions and inner solver accuracy
+within  \\ pressure convection-diffusion preconditioners for
+the \\ incompressible Navier-Stokes equations}}
+
+	Victoria Howle \\
+	Sandia National Labs, PO Box 969 \\
+	MS9159, Livermore CA 94551 \\
+	{\tt vehowle@sandia.gov} \\
+	Ray Tuminaro, Jacob Schroder
+\end{center}
+{\it Pressure convection-diffusion} preconditioners for
+solving the incompressible Navier-Stokes equations were
+first proposed by Kay, Loghin, and Wathen and Silvester,
+Elman, Kay, and Wathen. While numerous theoretical and
+numerical studies have demonstrated mesh independent
+convergence for these block methods on several problems and
+their overall efficacy, there are several potential
+weaknesses remaining in the practical use of these methods.
+
+Perhaps one of the most poorly understood topics within
+this block preconditioner family is the influence of
+boundary conditions on overall algorithm convergence. The
+notion of differential commuting is the basis for all {\it
+pressure convection-diffusion} preconditioners. The main
+mathematical difficulty is that differential commuting does
+not hold at the boundaries. Thus, it is unclear what
+boundary conditions should be enforced in subblocks of the
+preconditioner. Heuristics have been developed that roughly
+account for boundary conditions associated with inflow,
+outflow, and no-slip. However, these rough heuristics often
+do not properly capture the boundary interactions, and can
+in fact lead to a degradation in convergence rates as the
+mesh is refined. We first explore the effect of having
+``ideal'' boundary conditions within the preconditioner.
+While not computationally feasible, the ideal boundary
+condition results highlight the importance of choosing
+suitable boundary conditions. We then explore somewhat more
+practical approximations to the ideal conditions based on
+ILU factorizations and probing [Siefert and de Sturler,
+2005].
+
+Another important issue is the relationship
+between the accuracy of inner sub-problem solves to the
+overall convergence rate of the outer iteration. It has been
+known for quite some time that when mesh-independent
+sub-problem solvers are used inexactly within this block
+preconditioner, the overall convergence of the outer
+iteration remains mesh independent for the Stokes equations
+[Silvester and Wathen, 1994]. The situation is not well
+understood for the Navier-Stokes equations, and it is also
+not well understood when the inner subblock solver has less
+than ideal behavior. We have observed a noticeable
+degradation in the outer iteration convergence rate when a
+sub-solver is terminated too quickly. We discuss possible
+solutions to this issue including reusing information from
+repeated linear solves.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

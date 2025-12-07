@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Shi</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A large scale nonlinear finite element solver algorithm 
+<BR>
+with optimal speed and robustness</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Peter L.&nbsp;Shi 
+<BR>
+Dept of Math and Statistics 
+<BR>
+Oakland University, Rochester MI 48323 
+<BR>	<TT>pshi@oakland.edu</TT>
+</DIV>
+<p>
+The speaker will present a new theory, the related
+algorithmic and programming architecture for solving
+nonlinear boundary value problems with <I>optimal speed
+and robustness</I> by using large numbers of finite elements.
+<P>
+The new methodology will achieve the desired optimality
+over a singularly large spectrum of nonlinear finite element
+models on bounded domains of <IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ R^n$"> with <IMG
+ WIDTH="42" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ n=2$"> and <IMG
+ WIDTH="42" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ n=3$">.
+For example,
+the algorithm will cover the Galerkin formulation
+of well-posed nonlinear elliptic systems whose principle
+part is Lipschitz continuous and strongly monotone in a
+Sobolev space and certain problems that lack unique
+solutions such as stationary Navier-Stokes equations. Large
+variations of stiffness will also be permitted in both
+magnitude and frequency.
+<P>
+The merit of the new algorithm
+is not only its speed and scope, but also its mathematically
+rigorous theory, the elegance in algorithmic design, and
+simplicity in implementation. The approach will be based on
+the proven success of the speaker's long time effort
+starting from early 1990s, recently reported in [1],
+which successfully establishes the corresponding
+result for second order <I>quasi-linear</I> elliptic systems
+with non-negative lower order terms.
+<P>
+Central to the
+algorithm, the speaker will reformulate a finite element
+model by generalized Wiener-Hopf equations. This will make
+element-wise conditioning an inexpensive process, whereby
+reducing the solution procedure to the straightforward
+Banach contraction mapping principle: given <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ f$">, <IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ y_0$"> and
+<IMG
+ WIDTH="17" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ m$">, compute
+<!-- MATH
+ \begin{displaymath}
+y_{k+1} = (I-R^* T R) y_k+ R^*f,
+\qquad k=0,1,2\dots m.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="352" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle y_{k+1} = (I-R^* T R) y_k+ R^*f,
+\qquad k=0,1,2\dots m. $">
+</DIV><P></P>
+Here the operator <!-- MATH
+ $I- R^* T R$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ I- R^* T R$"> is
+strictly contractive with the contraction constant
+independent of the number of unknowns in the system; <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ T$"> is
+a scaled direct sum of the local stiffness operators; <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ R$">
+and <IMG
+ WIDTH="23" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ R^*$"> are linear operators conjugate to each other, and
+<IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ I$"> is the identity mapping. Computing <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ Ry$"> and <IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ R^* y^*$"> for
+arbitrary <IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ y$"> and <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ y^*$"> is equivalent to solving a linear
+system defined by a fixed class of sparse <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ M$">-matrices and
+their close variants, which can be accomplished by algebraic
+multi-grid method (AMG) in linear computational count.
+<P>
+For a
+large class of practical problems, they can also be
+accomplished by a variety of other linear solver techniques,
+showing the robustness of the algorithm. From the numerical
+point of view, <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ R$"> and <IMG
+ WIDTH="23" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ R^*$"> are optimal conditioners of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ T$">
+in terms of cost, efficiency and robustness. They depend
+only on a discrete function space modulo the kernel of an
+appropriate linear analog of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ T$">. Throughout the algorithmic
+design and analysis, non-traditional tools such as
+topological spaces and discrete measures will be
+systematically deployed for representing and handling the
+data structure. This is another novelty of the speaker's
+approach from the standard methodology.
+<P>
+The speaker's
+new approach is related neither to Newton-Krylov method and
+its variants, nor to FAS. At the philosophical level, it is
+a natural extension of AMG to its fully nonlinear analog
+without using FAS. It can also be viewed as an extreme
+exercise of the <I>finite element tearing and
+inter-connection</I> (FETI) philosophy coupled with a novel
+treatment of degrees of freedom.
+<P>
+[1]
+P.&nbsp;Shi, <EM>Foundation of nonlinear finite element
+solvers, Part I</EM>, Advances in Computational Mathematics,
+submitted August 2005, 95 pages.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

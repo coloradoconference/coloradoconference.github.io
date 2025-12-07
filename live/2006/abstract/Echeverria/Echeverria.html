@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Echeverria</TITLE>
+<META NAME="description" CONTENT="Echeverria">
+<META NAME="keywords" CONTENT="Echeverria">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Echeverria.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>On the manifold-mapping optimization technique</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">David Echeverr&#237;a 
+<BR>
+Centre for Mathematics and Computer Science (CWI)
+<BR>
+Kruislaan 413, NL-1098 SJ Amsterdam, The Netherlands 
+<BR>	<TT>d.echeverria@cwi.nl</TT> 
+<BR>
+Pieter W.&nbsp;Hemker, <TT>p.w.hemker@cwi.nl</TT>
+
+</DIV>
+Optimization problems in practice
+often need cost-function evaluations that are very expensive
+to compute. Examples are, e.g., optimal design problems
+based on complex finite element simulations. As a
+consequence, many optimizations may require very long
+computing times. The space-mapping (SM) technique
+[1,2] was developed as an alternative
+in these situations.
+
+<P>
+In SM terminology, the accurate but
+expensive-to-evaluate models are called <I>fine</I> models,
+<!-- MATH
+ ${\mathbf f}:X \subset \mathbb{R}^n \to \mathbb{R}^m$
+ -->
+<IMG
+ WIDTH="128" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\mathbf f}:X \subset \mathbb{R}^n \to \mathbb{R}^m$">.
+The SM method also
+needs a second, simpler and cheaper and computationally
+faster model, the <I>coarse</I> model,
+<!-- MATH
+ ${\mathbf c}:Z \subset \mathbb{R}^n \to \mathbb{R}^m$
+ -->
+<IMG
+ WIDTH="126" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf c}:Z \subset \mathbb{R}^n \to \mathbb{R}^m$">,
+in order to speed-up the optimization
+process. The key element in this technique is a
+right-preconditioning for the coarse model, known as the
+<I>SM function</I>
+<!-- MATH
+ ${\mathbf p}:X \to Z$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {\mathbf p}:X \to Z$">, that aligns the two
+model responses.
+The function <!-- MATH
+ ${\mathbf c}({\mathbf p}({\mathbf x}))$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ {\mathbf c}({\mathbf p}({\mathbf x}))$">
+corrects the coarse model and
+can be used as a surrogate for the fine
+model in the accurate optimization. In most cases the SM
+function is much simpler than the fine model, in the sense
+that it is easier to approximate. This fact endows the SM
+technique with its well-reported efficiency. However, it
+does not always converge to the right solution.
+
+<P>
+Defect-correct theory [3] helps to see that, in order
+to achieve the accurate optimum, the SM function is
+generally insufficient and also left-preconditioning is
+needed.  In [4] we introduce the mapping
+<!-- MATH
+ ${\mathbf s}:{\mathbf c}(Z) \to {\mathbf f}(X)$
+ -->
+<IMG
+ WIDTH="115" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ {\mathbf s}:{\mathbf c}(Z) \to {\mathbf f}(X)$">
+and the associated
+manifold-mapping (MM) algorithm. MM employs
+<!-- MATH
+ ${\mathbf s}({\mathbf c}({\bar{{\mathbf p}}}({\mathbf x})))$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\mathbf s}({\mathbf c}({\bar{{\mathbf p}}}({\mathbf x})))$">
+as the fine model surrogate. Here, the
+function <!-- MATH
+ ${\bar{{\mathbf p}}}:X \to Z$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ {\bar{{\mathbf p}}}:X \to Z$">
+is not the above SM function but an
+arbitrary simple bijection, often the identity.
+The MM algorithm is as efficient as SM but converges
+to the accurate optimal solution [4,5].
+
+<P>
+In the first part of the presentation the MM algorithm will
+be briefly introduced and a proof of convergence will be
+given. The use of more than two models (multi-level
+approach) and the possibility of having a coarse model with
+a different dimension than the fine one
+(<!-- MATH
+ $X \subset \mathbb{R}^{n_{\mathbf f}}$
+ -->
+<IMG
+ WIDTH="64" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ X \subset \mathbb{R}^{n_{\mathbf f}}$">
+and <!-- MATH
+ $Z \subset \mathbb{R}^{n_{\mathbf c}}$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ Z \subset \mathbb{R}^{n_{\mathbf c}}$"> with
+<!-- MATH
+ $n_{\mathbf f} \neq n_{\mathbf c}$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ n_{\mathbf f} \neq n_{\mathbf c}$">)
+will be the issues dealt with in the second part of
+the talk.
+
+<P>
+[1]
+J.&nbsp;W.&nbsp;Bandler, R.&nbsp;M.&nbsp;Biernacki,
+C.&nbsp;H.&nbsp;Chen, P.&nbsp;A.&nbsp;Grobelny and R.&nbsp;H.&nbsp;Hemmers,
+<EM>Space
+Mapping Technique for Electromagnetic Optimization</EM>,
+IEEE Trans. on Microwave Theory and Techniques,
+<B>42</B>(12) (1994) 2536-2544.
+
+<P>
+[2]
+J.&nbsp;W.&nbsp;Bandler, Q.&nbsp;S.&nbsp;Cheng, S.&nbsp;A.&nbsp;Dakroury, A.&nbsp;S.&nbsp;Mohamed,
+M.&nbsp;H.&nbsp;Bakr, K.&nbsp;Madsen and J.&nbsp;S&#248;ndergaard,
+<EM>Space Mapping: The State of the Art</EM>,
+IEEE Trans. on
+Microwave Theory and Techniques 52(<B>1</B>) (2004)
+337-361.
+
+<P>
+[3]
+K.&nbsp;B&#246;hmer and P.&nbsp;W.&nbsp;Hemker and H.&nbsp;J.&nbsp;Stetter,
+<EM>Defect Correction Methods: Theory and
+Applications</EM>, The defect correction approach,
+Computing Suppl. <B>5</B> 1-32,
+K.&nbsp;B&#246;hmer and H.&nbsp;J.&nbsp;Stetter ed.,
+Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1984.
+
+<P>
+[4]
+D.&nbsp;Echeverr&#237;a, and P.&nbsp;W.&nbsp;Hemker,
+<EM>Space mapping and defect correction</EM>,
+Comp. Methods in Appl. Math. <B>5</B>(2) (2005) 107-136.
+
+<P>
+[5]
+D.&nbsp;Echeverr&#237;a, D.&nbsp;Lahaye, L.&nbsp;Encica,
+E.&nbsp;A.&nbsp;Lomonova, P.&nbsp;W.&nbsp;Hemker and A.&nbsp;J.&nbsp;A.&nbsp;Vandenput,
+<EM>Manifold-Mapping Optimization Applied to Linear
+Actuator Design</EM>,
+accepted for publication,
+IEEE Transactions on Magnetics, 2006.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

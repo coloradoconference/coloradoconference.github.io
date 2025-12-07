@@ -1,0 +1,137 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Preconditioning analysis for weighted
+Toeplitz regularized least squares problems}}
+
+	Lung Chak Chan \\
+	Dept. of Mathematics, The University of Hong Kong \\
+	Pokfulam Road, Hong Kong \\
+	{\tt lungchak@graduate.hku.hk}
+\end{center}
+
+We consider
+preconditioners for weighted
+Toeplitz regularized least squares (WTRLS) problems
+$$
+\min_z \| A z - b \|_2^2
+$$
+where the rectangular coefficient matrix $A$ and the
+right-hand side vector $b$ are of the form:
+$$ 
+A =
+\left [
+\begin{array}{c}
+W_1 H \\
+\mu W_2 L \\
+\end{array}
+\right ] \in \Reals^{(m_{1}+m_{2}) \times m_{1}}
+\quad {\rm and}\quad  b =
+\left [
+\begin{array}{c}
+W_1 f \\
+ 0 \\
+\end{array}
+\right ] \in \Reals^{m_{1}+m_{2}} \,.
+$$
+Here $H \in \Reals^{m_{1} \times m_{1}}$ is a Toeplitz matrix, $L
+\in \Reals^{m_{2} \times m_{1}}$ is the first-order or second-order
+difference matrix, $W_1 \in \Reals^{m_{1} \times m_{1}}$ and $W_2
+\in \Reals^{m_{2} \times m_{2}}$ are non-scalar diagonal matrices
+with real positive entries, $f \in \Reals^{m_{1}}$ is a given
+right-hand side vector and $\mu >0$ is a regularization parameter.
+
+
+Iterative methods using circulant preconditioners has been proposed 
+since 1980's. 
+The efficiency of solving systems are
+greatly enhanced by these indirect methods.  Since then,
+preconditioners based on circulant matrices were suggested for
+solving the WTRLS problems.  However, most of them do not perform
+satisfactorily and the results of convergence rates can be disappointing.
+
+
+Benzi and Ng 
+considered the above system
+where $W_{2}L$ is replaced by $I$, and proposed a new approach to
+solve it which is based on an augmented system formulation. We now
+adopt a similar approach that transforms the problem into a
+$3 \times 3$ block linear system.
+
+The WTRLS problems turn out to be a quadratic minimization problem, which is equivalent to solving the linear system
+$$ %\label{new}
+(H^{T}W_{1}^{-2}H + \mu^{2} L^{T}W_{2}^{-2}L)z = H^{T} W_{1}^{-2} f~.
+$$
+
+
+The above linear system can overall be rewritten as the following $3 \times 3$ block system:
+$$ 
+\left[ \begin{array}{ccc} W_{1}^{-2} & 0 & H \\ 0 & W_{2}^{-2} & \mu L \\ H^{T} & \mu L^{T} & 0 \end{array} \right] \left[ \begin{array}{c} x \\ y \\ z \end{array} \right] = \left[ \begin{array}{c} 0 \\ 0 \\ -H^{T} W_{1}^{2} f \end{array} \right]~.
+$$
+
+
+There are not any particular results discussing how
+to solve a general $3 \times 3$ system effectively.  
+The four upper left blocks are considered as one single
+block and the corresponding two upper right blocks
+$[H^{T} \ \mu L^{T}]^{T}$ together
+still attain full rank, so we treat this system as
+a $2 \times 2$ block case 
+and consider methods developed for solving indefinite systems.  
+Here we shall adopt constraint
+preconditioner 
+and Hermitian skew-Hermitian splitting (HSS)
+preconditioner 
+and investigate them in details.
+The formulation and actual preconditioning settings
+for WTRLS problems will be discussed.
+A test problem is performed to demonstrate the convergence behaviour
+using these iterative methods.  We shall see that the number of iterations
+mainly depend on the condition numbers of $W_{1}$ and $W_{2}$ as
+well as some factors related to each preconditioners. 
+In particular, this effect is more significant in
+the case of using HSS preconditioner.  The iteration results and
+the weaknesses for both preconditioners can be explained
+with some analyses on the spectra for them.
+
+\end{document}

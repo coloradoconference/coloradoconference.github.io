@@ -1,0 +1,112 @@
+===firstname:
+Arie, A.
+===firstname3:
+Bob, R.M.M. 
+===lastname2:
+ter Maten
+===postal:
+HG 8.47 (Technische Universiteit Eindhoven)
+Den Dolech 2
+5600 MB Eindhoven
+The Netherlands
+===lastname:
+Verhoeven
+===lastname3:
+Mattheij
+===ABSTRACT:
+Analogue electrical circuits are usually modeled by differential-algebraic 
+equations (DAE) of type:
+\begin{equation}\label{daeqj}\frac{d}{dt}\left[\mathbf{q}(t,\mathbf{x})\right]+\mathbf{j}(t,\mathbf{x})=\mathbf{0},\end{equation}
+where $\mathbf{x} \in \mathbb{R}^d$ represents the state of the circuit.
+A common analysis is the transient analysis, which computes the solution $\mathbf{x}(t)$ of this non-linear DAE along the time interval
+$[0,T]$ for a given initial state.
+Often, parts of electrical circuits have latency or multirate behaviour.
+
+For a multirate method it is necessary to partition the variables and equations into an active (A) and a latent (L) part.
+The active and latent parts can be expressed by
+$\mathbf{x}_A = \mathbf{B}_A \mathbf{x},\mathbf{x}_L = \mathbf{B}_L \mathbf{x}$ where
+$\mathbf{B}_A,\mathbf{B}_L$ are permutation matrices.
+Then equation (\ref{daeqj}) is written as the following partitioned system:
+\begin{equation}\label{part_DAE}
+\begin{array}{c}
+\frac{d}{dt}\left [\mathbf{q}_{A}(t,\mathbf{x}_A,\mathbf{x}_L)\right ]+\mathbf{j}_{A}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0},\\
+\frac{d}{dt}\left [\mathbf{q}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)\right ]+\mathbf{j}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0}.
+\end{array}
+\end{equation}
+In contradiction to classical integration methods, multirate methods integrate both parts with different stepsizes.
+Besides the coarse time-grid $\{T_n,0\leq n \leq N\}$ with stepsizes $H_n = T_n - T_{n-1}$, also a refined time-grid $\{t_{n-1,m},1\leq n \leq N, 0 \leq m \leq q_n\}$ is used with stepsizes $h_{n,m} = t_{n,m} - t_{n,m-1}$
+and multirate factors $q_n$. If the two time-grids are synchronized,
+$T_n= t_{n,0} = t_{n-1,q_n}$ holds for all $n$.
+There are a lot of multirate approaches for partitioned systems
+but we will consider the Compound-Fast version of the BDF methods.
+This method performs the following four steps:
+\begin{enumerate}
+\item The complete system is integrated at the coarse time-grid.
+\item The latent interface variables are interpolated at the refined time-grid.
+\item The active part is integrated at the refined time-grid, using the 
+interpolated values at the latent interface.
+\item The active solution at the coarse time-grid is updated.
+\end{enumerate}
+
+The local discretization error $\delta^n$ of the compound phase still has
+the same behaviour $\delta^n = O(H_n^{K+1})$. 
+Let $\bar{\mathbf{P}}^n,\bar{\mathbf{Q}}^n$ be the Nordsieck vectors 
+which correspond to the predictor and corrector polynomials of $\mathbf{q}$. 
+Then the error $\delta^n$ can be estimated by $\hat{\delta}^n$: 
+\begin{equation}
+\hat{\delta}^n = \frac{-H_n}{T_n - T_{n-K-1}} \left [\bar{\mathbf{Q}}_{1}^{n}-\bar{\mathbf{P}}_{1}^{n} \right ].
+\end{equation}
+Now $\hat r_C^n = \|\mathbf{B}_L \hat{\delta}^n\| + \tau\|\mathbf{B}_A \hat{\delta}^n\| $ is the used weighted error norm, which must satisfy $\hat r_C^n <$ TOL$_C$.\\
+The local discretization error $\delta^{n,m}$
+is defined as the residue after inserting the exact solution
+in the refinement BDF scheme.
+During the refinement instead of $\delta^{n,m}$ the perturbed local error $\tilde{\delta}^{n,m}$ is estimated.
+A tedious analysis yields the following asymptotic behaviour:
+\begin{equation}\label{deltarelation}
+\mathbf{B}_A\delta^{n-1,m} \doteq
+\mathbf{B}_A\tilde{\delta}^{n-1,m} +  \frac{1}{4}h \mathbf{K}_{n-1,m}\mathbf{B}_L\rho^{n-1,m}.
+\end{equation}
+Here $\rho^{n-1,m}$ is the interpolation error at the refined grid and $\mathbf{K}_{n-1,m}$ is
+the coupling matrix.
+The perturbed local discretization error $\mathbf{B}_A\tilde{\delta}^{n,m}$ behaves as
+$O(h_{n-1,m}^{k+1})$ and
+can be estimated
+ in a similar way as $\delta^n$.
+Thus the active error estimate $\mathbf{B}_A\hat\delta^{n-1,m}$
+satisfies $\mathbf{B}_A\hat\delta^{n-1,m} \doteq
+\mathbf{B}_A\hat{\tilde{\delta}}^{n-1,m} +  \frac{1}{4}h \hat{\mathbf{K}}_{n-1,m}\mathbf{B}_L\hat\rho^{n-1,m}$.
+Let $L$ be the interpolation order, then it can be shown that
+$\frac{1}{4}\|\hat{\mathbf{K}}_{n}\mathbf{B}_L\rho^{n-1,m}\|$ is less than
+\begin{equation}
+\hat{r}_I^{n} = \frac{1}{4}\frac{H_n}{T_n - T_{n-L-1}}
+\|\hat{\mathbf{K}}_{n}\mathbf{B}_L\left[\bar{\mathbf{X}}_{1}^n-\bar{\mathbf{Y}}_{1}^n\right] \|.
+\end{equation}
+Here $\bar{\mathbf{Y}}^n,\bar{\mathbf{X}}^n$ are the Nordsieck vectors 
+which correspond to the predictor and corrector polynomials of $\mathbf{x}$.
+This error estimate $\hat{r}_I^n$ has the asymptotic behaviour $\hat{r}_I^{n} = O(H_n^{L+1})$.
+It follows that
+$\|\mathbf{B}_A\hat{\delta}^{n,m}\|$ satisfies:
+\begin{equation}\begin{array}{rcl}
+\|\mathbf{B}_A\hat{\delta}^{n-1,m}\| &\leq& \hat{\tilde{r}}_A^{n-1,m} +
+h\hat{r}_I^{n} =: \hat{r}_A^{n-1,m}.
+\end{array}\end{equation}
+If $\hat{r}_I^{n} \leq $ TOL$_I = \sigma$TOL$_A$ and
+$\hat{\tilde{r}}_A^{n-1,m} \leq \tilde{\mbox{TOL}}_A = (1-\sigma h)$TOL$_A$
+then $\hat{r}_A^{n-1,m} \leq \tilde{\mbox{TOL}}_A + h$TOL$_I =$ TOL$_A$.
+
+We tested a circuit with $5 \times 10$ inverters. 
+The location of the active part is controlled by the connecting
+ elements and the voltage sources. The connecting elements were chosen such that the active part consists of 3 inverters.
+We did an Euler Backward Compound-Fast multirate  simulation on $[0,10^{-8}]$ with $\sigma = 0.5,\tau = 0$.  
+We get accurate results combined with a speedup factor 13.
+
+===email:
+averhoev@win.tue.nl
+===otherauths:
+Beelen        Theo,      T.G.J.
+El Guennouni  Ahmed,     A.
+Tasi\'c       Bratislav  B.
+===title:
+Error analysis of BDF Compound-Fast multirate method for differential-algebraic equations
+===firstname2:
+Jan, E.J.W.

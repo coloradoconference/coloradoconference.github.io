@@ -1,0 +1,27 @@
+===firstname:
+Jason S.
+===firstname3:
+Todd S.
+===lastname2:
+Woodward
+===postal:
+Department of Mathematical Sciences
+O-106 Martin Hall
+Box 340975
+Clemson, SC 29634-0975
+
+===lastname:
+Howell
+===lastname3:
+Coffey
+===ABSTRACT:
+Two-grid methods have been developed by Xu (SIAM J. Num. Anal, 1996) for application to linear and nonlinear PDEs.  Of particular interest are methods that can be applied to large nonlinear problems that arise in the simulation of physical processes, such as a method due to Dawson, Wheeler, and Woodward (SIAM J. Num. Anal, 1998). This scheme solves the original nonlinear problem on a mesh coarser than originally specified to capture the nonlinear behavior of the solution, then utilizes a linearized version of the problem to correct the coarse approximation on the original problem mesh.  The two-grid method potentially reduces the overall computational cost by requiring the solution of a smaller nonlinear system and a large linear system in place of the original large nonlinear problem. In this talk we investigate the application of this method to nonlinear reaction-diffusion equations.  In particular, we discuss issues that arise in the implementation of the algorithm, and perform numerical experiments on problems designed to gauge the performance of the two-grid method relative to a standard Newton iterative nonlinear solver. 
+
+===email:
+jshowel@clemson.edu
+===otherauths:
+
+===title:
+Implementation and performance of a two-grid method for nonlinear reaction-diffusion equations
+===firstname2:
+Carol S.

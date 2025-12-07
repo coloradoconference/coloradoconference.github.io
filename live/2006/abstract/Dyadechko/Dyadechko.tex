@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Moment-of-fluid interface reconstruction}}
+
+	Vadim Dyadechko \\
+	MS B284 Los Alamos National Laboratory \\
+	Los Alamos, NM 87545 \\
+	{\tt vdyadechko@lanl.gov} \\
+	Mikhail Shashkov
+\end{center}
+Volume-of-fluid~(VoF) methods [2] are widely used in
+Eulerian simulations of multi-phase flows with mutable
+interface topology. The popularity of VoF methods is
+explained by their unique ability to preserves the mass of
+each fluid component on the discrete level. The strategy of
+VoF methods consists in calculating the interface location
+at each discrete moment of time from the volumes of the cell
+fractions occupied by different materials. Most VoF methods
+use a single linear interface to divide two materials in a
+mixed cell ~(Piecewise-Linear Interface Calculation~(PLIC))
+[3,4,5]. Once the direction of the interface normal is know,
+the location of the interface is uniquely identified by the
+volumes of the cells fraction. Unfortunately the interface
+normal can not be evaluated without the volume fraction data
+from the surrounding cells, which prohibits the resulting
+approximation to resolve any interface details smaller than
+a characteristic size of the cell cluster involved in
+evaluation of the normal.
+
+To overcome this limitation, we
+designed a new \emph{mass-conservative} interface
+reconstruction method [1], which calculates the interface
+based on both \emph{volumes and centroids} of the cell
+fractions. This choice of the input data allows to evaluate
+the interface normal in a mixed cell \emph{even without the
+information from the adjacent elements}. The location of the
+linear interface in each mixed cell is determined by
+\emph{fitting the centroid of the cell fraction behind the
+interface to the reference one}, which leads to
+($d\!-\!1$)-variate optimization problem in $\Reals^d$. The
+technique proposed, called Moment-of-Fluid~(MoF) interface
+reconstruction, results in a \emph{second order accurate}
+interface approximation~ (linear interfaces are
+reconstructed exactly), has higher resolution, and is shown
+to be \emph{more accurate than VoF-PLIC methods}.
+
+We
+present a detailed description of MoF interface
+reconstruction algorithm in 2D, which includes iterative
+procedure for centroid fitting and a new algorithm for
+cutting appropriate volume fractions from polygonal cells.
+
+
+[1] V.~Dyadechko and M.~Shashkov, {\em
+Moment-of-fluid interface reconstruction},
+Technical Report LA-UR-05-7571, Los Alamos
+National Laboratory, Los Alamos, NM, Oct 2005.
+{\tt http://math.lanl.gov/~vdyadechko/doc/2005-mof.pdf}
+
+[2] C.~W.~Hirt and B.~D.~Nichols, {\em Volume of
+fluid (VOF) method for the dynamics of free boundaries},
+J.~Comp. Physics {\bf 39}(1) (1981) 201--25.
+
+[3] J.~E.~Pilliod and E.~G.~Puckett, {\em Second-order
+accurate volume-of-fluid algorithms for tracking
+material interfaces}, J.~Comp. Physics {\bf 199}(2)
+(2004) 465--502.
+
+[4] B.~Swartz, {\em The second-order sharpening
+of blurred smooth borders}, Mathematics of Computation,
+{\bf 52}(186) (1989) 675--714
+
+[5] D.~L.~Youngs, {\em An interface tracking method for a
+3D Eulerian hydrodynamics code}, Technical Report
+AWRE/44/92/35, Atomic Weapon Research Establishment,
+Aldermaston, Berkshire, UK, Apr 1987.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

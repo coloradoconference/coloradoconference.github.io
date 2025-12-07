@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Mavriplis</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Solution of high-order discontinuous Galerkin methods using 
+<BR>
+a combined H-P multigrid approach</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Dimitri Mavriplis 
+<BR>
+Dept.&nbsp;of Mechanical Engineering, Dept 3295 
+<BR>
+University of Wyoming, 1000E. University Ave., Laramie WY 82071 
+<BR>	<TT>mavripl@uwyo.edu</TT> 
+<BR>
+Cris Nastase, Li Wang
+</DIV>
+<p>
+The development of optimal, or near optimal solution
+strategies for higher-order discretizations, including
+steady-state solutions methodologies, and implicit time
+integration strategies, remains one of the key determining
+factors in devising higher-order methods which are not just
+competitive but superior to lower-order methods in overall
+accuracy and efficiency. The goal of this work is to
+investigate and develop a fast and robust algorithm for the
+solution of high-order accurate discontinuous Galerkin
+discretizations of non-linear systems of conservation laws
+on unstructured grids.
+<P>
+We develop a spectral multigrid
+method, whereby the coarse ``grid'' levels are constructed by
+reducing the order (<IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ p$">) of approximation of the
+discretization using hierarchical basis
+functions(<IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ p$">-multigrid), keeping the grid elements fixed.
+This approach is coupled with a traditional agglomeration
+multigrid (<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$">-multigrid) approach for unstructured grids,
+by constructing additional coarse levels at the lowest
+(<IMG
+ WIDTH="40" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p=0$">) spectral level through element agglomeration. The
+overall goal is the development of a solution algorithm
+which delivers convergence rates which are independent of
+``<IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ p$">'' (the order of accuracy of the discretization) and
+independent of ``<IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$">'' (the degree of mesh resolution), while
+minimizing the cost of each iteration. The investigation of
+efficient smoothers to be used at each level of the
+multigrid algorithm is also pursued, and comparisons between
+different integration strategies are made as well.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Huhtanen</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Splittings for iterative solution of linear systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Marko Huhtanen 
+<BR>
+Institute of Mathematics, Helsinki University of Technology 
+<BR>
+Box 1100, FIN-02015, Finland 
+<BR>	<TT>marko.huhtanen@tkk.fi</TT> 
+<BR>
+Mikko Byckling
+</DIV>
+<p>
+Consider iteratively solving a
+linear system
+<IMG
+ WIDTH="52" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax=b$">,
+with invertible <!-- MATH
+ $A\in \mathbb{C}^{n \times n}$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A\in \mathbb{C}^{n \times n}$"> and
+<!-- MATH
+ $b\in \mathbb{C}^n$
+ -->
+<IMG
+ WIDTH="49" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ b\in \mathbb{C}^n$">, by splitting the matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$"> as
+<IMG
+ WIDTH="79" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A=L+R$">, where <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ L$">
+and <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ R$"> are both readily invertible. In such a case the
+recently introduced residual minimizing Krylov subspace
+method [1] can be executed, allowing, in a certain
+sense, preconditioning simultaneously with <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ L$"> and <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ R$">.
+<P>
+Splittings satisfying <IMG
+ WIDTH="79" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A=L+R$"> result either form the
+structure of the problem, or are algebraic. Splittings of
+Gauss-Seidel type belong to the latter category. In this
+talk we discuss such splittings of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$">.
+<P>
+[1] M.&nbsp;Huhtanen and O.&nbsp;Nevanlinna,
+<EM>A minimum residual algorithm for
+solving linear systems</EM>,
+submitted manuscript available at
+<code>www.math.hut.fi/~mhuhtane/index.html</code>.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

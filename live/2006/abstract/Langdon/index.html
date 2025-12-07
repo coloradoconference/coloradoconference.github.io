@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Langdon</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Coupled Gauss-Seidel algorithm in multigrid mode for the 
+<BR>
+thin film equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Stephen Langdon 
+<BR>
+Dept.&nbsp;of Mathematics, University of Reading 
+<BR>
+Whiteknights, PO Box 220, Reading RG6 2AX United Kingdom 
+<BR>	<TT>s.langdon@reading.ac.uk</TT> 
+<BR>
+John W Barrett
+</DIV>
+<p>
+In this talk we consider the iterative solution of a
+nonlinear system arising from a finite element
+discretisation of the fourth order equation <!-- MATH
+ \begin{displaymath}
+\frac{\partial u}{\partial t} + \nabla \cdot
+(|u|^{\gamma}\nabla\Delta u) = 0,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="177" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \frac{\partial u}{\partial t} + \nabla \cdot
+(\vert u\vert^{\gamma}\nabla\Delta u) = 0, $">
+</DIV><P></P>
+where <IMG
+ WIDTH="41" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \gamma&gt;0$">. This
+equation models a thin liquid film spreading on a solid
+surface, with <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$"> the height of the film. It is well known
+that for nonnegative initial data, the solution <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$"> remains
+nonnegative for all time. However, this nonnegativity of <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$">
+is not guaranteed if the equation is discretised in a naive
+way. Imposing the nonnegativity of <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$"> as a constraint leads
+to a discrete variational inequality to be solved at each
+time step. Specifically defining <IMG
+ WIDTH="22" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ S^h$"> to be the space of
+piecewise linear functions on a uniform mesh and <!-- MATH
+ $K^h\subset
+S^h$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ K^h\subset
+S^h$"> to be the space of nonnegative functions in <IMG
+ WIDTH="22" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ S^h$">,
+given <!-- MATH
+ $U^{n-1}\in K^h$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ U^{n-1}\in K^h$"> we seek <!-- MATH
+ $U^{n} \in K^h$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ U^{n} \in K^h$"> and <!-- MATH
+ $W^n \in
+S^h$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ W^n \in
+S^h$"> such that <BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+&(U^{n},\chi)^h +
+\tau\,(|U^{n-1}|^{\gamma}\nabla W^n,\nabla \chi) =
+(U^{n-1},\chi)^h \qquad \forall \ \chi \in S^h,& \\&(\nabla
+U^{n},\nabla (\chi-U^{n})) \geq (W^{n}, \chi-U^n)^h \qquad
+\forall \ \chi \in K^h,&
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="424" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle (U^{n},\chi)^h +
+\tau\,(\vert U^{n-1}\vert^{\gamma}\nabla W^n,\nabla \chi) =
+(U^{n-1},\chi)^h \qquad \forall \ \chi \in S^h,$"></TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD WIDTH="10" ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="361" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$\displaystyle (\nabla
+U^{n},\nabla (\chi-U^{n})) \geq (W^{n}, \chi-U^n)^h \qquad
+\forall \ \chi \in K^h,$"></TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+ where <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \tau$">
+represents the time step, and <!-- MATH
+ $(\cdot,\cdot)$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ (\cdot,\cdot)$"> and
+<!-- MATH
+ $(\cdot,\cdot)^h$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ (\cdot,\cdot)^h$"> represent the <IMG
+ WIDTH="21" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ L^2$"> inner product and its
+trapezoidal rule discretisation respectively.
+<P>
+Well-posedness, stability, unique solvability, and
+convergence of <IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ U^n$"> to <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ u$"> and <IMG
+ WIDTH="29" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ W^n$"> to <!-- MATH
+ $w=-\Delta u$
+ -->
+<IMG
+ WIDTH="71" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ w=-\Delta u$"> were
+established by Barrett, Blowey and Garcke in 1998. To solve
+the nonlinear system they used an Uzawa algorithm, for which
+they were able to demonstrate convergence of
+<!-- MATH
+ $U^{n,p}\rightarrow U^n$
+ -->
+<IMG
+ WIDTH="81" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ U^{n,p}\rightarrow U^n$"> and of <!-- MATH
+ $\int_{\Omega}
+|U^{n-1}|^{\gamma} |\nabla(W^n-W^{n,p})|^2 dx \rightarrow
+0$
+ -->
+<IMG
+ WIDTH="251" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \int_{\Omega}
+\vert U^{n-1}\vert^{\gamma} \vert\nabla(W^n-W^{n,p})\vert^2 dx \rightarrow
+0$">, as the number of iterations <!-- MATH
+ $p\rightarrow\infty$
+ -->
+<IMG
+ WIDTH="52" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ p\rightarrow\infty$">.
+However, the convergence of this algorithm was found to be
+extremely slow. Here, we propose instead a coupled
+Gauss-Seidel algorithm in multigrid mode for the iterative
+solution of the nonlinear system. Proving convergence for
+the multigrid algorithm remains an open question, but
+numerical results indicate mesh independent convergence to
+the same solution as that achieved with the Uzawa algorithm
+in most cases tested, with a greatly reduced computational
+cost compared to iterating on a single grid.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

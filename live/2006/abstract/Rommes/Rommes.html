@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Rommes</TITLE>
+<META NAME="description" CONTENT="Rommes">
+<META NAME="keywords" CONTENT="Rommes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Rommes.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Computing dominant poles of transfer functions</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Joost Rommes 
+<BR>
+Mathematical Institute, Utrecht University 
+<BR>
+P.O.Box 80.010, 3508 TA Utrecht, The Netherlands 
+<BR>
+http://www.math.uu.nl/people/rommes 
+<BR>	<TT>rommes@math.uu.nl</TT> 
+<BR>
+Nelson Martins
+
+</DIV>
+Recent work on power system
+stability, controller design and electromagnetic transients
+has used several advanced model reduction techniques.
+Although these techniques, such as balanced truncation,
+produce good results, they impose high computational costs
+and hence are only applicable to moderately sized systems.
+Modal model reduction is a cost-effective alternative for
+large-scale systems, when only a fraction of the system pole
+spectrum is controllable-observable for the transfer
+function of interest. Modal reduction produces transfer
+function modal equivalents from the knowledge of the
+dominant poles and their corresponding residues. In this
+talk a specialized eigenvalue method will be presented that
+computes the most dominant poles and corresponding residues
+of a SISO transfer function.
+
+<P>
+The transfer function of a
+single input single output (SISO) system is defined as
+<!-- MATH
+ \begin{displaymath}
+\qquad
+\qquad
+\qquad
+\qquad
+H(s) = \mathbf{c}^T (sI - A)^{-1}\mathbf{b} + d,
+\qquad
+\qquad
+\qquad
+\qquad
+(1)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="473" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \qquad
+\qquad
+\qquad
+\qquad
+H(s) = \mathbf{c}^T (sI - A)^{-1}\mathbf{b} + d,
+\qquad
+\qquad
+\qquad
+\qquad
+(1)
+$">
+</DIV><P></P>
+where
+<!-- MATH
+ $A\in\mathbb{R}^{n\times n}$
+ -->
+<IMG
+ WIDTH="72" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A\in\mathbb{R}^{n\times n}$">,
+<!-- MATH
+ $\mathbf{b},\mathbf{c}\in\mathbb{R}^n$
+ -->
+<IMG
+ WIDTH="68" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathbf{b},\mathbf{c}\in\mathbb{R}^n$">, <!-- MATH
+ $d\in\mathbb{R}$
+ -->
+<IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ d\in\mathbb{R}$"> and
+<!-- MATH
+ $I\in\mathbb{R}^{n\times n}$
+ -->
+<IMG
+ WIDTH="69" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ I\in\mathbb{R}^{n\times n}$"> is the identity
+matrix and <!-- MATH
+ $s\in\mathbb{C}$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ s\in\mathbb{C}$">.
+Without loss of generality, <IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ d=0$"> in
+the following.
+
+<P>
+Let the eigenvalues (poles) of <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ A$"> and the
+corresponding right and left eigenvectors be given by the
+triplets <!-- MATH
+ $(\lambda_j,\mathbf{x}_j,\mathbf{v}_j)$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ (\lambda_j,\mathbf{x}_j,\mathbf{v}_j)$">,
+and let the right and
+left eigenvectors be scaled so that
+<!-- MATH
+ $\mathbf{v}_j^*\mathbf{x}_j=1$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathbf{v}_j^*\mathbf{x}_j=1$">.
+It is
+assumed that <!-- MATH
+ $\mathbf{v}_j^*\mathbf{x}_k=0$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \mathbf{v}_j^*\mathbf{x}_k=0$"> for <IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ j\neq k$">.
+The transfer function <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ H(s)$"> in equation (1)
+can be expressed as a
+sum of residues <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ R_j$"> over first order poles:
+<!-- MATH
+ \begin{displaymath}
+H(s) = \sum_{j=1}^n
+\frac{R_j}{s - \lambda_j},
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="135" HEIGHT="61" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle H(s) = \sum_{j=1}^n
+\frac{R_j}{s - \lambda_j},
+$">
+</DIV><P></P>
+where the residues <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ R_j$"> are
+<!-- MATH
+ \begin{displaymath}
+R_j = (\mathbf{x}_j^T\mathbf{c})(\mathbf{v}_j^*\mathbf{b}).
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="127" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle R_j = (\mathbf{x}_j^T\mathbf{c})(\mathbf{v}_j^*\mathbf{b}).
+$">
+</DIV><P></P>
+
+<P>
+A <I>dominant</I> pole is a pole <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \lambda_j$"> that
+corresponds to a residue <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ R_j$"> with large magnitude
+<!-- MATH
+ $|R_j| / |\mbox{Re}(\lambda_j)|$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \vert R_j\vert / \vert$">Re<IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ (\lambda_j)\vert$"> , i.e.,
+a pole that is well
+observable and controllable in the transfer function. This
+can also be observed from the corresponding Bode magnitude
+plot of <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ H(s)$">, where peaks occur at frequencies close to
+the imaginary parts of the dominant poles of <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ H(s)$">. An
+approximation of <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ H(s)$"> that consists of <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ k&lt;n$"> terms with
+<!-- MATH
+ $|R_j|/|\mbox{Re}(\lambda_j)|$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \vert R_j\vert / \vert$">Re<IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ (\lambda_j)\vert$"> above some value, determines
+the effective transfer function behavior and is called the
+transfer function modal equivalent:
+<!-- MATH
+ \begin{displaymath}
+H_k(s) = \sum_{j=1}^k \frac{R_j}{s - \lambda_j}.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="142" HEIGHT="67" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$\displaystyle H_k(s) = \sum_{j=1}^k \frac{R_j}{s - \lambda_j}. $">
+</DIV><P></P>
+The problem of concern can now be formulated as:
+<BLOCKQUOTE>
+Given a SISO linear, time invariant,
+dynamical system
+<!-- MATH
+ $(A,\mathbf{b},\mathbf{c},d)$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ (A,\mathbf{b},\mathbf{c},d)$">,
+compute <IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ k\ll n$"> dominant
+poles <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \lambda_j$"> and the corresponding right and left
+eigenvectors <!-- MATH
+ $\mathbf{x}_j$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \mathbf{x}_j$"> and <!-- MATH
+ $\mathbf{v}_j$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \mathbf{v}_j$">.
+
+</BLOCKQUOTE>
+
+<P>
+The algorithm to be presented, called Subspace Accelerated
+Dominant Pole Algorithm (SADPA) [1],
+combines a Newton
+algorithm [2]
+with subspace
+acceleration, a clever selection strategy and deflation to
+efficiently compute the dominant poles and corresponding
+residues. It can easily be extended to handle MIMO systems
+as well [3].
+The performance of the algorithm will be illustrated by
+numerical examples of large scale power systems.
+
+<P>
+[1] J.&nbsp;Rommes, N.&nbsp;Martins, <EM>Efficient computation
+of transfer function dominant poles using subspace
+acceleration</EM>, UU Preprint (2005) 1340.
+
+<P>
+[2] N.&nbsp;Martins, L.T.G.&nbsp;Lima, H.J.C.P.&nbsp;Pinto,
+<EM>Computing dominant poles of power system transfer
+functions</EM>, IEEE Trans.&nbsp;Power Syst. <B>11</B>(1)
+(1996) 162-170.
+
+<P>
+[3] J.&nbsp;Rommes, N.&nbsp;Martins,
+<EM>Efficient computation of multivariable transfer
+function dominant poles using subspace acceleration</EM>,
+UU Preprint (2006) 1344.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf The representer method for data assimilation
+of two phase flow in porous media}}
+
+	John Baird \\
+	Institute for Computational Engineering and Sciences \\
+	The University of Texas at Austin \\
+	1 Texas Longhorns, \#C0200, \quad  Austin TX 78712 \\
+	{\tt jbaird@ices.utexas.edu} \\
+	Clint Dawson
+\end{center}
+Advances in instrumenting and imaging the subsurface are
+yielding large data sets, making data assimilation vital to
+modeling flow through porous media. We derive and implement
+the representer method applied to the oil/water model for
+reservoirs, a nonlinear model. The representer method, like
+the Kalman filter, solves the Euler-Lagrange (E-L) system
+for the minimizer of a least-squares functional of the
+misfit between the model and measurements. Because the
+representer method uses the superposition principle, a
+nonlinear model requires linearization of the E-L system. A
+key concern is finding a linearization that converges
+appropriately. We show that convergence is strongly affected
+by the choice of weights in the least-squares functional. We
+also compare the effects of linearization and the
+computational costs of the representer method with the
+ensemble Kalman filter.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

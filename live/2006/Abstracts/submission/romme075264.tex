@@ -1,0 +1,101 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Joost Rommes \\
+{\bf Computing dominant poles of transfer functions}}
+
+Joost Rommes \\ Mathematical Institute \\ Utrecht University \\ P O Box 80 010 \\ 3508 TA Utrecht \\ The Netherlands
+\\
+{\tt rommes@math.uu.nl}\\
+Nelson Martins\end{center}
+
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vtx}{\tilde{\mathbf{x}}}
+\newcommand{\vtv}{\tilde{\mathbf{v}}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mRn}{\mathbb{R}^n}
+\newcommand{\mRnn}{\mathbb{R}^{n\times n}}
+\newcommand{\mC}{\mathbb{C}}
+
+Recent work on power system stability, controller design and
+electromagnetic transients has used several advanced
+model reduction techniques. Although these
+techniques, such as balanced truncation, produce good results, they impose high
+computational costs and hence are only applicable to moderately sized
+systems. Modal model reduction is a cost-effective alternative for
+large-scale systems, when only a fraction of the system pole spectrum is
+controllable-observable for the transfer function of interest. Modal reduction
+produces transfer function modal equivalents from the knowledge of the dominant
+poles and their corresponding residues. In this talk a specialized eigenvalue
+method will be presented that computes the most dominant poles and corresponding
+residues of a SISO transfer function.
+
+The transfer function of a single input single output (SISO) system is defined as
+\begin{equation}\label{eq:transfer}
+H(s) = \vc^T (sI - A)^{-1}\vb + d,
+\end{equation}
+where $A\in\mRnn$, $\vb,\vc\in\mRn$, $d\in\mR$ and $I\in\mRnn$ is the
+identity matrix and $s\in\mC$. Without loss of generality, $d=0$ in the
+following.
+
+Let the eigenvalues (poles) of $A$ and the corresponding right and left eigenvectors be
+given by the triplets $(\lambda_j,\vx_j,\vv_j)$, and let the right and left
+eigenvectors be scaled so that $\vv_j^*\vx_j=1$. It is assumed that $\vv_j^*\vx_k=0$ for
+$j\neq k$. The transfer function
+$H(s)$ (\ref{eq:transfer}) can be expressed as a sum of residues $R_j$
+over first order poles:
+\begin{equation}
+H(s) = \sum_{j=1}^n \frac{R_j}{s - \lambda_j},\nonumber
+\end{equation}
+where the residues $R_j$ are
+\begin{equation}
+R_j = (\vx_j^T\vc)(\vv_j^*\vb).\nonumber
+\end{equation}
+
+A \textit{dominant} pole is a pole $\lambda_j$ that corresponds to a
+residue $R_j$ with large
+magnitude $|R_j| / |\mbox{Re}(\lambda_j)|$ , i.e.~a pole that is well observable and
+controllable in the transfer function. This can also be observed from the
+corresponding Bode magnitude plot of $H(s)$, where peaks occur at
+frequencies close to the
+imaginary parts of the dominant poles of $H(s)$. An approximation of $H(s)$ that
+consists of $k<n$ terms with $|R_j|/|\mbox{Re}(\lambda_j)|$ above some
+value, determines the effective
+transfer function behavior and is called the transfer function modal equivalent:
+\begin{equation}
+H_k(s) = \sum_{j=1}^k \frac{R_j}{s - \lambda_j},\nonumber
+\end{equation}
+The problem of concern can now be formulated as:
+\begin{quote}
+Given a SISO linear, time
+invariant, dynamical system $(A,\vb,\vc,d)$, compute $k\ll n$ dominant poles
+$\lambda_j$ and the corresponding right and left
+eigenvectors $\vx_j$ and $\vv_j$.
+\end{quote}
+
+The algorithm to be presented, called Subspace
+Accelerated Dominant Pole Algorithm (SADPA)\footnote{J.~Rommes and N.~Martins,
+\textit{Efficient computation of transfer function dominant poles using subspace
+acceleration}, 2005, UU Preprint 1340}, combines a
+Newton algorithm\footnote{N.~Martins, L.T.G.~Lima and H.J.C.P.~Pinto,
+\textit{Computing dominant poles of power system transfer functions},IEEE
+Trans.~Power Syst.",
+vol.~11, nr.~1, pp 162--170, 1996} with subspace acceleration, a clever
+selection strategy and deflation to efficiently compute the dominant poles and
+corresponding residues. It can easily be extended to handle MIMO systems as
+well\footnote{J.~Rommes and N.~Martins,
+\textit{Efficient computation of multivariable transfer function dominant
+poles using subspace
+acceleration}, 2006, UU Preprint 1344}. The performance of the algorithm
+will be illustrated by
+numerical examples of large scale power systems.
+
+
+\end{document}

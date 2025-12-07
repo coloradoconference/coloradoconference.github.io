@@ -1,0 +1,60 @@
+===firstname:
+Sarah M.
+===firstname3:
+
+===lastname2:
+Heroux
+===postal:
+37 N College Ave
+Box 787
+Saint Joseph MN  56374
+===lastname:
+Knepper
+===lastname3:
+
+===ABSTRACT:
+Equivalent real formulations (ERFs) are useful for solving complex linear systems using real solvers.  Using the four ERFs discussed by Day and Heroux in~\cite{Day}, each can be expressed by multiplying the \emph{canonical} $K$ form of the complex matrix by certain diagonal and permutation matrices on either side. This will allow, for instance, one ERF to be used as a preconditioner and another ERF to be used to iteratively solve the linear system by simply switching back and forth between the forms through scaling and permuting.
+
+Many real world problems result in a complex-valued linear system of the form
+\begin{equation*} \label{complex} C w = d \end{equation*}
+where $C$ is a known $m$-by-$n$ complex matrix, $d$ is a known
+$m$-by-1 complex vector, and $w$ is an unknown $n$-by-1 complex
+vector.  We can re-write $C$ as a real matrix of size $2m$-by-$2n$ called the \emph{canonical} $K$ form.  If we let matrix $A$ contain the real parts of the complex matrix $C$ and let matrix $B$ consist of the corresponding imaginary parts, we can write
+\begin{equation*} \label{abequation} A + i B = C \end{equation*}
+The \emph{canonical} $K$ form is created by forming the matrix
+\begin{equation*} \label{canonk} K = \left( \begin{array}{rr} A & -B \\ B & A \end{array} \right) \end{equation*}
+
+To preserve the sparsity pattern of $C$, each complex value $c_{pq} = a_{pq} + ib_{pq}$ is converted into a 2-by-2 sub-block with the structure
+\begin{equation*} \left( \begin{array}{rr} a_{pq} & -b_{pq} \\ b_{pq} & a_{pq} \end{array} \right) \end{equation*}
+For instance, if
+\begin{equation*} C = \left( \begin{array}{cc} a_{11} + i b_{11} & a_{12} + i b_{12} \\ 0 & a_{22} + i b_{22} \end{array} \right) \end{equation*}
+then the \emph{permuted canonical} $K$ form is
+\begin{equation*} K = \left( \begin{array}{cccc} a_{11} & -b_{11} & a_{12} & -b_{12} \\ b_{11} & a_{11} & b_{12} & a_{12} \\ 0 & 0 & a_{22} & -b_{22} \\ 0 & 0 & b_{22} & a_{22} \end{array} \right) \end{equation*}
+
+The four ERFs that we will concern ourselves with are:
+\begin{equation*} K_1 = \left( \begin{array}{rr} A & -B \\ B & A \end{array} \right) \end{equation*}
+\begin{equation*} K_2 = \left( \begin{array}{rr} A & B \\ B & -A \end{array} \right) \end{equation*}
+\begin{equation*} K_3 = \left( \begin{array}{rr} B & A \\ A & -B \end{array} \right) \end{equation*}
+\begin{equation*} K_4 = \left( \begin{array}{rr} B & -A \\ A & B \end{array} \right) \end{equation*}
+
+Each of the ERFs can be obtained from the \emph{permuted canonical} $K$ form by multiplying by diagonal and permutation matrices on both sides. In other words,
+\begin{equation*} \label{kiform} K_i = D_l P_l K P_r D_r \end{equation*}
+where $D_l$, $P_l$, $P_r$, and $D_r$ are certain matrices depending on the size of the complex matrix and which ERF we desire.  Three diagonal matrices and two permutation matrices (together with their transposes) exist for the ERFs we are considering.
+
+The talk will describe the specific diagonal and permutation
+matrices needed as well as how to transform from one ERF to another.
+
+\begin{thebibliography}{1}
+\bibitem{Day}
+David Day and Michael~A. Heroux, ``Solving Complex-Valued Linear
+Systems via Equivalent Real Formulations'' \emph{SIAM J. Sci.
+Comput.}, Vol. 23, No. 2 (2001), pp. 480--498.
+\end{thebibliography}
+===email:
+smknepper@csbsju.edu
+===otherauths:
+
+===title:
+A Mathematical Framework for Equivalent Real Formulations
+===firstname2:
+Michael A.

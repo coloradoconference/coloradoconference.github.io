@@ -1,0 +1,77 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Restarted Lanczos for nonsymmetric eigenvalue problems and \\
+	linear equations}}
+
+	Ron Morgan \\
+	Math Department, Baylor University \\
+	Waco TX 76798-7328 \\
+	{\tt Ronald\_Morgan@baylor.edu} \\
+	Dywayne Nicely
+\end{center}
+First, a restarted nonsymmetric Lanczos method will be
+discussed. It can be used to compute both left and right
+eigenvectors even when storage is limited. Approximate
+eigenvectors are retained at the restart as with implicitly
+restarted Arnoldi. It uses a three-term recurrence, but some
+reorthogonalization is needed.
+
+The next topic is a
+related method called BiCG with deflated restarting (QMR
+with deflated restarting may also be discussed). It
+simultaneously solves linear equations and computes left and
+right eigenvectors. For the case of multiple right-hand
+sides, the eigenvector information from solving the first
+right-hand side can help efficiently solve subsequent
+right-hand sides. A deflated BiCGStab can be used for this.
+Deflated BiCGStab has a projection over the eigenvectors
+followed by regular BiCGStab.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

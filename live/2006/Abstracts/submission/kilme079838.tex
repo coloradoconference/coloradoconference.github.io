@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Misha Kilmer \\
+{\bf A Regularized Gauss-Newton Method for Nonlinear Imaging Problems in Diffuse Optical Tomography}}
+
+Mathematics Dept  \\ Tufts Univ \\ 503 Boston Ave \\ Medford \\ MA 02155
+\\
+{\tt misha.kilmer@tufts.edu}\\
+Eric de Sturler\end{center}
+
+The goal in diffuse optical tomography for medical imaging is the joint
+reconstruction of parameterized images of absorption and scattering of
+light in the body. The reconstruction requires the approximate solution
+of a nonlinear least squares problem for the image parameters. While
+traditional approaches such as damped Gauss-Newton (GN) and
+Levenberg-Marquardt (LM) have been shown to be effective at solving the
+imaging problem in its various forms, a considerable number of additional
+function and Jacobian evaluations are involved in determining the correct
+step length and/or damping parameter. In 3D imaging problems, depending
+on the particular image model, the cost of one function evaluation is, at
+a minimum, the cost of a dense matrix-vector product and in the worst,
+but more realistic, case requires the solution of several large-scale
+PDE’s. A Jacobian evaluation is even slightly more expensive. Therefore,
+it is crucial to keep the number of function and Jacobian evaluations to
+a minimum.
+
+The ill-conditioning of the Jacobian, together with the presence of noise
+in the data, motivates us to devise a regularized, trust-region-based
+Gauss-Newton approach for determining search directions. Although LM can
+be thought of as a regularized analogue to determining the GN direction,
+LM has the property of damping possibly important contributions to the
+search direction in spectral components corresponding to small singular
+values. On the other hand, the Gauss-Newton direction is too influenced
+by components due to small singular values early on, causing the line
+search to work hard to refine the step length. We propose a method that
+systematically evaluates the potential contribution of each of the
+spectral components corresponding to the GN-direction and constructs the
+new direction relative to this contribution within the confines of a
+trust-region. Examples show the success of our method in minimizing
+function evaluations with respect to other well-known methods.
+
+
+\end{document}

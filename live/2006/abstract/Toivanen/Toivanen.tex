@@ -1,0 +1,86 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A fast iterative solver for acoustic scattering by objects \\
+	in layered media}}
+
+	Jari Toivanen \\
+	Center for Research in Scientific Computation \\
+	Box 8205, North Carolina State University, Raleigh NC 27695-8205 \\
+	{\tt jatoivan@ncsu.edu} \\
+	Kazufumi Ito
+\end{center}
+We consider the computation of time-harmonic acoustic
+scattering by objects in layered media. An example of such
+problem is the scattering by a mine buried in sediment. The
+computational domain can be tens or hundreds of meters long
+while the target requires modeling of details smaller than
+one centimeter. A discretized problem can have several
+billion degrees of freedom.
+
+We decompose the
+computational domain into far-field and near-field domains
+and then we perform a finite element discretization. For the
+vastly larger far-field domain we use an orthogonal mesh and
+a preconditioner based on a fast direct solver. For the
+near-field domain a more standard preconditioner can be
+used. The combination of these two defines a preconditioner
+for the GMRES method. An essential implementation detail is
+the reduction of iterations into a small sparse subspace.
+Due to this the memory usage is essentially reduced and the
+GMRES method can be used without restarts.
+
+We present
+numerical results with two-dimensional and three-dimensional
+problems demonstrating the efficiency of the proposed
+approach. For example, we show that it is possible to solve
+problems with more than a billion degrees of freedom on a
+modern PC.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,90 @@
+===firstname:
+David
+===firstname3:
+Victoria
+===lastname2:
+Elman
+===postal:
+School of Mathematics
+University of Manchester
+Sackville Street
+Manchester M60 1QD, UK
+===lastname:
+Silvester
+===lastname3:
+Howle
+===ABSTRACT:
+We consider the Navier--Stokes equations
+\begin{equation} \label{NS}
+  \begin{array}{rcl}
+    -\nu \nabla^2 {\bf u}
+    + ({\bf u} \cdot {\rm grad})\, {\bf u} +
+    {\rm grad}\, p &= &{\bf f} \\
+    -{\rm div}\, {\bf u} &= &0
+  \end{array}
+\end{equation}
+on $\Omega \subset \mathbb{R}^d$, $d=2$ or $3$.  Here, ${\bf u}$
+is the $d$-dimensional velocity field, which is assumed to satisfy
+suitable boundary conditions on $\partial \Omega$, $p$ is the
+pressure, and $\nu$ is the kinematic viscosity, which is
+inversely proportional to the Reynolds number.  
+
+Linearization and discretization of (\ref{NS}) by finite elements, finite 
+differences or finite volumes leads to a sequence of linear systems of 
+equations of the form
+\begin{equation} \label{NSdiscretelinearStabilized}
+\left[  
+  \begin{array}{lc}
+    F  & \ B^T   \\ B  & -\frac{1}{\nu}C
+  \end{array}
+ \right]
+  \begin{bmatrix}
+    {\bf u}\\ p
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    {\bf f}\\ g
+  \end{bmatrix}.
+\end{equation}
+These systems, which are the focus of this talk, must be solved
+at each step of a nonlinear (Picard or Newton) iteration.   Here, $B$ and $B^T$ are matrices corresponding to discrete divergence and gradient operators, respectively and $F$ operates on the discrete velocity space. For {\em div-stable} discretizations, $C=0$.  For mixed approximation methods that do not 
+uniformly satisfy a discrete inf-sup condition, the matrix $C$ is 
+a nonzero {\em stabilization operator}.
+Examples of finite element methods that require stabilization are 
+the mixed approximations using linear or bilinear velocities 
+(trilinear in three-dimensions) coupled with constant pressures, 
+as well as any discretization in which equal order discrete velocities and 
+pressures are specified using a common set of nodes.
+
+The focus of this talk is the Least Squares Commutator (LSC) preconditioner developed by Elman, Howle, Shadid, Shuttleworth and Tuminaro, and
+unveiled at the Copper Mountain Conference in 2004.
+This preconditioning methodology is one of several choices that are 
+effective for Navier-Stokes equations, and it has the advantage of being 
+defined from strictly algebraic considerations.
+The resulting preconditioning methodology is competitive with the 
+pressure convection-diffusion preconditioner of Kay, Loghin and Wathen,
+and in some cases its performance is superior.
+However, the LSC approach has so far only been shown to be applicable to 
+the case where  $C=0$ in (\ref{NSdiscretelinearStabilized}).
+In this talk we show that the least squares commutator
+preconditioner can be extended to cover the case of mixed
+approximation  that require stabilization.
+This closes a gap in the derivation of these ideas, and a version of the 
+method can be also formulated from algebraic considerations, which enables
+the fully automated algebraic construction of effective preconditioners 
+for the Navier-Stokes equations by essentially using only  properties of the
+matrices in (\ref{NSdiscretelinearStabilized}).
+
+Our focus in this work is on steady flow problems although the ideas discussed
+generalize in a straightforward manner to unsteady flow.
+
+===email:
+d.silvester@manchester.ac.uk
+===otherauths:
+Shadid, John
+Tuminaro, Ray
+===title:
+Least Squares Preconditioners for Stabilized Mixed Aproximation of the
+Navier-Stokes Equations 
+===firstname2:
+Howard

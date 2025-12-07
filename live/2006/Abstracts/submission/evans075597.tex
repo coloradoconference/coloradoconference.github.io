@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Katherine J. Evans \\
+{\bf Development of a 2-D model to simulate convection and phase transition efficiently}}
+
+MS B216 \\ PO Box 1663 \\ Los Alamos National Laboratory \\ Los Alamos \\ NM 87545
+\\
+{\tt kevans@lanl.gov}\\
+D. A. Knoll\\
+Michael Pernice \end{center}
+
+We present a two-dimensional convection phase change model using the
+incompressible Navier-Stokes equation set and enthalpy as the energy
+conservation variable. Significant algorithmic challenges are posed for
+problems of phase change interfaces within convective flow regimes. The
+equation set is solved with the Jacobian-Free Newton-Krylov (JFNK)
+nonlinear inexact Newton's method. SIMPLE, a pressure-correction
+algorithm, is used as a physics-based preconditioner. This algorithm is
+compared to solutions using SIMPLE as the main solver.
+
+Algorithm performance is assessed for a benchmark problem, phase change
+convection within a square cavity of a solid pure material cooled below
+the melting temperature. A time step convergence analysis demonstrates
+that the JFNK model with second order discretization is second order
+accurate in time. A Gallium melting simulation is also performed and
+evaluated; in this configuration multiple roll cells develop in the
+melted region at early times when the aspect ratio is high. The
+JFNK-SIMPLE method is shown to be more efficient per time step and more
+robust at larger
+time steps when compared to SIMPLE as the main solution algorithm.
+Overall CPU savings of more than an order of magnitude are realized.
+
+As a further analysis of JFNK-SIMPLE, multigrid is wrapped around SIMPLE,
+so SIMPLE acts as the smoother within a multigrid preconditioner to JFNK.
+For phase change conduction, additional gains in efficiency can be
+accomplished. When SIMPLE is incorporated as a preconditioner and
+smoother within JFNK, the ability to model more
+complex and realistic phase change convection problems with increased
+robustness and efficiency is achieved.
+
+
+\end{document}

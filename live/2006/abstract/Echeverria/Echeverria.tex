@@ -1,0 +1,153 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf On the manifold-mapping optimization technique}}
+
+	David Echeverr\'{i}a \\
+	Centre for Mathematics and Computer Science (CWI)\\
+	Kruislaan 413, NL-1098 SJ Amsterdam, The Netherlands \\
+	{\tt d.echeverria@cwi.nl} \\
+	Pieter W.~Hemker, {\tt p.w.hemker@cwi.nl}
+\end{center}
+Optimization problems in practice
+often need cost-function evaluations that are very expensive
+to compute. Examples are, e.g., optimal design problems
+based on complex finite element simulations. As a
+consequence, many optimizations may require very long
+computing times. The space-mapping (SM) technique
+[1,2] was developed as an alternative
+in these situations.
+
+In SM terminology, the accurate but
+expensive-to-evaluate models are called {\it fine} models,
+${\mathbf f}:X \subset \Reals^n \to \Reals^m$.
+The SM method also
+needs a second, simpler and cheaper and computationally
+faster model, the {\it coarse} model,
+${\mathbf c}:Z \subset \Reals^n \to \Reals^m$,
+in order to speed-up the optimization
+process. The key element in this technique is a
+right-preconditioning for the coarse model, known as the
+{\it SM function}
+${\mathbf p}:X \to Z$, that aligns the two
+model responses.
+The function ${\mathbf c}({\mathbf p}({\mathbf x}))$
+corrects the coarse model and
+can be used as a surrogate for the fine
+model in the accurate optimization. In most cases the SM
+function is much simpler than the fine model, in the sense
+that it is easier to approximate. This fact endows the SM
+technique with its well-reported efficiency. However, it
+does not always converge to the right solution.
+
+
+Defect-correct theory [3] helps to see that, in order
+to achieve the accurate optimum, the SM function is
+generally insufficient and also left-preconditioning is
+needed.  In [4] we introduce the mapping
+${\mathbf s}:{\mathbf c}(Z) \to {\mathbf f}(X)$
+and the associated
+manifold-mapping (MM) algorithm. MM employs
+${\mathbf s}({\mathbf c}({\bar{{\mathbf p}}}({\mathbf x})))$
+as the fine model surrogate. Here, the
+function ${\bar{{\mathbf p}}}:X \to Z$
+is not the above SM function but an
+arbitrary simple bijection, often the identity.
+The MM algorithm is as efficient as SM but converges
+to the accurate optimal solution [4,5].
+
+In the first part of the presentation the MM algorithm will
+be briefly introduced and a proof of convergence will be
+given. The use of more than two models (multi-level
+approach) and the possibility of having a coarse model with
+a different dimension than the fine one
+($X \subset \Reals^{n_{\mathbf f}}$
+and $Z \subset \Reals^{n_{\mathbf c}}$ with
+$n_{\mathbf f} \neq n_{\mathbf c}$)
+will be the issues dealt with in the second part of
+the talk.
+
+[1]
+J.~W.~Bandler, R.~M.~Biernacki,
+C.~H.~Chen, P.~A.~Grobelny and R.~H.~Hemmers,
+{\em Space
+Mapping Technique for Electromagnetic Optimization},
+IEEE Trans. on Microwave Theory and Techniques,
+{\bf 42}(12) (1994) 2536--2544.
+
+[2]
+J.~W.~Bandler, Q.~S.~Cheng, S.~A.~Dakroury, A.~S.~Mohamed,
+M.~H.~Bakr, K.~Madsen and J.~S{\o}ndergaard,
+{\em Space Mapping: The State of the Art},
+IEEE Trans. on
+Microwave Theory and Techniques 52({\bf 1}) (2004)
+337--361.
+
+[3]
+K.~B{\"o}hmer and P.~W.~Hemker and H.~J.~Stetter,
+{\em Defect Correction Methods: Theory and
+Applications}, The defect correction approach,
+Computing Suppl. {\bf 5} 1--32,
+K.~B{\"o}hmer and H.~J.~Stetter ed.,
+Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1984.
+
+[4]
+D.~Echeverr\'{\i}a, and P.~W.~Hemker,
+{\em Space mapping and defect correction},
+Comp. Methods in Appl. Math. {\bf 5}(2) (2005) 107--136.
+
+[5]
+D.~Echeverr\'{i}a, D.~Lahaye, L.~Encica,
+E.~A.~Lomonova, P.~W.~Hemker and A.~J.~A.~Vandenput,
+{\em Manifold-Mapping Optimization Applied to Linear
+Actuator Design},
+accepted for publication,
+IEEE Transactions on Magnetics, 2006.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

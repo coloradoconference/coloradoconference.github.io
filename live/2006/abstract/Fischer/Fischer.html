@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fischer</TITLE>
+<META NAME="description" CONTENT="Fischer">
+<META NAME="keywords" CONTENT="Fischer">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Fischer.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Structured matrices, multigrid methods, and the Helmholtz equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Ranier Fischer 
+<BR>
+Technical University of Munich 
+<BR>
+Boltzmannstr. 3, 85748 Garching, Germany 
+<BR>	<TT>rainer.fischer@mytum.de</TT> 
+<BR>
+Thomas Huckle
+
+</DIV>
+We wish to present a different approach to the multigrid
+solution of the Helmholtz equation with constant
+coefficients. It is primarily based on certain classes of
+structured matrices and their strong correspondence to
+generating functions. Discretization of the Helmholtz
+equation with certain boundary conditions results in
+structured linear systems which are associated with
+generating functions. Depending on the kind of boundary
+conditions, the discretized Helmholtz equation is a linear
+system of Toeplitz, tau, circulant, or DCT-III type. By
+solving these systems with normal equations, we have the
+advantage that the corresponding generating functions are
+nonnegative, although they have a whole curve of zeros.
+
+<P>
+The multigrid methods we develop are especially designed for
+structured matrix classes, making heavy use of the
+associated generating functions. Over the last ten years, a
+specific theory of multigrid methods has been developed for
+structured matrices whose generating functions have isolated
+zeros. It is based on the AMG approach and the convergence
+theory of Ruge and St&#252;ben. In this work, we extend some of
+these theoretical results to the case of generating
+functions with whole zero curves, and apply these modified
+multigrid methods to the solution of the Helmholtz equation.
+We propose two different strategies how this can be done.
+
+<UL>
+<LI>The first strategy is based on the
+idea of representing the whole zero curve on all grids. For
+a multigrid method based on the Galerkin approach, we can
+prove optimal two-grid convergence, but such a method is
+computationally too expensive. Therefore we propose a
+rediscretization technique where the zero curve is
+approximated on each grid. This results in fast convergence
+and in coarse grid matrices with the same banded structure
+as the given matrix. The only disadvantage of this approach
+is that zero curves become larger on coarser levels, and
+therefore the number of grids is limited.
+</LI>
+<LI>The second
+strategy consists of splitting the original problem into a
+fixed number of coarse grid problems. Corresponding to a
+generating function with isolated zeros, each of these
+problems locally represents one part of the zero curve. Each
+coarse grid problem is solved with a standard multigrid
+method. We combine this splitting technique with the first
+strategy to construct a faster and more robust multigrid
+solver.
+</LI>
+</UL>
+We wish to discuss the use of our
+multigrid strategies not only as a solver, but also as a
+preconditioner for Krylov subspace methods. Moreover, the
+methods can also be applied to anisotropic linear systems
+whose generating functions have a whole zero curve.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

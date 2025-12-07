@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Jiang</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A preconditioned L-BFGS algorithm with application to 
+<BR>
+protein structure prediction</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lianjun Jiang 
+<BR>
+Computer Science, University of Colorado 
+<BR>
+Boulder CO 80309-0430 
+<BR>	<TT>lianjunj@gmail.com</TT> 
+<BR>
+Richard Byrd, Elizabeth Eskow, Robert B.&nbsp;Schnabel
+</DIV>
+<p>
+The limited-memory BFGS method has been widely used in large
+scale unconstrained optimization problems, including protein
+structure prediction. A major weakness of the L-BFGS method
+is that it may converge very slowly for ill-conditioned
+problems. We propose a preconditioned L-BFGS method, where
+we form the preconditioner from parts of the partially
+separable objective function.
+<P>
+We report results of
+experiments in the context of the protein structure
+prediction problem for four different proteins, using a
+protein energy model as the objective function and multiple
+initial configurations for each protein. The results show
+speed-ups with factors between 3 and 10 in terms of function
+evaluations and with factors between 2 and 7 in terms of CPU
+time. The difference between CPU time and function
+evaluation speed-up is due to the extra overhead of
+calculating and applying the preconditioner. We also compare
+our results to a method from the other competitive class of
+large-scale methods, preconditioned truncated Newton method
+(TNPACK). The limited results indicate that the
+preconditioned L-BFGS method may be more efficient.
+<P>
+We
+also tried this approach in a more general context, using
+limited memory with an incomplete Cholesky factorization of
+the Hessian as a preconditioner. We compared the performance
+with the truncated Newton algorithm TRON, which uses a
+similar preconditioner. Tested on a subset of the CUTER test
+problems, our results show that, using this preconditioner,
+the preconditioned LBFGS method is competitive with TRON and
+much better than the LBFGS algorithm without preconditioner.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

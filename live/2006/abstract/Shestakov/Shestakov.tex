@@ -1,0 +1,181 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+% 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% \begin{center}
+% {\large
+% {\bf Solution of the nonlinear multifrequency radiation
+% diffusion equation in a multiphysics,
+% high energy density, AMR code}}
+% 
+% 	Aleksei Shestakov \\
+% 	Lawrence Livermore National Laboratory, POB 808, L-38 \\
+% 	Livermore CA 94551 \\
+%         {\tt shestakov1@llnl.gov}
+% \end{center}
+% 
+% We describe a scheme to
+% solve the multifrequency radiation diffusion equation
+% which is intended for a
+% multiphysics, high energy density computer code with
+% adaptive mesh refinement (AMR). In our code, AMR is
+% implemented by refining in both space and time [1].
+% There may be several levels of refinement,
+% which, going from fine to coarse, are nested within each
+% other.
+% 
+% We time-advance as follows. Assume there are only
+% two levels, one coarse, with domain $\Omega_c$ and boundary
+% $\partial \Omega_c$, and one fine $\Omega_f$ with boundary $\partial \Omega_f$. Since the
+% domains are nested, $\Omega_f \subseteq \Omega_c$. At the start of the
+% time cycle, the equations are first updated on $\Omega_c$ using a
+% timestep $\Delta t_c$, a process defined as a {\em level solve\/}
+% on $\Omega_c$. If the spatial grid on $\Omega_f$ is a twofold
+% refinement of that discretizing $\Omega_c$, we need two level
+% solves on $\Omega_f$, each with timestep $\Delta t_c/2$, in order to
+% bring the $\Omega_f$ solution up to the advanced coarse level
+% time. Boundary conditions (BC) are required on $\partial \Omega_f$. On
+% parts of $\partial \Omega_f$ which do not extend to the physical
+% boundary, BC are obtained by interpolating the coarse grid
+% solution.
+% 
+% For diffusion equations, e.g., $u_t = (D u_x)_x$,
+% conventionally, one supplies Dirichlet data. This ensures
+% that the coarse and fine grid solution is continuous across
+% $\partial \Omega_f.$ However, the flux $-D u_x$ may be discontinuous,
+% which is unacceptable since this results in a loss of
+% conservation. To remedy the defect, after the level solves,
+% the coarse and fine grid solutions are {\em synced.}
+% One solves a related, nearly homogeneous, problem for
+% corrections on the union of discretizations of $\Omega_f$ and
+% $\Omega_c$. The sole non-homogeneity of the system for the
+% corrections is the miss-match of the fluxes on $\partial \Omega_f$. When
+% the corrections are added to the result of the level solves,
+% one obtains a conservative solution, continuous and with
+% continuous flux.
+% 
+% This paper describes the AMR
+% implementation for the multigroup radiation diffusion and
+% matter energy balance equations,
+% \begin{eqnarray*}
+% \qquad \qquad \qquad \qquad
+% \partial_t u_g
+% & = &
+% \nabla \cdot D_g \nabla u_g + \kappa_g \, ( \, B_g - u_g \, )
+% \, , \;\; g = 1, \, \ldots, \, G
+% \qquad \qquad \qquad \qquad (1)
+% \\
+% \rho \, c_v \partial_t T
+% & = &
+% - \sum_{k=1}^G
+% \Delta_k \, \kappa_k \, ( \, B_k - u_k \, ) \, .
+% \qquad \qquad \qquad \qquad (2)
+% \end{eqnarray*}
+% In
+% equations (1-2),
+% $u_g$ is the radiation energy density of the $g$th
+% {\em group}.
+% Groups arise by discretizing the frequency domain
+% $0 \leq \nu \leq \infty$ into $G$ intervals.
+% In equations (1-2),
+% $D_g$ and $\kappa_g$ are the
+% diffusion and coupling coefficients, $B_g$ is the Planck
+% function, $\rho$ the mass density, $c_v$ the specific heat,
+% and $\Delta_k = \nu_k - \nu_{k-1}$. The system is nonlinear;
+% $D_g$ and $\kappa_g$, which in addition to being strong
+% functions of frequency, depend on $\rho$ and $T$. For
+% non-ideal gases, $c_v$ depends on $\rho$ and $T$.
+% Equations (1-2)
+% describe the evolution of
+% the $G+1$ unknowns $\{u_k\}_{k=1}^G$ and $T$.
+% 
+% A single level solve of
+% equations (1-2)
+% is a formidable task
+% in itself. For the advance, we use the procedure described
+% by Shestakov [3], generalized for ``real,'' multiple
+% materials whose properties ($c_v$, $k_g$, etc.) are given in
+% tabular form.
+% 
+% For simulations using AMR, after advancing
+% on two levels, $\Omega_c$ and $\Omega_f$, the solutions are synced
+% using a generalization of the Howell and Greenough procedure
+% (HG) [1], which may be directly applied to
+% equations (1-2)
+% if $G = 1$. However, if $G > 1$,
+% the situation is more complicated since the energies $u_g$
+% are coupled. We resolve the difficulty by applying concepts
+% of the ``Partial Temperature'' scheme (PT) of Lund and
+% Wilson [2]. As in PT, we cycle through the groups
+% in random order. Each group is synced as in HG, but the
+% correction to $T$ is only a partial change. Only after all
+% the groups have been addressed, do we obtain the final
+% correction.
+% 
+% Our AMR procedure is implemented in a
+% multiphysics code. Results will be presented. We simulate
+% effects of strong explosions in air and compare multigroup
+% results with runs where the frequency domain is not
+% discretized, so-called gray diffusion. The simulations also
+% use the hydro and heat conduction modules. In addition to
+% the coarse level, there are two levels of refinement.
+% 
+% [1]
+% L.~H.~Howell and J.~A.~Greenough,
+% J.~Comp. Phys. {\bf 184}(1) (2003)
+% 53--78.
+% 
+% [2]
+% C.~M.~Lund and J.~R.~Wilson,
+% Lawrence Livermore Natl. Lab. report UCRL-84678,
+% July 29, 1980.
+% 
+% [3]
+% A.~I.~Shestakov,
+% {\em 8th Copper Mountain Conference on Iterative Methods},
+% March 2004.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

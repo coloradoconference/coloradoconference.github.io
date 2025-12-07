@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf AMG eigenbasis solver for the Schr\"{o}dinger eigenvalue problem}}
+
+	Ira Livshits \\
+	Dept.~of Mathematical Sciences \\
+	Ball State University, Muncie IN 47306-0490 \\
+	{\tt ilivshits@bsu.edu} \\
+	Achi Brandt
+\end{center}
+In this talk the AMG algorithm for solving the
+Scr\"{o}dinger eigenvalue problem is discussed. Its goal is
+to approximate the eigenbasis, i.e., all eigenfunctions, of
+the Schr\"{o}dinger operator as it appears in the Kohn-Sham
+equation.
+
+The algorithm employs multilevel
+eigenvalues/eigenfunction representations that allows
+approximation of most of the eigenfunctions on the
+inexpensive coarse grids and leads to a reduction of both
+computational and storage costs. In addition this structure
+is beneficial for performance of a variety of applications
+essential to the Kohn-Sham equations. Also addressed is the
+issue of quality of the obtained sets of eigenfunctions,
+such as their accuracy and independence. Numerical results
+and discussion of the further extension of the approach will
+conclude the talk.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

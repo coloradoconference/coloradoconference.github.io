@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Alfonso Limon \\
+{\bf Adaptive Mesh Refinement: in the presence of discontinuities }}
+
+School of Mathematical Sciences \\ Claremont Graduate University \\ 710 N College Ave \\ Claremont \\ CA 91711
+\\
+{\tt alfonso.limon@cgu.edu}\\
+Hedley  Morris\end{center}
+
+Classical multiresolution wavelet techniques have been used successfully
+to simplify the computation of PDEs by concentrating resources in places
+where the solution varies quickly. However, classical techniques tend to
+fail near solution discontinuities, as Gibb’s effects contaminate the
+wavelet coefficients used to refine the solution. Non-linear adaptive
+stencil methods, such as the ENO scheme, can reconstruct the solution
+accurately across jumps, but possess neither the compression capabilities
+nor the well-understood stability properties of wavelets. Expanding on
+Harten’s ideas, we construct an alternative to wavelets, a
+multiresolution method that does not suffer from Gibb’s effects and has
+good compression properties. We will present this alternative
+multiresolution method and compare its performance to other methods by
+means of several examples.
+
+
+\end{document}

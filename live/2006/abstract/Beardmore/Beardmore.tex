@@ -1,0 +1,139 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A numerical bifurcation analysis of the Ornstein-Zernike equation}}
+
+	Robert E Beardmore \\
+	Dept.~of Mathematics, Imperial College London \\
+	South Kensington Campus,  London SW7 2AZ UK \\
+	{\tt r.beardmore@ic.ac.uk} \\
+	A Peplow, F Bresme
+\end{center}
+The isotropic Ornstein-Zernike (OZ) equation
+$$
+\qquad
+\qquad
+\qquad
+h(r) = c(r) + \rho \int_{\mathbb{R}^{3}}
+h(\|{\bf x}-{\bf y}\|)c(\|{\bf y}\|)d{\bf y},
+\qquad
+\qquad
+\qquad
+(1)
+$$
+that is the subject of this
+paper was presented almost a century ago to model the
+molecular structure of a fluid at varying densities. In
+order to form a well-posed mathematical system of equations
+from (1) that can be solved, at least in
+principle, we assume the existence of a closure
+relationship. This is an algebraic equation that augments
+(1) with a pointwise constraint that is deemed to
+hold throughout the fluid and it forces a relationship
+between the total and direct correlation functions ($h$ and
+$c$ respectively).
+
+Some closures have a mathematically
+appealing structure in the sense that the total correlation
+function is posed as a perturbation of the {\em Mayer
+f-function} given by \[ f(r)=-1+e^{-\beta u(r)}.\] This
+perturbation depends on the potential $u$, temperature
+(essentially $1/\beta$) and the indirect correlation
+function through a nonlinear function that we denote $G$:
+$$
+\qquad
+\qquad
+\qquad
+h = f(r) + e^{-\beta u(r)}G(h-c),
+\qquad
+(G(0)= 0),
+\qquad
+\qquad
+\qquad
+(2)
+$$
+so that (1-2) are solved together with $\beta$
+and $\rho$ as bifurcation parameters. There are many
+closures in use and if we write $\exp_1(z) = -1+e^z$ then
+the hyper-netted chain (HNC) closure
+$$
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+G(\gamma) = \exp_1(\gamma)
+\qquad
+\qquad
+\qquad
+\qquad
+\qquad
+(3)
+$$
+has the form of
+(2) and is popular in the physics and chemistry
+literature.
+
+The purpose of the talk is show that {\em any
+reasonable} discretisation method applied to
+(1-2) suffers from an inherent defect if
+the HNC closure is used that can be summarised as follows:
+phase transitions lead to fold bifurcations. The existence
+of a phase transition is characterised by the existence of a
+bifurcation at infinity with respect to $h$ in an $L^1$ norm
+at a certain density, such that boundedness of $h$ is
+maintained in a certain $L^p$ norm. This behaviour is
+difficult to mimic computationally by projecting onto a
+space of fixed and finite dimension and, as a result,
+projections of (1-2) can be shown to
+undergo at least one fold bifurcation if such a bifurcation
+at infinity is present. However, other popular closure
+relations do not necessarily suffer from the same defect.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

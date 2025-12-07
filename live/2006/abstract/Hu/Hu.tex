@@ -1,0 +1,92 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Alternatives to smoothed aggregation multigrid prolongators \\
+	for anisotrophic problems}}
+
+	Jonathan Hu \\
+	Sandia National Laboratories, 7011 East Avenue \\
+	MS9159, Livermore CA 94551 \\
+	{\tt jhu@sandia.gov} \\
+	Ray Tuminaro
+\end{center}
+We consider alternatives to the traditional methods in
+smoothed aggregation for generating prolongator operators.
+The goal is to produce prolongators that are appropriate for
+anisotropic operators.
+
+Consider the linear problem
+$Ax=b$. In the first approach, smoothed aggregation with
+basis function shifting, we begin with the standard smoothed
+prolongator,
+$P^{(sm)} = (I - \omega D^{-1} A) P^{(t)}$,
+where $P^{(t)}$ is the tentative prolongator.
+Given a
+prescribed prolongator sparsity pattern, this method moves
+basis function support (columns of $P^{(sm)}$) from one
+aggregate to another to produce a new prolongator,
+$P^{(shift)}$.
+The shifting is done in such a way that null
+space interpolation is maintained.
+
+In the second
+approach, we consider extensions to building prolongator
+operators via energy optimization (Vanek, Mandel, Brezina).
+In this method, the sum of the energies of the prolongator
+basis functions is minimized, subject to a fixed prolongator
+nonzero pattern and interpolation of low-energy modes. We
+consider modifications such as filtering $A$ to account for
+anisotropies and applying a modified CG method to solve the
+optimization problem.
+
+We present numerical experiments
+that compare the two methods to traditional smoothed
+aggregation on a variety of model problems.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Lee11</TITLE>
+<META NAME="description" CONTENT="Lee11">
+<META NAME="keywords" CONTENT="Lee11">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Lee11.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Incomplete LU preconditioning enhancement strategies for sparse matrices</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Eun-Joo Lee 
+<BR>
+Laboratory for High Performance Scientific Computing
+		&amp; Computer Simulation 
+<BR>
+Dept. of Computer Science, University of Kentucky 
+<BR>
+Lexington KY 40506-00046 
+<BR>	<TT>elee3@csr.uky.edu</TT>
+	
+<BR>
+Jun Zhang
+
+</DIV>
+Several preconditioning enhancement strategies for improving
+inaccurate preconditioners produced by the incomplete LU
+factorizations of sparse matrices are presented.  The strategies
+employ the elements that are dropped during the incomplete LU
+factorization and utilize them in different ways by separate
+algorithms.
+
+<P>
+The first strategy (error compensation) applies the
+dropped elements to the lower and upper parts of the LU
+factorization to computer a new error compensated LU factorization.
+Another strategy (inner-outer iteration), which is a variant of the
+incomplete LU factorization, embeds the dropped elements in its
+iteration process.
+
+<P>
+Experimental results show that the presented
+enhancement strategies improve the accuracy of the incomplete LU
+factorization when the initial factorizations found to be
+inaccurate.  Furthermore, the convergence cost of the preconditioned
+Krylov subspace methods is reduced on solving the original sparse
+matrices with the proposed strategies.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

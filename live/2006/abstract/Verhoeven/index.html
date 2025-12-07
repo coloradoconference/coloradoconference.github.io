@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Verhoeven</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Error analysis of BDF Compound-Fast multirate method for 
+<BR>
+differential-algebraic equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Arie A.&nbsp;Verhoeven 
+<BR>
+HG 8.47 (Technische Universiteit Eindhoven) 
+<BR>
+Den Dolech 2, 5600 MB Eindhoven, The Netherlands 
+<BR>	<TT>averhoev@win.tue.nl</TT> 
+<BR>
+Jan ter Maten, Bob Mattheij, Theo Beelen, 
+<BR>
+Ahmed El Guennouni, Bratislav Tasic
+</DIV>
+<p>
+Analogue electrical circuits are usually modeled by
+differential-algebraic equations (DAE) of type:
+<!-- MATH
+ \begin{displaymath}
+\qquad \qquad \qquad
+\frac{d}{dt}\left[
+\mathbf{q}(t,\mathbf{x})\right]+
+\mathbf{j}(t,\mathbf{x})=\mathbf{0},
+\qquad \qquad \qquad (1)
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="385" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \qquad \qquad \qquad
+\frac{d}{dt}\left[
+\mathbf{q}(t,\mathbf{x})\right]+
+\mathbf{j}(t,\mathbf{x})=\mathbf{0},
+\qquad \qquad \qquad (1)
+$">
+</DIV><P></P>
+where <!-- MATH
+ $\mathbf{x} \in \mathbb{R}^d$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{x} \in \mathbb{R}^d$"> represents the state of
+the circuit. A common analysis is the transient analysis,
+which computes the solution <!-- MATH
+ $\mathbf{x}(t)$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathbf{x}(t)$"> of this
+non-linear DAE along the time interval <IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ [0,T]$"> for a given
+initial state. Often, parts of electrical circuits have
+latency or multirate behaviour.
+<P>
+For a multirate method it
+is necessary to partition the variables and equations into
+an active (A) and a latent (L) part. The active and latent
+parts can be expressed by <!-- MATH
+ $\mathbf{x}_A = \mathbf{B}_A
+\mathbf{x},\mathbf{x}_L = \mathbf{B}_L \mathbf{x}$
+ -->
+<IMG
+ WIDTH="157" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathbf{x}_A = \mathbf{B}_A
+\mathbf{x},\mathbf{x}_L = \mathbf{B}_L \mathbf{x}$"> where
+<!-- MATH
+ $\mathbf{B}_A,\mathbf{B}_L$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathbf{B}_A,\mathbf{B}_L$"> are permutation matrices. Then
+equation (1) is written as the following
+partitioned system:
+<!-- MATH
+ \begin{displaymath}
+\begin{array}{c} \frac{d}{dt}\left
+[\mathbf{q}_{A}(t,\mathbf{x}_A,\mathbf{x}_L)\right
+]+\mathbf{j}_{A}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0},\\
+\frac{d}{dt}\left
+[\mathbf{q}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)\right
+]+\mathbf{j}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0}.
+\end{array}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="257" HEIGHT="46" BORDER="0"
+ SRC="img7.png"
+ ALT="\begin{displaymath}
+\begin{array}{c} \frac{d}{dt}\left
+[\mathbf{q}_{A}(t,\mathbf...
+...hbf{j}_{L}(t,\mathbf{x}_A,\mathbf{x}_L)=\mathbf{0}.
+\end{array}\end{displaymath}">
+</DIV><P></P>
+In contradiction to classical
+integration methods, multirate methods integrate both parts
+with different stepsizes. Besides the coarse time-grid
+<!-- MATH
+ $\{T_n,0\leq n \leq N\}$
+ -->
+<IMG
+ WIDTH="118" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \{T_n,0\leq n \leq N\}$"> with stepsizes <!-- MATH
+ $H_n = T_n -
+T_{n-1}$
+ -->
+<IMG
+ WIDTH="118" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ H_n = T_n -
+T_{n-1}$">, also a refined time-grid <!-- MATH
+ $\{t_{n-1,m},1\leq n \leq
+N, 0 \leq m \leq q_n\}$
+ -->
+<IMG
+ WIDTH="233" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \{t_{n-1,m},1\leq n \leq
+N, 0 \leq m \leq q_n\}$"> is used with stepsizes <!-- MATH
+ $h_{n,m} =
+t_{n,m} - t_{n,m-1}$
+ -->
+<IMG
+ WIDTH="152" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ h_{n,m} =
+t_{n,m} - t_{n,m-1}$"> and multirate factors <IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ q_n$">. If the two
+time-grids are synchronized, <!-- MATH
+ $T_n= t_{n,0} = t_{n-1,q_n}$
+ -->
+<IMG
+ WIDTH="136" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ T_n= t_{n,0} = t_{n-1,q_n}$">
+holds for all <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ n$">. There are a lot of multirate approaches
+for partitioned systems but we will consider the
+Compound-Fast version of the BDF methods. This method
+performs the following four steps:
+<OL>
+<LI>The complete system is integrated at the coarse time-grid.
+</LI>
+<LI>The latent interface variables are interpolated at the
+refined time-grid.
+</LI>
+<LI>The active part is integrated at
+the refined time-grid, using the interpolated values at the
+latent interface.
+</LI>
+<LI>The active solution at the coarse
+time-grid is updated.
+</LI>
+</OL>
+<P>
+The local
+discretization error <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \delta^n$"> of the compound phase still
+has the same behaviour <!-- MATH
+ $\delta^n = O(H_n^{K+1})$
+ -->
+<IMG
+ WIDTH="108" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \delta^n = O(H_n^{K+1})$">. Let
+<!-- MATH
+ $\bar{\mathbf{P}}^n,\bar{\mathbf{Q}}^n$
+ -->
+<IMG
+ WIDTH="54" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \bar{\mathbf{P}}^n,\bar{\mathbf{Q}}^n$"> be the Nordsieck
+vectors which correspond to the predictor and corrector
+polynomials of <!-- MATH
+ $\mathbf{q}$
+ -->
+<IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \mathbf{q}$">. Then the error <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \delta^n$"> can
+be estimated by <!-- MATH
+ $\hat{\delta}^n$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \hat{\delta}^n$">:
+<!-- MATH
+ \begin{displaymath}
+\hat{\delta}^n = \frac{-H_n}{T_n - T_{n-K-1}} \left
+[\bar{\mathbf{Q}}_{1}^{n}-\bar{\mathbf{P}}_{1}^{n} \right ].
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="223" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle \hat{\delta}^n = \frac{-H_n}{T_n - T_{n-K-1}} \left
+[\bar{\mathbf{Q}}_{1}^{n}-\bar{\mathbf{P}}_{1}^{n} \right ].
+$">
+</DIV><P></P>
+Now <!-- MATH
+ $\hat r_C^n = \|\mathbf{B}_L
+\hat{\delta}^n\| + \tau\|\mathbf{B}_A \hat{\delta}^n\|$
+ -->
+<IMG
+ WIDTH="181" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \hat r_C^n = \Vert\mathbf{B}_L
+\hat{\delta}^n\Vert + \tau\Vert\mathbf{B}_A \hat{\delta}^n\Vert $"> is
+the used weighted error norm, which must satisfy <!-- MATH
+ $\hat r_C^n
+<$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \hat r_C^n
+&lt;$"> TOL<IMG
+ WIDTH="14" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ _C$">.
+<BR>
+The local discretization error <!-- MATH
+ $\delta^{n,m}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \delta^{n,m}$">
+is defined as the residue after inserting the exact solution
+in the refinement BDF scheme. During the refinement instead
+of <!-- MATH
+ $\delta^{n,m}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \delta^{n,m}$"> the perturbed local error
+<!-- MATH
+ $\tilde{\delta}^{n,m}$
+ -->
+<IMG
+ WIDTH="34" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \tilde{\delta}^{n,m}$"> is estimated. A tedious analysis
+yields the following asymptotic behaviour:
+<!-- MATH
+ \begin{displaymath}
+\mathbf{B}_A\delta^{n-1,m} \doteq
+\mathbf{B}_A\tilde{\delta}^{n-1,m} + \frac{1}{4}h
+\mathbf{K}_{n-1,m}\mathbf{B}_L\rho^{n-1,m}.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="336" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$\displaystyle \mathbf{B}_A\delta^{n-1,m} \doteq
+\mathbf{B}_A\tilde{\delta}^{n-1,m} + \frac{1}{4}h
+\mathbf{K}_{n-1,m}\mathbf{B}_L\rho^{n-1,m}.
+$">
+</DIV><P></P>
+Here <!-- MATH
+ $\rho^{n-1,m}$
+ -->
+<IMG
+ WIDTH="51" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ \rho^{n-1,m}$"> is the interpolation error at the 
+refined grid and <!-- MATH
+ $\mathbf{K}_{n-1,m}$
+ -->
+<IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ \mathbf{K}_{n-1,m}$"> is the coupling
+matrix. The perturbed local discretization error
+<!-- MATH
+ $\mathbf{B}_A\tilde{\delta}^{n,m}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ \mathbf{B}_A\tilde{\delta}^{n,m}$"> behaves as
+<!-- MATH
+ $O(h_{n-1,m}^{k+1})$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ O(h_{n-1,m}^{k+1})$"> and can be estimated in a similar way
+as <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \delta^n$">. Thus the active error estimate
+<!-- MATH
+ $\mathbf{B}_A\hat\delta^{n-1,m}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \mathbf{B}_A\hat\delta^{n-1,m}$"> satisfies
+<!-- MATH
+ $\mathbf{B}_A\hat\delta^{n-1,m} \doteq
+\mathbf{B}_A\hat{\tilde{\delta}}^{n-1,m} + \frac{1}{4}h
+\hat{\mathbf{K}}_{n-1,m}\mathbf{B}_L\hat\rho^{n-1,m}$
+ -->
+<IMG
+ WIDTH="330" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ \mathbf{B}_A\hat\delta^{n-1,m} \doteq
+\mathbf{B}_A\hat{\tilde{\delta}}^{n-1,m} + \frac{1}{4}h
+\hat{\mathbf{K}}_{n-1,m}\mathbf{B}_L\hat\rho^{n-1,m}$">. Let
+<IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.png"
+ ALT="$ L$"> be the interpolation order, then it can be shown that
+<!-- MATH
+ $\frac{1}{4}\|\hat{\mathbf{K}}_{n}\mathbf{B}_L\rho^{n-1,m}\|$
+ -->
+<IMG
+ WIDTH="123" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$ \frac{1}{4}\Vert\hat{\mathbf{K}}_{n}\mathbf{B}_L\rho^{n-1,m}\Vert$">
+is less than
+<!-- MATH
+ \begin{displaymath}
+\hat{r}_I^{n} =
+\frac{1}{4}\frac{H_n}{T_n - T_{n-L-1}}
+\|\hat{\mathbf{K}}_{n}\mathbf{B}_L
+\left[\bar{\mathbf{X}}_{1}^n
+-\bar{\mathbf{Y}}_{1}^n\right] \|.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="296" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$\displaystyle \hat{r}_I^{n} =
+\frac{1}{4}\frac{H_n}{T_n - T_{n-L-1}}
+\Vert\hat{...
+...mathbf{B}_L
+\left[\bar{\mathbf{X}}_{1}^n
+-\bar{\mathbf{Y}}_{1}^n\right] \Vert.
+$">
+</DIV><P></P>
+Here
+<!-- MATH
+ $\bar{\mathbf{Y}}^n,\bar{\mathbf{X}}^n$
+ -->
+<IMG
+ WIDTH="56" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$ \bar{\mathbf{Y}}^n,\bar{\mathbf{X}}^n$"> are the Nordsieck
+vectors which correspond to the predictor and corrector
+polynomials of <!-- MATH
+ $\mathbf{x}$
+ -->
+<IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \mathbf{x}$">. This error estimate
+<!-- MATH
+ $\hat{r}_I^n$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \hat{r}_I^n$"> has the asymptotic behaviour <!-- MATH
+ $\hat{r}_I^{n} =
+O(H_n^{L+1})$
+ -->
+<IMG
+ WIDTH="106" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$ \hat{r}_I^{n} =
+O(H_n^{L+1})$">. It follows that
+<!-- MATH
+ $\|\mathbf{B}_A\hat{\delta}^{n,m}\|$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$ \Vert\mathbf{B}_A\hat{\delta}^{n,m}\Vert$"> satisfies:
+<!-- MATH
+ \begin{displaymath}
+\begin{array}{rcl}
+\|\mathbf{B}_A\hat{\delta}^{n-1,m}\| &\leq&
+\hat{\tilde{r}}_A^{n-1,m} + h\hat{r}_I^{n} =:
+\hat{r}_A^{n-1,m}. \end{array}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="298" HEIGHT="32" BORDER="0"
+ SRC="img41.png"
+ ALT="\begin{displaymath}
+\begin{array}{rcl}
+\Vert\mathbf{B}_A\hat{\delta}^{n-1,m}\Ver...
+...}}_A^{n-1,m} + h\hat{r}_I^{n} =:
+\hat{r}_A^{n-1,m}. \end{array}\end{displaymath}">
+</DIV><P></P>
+If <!-- MATH
+ $\hat{r}_I^{n} \leq$
+ -->
+<IMG
+ WIDTH="36" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img42.png"
+ ALT="$ \hat{r}_I^{n} \leq $"> TOL<!-- MATH
+ $_I = \sigma$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img43.png"
+ ALT="$ _I = \sigma$">TOL<IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ _A$"> and
+<!-- MATH
+ $\hat{\tilde{r}}_A^{n-1,m} \leq \tilde{\mbox{TOL}}_A =
+(1-\sigma h)$
+ -->
+<IMG
+ WIDTH="196" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img45.png"
+ ALT="$ \hat{\tilde{r}}_A^{n-1,m} \leq \tilde{\mbox{TOL}}_A =
+(1-\sigma h)$">TOL<IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ _A$"> then <!-- MATH
+ $\hat{r}_A^{n-1,m} \leq
+\tilde{\mbox{TOL}}_A + h$
+ -->
+<IMG
+ WIDTH="145" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img46.png"
+ ALT="$ \hat{r}_A^{n-1,m} \leq
+\tilde{\mbox{TOL}}_A + h$">TOL<IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.png"
+ ALT="$ _I =$"> TOL<IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$ _A$">.
+<P>
+We tested a
+circuit with <!-- MATH
+ $5 \times 10$
+ -->
+<IMG
+ WIDTH="46" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img48.png"
+ ALT="$ 5 \times 10$"> inverters. The location of the
+active part is controlled by the connecting elements and the
+voltage sources. The connecting elements were chosen such
+that the active part consists of 3 inverters. We did an
+Euler Backward Compound-Fast multirate simulation on
+<!-- MATH
+ $[0,10^{-8}]$
+ -->
+<IMG
+ WIDTH="60" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.png"
+ ALT="$ [0,10^{-8}]$"> with <!-- MATH
+ $\sigma = 0.5,\tau = 0$
+ -->
+<IMG
+ WIDTH="99" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img50.png"
+ ALT="$ \sigma = 0.5,\tau = 0$">. We get accurate
+results combined with a speedup factor 13. 
+<P>
+<BR><HR>
+</BODY>
+</HTML>

@@ -1,0 +1,96 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Solving bordered systems of linear equations for large-scale \\
+	continuation and bifurcation analysis}}
+
+	Eric T Phipps \\
+	Sandia National Laboratories, Applied Computational Methods Dept. \\
+	P.O.~Box 5800, MS-0316, Albuquerque NM 87185 \\
+	{\tt etphipp@sandia.gov} \\
+	Andrew G Salinger
+\end{center}
+Solving bordered systems of linear equations where the
+matrix is augmented by a small number of additional rows and
+columns is ubiquitous in continuation and bifurcation
+analysis. Examples include pseudo-arclength continuation,
+constraint following, and turning point location. However
+solving these systems in a large-scale setting where the
+original matrix is large and sparse is difficult. Directly
+augmenting the matrix destroys the sparsity structure of the
+original matrix since the additional rows and columns are
+usually dense, while block elimination methods have
+difficulty when the original matrix is nearly singular and
+result in additional linear solves.
+
+In this talk we
+discuss a simple method for solving systems of this form
+using Krylov iterative linear solvers based on computing the
+$QR$ factorization of the augmented rows, and is an
+extension of the Householder pseudo-arclength continuation
+method developed by H.~Walker. It allows solutions of the
+bordered system to be computed with a cost roughly
+equivalent to solving the original matrix and is
+well-conditioned even when the original matrix is singular.
+
+
+We then apply this technique to the problem of computing
+turning point bifurcations in large-scale nonlinear systems.
+The $QR$ approach allows turning point algorithms that are
+faster, more robust and scale better to millions of unknowns
+compared to traditional block elimination schemes. Examples
+of applying these techniques to large-scale structural and
+fluid mechanics problems will be presented. These techniques
+have been implemented in a continuation and bifurcation
+software package called LOCA, short for The Library of
+Continuation Algorithms, developed by the authors and
+publicly available as a part of Trilinos, a set of scalable
+linear and nonlinear solvers.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

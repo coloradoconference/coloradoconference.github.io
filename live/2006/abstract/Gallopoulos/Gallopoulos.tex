@@ -1,0 +1,75 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Can information retrieval aid iterative methods?}}
+
+	Efstratios Gallopoulos \\
+	Computer Engineering and Informatics \\
+	University of Patras, 26500 Patras, Greece \\
+	{\tt stratis@ceid.upatras.gr} \\
+	Spyros Hatzimihail
+\end{center}
+Recently, Computational Linear Algebra techniques have
+started playing an important role in Information Retrieval
+(IR) research. Indeed, the Vector Space Model and its
+derivatives, such as Latent Semantic Indexing, are heavily
+used and investigated. In this presentation we consider the
+problem in ``reverse mode'', namely using IR techniques to
+help in linear algebra and iterative methods in particular.
+The candidate problem is the solution of large linear
+systems with multiple right hand sides. The efficiency of
+solvers is known to depend on the amount of information
+shared amongst the right hand sides. We specifically
+investigate the combination of clustering algorithms and
+schemes from the existing literature to solve such problems.
+
+This research is supported in part by a University of
+Patras KARATHEODORI grant.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,180 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf The block grade of a block Krylov space}}
+
+	Martin H.~Gutknecht \\
+	Seminar for Applied Mathematics, ETH Zurich \\
+	8092 Zurich, Switzerland \\
+	{\tt mhg@math.ethz.ch} \\
+	Thomas Schmelzer
+\end{center}
+The so-called grade of a
+vector $b$ with respect to a nonsingular matrix $\bfA$ is
+the dimension of the (largest) Krylov (sub)space generated
+by $\bfA$ from $b$. It determines in particular, how many
+iterations a Krylov space method with linearly independent
+residuals requires for finding in exact arithmetic the
+solution of $\bfA x=b$ (if the initial approximation $x_0$
+is the zero vector). In this talk we generalize the grade
+notion to block Krylov spaces and show that this and other
+fundamental properties carry over to block Krylov space
+methods for solving linear systems with multiple right-hand
+sides.
+
+We consider $s$ linear systems with the same
+nonsingular coefficient matrix $\bfA$, but different
+right-hand sides $b^{(i)}$, which we gather in a
+\textit{block vector}
+$\bfb := (b^{(1)},\dots,b^{(s)})$.
+The $s$ systems are then written as
+$$
+\bfA \bfx = \bfb \qquad
+\text{with} \quad \bfA \in \Cplex^{N\times N}\,,
+\quad \bfb \in
+\Cplex^{N\times s}\,,\quad
+\bfx \in \Cplex^{N\times s}\,.
+$$
+Standard block Krylov space methods
+construct in the $n$th iteration approximate solutions
+gathered in a block vector $\bfx_n$ chosen such that
+$$
+\bfx_n - \bfx_0 \in \calBB_n
+(\bfA, \bfr_0) \,,
+$$
+where $\bfx_0$
+contains the $s$ initial approximations and $\bfr_0$ the
+corresponding initial residuals, while
+$\calBB_n$ is the
+Cartesian product
+$$
+\calBB_n = \underbrace{\calB_n
+\times \cdots \times
+\calB_n}_{s\text{ times}}
+$$
+with
+$$
+\calB_n = \calK_n (\bfA,
+r_0^{(1)}) + \cdots + \calK_n
+(\bfA, r_0^{(s)}) \,.
+$$
+Here, $\calK_n (\bfA, r_0^{(i)})$
+is the
+usual $n$th Krylov (sub)space of the $i$th system. It is
+important, that, in general, the sum in the last formula is
+not a direct sum, that is, the Krylov spaces may have
+nontrivial intersections.
+
+The \textit{block grade of\/
+$\bfr_0$ with respect to\/ $\bfA$} or, the
+\textit{block grade of\/ $\bfA$
+with respect to\/ $\bfr_0$}
+is the positive integer
+$\bar\nu := \bar\nu(\bfr_0,\bfA)$
+defined by
+$$
+\bar\nu(\bfr_0,\bfA) = \min \left\{n \big\vert
+\Dim
+\calB_n(\bfA, \bfr_0) =
+\Dim
+\calB_{n+1}(\bfA, \bfr_0)
+\right\}\,.
+$$
+
+Among the results we have
+established for the block grade are the following ones.
+
+
+{\sc Lemma 1} ~
+For $n \geq \bar\nu(\bfr_0,\bfA)$,
+$$
+\calB_n(\bfA, \bfr_0) =
+\calB_{n+1}(\bfA, \bfr_0)\,,\qquad
+\calBB_n(\bfA, \bfr_0) =
+\calBB_{n+1}(\bfA, \bfr_0)\,.
+$$
+
+
+{\sc Lemma 2} ~
+The block grade of the
+block Krylov space and the grades of the individual Krylov
+spaces contained in it are related by
+$$
+\calB_{\bar\nu(\bfr_0,\bfA)}(\bfA, \bfr_0) =
+\calK_{\bar\nu(r_0^{(1)},\bfA)}(\bfA, r_0^{(1)})
++ \dots +
+\calK_{\bar\nu(r_0^{(s)},\bfA)}(\bfA, r_0^{(s)})\,.
+$$
+
+{\sc Lemma 3} ~
+The block grade $\bar\nu(\bfr_0,\bfA)$ is characterized by
+$$
+\bar\nu(\bfr_0,\bfA)
+= \min\left\{ n \big\vert \bfA^{-1} \bfr_0 \in
+\calBB_n(\bfA, \bfr_0) \right\}.
+$$
+
+
+{\sc Theorem} ~
+Let $\bfxex$ be the block
+solution of $\bfA\bfx = \bfb$ and let $\bfx_0$ be any
+initial block approximation of it and
+$\bfr_0 := \bfb - \bfA \bfx_0$
+the corresponding block residual. Then
+$$
+\bfxex \in \bfx_0 +
+\calBB_{\bar\nu(\bfr_0,\bfA)}(\bfA,\bfr_0)
+\,.
+$$
+
+We also discuss the effects of
+the size of the block grade on the efficiency of a block
+Krylov space method.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

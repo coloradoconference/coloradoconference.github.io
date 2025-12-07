@@ -1,0 +1,75 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Extensions of certain graph-based algorithms for preconditioning}}
+
+	David Fritzsche \\
+	Dept.~of Mathematics, Temple University \\
+	Philadelphia PA 19122-6094 \\
+	{\tt david.fritzsche@math.temple.edu} \\
+	Andreas Frommer, Daniel B.~Szyld
+\end{center}
+The original TPABLO algorithms are a collection of algorithms
+which compute a symmetric permutation of a linear system such
+that the permuted system has a relatively full block
+diagonal with relatively large nonzero entries. This block
+diagonal can then be used as a preconditioner.
+We propose and analyze three extensions of this approach: we
+incorporate a nonsymmetric
+permutation to obtain a large diagonal, we use a more general
+parametrization for TPABLO, and we
+use a block Gauss-Seidel preconditioner which can be implemented
+to have the same execution time
+as the corresponding block Jacobi preconditioner. Since our
+approach allows for efficient use of level 3
+BLAS operations, it outperforms direct solvers and rivals
+standard ILU preconditioners on many test
+problems on a single processor system, while having good
+potential for efficient parallelization.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

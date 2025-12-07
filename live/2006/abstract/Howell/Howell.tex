@@ -1,0 +1,82 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Implementation and performance of a two-grid method for \\
+	nonlinear reaction-diffusion equations}}
+
+	Jason S.~Howell \\
+	Dept.~of Mathematical Sciences \\
+	O-106 Martin Hall, Box 340975, Clemson SC 29634-0975 \\
+	{\tt jshowel@clemson.edu} \\
+	Carol S.~Woodward, Todd S.~Coffey
+\end{center}
+Two-grid methods have been developed by Xu (SIAM J.~Num.
+Anal., 1996) for application to linear and nonlinear PDEs. Of
+particular interest are methods that can be applied to large
+nonlinear problems that arise in the simulation of physical
+processes, such as a method due to Dawson, Wheeler, and
+Woodward (SIAM J.~Num. Anal., 1998). This scheme solves the
+original nonlinear problem on a mesh coarser than originally
+specified to capture the nonlinear behavior of the solution,
+then utilizes a linearized version of the problem to correct
+the coarse approximation on the original problem mesh.
+
+The
+two-grid method potentially reduces the overall
+computational cost by requiring the solution of a smaller
+nonlinear system and a large linear system in place of the
+original large nonlinear problem. In this talk we
+investigate the application of this method to nonlinear
+reaction-diffusion equations. In particular, we discuss
+issues that arise in the implementation of the algorithm,
+and perform numerical experiments on problems designed to
+gauge the performance of the two-grid method relative to a
+standard Newton iterative nonlinear solver.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

@@ -1,0 +1,485 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Gutknecht</TITLE>
+<META NAME="description" CONTENT="Gutknecht">
+<META NAME="keywords" CONTENT="Gutknecht">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Gutknecht.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>The block grade of a block Krylov space</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Martin H.&nbsp;Gutknecht 
+<BR>
+Seminar for Applied Mathematics, ETH Zurich 
+<BR>
+8092 Zurich, Switzerland 
+<BR>	<TT>mhg@math.ethz.ch</TT> 
+<BR>
+Thomas Schmelzer
+
+</DIV>
+The so-called grade of a
+vector <IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ b$"> with respect to a nonsingular matrix <!-- MATH
+ ${\mathbf A}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf A}$"> is
+the dimension of the (largest) Krylov (sub)space generated
+by <!-- MATH
+ ${\mathbf A}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf A}$"> from <IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ b$">. It determines in particular, how many
+iterations a Krylov space method with linearly independent
+residuals requires for finding in exact arithmetic the
+solution of <!-- MATH
+ ${\mathbf A}x=b$
+ -->
+<IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ {\mathbf A}x=b$"> (if the initial approximation <IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ x_0$">
+is the zero vector). In this talk we generalize the grade
+notion to block Krylov spaces and show that this and other
+fundamental properties carry over to block Krylov space
+methods for solving linear systems with multiple right-hand
+sides.
+
+<P>
+We consider <IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ s$"> linear systems with the same
+nonsingular coefficient matrix <!-- MATH
+ ${\mathbf A}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf A}$">, but different
+right-hand sides <IMG
+ WIDTH="25" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ b^{(i)}$">, which we gather in a
+<I>block vector</I>
+<!-- MATH
+ ${\mathbf b}:= (b^{(1)},\dots,b^{(s)})$
+ -->
+<IMG
+ WIDTH="134" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ {\mathbf b}:= (b^{(1)},\dots,b^{(s)})$">.
+The <IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ s$"> systems are then written as
+<!-- MATH
+ \begin{displaymath}
+{\mathbf A}{\mathbf x}= {\mathbf b}\qquad
+\text{with} \quad {\mathbf A}\in \mathbb{C}^{N\times N}\,,
+\quad {\mathbf b}\in
+\mathbb{C}^{N\times s}\,,\quad
+{\mathbf x}\in \mathbb{C}^{N\times s}\,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="58" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle {\mathbf A}{\mathbf x}= {\mathbf b}$">&nbsp; &nbsp;with<IMG
+ WIDTH="293" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle \quad {\mathbf A}\in \mathbb{C}^{N\times N}\,,
+\quad {\mathbf b}\in
+\mathbb{C}^{N\times s}\,,\quad
+{\mathbf x}\in \mathbb{C}^{N\times s}\,.
+$">
+</DIV><P></P>
+Standard block Krylov space methods
+construct in the <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ n$">th iteration approximate solutions
+gathered in a block vector <!-- MATH
+ ${\mathbf x}_n$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ {\mathbf x}_n$"> chosen such that
+<!-- MATH
+ \begin{displaymath}
+{\mathbf x}_n - {\mathbf x}_0 \in {\mathcal B}^{\Box}_n
+({\mathbf A}, {\mathbf r}_0) \,,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="154" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle {\mathbf x}_n - {\mathbf x}_0 \in {\mathcal B}^{\Box}_n
+({\mathbf A}, {\mathbf r}_0) \,,
+$">
+</DIV><P></P>
+where <!-- MATH
+ ${\mathbf x}_0$
+ -->
+<IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ {\mathbf x}_0$">
+contains the <IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ s$"> initial approximations and <!-- MATH
+ ${\mathbf r}_0$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ {\mathbf r}_0$"> the
+corresponding initial residuals, while
+<!-- MATH
+ ${\mathcal B}^{\Box}_n$
+ -->
+<IMG
+ WIDTH="25" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\mathcal B}^{\Box}_n$"> is the
+Cartesian product
+<!-- MATH
+ \begin{displaymath}
+{\mathcal B}^{\Box}_n = \underbrace{{\mathcal B}_n
+\times \cdots \times
+{\mathcal B}_n}_{s\text{ times}}
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="142" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle {\mathcal B}^{\Box}_n = \underbrace{{\mathcal B}_n
+\times \cdots \times
+{\mathcal B}_n}_{s\text{ times}}
+$">
+</DIV><P></P>
+with
+<!-- MATH
+ \begin{displaymath}
+{\mathcal B}_n = \mathcal{K}_n ({\mathbf A},
+r_0^{(1)}) + \cdots + \mathcal{K}_n
+({\mathbf A}, r_0^{(s)}) \,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="265" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle {\mathcal B}_n = \mathcal{K}_n ({\mathbf A},
+r_0^{(1)}) + \cdots + \mathcal{K}_n
+({\mathbf A}, r_0^{(s)}) \,.
+$">
+</DIV><P></P>
+Here, <!-- MATH
+ $\mathcal{K}_n ({\mathbf A}, r_0^{(i)})$
+ -->
+<IMG
+ WIDTH="80" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \mathcal{K}_n ({\mathbf A}, r_0^{(i)})$">
+is the
+usual <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ n$">th Krylov (sub)space of the <IMG
+ WIDTH="9" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ i$">th system. It is
+important, that, in general, the sum in the last formula is
+not a direct sum, that is, the Krylov spaces may have
+nontrivial intersections.
+
+<P>
+The <I>block grade of
+<!-- MATH
+ ${\mathbf r}_0$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ {\mathbf r}_0$"> with respect to <!-- MATH
+ ${\mathbf A}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf A}$"></I> or, the
+<I>block grade of <!-- MATH
+ ${\mathbf A}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ {\mathbf A}$">
+with respect to <!-- MATH
+ ${\mathbf r}_0$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ {\mathbf r}_0$"></I>
+is the positive integer
+<!-- MATH
+ $\bar\nu := \bar\nu({\mathbf r}_0,{\mathbf A})$
+ -->
+<IMG
+ WIDTH="94" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ \bar\nu := \bar\nu({\mathbf r}_0,{\mathbf A})$">
+defined by
+<!-- MATH
+ \begin{displaymath}
+\bar\nu({\mathbf r}_0,{\mathbf A}) = \min \left\{n \big\vert
+\mathop{\mathrm{dim\ }}
+{\mathcal B}_n({\mathbf A}, {\mathbf r}_0) =
+\mathop{\mathrm{dim\ }}
+{\mathcal B}_{n+1}({\mathbf A}, {\mathbf r}_0)
+\right\}\,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="396" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$\displaystyle \bar\nu({\mathbf r}_0,{\mathbf A}) = \min \left\{n \big\vert
+\mat...
+...hop{\mathrm{dim\ }}
+{\mathcal B}_{n+1}({\mathbf A}, {\mathbf r}_0)
+\right\}\,.
+$">
+</DIV><P></P>
+
+<P>
+Among the results we have
+established for the block grade are the following ones.
+
+<P>
+L<SMALL>EMMA 1</SMALL>&nbsp;
+For <!-- MATH
+ $n \geq \bar\nu({\mathbf r}_0,{\mathbf A})$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ n \geq \bar\nu({\mathbf r}_0,{\mathbf A})$">,
+<!-- MATH
+ \begin{displaymath}
+{\mathcal B}_n({\mathbf A}, {\mathbf r}_0) =
+{\mathcal B}_{n+1}({\mathbf A}, {\mathbf r}_0)\,,\qquad
+{\mathcal B}^{\Box}_n({\mathbf A}, {\mathbf r}_0) =
+{\mathcal B}^{\Box}_{n+1}({\mathbf A}, {\mathbf r}_0)\,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="397" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$\displaystyle {\mathcal B}_n({\mathbf A}, {\mathbf r}_0) =
+{\mathcal B}_{n+1}({...
+... A}, {\mathbf r}_0) =
+{\mathcal B}^{\Box}_{n+1}({\mathbf A}, {\mathbf r}_0)\,.
+$">
+</DIV><P></P>
+
+<P>
+L<SMALL>EMMA 2</SMALL>&nbsp;
+The block grade of the
+block Krylov space and the grades of the individual Krylov
+spaces contained in it are related by
+<!-- MATH
+ \begin{displaymath}
+{\mathcal B}_{\bar\nu({\mathbf r}_0,{\mathbf A})}({\mathbf A}, {\mathbf r}_0) =
+\mathcal{K}_{\bar\nu(r_0^{(1)},{\mathbf A})}({\mathbf A}, r_0^{(1)})
++ \dots +
+\mathcal{K}_{\bar\nu(r_0^{(s)},{\mathbf A})}({\mathbf A}, r_0^{(s)})\,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="439" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$\displaystyle {\mathcal B}_{\bar\nu({\mathbf r}_0,{\mathbf A})}({\mathbf A}, {\...
+...dots +
+\mathcal{K}_{\bar\nu(r_0^{(s)},{\mathbf A})}({\mathbf A}, r_0^{(s)})\,.
+$">
+</DIV><P></P>
+
+<P>
+L<SMALL>EMMA 3</SMALL>&nbsp;
+The block grade <!-- MATH
+ $\bar\nu({\mathbf r}_0,{\mathbf A})$
+ -->
+<IMG
+ WIDTH="60" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \bar\nu({\mathbf r}_0,{\mathbf A})$"> is characterized by
+<!-- MATH
+ \begin{displaymath}
+\bar\nu({\mathbf r}_0,{\mathbf A})
+= \min\left\{ n \big\vert {\mathbf A}^{-1} {\mathbf r}_0 \in
+{\mathcal B}^{\Box}_n({\mathbf A}, {\mathbf r}_0) \right\}.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="288" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$\displaystyle \bar\nu({\mathbf r}_0,{\mathbf A})
+= \min\left\{ n \big\vert {\ma...
+... {\mathbf r}_0 \in
+{\mathcal B}^{\Box}_n({\mathbf A}, {\mathbf r}_0) \right\}.
+$">
+</DIV><P></P>
+
+<P>
+T<SMALL>HEOREM</SMALL>&nbsp;
+Let <!-- MATH
+ ${\mathbf x}_{\mbox{\scriptsize $\star$}}$
+ -->
+<IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ {\mathbf x}_{\mbox{\scriptsize $\star$}}$"> be the block
+solution of <!-- MATH
+ ${\mathbf A}{\mathbf x}= {\mathbf b}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ {\mathbf A}{\mathbf x}= {\mathbf b}$"> and let <!-- MATH
+ ${\mathbf x}_0$
+ -->
+<IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ {\mathbf x}_0$"> be any
+initial block approximation of it and
+<!-- MATH
+ ${\mathbf r}_0 := {\mathbf b}- {\mathbf A}{\mathbf x}_0$
+ -->
+<IMG
+ WIDTH="104" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ {\mathbf r}_0 := {\mathbf b}- {\mathbf A}{\mathbf x}_0$">
+the corresponding block residual. Then
+<!-- MATH
+ \begin{displaymath}
+{\mathbf x}_{\mbox{\scriptsize $\star$}}\in {\mathbf x}_0 +
+{\mathcal B}^{\Box}_{\bar\nu({\mathbf r}_0,{\mathbf A})}({\mathbf A},{\mathbf r}_0)
+\,.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="186" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$\displaystyle {\mathbf x}_{\mbox{\scriptsize $\star$}}\in {\mathbf x}_0 +
+{\mat...
+... B}^{\Box}_{\bar\nu({\mathbf r}_0,{\mathbf A})}({\mathbf A},{\mathbf r}_0)
+\,.
+$">
+</DIV><P></P>
+
+<P>
+We also discuss the effects of
+the size of the block grade on the efficiency of a block
+Krylov space method.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

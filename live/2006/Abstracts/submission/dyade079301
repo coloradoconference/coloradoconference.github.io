@@ -1,0 +1,142 @@
+===firstname:
+Vadim
+===firstname3:
+
+===lastname2:
+Shashkov
+===postal:
+MS B284
+Los Alamos National Laboratory
+Los Alamos, NM 87545
+===lastname:
+Dyadechko
+===lastname3:
+
+===ABSTRACT:
+  \newcommand{\R}{\mathbb R}
+\renewcommand{\tau}{\Delta t}
+  \newcommand{\centroid}[1]{\x_c(#1)}
+\renewcommand{\vec}[1]{{\bf#1}}
+  \newcommand{\x}{\vec{x}}
+Volume-of-fluid~(VoF) methods
+[2]
+are widely used in
+Eulerian simulations
+of multi-phase flows
+with mutable 
+interface topology.
+The popularity of VoF methods
+is explained
+by their unique ability to preserves
+the mass of each fluid component 
+on the discrete level. 
+The strategy of VoF methods consists in 
+calculating the interface location 
+at each discrete moment of time 
+from the  
+volumes of the cell fractions
+occupied by different materials.
+Most
+VoF methods 
+use a single linear interface 
+to divide two materials in a mixed cell%
+~(Piecewise-Linear Interface Calculation~(PLIC))
+[3,4,5].
+Once the direction of the interface
+normal
+is know,
+the location of the interface is uniquely
+identified by the
+volumes of the cells fraction.
+Unfortunately the interface normal can not be evaluated
+without the volume fraction data from the
+surrounding cells,
+which prohibits
+the resulting approximation 
+to resolve any interface details
+smaller than a characteristic size
+of the cell cluster involved in 
+evaluation of the normal.
+
+To overcome this limitation, we designed a new \emph{mass-conservative} interface reconstruction metho
+[1],
+which calculates the interface based
+on both \emph{volumes and centroids} of the cell fractions.
+This choice of the input data
+allows to evaluate the interface normal in a mixed cell
+\emph{even without the information from the adjacent elements}.
+The location of the linear interface in each mixed cell
+is determined by \emph{fitting the centroid of the cell fraction
+behind the interface to the reference one},
+which leads to ($d\!-\!1$)-variate optimization problem in $\R^d$.
+The technique proposed,
+called Moment-of-Fluid~(MoF) interface reconstruction,
+results in a \emph{second order accurate}
+interface approximation~%
+(linear interfaces are reconstructed exactly),
+has higher resolution,
+and is shown to be \emph{more accurate than VoF-PLIC methods}.
+
+The centroid data involvement for the interface reconstruction
+has a clear mechanical justification.
+Any displacement $\Delta\x$ of the
+cell fraction
+centroid
+caused by the interface reconstruction
+can be interpreted as an action of
+an \emph{artificial} % external
+force
+of magnitude \mbox{$\sim\!m\Delta\x/\tau^2$}
+(here $m$ is the mass of the
+%component considered,
+cell fraction,
+and $\tau$ is the time increment).
+Therefore by complying with the original centroids
+we \emph{explicitly} reduce these artificial forces
+and improve approximation properties
+of the discrete model of fluid dynamics.
+
+We present a detailed description of 
+MoF interface reconstruction algorithm in 2D, 
+which includes iterative procedure for centroid fitting
+and a new algorithm for cutting appropriate volume
+fractions from polygonal cells.
+
+\begin{center}
+{\bf REFERENCES}\\[-3mm]
+\end{center}
+\begin{tabular}{lp{110mm}}
+\hspace{-3mm}{[1]}&
+V.~Dyadechko and M.~Shashkov.
+\newblock Moment-of-fluid interface reconstruction.
+\newblock Technical Report LA-UR-05-7571, Los Alamos National Laboratory, Los
+  Alamos, NM, Oct 2005.\\[1mm]
+\hspace{-3mm}{[2]}&
+C.~W. Hirt and B.~D. Nichols.
+Volume of fluid {(VOF)} method for the dynamics of free boundaries.
+{\em Journal of Computational Physics}, 39(1):201--25, Jan 1981.\\[1mm]
+\hspace{-3mm}{[3]}&
+J.~E. Pilliod and E.~G. Puckett.
+Second-order accurate volume-of-fluid algorithms for tracking
+  material interfaces.
+{\em Journal of Computational Physics}, 199(2):465--502, Sep 2004.\\[1mm]
+\hspace{-3mm}{[4]}&
+B.~Swartz.
+The second-order sharpening of blurred smooth borders.
+{\em Mathematics of Computation}, 52(186):675--714, Apr 1989.\\[1mm]
+\hspace{-3mm}{[5]}&
+D.~L. Youngs.
+An interface tracking method for a {3D} {E}ulerian hydrodynamics
+  code.
+Technical Report AWRE/44/92/35, Atomic Weapon Research Establishment,
+  Aldermaston, Berkshire, UK, Apr 1987.
+\end{tabular}
+
+===email:
+vdyadechko@lanl.gov
+===otherauths:
+
+===title:
+Moment-of-fluid interface reconstruction
+===firstname2:
+Mikhail

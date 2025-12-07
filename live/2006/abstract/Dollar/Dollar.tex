@@ -1,0 +1,81 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Constraint-style preconditioners for regularized saddle point problems}}
+
+	Sue Dollar \\
+	Dept.~of Mathematics, University of Reading \\
+	Whiteknights, P.O.Box 220, Reading, Berkshire, RG6 6AX, UK
+	\\ {\tt h.s.dollar@reading.ac.uk}
+\end{center}
+The problem of finding good preconditioners for the numerical
+solution of a certain important class of indefinite linear
+systems is considered. These systems are of a saddle point
+structure
+$$ \Matrr{A}{B^T}{B}{-C} \Vecc{x}{y} = \Vecc{c}{d}, $$
+where $A\in\Reals^{n\times n}$,
+$C\in\Reals^{m\times m}$ are symmetric,
+and $B\in\Reals^{m\times n}$ has full rank.
+
+In {\em
+Constraint preconditioning for indefinite linear systems},
+SIAM J.~Matrix Anal. Appl. {\bf 21} (2000),
+Keller, Gould and Wathen analyzed the idea of
+using constraint preconditioners that have a
+specific 2 by 2 block structure for the case of
+$C$ being zero. We
+shall extend this idea by allowing the (2,2) block to be
+non-zero. Results concerning the spectrum and form of the
+eigenvectors are presented, as are numerical results to validate
+our conclusions.
+We will also introduce the idea of
+implicit-factorization constraint preconditioners which allow us
+to efficiently carry out the required preconditioning steps.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

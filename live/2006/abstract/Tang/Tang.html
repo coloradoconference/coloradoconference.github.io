@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Tang</TITLE>
+<META NAME="description" CONTENT="Tang">
+<META NAME="keywords" CONTENT="Tang">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Tang.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>A novel deflation method to solve the 3-D discontinuous 
+<BR>
+and singular Poisson equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Jok M.&nbsp;Tang 
+<BR>
+Dept.&nbsp;of Applied Mathematical Analysis 
+<BR>
+Delft University of Technology 
+<BR>
+Mekelweg 4, 2628 CD Delft, The Netherlands 
+<BR>	<TT>j.m.tang@ewi.tudelft.nl</TT>
+
+</DIV>
+Recently, simulating bubbly flows is a very popular topic in
+CFD. These bubbly flows are governed by the Navier-Stokes
+equations. In many popular operator splitting formulations
+for these equations, solving the linear system coming from
+the discontinuous Poisson equation takes the most
+computational time, despite of its elliptic origins. ICCG is
+widely used for this purpose, but for complex bubbly flows
+this method shows slow convergence.
+
+<P>
+Moreover, new insights are given into the properties of
+invertible and singular deflated and preconditioned linear
+systems, where the coefficient matrices are symmetric and
+positive (semi-) definite. These linear systems can be
+derived from a discretization of the Poisson equation with
+Neumann boundary conditions. Sometimes these linear systems
+are forced to be invertible leading to a worse (effective)
+condition number. If ICCG is used to solve this problem, the
+convergence is significantly slower than for the case of the
+original singular problem.
+
+<P>
+We show that applying the deflation technique, which leads
+to the DICCG method, remedies the worse condition number and
+the worse convergence of ICCG. Moreover, some useful
+equalities are derived from the deflated variants of the
+singular and invertible matrices, which are also generalized
+to preconditioned methods. It appears that solving the
+invertible and singular linear systems with DICCG leads to
+exactly the same convergence results.
+
+<P>
+This new method DICCG incorporates the eigenmodes
+corresponding to the components which caused the slow
+convergence of ICCG. Coarse linear systems have to be solved
+within DICCG. We discuss some methods to do this efficiently
+which results in two approaches DICCG1 and DICCG2.
+
+<P>
+Thereafter we show with numerical experiments that both DICCG
+approaches are very efficient and they emphasize also the
+theoretical results. Compared to ICCG, DICCG decreases
+significantly the number of iterations and the computational
+time as well which are required for solving Poisson equation
+in applications of 2-D and 3-D bubbly flows.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

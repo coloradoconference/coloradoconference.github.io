@@ -1,0 +1,28 @@
+===firstname:
+Bobby
+===firstname3:
+Luis
+===lastname2:
+Pernice
+===postal:
+MS B256, 
+Computer and Computational Sciences Division,
+Los Alamos National Laboratory, PO Box 1663,
+Los Alamos, NM 87545
+===lastname:
+Philip
+===lastname3:
+Chacon
+===ABSTRACT:
+Implicit adaptive mesh refinement (AMR) is used to simulate a model
+resistive magnetohydrodynamics problem. This challenging multi-scale, multi-physics problem involves a wide range of length and time scales. AMR is employed to resolve extremely thin current sheets, essential for an accurate macroscopic description. Implicit time integration is used to step over fast Alfven time scales. At each time step, large-scale systems of nonlinear equations are solved using Jacobian-free Newton-Krylov methods together with a physics-based preconditioner. The preconditioner is implemented using optimal multilevel solvers such as the Fast Adaptive Composite grid (FAC) method. We will describe our initial results highlighting various aspects of problem formulation, optimal preconditioning on AMR grids, and efforts towards achieving parallelism.
+
+This work was performed under the auspices of the U.S. Department of Energy by Los Alamos National Laboratory under contract W-7405-ENG-36. Los Alamos National Laboratory does not endorse the viewpoint of a publication or guarantee its technical correctness.  LA-UR 04-7312, 04-9024, 05-2645
+===email:
+bphilip@lanl.gov
+===otherauths:
+
+===title:
+Resistive Magnetohydrodynamics with Implicit Adaptive Mesh Refinement
+===firstname2:
+Michael

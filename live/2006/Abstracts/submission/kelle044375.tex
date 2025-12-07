@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large C. T. Kelley \\
+{\bf A scalable preconditioner for the Wigner-Poisson equations}}
+
+Dept of Mathematics \\ NC State University \\ Box 8025 \\ Raleigh \\ NC 27695-8205
+\\
+{\tt tim_kelley@ncsu.edu}\\
+M. I. Lasater\\
+A. G. Salinger\\
+	D. L. Woolard, G. Recine, P. Zhao\end{center}
+
+In this paper we propose and analyze a scalable preconditioner for
+the Wigner-Poisson equations for a resonant tunneling diode (RTD), and
+apply that preconditioner to a matrix-free continuation study of the
+dependence of the current through the device on the applied voltage.
+
+The equations are a integro-partial differential equation for the
+distribution of the electrons in the device couples with Poisson's
+equation for the electrostatic potential. Our preconditioner is the
+inverse of the kinetic energy operator. We prove that, after elimination
+of the Poisson equation, the equation after left preconditioning is a
+compact fixed point problem for the Wigner distribution. We then apply
+that compactness to show mathematical scalibility of the inner Krylov
+iteration, and use that to show scalability of the continuation. We
+present numerical results that support the theory.
+
+
+\end{document}

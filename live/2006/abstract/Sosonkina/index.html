@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Sosonkina</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Iterative solution techniques for flexible approximation schemes 
+<BR>
+in multiparticle simulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Masha Sosonkina 
+<BR>
+Ames Laboratory DOE, 236 Wilhelm Hall 
+<BR>
+Ames IA 50011 
+<BR>	<TT>masha@scl.ameslab.gov</TT> 
+<BR>
+Igor Tsukerman, Elena Ivanova, Sergey Voskoboynikov
+</DIV>
+<p>
+The paper examines various parallel iterative solvers
+for the new Flexible Local Approximation MEthod (FLAME)
+[5,6] applied to colloidal
+systems. The electrostatic potential in such  systems
+can be described, at least for monovalent salts in the
+solvent, by the Poisson-Boltzmann equation
+(see, e.g., [2]).
+Classical Finite-Difference (FD)
+schemes would require unreasonably fine meshes to
+represent the boundaries of multiple spherical
+particles at arbitrary locations with sufficient
+accuracy. In the Finite Element Method, mesh generation
+for a large number of particles becomes impractical.
+The Fast Multipole Method works well only if the
+particle sizes are neglected and the Poisson-Boltzmann
+equation is linearized [1].  Classical
+FD schemes rely on Taylor expansions that break down
+near material interfaces (such as particle boundaries)
+due to the lack of smoothness  of the field. In FLAME,
+Taylor expansions in the vicinity of the particles  are
+replaced with much more accurate approximations.
+Namely, the local FLAME bases are constructed by
+matching (via the boundary conditions) the spherical
+harmonics for the electrostatic potential inside and
+outside the particle;
+see [5,6] for details.
+<P>
+The system matrices of FLAME and classical FD have the
+same sparsity structure for the same grid stencil on a
+regular Cartesian grid; for example, the standard
+seven-point stencil leads to a seven-diagonal matrix.
+However, the FLAME matrix is generally nonsymmetric.
+Several parallel iterative solution techniques have
+been tested with an emphasis on suitable parallel
+preconditioning for the nonsymmetric system matrix. In
+particular, flexible GMRES [3]
+preconditioned with the distributed Schur Complement
+[4] has been considered and
+compared with Additive Schwarz and global incomplete
+ILU(0) preconditionings.  It has been observed that
+Schur Complement preconditioning with a small amount of
+fill and a few inner iterations scales well and
+exhibits good solution times while attaining almost
+linear speedup. The number of iterations and the
+computational time depends only mildly on the Debye
+parameter of the electrolyte.
+<P>
+[1]
+L.&nbsp;F.&nbsp;Greengard, J.&nbsp;Huang,
+<EM>A new version of the Fast Multipole Method
+for screened Coulomb interactions in three
+dimensions</EM>, J.&nbsp;Comput. Phys. <B>180</B>(23)
+(2002) 642-658.
+<P>
+[2]
+A.&nbsp;Yu.&nbsp;Grosberg, T.&nbsp;T.&nbsp;Nguyen, B.&nbsp;I.&nbsp;Shklovskii,
+<EM>Colloquium: The physics of charge inversion
+in chemical and biological systems</EM>,
+Reviews of Modern Physics <B>74</B>(2)
+(2002) 329-345.
+<P>
+[3]
+Y.&nbsp;Saad, <EM>Iterative Methods for Sparse Linear
+Systems, 2nd edition</EM>, SIAM (2002) Philadelphia PA.
+<P>
+[4]
+Y.&nbsp;Saad, M.&nbsp;Sosonkina, <EM>Distributed
+Schur Complement techniques for general sparse
+linear systems</EM>, SIAM J.&nbsp;Sci. Comp. <B>21</B>(4)
+(1999) 1337-1356.
+<P>
+[5]
+I.&nbsp;Tsukerman, <EM>Electromagnetic applications
+of a new finite-difference calculus</EM>,
+IEEE Trans. Magn. <B>41</B>(7) (2005) 2206-2225.
+<P>
+[6]
+I.&nbsp;Tsukerman, <EM>A class of difference schemes with
+flexible local approximation</EM>, J.&nbsp;Comp. Phys.
+<B>211</B>(2) (2006) 659-699.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

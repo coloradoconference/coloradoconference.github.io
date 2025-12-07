@@ -1,0 +1,79 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf An algebraic multigrid preconditioner for a class of \\
+	singular M-matrices}}
+
+	Elena Virnick \\
+	Institut f\:ur Mathematik \\
+	Technische Universit\:at Berlin \\
+	{\tt virnik@math.tu-berlin.de}
+\end{center}
+We will consider the problem of the computation of stationary
+distributions of Markov chains which arises in many different
+application areas. These range from the distribution of drugs
+in the blood circulation systems to the Page Rank computed by
+Google. The task is to compute the left eigenvector
+corresponding to the largest eigenvalue of the transition
+matrix $T$ or alternatively solve the linear system
+$$(I-T^T)x=0,$$
+where the matrix $(I-T^T)$ is a singular $M$-matrix.
+In applications, these matrices are large and sparse.
+Therefore, iterative methods such as GMRES are applied.
+However, the applicability of GMRES depends on whether
+it is possible to find a suitable preconditioner.
+For non-singular, symmetric positive definite M-matrices
+that are obtained from discretisations of boundary
+value problems the algebraic multigrid is well known
+to be a good preconditioner. We show how it is possible
+to apply the algebraic multigrid method to our special
+case of singular non-symmetric $M$-matrices and show
+numerical examples that illustrate that this leads to
+significant acceleration of the convergence speed.
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

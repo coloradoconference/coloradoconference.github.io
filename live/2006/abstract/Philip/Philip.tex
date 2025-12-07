@@ -1,0 +1,74 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Resistive magnetohydrodynamics with implicit adaptive mesh refinement}}
+
+	Bobby Philip \\
+	MS B256, Computer and Computational Sciences Division \\
+	Los Alamos National Laboratory, PO Box 1663, Los Alamos NM 87545 \\
+	{\tt bphilip@lanl.gov} \\
+	Michael Pernice, Luis Chacon
+\end{center}
+Implicit adaptive mesh refinement (AMR) is used to simulate
+a model resistive magnetohydrodynamics problem. This
+challenging multi-scale, multi-physics problem involves a
+wide range of length and time scales. AMR is employed to
+resolve extremely thin current sheets, essential for an
+accurate macroscopic description. Implicit time integration
+is used to step over fast Alfven time scales. At each time
+step, large-scale systems of nonlinear equations are solved
+using Jacobian-free Newton-Krylov methods together with a
+physics-based preconditioner. The preconditioner is
+implemented using optimal multilevel solvers such as the
+Fast Adaptive Composite grid (FAC) method. We will describe
+our initial results highlighting various aspects of problem
+formulation, optimal preconditioning on AMR grids, and
+efforts towards achieving parallelism.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

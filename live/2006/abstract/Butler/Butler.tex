@@ -1,0 +1,85 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Improving coarsening and interpolation for algebraic multigrid}}
+
+	Jeff Butler \\
+	Dept.~of Applied Mathematics, University of Waterloo \\
+	Waterloo, Ontario, Canada N2L 3G1 \\
+	{\tt jsbutler@math.uwaterloo.ca} \\
+	Hans De Sterck
+\end{center}
+Algebraic multigrid (AMG) is one of the most efficient
+algorithms for solving large sparse linear systems on
+unstructured grids. Classical coarsening schemes such as the
+standard Ruge-Steuben method [1] can lead to adverse effects
+on computation time and memory usage that affect
+scalability. Memory and execution time complexity growth is
+remedied for various large three-dimensional (3D) problems
+using the parallel modified independent set (PMIS)
+coarsening strategy developed by De Sterck, Yang, and Heys
+[2]. However, this coarsening strategy often leads to
+erratic grids without a regular structure that diminish
+convergence. This talk looks at a modification of the PMIS
+algorithm that consistently produces more uniform
+coarsenings, and significantly improves convergence
+properties over the original PMIS algorithm. Improvements of
+existing interpolation schemes and application of the
+resulting methods to several problems are also examined.
+
+[1] J.~Ruge, K.~Stueben, {\em Algebraic multigrid (AMG)},
+Multigrid Methods v.3, Frontiers in Applied Mathematics,
+S.~McCormick, ed., SIAM (1987) 73--130.
+
+[2] H.~De Sterck, U.~M.~Yang, and J.~J.~Heys,
+{\em Reducing Complexity in Parallel Algebraic
+Multigrid Preconditioners}, to appear in
+SIAM J.~Matr. An. and Applications, 2006.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

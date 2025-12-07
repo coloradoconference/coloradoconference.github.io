@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Heldman</TITLE>
+<LINK REL="STYLESHEET" HREF="../abstr.css">
+</HEAD>
+<BODY >
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>Multi-level optimization for image registration using 
+<BR>
+local refinement on octrees</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Stefan Heldman 
+<BR>
+Dept.&nbsp;of Mathematics and Computer Science, Emory University 
+<BR>
+400 Dowman Drive, Atlanta Georgia 30322 
+<BR>	<TT>heldmann@mathcs.emory.edu</TT>
+<BR>
+Eldad Haber, Jan Modersitzki
+</DIV>
+<p>
+We present a new multi-level approach for non-linear image
+registration using local refinement techniques.
+<P>
+Standard multi-level approaches for this problem discretize
+the domain starting with a regular coarse grid and refine
+every cell from level to level. In our approach, we also
+start with a regular coarse grid but its refinement for
+higher levels is done locally. Using local refinement is
+motivated by the observation that changes in the solution at
+higher levels appear mainly locally and large areas stay
+unchanged such that there is no need for a finer resolution.
+The local refinement in our approach is done by subdividing
+cells into four (2D) or eight (3D) resulting quad (2D) and
+octree-grids (3D), respectively.
+<P>
+Compared with the standard multi-level approach, our method
+requires substantially less memory and arithmetic
+operations. Therefore, it is in particular well-suited for
+large-scale problems.
+<P>
+<BR><HR>
+</BODY>
+</HTML>

@@ -1,0 +1,73 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf Steepest descent and conjugate gradient methods with \\
+	variable preconditioning}}
+
+	Ilya Lashuk \\
+	Dept.~of Mathematical Sciences \\
+	University of Colorado at Denver and Health Sciences Center \\
+	P.O.~Box 173364, Campus Box 170, Denver CO 80217-3364 \\
+	{\tt ilashuk@math.cudenver.edu} \\
+	Andrew Knyazev
+\end{center}
+We show that the conjugate gradient method with variable
+preconditioning in certain situations cannot give any
+improvement compared to the steepest descent method for
+solving a linear system with a symmetric positive definite
+(SPD) matrix of coefficients. We assume that the
+preconditioner is SPD on each step, and that the condition
+number of the preconditioned system matrix is bounded from
+above by a constant independent of the step number. Our
+proof is geometric and is based on the simple fact that a
+nonzero vector multiplied by all SPD matrices with a
+condition number bounded by a constant generates a circular
+cone.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

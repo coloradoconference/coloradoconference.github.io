@@ -1,0 +1,92 @@
+===firstname:
+Kees
+===firstname3:
+Kees
+===lastname2:
+Erlangga
+===postal:
+Delft University of Technology
+Faculty of Electrical Engineering,
+Mathematics and Computer Science
+Delft Institute of Applied Mathematics
+Mekelweg 4
+2628 CD Delft
+The Netherlands 
+===lastname:
+Vuik
+===lastname3:
+Oosterlee
+===ABSTRACT:
+Complex shifted-Laplace preconditioners for the Helmholtz equation
+\\[2ex]
+C. Vuik, Y.A. Erlangga, C.W. Oosterlee and M.B. van Gijzen\\
+Delft University of Technology\\
+Faculty of Electrical Engineering,
+Mathematics and Computer Science\\
+Delft Institute of Applied Mathematics\\
+Mekelweg 4,
+2628 CD Delft,
+The Netherlands \\
+{\bf e-mail: c.vuik@tudelft.nl}\\
+[2ex]
+In this paper, the time-harmonic wave equation in heterogeneous media
+is solved
+numerically. The underlying equation governs wave propagations and
+scattering
+phenomena arising in many area's, e.g. in aeronautics, geophysics, and
+optical
+problems. In particular, we look for efficient iterative
+solution techniques for the Helmholtz equation
+discretized by  finite difference discretizations. Since the number of
+grid points per wavelength should be sufficiently large for accurate  
+solutions, for very high wavenumbers the discrete problem becomes
+extremely large, thus prohibiting the use of direct solvers.
+However, since the coefficient matrix is sparse,
+iterative solvers are an interesting alternative.
+
+In many geophysical applications that are of our interest, 
+an unbounded domain is used. In our model we
+approximate such a domain by a bounded domain, where appropriate
+boundary conditions are used to prevent spurious reflections. As
+boundary conditions we compare  the following possibilities:
+Dirichlet, Neumann, Sommerfeld, Absorbing Layer and Perfect Matched
+Layer. Due to the boundary conditions and damping in the heterogeneous
+medium, the coefficient
+matrix is complex-valued.
+
+It appears that standard iterative solvers (ILU preconditioned
+Krylov solver, Multigrid, etc.) fail for the Helmholtz equation, if the
+wavenumber becomes sufficiently high.  In this paper we
+present a Bi-CGSTAB solution method combined with a
+novel preconditioner for high wavenumbers. The preconditioner is based
+on the inverse of an
+Helmholtz operator, where an artificial damping term is added to the
+operator. This preconditioner can
+be approximated by multigrid. This is somewhat surprising as
+multigrid, without
+enhancements, has convergence troubles for the original Helmholtz
+operator at high wavenumbers.
+
+Currently, we are investigating  the best choice of the damping
+term. If the damping term is small Bi-CGSTAB
+converges fast, but it is difficult to use multigrid for the
+preconditioner. On the other hand, if the damping
+term is large the multigrid approximation is very good, but the
+convergence of Bi-CGSTAB is slow. So a compromise is required to
+obtain an efficient solver. To find a good value of the damping term
+we study the spectral properties of the preconditioned
+matrix. It appears that an eigenvalue analysis of this matrix
+can be used to predict
+the convergence of GMRES. In practice it appears that these insights
+can also be used for the convergence of Bi-CGSTAB.
+We conclude that Bi-CGSTAB combined with the novel preconditioner
+converges satisfactorily for all choices of the boundary conditions.
+
+===email:
+c.vuik@tudelft.nl
+===otherauths:
+Martin Van Gijzen
+===title:
+Complex shifted-Laplace preconditioners for the Helmholtz equation
+===firstname2:
+Yogi

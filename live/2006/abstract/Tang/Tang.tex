@@ -1,0 +1,101 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf A novel deflation method to solve the 3-D discontinuous \\
+	and singular Poisson equation}}
+
+	Jok M.~Tang \\
+	Dept.~of Applied Mathematical Analysis \\
+	Delft University of Technology \\
+	Mekelweg 4, 2628 CD Delft, The Netherlands \\ 
+	{\tt j.m.tang@ewi.tudelft.nl}
+\end{center}
+Recently, simulating bubbly flows is a very popular topic in
+CFD. These bubbly flows are governed by the Navier-Stokes
+equations. In many popular operator splitting formulations
+for these equations, solving the linear system coming from
+the discontinuous Poisson equation takes the most
+computational time, despite of its elliptic origins. ICCG is
+widely used for this purpose, but for complex bubbly flows
+this method shows slow convergence.
+
+Moreover, new insights are given into the properties of
+invertible and singular deflated and preconditioned linear
+systems, where the coefficient matrices are symmetric and
+positive (semi-) definite. These linear systems can be
+derived from a discretization of the Poisson equation with
+Neumann boundary conditions. Sometimes these linear systems
+are forced to be invertible leading to a worse (effective)
+condition number. If ICCG is used to solve this problem, the
+convergence is significantly slower than for the case of the
+original singular problem.
+
+We show that applying the deflation technique, which leads
+to the DICCG method, remedies the worse condition number and
+the worse convergence of ICCG. Moreover, some useful
+equalities are derived from the deflated variants of the
+singular and invertible matrices, which are also generalized
+to preconditioned methods. It appears that solving the
+invertible and singular linear systems with DICCG leads to
+exactly the same convergence results.
+
+This new method DICCG incorporates the eigenmodes
+corresponding to the components which caused the slow
+convergence of ICCG. Coarse linear systems have to be solved
+within DICCG. We discuss some methods to do this efficiently
+which results in two approaches DICCG1 and DICCG2.
+
+Thereafter we show with numerical experiments that both DICCG
+approaches are very efficient and they emphasize also the
+theoretical results. Compared to ICCG, DICCG decreases
+significantly the number of iterations and the computational
+time as well which are required for solving Poisson equation
+in applications of 2-D and 3-D bubbly flows.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

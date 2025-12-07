@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andy Wathen \\
+{\bf Constaint Preconditioning and Schilders Factorization for Saddle-Point Systems}}
+
+Oxford University Computing Laboratory \\ Wolfson Building \\ Parks Road \\ Oxford OX1 3QD \\ UK
+\\
+{\tt wathen@comlab.ox.ac.uk}\end{center}
+
+Saddle-point systems arise widely because they generally result
+from any problem with constraints. Hence in Fluid Mechanics
+incompressibility is a constraint on the Navier-Stokes equations,
+in Optimization algebraic and/or bound constraints are often
+applied and in PDE constrained optimization the PDEs themselves
+provide the constraints.
+
+This talk is about preconditioned iterative approaches to the
+solution of large-scale saddle-point problems based on
+preconditioners which preserve the constraints: so-called
+constraint preconditioners. We will briefly review the attractive
+feature of such preconditioners and then explain how these
+preconditioners can effectively be realized through a block
+factorization due to Wil Schilders. This reveals a range of
+possible approaches where the balance between faster convergence
+though better preconditioning and the cost of the preconditioner
+varies.
+
+
+This is joint work with Sue Dollar, Nick Gould and Wil Schilders
+
+
+\end{document}

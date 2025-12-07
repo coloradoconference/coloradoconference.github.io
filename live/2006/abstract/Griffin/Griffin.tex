@@ -1,0 +1,72 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+
+\def\mathbi#1{\textbf{\em #1}}
+\def\BA{\bf{A}}
+\def\BB{\bf{B}}
+\def\bn{\bf{n}}
+\def\CP{\mathcal{P}}
+\def\CV{\mathcal{V}}
+\def\CI{\mathcal{I}}
+
+\newcommand{\gradt}{\nabla\cdot}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Cplex}{\mathbb{C}}
+
+\newcommand{\Vecc}[2]{ \left(
+	\begin{array}{c}
+	#1 \\ #2
+	\end{array}
+	\right) }
+
+\newcommand{\Matrr}[4]{ \left(
+	\begin{array}{cc}
+	#1 & #2 \\
+	#3 & #4
+	\end{array}
+	\right) }
+
+\newcommand{\calB}{{\mathcal B}}
+\newcommand{\calBB}{{\mathcal B}^{\Box}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfxex}{{\mathbf x}_{\mbox{\scriptsize $\star$}}}
+\newcommand{\Dim}{\mathop{\mathrm{dim\ }}}
+
+\begin{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\large
+{\bf An asynchronous parallel derivative-free algorithm for \\
+	handling general constraints}}
+
+	Josh D Griffin \\
+	P.O.~Box 969 MS 9159,  Livermore CA 94551 \\
+	{\tt jgriffi@sandia.gov} \\
+	Tamara G Kolda
+\end{center}
+We will discuss an asynchronous parallel implementation of a
+derivative-free augmented Lagrangian algorithm for handling
+general nonlinear constraints recently proposed by Kolda,
+Lewis, and Torczon. The method solves a series of linearly
+constrained subproblems, seeking to approximately minimize
+the augmented Lagrangian which involves the nonlinear
+constraints. Each subproblem is solved using a generating
+set search algorithm capable of handling degenerate linear
+constraints. We use APPSPACK to solve the
+linearly-constrained subproblems, enabling the objective and
+nonlinear constraint functions to be computed asynchronously
+in parallel. A description and theoretical analysis of the
+algorithm will be given followed by numerical results.
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+

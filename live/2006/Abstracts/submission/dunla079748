@@ -1,0 +1,35 @@
+===firstname:
+Daniel
+===firstname3:
+
+===lastname2:
+O'Leary
+===postal:
+Sandia Nation Laboratories
+P.O. Box 5800  M/S 1110
+Albuquerque, NM 87185-1110
+===lastname:
+Dunlavy
+===lastname3:
+
+===ABSTRACT:
+We present a new method for solving unconstrained minimization
+problems---Homotopy Optimization with Perturbations and Ensembles (HOPE). HOPE is a homotopy optimization method that finds a sequence of minimizers of a homotopy function mapping a template function to the target function, the objective function of our minimization problem. To increase the likelihood of finding a global minimizer, points in the sequence are perturbed and used as starting points to find other minimizers. Points in the resulting ensemble of minimizers are used as starting points to find minimizers of the homotopy function as it deforms the template function into the target function.
+
+We show that certain choices of the parameters used in HOPE lead to instances of existing methods: probability-one homotopy methods, stochastic search methods, and simulated annealing. We use these relations and further analysis to demonstrate the convergence properties of HOPE.
+
+The development of HOPE was motivated by the protein folding problem, the problem of predicting the structure of a protein as it exists in nature, given its amino acid sequence. However, we demonstrate that HOPE is also successful as a general purpose minimization method for nonconvex functions.
+
+Numerical experiments performed to test HOPE include solving several standard test problems and the protein folding problem using two different protein models. In most of these experiments, standard homotopy functions are used in HOPE. Additionally, several new homotopy functions are introduced for solving the protein folding problems to demonstrate how HOPE can be used to exploit the properties or structure of particular problems.
+
+Results of experiments demonstrate that HOPE outperforms several
+methods often used for solving unconstrained minimization problems---a quasi-Newton method with BFGS Hessian update, a globally convergent variant of Newton's method, and ensemble-based simulated annealing.
+
+===email:
+dmdunla@sandia.gov
+===otherauths:
+
+===title:
+Global Optimization: For Some Problems, There's HOPE
+===firstname2:
+Dianne

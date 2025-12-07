@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+if ($#ARGV) { die "Usage: $0 htmlfile\n\n"; }
+
+$fnA=$ARGV[0];
+($fnB=$fnA) =~ s/\./TR./;
+
+open (HTML,$fnA) || die "cannot read $fnA\n\n";
+open (HL,">$fnB") || die "cannot write to $fnB\n\n";
+
+while (<HTML>) {
+
+	if (/^\s*$/) { next; }
+
+	print HL;
+
+	if (/<.DIV>/) {
+		$ediv++;
+		if ($ediv == 2) { print HL "<p>\n"; }
+		}
+
+}
+
+close HL;
+close HTML;
+if ($ediv < 2) { print "$fnA $fnB\n"; }
+exit 0;
+
+############################################################
+############################################################
+

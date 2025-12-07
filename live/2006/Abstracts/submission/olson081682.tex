@@ -1,0 +1,28 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Luke Olson \\
+{\bf Developments in Algebraic Multigrid Preconditioning for High-Order Spectral Elements}}
+
+Siebel Center for Computer Science \\ University of Illinois at Urbana-Champaign \\ 201 N Goodwin Ave \\ Urbana  \\ IL 61801
+\\
+{\tt lukeo@uiuc.edu}\end{center}
+
+In this talk we highlight recent attempts to solve systems of equations
+arising from high-order spectral element discretizations. In particular, we
+extend the success of Algebraic Multigrid (AMG) preconditioning on
+structured grids to the unstructured case (using triangles).
+
+We consider high-order nodal spectral elements based on the electrostatic
+distribution. A low-order finite element preconditioner is utilized and
+accelerated with Conjugate Gradient. The elements cause a particular
+challenge as the local grids are also unstructured and suffer from poor
+aspect ratios. We present numerical evidence in support of this method
+and discuss the implications of using this approach.
+
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert Shuttleworth \\
+{\bf Block Preconditioners for the Incompressible Navier-Stokes Equations}}
+
+The University of Maryland \\ CSCAMM \\ 4146 CSIC Building #406 \\ Paint Branch Drive \\ College Park MD 20742-3289 \\ USA
+\\
+{\tt rshuttle@math.umd.edu}\\
+Howard Elman\\
+Ray Tuminaro\\
+	Victoria Howle
+	John Shadid\end{center}
+
+We consider a preconditioner derived from a block factorization of the
+coefficient matrix that is generated in a Newton nonlinear iteration for
+the incompressible Navier-Stokes equations. This preconditioner is based
+on the approximation of the Schur complement operator using a technique
+proposed by Kay, Loghin, and
+Wathen and Silvester, Elman, Kay, and Wathen. It is derived using
+subsidiary computations (solutions of pressure Poisson and
+convection--diffusion--like subproblems) that are significantly easier to
+solve than the entire coupled system. We discuss a computational study
+performed using MPSalsa, a stabilized finite element code, in which
+parallel versions of these preconditioners are compared with a one-level
+overlapping Schwarz domain decomposition preconditioner. Our results show
+nearly ideal convergence rates for a wide range of Reynolds numbers on
+two-dimensional problems with both enclosed and in/out flow boundary
+conditions on both structured and unstructured meshes.
+
+
+\end{document}

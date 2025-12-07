@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Howle</TITLE>
+<META NAME="description" CONTENT="Howle">
+<META NAME="keywords" CONTENT="Howle">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="Howle.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+
+<P>
+<DIV ALIGN="CENTER">
+<FONT SIZE="+1"><B>The effect of boundary conditions and inner solver accuracy
+within  
+<BR>
+pressure convection-diffusion preconditioners for
+the 
+<BR>
+incompressible Navier-Stokes equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Victoria Howle 
+<BR>
+Sandia National Labs, PO Box 969 
+<BR>
+MS9159, Livermore CA 94551 
+<BR>	<TT>vehowle@sandia.gov</TT> 
+<BR>
+Ray Tuminaro, Jacob Schroder
+
+</DIV>
+<I>Pressure convection-diffusion</I> preconditioners for
+solving the incompressible Navier-Stokes equations were
+first proposed by Kay, Loghin, and Wathen and Silvester,
+Elman, Kay, and Wathen. While numerous theoretical and
+numerical studies have demonstrated mesh independent
+convergence for these block methods on several problems and
+their overall efficacy, there are several potential
+weaknesses remaining in the practical use of these methods.
+
+<P>
+Perhaps one of the most poorly understood topics within
+this block preconditioner family is the influence of
+boundary conditions on overall algorithm convergence. The
+notion of differential commuting is the basis for all <I>pressure convection-diffusion</I> preconditioners. The main
+mathematical difficulty is that differential commuting does
+not hold at the boundaries. Thus, it is unclear what
+boundary conditions should be enforced in subblocks of the
+preconditioner. Heuristics have been developed that roughly
+account for boundary conditions associated with inflow,
+outflow, and no-slip. However, these rough heuristics often
+do not properly capture the boundary interactions, and can
+in fact lead to a degradation in convergence rates as the
+mesh is refined. We first explore the effect of having
+``ideal'' boundary conditions within the preconditioner.
+While not computationally feasible, the ideal boundary
+condition results highlight the importance of choosing
+suitable boundary conditions. We then explore somewhat more
+practical approximations to the ideal conditions based on
+ILU factorizations and probing [Siefert and de Sturler,
+2005].
+
+<P>
+Another important issue is the relationship
+between the accuracy of inner sub-problem solves to the
+overall convergence rate of the outer iteration. It has been
+known for quite some time that when mesh-independent
+sub-problem solvers are used inexactly within this block
+preconditioner, the overall convergence of the outer
+iteration remains mesh independent for the Stokes equations
+[Silvester and Wathen, 1994]. The situation is not well
+understood for the Navier-Stokes equations, and it is also
+not well understood when the inner subblock solver has less
+than ideal behavior. We have observed a noticeable
+degradation in the outer iteration convergence rate when a
+sub-solver is terminated too quickly. We discuss possible
+solutions to this issue including reusing information from
+repeated linear solves.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://amath.colorado.edu/PNGs/icons.png/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Bruce Fast
+2006-03-11
+</ADDRESS>
+</BODY>
+</HTML>

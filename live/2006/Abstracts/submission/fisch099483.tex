@@ -1,0 +1,62 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Rainer Fischer \\
+{\bf Structured Matrices, Multigrid Methods, and the Helmholtz Equation}}
+
+Technische Universität München \\ Boltzmannstr 3 \\ 85748 Garching b München \\ Germany
+\\
+{\tt rainer.fischer@mytum.de}\\
+Thomas Huckle\end{center}
+
+We wish to present a different approach to the multigrid solution of the
+Helmholtz equation with constant coefficients. It is primarily based on
+certain classes of structured matrices and their strong correspondence to
+generating functions.
+Discretization of the Helmholtz equation with certain boundary conditions
+results in structured linear systems which are associated with generating
+functions.
+Depending on the kind of boundary conditions, the discretized Helmholtz
+equation is a linear system of Toeplitz, tau, circulant, or DCT-III
+type. By solving these systems with normal equations, we have the
+advantage that the corresponding generating functions are nonnegative,
+although they have a whole curve of zeros.
+
+The multigrid methods we develop are especially designed for structured
+matrix classes, making heavy use of the associated generating functions.
+Over the last ten years, a specific theory of multigrid methods has been
+developed for structured matrices whose generating functions have
+isolated zeros. It is based on the AMG approach and the convergence
+theory of Ruge and St\"uben.
+In this work, we extend some of these theoretical results to the case of
+generating functions with whole zero curves, and apply these modified
+multigrid methods to the solution of the Helmholtz equation. We propose
+two different strategies how this can be done.
+\begin{itemize}
+\item The first strategy is based on the idea of representing the whole
+zero curve on all grids. For a multigrid method based on the Galerkin
+approach, we can prove optimal two-grid convergence, but such a method is
+computationally too expensive. Therefore we propose a rediscretization
+technique where the zero curve is approximated on each grid. This results
+in fast convergence and in coarse grid matrices with the same banded
+structure as the given matrix. The only disadvantage of this approach is
+that zero curves become larger on coarser levels, and therefore the
+number of grids is limited.
+\item The second strategy consists of splitting the original problem into
+a fixed number of coarse grid problems. Corresponding to a generating
+function with isolated zeros, each of these problems locally represents
+one part of the zero curve. Each coarse grid problem is solved with a
+standard multigrid method. We combine this splitting technique with the
+first strategy to construct a faster and more robust multigrid solver.
+\end{itemize}
+We wish to discuss the use of our multigrid strategies not only as a
+solver, but also as a preconditioner for Krylov subspace methods.
+Moreover, the methods can also be applied to anisotropic linear systems
+whose generating functions have a whole zero curve.
+
+
+\end{document}
