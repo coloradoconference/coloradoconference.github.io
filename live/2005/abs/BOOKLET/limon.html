@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>ALFONSO LIMON</title>
+</head>
+
+<body>
+
+<center>
+A Multilevel Adaptive Solver for the Density-Gradient
+Equation
+</center>
+
+<p>
+<center>
+<a href="mailto: alfonso.limon@cgu.edu">
+Alfonso Limon</a><br><br>
+School of Mathematical Sciences, 710 N. College
+Avenue, Claremont CA 91711<br><br>
+Hedley Morris<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Continuing advances in the miniaturization of
+integrated circuits have imposed new challenges to
+designers of semiconductor devices, as traditional
+circuit analysis tools are no longer applicable.  In
+this study, we focus on the gate region of MOSFET
+devices with an oxide thickness of order 4-6
+nanometers.  For oxide layers of this width, quantum
+effects start to become noticeable and the standard
+equations of semiconductor physics require quantum
+corrections.
+
+The Density-Gradient equation [1], [2] is a means of
+calculating approximate quantum corrections to
+existing formulae without solving the full
+Poisson-Schodinger system.  We use a one-dimensional
+approximation to reduce the D-G equations to a set of
+singularly perturbed ODE~Rs [3].  These equations have
+interior layer solutions, which compromise the
+numerical treatment of the problem if care is not
+taken to resolve the large gradients in the solution
+within the layer correctly.  
+
+Several approaches have been proposed to resolve the
+boundary layer region including nonlinear
+discretization schemes [4], [5].  However, these
+methods have difficulty resolving interior layers [6];
+therefore, we propose a multilevel adaptive scheme to
+solve the model equations.  The method is akin to
+multigrid, but utilizes high-order inter-grid
+operators, which preserve a nested space structure
+throughout the various resolution levels, similar to
+the methods described by Goedecker [7] and Warming &
+Beam [8].  This multilevel method has several
+advantages over the previous discretization schemes,
+the most important being that it adapts dynamically to
+interior layers without a priori knowledge of the
+location or geometry of the layer.<p>
+
+
+[1] Ancona M.G. 1990. Macroscopic description of
+quantum-mechanical tunneling. Phys. Rev. B 42: 1222.
+<p>
+[2] Ancona M.G. 1998. Simulation of quantum
+confinement effects in Ultra-Thin-oxide MOS
+structures. J. Tech. CAD (11). <p>
+[3] Ward, J. F., Odeh M., and Cohen D. S., Asymptotic
+methods for metal oxide semiconductor field affect
+transistor modeling. SIAM J. Appl. Math 50 1099-1125
+(1990).<p>
+[4] Ancona M.G. and Biegel B.A. 2000. Nonlinear
+discretization scheme for the density-gradient
+equations. In: Proc. SISPAD~R00, p. 196 (2000).<p>
+[5] Wettstein A., Schenk A., and Fichtner W. 2001.
+Quantum device-simulation with the density-gradient
+model on unstructured grids. IEEE Trans. Elec. Dev.
+48: 279. <p>
+[6] Wang X. and Tang T.-W. 2002. Discretization scheme
+for Density-Gradient Equation. Journal of
+Computational Electronics 1, 389-392.<p>
+[7] Goedecker S., Ivanov O., ~SSolution of Partial
+Differential Equations Using Wavelets~T, Comp. In Phys,
+12, 548 (1998) .<p>
+[8] Warming R., Beam R, ~SDiscrete Multiresolution
+Analysis Using Hermite Interpolating: Biorthogonal
+Multiwavelets,~T SIAM J. Sci. Comput. 22, 4, 1269-1377
+(2000).<p>
+</body>
+</html>
+
+
+
+		
+__________________________________ 
+Do you Yahoo!? 
+Yahoo! Mail - now with 250MB free storage. Learn more.
+http://info.mail.yahoo.com/mail_250
+        [ Part 2, "abstract-limonmorris.zip"  Application/X-ZIP-COMPRESSED ]
+        [ 2.4KB. ]
+        [ Unable to print this part. ]
+

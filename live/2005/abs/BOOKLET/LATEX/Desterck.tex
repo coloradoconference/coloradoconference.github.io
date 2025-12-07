@@ -1,0 +1,80 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Hans De Sterck
+\\ {\bf
+Study of Aggressive Coarsening and Multipass Interpolation in Algebraic
+Multigrid
+}}
+
+Department of Applied Mathematics
+\\ University of Waterloo \\
+Ontario, Canada
+\\ {\tt
+hdesterck@uwaterloo.ca
+}
+\\
+Ulrike Meier Yang
+\end{center}
+
+Algebraic multigrid is a very efficent algorithm for solving large
+linear systems on unstructured grids. Use of coarsening schemes such as
+parallel variants of the standard coarsening algorithm by Ruge and
+Stueben [1] or CLJP coarsening [2], a method based on parallel maximal
+independent set algorithms, can lead to high complexities with regard
+to memory usage as well as computation time, which adversely affect
+scalability.
+In recent work [3], we have proposed two new parallel AMG coarsening
+schemes, that are based on solely enforcing a maximum independent set
+property, resulting in sparser coarse grids. The new coarsening
+techniques remedy memory and execution time complexity growth for
+various large three-dimensional (3D) problems. If used within AMG as a
+preconditioner for Krylov subspace methods, the resulting iterative
+methods tend to converge fast. For some difficult problems, however,
+these methods still produce complexities that are too high, or don't
+converge well enough, and further remedies in terms of coarsening and
+interpolation need to be found in order to obtain scalable methods.
+In this paper we describe the combination of these various coarsening
+methods with ``aggressive coarsening'' techniques, which require long
+range ``multipass'' interpolation [4], and empirically study complexity
+and convergence properties of the resulting iterative methods. The
+resulting AMG methods, implemented in the hypre solver library [5], are
+applied to first-order system least-squares (FOSLS) discretizations of
+elliptic PDE systems. Parallel scalability of the combined FOSLS-AMG
+method is investigated for large-scale three-dimensional applications.
+
+*This work was performed under the auspices of the U.S. Department of
+Energy by University of California Lawrence Livermore National
+Laboratory under contract number W-7405-Eng-48 and subcontract number
+B545391.
+
+[1] J. Ruge, K. Stueben, Algebraic multigrid (AMG), in: S. McCormick,
+ed., Multigrid Methods, vol. 3 of Frontires in Applied Mathematics
+(SIAM, 1987) 73--130.
+
+[2] V. E. Henson, U. M. Yang,
+{\em BoomerAMG: a Parallel Algebraic Multigrid
+Solver and Preconditioner}, Applied Numerical Mathematics,
+{\bf 41} (2002) 155--177.
+
+[3] H. De Sterck, U. M. Yang, and J. J. Heys,
+{\em Reducing Complexity in
+Parallel Algebraic Multigrid Preconditioners}, submitted to SIAM Journal
+on Matrix Analysis and Applications, 2004.
+
+[4] K. Stueben, {\em Algebraic multigrid (AMG): an introduction with
+applications}, in: U. Trottenberg, C. Osterlee and A. Schueller, eds.,
+Multigrid (Academic Press, 2000) 413--532.
+
+[5] R. Falgout, U. M. Yang, {\em hypre: a Library of High Performance
+Preconditioners}, in Computational Science - ICCS 2002 Part III, P.
+Sloot, C. Tan, J. Dongarra and A. Hoekstra, eds., Lecture Notes in
+Computer Science, {\bf 2331} (Springer, 2002) 632--641.
+
+\end{document}

@@ -1,0 +1,88 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Craig C. Douglas
+\\ {\bf
+Dynamic Data-Driven Application Simulations (DDDAS)
+}}
+
+Departments of Computer Science and Mechanical Engineering
+\\
+University of Kentucky, Lexington KY
+\\
+and
+\\
+Department of Computer Science \\ Yale University, New Haven CT
+\\ {\tt
+douglas-craig@cs.yale.edu
+}
+\\
+Yalchin Effendiev
+\end{center}
+
+DDDAS is a new paradigm in which data dynamically controls almost all
+aspects of long term simulations. Rather than run many simulations
+using static data as initial conditions, a very small number of
+simulations are run with additional data injected as it becomes
+available. Most candidate problems for the DDDAS paradigm involve
+solving a nonlinear time dependent partial differential equation of the
+form
+$F(x+Dx(t))=0$ by iteratively choosing a new approximate
+solution $x$ based on the time dependent perturbation
+$Dx(t)$.
+
+In practice, the data streaming in may have errors and therefore may
+not be completely accurate or reliable (for example, in reservoir data
+sets, a 15\% error in the data is common). As a result, perhaps one does
+not need to solve the nonlinear equation precisely at each step. This
+can expedite the execution.
+
+At each iterative step, the following three issues may need to be
+addressed:
+\begin{enumerate}
+\item Incomplete solves of a sequence of related models must be
+understood.
+\item The effects of perturbations, either in the data and/or the
+model, need to be resolved and kept within acceptable limits.
+\item Nontraditional convergence issues have to be understood and
+resolved.
+\end{enumerate}
+
+Consequently, there will be a high premium on developing quick
+approximate direction choices, such as, lower rank updates and
+continuation methods, and understanding their behavior are
+important issues. Fault tolerant algorithms have a premium.
+
+The dynamic data is used to determine
+\begin{enumerate}
+\item Whether or not a warm restart is necessary due to
+unacceptable errors building up in parts of the domain.
+\item If a rollback in time is required.
+\item If the simulation is running with acceptable errors.
+\end{enumerate}
+
+Ideally, there does not have to be a human in the
+control loop throughout a simulation.
+
+Using the data appropriately lets the physical and
+mathematical models, the discretization, and the
+scales of interesting parts of the computations
+become parameters that can be changed during the
+course of the simulation. In addition, error
+propagation is of particular interest in nonlinear
+time dependent simulations.
+
+DDDAS offers interesting computational and
+mathematically unsolved problems, such as, how do you
+analyze the properties of a generalized PDE when you
+do not know either where or what the local boundary
+conditions are at any given moment in the simulation
+in advance?
+
+\end{document}

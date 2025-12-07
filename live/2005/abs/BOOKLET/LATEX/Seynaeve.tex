@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Bert Seynaeve
+\\ {\bf
+Fourier-mode analysis of a multigrid method for PDEs with random
+parameters}
+}
+
+Department of Computer Science \\
+K.U.Leuven; Celestijnenlaan 200A \\
+B-3001 Heverlee, Belgium
+\\ {\tt
+bert.seynaeve@cs.kuleuven.ac.be
+}
+\\
+Stefan Vandewalle,
+Bart Nicola\"{i}
+\end{center}
+
+We consider the numerical solution of elliptic and parabolic partial
+differential equations with stochastic coefficients. Such equations
+appear, e.g., in reliability problems. Various approaches exist for
+dealing with such `uncertainty propagation' models: Monte Carlo
+methods, perturbation techniques, variance propagation, etc. Here, we
+deal with the stochastic finite element method (SFEM) [1]. This method
+transforms a system of PDEs with stochastic parameters into a
+stochastic linear system by means of a finite element Galerkin
+discretization. The stochastic solution vector of this system is
+approximated by a linear combination of deterministic vectors; the
+coefficients are orthogonal polynomials in the random variables. Unlike
+commonly used methods such as the perturbation method, the SFEM gives a
+result that contains all stochastic characteristics of the solution. It
+also improves Monte Carlo methods significantly because sampling can be
+done after solving the system of PDEs.
+
+In order to solve the discretized stochastic system that appears in the
+SFEM, stochastic versions of iterative methods can be applied, and
+their convergence can be accelerated by implementing them in a
+multigrid context [2]. In the work we present here, the convergence
+properties of these stochastic iterative methods and multigrid methods
+are investigated theoretically: deterministic (local) Fourier-mode
+analysis techniques are extended to the stochastic case by taking the
+eigenstructure into account of a matrix that depends on the random
+structure of the problem. This is equivalent to choosing an alternative
+set of polynomial basis functions in the random variables, which
+results in a decoupling of the original stochastic problem into a very
+large number of deterministic problems of the same type. The
+theoretical convergence rates that we obtain predict the results of
+numerical experiments very well, and the results of the analysis can
+also be used to design optimal stochastic multigrid algorithms.
+
+[1] R.G. Ghanem and P.D. Spanos.
+{\em Stochastic finite elements: a
+spectral approach}. Springer-Verlag, New York, 1991.
+
+[2] O.P. Le Ma\^{i}tre et.al.
+{\em A multigrid solver for
+two-dimensional stochastic diffusion equations}, Computer Methods in
+Applied Mechanics and Engineering, Vol. 192, Iss. 41-42, 2003,
+pp.4723--4744.
+
+\end{document}

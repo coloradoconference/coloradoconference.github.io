@@ -1,0 +1,77 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Mohit Tandon
+\\ {\bf
+AMR for Turbulent Buoyant Plumes
+}}
+
+380 INSCC \\
+University of Utah \\
+155 S 1452 E \\
+Salt Lake City UT 84112
+\\ {\tt
+mohit@crsim.utah.edu
+}
+\\
+Rajesh Rawat,
+Philip J Smith,
+Andrew M Wissink,
+Brian Gunney
+\end{center}
+
+Numerical simulation of turbulent buoyancy driven plumes is
+characterized by two distinct length and time scales. Buoyancy induces
+large scale mixing of air and other species, forming a plume which can
+persist as an organized structure over large length scales. These large
+scale vortical structures have a puffing frequency that is inversely
+proportional to the square root of the length scales of these
+structures. The small scales tend to reduce the buoyant force by local
+mixing phenomena. Global refinement to capture the details at smaller
+length scales is not practical in many applications. Local mesh
+refinement provides an efficient alternative to global refinement.
+Motivation to simulate buoyant plumes and capture the salient flow
+features in the regions where small scale mixing occurs led us to
+develop a code with the capability of Adaptive Mesh Refinement (AMR).
+The coupled AMR, Large Eddy Simulation (LES) procedure allows us to
+capture the information at the scales of the large structures with a
+higher fidelity and also the details which require a sub grid scale LES
+model.
+
+Our approach uses a filtered form for the variable density
+incompressible flow equations that conserves both mass and momentum. We
+use a collocated grid for our computations. The projection formulation
+used avoids any velocity – pressure decoupling. The method
+is based on a projection formulation for momentum equations in which we
+first solve the advection – diffusion equations to predict
+intermediate velocities. We then project the velocities after
+interpolating them on to the faces to enforce the continuity
+constraint. This projection method successfully handles
+``large density'' variations of ten to one observed
+in buoyant plume applications. This approach is implemented in SAMRAI
+(Structured Adaptive Mesh Refinement Application Infrastructure), an
+AMR framework from Lawrence Livermore National Laboratory (LLNL)
+developed for structured hierarchical grids. For solving the pressure
+poisson equation on a composite mesh, we use Fast Adaptive Composite
+(FAC) solver in SAMRAI, which is a multilevel solver. The FAC solver
+interfaces with HYPRE [developed at LLNL] linear solvers on the
+coarsest level. The time integration algorithm is a recursive procedure
+for each level of refinement. For this study, the criteria used for
+grid refinement is the gradient of the mass fraction of a specie.
+
+Verification and Validation of our method is done to assess its
+accuracy and reliability. Verification tests are carried out by using
+the analytical solutions for Eulers equation and Navier Stokes
+equations on a periodic box. These test examples demonstrate the
+accuracy and convergence properties of the algorithm. Validation of the
+code is carried out by demonstrating the performance of the method on a
+more relevant problem, in which a jet of light density fluid like
+Helium mixes in ambient air in the computational domain.
+
+\end{document}

@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>cm conference abstract: Gratton </title>
+</head>
+
+<body>
+
+<center>
+On Recursive Multiscale Trust-Region Algorithms for Unconstrained
+Minimization
+</center>
+
+<p>
+<center>
+<a href="mailto: gratton@cerfacs.fr">
+Serge Gratton</a><br><br>
+CERFACS, Toulouse, France<br><br>
+Annick Sartenaer, FUNDP, Namur, Belgium<br>
+Philippe L. Toint, FUNDP, Namur, Belgium<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+A large class of large-scale finite-dimensional minimization programs arises
+from the discretization of infinite-dimensional problems, such as
+optimal-control problems defined in terms of either ordinary or partial
+differential equations.  We report here on a potentially efficient new class
+of algorithms using this structure and briefly discuss a first set of
+numerical experiments.
+
+A simple first approach that we refer to as mesh refinement,
+is to use coarser grids in order to compute approximate
+solutions which can then be used as starting points for the optimization
+problem on a finer grid (see [2],
+[3] or [8], for instance). However,
+potentially more efficient techniques are inspired from the multigrid
+paradigm in the solution of partial differential equations and associated 
+systems of linear algebraic equations (see, for example, [4] or
+[5]). The work presented here was in particular
+motivated by the ''generalized truncated Newton algorithm'' presented in
+Fisher [7], a talk by Mor&eacute; [10], the
+contribution by Nash and Lewis [9] and the computational
+success of the low/high-fidelity model management techniques of Alexandrov, Lewis
+and co-authors [1]. <br> <br> </P>
+
+
+We aim at minimizing the cost function f(x), x in <b>R</b><sup>n</sup>,
+and assume that we know a collection of functions f<sub>0 </sub>,.., 
+f<sub>r </sub>, such that each f<sub>i </sub> is a twice-continuously
+differentiable function from <b>R</b><sup>n<sub>i </sub> </sup> to
+<b>R</b> (with n<sub>i </sub> &ge; n<sub>i-1 </sub>), the
+connection with our original problem being that n<sub>r </sub> = n and 
+f<sub>r </sub>(x) = f(x) for
+all x in <b>R</b><sup>n</sup>. We also assume that, for each
+i=1,...,r, f<sub>i </sub> is
+''more costly'' to minimize than f<sub>i-1 </sub>. This may be because
+f<sub>i </sub> has more
+variables than f<sub>i-1 </sub> (as would typically be the case if 
+f<sub>i </sub> represent increasingly finer discretizations of the same
+infinite-dimensional
+objective), or because the structure (in terms of partial separability,
+sparsity or eigenstructure) of f<sub>i </sub> is more complex than that of
+f<sub>i-1 </sub>,
+or for any other reason. Our algorithm  
+generates at each level i a sequence of iterates using either a recursive call
+to a coarser level (lower level iteration) 
+or an iteration at level i (same level iteration). 
+A condition for function f<sub>i-1 </sub>  to be useful
+in minimizing  f<sub>i </sub> is provided in terms of gradient of these
+functions prolongated in suitable spaces. 
+If this condition does not
+hold, a same level iteration is performed.
+The same level iterations 
+fall into two classes  : smoothing
+iterations aim at decreasing high-frequency
+components of the gradients and damping iterations, which decrease their
+low-frequency components. 
+A multilevel trust region mechanism is implemented
+that
+ensures a global convergence of the algorithm to first order
+critical points,   
+under some classical assumptions, such as the sufficient decrease condition 
+(in the sense of the Cauchy condition) [6]. </p>
+
+
+We present a numerical applications for one of the possible 
+implementations. We provide details on the mechanisms ensuring that the 
+convergence conditions are met.
+Other implementation questions are concerned with the form of the recursive iterations,
+ranging from free form (where the optimization at lower levels is governed
+purely by accuracy requirements) to fixed cycles (such as the V and W cycles
+inspired by multigrid techniques). Demonstration of the efficiency of the method
+when compared to mesh refinement is
+done on a minimum surface problem with highly oscillatory boundary
+conditions and on the Dirichlet-to-Newman transfer problem.
+Problems involving up to 1.1 million variables were solved
+by the new algorithm in MATLAB on a laptop PC (Pentium 4 Mobile, 1.6 GHz).
+
+
+<p>
+[1] N.M. Alexandrov, R.L. Lewis, C.R. Gumbert, L.L. Green, and P.A.
+Newman. Approximation and model management in aerodynamic optimization
+with variable fidelity models.  Journal of Aircraft, 38(6):1093--1101, 2001. <br>
+[2] S.J. Benson, L.C. McInnes, J.Mor&eacute;, and J.Sarich.
+Scalable algorithms in optimization: Computational experiments.
+Preprint ANL/MCS-P1175-0604, Mathematics and Computer Science,
+Argonne National Laboratory, Argonne, Illinois, USA, 2004.
+To appear in the Proceedings of the 10th AIAA/ISSMO Multidisciplinary
+Analysis and Optimization Conference, August 30 - September
+1, 2004.  <br>
+[3] J.T. Betts and S.O. Erb. Optimal low thurst trajectory to the moon.
+SIAM Journal on Applied Dynamical Systems,
+2(2):144--170, 2003.  <br>
+[4] A. Brandt. Multi-level adaptative solutions to boundary value problems.
+Mathematics of Computation}, 31(138):333--390, 1977. <br>
+[5] W.L. Briggs, V.E. Henson, and S.F. McCormick. A Multigrid Tutorial.
+SIAM, Philadelphia, USA, 2nd edition, 2000. <br>
+[6] A.R. Conn, N.I.M. Gould, and Ph.L. Toint.
+Trust-Region Methods. Number 01 in MPS-SIAM Series on Optimization. SIAM,
+Philadelphia, USA, 2000.
+[7] M.Fisher. Minimization algorithms for variational data assimilation.
+In Recent Developments in Numerical Methods for Atmospheric
+  Modelling, pages 364--385. ECMWF, 1998. <br>
+[8] A.Griewank and Ph.L. Toint. Local convergence analysis for
+partitioned quasi-Newton updates. Numerische Mathematik, 39:429--448,
+1982. <br>
+[9] M.Lewis and S.G. Nash. Model problems for the multigrid
+optimization of systems governed by differential equations.
+SIAM Journal on Scientific Computing, (to appear), 2005. <br>
+[10] J.J. Mor&eacute;. Terascale optimal PDE solvers. Talk at the ICIAM
+2003 Conference in Sydney, 2003. <br>
+
+</body>
+</html>
+

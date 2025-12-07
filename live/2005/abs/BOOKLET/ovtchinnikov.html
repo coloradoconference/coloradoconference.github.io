@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>cm conference abstract: Ovtchinnikov</title>
+</head>
+
+<body>
+
+<center>
+A Fully Coupled Implicit Method for A Magnetohydrodynamics Problem
+</center>
+
+<p>
+<center>
+<a href="mailto: Serguei.Ovtchinnikov@Colorado.edu">
+Serguei Ovtchinnikov</a><br><br>
+University of Colorado at Boulder, Department of Computer Science, 430 UCB, Boulder, CO 80309<br><br>
+Xiao-Chuan Cai<br>
+Florin Dobrian<br>
+David Keyes<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk we discuss a parallel fully implicit Newton-Krylov-Schwarz algorithm for the 
+numerical solution of the unsteady magnetic reconnection problem described by the system 
+of the reduced magnetohydrodynamics (MHD) equations in two-dimensional space. In the MHD 
+formalism plasma is treated as conducting fluid and behaves according to the fluid dynamics equations, 
+coupled with the system of Maxwell’s equations. One of the intrinsic features of MHD is the formation 
+of singular current density sheets, which is believed to be linked to the reconnecting of magnetic fields. 
+A robust solver is required for handling the high nonlinearity associated with the simulation of 
+magnetic reconnection phenomena. The near singular behavior of the solution of the system often limits 
+the usable time step size required by explicit schemes thus making implicit methods potentially more attractive. 
+We employ a stream function approach to enforce the divergence-free conditions on the magnetic 
+and velocity fields, and solve the resulting fully coupled current-vorticity system of equations with a fully 
+implicit time integration using Newton-Krylov techniques with an one-level additive Schwarz preconditioning. 
+In this work we study the parallel convergence of the implicit algorithm and compare our 
+results with those obtained by an explicit method.
+</body>
+</html>

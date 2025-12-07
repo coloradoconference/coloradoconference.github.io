@@ -1,0 +1,121 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>cm conference abstract: PUT speaker's lastname HERE</title>
+</head>
+
+<body>
+
+<center>
+<b>Implicit Solution of High-Order Accurate Discontinuous Galerkin Discretizations
+of the Unsteady Wave Equation Using Spectral Multigrid</b>
+</center>
+
+<p>
+<center>
+<a href="mailto: wangli@uwyo.edu"> Li Wang</a> and
+<a href="mailto: mavripl@uwyo.edu"> Dimitri J. Mavriplis</a><br><br>
+
+Department of Mechanical Engineering<br>
+University of Wyoming<br>
+1000 E. University Ave.<br>
+Laramie, WY 82071-3295 <br><br>
+
+</center>
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The use of high-order accurate spatial discretizations for simulating
+steady and unsteady fluid flows has become more widespread over the last decade,
+For unsteady simulations using high-order spatial discretizations
+with a wide disparity between temporal and spatial
+scales, higher-order implicit time-integration approaches are desirable.  However, such
+approaches require the efficient solution of a non-linear problem at each time-step
+in order to remain competitive.  In this work, we investigate the use of spectral
+multigrid methods for driving implicit time-integration schemes of high-order discontinuous
+Galerkin discretizations, using the linear two-dimensional wave equation as a model problem.
+<p>
+The method of lines is employed, in which the wave equation is first discretized
+in space, resulting in a large set of coupled ordinary differential equations,
+which are then discretized and integrated in time.
+The Discontinuous Galerkin (DG) method represents a spatial discretization approach
+based on a finite-element method, which makes use of element
+based basis functions which are discontinuous across element interfaces [1].
+In this approach, the computational domain is partitioned into an ensemble of non-overlapping
+elements and within each element the solution is approximately by a truncated polynomial expansion.
+The solution is thus determined by the modal coefficients of the expansion in terms
+of the basis functions within each element. Because the resulting solution representation
+is discontinuous across element interfaces, an upwind numerical flux function is used to
+resolve the discontinuity at element interfaces.
+The current implementation uses a set of hierarchical basis functions on triangles [2],
+enabling solutions
+from 1st order (p=0), up to 4th order (p=3) spatial accuracy.
+<p>
+In order to solve the time-dependent problem, the resulting spatially
+discretized equations must be integrated in time.
+Although explicit time-integration schemes have been widely used for DG discretizations,
+in this work we concentrate on the use of implicit time-integration schemes, which
+are not restricted by the stability limit of explicit methods, and are more suitable
+for stiff problems.
+The implicit time-integration schemes employed in this work range from first to fourth-order accurate in time,
+including both first and second order accurate
+multistep backward difference formulas(BDF1, BDF2) and a fourth-order accurate implicit multistage
+Runge-Kutta scheme. The use of implicit Runge-Kutta schemes represents an attempt to balance
+the spatial and temporal orders of accuracy.
+Moreover, even for second-order accurate finite-volume schemes,
+fourth-order implicit Runge-Kutta schemes have been found to outperform
+BDF2 schemes for engineering accuracy levels [3].
+<p>
+At each time-step, implicit time-integration methods require the solution
+of one or more non-linear problems.  Efficient non-linear solvers are required
+for this task in order to result in an overall competitive approach.
+Our approach consists of using a spectral multigrid strategy [4,5] for solving
+the implicit system at each time step.
+The spectral or p-multigrid approach consists of a multigrid method
+where the coarser levels are constructed by reducing the order of accuracy (p-coarsening)
+while keeping the spatial grid resolution fixed (as opposed to h-coarsening).
+Thus, for a p=3 (fourth-order accurate) spatial discretization, three coarser
+multigrid levels are employed, consisting of p=2, p=1, and p=0 at the coarsest level.
+
+
+At each p-multigrid level, an element-Jacobi scheme is used as a smoother.
+The element Jacobi smoother can be viewed as an approximate Newton
+method, where only the Jacobian entries corresponding to the modal coupling
+within an element are retained, and all other entries are discarded,
+resulting in a block diagonal matrix, which is easily inverted using
+Gaussian elimination at the block level.
+When used as a single grid solver, this smoother is shown to produce
+p-independent convergence rates, with strong h-dependence.
+When used as a smoother within the p-multigrid scheme, both h and p independent
+convergence rates are obtained.
+<p>
+In the paper, we show both p and h independent convergence rates for the implicit
+systems arising from the various time discretizations using the element Jacobi driven
+spectral multigrid solver.  The overall efficiency and accuracy
+of the various time-integration schemes are compared by examining the
+error as a function of time for various time step sizes, where the
+design accuracy of the respective time-integration schemes is demonstrated.
+Further work will focus on extending this approach
+to the unsteady Euler and Navier-Stokes equations.
+
+<center>
+<br>References
+</center>
+<p>
+[1]T. C. Warburton, I. Lomtev, Y. Du, S.J. Sherwin and G.E. Karniadakis, "Galerkin and Discontinuous Galerkin Spectral/hp Methods", Comput. Methods Appl. Mech. Engrg. 175(1999), 343-359.<br>
+<p>
+[2]F. Graham, J. Carey and T. Oden, "Finite Elements A Second Course", Vol.2, 1983, 89~95<br>
+<p>
+[3]G. Jothiprasad , D. J. Mavriplis and D. Caughey,
+"Higher-Order Time-Integration Schemes for the Unsteady Navier-Stokes Equations on Unstructured Meshes",
+Journal of Computational Physics, Vol 191, Issue 2, pp. 542-566,
+November 2003<br>
+<p>
+[4]B. Helenbrook, D. J. Mavriplis and H. Atkins, "Analysis of "p"-Multigrid for Continuous and Discontinuous Finite Element Discretizations", Proceedings of the 16th AIAA Computational Fluid Dynamics Conference, 2003, AIAA Paper 2003-3989,<br>
+<p>
+[5]C. R. Nastase and  D. J. Mavriplis, "High-Order Discontinuous Galerkin Methods using a Spectral Multigrid Approach", AIAA Paper 2005-1268, January 2005.<br>
+</body>
+</html>

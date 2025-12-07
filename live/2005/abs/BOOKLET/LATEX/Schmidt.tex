@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+J.G.Schmidt
+\\ {\bf
+On the Use of Algebraic Multigrid inside a Non-Linear Finite Element
+Method for Maxillo-Facial Surgery Simulations
+}}
+
+C+C Research Labs, NEC Europe Ltd. \\
+Rathausallee 10 \\
+53757 Sankt Augustin \\
+Germany 
+\\ {\tt
+schmidt@ccrl-nece.de
+}
+\\
+G.Berti,
+J.Fingberg 
+\end{center}
+
+
+
+In this paper we will present a computational tool chain for simulating
+the outcome of the ostheogenetic distraction process of a
+maxillo-facial surgery.
+
+The main tool of this tool chain is a parallel Finite Element code for
+non-linear, viscoelastic elasticity (FEBiNA), that has been developed
+at the C+C Labs.
+
+The Finite Element meshes used for this maxillo-facial surgery
+simulation are based on patient specific tomography data and their
+geometry is highly complicated. In addition to that the material
+parameters for bony structures, like skull and teeth, differ by several
+orders of magnitude from those for the soft tissues of the human head.
+Finally, the latter materials are nearly incompressible.
+
+Due to those difficulties, the systems of linear equations that have to
+be solved during the simulation process are severly maleconditioned.
+Our tests show that given our hardware environment, only multigrid
+methods can handle those systems within a reasonable solution time.
+
+Nevertheless, the algebraic multigrid solvers we are using do not
+always show satisfying behaviour. We will show some numerical
+experiments and point out the arising problems we encountered during
+the linear solution phase.
+
+By doing so, we hope to nurture a fruitful discussion on the use of
+algebraic multigrid methods for these kinds of problems. 
+
+\end{document}

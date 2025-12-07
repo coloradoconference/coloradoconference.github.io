@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>cm conference abstract: Mavriplis </title>
+</head>
+
+<body>
+
+<center>
+MULTIGRID SOLUTION OF THE LATTICE BOLTZMANN EQUATION
+</center>
+
+<p>
+<center>
+<a href="mailto: mavripl@uwyo.edu">
+Dimitri J. Mavriplis</a><br><br>
+Department of Mechanical Engineering<br>
+1000E. University Ave. <br>
+University of Wyoming <br>
+Laramie, WY 82071  <br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The last decade has seen rapid progress in the theoretical understanding,
+algorithmic development, and use of lattice Boltzmann methods (LBM).
+As opposed to traditional computational fluid dynamics approaches, which
+compute macroscopic fluid dynamic properties by discretizing the continuum
+governing equations, the independent variables in a lattice Boltzmann
+approach consist of particle distribution functions in phase space,
+from which macroscopic continuum fluid properties can be recovered.
+Historically, LBM methods have been derived from lattice gas automata (LGA) methods.
+LGA methods model macroscopic fluid motion through the evolution of a set of discrete
+particles on a regular lattice (cartesian grid).
+Many of the deficiencies of LGA methods in reproducing accurate
+macroscopic behavior were resolved by the LBM approach, by
+neglecting individual particle motion, and adopting
+a particle distribution function approach.
+However, LBM methods have retained this conceptual link to particle
+methods such as LGA, which has inhibited the use of more sophisticated
+numerical techniques.
+<p>
+In this work, we first describe the lattice
+Boltzmann method as a particular finite-difference discretization in space
+and time of the Boltzmann equation.  The LBM time-step
+is then shown to be equivalent to a first-order explicit
+time step (forward Euler), which is also equivalent to a Jacobi
+iteration for the steady-state form of the LBM equations.
+It is then shown how this iteration strategy may be used
+as a solver for the steady-state lattice Boltzmann equation,
+or as a solver for an implicit time-integration strategy.
+Finally, it is shown how these problems may be solved
+more efficiently using the Jacobi iteration as a smoother
+in a multigrid scheme for the steady-state lattice
+Boltzmann equation.  This requires under-relaxation of the
+iteration scheme to achieve good high-frequency damping properties,
+and a careful matching of the LBM discretizations on the coarse
+grid levels, in order to ensure consistent coarse and fine
+grid problems.  The final result is a multigrid solver
+which can make use of a pre-existing LBM routine in a modular
+fashion, by invoking the LBM routine on each grid level.
+Convergence rates which are independent of the mesh resolution
+are demonstrated for the driven cavity problem on a cartesian
+grid, although the convergence rates degrade with
+increasing Reynolds number.
+<center>
+<br>References
+</center>
+<p>
+[1]  D. J. Mavriplis, <A HREF="http://wwweng.uwyo.edu/mechanical/faculty/Dimitri_Mavriplis/HOME/NEW_PAPERS/lbe.mg.pdf">"Multigrid Solution of the Steady-State Lattice Boltzmann Equation",</A>
+Paper delivered at International Conference for Mesoscopic Methods in Engineering and Science (ICMMES), Braunschweig, Germany, July 2004.
+to appear, Computers and Fluids, 2005.
+
+</body>
+</html>

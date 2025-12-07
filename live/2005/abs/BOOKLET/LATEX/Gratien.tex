@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Jean-Marc Gratien
+\\ {\bf
+Using parallel algebraic multi-grid preconditioner in an industrial
+reservoir simulation software
+}}
+
+Institut Fran\c{c}ais du P\'{e}trole
+\\
+1 et 4 avenue Bois Pr\'{e}au
+\\
+92852 Rueil-Malmaison Cedex
+\\
+France
+\\ {\tt
+j-marc.gratien@ifp.fr
+}
+\\
+Pierre Bonneau,
+Rolland Masson,
+Phillippe Quandalle
+\end{center}
+
+As full field reservoir simulations require a large amounts of
+computing resources, the trend is to use parallel computing to overcome
+hardware limitations. This paper presents the linear solvers and the
+preconditioning techniques applied to solve very large scale problems
+in the reservoir simulation software developed at IFP, software which
+has been specially designed for Linux clusters. We discuss on the
+choice of different efficient preconditioners. We report the
+scalability of the parallel simulator and numerical stability of
+underlying algorithms calculated from a test campaign on either
+synthetical or real industrial study case.
+
+The reservoir simulator is based on a system of partial differential
+equations with algebraic closure laws discretized with a finite volume
+scheme in space and a fully implicit or semi-implicit time integration.
+After a Newton type linearization of the non linear system, we are
+left, at each Newton iteration, with the solution of a large, ill
+conditioned linear system coupling several unknowns of mixed parabolic
+and hyperbolic type. Progress of computer performances now allows to
+better take into account physical phenomenon like strong and very
+strong rock heterogeneities and anisotropies in reservoir modeling so
+that the complexity of reservoir simulations keeps on increasing with
+larger meshes, and more difficult problems. This in turn urges the need
+to design more efficient and more scalable preconditioned iterative
+solvers, adapted to the new parallel architectures, in order to fully
+benefit from the computers performances on such complex cases.
+
+Due to the high condition number of the linear system, the convergence
+of the Newton algorithm can be very sensitive to the choice of the
+preconditioner, to the linear system stopping criteria and even to the
+number of processors in parallel implementations. In such cases, the
+accuracy of the solver is critical to ensure parallel performance as
+the cumulative number of steps (solver resolution, Newton loops, time
+loops) can be very dependent on the number of domains and as the cost
+of a run depends on this cumulative number of steps. This shows the
+importance of choosing a stable numerical scheme, good solver options
+and robust parallel preconditionner to have a numerically stable
+simulation. This difficulty emphasises the special importance of using
+very stable numerical schemes during parallel simulation. Solver
+options may have important influence on convergence criteria, and the
+choice of a good parallel preconditioner can help to have stable
+convergence iteration numbers.
+
+In the standard sequential simulator, linear systems are efficiently
+solved by the Bi Conjugated Gradient Stabilised with an incomplete ILU0
+preconditionner. This preconditioner, well known to be efficient for
+standard case is not naturally parallel as its algorithm is recursive.
+
+We have developed a new parallel ILU0 preconditionner which turns to be
+a good scalable preconditionner. However, it can encounter difficulties
+on complex industrial cases with very complex geometry and physical
+models. ILU0 is not scalable with respect to the size of the mesh and
+the jumps of the permeability field. Multigrid methods are known to be
+scalable for scalar convection diffusion problems but it is also known
+that they are not adapted to systems coupling unknowns of mixed types.
+Our approach is to define a pressure block that will concentrate most
+of the bad conditioning and ellipticity of the system, and for which we
+shall used a multigrid preconditioner. The definition of this block is
+obtained by linear combination of the rows and columns in order to
+reduce the coupling with the other variables (compositions and
+concentrations). For the remaining variables and equations we use a
+block Gauss Seidel approach. In some cases, this approach does not
+ensure a sufficient coupling of the variables, and it needs to be
+combined mutiplicatively with a global ILU0 preconditioner.
+
+In reservoir modelling, the linear systems couple a pressure unknown of
+elliptic or parabolic type to concentrations or saturations unknowns of
+hyperbolic type. In some industrial cases, especially when there are a
+lot of heterogeneities and anisotropies, we have noticed that the
+variations of saturation are very sensitive to pressure gradient so
+that having a robust preconditionner for the pressure is very
+important. As a consequence, Algebraic Multigrid Methods have to be
+considered as good candidates for preconditioning. Thus, we have
+developed 2 AMG based preconditioners . The first approach is a Block
+Aggregation AMG. It aims at taking advantage of the natural block
+structure of the system when the unknowns pressure and saturation are
+grouped cell by cell. This strategy turns out to be effective when a
+block ILU0 smoother is used in the multigrid cycle. The second approach
+called ``Two level AMG'' combines an algebraic multigrid method on
+pressure unknowns with a more traditional parallel method on other
+variables (ILU0, Block ILU0, polynomial). This results in a new method
+which is robust, parallel and efficient
+
+We have tested these methods (Parallel ILU0, Two level AMG and Block
+Aggregation AMG) and studied their influence on the performance and on
+the numerical stability of the reservoir simulator for different study
+case. We discussed the results obtained on a synthetical study case,
+the Tenth SPE Comparative Solution Project, Model 2 and on some real
+industrial customer study cases.
+
+\end{document}

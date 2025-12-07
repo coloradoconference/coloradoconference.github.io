@@ -1,0 +1,192 @@
+#!/usr/local/bin/perl
+##############################################################################
+$ThisDir="/www/faculty/copper/2003/abs";
+@hfiles = glob "*.html";
+
+open (TMP,">TMP");
+
+foreach $file (@hfiles) {
+	$n++;  $title="";  $names="";  $key="";
+	open (ORIG,$file);
+	while ($line=<ORIG>) {
+		chomp $line;
+		if ($line =~ /-- TITLE --/) { $title = "$title $line"; }
+		if ($line =~ /cm conference abstr/) { $names = $line; }
+		}
+	close ORIG;
+
+	$title =~ s/<.-- TITLE -->//g;
+	$title =~ s/\s+/ /g;
+	$title =~ s/<center>//ig;
+	$title =~ s/<.center>//ig;
+	$title =~ s/<p [^>]*>//ig;
+	$title =~ s/<p>//ig;
+	$title =~ s/<.p>//ig;
+	$title =~ s/<b>//ig;
+	$title =~ s/<br>/ /ig;
+	$title =~ s/<.b>//ig;
+	$title =~ s/<font[^>]*>//ig;
+	$title =~ s/<.font>//ig;
+	$title =~ s/^ //;
+	$title =~ s/ $//;
+
+	$names =~ s/^.*ence abstract:\s*//i;
+	$names =~ s/\s*<.title>.*$//i;
+
+	($key=$names) =~ s/\s*,.*$//;
+	$key =~ s/^.*\s//;
+	$key = "$key$n$names";
+	$key =~ s/\s//g;
+	$key = substr(lc($key),0,16);
+
+	unless ($file eq "index.html") { $thefile{$key} = $file; }
+	$thetitle{$key} = $title;
+	$thenames{$key} = $names;
+
+	# printf TMP "%2d. %s\n\tkey=%s\n\tnames=%s\n\t%s\n\n",
+	#			$n, $file, $key, $names, $title;
+
+	}
+
+open (ALL,">./ALL.tex");
+&Header();
+
+$n=0;
+foreach $ky (sort keys %thefile) {
+	open (SINGLE,$thefile{$ky});
+	$n++;
+	print ALL "\n\n\\begin{center}\n\\rule{6in}{1pt}\\\\\n";
+	printf ALL "{\\large %d. %s%s \\\\\n{\\bf ", $n,
+		"\\rule{0mm}{1.5em}", $thenames{$ky};
+	foreach $word (split(/\s+/,$thetitle{$ky})) {
+		print ALL "$word ";
+		$ll += (1 + length($word));
+		if ($ll >= 45) { print ALL "\\\\\n"; $ll=0; }
+		}
+	$ll=0;
+	print ALL "}}\n\\end{center}\n\n";
+
+	$text="";
+	while ($line=<SINGLE>) {
+		chomp $line;
+		if ($line =~ /-- TITLE --/) {
+			if ($line =~ /<center>/i) {
+				print ALL "\\begin{center}\n"; }
+			if ($line =~ /<\/center>/i) {
+				print ALL "\\end{center}\n"; }
+			next;
+			}
+		if ($line =~ /cm conference abstract/) { next; }
+		if ($line =~ /<head>/i) { next; }
+		if ($line =~ /<title>/i) { next; }
+		if ($line =~ /<body>/i) { next; }
+		if ($line =~ /<\/body>/i) { next; }
+		$text .= " $line";
+		}
+	close SINGLE;
+
+	$text =~ s/<br>\s*<br>/<br>/ig;
+	$text =~ s/<br>\s*<br>/<br>/ig;
+	$text =~ s/.nbsp;/ /g;
+	$text =~ s/\s*<br>\s*/ <br> /ig;
+	$text =~ s/\s*<p[^>]*>\s*/ <p> /ig;
+	$text =~ s/\s*<\/p>\s*/ /ig;
+	$text =~ s/\s*<div[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/div>\s*/ /ig;
+	$text =~ s/\s*<span[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/span>\s*/ /ig;
+	$text =~ s/\s*<head[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/head>\s*/ /ig;
+	$text =~ s/\s*<body[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/body>\s*/ /ig;
+	$text =~ s/\s*<font[^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/font>\s*/ /ig;
+	$text =~ s/<\/center>\s*<p>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<p>\s*<\/center>/ /ig;
+	$text =~ s/<\/center>\s*<br>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<br>\s*<\/center>/ /ig;
+	$text =~ s/\s*<a [^>]*>\s*/ /ig;
+	$text =~ s/\s*<\/a>\s*/ /ig;
+	$text =~ s/<\![^>]*>/ /g;
+	$text =~ s/<meta [^>]*>/ /g;
+	$text =~ s/>\s*Abstract\s*</></ig;
+	$text =~ s/\s+/ /g;
+	$text =~ s/<br> <br>/<br>/g;
+	$text =~ s/<p> <br>/<p>/g;
+	$text =~ s/<br> <p>/<p>/g;
+	$text =~ s/<p> <p> <p>/<p>/g;
+	$text =~ s/<p> <p>/<p>/g;
+	$text =~ s/<\/center>\s*<p>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<p>\s*<\/center>/ /ig;
+	$text =~ s/<\/center>\s*<br>\s*<center>/ /ig;
+	$text =~ s/<center>\s*<br>\s*<\/center>/ /ig;
+	$text =~ s/<[^>]*html[^>]*>//ig;
+	$text =~ s/<center>/\\begin{center}/ig;
+	$text =~ s/<.center>/\\end{center}/ig;
+
+
+	$text =~ s/\s+/ /g;
+	$text =~ s/<u>([^u]*)<\/u>/{\\em \1}/g;
+	$text =~ s/<b>([^b]*)<\/b>/{\\bf \1}/g;
+	$text =~ s/<i>([^i]*)<\/i>/{\\em \1}/g;
+
+	$text =~ s/\. /\.\n/g;
+	$text =~ s/\s*<p>\s*/\n\n\n/g;
+	$text =~ s/\s*<br>\s*/ \\\\\n/g;
+
+	print ALL "$text\n\n";	# HEY
+	}
+
+&Trailer();
+close ALL;
+system("vi ALL.tex ; pdflatex ALL.tex");
+#	close TMP; system("vi TMP");
+exit 0;
+##############################################################################
+
+sub Header { print ALL<<EOH;
+\\documentclass{report}
+
+\\setlength{\\parskip}{2mm}
+\\setlength{\\parindent}{0mm}
+\\setlength{\\textwidth}{180mm}
+\\setlength{\\oddsidemargin}{-10mm}
+\\setlength{\\evensidemargin}{-10mm}
+\\setlength{\\textheight}{243mm}
+\\setlength{\\topmargin}{-20mm}
+
+\\begin{document}
+\\begin{center}
+{\\Large \\bf Copper Mountain Conference on Multigrid Methods} \\\\
+{\\large \\bf March 30 -- April 4, 2003} \\\\
+{\\huge \\bf Abstracts}
+\\end{center}
+
+EOH
+}
+
+sub Trailer { print ALL<<EOT;
+\n\\end{document}
+EOT
+}
+
+
+##############################################################################
+##############################################################################
+__END__
+
+###############################################################################
+
+
+\rule{5in}{2pt}}\
+{\large \bf 1. Mark Adams} \\\\
+{\bf
+Algebraic Multigrid Methods for Constrained Systems of Linear \\
+Equations \\
+}
+\end{center}
+
+ <html>
+
+
+

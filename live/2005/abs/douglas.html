@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>cm conference abstract: C. C. Douglas</title>
+</head>
+
+<body>
+
+<center>
+Dynamic Data-Driven Application Simulations (DDDAS)
+</center>
+
+<p>
+<center>
+<a href="mailto:douglas-craig@cs.yale.edu">
+Craig C. Douglas</a><br><br>
+Departments of Computer Science and Mechanical Engineering<br>
+University of Kentucky, Lexington, KY<br>
+and<br>
+Department of Computer Science, Yale University, New Haven, CT<br>
+<a href="http://www.mgnet.org/~douglas">
+http://www.mgnet.org/~douglas</a><br><br>
+<a href="mailto:yalchin.efendiev@math.tamu.edu">
+Yalchin Effendiev</a><br><br>
+Department of Mathematics<br>
+Texas A&M University<br>
+College Station, TX
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>DDDAS is a new paradigm in which data dynamically controls almost all
+aspects of long term simulations.  Rather than run many simulations using
+static data as initial conditions, a very small number of simulations are run
+with additional data injected as it becomes available.  Most candidate
+problems for the DDDAS paradigm involve solving a nonlinear time dependent
+partial differential equation of the form F(x+d∆x(t)) = 0 by iteratively
+choosing a new approximate solution x based on the time dependent perturbation
+d∆x(t)</p>
+
+<p>In practice, the data streaming in may have errors and therefore may not
+be completely accurate or reliable (for example, in reservoir data sets, a 15%
+error in the data is common).  As a result, perhaps one does not need to solve
+the nonlinear equation precisely at each step.  This can expedite the
+execution.</p>
+
+<p>At each iterative step, the following three issues may need to be addressed:
+<ol>
+<li>Incomplete solves of a sequence of related models must be understood.</li>
+<li>The effects of perturbations, either in the data and/or the model, need to
+be resolved and kept within acceptable limits.</li>
+<li>Nontraditional convergence issues have to be understood and resolved.</li>
+</ol>
+Consequently, there will be a high premium on developing quick approximate
+direction choices, such as, lower rank updates and continuation methods, and
+understanding their behavior are important issues.  Fault tolerant algorithms
+have a premium.</p>
+
+<p>The dynamic data is used to determine
+<ol>
+<li>Whether or not a warm restart is necessary due to unacceptable errors
+building up in parts of the domain.</li>
+<li>If a rollback in time is required.</li>
+<li>If the simulation is running with acceptable errors.</li>
+</ol>
+Ideally, there does not have to be a human in the control loop throughout a
+simulation.</p>
+
+<p>Using the data appropriately lets the physical and mathematical models, the
+discretization, and the scales of interesting parts of the computations become
+parameters that can be changed during the course of the simulation.  In
+addition, error propagation is of particular interest in nonlinear time
+dependent simulations.</p>
+
+<p>DDDAS offers interesting computational and mathematically unsolved
+problems, such as, how do you analyze the properties of a generalized PDE when
+you do not know either where or what the local boundary conditions are at any
+given moment in the simulation in advance?</p>
+
+</body>
+</html>

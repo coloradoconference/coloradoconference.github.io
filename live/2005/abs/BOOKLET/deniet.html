@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>cm conference abstract: de Niet </title>
+</head>
+
+<body>
+
+<center>
+Multilevel Preconditioners in Thermohaline Ocean Circulation
+</center>
+
+<p>
+<center>
+<a href="mailto: a.c.de.niet@math.rug.nl">
+Arie de Niet</a><br><br>
+University of Groningen<br>
+Research Institute for Mathematics and Computing Science<br>
+P.O.Box 800<br>
+9700 AV Groningen<br>
+The Netherlands
+<br><br>
+Fred Wubs<br>
+<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+The numerical continuation of steady states in thermohaline ocean circulation requires the solution of large systems. The (linearized) equations describing the thermohaline ocean circulation (for a detailed description of these equations see [5]) can be splitted in equations for velocities in longitudinal and latitudinal direction (x<sub>uv</sub>), velocity in vertical direction (x<sub>w</sub>), pressure (x<sub>p</sub>) and salinity and temperature (x<sub>ST</sub>). The equations are coupled in the following way,
+
+<d>
+<center>
+<table border="1">
+  <tbody>
+    <tr>
+      <td> A<sub>uv</sub> </td>
+      <td> 0 </td>
+      <td> G<sub>uv</sub> </td>
+      <td> 0 </td>
+      <td width="15" colspan="1" rowspan="4">      </td>
+      <td> x<sub>uv</sub> </td>
+      <td width="15" colspan="1" rowspan="4" align="center" valign="center">   =   </td>
+      <td> b<sub>uv</sub> </td>
+    </tr>
+    <tr>
+      <td> 0 </td>
+      <td> 0 </td>
+      <td> G<sub>w</sub> </td>
+      <td> B<sub>ST</sub> </td>
+      <td> x<sub>w</sub>  </td>
+      <td> b<sub>w</sub> </td>
+    </tr>
+    <tr>
+      <td> D<sub>uv</sub> </td>
+      <td> D<sub>w</sub> </td>
+      <td> 0 </td>
+      <td> 0 </td>
+      <td> x<sub>p</sub> </td>
+      <td> b<sub>p</sub> </td>
+    </tr>
+    <tr>
+      <td> B<sub>uv</sub> </td>
+      <td> B<sub>w</sub> </td>
+      <td> 0 </td>
+      <td> A<sub>ST</sub> </td>
+      <td> x<sub>ST</sub> </td>
+      <td> b<sub>ST</sub> </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+
+<p>
+
+where G<sub>*</sub> represents the discrete gradient operator and D<sub>*</sub> the discrete divergence operator. We assume that G<sub>*</sub><sup>T</sup>=D<sub>*</sub>, i.e. the discrete operators are each others transpose. Furthermore, A<sub>ST</sub> is a convection-diffusion matrix, A<sub>uv</sub> is also a convection-diffusion matrix, but includes a Coriolis force. Respectively the four equations describe conservation of momentum (in longitudinal and latitudinal direction), the hydrostatic pressure, conservation of mass and conservation of salt and heat.<p>
+
+Due to the size of the systems they are solved via a Krylov subspace method using a preconditioner to speed up the convergence. In general there are two ways to obtain a preconditioner for the matrix in the equation. One could try to exploit the structure of the system or apply a general black-box preconditioning method like an incomplete LU factorization. We will do both and compare the results.<p>
+
+In the current code for numerical simulation of thermohaline ocean circulation (<small>THCM</small>, see [5], the systems are solved with the <small>MRILU</small> [1] preconditioner. M<small>RILU</small> is a multilevel ILU method containing ideas similar to algebraic multigrid methods. However <small>MRILU</small> doesn't need any smoothing steps, because of sophisticated dropping- and lumping criteria. In <small>THCM</small> <small>MRILU</small> is applied to the clustered equations, that is the six unknowns (u,v,w,p,T,S), that belong to one and the same cell, are treated as one unknown. The method is able to construct a good factorization and the Krylov subspace method converges fast. Unfortunately the preconditioner requires a lot of construction time and memory, which becomes a problem if the size of the problem is increased.<p>
+
+In order to reduce the memory usage, we developed an alternative preconditioner that exploits the structure. The ingredients are: a splitting of the pressure in a depth-averaged pressure and a component perpendicular to that; a non-symmetric reordering of the matrix; dropping the block B<sub>ST</sub>. This together gives a block-Gauss-Seidel preconditioner, that requires some matrix-vector products and the solution of three relatively easy systems: (i) a depth-averaged saddle point system based on A<sub>uv</sub>,G<sub>uv</sub> and D<sub>uv</sub>, (ii) a convection-diffusion-Coriolis equation involving A<sub>uv</sub> and (iii) a convection-diffusion equation involving A<sub>ST</sub>. The last two problems can be handled very well by <small>MRILU</small>. For the saddle point system we can apply any of the preconditioners from literature [3,4] or the ones we developed ourselves based on artificial compressibility and grad-div-stabilization [2] respectively.<p>
+
+A comparison of the structured preconditioner with <small>MRILU</small> applied to the subsystems and <small>MRILU</small> applied to the clustered matrix at once shows that the required amount of memory is reduced with almost a factor 10. We have to pay for that in an increase of the number of iterations in the Krylov subspace method, but this factor is at most 2. Overall we see a serious speed up.<p>
+
+On the conference we will describe the block-Gauss-Seidel preconditioner and show the results of a comparison using both <small>MRILU</small> and an algebraic multigrid method as a subsolver in the preconditioner.<p>
+
+<center>
+References
+</center>
+
+<P>
+<P></P><DT>[1]
+<DD>
+E.&nbsp;F.&nbsp;F. Botta and F.&nbsp;W. Wubs.
+<BR>Matrix renumbering ILU: an effective algebraic multilevel
+  ILU preconditioner for sparse matrices.
+<BR><EM>SIAM J. Matrix Anal. Appl.</EM>, 20(4):1007-1026 (electronic),
+  1999.
+<BR>Sparse and structured matrices and their applications (Coeur d'Alene,
+  ID, 1996).
+
+<P>
+<P></P><DT>[2]
+<DD>
+Arie&nbsp;C. de&nbsp;Niet and Fred&nbsp;W. Wubs.
+<BR>Two preconditioners for the saddle point equation.
+<BR>In <EM>Proceedings of the European Congres on Computational Methods
+  in Applied Sciences and Engineering (ECCOMAS, Jyv&#228;skyl&#228;, 2004)</EM>.
+<BR>See http://www.mit.jyu.fi/eccomas2004/.
+
+<P>
+<P></P><DT>[3]
+<DD>
+Howard&nbsp;C. Elman, David&nbsp;J. Silvester, and Andrew&nbsp;J. Wathen.
+<BR>Performance and analysis of saddle point preconditioners for the
+  discrete steady-state Navier-Stokes equations.
+<BR><EM>Numer. Math.</EM>, 90(4):665-688, 2002.
+
+<P>
+<P></P><DT>[4]
+<DD>
+C.&nbsp;Vuik and A.&nbsp;Saghir.
+<BR>The Krylov accelerated SIMPLE(R) method for incompressible flow.
+<BR>Report 02-01, Delft University of Technology, Department of Applied
+  Mathematical Analysis, Delft, 2002.
+
+<P>
+<P></P><DT>[5]
+<DD>
+Weijer Wilbert, Henk&nbsp;A. Dijkstra, Hakan Oksuzoglu, Fred&nbsp;W. Wubs, and Arie&nbsp;C.
+  de&nbsp;Niet.
+<BR>A fully-implicit model of the global ocean circulation.
+<BR><EM>J. Comp. Phys.</EM>, 192:452-470, 2003.
+
+
+</body>
+</html>

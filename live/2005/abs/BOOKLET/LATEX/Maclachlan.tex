@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Scott MacLachlan
+\\ {\bf
+Fully Adaptive AMG
+}}
+
+Department of Applied Mathematics \\
+University of Colorado \\
+Boulder CO 80309-0526
+\\ {\tt
+maclachl@colorado.edu
+}
+\end{center}
+
+Numerical simulation of physical processes is often constrained by our
+ability to solve the complex linear systems at the core of the
+computation. Classical geometric and algebraic multigrid methods rely
+on (implicit) assumptions about the character of these matrices in
+order to develop appropriately complementary coarse-grid correction
+processes for a given relaxation scheme. The aim of the adaptive
+multigrid framework is to reduce the restrictions imposed by such
+assumptions, thus allowing for efficient black-box multigrid solution
+of a wider class of problems.
+
+There are, however, many challenges in altogether removing the reliance
+on assumptions about the errors left after relaxation. In this talk, we
+discuss work to date on a fully adaptive AMG algorithm that chooses all
+components of the coarse-grid correction based on automated analysis of
+the performance of relaxation. Fundamental measures of the need for and
+quality of a coarse-grid correction will be discussed, along with
+related techniques for choosing coarse grids and interpolation
+operators. We will also discuss the (lack of) computability of these
+ideal measures, and suggest cost-efficient alternatives.
+
+This research has been performed in collaboration with James Brannick,
+Marian Brezina, Tom Manteuffel, Steve McCormick, and John Ruge at
+CU-Boulder. It has been supported by an NSF SciDAC grant (TOPS), as
+well as Lawrence Livermore and Los Alamos National Laboratories.
+
+\end{document}

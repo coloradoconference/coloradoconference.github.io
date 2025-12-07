@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>cm conference abstract: Metsch</title>
+</head>
+
+<body>
+
+<center>
+Coarse Grid Classification: A Parallel Coarsening Scheme For Algebraic
+Multigrid Methods
+</center>
+
+<p>
+<center>
+<a href="mailto: metsch@iam.uni-bonn.de">
+Bram Metsch</a><br><br>
+Universit&auml;t Bonn<br>
+Institut f&uuml;r Numerische Simulation<br>
+Wegelerstra&szlig;e 6<br>
+D-53115 Bonn<br>
+Germany<br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We present a new approach to the parallelization of AMG, i.e., to the
+parallel coarse grid selection on AMG. Many different approaches to parallel AMG have been proposed over the
+years. Most of them utilize the classical AMG coarsening scheme on
+each processor subdomain and employ a special treatment of the
+subdomain boundaries to cope with non-matching coarse grids. However,
+the coarse grid structure on the boundaries does not respect the
+classical coarsening principles.</p>
+<p>In our parallel coarsening method, we do not employ an explicit boundary
+treatment. However, we still use the classical coarsening scheme. 
+We first construct multiple coarse grids on each processor domain
+individually. We then construct a directed, weighted graph
+whose vertices represent the coarse grids constructed on each
+processor subdomain. We define edges between nodes on neighboring
+subdomains and assign a weight to each edge describing the value of
+the coarse grid constellation induced by these coarse grids. Finally,
+using this graph, we select one coarse grid per processor subdomain
+which automatically matches most of its neighbors. The results or our
+numerical experiments clearly indicate that this approach results in
+high quality coarse grids which are very close to those obtained in
+sequential AMG. This leads to a significant better speed-up of our
+algorithm compared with other parallel coarsening
+techniques. Furthermore, the operator and grid complexities of our
+parallel AMG are often smaller than those obtained by other parallel
+AMG methods.</p>
+
+
+</body>
+</html>

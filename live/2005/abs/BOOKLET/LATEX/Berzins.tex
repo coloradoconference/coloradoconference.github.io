@@ -1,0 +1,97 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Martin Bedrzins
+\\ {\bf
+Efficient parallelisation of a multigrid multilevel integration EHL
+solver
+}}
+
+SCI Institute, Utah
+\\
+Salt Lake City UT 84112
+\\ {\tt
+mb@sci.utah.edu
+}
+\\
+Christopher Goodyer
+\end{center}
+
+The numerical solution of large scale elastohydrodynamic lubrication
+(EHL) problems is only computationally realistic on fine meshes by
+making using using multilevel techniques.  In this work we show how the
+parallelisation of both multigrid and multilevel multi-integration for
+these problems may be accomplished without damaging solution quality.
+A parallel performance model of the implemented algorithm is described
+and analysed using the Isoefficiency and Isomemory metrics for
+distributed memory architectures.  Results are shown with good
+speed-ups and excellent scalability.
+
+Parallelisation of scientific engineering codes, such as the EHL code
+considerd here, has proved to be particularly useful whenever either
+results are needed quickly or the memory requirements are too large to
+be handled in serial. In the case of solvers for the important
+engineering problem of elastohydrodynamic lubrication both these
+situtaions can arise. The EHL regime occurs in journal bearings and
+gears, where, under severe loads in the presence of a lubricant, there
+may be a very large pressure exerted on a very small area, often up to
+3 GPa.  This causes the shape of the contacting surfaces to deform and
+flatten out at the centre of the contact.  There are also significant
+changes in the behaviour of the lubricant in this area, for example it
+may take on glass-like properties.
+
+The computational challenge in solving such problems is considerable.
+The equations to be solved consist of a nonlinear differential equation
+which is elliptic/hyperbolic and defined in terms of pressure film
+thickness values and a coupled integral equation which defines the film
+thickness in terms of all the spatial pressures.  The efficient serial
+solution of these problems is achieved by using a multigrid solver for
+the differential equation coupled to a multilevel multi-integration
+method for the filmthickness calculation. Although the time dependent
+partial differential and integral equations apply only in one or two
+space dimensions, they have a dense sparsity pattern and are highly
+nonlinear.  Full details of both the EHL problem and the serial
+solution methods used are described in the book by Venner and Lubrecht
+and with details specific to the discussion here given by the thesis of
+Goodyer.
+
+One  of the EHL problems of current interest is to calculate the
+frictional characteristics of measured surface roughness profiles.
+This has been successfully undertaken for one dimensional line contact
+cases.  Tackling the more realistic 2-D case has been recognised as one
+of the immediate challenges in tribology. In order to do this spatial
+meshes of $10^6 \times 10^6$ points may be needed. This means that
+$10^{12}$ dense nonlinear equations need to be solved. This challenge
+is beyond a single workstation at present and requires the use of
+parallel computers.
+
+In order to describe the parallel solution techniques the numerical
+problem to be solved and the serial algorithm will first be described.
+The multigrid and multilevel techniques used will be highlighted, along
+with the reasons why they make effective parallelisation such a
+communication intensive process.  The parallel approaches we have taken
+are then explained and a careful performance model constructed using
+the isomemory and isoefficiency metrics.  This analysis  will show how
+a demanding numerical problem, which is both highly intensive in terms
+of communication, and requires global knowledge, has been successfully
+parallelised.  Use of MPI has meant this implementation is portable
+between both shared and distributed memory architectures.
+Communication costs have been limited through use of non-blocking local
+directives, and the memory requirements per process have been
+significantly reduced.  The computationl results show the overall
+speed-up of the code is excellent, especially on higher grid
+resolutions.  The scalability has been shown to be similarly impressive
+with comparable results when increasing the problem size and number of
+processors whilst utilising the same coarsest multi-level
+multi-integration level.  The paper concludes by considering future
+directions in terms of solving still larger problems.
+
+
+
+\end{document}

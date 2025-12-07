@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>cm conference abstract: Kolev</title>
+</head>
+
+<body>
+
+<center>
+Experiments with Adaptive Element Agglomeration
+Algebraic Multigrid for H(div) and H(curl).
+</center>
+
+<p>
+<center>
+<a href="mailto:tzanio@llnl.gov">
+Tzanio V. Kolev</a> and
+<a href="mailto:panayot@llnl.gov">
+Panayot S.  Vassilevski</a><br><br>
+Center for Applied Scientific Computing <br>
+Lawrence Livermore National Laboratory <br>
+Box 808, L-560, Livermore, CA 94551<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk we combine the element agglomeration AMGe (from <b>[2]</b>)
+and the adaptive AMG (from <b>[1]</b>).
+The former method is used to generate an initial V-cycle
+that coarsens only the nullspace of the respective H(div) or
+H(curl) form, whereas the second method
+is used to gradually augment the current coarse grids and
+interpolation matrices.
+The numerical tests indicate that 3 to 5 adaptive cycles are sufficient in
+order to achieve an efficient AMG solver.
+A main tool in the adaptation process is
+the hierarchical construction of the modified interpolation matrices,
+see <b>[3]</b>, which is based on solving local constrained minimization problems,
+fitting one "algebraically smooth" vector at a time.
+
+<br><br>
+
+<p>
+<b>[1]</b>
+M. Brezina, R. Falgout, S. MacLachlan, T. Manteuffel, S. McCormick, and J. Ruge,
+"<em>Adaptive Algebraic Multigrid Methods,</em>"
+SIAM J. Sci. Comp., 2004, submitted.
+<br>
+<b>[2]</b>
+J. Jones and P. Vassilevski,
+"<em>AMGe Based on Element Agglomerations,</em>"
+SIAM J. Sci. Comp., <b>23</b>(2001), pp. 109-133.
+<br>
+<b>[3]</b>
+P. Vassilevski and L. Zikatanov
+"<em>Multiple Vector Preserving Interpolation Mappings in Algebraic Multigrid,</em>"
+Lawrence Livermore National Laboratory Technical Report UCRL-JRNL-208036,
+November 2004.
+
+<br><br>
+
+<p>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>cm conference abstract: Moulton</title>
+</head>
+
+<body>
+
+<center>
+Multilevel Upscaling: Multigrid's Lost Twin
+</center>
+
+<p>
+<center>
+<a href="mailto: moulton@lanl.gov">
+J. David Moulton</a><br><br>
+MS B284, Los Alamos National Laboratory, Los Alamos, NM 87545<br><br>
+Scott P. MacLachlan<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In many applications, homogenization (or upscaling) techniques are
+necessary to develop computationally feasible models on scales coarser
+than the variation of the coefficients of the continuum
+model.  The accuracy of such techniques depends dramatically on
+assumptions that underlie the particular upscaling methodology used.
+For example, decoupling of fine- and coarse-scale effects in the
+underlying medium may utilize artificial internal boundary
+conditions on sub-cell problems.  Such assumptions, however, may be
+at odds with the true, fine-scale solution, yielding coarse-scale
+errors that may be unbounded.
+
+<p>
+In this work, we present an efficient multilevel upscaling (MLUPS)
+procedure for single-phase saturated flow through porous media.
+Coarse-scale models are explicitly created from a given fine-scale
+model through the application of standard operator-induced
+variational coarsening techniques.  Such coarsenings, which
+originated with robust multigrid solvers, have been shown to
+accurately capture the influence of fine-scale heterogeneity over
+the complete hierarchy of resulting coarse-scale models.  Moreover,
+implicit in this hierarchy is the construction of interpolation
+operators that provide a natural and complete multiscale basis for
+the fine-scale problem.  Thus, this new multilevel upscaling
+methodology is similar to the Multiscale Finite Element Method
+(MSFEM) and, indeed, we show that it attains similar accuracy on a
+variety of problems.  While MSFEM is based on a two-scale approach,
+MLUPS generates a complete hierarchy of coarse-scale models,
+resulting in a speed-up factor of approximately 15.  In addition, we
+demonstrate that this new upscaling methodology can use both
+structured coarsening algorithms, such as Dendy's BoxMG, and fully
+algebraic algorithms, such as Ruge's AMG.
+
+</body>
+</html>

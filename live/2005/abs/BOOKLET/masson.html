@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://amath.colorado.edu/faculty/copper/2005/abstract.txt -->
+<HTML><HEAD><TITLE>cm conference abstract: PUT speaker's lastname HERE</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>Block Preconditioners with Algebraic Multigrid Block Solve in Stratigraphic Modeling for oil exploration</CENTER>
+<P>
+<CENTER><A href="mailto:%20PUT%20speaker's%20email%20address%20HERE">Masson Roland</A><BR><BR>
+Institut Francais du Petrole, 
+1 et 4 Avenue Bois Preau, 92000 Rueil Malmaison, France, roland.masson@ifp.fr
+<BR><BR>Gervais Veronique<BR></CENTER>
+<P>
+<CENTER><BR>Abstract </CENTER>
+<P> Stratigraphic models simulate the erosion and sedimentation of sedimentary basins at 
+geological time scales given the sea level variations, 
+the tectonics displacements of the basement, and the sediments fluxes at the boundary of the basin.  
+
+We consider in this talk a sediments transport model coupling three main processes: 
+a gravity driven transport of the sediments for which the fluxes are proportional to the gradient of the topography, 
+a weather limited transport taking into account the disymmetry between erosion and sedimentation, and a fluvial transport 
+model for which the sediments fluxes are proportional to the water discharge. 
+The main variables of the problem 
+are the sediment thickness, a flux limitor, and the L sediments concentrations in basic lithologies such as sand or shale or carbonates. 
+Such model is applied in oil exploration for a better prediction of potential reservoirs location. 
+
+The model is derived writing the mass conservation of each lithology leading to a system of mixed parabolic hyperbolic 
+type. It is discretized by a finite volume scheme in space and a fully implicit time integration, leading to the solution at 
+each time step of a non linear systems of L+2 variables on the 2D mesh. After Newton type linearization, we are left with the 
+solution of an ill conditioned linear system with sharp jumps in the diffusion coefficients and coupling L+2 variables of mixed types. 
+
+These linear systems are solved using an iterative solver and a block approach for the preconditioner in order 
+to separate the different variables. In a first step, a mixture equation is obtained by linear combinations 
+of the rows that should concentrate the ellipticity of the system and as much as possible decouple 
+the first two variables (sediment thickness and flux limitor) 
+from the L concentrations variables. Then the overall system is solved using 
+a block Gauss Seidel preconditioner. The First block (sediment thickness and flux limitor variables) 
+is preconditioned either by a direct sparse solver or 
+by an ILU0 incomplete factorization,  or by a vcycle of an algebraic multigrid solver (AMG1R5 from Ruge and Stuben) 
+on the sediment thickness sub-block only in order to avoid non diagonal dominance.  
+The remaining blocks are 
+solve using a gauss seidel sweep in topographical order leading to an exact inversion of these blocks. 
+
+These block preconditioners are compared with a sparse direct solver and an ILU0 incomplete factorization on the
+overall system. The comparison is made in terms of CPU time, and scalability with respect to the mesh size and 
+the jump of the diffusion coefficients on two real test cases: 
+the Paris basin and a Rift test case with water discharge.  
+It shows that the block approach combined with 
+a multigrid preconditioning of the the sediment thickness sub-block is a very efficient method, nearly scalable 
+for this problem.  </P></BODY></HTML>

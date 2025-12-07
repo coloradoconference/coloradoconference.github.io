@@ -1,0 +1,88 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+
+\rule{6in}{1pt} \
+{\large
+Stefan Vandewalle
+\\ {\bf
+Analysis of a two-level time-parallel time-integration method
+for ordinary and partial differential equations
+}}
+
+
+Katholieke Universiteit Leuven \\
+Department of Computer Science \\
+Celestijnenlaan 200A \\
+B-3001 Leuven, Belgium
+\\ {\tt
+stefan.vandewalle@cs.kuleuven.ac.be
+}
+\\
+Martin Gander
+\end{center}
+
+During the last twenty years several algorithms have been suggested
+for solving time dependent problems parallel in time. In such
+algorithms parts of the solution later in time are approximated
+simultaneously to parts of the solution earlier in time. A very recent
+method was presented in 2001 by Lions, Maday and Turinici, who called
+their algorithm the parareal algorithm [1]. The name parareal was
+chosen for the iterative algorithm to indicate that it is well suited
+for parallel real time computations of evolution problems whose
+solution can not be obtained in real time using one processor only.
+
+The method is not meant as a method to be used on a one processor
+computer. One iteration of the method costs already as much as the
+sequential solution of the entire problem, when used on one processor
+only. If however several processors are used, then the algorithm can
+lead to an approximate solution in less time than the time needed to
+compute the solution sequentially; hence parallel speedup is possible
+with the parareal algorithm.
+
+The parareal algorithm has received a lot of attention over the past
+few years and extensive experiments have been done for fluid and
+structure problems [2,3,4]. In this talk, we will show that the
+parareal algorithm can be reformulated as a two-level space-time
+multigrid method with an aggressive semi-coarsening in the
+time-dimension. The method can also be seen as a multiple shooting
+method with a coarse grid Jacobian approximation. These equivalences
+have opened up new paths for the convergence analysis of the
+algorithm, which is the topic of the second part of this talk.
+
+First, we will show a sharp linear, and a new superlinear convergence
+result for the parareal algorithm applied to ordinary differential
+equations. We then use Fourier analysis to derive convergence results
+for the parareal algorithm applied to partial differential equations.
+We show that the algorithm converges superlinearly on bounded time
+intervals, both for parabolic and hyperbolic problems. On long time
+intervals the algorithm converges linearly for parabolic PDEs. For
+hyperbolic problems however there is no such convergence estimate on
+long time intervals.
+
+[1] Lions, Maday, and Turinici,
+{\em A "parareal" in time discretization of
+PDEs}, C.R. Acad.Sci. Paris, t.332, pp.661--668, 2001.
+
+[2] Farhat, and Chandesris,
+{\em Time-decomposed parallel time-integrators:
+theory and feasibility studies for fluid, structure, and
+fluid-structure applications}, Int. J. Numer. Meth. Eng.,
+58(9):1397--1434.
+
+[3] Fisher, Hecht, and Maday,
+{\em A parareal in time semi-implicit
+approximation of the Navier-Stokes equations}, in Proceedings of the
+15th International Domain Decomposition Conference, Kornhuber et
+al.(eds), pp.433--440, Springer LNCSE, 2004.
+
+[4] Garrido, Espedal, and Fladmark,
+{\em An algorithm for time
+parallelization applied to reservoir simulation}, in Proceedings of the
+15th International Domain Decomposition Conference, Kornhuber et
+al.(eds), pp.469--476, Springer LNCSE, 2004.
+
+\end{document}
