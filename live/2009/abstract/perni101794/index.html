@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>perni101794</TITLE>
+<META NAME="description" CONTENT="perni101794">
+<META NAME="keywords" CONTENT="perni101794">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="perni101794.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Michael Pernice 
+<BR><B>Multilevel solution of diffusion operators with cut cell discretizations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Center for Advanced Modeling and Simulation 
+<BR>
+Idaho National Laboratory 
+<BR>
+P O Box 1625 
+<BR>
+Idaho Falls 
+<BR>
+ID 83415-3550
+
+<BR><TT>michael.pernice@inl.gov</TT>
+</DIV>
+
+<P>
+Diffusion operators <!-- MATH
+ $\mathcal{L} = \nabla \cdot \beta \nabla$
+ -->
+<IMG
+ WIDTH="85" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \mathcal{L} = \nabla \cdot \beta \nabla$"> with
+discontinuous coefficients <!-- MATH
+ $\beta : \mathbb{R}^d \rightarrow
+\mathbb{R}$
+ -->
+<IMG
+ WIDTH="83" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \beta : \mathbb{R}^d \rightarrow
+\mathbb{R}$"> are encountered in numerous applications, such as heat
+conduction, neutron transport, and subsurface flow. These
+discontinuities represent changes in material properties (thermal
+conductivity, interaction cross sections, and permeability). Accurate
+discretization of these operators is challenging when the
+discontinuities in <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \beta$"> are not aligned with the computational
+mesh. Mesh alignment can be achieved by constraining mesh generation to
+conform to the geometry of the different materials when using
+unstructured or boundary-fitted Cartesian grids. However for complicated
+geometries this may be intractable. An alternative approach is to use a
+background Cartesian grid and to represent the geometry by intersecting
+it against the grid. This gives rise to a set of irregular <I>cut
+cells</I> where Cartesian grid cells intersect the geometry.
+
+<P>
+While originally developed to handle irregular physical boundaries,
+cut cells can also be used to resolve material interfaces that are
+interior to the domain. This approach replaces the difficult global grid
+generation problem with more tractable local intersection problems. When
+combined with local mesh refinement, high resolution representation of
+complex geometry can readily be obtained. While this essentially solves
+the geometry problem, satisfactory discretization of diffusion operators
+has remained elusive. Second-order finite difference schemes that account
+for the location and orientation of the interface in a cut cell have been
+developed, but these approaches are not conservative. Finite volume
+schemes, such as the ghost fluid method developed in the context of
+interface tracking using level sets, have also been developed. However
+analysis of the convergence of these methods is complicated by the lack
+of smoothness of the solution in the vicinity of the jumps in <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \beta$">.
+
+<P>
+Because local mesh refinement is necessary for accurate and efficient
+represention of complex geometry with cut cells, multilevel solvers are
+essential. We discuss issues related to discretization, grid convergence,
+and solver efficiency for diffusion operators on cut cell grids.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

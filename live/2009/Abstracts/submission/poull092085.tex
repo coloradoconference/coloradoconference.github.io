@@ -1,0 +1,110 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Pascal POULLET \\
+{\bf Multilevel methods for solving the Helmholtz equation in unbounded domains}}
+
+Laboratoire GRIMAAG \\ Universite des Antilles et de la Guyane \\ B P 250 \\ Pointe-a-Pitre F-97157 Cedex \\ Guadeloupe F W I
+\\
+{\tt Pascal.Poullet@univ-ag.fr}\\
+Amir BOAG\\
+{\em School of Electrical Engineering, Tel Aviv University, Israel}\end{center}
+
+The incremental unknowns (IU) method has been employed for nearly
+two decades as a tool of computational fluid dynamics while providing
+features and benefits similar to those of the classical multigrid method.
+In particular, several research groups proved that Poisson's equation
+with Dirichlet boundary conditions can be solved roughly as efficiently
+using the IU approach as by the classical multigrid \cite{CT91, CT93}.
+A recent study \cite{PB07} conducted by the authors proved that,
+for solving the Helmholtz equation, one can develop a multilevel
+computational scheme based on the IUs, which is efficient in high and low
+frequency regimes.
+We have shown on a sample 2D acoustic scattering problem that for the
+best performance the number of IU levels used in the preconditioner
+should be designed for the coarsest grid to have roughly two points per
+linear wavelength. A recently proposed novel class of methods relying on
+incomplete factorization of shifted Laplacian operator provides
+attractive results, but
+requires significant storage \cite{E08}. Memory considerations are
+especially important when we need to solve 3D problems. To that end, the
+IU approach appears to be especially advantageous thanks to its low
+memory requirements. Even if not as efficient as for 2D problems, studies
+of IU-based techniques for 3D problems proved a promising behavior of the
+method for solve elliptic problems \cite{MCT95, SW07}.
+
+A new multilevel preconditioner for the Helmholtz equation in 2D
+using two types of incremental unknowns has been developed \cite{PB08}.
+The transition between the two occurs when the mesh size reaches a
+predetermined fraction of the wavelength - roughly one quarter
+wavelength. Conventional IUs based on bilinear interpolation are employed
+for the fine meshes like in the previous paper \cite{PB07} by the
+authors. For coarse mesh sizes novel IUs are designed using a
+Helmholtz/wave equation-based interpolation. The interpolation
+coefficients for the coarse meshes with dimension higher than one are
+derived numerically for stencils resembling integral representations for
+interior points. In two dimensions the IUs are located on crosses
+surrounded by square contours. The proposed approach has been proved
+effective in reducing the condition numbers and accelerating
+convergence for coarse grids with mesh sizes exceeding the wavelength.
+Our research has been aimed at devising novel computational schemes that
+facilitate analysis of large scattering problems. The effort so far has
+been directed at the development of two-dimensional multilevel
+preconditioner for high and low frequency cases. The above fast approach
+has been incorporated into an existing iterative solver. On one hand, one
+can consider our technique as being related to the multigrid method, in
+the sense of using stencils constructed based on the ideas stemming from
+a boundary element method. On the other hand, the idea is not too far
+from a domain decomposition technique.
+
+Recently, an extension of this method for solving the Helmholtz equation
+in 3D is considered. While, the first type of IU consists of the
+adaptation to an unbounded domain problem of the formulas which have been
+introduced in \cite{MCT95}. The second type is designed using a
+Helmholtz/wave equation-based interpolation similar to that introduced in
+\cite{PB08}.
+In three dimensions, the IUs are located at the intersections between
+pairs of planes (three pairs) parallel to the axes, and enclosed in a
+surface of the surrounding cube.
+An optimal strategy to combine the two types of IUs is expected to emerge
+depending on the wavenumber and the size of the mesh.
+
+\begin{references}{99}
+
+\bibitem{CT91} M. Chen and R. Temam,
+{\em Incremental unknowns for solving partial differential equations},
+Numer. Math. {\bf 59 (3)}, (1991) 255-271.
+
+\bibitem{CT93} M. Chen and R. Temam,
+{\em Incremental unknowns in finite differences: condition number of the matrix},
+SIAM J. Matrix Anal. Appl. {\bf 14 (2)}, (1993) 432-455.
+
+\bibitem{MCT95} M. Chen, A. Miranville and R. Temam,
+{\em Incremental unknowns in finite differences in three space dimensions},
+Mat. Appl. Comput. {\bf 14 (3)}, (1995) 219-252.
+
+\bibitem{E08} Y.A. Erlangga,
+{\em Advances in iterative methods and preconditioners for the
+Helmholtz equation},
+Arch. Comput. Meth. Eng. {\bf 15}, (2008) 37-66.
+
+\bibitem{PB07} P. Poullet and A. Boag,
+{\em Incremental unknowns preconditioning for solving the Helmholtz equation},
+Numer. Meth. for PDEs {\bf 23 (6)}, (2007) 1396-1410.
+
+\bibitem{PB08} P. Poullet and A. Boag,
+{\em Equation-based interpolation and incremental unknowns for solving
+the Helmholtz equation}, {\it submitted}
+
+\bibitem{SW07} L. Song and Y. Wu,
+{\em Incremental unknowns in three-dimensional stationary problem},
+Numer. Algor. {\bf 46}, (2007) 153-171.
+
+\end{references}
+
+
+\end{document}

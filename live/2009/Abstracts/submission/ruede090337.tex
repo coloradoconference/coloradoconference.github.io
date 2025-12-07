@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ulrich Ruede \\
+{\bf How fast are multigrid methods?}}
+
+Universität Erlangen \\ Lehrstuhl für Simulation \\ Cauerstrasse 6 \\ 91058 Erlangen \\ Germany
+\\
+{\tt ruede@cs.fau.de}\end{center}
+
+The most efficient multigrid algorithms known require less than 30
+operations per unknown to solve the 5-point stencil discretization of the
+Poisson equation in 2D to the level of truncation error. This uses full
+multigrid and a clever implementation of an FAS-like scheme using
+hierarchical basis transformations.
+We will briefly review the features of this algorithm will also discuss its
+generalizations for other problems. Unfortunately, the real performance
+of multigrid algorithms on current computer systems is much lower than
+predicted by such work estimates. We will discuss why this is the case,
+and what can be done about it.
+
+
+\end{document}

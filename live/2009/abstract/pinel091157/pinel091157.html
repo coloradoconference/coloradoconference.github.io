@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>pinel091157</TITLE>
+<META NAME="description" CONTENT="pinel091157">
+<META NAME="keywords" CONTENT="pinel091157">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pinel091157.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Xavier PINEL 
+<BR><B>Theoretical and experimental analysis of a perturbed two-grid preconditioner for indefinite Helmholtz problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">CERFACS 
+<BR>
+42 Avenue Coriolis 
+<BR>
+31057 TOULOUSE cedex 1 
+<BR>
+FRANCE
+
+<BR><TT>xavier.pinel@cerfacs.fr</TT>
+<BR>
+Henri CALANDRA
+<BR><EM>TOTAL, Centre Scientifique et Technique Jean Feger, Avenue Larribau, F-64018 Pau cedex, France, Henri.CALANDRA@total.com</EM>
+<BR>
+Serge GRATTON
+<BR><EM>CNES, avenue Edouard Belin, F-31401 Toulouse cedex 4, France and 
+CERFACS, 42 avenue Gaspard Coriolis, F-31057 Toulouse cedex 1, France, serge.gratton@cnes.fr and Serge.Gratton@cerfacs.fr</EM>
+<BR>
+Xavier VASSEUR
+<BR><EM>CERFACS, 42 avenue Gaspard Coriolis, F-31057 Toulouse cedex 1, France, Xavier.Vasseur@cerfacs.fr</EM>
+</DIV>
+
+<P>
+We study the three-dimensional Helmholtz equation written in the
+frequency domain modeled by the following partial differential equation:
+<!-- MATH
+ \begin{displaymath}
+-\Delta u - k^2 u = g
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="113" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle -\Delta u - k^2 u = g
+$">
+</DIV><P></P>
+with some absorbing boundary conditions, where <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ u$"> is the pressure of the
+wave, <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ k$"> its wavenumber and <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ g$"> is a Dirac function that represents the
+wave source. This problem is discretized using second-order accurate
+finite difference techniques leading to huge linear systems for large
+wavenumbers. 
+<BR>
+<P>
+Following Elman [<A
+ HREF="node1.html#Elman:2001">1</A>], we use a geometric two-grid
+preconditioner for a Krylov subspace method (namely flexible GMRES
+[<A
+ HREF="node1.html#Saad:1993">2</A>]) as a solution method. Due to the large dimension of the
+coarse grid problem we focus on the behavior of a two grid algorithm
+where the coarse problem is not solved exactly. We use a Krylov subspace
+method to solve this problem only approximately. This leads us to analyze
+two questions:
+
+<UL>
+<LI>Which stopping criterion and convergence threshold should be used
+for the coarse grid solver ?
+</LI>
+<LI>What is the impact of an approximate coarse grid solution on the
+preconditioning properties ?
+</LI>
+</UL>
+
+<P>
+In this talk, we will bring some elements to answer both questions. First
+a local Fourier analysis - assuming Dirichlet boundary conditions and
+small wavenumbers - will provide convergence rate estimates for this
+perturbed two-grid algorithm used as a solver. Secondly we will
+investigate the numerical behaviour of the algorithm when this two-grid
+method is used as a preconditioner. For that purpose we study the
+spectrum of an equivalent matrix constructed inside the flexible variant
+of GMRES. This will help us understanding the effects of the approximate
+coarse grid solution on the preconditioner for both absorbing boundary
+conditions and large wavenumbers. Parallel numerical experiments will
+conclude this talk showing the efficiency of this perturbed
+preconditioner even for large wavenumbers.
+<BR>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

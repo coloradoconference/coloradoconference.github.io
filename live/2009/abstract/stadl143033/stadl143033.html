@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>stadl143033</TITLE>
+<META NAME="description" CONTENT="stadl143033">
+<META NAME="keywords" CONTENT="stadl143033">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="stadl143033.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Georg Stadler 
+<BR><B>Experience with parallel AMG for large-scale adaptive mantle convection</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute for Computational Engineering and Sciences (ICES) 
+<BR>
+The University of Texas at Austin 
+<BR>
+1 University Station 
+<BR>
+C0200 
+<BR>
+Austin 
+<BR>
+TX 78712
+
+<BR><TT>georgst@ices.utexas.edu</TT>
+<BR>
+Carsten Burstedde
+<BR><EM>Institute for Computational Engineering and Sciences (ICES)
+The University of Texas at Austin, Austin, TX</EM>
+<BR>
+Omar Ghattas
+<BR><EM>Institute for Computational Engineering and Sciences (ICES) and Depts. of Geological Sciences and Mechanical Engineering
+The University of Texas at Austin, Austin, TX</EM>
+<BR>
+Michael Gurnis
+<BR><EM>Seismological Laboratory, California Institute of Technology, Pasadena, CA</EM>
+<BR>
+Eh Tan
+<BR><EM>Computational Infrastructure for Geodynamics, California Institute of Technology, Pasadena, CA</EM>
+<BR>
+Tiankai Tu
+<BR><EM>Institute for Computational Engineering and Sciences (ICES)
+The University of Texas at Austin, Austin, TX</EM>
+<BR>
+Lucas W. Wilcox
+<BR><EM>Institute for Computational Engineering and Sciences (ICES)
+The University of Texas at Austin, Austin, TX</EM>
+<BR>
+Zhong, Shijie
+<BR><EM>Department of Physics, University of Colorado, Boulder, CO</EM>
+</DIV>
+
+<P>
+Mantle convection is the principal control on the thermal and
+geological evolution of the Earth. Its modeling involves solution of the
+mass, momentum, and energy equations for a viscous, creeping,
+incompressible non-Newtonian fluid at high Rayleigh and Peclet numbers.
+We are developing the parallel adaptive mantle convection code
+<TT>Rhea</TT>, which builds on our <B>A</B>daptive <B>L</B>arge-scale
+<B>P</B>arallel <B>S</B>imulations (ALPS) framework.
+
+<P>
+The numerical simulation of mantle convection requires the solution of a
+stationary, highly variable-viscosity Stokes system at each time step.
+The Stokes equation is discretized using trilinear finite elements for
+both velocity and pressure, and polynomial pressure projection is used to
+stabilize this equal-order approximation. For the solution of the
+discrete Stokes saddle point system we use the preconditioned minimal
+residual (MINRES) method. The preconditioner is based on an approximate
+Schur complement for the pressure component and involves a solve with a
+positive definite operator for the velocity filed. This block solve is
+approximated with one V-cycle
+of algebraic multigrid. Results obtained with the parallel AMG
+libraries <EM>BoomerAMG</EM> from <EM>hypre</EM> and with <EM>ML</EM> from
+<EM>Trilinos</EM> will be shown. We discuss the parallel scalability of the
+solver on up to 16K cores, as well as its dependence on viscosity
+variations and boundary conditions.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2009-03-17
+</ADDRESS>
+</BODY>
+</HTML>

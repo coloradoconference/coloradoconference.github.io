@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ruppm106608</TITLE>
+<META NAME="description" CONTENT="ruppm106608">
+<META NAME="keywords" CONTENT="ruppm106608">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ruppm106608.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Martin Rupp 
+<BR><B>Eigenmodes of a Guitar Top Plate - Application for Filtering Algebraic Multigrid and Preconditioned Inverse Iteration</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Simulation and Modelling 
+<BR>
+Goethe-Center for Scientific Computing 
+<BR>
+Goethe-University 
+<BR>
+Kettenhofweg 139 
+<BR>
+60325 Frankfurt am Main 
+<BR>
+Germany
+
+<BR><TT>martin.rupp@gcsc.uni-frankfurt.de</TT>
+<BR>
+Arne N&#228;gel
+<BR><EM>Goethe-University, Frankfurt/Main, Germany</EM>
+<BR>
+Gabriel Wittum
+<BR><EM>Goethe-University, Frankfurt/Main, Germany</EM>
+</DIV>
+
+<P>
+The top plate of a guitar is crucial for sound amplification. The
+frequencies in the spectrum of the vibrating string which are close to
+resonance frequencies of the top plate are amplified the most, and
+determine (among other factors) the sound of the guitar. We employ a
+finite element discretisation of the Lamé equation for the numerical
+simulation of this problem.
+<BR>
+<P>
+To compute the resonance frequencies, we use a projection method for
+generalized symmetric eigenvalue problems <!-- MATH
+ $Au = \lambda Mu$
+ -->
+<IMG
+ WIDTH="82" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Au = \lambda Mu$">. The key step
+is a minimization of the Rayleigh-Quotient <!-- MATH
+ $\lambda(u) := \frac{\langle
+Au, u \rangle}{\langle Mu, u \rangle}$
+ -->
+<IMG
+ WIDTH="107" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \lambda(u) := \frac{\langle
+Au, u \rangle}{\langle Mu, u \rangle}$"> over a suitable constructed
+subspace <!-- MATH
+ $\mathcal L$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathcal L$"> via the Rayleigh-Ritz-method. To construct
+<!-- MATH
+ $\mathcal L$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathcal L$">, we use the <I>Preconditioned Inverse Iteration</I>
+(PINVIT):
+The approximate solution of the Inverse Iteration equation leads to the correction
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:pinvit"></A><!-- MATH
+ \begin{equation}
+v^{(k+1)} = v^{(k)} - c^{(k)} = v^{(k)} - B (A - \lambda(v^{(k)}) M) v^{(k)}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="352" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle v^{(k+1)} = v^{(k)} - c^{(k)} = v^{(k)} - B (A - \lambda(v^{(k)}) M) v^{(k)}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+of the eigenvalue approximation <IMG
+ WIDTH="31" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ v^{(k)}$">, which motivates the use of
+<!-- MATH
+ \begin{displaymath}
+\mathcal L ^{(k+1)}= \mathrm{span} \left\langle{c^{(k)}, v^{(k)}}\right\rangle \;.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="194" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle \mathcal L ^{(k+1)}= \mathrm{span} \left\langle{c^{(k)}, v^{(k)}}\right\rangle \;.$">
+</DIV><P></P>
+Additional vectors in <!-- MATH
+ $\mathcal L$
+ -->
+<IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \mathcal L$"> may increase convergence like in
+<I>LOPCG</I> [<A
+ HREF="node1.html#Knyazev:TowardOptPrecondEigensolver">1</A>] or, more general,
+in PINVIT(s) [<A
+ HREF="node1.html#Neymeyr:OnPrecondEigensolvers">2</A>]. 
+<BR>
+<P>
+The preconditioner <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ B$"> used in (<A HREF="#eq:pinvit">1</A>) should approximate the
+inverse of the stiffness matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ A$">, and must thus be robust with respect
+to anisotropies in the geometry and the material properties. We seek to
+treat the arising linear system using algebraic multigrid. In particular,
+we focus on the <I>Filtering Algebraic Multigrid</I> approach
+[<A
+ HREF="node1.html#wagner">3</A>,<A
+ HREF="node1.html#naegel">4</A>]. The key idea of this AMG variant is to construct
+the interpolation operator <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ P$">, such that the norm of the two-grid
+operator is minimized in a certain sense. At the same time, constraints
+are imposed to guarantee filter conditions for certain test vectors <IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ t$">:
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+\min_{P} \|(I-PR^{(inj)}) S \|, \quad \text{s.t.} \; (I-PR^{(inj)}) S t = 0
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="158" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle \min_{P} \Vert(I-PR^{(inj)}) S \Vert,$">&nbsp; &nbsp;s.t.<IMG
+ WIDTH="148" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \; (I-PR^{(inj)}) S t = 0$"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+We comment on the theory and outline a pointwise version of the method,
+which is suitable to treat systems of equations. For linear elasticity
+problems, local representations of the rigid body modes are used to
+obtain robustness on the Neumann boundaries. Numerical results and
+illustrative examples are provided and conclude the talk.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

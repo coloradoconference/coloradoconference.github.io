@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>baker092079</TITLE>
+<META NAME="description" CONTENT="baker092079">
+<META NAME="keywords" CONTENT="baker092079">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="baker092079.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Allison H. Baker 
+<BR><B>Algebraic Multigrid for Elasticity</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Lawrence Livermore National Laboratory 
+<BR>
+Box 808 
+<BR>
+L-560 
+<BR>
+Livermore 
+<BR>
+CA 94551-0808
+
+<BR><TT>abaker@llnl.gov</TT>
+<BR>
+Tzanio V. Kolev
+<BR><EM>Lawrence Livermore National Laboratory</EM>
+<BR>
+Ulrike Meier Yang
+<BR><EM>Lawrence Livermore National Laboratory</EM>
+</DIV>
+
+<P>
+We are interested in the efficient solution of large systems of PDEs
+arising from elasticity applications. When solving linear systems
+derived from systems of PDEs with AMG, two accepted approaches are
+treating variables corresponding to the same unknown separately (the
+"unknown" approach) and treating variables corresponding to the same
+physical node together (the "nodal" approach). While the unknown
+approach is typically chosen for elasticity problems, convergence is
+often far from ideal.
+
+<P>
+In this talk, we investigate improving the interpolation of the rigid
+body modes. In particular, we propose extending the AMG interpolation
+operator to exactly interpolate the rotational rigid body modes by
+adding additional degrees of freedom (dofs) at each node. Our approach
+is an unknown-based approach that builds upon any existing AMG
+interpolation strategy and requires nodal coarsening. The approach
+fits easily into the AMG framework and does not require any matrix
+inversions. We demonstrate the effectiveness on several 2D and 3D
+elasticity problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

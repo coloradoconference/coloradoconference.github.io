@@ -1,0 +1,83 @@
+===affil2:
+TOTAL, Centre Scientifique et Technique Jean Feger, Avenue Larribau, F-64018 Pau cedex, France, Henri.CALANDRA@total.com
+===firstname:
+Xavier
+===firstname4:
+Xavier
+===firstname3:
+Serge
+===lastname2:
+CALANDRA
+===lastname:
+PINEL
+===firstname5:
+
+===affil6:
+
+===lastname3:
+GRATTON
+===email:
+xavier.pinel@cerfacs.fr
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+VASSEUR
+===affil4:
+CERFACS, 42 avenue Gaspard Coriolis, F-31057 Toulouse cedex 1, France, Xavier.Vasseur@cerfacs.fr
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+CERFACS
+42 Avenue Coriolis 
+31057 TOULOUSE cedex 1
+FRANCE
+===firstname6:
+
+===ABSTRACT:
+We study the three-dimensional Helmholtz equation written in the
+frequency domain modeled by the following partial differential equation:
+$$
+-\Delta u - k^2 u = g
+$$
+with some absorbing boundary conditions, where $u$ is the pressure of the wave, $k$ its wavenumber and $g$ is a Dirac function that represents the wave source. This problem is discretized using second-order accurate finite difference techniques leading to huge linear systems for large wavenumbers. \\
+
+Following Elman \cite{Elman:2001}, we use a geometric two-grid preconditioner for a Krylov subspace method (namely flexible GMRES \cite{Saad:1993}) as a solution method. Due to the large dimension of the coarse grid problem we focus on the behavior of a two grid algorithm where the coarse problem is not solved exactly. We use a Krylov subspace method to solve this problem only approximately. This leads us to analyze two questions:
+\begin{itemize}
+ \item Which stopping criterion and convergence threshold should be used for the coarse grid solver ?
+ \item What is the impact of an approximate coarse grid solution on the preconditioning properties ?
+\end{itemize}
+
+In this talk, we will bring some elements to answer both questions. First a local Fourier analysis - assuming Dirichlet boundary conditions and small wavenumbers - will provide convergence rate estimates for this perturbed two-grid algorithm used as a solver. Secondly we will investigate the numerical behaviour of the algorithm when this two-grid method is used as a preconditioner. For that purpose we study the spectrum of an equivalent matrix constructed inside the flexible variant of GMRES. This will help us understanding the effects of the approximate coarse grid solution on the preconditioner for both absorbing boundary conditions and large wavenumbers. Parallel numerical experiments will conclude this talk showing the efficiency of this perturbed preconditioner even for large wavenumbers.\\
+
+\begin{thebibliography}{2}
+
+\bibitem{Elman:2001}
+Elman, H. R., Ernst, O. G. and O'Leary, D. P., A multigrid method enhanced by {K}rylov
+subspace iteration for discrete {H}elmholtz equations. {\itshape SIAM J. Sci. Comput.,}
+{\bfseries 23}, 1291--1315, 2001.
+
+\bibitem{Saad:1993}
+Saad, Y., A flexible inner-outer preconditioned GMRES algorithm. {\itshape SIAM J. Sci. Comput.,}
+{\bfseries 14}, 461--469, 1993.
+
+\end{thebibliography}
+
+===affil3:
+CNES, avenue Edouard Belin, F-31401 Toulouse cedex 4, France and 
+CERFACS, 42 avenue Gaspard Coriolis, F-31057 Toulouse cedex 1, France, serge.gratton@cnes.fr and Serge.Gratton@cerfacs.fr
+===lastname5:
+
+===affilother:
+
+===title:
+Theoretical and experimental analysis of a perturbed two-grid preconditioner for indefinite Helmholtz problems
+===firstname2:
+Henri

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>ketel103264</TITLE>
+<META NAME="description" CONTENT="ketel103264">
+<META NAME="keywords" CONTENT="ketel103264">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ketel103264.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Christian Ketelsen 
+<BR><B>Multigrid Solvers for Quantum Electrodynamics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Mathematics 
+<BR>
+526 UCB 
+<BR>
+University of Colorado 
+<BR>
+Boulder 
+<BR>
+CO 80309-0526
+
+<BR><TT>ketelsen@colorado.edu</TT>
+<BR>
+Tom Manteuffel 
+<BR><EM>University of Colorado at Boulder</EM>
+<BR>
+Steve McCormick
+<BR><EM>University of Colorado at Boulder</EM>
+</DIV>
+
+<P>
+The Schwinger Model of quantum electrodynamics (QED) describes the
+interaction between electrons and photons. Large scale numerical
+simulations of the theory require repeated solution of the
+two-dimensional Dirac equation, a system of two first order partial
+differential equations coupled to a background U(1) gauge field.
+Traditional discretizations of this system are sparse and highly
+structured, but contain random complex entries introduced by the
+background field. For even mildly disordered gauge fields the near kernel
+components of the system are highly oscillatory, rendering standard
+multilevel methods ineffective.
+
+<P>
+We consider an alternate formulation of the governing equations that is
+more amenable to multigrid solvers. The alternate model is obtained by a
+similarity transformation of the continuum operator which essentially
+eliminates the gauge field. The resulting formulation resembles uncoupled
+diffusion-like problems with variable diffusion coefficients. The form of
+the transformed system is ideal as adaptive multilevel methods have
+proven effective in the past at solving such problems. Next, we
+discretize the transformed system using least-squares finite elements.
+Finally, adaptive smoothed aggregation multigrid is used to solve the
+resulting linear system. We present numerical results and discuss
+implications of the transformed formulation for the physical theory.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

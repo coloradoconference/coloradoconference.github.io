@@ -1,0 +1,62 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Justin Wan \\
+{\bf A Multigrid Method for Solving Partial Integro-Differential Equations Arising from Option Pricing Under the Levy Process}}
+
+School of Computer Science \\ University of Waterloo \\ 200 University Ave West \\ Waterloo \\ ON N2L 3G1 \\ Canada
+\\
+{\tt jwlwan@uwaterloo.ca}\\
+Iris R. Wang\\
+{\em University of Waterloo}\end{center}
+
+Recently, Levy process models for pricing options have become
+popular in the financial literature. Based on the Black-Scholes
+model, the option value of a contingent claim, $V(S,\tau)$,
+under the Levy process satisfies the following partial
+integro-differential equation (PIDE):
+\begin{eqnarray*}
+V_\tau =
+\frac{\sigma^2}{2}S^2V_{SS} +
+(r-q)SV_S - rV + \int_{-\infty}^{\infty} \nu(y)[V(Se^y,\tau) - V(S,\tau) -
+S(e^y - 1) V_S]dy,
+\end{eqnarray*}
+where $S$ is the underlying stock price, $\tau$ the time to
+expiry, $r$ the risk-free interest rate, $q$ the dividend yield,
+and $\sigma$ the volatility associated with the continuous
+component of Levy process. The Levy measure $\nu(y)$ is
+typically singular at $y=0$.
+
+Due to the singularity of $\nu(y)$, standard discretization
+methods may not achieve the usual accuracy. Moreover, the
+computation of the integral term can be very expensive.
+Recently, an implicit discretization method has been proposed
+that can obtain second order convergence for finite variation
+case and better than first order accuracy for infinite variation
+processes. In each time step, a linear system needs to be
+solved, which forms the bottle neck of the entire computation.
+A fixed point and a preconditioned BiCGSTAB iterations have been
+proposed. While they converge quite rapidly for mildly singular
+cases, the number of iterations grows significantly in the case
+of infinite variation when the mesh size decreases.
+
+In this talk, we present a multigrid method for solving the
+PIDE. The multigrid method uses a fixed point iteration for
+smoothing. We prove by Fourier analysis that the smoother damps
+away the high frequencies. Linear interpolation and full
+weighting are used for intergrid transfer. Since it is too
+expensive to form the integral term explicitly, direct
+discretization is used for constructing the coarse grid matrices.
+However, it turns out that it is not as effective as the
+Galerkin course grid operators. We discuss how a combination
+of the two is used to form the coarse grid matrices. We
+demonstrate numerically the effectiveness of the multigrid
+method and show that the convergence rate is independent of the
+mesh size.
+
+
+\end{document}

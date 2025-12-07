@@ -1,0 +1,95 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthias Bolten \\
+{\bf Local Fourier analysis of interpolation operators for problems with certain complex stencils -- preliminary results}}
+
+Department of Mathematics and Science \\ University of Wuppertal \\ D-42097 Wuppertal \\ Germany
+\\
+{\tt bolten@math.uni-wuppertal.de}\end{center}
+
+Local Fourier analysis (LFA) (see e.g.~\cite{art:BRAN77,boo:TROT01}) is
+known to be a valuable tool for the development of geometric multigrid
+methods for PDEs allowing an effective tuning of multigrid components.
+The main concept of LFA is the idea of keeping local stencils fixed and
+treating the (local) problems as if they where part of the associated
+infinitely large constant coefficient problems. This allows for an
+optimal choice of smoothers as well as restriction operators.
+
+The infinitely large problem with constant coefficients corresponds to a
+($l$-level) Toeplitz operator. The Toeplitz operators are completely
+described by their generating symbol, a ($l$-variate) $2 \pi$-periodic
+function. For second order elliptic problems the generating symbol has a
+unique zero of order two at the origin. The multigrid methods for
+Toeplitz matrices and circulant matrices that have been developed in the
+last years (c.f.~\cite{art:FIOR96,art:FIOR96a,art:SERR02,art:SERR04}),
+work well for these problems, and they do not depend on the location of
+the zero. In fact, the zero of the generating symbol just influences the
+choice of the interpolation operator in the multigrid method.
+
+Combining these developments we are able to provide local interpolation
+operators for matrices with non-constant stencils with complex entries,
+consider e.g. the stencil
+\begin{equation*}
+\frac{1}{h^{2}} \left[ \begin{array}{ccc}
+& -e^{2 \pi i \varphi_{x,y+\mu}} & \\
+-e^{-2 \pi i \varphi_{x-\mu,y}} & 4 & -e^{2 \pi i \varphi_{x+\mu,y}} \\
+& -e^{-2 \pi i \varphi_{x,y-\mu}} &
+\end{array} \right]
+\end{equation*}
+where $\varphi_{x-\mu,y}, \varphi_{x+\mu,y}, \varphi_{x,y-\mu},
+\varphi_{x,y+\mu} \in [0,1]$ are some random parameters. This can be
+considered as a non-shifted variant of the 2d Gauge Laplace matrix that
+arises in a simplified model of lattice quantum chromodynamics. The idea
+is similar as in LFA, namely take the local stencil as a constant stencil
+in an infinitely large system. Using results of Serra-Capizzano and
+Tablino-Possio in~\cite{art:SERR04} we are able to provide interpolation
+operators for these matrices, yielding in our local definition of the
+interpolation.
+
+In this talk we will give a short overview over the used results,
+introduce the concept in larger detail and present some numerical results
+for the two-grid case.
+
+\begin{thebibliography}{1}
+
+\bibitem{art:BRAN77}
+A.~Brandt.
+\newblock Multi-level adaptive solutions to boundary-value problems.
+\newblock {\em Math. Comp.}, 31(138):333--390, 1977.
+
+\bibitem{art:FIOR96}
+G.~Fiorentino and S.~Serra.
+\newblock Multigrid methods for indefinite {Toeplitz} matrices.
+\newblock {\em Calcolo}, 33:223--236, 1996.
+
+\bibitem{art:FIOR96a}
+G.~Fiorentino and S.~Serra.
+\newblock Multigrid methods for symmetric positive definite block {Toeplitz}
+matrices with nonnegative generating functions.
+\newblock {\em SIAM J. Sci. Comput.}, 17(5):1068--1081, 1996.
+
+\bibitem{art:SERR02}
+S.~Serra-Capizzano.
+\newblock Convergence analysis of two-grid methods for elliptic Toeplitz and
+PDEs matrix sequences.
+\newblock {\em Numer. Math.}, 92:433--465, 2002.
+
+\bibitem{art:SERR04}
+S.~Serra-Capizzano and C.~Tablino-Possio.
+\newblock Multigrid methods for multilevel circulant matrices.
+\newblock {\em SIAM J. Sci. Comput.}, 26(1):55--85, 2004.
+
+\bibitem{boo:TROT01}
+U.~Trottenberg, C.~Oosterlee, and A.~Sch{\"u}ller.
+\newblock {\em Multigrid}.
+\newblock Academic Press, San Diego, 2001.
+
+\end{thebibliography}
+
+
+\end{document}

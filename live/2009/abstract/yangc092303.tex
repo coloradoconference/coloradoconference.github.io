@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chao Yang \\
+{\bf Parallel Two-level Schwarz Methods for Fully Implicit Solution of Shallow Water Equations on the Cubed-sphere}}
+
+Department of Computer Science \\ University of Colorado at Boulder \\ Boulder \\ CO 80309
+\\
+{\tt chao.yang@colorado.edu}\\
+Xiao-Chuan Cai\\
+{\em Department of Computer Science, University of Colorado at Boulder, Boulder, CO 80309}\end{center}
+
+In this talk a parallel two-level Schwarz preconditioner is proposed as
+part of a fully implicit solver for the shallow water equations
+discretized with a finite volume scheme on the cubed-sphere. With such an
+implicit time integration scheme the time step size is no longer
+constrained by the CFL condition, which is usually required when using
+explicit or semi-implicit methods. The price to pay is that a large
+sparse nonlinear system of equations has to be solved at every time step.
+When the one-level method is used, our numerical experiments show that
+the number of nonlinear iterations per time step is almost independent of
+the number of processors and the time step size, but the number of linear
+iterations grows when we increase the number of processors. In this work
+we introduce a coarse grid correction to the Schwarz preconditioner, and
+we show numerically that, with the help of the second level, the number
+of linear iterations is nearly independent of the number of processors
+and is less sensitive to the implicit time step size. We present
+numerical results obtained on machines with thousands of processors.
+
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Pablo Navarrete \\
+{\bf Signal Processing Approach to avoid Smoothing Iterations in Multi-grid Methods}}
+
+Department of Electrical Engineering \\ Universidad de Chile \\ Av Tupper 2007 \\ Santiago \\ RM 8370451 \\ Chile
+\\
+{\tt pnavarrete@ing.uchile.cl}\end{center}
+
+Modifications of the conventional muti-grid algorithm are studied to
+avoid the use of smoothing iterations. In the full multi–grid algorithm,
+classical smoothing iterations (e.g. Gauss–Seidel) reduce high–frequency
+components of the error and a coarse–grid approach reduces the
+low–frequency components of the error. The problem here is that two
+methods with different structures are being combined, which introduces
+additional complexity in the convergence analysis of multi–grid methods.
+Then, the idea is to avoid the use of smoothing iterations by using
+different inter–grid configurations and the concept of quadrature mirror
+filters, which are well known in the area of signal processing and
+particularly in wavelet analysis. This framework can be introduced by
+using the structure of the extended convergence analysis introduced in
+[1] from which the classical Local Fourier Analysis (LFA) is a particular
+case. This can provide an integrated configuration to efficiently reduce
+low– and high– frequency components of the error as well as aliasing
+effects between the low- and high- frequency components of the error. The
+possibility of a direct solver is studied and the conditions under which
+it can be implemented.
+
+[1]P. Navarrete, and E.J. Coyle, ``A semi-algebraic approach that enables
+the design of inter-grid operators to optimize multigrid convergence,''
+Numerical Linear Algebra with Applications, Vol. 15, No. 2-3, pp.
+219-247, March 2008.
+
+
+\end{document}

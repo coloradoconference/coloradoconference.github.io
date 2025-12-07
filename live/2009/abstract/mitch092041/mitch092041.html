@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mitch092041</TITLE>
+<META NAME="description" CONTENT="mitch092041">
+<META NAME="keywords" CONTENT="mitch092041">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mitch092041.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">William F Mitchell 
+<BR><B>The hp-Multigrid Method Applied to hp-Adaptive Finite Elements</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">100 Bureau Dr Stop 8910 
+<BR>
+NIST 
+<BR>
+Gaithersburg 
+<BR>
+MD 20899-8910
+
+<BR><TT>william.mitchell@nist.gov</TT>
+</DIV>
+
+<P>
+Recently the <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$"> version of the finite element method has received
+increasing attention. This is an adaptive finite element approach in
+which adaptivity occurs in both the size, <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$">, of the elements (spacial
+or <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> adaptivity) and in the order, <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">, of the approximating piecewise
+polynomials (order or <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$"> adaptivity). The objective is to determine a
+distribution of <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> and <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$"> that minimizes the error using the least
+amount of work in some measure. The main attraction of <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$"> adaptivity is
+that, in theory, the discretization error can decrease exponentially with
+the number of degrees of freedom, <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ n$">, even in the presence of
+singularities, and this rate of convergence has been observed in
+practice.
+
+<P>
+It is desirable to combine this optimal order discretization method with
+an optimal order algebraic solution method, such as multigrid. Most
+published work in <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$"> adaptive methods to date has focused on domain
+decomposition and preconditioned conjugate gradient type solvers or used
+direct solvers. In this presentation we present the <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-multigrid method
+for high order finite elements and <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-adaptive grids.
+
+<P>
+An intriguing notion is to use the values of <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$"> as the levels of a
+multilevel method. This was first proposed in 1985 for the <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">-version of
+the finite element method by Craig and Zienkiewicz [1]. Several other
+researchers developed multilevel methods based on <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$"> in the later half
+of the 1980's, with Babuka et al. [2] coining the term multi-<IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">
+(as opposed to multigrid) method. Theoretical <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">-independent (or nearly
+independent) convergence was established in the 1990's by Maday,
+Mu&#241;oz, Patera and R&#248;nquist [3] and by Hu, Guo and Katz [4]. In
+the later 1990's and early 2000's the term <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">-multigrid was adopted, and
+it was mostly used in conjunction with the discontinuous Galerkin method
+for hyperbolic conservation laws.
+
+<P>
+The basic idea of the <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">-multigrid method is to use the <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">-hierarchical
+basis for the finite element space and perform a classic V-cycle in which
+the <IMG
+ WIDTH="26" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ k^{th}$"> level consists of all the bases up to degree <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ k$">. The system
+of equations on level 1, i.e. the linear basis functions, is solved with
+a direct method. Nastase and Mavriplis [5] replaced the direct solver
+with a classic <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$">-multigrid method, and coined the term <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-multigrid
+method.
+
+<P>
+Most of the results presented with <IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ p-$"> and <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-multigrid methods has
+been with spectral element methods and discontinuous Galerkin methods.
+Although some of the papers mention <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-adaptivity, to the author's
+knowledge no papers have presented results using <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-adaptively refined
+meshes. In this talk we define the <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-multigrid method in the context
+of <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-adaptive finite elements for bisected triangular elements in 2D,
+and present numerical convergence results using elliptic problems with
+singular and nearly singular solutions. The results exhibit residual
+contraction factors that are independent of both <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> and <IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$">.
+
+<P>
+References
+
+<P>
+[1] Craig, A.W. and Zienkiewicz, O.C., A multigrid algorithm using a
+hierarchical finite element basis, in Multigrid Methods for Integral and
+Differential Equations, D.J. Paddon and Holstein (eds.), Clarendon Press,
+Oxford, 1985, pp. 310-312.
+
+<P>
+[2] Babuska, I., Griebel, M. and Pitkaranta, J., The problem of
+selecting the shape functions for a p-type finite element, Internat. J.
+Numer. Methods Engng., 28, (1989), pp. 1891-1908.
+
+<P>
+[3] Maday, Y., Mu&#241;oz, R., Patera, A.T. and R&#248;nquist, E.M.,
+Spectral element multigrid methods, in Proc. of the IMACS Int. Symposium
+on Iterative Methods in Linear Algebra, P. de Groen and R. Beauwens
+(eds.), Elsevier, Amsterdam, 1992, pp. 191-201.
+
+<P>
+[4] Hu, N., Guo, X.-Z. and Katz, I., Multi-<IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ p$"> preconditioners, SIAM J.
+Sci. Comput., 18, (1997), pp. 1676-1697.
+
+<P>
+[5] Nastase, C.R. and Mavriplis, D.J., High-order discontinuous Galerkin
+methods using an <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ hp$">-multigrid approach, J. Comput. Phys., 213, (2006),
+pp. 330-357.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

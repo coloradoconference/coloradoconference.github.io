@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>yangc092303</TITLE>
+<META NAME="description" CONTENT="yangc092303">
+<META NAME="keywords" CONTENT="yangc092303">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="yangc092303.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Chao Yang 
+<BR><B>Parallel Two-level Schwarz Methods for Fully Implicit Solution of Shallow Water Equations on the Cubed-sphere</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+University of Colorado at Boulder 
+<BR>
+Boulder 
+<BR>
+CO 80309
+
+<BR><TT>chao.yang@colorado.edu</TT>
+<BR>
+Xiao-Chuan Cai
+<BR><EM>Department of Computer Science, University of Colorado at Boulder, Boulder, CO 80309</EM>
+</DIV>
+
+<P>
+In this talk a parallel two-level Schwarz preconditioner is proposed as
+part of a fully implicit solver for the shallow water equations
+discretized with a finite volume scheme on the cubed-sphere. With such an
+implicit time integration scheme the time step size is no longer
+constrained by the CFL condition, which is usually required when using
+explicit or semi-implicit methods. The price to pay is that a large
+sparse nonlinear system of equations has to be solved at every time step.
+When the one-level method is used, our numerical experiments show that
+the number of nonlinear iterations per time step is almost independent of
+the number of processors and the time step size, but the number of linear
+iterations grows when we increase the number of processors. In this work
+we introduce a coarse grid correction to the Schwarz preconditioner, and
+we show numerically that, with the help of the second level, the number
+of linear iterations is nearly independent of the number of processors
+and is less sensitive to the implicit time step size. We present
+numerical results obtained on machines with thousands of processors.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>knyaz082763</TITLE>
+<META NAME="description" CONTENT="knyaz082763">
+<META NAME="keywords" CONTENT="knyaz082763">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="knyaz082763.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrew Knyazev 
+<BR><B>Multigrid Eigensolvers for Image Segmentation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematical and Statistical Sciences 
+<BR>
+University of Colorado Denver 
+<BR>
+P O Box 173364 
+<BR>
+Campus Box 170 
+<BR>
+Denver 
+<BR>
+CO 80217-3364
+
+<BR><TT>Andrew.Knyazev@ucdenver.edu</TT>
+</DIV>
+
+<P>
+Known spectral methods for graph bipartition and graph-based image
+segmentation require computation of Fiedler vectors, i.e., numerical
+solution of eigenvalue problems with a graph Laplacian.
+The ultimate goal is to find a method with a linear complexity, i.e. a
+method with computational costs that scale linearly with the problem
+size, e.g., with the number of pixels in the image for the image
+segmentation problem. Multigrid approaches seem natural for image
+segmentation, where different image resolution scales are easily
+available.
+
+<P>
+We numerically analyze multigrid-based eigensolvers, e.g., [1-2], for
+computation of the Fiedler vectors. Multigrid can be used for
+multi-resolution segmentation as well as for preconditioning . We test
+both such approaches. We find that the multiresolution segmentation can
+be tricky as the low-resolution image bisection may be qualitatively
+inaccurate; and we explain the mathematical reason for such a behavior. A
+direct bisection of the highest-resolution image may thus produce better
+quality segmentations compared to the multiresolution segmentation.
+
+<P>
+Our tests demonstrate that the multigrid preconditioning gives the ideal
+linear complexity and produces high quality image segmentation applied
+directly to the highest-resolution image. We describe our PETSc-BLOPEX,
+see [3], driver for computing the Fiedler vector with Hypre
+preconditioning, which can be used for segmentation of practical-size
+megapixel images on parallel computers. E.g., it computes the Fiedler
+vector for 24 megapixel images in seconds on our BlueGene/L 1024 CPU box
+using the algebraic multigrid. Further speed-up can be obtained by
+employing geometric multigrid and a lower precision arithmetic.
+
+<P>
+References:
+
+<P>
+[1] A.V. Knyazev, Toward the Optimal Preconditioned Eigensolver: Locally
+Optimal Block Preconditioned Conjugate Gradient Method. SIAM Journal on
+Scientific Computing 23 (2001), 517-541.
+
+<P>
+[2] A.V. Knyazev and K. Neymeyr, Efficient solution of symmetric
+eigenvalue problems using multigrid preconditioners in the locally
+optimal block conjugate gradient method. ETNA, 15 (2003), 38-55.
+
+<P>
+[3] A. V. Knyazev, I. Lashuk, M. E. Argentati, and E. Ovchinnikov, Block
+Locally Optimal Preconditioned Eigenvalue Xolvers (BLOPEX) in hypre and
+PETSc. SIAM Journal on Scientific Computing 25 (2007), 2224-2239.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+===affil2:
+Goethe-University, Frankfurt/Main, Germany
+===firstname:
+Martin
+===firstname4:
+
+===firstname3:
+Gabriel
+===lastname2:
+Nägel
+===lastname:
+Rupp
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Wittum
+===email:
+martin.rupp@gcsc.uni-frankfurt.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Simulation and Modelling
+Goethe-Center for Scientific Computing
+Goethe-University
+Kettenhofweg 139
+60325 Frankfurt am Main
+===firstname6:
+
+===ABSTRACT:
+The top plate of a guitar is crucial for sound amplification. The frequencies in the spectrum of the vibrating string which are close to resonance frequencies of the top plate are amplified the most, and determine (among other factors) the sound of the guitar. We employ a finite element discretisation of the Lamé equation for the numerical simulation of this problem.
+\\
+
+To compute the resonance frequencies, we use a projection method for generalized symmetric eigenvalue problems $Au = \lambda Mu$. The key step is a minimization of the Rayleigh-Quotient $\lambda(u) := \frac{\langle Au, u \rangle}{\langle Mu, u \rangle}$ over a suitable constructed subspace $\mathcal L$ via the Rayleigh-Ritz-method. To construct $\mathcal L$, we use the \emph{Preconditioned Inverse Iteration} (PINVIT): 
+ The approximate solution of the Inverse Iteration equation leads to the correction
+\begin{equation} \label{eq:pinvit}
+ v^{(k+1)} = v^{(k)} - c^{(k)} = v^{(k)} - B (A - \lambda(v^{(k)}) M) v^{(k)}
+\end{equation}
+of the eigenvalue approximation $v^{(k)}$, which motivates the use of
+$$ \mathcal L ^{(k+1)}= \mathrm{span} \left\langle{c^{(k)}, v^{(k)}}\right\rangle \;.$$
+Additional vectors in $\mathcal L$ may increase convergence like in \emph{LOPCG} \cite{Knyazev:TowardOptPrecondEigensolver} or, more general, in PINVIT(s) \cite{Neymeyr:OnPrecondEigensolvers}. \\
+
+The preconditioner $B$ used in (\ref{eq:pinvit}) should approximate the inverse of the stiffness matrix $A$, and must thus be robust with respect to anisotropies in the geometry and the material properties. We seek to treat the arising linear system using algebraic multigrid. In particular, we focus on the {\it Filtering Algebraic Multigrid} approach \cite{wagner, naegel}. The key idea of this AMG variant is to construct the interpolation operator $P$, such that the norm of the two-grid operator is minimized in a certain sense. At the same time, constraints are imposed to guarantee filter conditions for certain test vectors $t$:
+\begin{eqnarray*}
+\min_{P} \|(I-PR^{(inj)}) S \|, \quad \text{s.t.} \; (I-PR^{(inj)}) S t = 0
+\end{eqnarray*} 
+We comment on the theory and outline a pointwise version of the method, which is suitable to treat systems of equations. For linear elasticity problems, local representations of the rigid body modes are used to obtain robustness on the Neumann boundaries. Numerical results and illustrative examples are provided and conclude the talk. 
+%%THE END OF ABSTRACT
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem[1]{Knyazev:TowardOptPrecondEigensolver} Knyazev, A.V. : \textit{Toward the Optimal Preconditioned Eigensolver: Locally Optimal Block Preconditioned Conjugate Gradient Method}. SIAM J. Sci. Comput., Vol. 23, No. 2, pp. 517--541, 2001.
+
+\bibitem[2]{Neymeyr:OnPrecondEigensolvers} K. Neymeyr: \textit{On preconditioned eigensolvers and Invert-Lanczos processes}. Preprint 2007.
+
+\bibitem[3]{wagner} Wagner C.: \textit{On the algebraic construction of multilevel transfer operators}. Computing, Vol. 65, No. 1, pp. 73--95, 2000.
+
+\bibitem[4]{naegel} N\"agel A., Falgout R.D., Wittum G.: \textit{Filtering algebraic multigrid and adaptive strategies}. Computing and Visualization in Science, Vol. 11, No. 3, pp. 159--167, 2008.
+\end{thebibliography}
+
+
+===affil3:
+Goethe-University, Frankfurt/Main, Germany
+===lastname5:
+
+===affilother:
+
+===title:
+Eigenmodes of a Guitar Top Plate -- Application for Filtering Algebraic Multigrid and Preconditioned Inverse Iteration
+===firstname2:
+Arne

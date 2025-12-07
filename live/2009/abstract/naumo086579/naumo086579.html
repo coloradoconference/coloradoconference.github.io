@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>naumo086579</TITLE>
+<META NAME="description" CONTENT="naumo086579">
+<META NAME="keywords" CONTENT="naumo086579">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="naumo086579.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Anna Naumovich 
+<BR><B>Defect correction with algebraic multigrid for the linearized steady Euler equations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">German Aerospace Center 
+<BR>
+Institute of Aerodynamics and Flow Technology 
+<BR>
+Lilienthalplatz 7 
+<BR>
+D-38108 Braunschweig 
+<BR>
+Germany
+
+<BR><TT>anna.naumovich@dlr.de</TT>
+<BR>
+Malte Foerster
+<BR><EM>Fraunhofer Institute for Algorithms and Scientific Computing, Germany</EM> 
+<BR>
+Richard Dwight 
+<BR><EM>German Aerospace Center, Institute of Aerodynamics and Flow Technology, 
+Germany
+</EM>
+
+</DIV>
+
+<P>
+In the present work the linearized discrete compressible Euler equations
+are investigated.
+These equations are of importance for evaluation of solution derivatives,
+<I>a posteriori</I> error estimation, and frequency-domain methods for periodic flows.
+Moreover, their solution can be considered as a preliminary step towards developing
+algorithms for the non-linear equations. We focus on solution of 2nd-order accurate
+finite volume discretizations built on unstructured grids with either upwind or central
+convective fluxes. The goal is to reduce the CPU time required to obtain steady-state
+convergence for these given discretizations.
+
+<P>
+Nowadays, such problems are typically solved with geometric multigrid methods,
+employing either explicit Runge-Kutta or an approximate implicit scheme as a smoother.
+Despite the investigation of many variations on this theme over the years there has
+been a continued lack of success in obtaining satisfactory convergence for all but
+the simplest geometries. The situation is even worse for unstructured discretizations,
+where the additional complexity of definition of a proper coarse grid hierarchy arises.
+
+<P>
+In this work defect correction [1, 2] is applied to solve the linear problem.
+Defect correction allows by-passing direct solution of the 2nd-order
+accurate discretization,
+instead, a sequence of problems with a 1st-order discretization on the left-hand side
+is solved. On this better conditioned problems we apply AMG.
+
+<P>
+Since algebraic multigrid [4, 5, 6] does not rely on the geometry of the grid,
+it is an attractive alternative to geometric multigrid for problems
+discretized on unstructured grids.
+However, initially developed for scalar elliptic PDEs, algebraic
+multigrid needs special extensions
+to be applicable to systems of PDEs, one of those extensions being a
+point-based approach.
+The point-based AMG solver, implemented in the SAMG package [3], was investigated
+in this work. The solver, applied together with accelerator BiCGStab,
+proved to be very efficient for
+solution of the 1st-order accurate discretizations considered here in
+sub-, tran- and super-sonic flow
+regimes. One should mention that our attempts to apply AMG directly to
+2nd-order discretizations were
+not much successful so far.
+
+<P>
+The defect correction approach combined with the AMG solver was applied
+to solve 2nd-order accurate
+discretizations and was seen to significantly out-perform the geometric
+multigrid solver [7, 8]
+in terms of CPU time for all flow regimes. This is mainly by virtue of
+the efficency of AMG, which requires
+very few iterations to give sufficient accuracy of the inner problem at
+each defect correction step.
+Furthermore, as the 1st-order matrix is constant, only one AMG setup
+phase must be performed for
+the entire calculation.
+&nbsp;
+<BR>&nbsp;
+<BR><FONT SIZE="+2"><B>Bibliography</B></FONT> 
+<BR>&nbsp;
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ [1]$"> K. Boehmer, P. Hemker, B. Van Leer, The defect correction approach,
+Computing Suppl., 5,
+1984. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ [2]$"> B. Koren, Multigrid and defect correction for the steady
+Navier-Stokes equations, J. Comput.
+Phys. (ISSN 0021-9991), vol. 87, 1990, pp. 25-46. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ [3]$"> K. Stueben, T. Clees, SAMG User’s Manual, Fraunhofer Institute SCAI, 
+<BR>
+http://www.scai.fraunhofer.de/samg. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ [4]$"> A. Brandt, S.F. McCormick, J. Ruge, Algebraic multigrid (AMG) for
+sparse matrix equations,
+Sparsity and its Applications, D.J. Evans (ed.), Cambridge University
+Press, Cambridge, 1984,
+pp. 257-284. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ [5]$"> J.W. Ruge, K. Stueben, Algebraic Multigrid (AMG) , in “Multigrid
+Methods” (McCormick,
+S.F., ed.), SIAM, Frontiers in Appl. Math., Vol. 5, Philadelphia, 1986. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ [6]$"> K. Stueben, Algebraic Multigrid (AMG): An Introduction with
+Applications, GMD Report 70,
+Nov. 1999. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ [7]$"> D. Schwamborn, T. Gerhold, R. Heinrich, The DLR TAU-Code: Recent Applications in
+Research and Industry, in P. Wesseling, E. Onate and J. Periaux (eds) European Conference
+on Computational Fluid Dynamics. ECCOMAS CFD 2006. <BR>
+<BR><IMG
+ WIDTH="21" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ [8]$"> R. Dwight, J. Brezillon Efficient and Robust Algorithms for Solution of the Adjoint
+Compressible Navier-Stokes Equations with Applications, Int. J. Num. Meth. Fluids, DOI:
+10.1002/fld.1894, 2008.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

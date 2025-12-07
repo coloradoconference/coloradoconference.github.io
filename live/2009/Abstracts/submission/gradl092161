@@ -1,0 +1,56 @@
+===affil2:
+Department of Computer Science 10, University of Erlangen-Nuremberg
+===firstname:
+Tobias
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Rüde
+===lastname:
+Gradl
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+tobias.gradl@cs.fau.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Lehrstuhl fuer Informatik 10
+Cauerstr. 6
+91058 Erlangen
+Germany
+===firstname6:
+
+===ABSTRACT:
+Getting multigrid software to solve for as many unknowns per second as possible on current high performance computers means designing its data access patterns to be as regular as possible. \emph{Regularly structured data} allows for optimally exploiting the processor capabilities (e.\,g.\ vector processing) and the interconnection network (e.\,g.\ by grouping communication operations). Just as important as solving for many unknowns in short time is reducing the overall number of unknowns. \emph{Adaptive mesh refinement (AMR)} can significantly reduce the problem size in many cases. However, this technique is known to impede the use of regular data structures, and, thus, to drastically restrict the possible performance of the solver. In our talk we show how AMR can be implemented without destroying the regularity of the data structures, maintaining a fast execution. The framework for the AMR implementation is provided by \emph{Hierarchical Hybrid Grids (HHG)}, a multigrid finite element solver designed for the use on massively parallel computers with several thousand processors. The software uses semi-structured meshes in order to achieve high performance on such computers. In the talk both red-green refinement and refinement with hanging nodes are covered, because both methods have individual advantages, and the decision for one of the methods---or for a combination of both---has to be made depending on the problem characteristics. We develop the mathematical foundation for using AMR with the \emph{correction scheme}, and we show its feasibility in practical examples.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+High Performance Adaptive Mesh Refinement
+===firstname2:
+Ulrich

@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christian Ketelsen \\
+{\bf Multigrid Solvers for Quantum Electrodynamics}}
+
+Department of Applied Mathematics \\ 526 UCB \\ University of Colorado \\ Boulder \\ CO 80309-0526
+\\
+{\tt ketelsen@colorado.edu}\\
+Tom Manteuffel \\
+{\em University of Colorado at Boulder}\\
+Steve McCormick\\
+{\em University of Colorado at Boulder}\end{center}
+
+The Schwinger Model of quantum electrodynamics (QED) describes the
+interaction between electrons and photons. Large scale numerical
+simulations of the theory require repeated solution of the
+two-dimensional Dirac equation, a system of two first order partial
+differential equations coupled to a background U(1) gauge field.
+Traditional discretizations of this system are sparse and highly
+structured, but contain random complex entries introduced by the
+background field. For even mildly disordered gauge fields the near kernel
+components of the system are highly oscillatory, rendering standard
+multilevel methods ineffective.
+
+We consider an alternate formulation of the governing equations that is
+more amenable to multigrid solvers. The alternate model is obtained by a
+similarity transformation of the continuum operator which essentially
+eliminates the gauge field. The resulting formulation resembles uncoupled
+diffusion-like problems with variable diffusion coefficients. The form of
+the transformed system is ideal as adaptive multilevel methods have
+proven effective in the past at solving such problems. Next, we
+discretize the transformed system using least-squares finite elements.
+Finally, adaptive smoothed aggregation multigrid is used to solve the
+resulting linear system. We present numerical results and discuss
+implications of the transformed formulation for the physical theory.
+
+
+\end{document}

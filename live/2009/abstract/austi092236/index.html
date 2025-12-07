@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>austi092236</TITLE>
+<META NAME="description" CONTENT="austi092236">
+<META NAME="keywords" CONTENT="austi092236">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="austi092236.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Travis Austin 
+<BR><B>Automatic Construction of Sparse Preconditioners for High-Order Finite Element Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Tech-X Corporation 
+<BR>
+5621 Arapahoe Ave 
+<BR>
+Suite A 
+<BR>
+Boulder 
+<BR>
+CO 80303
+
+<BR><TT>austin@txcorp.com</TT>
+<BR>
+Marian Brezina
+<BR><EM>University of Colorado at Boulder</EM>
+<BR>
+Thomas Manteuffel
+<BR><EM>University of Colorado at Boulder</EM>
+<BR>
+John Ruge
+<BR><EM>University of Colorado at Boulder</EM>
+</DIV>
+
+<P>
+In recent years, the advantage to using high-order finite element methods
+and spectral element methods for the discretization of partial
+differential equations has become fully realized. The accuracy that can
+be achieved with high-order methods relative to the work required is more
+attractive than with first-order finite element methods. Furthermore, in
+climate modeling, researchers want a high-degree of precision at each
+time step in order to minimize the accumulation of errors due to long
+time integrations, and in MHD modeling, strong magnetic field
+anisotropies are not accurately resolved without high-order finite
+element methods. As a result of this increased interest in high-order
+finite element methods, it is worthwhile to reconsider the development of
+optimized multigrid solution methods for systems derived from high-order
+finite elements and spectral elements.
+
+<P>
+High-order finite elements yield much denser systems of equations
+requiring greater memory consumption for both the matrix and for the
+corresponding solver infrastructure, like AMG. For large scale MHD
+calculations, it has been observed that memory is a limit due to the
+memory consumption of the high-order matrices. Thus, there is a need for
+a sparser approximation of the high-order finite element systems that
+still yields reasonable convergence. A well-known method for generated a
+sparser preconditioner is to use low-order finite elements to generate a
+sparse approximation. In this talk, we show that these sparse
+preconditioners require less memory and can produce better convergence
+behavior for 3D problems when inverted with an AMG method. We also
+introduce our concept for automatically constructing these
+preconditioners and address the computational cost and memory consumption
+of such an approach.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>

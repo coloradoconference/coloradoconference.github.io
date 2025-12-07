@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>jueng101874</TITLE>
+<META NAME="description" CONTENT="jueng101874">
+<META NAME="keywords" CONTENT="jueng101874">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="jueng101874.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Ralf Juengling 
+<BR><B>Multigrid vs. Conjugate Gradient for Piece-Wise Smooth Surface Reconstruction, a Case Study </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Portland State University 
+<BR>
+Department of Computer Science 
+<BR>
+P O Box 751 
+<BR>
+Portland 
+<BR>
+OR 97207-0751
+
+<BR><TT>juenglin@cs.pdx.edu</TT>
+</DIV>
+
+<P>
+An interesting problem from the field of computer vision
+is reconstruction of piece-wise smooth functions from
+noisy and incomplete data. The problem is more difficult
+than reconstructing smooth functions and algorithms
+typically employ an iterative relaxation method as a
+component.
+
+<P>
+We studied a particular algorithm, published twenty years
+ago by Leclerc [1], which reconstructs two-dimensional,
+piece-wise polynomial functions from noisy data. An
+objective function is derived from the premise that a
+description of the data in terms of a piece-wise polynomial
+signal plus noise from some known stochastic process is
+more likely to be correct the shorter it is. The objective,
+f, is not continuous and thus difficult to optimize.
+
+<P>
+Leclerc devises a continuation method by which a sequence
+of tentative solutions is sought, solutions corresponding
+to a sequence of smooth objective functions converging
+to f. For each step of the continuation method Leclerc
+uses the Jacobi method to relax the most recent tentative
+solution on the linear system that results from setting
+the gradient of the next objective in the sequence to zero.
+
+<P>
+In our experiments it turned out that Leclerc's algorithm
+finds satisfying solutions only for small problem sizes
+and performs poorly with realistic sizes. In several
+variations of Leclerc's continuation scheme we substitute
+other methods for the Jacobi relaxation to remedy the poor
+performance. In particular, we substitute a Conjugate
+Gradient method, an inexact Newton method, and a multigrid
+Gauss-Seidel relaxation method.
+
+<P>
+In this presentation we briefly review Leclerc's work and
+give a picture of the difficulties we encountered with
+larger problem sizes. We sketch our variations of Leclerc's
+continuation algorithm, present results for each method and
+discuss their merits and shortcomings in terms of accuracy,
+computational efficiency, and amount of work required
+for their implementation.
+
+<P>
+[1] Y. Leclerc: "Constructing simple stable descriptions
+for image partitioning", IJCV (3), pp. 73-102, 1989.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2009-02-04
+</ADDRESS>
+</BODY>
+</HTML>
