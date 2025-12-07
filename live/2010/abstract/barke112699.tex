@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew T. Barker \\
+{\bf An additive Schwarz preconditioner for the weakly over-penalized symmetric interior penalty method}}
+
+Department of Mathematics \\ Louisiana State University \\ Baton Rouge \\ LA 70803-4918
+\\
+{\tt andrewb@math.lsu.edu}\\
+Susanne C. Brenner\\
+Eun-Hee Park\\
+Li-Yeng Sung\end{center}
+
+We introduce and study numerically an additive Schwarz preconditioner for
+the weakly over-penalized symmetric interior penalty method. The WOPSIP
+method has many desirable properties for parallel computing. These
+include small communication requirements at subdomain boundaries, the
+ease with which meshes can be adaptively refined, and intrinsic
+parallelism in the resulting matrix systems if the unknowns are ordered
+properly. The additive Schwarz preconditioner is also well-suited for
+parallel computing, and we show that the combination shows great promise
+as a parallel algorithm. We prove optimal estimates for the condition
+number of the preconditioned system under appropriate conditions, and
+show numerically that the method scales
+well on parallel machines and is effective for solving elliptic problems.
+
+
+\end{document}

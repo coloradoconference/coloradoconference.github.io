@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jed Brown \\
+{\bf Implicit integration of 3D ice sheet flow using hybrid factorization/relaxation block preconditioning}}
+
+Versuchsanstalt für Wasserbau \\ Hydrologie und Glaziologie \\ ETH Zentrum \\ 8092 Zürich \\ Switzerland
+\\
+{\tt brown@vaw.baug.ethz.ch}\end{center}
+
+Ice sheets are non-Newtonian free-surface flows with nonlinear slip
+boundary conditions. Their
+most dynamic coupling to other climate components is the point where ice
+becomes floating as it
+flows into the ocean, known as the grounding line. Grounding line
+stability is unknown for many
+important regions, thus introducing great uncertainty in sea level
+forecasts. Since this regime
+is fundamentally non-shallow, we present an ALE formulation in which the
+velocity is governed by
+Stokes equations with power-law rheology, and the mesh satisfies surface
+kinematic equations with
+elasticity in the interior to prevent tangling.
+
+Semidiscretizaton using a high-order finite element method produces
+differential algebraic
+equations where only surface location and enthalpy are differential. Integrating this DAE
+implicitly using general linear methods, and solving the resulting algebraic system with
+Jacobian-free Newton-Krylov, necessitates an effective preconditioner for
+the coupled indefinite
+system. Since this system contains physics operating on multiple scales
+with very different
+spectral properties, we apply relaxation field splitting to separate the
+loosely coupled parts,
+and a factorization split for the heterogeneous Stokes problem, with
+preconditioners for the Schur
+complement derived from approximate commutators.
+
+
+\end{document}

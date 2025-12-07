@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Andrew R Conn \\
+{\bf Bilevel Derivative-Free Optimization and its Application to Robust Optimization }}
+
+IBM T J Watson Research Center \\ 1101 Kitchawan Rd Yorktown Heights NY 10598 USA
+\\
+{\tt arconn@us.ibm.com}\\
+Luis N. Vicente\end{center}
+
+We address bilevel programming problems when the derivatives of both the upper
+and the lower level objective functions are unavailable.
+
+The core algorithms used for both levels are trust-region interpolation-based
+methods, using minimum Frobenius norm quadratic models when the number of
+points is smaller
+than the number of basis components. We take advantage of the problem structure to derive
+conditions (as far as is possible closely related to the global convergence theory of the
+underlying trust-region methods) under which the lower level can be solved inexactly and
+sample points can be reused for model building.
+In addition, we indicate numerically how effective these expedients can be.
+A number of other issues are also discussed, from the extension to linearly constrained
+problems to the use of surrogate models for the lower level response.
+
+One important application of our work appears in the robust optimization
+of simulation-based
+functions. The robust counterpart of an optimization problem without derivatives falls
+in the category of the bilevel problems under consideration here. We provide numerical
+illustrations of the application of our algorithmic framework to such
+robust optimization examples.
+
+
+\end{document}

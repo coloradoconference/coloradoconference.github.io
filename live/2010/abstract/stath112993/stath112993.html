@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>stath112993</TITLE>
+<META NAME="description" CONTENT="stath112993">
+<META NAME="keywords" CONTENT="stath112993">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="stath112993.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andreas Stathopoulos 
+<BR><B>Efficient computation of the trace of the inverse of a matrix</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+Box 8795 
+<BR>
+College of William and Mary 
+<BR>
+Williamsburg 
+<BR>
+VA 23187
+
+<BR><TT>andreas@cs.wm.edu</TT>
+<BR>
+Abdou Abdel-Rehim
+<BR>
+Kostas Orginos
+</DIV>
+
+<P>
+Many applications in quantum mechanics and quantum chromodynamics require
+the computation of the trace of a matrix function: <!-- MATH
+ ${\rm tr}(f(A))$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\rm tr}(f(A))$">,
+where common functions include <!-- MATH
+ $f(A) = \log(A)$
+ -->
+<IMG
+ WIDTH="104" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ f(A) = \log(A)$"> or <!-- MATH
+ $f(A) = \Gamma A^{-1}$
+ -->
+<IMG
+ WIDTH="98" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ f(A) = \Gamma A^{-1}$">,
+where <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \Gamma$"> is the identity or a special diagonal matrix, and the
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A$"> can be Hermitian or non-Hermitian and almost always very large
+and sparse. In this talk, we focus on the Hermitian case of <!-- MATH
+ ${\rm tr}(A^{-1})$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ {\rm tr}(A^{-1})$">.
+
+<P>
+Currently all computational techniques rely on a Monte Carlo approach and
+the fact that the trace can be obtained as the expected value of
+<!-- MATH
+ ${\rm tr}(A^{-1}) = E(x^T A^{-1} x)$
+ -->
+<IMG
+ WIDTH="162" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ {\rm tr}(A^{-1}) = E(x^T A^{-1} x)$">.
+A sample of <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ n$"> random vectors, <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ x$">, is generated with entries <IMG
+ WIDTH="56" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \{-1,1\}$">
+to minimize variance.
+Then using each of these vectors as a right hand side, a linear system
+is solved with Conjugate Gradient, which can be expensive for ill
+conditioned systems.
+Moreover, because Monte Carlo converges as <!-- MATH
+ $O({\rm var(x^TA^{-1}x)}/\sqrt{n})$
+ -->
+<IMG
+ WIDTH="150" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ O({\rm var(x^TA^{-1}x)}/\sqrt{n})$">,
+thousands of linear systems of equations are needed just to get two digits
+of accuracy in the trace. Combined, these two problems (ill-conditioning and
+slow Monte Carlo convergence) give rise to a challenging computational problem.
+
+<P>
+Golub <EM>et al</EM> have shown how to compute the quadratic
+form <!-- MATH
+ $x^TA^{-1}x$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ x^TA^{-1}x$"> as Gaussian quadrature using the Lanczos method.
+Note that if we had the vector <!-- MATH
+ $x = Qe = Q[1\ldots 1]^T$
+ -->
+<IMG
+ WIDTH="147" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ x = Qe = Q[1\ldots 1]^T$">,
+where <!-- MATH
+ $A = Q\Lambda Q^T$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A = Q\Lambda Q^T$"> is the eigendecomposition of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A$">,
+we could obtain trivially the <!-- MATH
+ ${\rm tr}(A^{-1}) = x^TA^{-1}x$
+ -->
+<IMG
+ WIDTH="137" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ {\rm tr}(A^{-1}) = x^TA^{-1}x$">.
+In lack of such a vector, we have to resort to the expensive Monte Carlo
+averaging. However, the theory of Gaussian quadrature suggests considerable
+savings may be obtained because the linear system (or the Lanczos iteration)
+need not be solved very accurately. A well known result states that the
+quadrature error is proportional to <!-- MATH
+ $\|\epsilon_k\|^2_A$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \Vert\epsilon_k\Vert^2_A$">, where <!-- MATH
+ $\epsilon_k$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ \epsilon_k$">
+is the error in the solution of the linear system at the <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ k$">-th CG step.
+This implies that, to achieve the same accuracy, quadrature needs only half
+of the iterations of the corresponding linear system.
+We have tested both a Lanczos based Gaussian quadrature
+and the CG method which we stop according to the square of the norm
+of the residual. The CG approach is attractive because it can be
+applied directly to computing forms such as <!-- MATH
+ $y^TA^{-1}x$
+ -->
+<IMG
+ WIDTH="61" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ y^TA^{-1}x$"> with one CG
+iteration. The latter is not a quadratic form and thus convergence is
+similar to the linear system residual (not the square of it). However,
+two Gaussian quadratures would be required for the same computation.
+
+<P>
+In this talk, we use deflation based methods to address both
+computational problems, slow convergence of CG and slow convergence of
+the Monte Carlo, at the same time.
+
+<P>
+Deflation based methods such as GMRESDR and eigCG compute eigenvectors of
+the matrix while they solve linear systems. If subsequent right hand sides
+are deflated of those computed eigenvectors, their condition number
+and convergence improves significantly. In the particular case of Hermitian
+systems, our previously proposed eigCG method computes the eigenvectors
+close to zero with the same convergence rate as unrestarted Lanczos, while
+solving for the system with CG. More interestingly, it does so efficiently
+using only a limited memory window of vectors. The eigenvectors that have
+not converged by the time CG finishes can be kept in an outer vector basis
+and incrementally improved by calling eigCG on the next right hand side.
+This Incremental eigCG method has provided some impressive speedups on
+real world Lattice QCD applications and is therefore readily applicable to
+the linear iterations of the trace computation.
+
+<P>
+Besides fewer CG iterations, deflating eigenvectors improves also the
+variance of the Monte Carlo averaging, i.e.,
+the coefficient <!-- MATH
+ ${\rm var(x^TA^{-1}x)}$
+ -->
+<IMG
+ WIDTH="94" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$ {\rm var(x^TA^{-1}x)}$">. It is easy to prove
+that <!-- MATH
+ ${\rm var(x^TA^{-1}x)} = {\rm tr}(A_d^{-1 T}A_d^{-1})
+= ||A_d^{-1}||^2_F$
+ -->
+<IMG
+ WIDTH="286" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ {\rm var(x^TA^{-1}x)} = {\rm tr}(A_d^{-1 T}A_d^{-1})
+= \vert\vert A_d^{-1}\vert\vert^2_F$">,
+where <IMG
+ WIDTH="33" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ A_d^{-1}$"> is the matrix <IMG
+ WIDTH="33" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ A^{-1}$"> with zeros on the diagonal.
+Let <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ V$"> be the eigCG approximations to the eigenvectors of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ A$"> closest to 0
+and define the projector: <!-- MATH
+ $P_L = I - AV(V^TAV)^{-1}V^T$
+ -->
+<IMG
+ WIDTH="198" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ P_L = I - AV(V^TAV)^{-1}V^T$">. Then the trace
+computation can be split into two parts:
+<!-- MATH
+ ${\rm tr}(A^{-1}) = {\rm tr}((V^TAV)^{-1}) + {\rm tr}(A^{-1}P_L)$
+ -->
+<IMG
+ WIDTH="274" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ {\rm tr}(A^{-1}) = {\rm tr}((V^TAV)^{-1}) + {\rm tr}(A^{-1}P_L)$">.
+The first trace is cheap to compute and the second one comes from solving
+the system <!-- MATH
+ $P_L A = P_L x$
+ -->
+<IMG
+ WIDTH="86" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ P_L A = P_L x$"> which is deflated and thus more efficiently solved.
+More importantly, this is the only nondeterministic part of the computation
+and therefore the variance of Monte Carlo is:
+<!-- MATH
+ ${\rm var}(x^T(A^{-1}P_L)x) = || (A^{-1}P_L)_d||^2_F$
+ -->
+<IMG
+ WIDTH="246" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ {\rm var}(x^T(A^{-1}P_L)x) = \vert\vert (A^{-1}P_L)_d\vert\vert^2_F$">.
+Because the diagonal is missing from the deflated operator,
+we cannot guarantee that <!-- MATH
+ $|| (A^{-1}P_L)_d||_F < || (A^{-1})_d||_F$
+ -->
+<IMG
+ WIDTH="200" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img29.png"
+ ALT="$ \vert\vert (A^{-1}P_L)_d\vert\vert _F &lt; \vert\vert (A^{-1})_d\vert\vert _F$">
+for any choice of eigenvectors. However, if the lowest eigenvectors
+eigenvectors are included in <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ V$">, the variance is reduced.
+
+<P>
+We include results from a sample Matlab experiment with a symmetrized, odd-even
+preconditioned QCD matrix of dimension 248832. We use Incremental eigCG
+to solve the first 10 random right hand sides and for each one we accumulate
+10 additional approximate eigenvectors. After the first 10 right hand sides,
+we use the 100 approximate eigenvectors to deflate subsequent linear systems.
+Clearly, not only the number of matrix vector multiplications is drastically
+reduced but also the variance (as shown by the normalized standard deviation
+of the averages) is significantly lower. We expect at least a factor
+of five reduction in the number of total Monte Carlo steps.
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER" COLSPAN=3>CG</TD>
+<TD ALIGN="CENTER" COLSPAN=3>Incremental eigCG</TD>
+</TR>
+<TR><TD ALIGN="LEFT">#rhs</TD>
+<TD ALIGN="RIGHT">trace</TD>
+<TD ALIGN="RIGHT"><!-- MATH
+ $\frac{std dev}{\sqrt{n}}$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ \frac{std dev}{\sqrt{n}}$"></TD>
+<TD ALIGN="RIGHT">matvecs</TD>
+<TD ALIGN="RIGHT">trace</TD>
+<TD ALIGN="RIGHT"><!-- MATH
+ $\frac{std
+dev}{\sqrt{n}}$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ \frac{std dev}{\sqrt{n}}$"></TD>
+<TD ALIGN="RIGHT">matvecs</TD>
+</TR>
+<TR><TD ALIGN="LEFT">1</TD>
+<TD ALIGN="RIGHT">54954</TD>
+<TD ALIGN="RIGHT">n/a</TD>
+<TD ALIGN="RIGHT">607</TD>
+<TD ALIGN="RIGHT">54954</TD>
+<TD ALIGN="RIGHT">n/a</TD>
+<TD ALIGN="RIGHT">675</TD>
+</TR>
+<TR><TD ALIGN="LEFT">2</TD>
+<TD ALIGN="RIGHT">56182</TD>
+<TD ALIGN="RIGHT">1229</TD>
+<TD ALIGN="RIGHT">606</TD>
+<TD ALIGN="RIGHT">54988</TD>
+<TD ALIGN="RIGHT">1964</TD>
+<TD ALIGN="RIGHT">487</TD>
+</TR>
+<TR><TD ALIGN="LEFT">5</TD>
+<TD ALIGN="RIGHT">58031</TD>
+<TD ALIGN="RIGHT">2170</TD>
+<TD ALIGN="RIGHT">603</TD>
+<TD ALIGN="RIGHT">59218</TD>
+<TD ALIGN="RIGHT">2012</TD>
+<TD ALIGN="RIGHT">240</TD>
+</TR>
+<TR><TD ALIGN="LEFT">10</TD>
+<TD ALIGN="RIGHT">60082</TD>
+<TD ALIGN="RIGHT">4173</TD>
+<TD ALIGN="RIGHT">603</TD>
+<TD ALIGN="RIGHT">60133</TD>
+<TD ALIGN="RIGHT">1017</TD>
+<TD ALIGN="RIGHT">178</TD>
+</TR>
+<TR><TD ALIGN="LEFT">100</TD>
+<TD ALIGN="RIGHT">61020</TD>
+<TD ALIGN="RIGHT">1070</TD>
+<TD ALIGN="RIGHT">601</TD>
+<TD ALIGN="RIGHT">61226</TD>
+<TD ALIGN="RIGHT">112</TD>
+<TD ALIGN="RIGHT">98</TD>
+</TR>
+<TR><TD ALIGN="LEFT">500</TD>
+<TD ALIGN="RIGHT">61103</TD>
+<TD ALIGN="RIGHT">459</TD>
+<TD ALIGN="RIGHT">604</TD>
+<TD ALIGN="RIGHT">61310</TD>
+<TD ALIGN="RIGHT">28</TD>
+<TD ALIGN="RIGHT">99</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

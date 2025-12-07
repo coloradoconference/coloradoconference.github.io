@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Erhan Turan \\
+{\bf Set Reduction In Nonlinear Equations}}
+
+Bogazici University \\ Department of Mechanical Engineering \\ Istanbul \\ Turkey
+\\
+{\tt turane@boun.edu.tr}\\
+Erhan Turan\\
+Ali Ecder\end{center}
+
+In this paper, an idea to solve nonlinear equations is presented. During
+the solution of any problem with Newton's Method, it might happen that
+some of the unknowns satisfy the convergence criteria where the others
+fail. The convergence happens only when all variables reach to the
+convergence limit. A method to reduce the dimension of the overall system
+by excluding some of the unknowns that satisfy an intermediate tolerance
+is introduced. In this approach, a smaller system is solved in less
+amount of time and already established local solutions are preserved and
+kept as constants while the other variables that belong to the ``set"
+will be relaxed. To realize the idea, an algorithm is given that utilizes
+applications of pointers to reduce and evaluate the sets. Matrix-free
+Newton-Krylov Techniques are used on a test problem and it is shown that
+proposed idea improves the overall convergence.
+
+
+\end{document}

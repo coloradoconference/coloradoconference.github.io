@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>leeba110115</TITLE>
+<META NAME="description" CONTENT="leeba110115">
+<META NAME="keywords" CONTENT="leeba110115">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="leeba110115.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Barry Lee 
+<BR><B>A Space-Angle-Energy Multigrid Method for Sn Discretizations of the Multi-Energetic Boltzmann Equation</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Computational Sciences and Mathematics Division 
+<BR>
+Pacific Northwest National Laboratory 
+<BR>
+Richland 
+<BR>
+WA 99354 
+<BR>
+USA
+
+<BR><TT>barry.lee@pnl.gov</TT>
+</DIV>
+
+<P>
+The multi-energetic Boltzmann equation is used to model neutron/photon
+transport. It is 7-dimensional in spatial
+3-dimensions, and 6-dimensional in spatial 2-dimensions (1 in time, 1 in
+energy, 2 in angle, and 3 or 2 in space).
+Development of a fast multigrid solver for this multi-energetic equation
+has been rather slow, particularly because
+the energy coupling is described through scattering cross-sections that
+are highly oscillatory in energy. Thus, robust and
+efficient homogenization techniques for coarsening these cross-sections
+have been difficult, if not impossible,
+to develop. In this talk, we describe a multi-energetic extension of the
+space-angle semi-coarsening method for the
+mono-energetic Boltzmann equation. The resulting method is also a
+semi-coarsening scheme: semi-coarsening
+first in energy, then in space or angle. Coarsening in energy is
+algebraically based (i.e., it is based on the
+energy features of the near nullspace component of the multi-energetic
+Boltzmann operator), which permits simple
+and efficient handling of the highly oscillatory scattering
+cross-sections. In fact, the energy restriction
+operator is constant, and the coarse energy-grid selection is based on a
+simple bining of the original energy groups.
+At each energy level of the energy hierarchy, relaxation
+consists of a few sweeps of a space-angle semi-coarsening V-cycle, with
+the angles considered collectively over
+all the energy groups at that energy level. Spectral analysis and
+numerical results will be given.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

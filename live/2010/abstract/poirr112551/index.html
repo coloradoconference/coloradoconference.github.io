@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>poirr112551</TITLE>
+<META NAME="description" CONTENT="poirr112551">
+<META NAME="keywords" CONTENT="poirr112551">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="poirr112551.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html4"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html5"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Baptiste Poirriez 
+<BR><B>Domain decomposition methods applied to flow simulation in 3D Discrete Fracture Networks</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">IRISA 
+<BR>
+Campus de Beaulieu 
+<BR>
+35042 Rennes Cedex 
+<BR>
+France
+
+<BR><TT>baptiste.poirriez@irisa.fr</TT>
+<BR>
+Geraldine Pichot
+<BR>
+Jocelyne Erhel
+</DIV>
+
+<P>
+Numerical simulations in fractured media are an essential tool for
+studying hydraulic properties. Discrete Fracture Networks are composed of
+many multiscale plane fractures intersecting each other, leading to
+complex geometries. We assume that the rock surrounding the fractures is
+impervious and aim at simulating the flow in the fractures. Governing
+equations are Darcy's law and mass continuity, with continuity conditions
+at the intersections. Mesh generation is rather difficult in this
+context, because of the geometry, and requires a specific method
+[<A
+ HREF="node1.html#erhe09b">2</A>]. We apply a Mixed Hybrid Finite element method and get a
+large sparse symmetric positive definite (spd) linear system to solve.
+Direct methods are efficient but become time- and memory- consuming for
+large systems. Algebraic multigrid method combined with Preconditioned
+Conjugate Gradient (PCG) converges in few iterations but is also
+time-consuming. The linear system has a specific structure since the
+problem is elliptic, but the geometry is neither 2D nor 3D. Domain
+decomposition methods are attractive because there is a natural
+geometrical decomposition. In this paper, we explore a preconditioned
+Schur complement approach.
+
+<P>
+A first step is to define a partition of the domain. A subdomain is here
+a set of fractures, and the interface is the set of intersections with
+fractures of other subdomains. With <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ n$"> subdomains, the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$"> has a
+block-structure with non singular diagonal blocks <!-- MATH
+ $A_{ii},i=1,\ldots,n+1$
+ -->
+<IMG
+ WIDTH="140" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A_{ii},i=1,\ldots,n+1$">
+and nonzero blocks <!-- MATH
+ $A_{i,n+1},i=1,\ldots,n$
+ -->
+<IMG
+ WIDTH="136" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A_{i,n+1},i=1,\ldots,n$">. We define the local Schur
+complement matrix <!-- MATH
+ $S_{ii}=A_{n+1,n+1}^{(i)}-A_{i,n+1}^T A_{ii}^{-1}
+A_{i,n+1}$
+ -->
+<IMG
+ WIDTH="248" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ S_{ii}=A_{n+1,n+1}^{(i)}-A_{i,n+1}^T A_{ii}^{-1}
+A_{i,n+1}$">, the Schur matrix <!-- MATH
+ $S=\sum_{i=1}^{n} S_{ii}$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ S=\sum_{i=1}^{n} S_{ii}$"> and the associated
+right-hand side <IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ b$">. Since the matrix <IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ S$"> is spd, we apply PCG to solve
+the linear system <IMG
+ WIDTH="52" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ Sx=b$">.
+
+<P>
+We use the classical Neumann-Neumann (NN) preconditioner
+[<A
+ HREF="node1.html#carv01">1</A>,<A
+ HREF="node1.html#tos05">6</A>]. Since the partition generates floating subdomains,
+some local Schur complements <IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ S_{ii}$"> are rank-deficient. In order to
+ensure a kernel of dimension 1, we build a partition such that a
+subdomain is composed of connected fractures. Then we apply an artificial
+Dirichlet boundary condition at one edge of the interface to get a non
+singular matrix <!-- MATH
+ $\tilde{S}_{ii}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \tilde{S}_{ii}$">. The NN preconditioner is then defined
+by <!-- MATH
+ $M^{-1}=\frac{1}{n}\sum_{i=1}^{n} \tilde{S}_{ii}^{-1}$
+ -->
+<IMG
+ WIDTH="143" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ M^{-1}=\frac{1}{n}\sum_{i=1}^{n} \tilde{S}_{ii}^{-1}$">. To gain in
+efficiency, we use the Cholesky factorization of <IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ A_{ii}$"> to complete the
+Cholesky factorization of <!-- MATH
+ $\tilde{S}_{ii}$
+ -->
+<IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \tilde{S}_{ii}$">, by adapting algorithms aiming
+at reducing fill-in.
+
+<P>
+We run numerical experiments with two fracture networks, containing
+respectively 32 and 128 fractures. These networks are randomly generated,
+with some large fractures, by using software MP-FRAC-D3 [<A
+ HREF="node1.html#erhe09b">2</A>];
+the domain is partitioned into connected subdomains using the software
+SCOTCH [<A
+ HREF="node1.html#pell08">4</A>]. The Schur method is implemented in Matlab.
+In Tables <A HREF="#tab:NN1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A> and <A HREF="#tab:NN2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>, we give convergence results
+for CG and PCG(NN) applied to the Schur system. Clearly, NN
+preconditioner reduces drastically the number of iterations Niter for a
+small number of subdomains Ndom but is not efficient with many
+subdomains, as expected.
+
+<P>
+We use coarse-grid and deflation preconditioners to overcome this
+difficulty [<A
+ HREF="node1.html#erhe00b">5</A>,<A
+ HREF="node1.html#nab04">3</A>]. However, currently, these
+preconditioners are not efficient. This might be due to the specific
+structure of the linear system. We further investigate this approach.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="79"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+ Number of iterations, solving the Schur system
+by CG and PCG with Neumann-Neumann preconditioner. The network has 32
+fractures.</CAPTION>
+<TR><TD><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">Ndom</TD>
+<TD ALIGN="CENTER">Niter using CG</TD>
+<TD ALIGN="CENTER">Niter using PCG(NN)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">2</TD>
+<TD ALIGN="CENTER">108</TD>
+<TD ALIGN="CENTER">18</TD>
+</TR>
+<TR><TD ALIGN="LEFT">4</TD>
+<TD ALIGN="CENTER">122</TD>
+<TD ALIGN="CENTER">52</TD>
+</TR>
+<TR><TD ALIGN="LEFT">8</TD>
+<TD ALIGN="CENTER">126</TD>
+<TD ALIGN="CENTER">80</TD>
+</TR>
+<TR><TD ALIGN="LEFT">16</TD>
+<TD ALIGN="CENTER">129</TD>
+<TD ALIGN="CENTER">108</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="80"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+Number of iterations, solving the Schur system by
+CG and PCG with Neumann-Neumann preconditioner. The network has 128
+fractures.</CAPTION>
+<TR><TD><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT">Ndom</TD>
+<TD ALIGN="LEFT">Niter using CG</TD>
+<TD ALIGN="LEFT">Niter using PCG(NN)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">2</TD>
+<TD ALIGN="LEFT">153</TD>
+<TD ALIGN="LEFT">37</TD>
+</TR>
+<TR><TD ALIGN="LEFT">4</TD>
+<TD ALIGN="LEFT">164</TD>
+<TD ALIGN="LEFT">75</TD>
+</TR>
+<TR><TD ALIGN="LEFT">8</TD>
+<TD ALIGN="LEFT">166</TD>
+<TD ALIGN="LEFT">96</TD>
+</TR>
+<TR><TD ALIGN="LEFT">16</TD>
+<TD ALIGN="LEFT">165</TD>
+<TD ALIGN="LEFT">149</TD>
+</TR>
+<TR><TD ALIGN="LEFT">32</TD>
+<TD ALIGN="LEFT">165</TD>
+<TD ALIGN="LEFT">211</TD>
+</TR>
+<TR><TD ALIGN="LEFT">56</TD>
+<TD ALIGN="LEFT">165</TD>
+<TD ALIGN="LEFT">275</TD>
+</TR>
+<TR><TD ALIGN="LEFT">128</TD>
+<TD ALIGN="LEFT">165</TD>
+<TD ALIGN="LEFT">373</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html6"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html7"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html4"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html5"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

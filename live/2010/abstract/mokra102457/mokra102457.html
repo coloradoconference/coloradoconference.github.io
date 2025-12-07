@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mokra102457</TITLE>
+<META NAME="description" CONTENT="mokra102457">
+<META NAME="keywords" CONTENT="mokra102457">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mokra102457.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">David Mokrauer 
+<BR><B>Generating a Feasible Path Between Stable Molecular Geometries with Continuous Steepest Descent</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">2431 Condor Court 
+<BR>
+Raleigh 
+<BR>
+NC 
+<BR>
+27615
+
+<BR><TT>mokrauerd@gmail.com</TT>
+<BR>
+C. T. Kelley
+</DIV>
+
+<P>
+The potential energy of a molecule is a function of its geometry. Many
+molecules exist in multiple stable geometric conformations which
+correspond to local minima on a potential energy surface (PES). These
+molecules can be excited by the introduction of light to discrete higher
+energy states from that initial "ground" state. These higher energy
+states have completely different potential energy surfaces. A
+conformation that was a local minimum on the ground state may no longer
+be a local minimum once it's energy has increased to an excited state.
+Having become unstable the molecule will relax to a new stable geometry
+in this state. Either by emitting energy or by gaining more energy the
+molecule can once again transfer states. By selecting a specific set of
+excited states it is possible to find a path that will lead from one
+stable minimum on the ground state to a different one.
+
+<P>
+A molecule is determined by 3N-6 coordinates where N is the number of
+atoms thus the subspace in which we solve this problem is only a subset
+of those coordinates. Each point on these level surfaces is a minimum
+energy conformation with the values of the subset of chosen coordinates
+as constraints. Evaluating the energy at gridpoints on the surface
+requires interfacing with computational chemistry software. Function
+evaluations using this software can take up to an hour with the test
+molecules that we have been using. Generating portions (or all) of these
+potential energy surfaces is a significant computational burden.
+Unfortunately, the software can only adequately compute the energy with a
+good initial guess at the geometry due to the function itself being a
+constrained optimization. This necessity of good initial geometries for
+function evaluation prevents us from casting a net and evaluating all of
+the gridpoints at once in a trivially parallel scheme. We adapted to this
+problem by using initial iterates from successfully evaluated neighboring
+points on the grid. An algorithm which manages the desired gridpoints in
+a dependant manner so as to ensure that the function evaluations recieve
+good initial iterates and that takes advantage of as many computing
+resources as are available was developed.
+
+<P>
+These surfaces are continuously differentiable and can be interpolated
+accurately by polynomial splines through a set of gridpoints. Since we
+are mimicking the natural process of relaxation on these interpolated
+level surfaces, continuous steepest descent is the proper optimization
+method. The transitions between states requires selection rules before
+the optimization on the next state. There are many choices for selection
+rules including user interface, largest gradient, or largest angle
+between the gradient and the vector between the current and initial
+point. By integrating the algorithm for generating surfaces with an ode
+solver and a set of selection rules we can simulate the natural
+transformation processes undergone by molecules.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

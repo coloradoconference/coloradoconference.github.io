@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>masjo110110</TITLE>
+<META NAME="description" CONTENT="masjo110110">
+<META NAME="keywords" CONTENT="masjo110110">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="masjo110110.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jos&#233; Mas 
+<BR><B>Inverse Sherman-Morrison factorization and the NBIF preconditioner</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Cami de Vera 14 
+<BR>
+Edifici 3I 
+<BR>
+Universitat Politecnica de Valencia 
+<BR>
+Valencia 
+<BR>
+46022 SPAIN
+
+<BR><TT>jmasm@mat.upv.es</TT>
+<BR>
+Rafael Bru
+<BR>
+Jos&#233; Marin
+<BR>
+Miroslav Tuma
+</DIV>
+
+<P>
+The Inverse Sherman-Morrison factorization of an
+invertible matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">, for a positive parameter <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ s$">, is given by
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+s^{-1}I - {A}^{-1} = s^{-2} Z_s D_s^{-1} V_s^T
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="203" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle s^{-1}I - {A}^{-1} = s^{-2} Z_s D_s^{-1} V_s^T$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+z_k=e_k-\sum_{i=1}^{k-1}\frac{v_i^T e_k}{s r_i} z_i
+\ v_k=y_k-\sum_{i=1}^{k-1}\frac{y^T_k z_i}{sr_i}v_i,
+\ \text{and} \ r_k=1+y^T_kz_k/s=1+v^T_k e_k/s
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="312" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle z_k=e_k-\sum_{i=1}^{k-1}\frac{v_i^T e_k}{s r_i} z_i \ v_k=y_k-\sum_{i=1}^{k-1}\frac{y^T_k z_i}{sr_i}v_i, \ $">&nbsp; &nbsp;and<IMG
+ WIDTH="220" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle \ r_k=1+y^T_kz_k/s=1+v^T_k e_k/s$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+for <!-- MATH
+ $k=1,2,\ldots,n$
+ -->
+<IMG
+ WIDTH="102" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ k=1,2,\ldots,n$">, where
+<IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ e_k$"> and <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ y_k$"> are
+the columns of the identity matrix <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ I$"> and <IMG
+ WIDTH="96" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ Y=A^T-sI$">, respectively.
+
+<P>
+It is known that from this factorization some factors of the LDU factorization
+can be recovered, at the same time the inverse factors of the LDU factorization
+are already computed, as can be deduced from the following relations
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+{D}=s^{-1}D_s, \quad {U}= Z^{-1},
+\quad V_s = {U}^T {D} - s {L}^{-T},
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="328" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle {D}=s^{-1}D_s, \quad {U}= Z^{-1}, \quad V_s = {U}^T {D} - s {L}^{-T},$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+Since the ISM factorization is
+highly parametrizable we analyze also some relations of the factors for
+different choices of the parameter <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ s$">, and relations with scaling of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">.
+
+<P>
+We also present an algorithm (NBIF) to compute a preconditioner using the
+ISM factorization and
+the dropping strategies of Bollh&#246;fer, taking advantage of more deep
+relations between both factorizations.
+We also prove existence properties of these preconditioners and present some numerical
+results.
+
+<P>
+
+<P><P>
+<BR>
+<HR>
+<BR>
+<FONT SIZE="-1">This work was supported by Spanish grant MTM 2007-64477,
+also by the project No. IAA100300802 of the Grant Agency of the Academy
+of Sciences of the Czech Republic
+and partially by the international collaboration support M100300902
+of AS CR.
+</FONT>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

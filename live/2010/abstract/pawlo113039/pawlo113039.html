@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>pawlo113039</TITLE>
+<META NAME="description" CONTENT="pawlo113039">
+<META NAME="keywords" CONTENT="pawlo113039">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pawlo113039.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Roger Pawlowski 
+<BR><B>Handling Complexity in Multiphysics Applications</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Sandia National Laboratories 
+<BR>
+P O Box 5800 
+<BR>
+Mail Stop 1318 
+<BR>
+Albuquerque 
+<BR>
+NM 87185-1318
+
+<BR><TT>rppawlo@sandia.gov</TT>
+<BR>
+Eric Phipps
+<BR>
+Patrick Notz
+</DIV>
+
+<P>
+Multiphysics simulation is plagued by complexity stemming from
+nonlinearly coupled systems of PDEs. Such software often must support
+many physics models, each of which may require different discretizations,
+transport equations, constitutive models, and equations of state.
+Additionally, the use of sophisticated solution and analysis algorithms
+may impose a burden on users that wish to extend the physics models.
+Strong coupling, together with a multiplicity of models, often leads to
+complex algorithms and rigid software.
+
+<P>
+This talk will discuss a new paradigm where the focus is shifted from the
+high level algorithmic design to a low level data dependency design.
+Mathematical expressions are represented as objects in software that
+directly expose data dependencies. The entire system of expressions are
+represented as a directed acyclic graph and the high-level assembly
+algorithm is generated automatically through standard graph theory
+algorithms. This approach allows problems with very complex dependencies
+to become entirely tractable, and removes virtually all logic from the
+algorithm itself. Changes are highly localized, allowing model developers
+to implement code without requiring a detailed understanding of the
+algorithms. By leveraging embedded technology, applications can probe the
+expressions to generate auxiliary data including machine precision
+accurate sensitivities for solution algorithms. The localized design
+allows for a number of levels of optimization for large-scale parallel
+computers utilizing both MPI and multithreading. We will discuss the
+design of the library, the use of embedded technology and show results
+from production large-scale computations in the areas of
+magnetohydrodynamics and semiconductor device modeling.
+
+<P>
+Sandia is a multiprogram laboratory operated by Sandia Corporation, a
+Lockheed Martin Company, for the United States Department of Energy's
+National Nuclear Security Administration under contract
+DE-AC04-94AL85000.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

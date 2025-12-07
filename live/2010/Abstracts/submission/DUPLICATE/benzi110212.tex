@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michele Benzi \\
+{\bf Preconditioners for stabilized finite element discretizations of the steady incompressible Navier-Stokes equations}}
+
+Mathematics and Science Center \\ Emory University \\ 400 Dowman Drive \\ Atlanta \\ GA 30322
+\\
+{\tt benzi@mathcs.emory.edu}\end{center}
+
+In this talk we consider block preconditioners for stabilized
+saddle point systems arising from incompressible flow problems.
+Our focus is on block triangular preconditioners based on the
+augmented Lagrangian formulation. These techniques have been
+shown to be remarkably robust and effective when applied to
+linear systems arising from inf-sup stable mixed finite element
+discretizations of the Stokes and Oseen problems. Indeed, with an
+appropriate choice of the augmentation parameter these
+preconditioners result in rates of convergence that are
+independent of the mesh size and largely insensitive to
+the value of the viscosity; see [1,2].
+
+In this talk we describe a (non-trivial) extension of the
+augmented Lagrangian-based block preconditioners to the
+case of stabilized finite elements, e.g., Q1-Q1 and Q1-P0
+elements. We also describe an inexpensive technique for
+estimating the optimal value of the augmentation parameter.
+This technique is applicable to both stable and stabilized
+finite element schemes.
+
+This is joint work with Maxim Olshanskii (Moscow State
+University) and Zhen Wang (Emory University).
+
+References
+
+[1] M. Benzi and M. A. Olshanskii, {\em An augmented Lagrangian-based
+approach to the Oseen problem}, SIAM J. Sci. Comput., 28 (2006),
+pp. 2095-2113.
+
+[2] M. Benzi, M. A. Olshanskii and Z. Wang, {\em Modifed augmented
+Lagrangian preconditioners for the incompressible Navier-Stokes
+equations}, Int. J. Numerical Methods in Fluids, in press.
+
+
+\end{document}

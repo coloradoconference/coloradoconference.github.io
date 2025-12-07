@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christoph Schwarzbach \\
+{\bf The Discontinuous Galerkin method for highly inhomogeneous media}}
+
+University of British Columbia \\ Department of Earth and Ocean Sciences \\ 6339 Stores Road \\ Vancouver \\ British Columbia \\ Canada \\ V6T 1Z4
+\\
+{\tt cschwarz@eos.ubc.ca}\\
+Eldad Haber\end{center}
+
+The simulation of geophysical measurements involves a physical
+description of the earth's interior by spatially varying constitutive
+parameters. In particular, these parameters may be discontinuous and have
+jumps by orders of magnitude. We address the problem of solving Maxwell's
+equations for that case by a discontinuous approach also for the fields.
+The Discontinuous Galerkin (DG) method allows us to enforce the interface
+conditions explicitly by adding appropriate penalty or Lagrange
+multiplier terms to the variational formulation. We restrict ourselves to
+the case of time-harmonic fields and derive a symmetric discretization
+for the first order Maxwell system. In spite of potential savings in
+storage for a second order formulation we prefer to discretize the first
+order form as it results in accuracy for both the electric and magnetic
+fields; both needed for geophysical applications. The main challenge in
+the DG method is the solution of the linear system. We propose and
+experiment with a number of preconditioning techniques. In particular, we
+use a preconditioner based on the potentials formulation to Maxwell's
+equations. We show that using our approach we are able to obtain
+significant accuracy even for very challenging problems.
+
+
+\end{document}

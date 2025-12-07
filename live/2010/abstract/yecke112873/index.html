@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>yecke112873</TITLE>
+<META NAME="description" CONTENT="yecke112873">
+<META NAME="keywords" CONTENT="yecke112873">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="yecke112873.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrew Yeckel 
+<BR><B>Multiphysics challenges for the modeling of melt crystal growth systems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Chemical Engineering and Materials Science 
+<BR>
+University of Minnesota 
+<BR>
+421 Washington Ave SE 
+<BR>
+Minneapolis 
+<BR>
+MN 55406-0132
+
+<BR><TT>yecke003@umn.edu</TT>
+<BR>
+Lisa Lun
+<BR>
+Hui Xie
+<BR>
+Yousef Saad
+<BR>
+Jeffrey J. Derby
+</DIV>
+
+<P>
+Melt crystal growth presents several major challenges in numerical
+analysis of continuum mechanics, particularly in three-dimensional
+formulations. Problem complexity presents a significant technical
+challenge, requiring the integration of a large-scale furnace model with
+a strongly-coupled multiphysics transport problem of the Stefan
+moving-boundary type. Problem nonlinearity can be severe, due to
+high-temperature radiation heat transfer effects and strong, richly
+structured laminar flows of a transitional nature. Robust computing of
+steady-state solutions under these conditions can be achieved by
+Newton-Raphson iteration, but its desirable quadratic convergence
+property relies on our ability to compute a sufficiently accurate
+approximation to the inverse of a Jacobian matrix of the global system of
+equations. In addition, problem scaling in three dimensions weighs
+heavily in favor of iterative over direct solvers for this task, but
+developing effective solution methods is faced with several distinct
+challenges, three of which will be discussed here. All relate to
+reductions of the global, linearized system that are either advantageous,
+or forced by circumstance, in high-performance computing situations.
+
+<P>
+Due to time constraints, the first two challenges will only briefly be
+discussed. The first is finding an effective preconditioner for the
+incompressible Navier-Stokes equations for a closed, buoyancy-driven flow
+at high Rayleigh number. In mathematical terms, the Jacobian is made
+strongly skew by the temperature coupling in the Boussinesq term in the
+flow equations, an effect that habitually causes the iterative solver to
+stall. In physical terms, it is difficult to design physics-based
+preconditioners for these flows, which lack any obvious geometric
+simplification due to their tendency towards flow separation and steep
+internal layers. A block Jacobi/ILU(0)-based approach is tested and found
+to be limited in use to Rayleigh numbers well below those encountered in
+crystal growth practice, forcing us to seek alternatives.
+
+<P>
+The next challenge is the effect of the implicit constraint between
+temperature and problem geometry at the moving boundary of the Stefan
+problem. This too causes severe stalling of the iterative solver. Here
+the problem coupling is isolated to a few equations that determine the
+position of the crystal-melt interface, and it is possible to take
+advantage of a Schur complement-based reduction of the problem to develop
+a sequential iteration between geometry and temperature that results in
+linear systems much easier to solve than the full system. Since this
+iteration formulation is based on the full system of equations, the
+robustness of a strongly coupled approach can be attained that improves
+upon a simple fixed-point iteration.
+
+<P>
+The third challenge, which will be the primary focus of this
+presentation, is the complexity of the global simulation problem, for
+which it is costly to develop monolithic software that simultaneously
+represents all chosen phenomena at all scales in a single model. From a
+practical standpoint, problems of this scope favor a partitioned
+approach, in which a few major subdomains of the problem are tackled
+independently by existing software best suited to the task. The most
+powerful techniques are those that can be applied when the equations are
+solved by black-box computer codes that allow no intervention in their
+algorithms. Such methods can be used to link together existing
+best-in-class tools to tackle complex multiphysics and multiscale
+problems, without requiring extraordinary programming effort.
+
+<P>
+Towards this end, we have developed an approximate block Newton method to
+couple arbitrary black-box nonlinear solvers. This ABN method preserves
+the quadratic approximation properties of exact Newton iteration. The
+notion of a solver is abstract, encompassing any interpolations or other
+transformations of data exchanged between solvers. It is shown that the
+method behaves like a Newton iteration preconditioned by an inexact
+Newton solver derived from subproblem Jacobians. The method is
+demonstrated on several conjugate heat transfer problems modeled after
+melt crystal growth processes. Whereas a typical block Gauss-Seidel
+iteration fails about half the time for the model problems, quadratic
+convergence is achieved by the ABN method under all conditions studied.
+
+<P>
+---------
+
+<P>
+This work has been supported in part by a seed grant from the Minnesota
+Supercomputing Institute and by the Department of Energy, National
+Nuclear Security Administration, under Award Numbers DE-FG52-06NA27498
+and DE-FG52-08NA28768, the content of which does not necessarily reflect
+the position or policy of the United States Government, and no official
+endorsement should be inferred.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

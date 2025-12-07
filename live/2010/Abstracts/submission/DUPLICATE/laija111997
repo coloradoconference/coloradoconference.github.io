@@ -1,0 +1,56 @@
+===affil2:
+University of Illinois at Urbana-Champaign
+===firstname:
+James, J
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Olson
+===lastname:
+Lai
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+jhlai2@illinois.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+University of Illinois at Urbana-Champaign
+Department of Computer Science
+201 N Goodwin Ave
+Urbana, IL 61801
+===firstname6:
+
+===ABSTRACT:
+We propose an algebraic multigrid (AMG) method for systems discretized by high order $H$(curl) elements.  Standard AMG methods perform poorly on these problems because of the large null space of the curl operator.  We use hierarchical high order $H$(curl) conforming elements.  Our algorithm combines ideas from $p$-multigrid and AMG for edge elements to obtain a  high order AMG method.   The initial levels in our hierarchy are constructed by discretizing the problem for decreasing orders of $p$.  Since we use a hierarchical basis, the integrid transfer operators are trivial.  To address complexity issues, we do not visit every $p$ in our hierarchy.  After $p=0$ is reached, we apply smoothed aggregation AMG for edge elements.  We conclude with numerical results for the proposed AMG algorithm applied to the 2D eddy current problem for bases up to order $p=9$.  
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Algebraic multigrid for high order hierarchical edge elements.
+===firstname2:
+Luke, L

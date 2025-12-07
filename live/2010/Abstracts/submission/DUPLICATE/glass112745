@@ -1,0 +1,189 @@
+===affil2:
+Naval Research Laboratory, Washington, DC
+===firstname:
+Alan H.
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Lukin
+===lastname:
+Glasser
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+ahg5@u.washington.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+PSI Center, University of Washington
+Box 352250, Seattle, WA 98195-2250
+===firstname6:
+
+===ABSTRACT:
+\renewcommand*{\v}[1]{\hbox{\bfseries #1}}
+\renewcommand*{\t}[1]{\hbox{\sffamily\bfseries #1}}
+
+We describe an application of physics-based preconditioning
+[L. Chac\'on, L., Phys. Plasmas {\bf 15}, 056103 (2008)] to a nonlinear 
+initial-value extended MHD code using high-order spectral elements for
+spatial discretization.
+
+HiFi is a 2D and 3D nonlinear fluid simulation code, written in Fortran
+95, with principal emphasis on extended MHD and magnetic fusion energy.
+The code is separated into a large solver library and a much smaller
+application module which links to the library, using flux-source form
+for the physics equations.  Realistic nonlinear and time-dependent
+boundary conditions have been developed.
+
+Spatial discretization uses high-order $C^0$ spectral elements on a
+curvilinear grid.  Grid cells are logically rectangular, with spectral
+elements a Cartesian product of 1D polynomial modal basis functions.
+Time discretization uses fully implicit Newton-Krylov method with
+adaptive time steps for efficient treatment of multiple time scales.
+
+Computer time and storage are dominated by solution of large, sparse,
+ill-conditioned linear systems, arising from the implicit time step and
+multiple time scales.  Static condensation is used to eliminate
+amplitudes of higher-order spectral elements in terms of linear
+elements.  HiFi is built on the PETSc library
+[http://www.mcs.anl.gov/petsc/petsc-as/index.html] for efficient
+parallel operation and easy access to many advanced methods for linear
+and nonlinear system solution.
+
+To achieve a weakly scalable parallel solution, we apply physics-based
+preconditioning, in which the physical dependent variables are
+partitioned into two sets as the basis of further reducing the order and
+increasing the diagonal dominance.  In visco-resistive MHD, set 1
+consists of density, pressure, magnetic flux function, and current,
+while set 2 consists of the momentum densities, The linear system is
+expressed in block form as
+%
+\begin{equation}
+\t{L} \v{u} = \v{r}, \quad
+\t{L} \equiv \left( \begin{matrix} \t{L}_{11} & \t{L}_{12} \\
+	\t{L}_{21} & \t{L}_{22} \end{matrix} \right), \quad
+\v{u} = \left( \begin{matrix} \v{u}_1 \\ \v{u}_2 \end{matrix} \right), \quad
+\v{r} = \left( \begin{matrix} \v{r}_1 \\ \v{r}_2 \end{matrix} \right).
+\nonumber
+\end{equation}
+%
+Any matrix of this block form can be formally factored to give
+%
+\begin{equation}
+\t{L} = \left( \begin{matrix} \t{I} & \t{0} \\ 
+	\t{L}_{21} \t{L}_{11}^{-1} & \t{I}  \end{matrix} \right)
+\left( \begin{matrix} \t{L}_{11} & \t{0} \\ \t{0} & \t{S} \end{matrix} \right)
+\left( \begin{matrix} \t{I} & \t{L}_{11}^{-1} \t{L}_{12} 
+	\\ \t{0} & \t{I} \end{matrix} \right),
+\nonumber
+\end{equation}
+%
+with Schur complement matrix defined by
+%
+\begin{equation}
+\t{S} \equiv \t{L}_{22} - \t{L}_{21} \t{L}_{11}^{-1} \t{L}_{12}.
+\nonumber
+\end{equation}
+%
+It is then straightforward to write the solution as
+%
+\begin{equation}
+\v{s}_1 = \t{L}_{11}^{-1} \v{r}_1, \quad
+	\v{s}_2 = \v{r}_2 - \t{L}_{21} \v{s}_1, \quad
+\v{u}_2 = \t{S}^{-1} \v{s}_2, \quad
+	\v{u}_1 = \v{s}_1 - \t{L}_{11}^{-1} \t{L}_{12} \v{u}_2.
+\nonumber
+\end{equation}
+%
+solving only the reduced matrices $\t{L}_{11}$ and $S$.  We can
+introduce an approximation $\t{P} \approx \t{L}^{-1}$, use it as a
+preconditioner, and finish the solution with a preconditioned Krylov
+iteration, $\left( \t{L} \t{P} \right) \left( \t{P}^{-1} \v{u} \right) =
+\v{r}$.  As long as the preconditioner $\t{P}$ constitutes a
+sufficiently accurate approximate inverse, the preconditioned Krylov
+iteration should converge rapidly, in just a few iterations, resulting
+in an effectively exact solution of the full problem.
+
+The principal difficulty is that, while the block matrices $\t{L}_{ij}$
+matrices are sparse, the presense of $\t{L}_{11}^{-1}$ makes $\t{S}$
+matrix dense.  To avoid this, we approximate $\t{S}$ by reversing the
+order of discretization and substition, giving it the form of the
+well-known ideal MHD force operator.  This leads to the approximate
+Schur complement
+%
+\begin{equation}
+\t{S} \approx \t{L}_{22} 
+	- h^2 \theta^2 \left< \nabla \cdot \t{T} \right>
+\nonumber
+\end{equation}
+%
+where $h$ is the time step, $\theta$ is the time-centering parameter, $<
+\cdots >$ represents spectral element discretization; and we express the
+force operator as
+%
+\begin{eqnarray}
+\t{T} = \left( \v{B} \cdot \frac{\partial \v{B}}{\partial t}
+	+ \frac{\partial p}{\partial t} \right) \t{I}
+        - \v{B} \frac{\partial \v{B}}{\partial t}
+        - \frac{\partial \v{B}}{\partial t} \v{B} \nonumber \\
+= \left[ \v{B} \cdot \nabla \times \left(\v{v} \times \v{B} \right)
+	- \gamma p \nabla \cdot \v{v} - \v{v} \cdot \nabla p \right]
+	\t{I} \nonumber \\
+- \v{B} \nabla \times \left(\v{v} \times \v{B} \right) 
+	- \nabla \times \left(\v{v} \times \v{B} \right) \v{B}. \nonumber
+\nonumber
+\end{eqnarray}
+%
+in flux-source form, as required by our spectral element discretization.
+
+The matrices $\t{L}_{11}$ and $\t{S}$ which must be solved have reduced
+order and are more diagonally dominant than the full Jacobian.  They are
+further reduced by static condensation and then solved by GMRES,
+preconditioned by additive-Schwarz blockwise LU.  This physics-based
+preconditioning is then followed by Newton-Krylov iteration on the full
+nonlinear system, using matrix-free GMRES.  The convergence rate is
+measured by the number of KSP iterations required for the block solves,
+reflecting the condition number of the preconditioning matrices, and by
+the number of iterations in the final Newton-Krylov solve, reflecting
+the accuracy of the approximate Schur complement.  Inaccuracy in the
+Schur complement influences the rate of convergence but not the final
+solution.
+
+Future efforts will be devoted to weak scaling tests on large parallel
+computers; exploration of other methods of solution for the reduced
+preconditioning equations; and extending the approximate Schur
+complement to include two-fluid effects.
+
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+A Scalable Parallel Extended MHD Solver:
+Application of Physics-Based Preconditioning
+to High-Order Spectral Elements
+===firstname2:
+V. S.

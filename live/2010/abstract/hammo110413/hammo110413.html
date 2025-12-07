@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>hammo110413</TITLE>
+<META NAME="description" CONTENT="hammo110413">
+<META NAME="keywords" CONTENT="hammo110413">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="hammo110413.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Glenn Hammond 
+<BR><B>Parallel Newton-Krylov Methods for Ultrascale Subsurface Reactive Multiphase Flow</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">P O Box 999; MSIN K9-36 
+<BR>
+Richland 
+<BR>
+WA 99352
+
+<BR><TT>glenn.hammond@pnl.gov</TT>
+<BR>
+Barry Lee
+</DIV>
+
+<P>
+Reactive multiphase flow and transport codes play a vital role in
+predicting the migration of subsurface contaminants and evaluating the
+viability of alternatives for mitigating global climate change (e.g.
+geologic sequestration of anthropogenic carbon). To perform such
+analyses, scientists incorporate sophisticated physical and chemical
+process models within their simulators to assess the impact of reactive
+fluids on subsurface porous media. For large 3D field-scale models, these
+simulators employ preconditioned Newton-Krylov methods to solve the
+tightly-coupled systems of equations governing multiscale physical and
+chemical processes in the subsurface.
+
+<P>
+Due to the extreme stiffness of the systems arising from the strong
+feedback mechanisms between processes and the wide range of timescales
+involved, significant challenges exist in the development of scalable
+solver/preconditioner algorithms for these coupled process models. In the
+case of carbon sequestration, simulation requires at a minimum the
+coupling of multiphase fluid flow (i.e. supercritical CO<IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ _2$"> and water),
+energy, and salt (solute transport), which results in large and complex
+Jacobian matrices with irregular blocks of coefficients representing the
+coupling between processes within a grid cell or matrix element. For
+conventional multilevel algorithms, this unpredictable coupling of system
+PDEs presents new challenges, especially at the extreme scale (i.e.
+10,000+ processor cores).
+
+<P>
+This presentation focuses on research in the development of multilevel
+preconditioners for ultrascale subsurface problems. In particular,
+results are presented on the performance of parallel Newton-Krylov
+solvers employed within codes executed on leadership class computing
+platforms such as Oak Ridge National Laboratory's Jaguar for simulation
+of variably-saturated, single phase flow with reactive transport and
+multiphase carbon sequestration.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-03
+</ADDRESS>
+</BODY>
+</HTML>

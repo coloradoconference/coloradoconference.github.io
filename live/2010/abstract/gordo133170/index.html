@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>gordo133170</TITLE>
+<META NAME="description" CONTENT="gordo133170">
+<META NAME="keywords" CONTENT="gordo133170">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="gordo133170.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">A. D. Gordon 
+<BR><B>Solving Stochastic Collocation Systems with Algebraic Multigrid</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">School of Mathematics 
+<BR>
+University of Manchester 
+<BR>
+Oxford Road 
+<BR>
+Manchester 
+<BR>
+M13 9PL 
+<BR>
+UK
+
+<BR><TT>Andrew.Gordon-2@postgrad.manchester.ac.uk</TT>
+<BR>
+C. E. Powell
+</DIV>
+
+<P>
+Stochastic collocation methods facilitate the numerical solution of
+partial differential equations (PDEs) with random data and give rise to
+long sequences of similar discrete linear systems. When elliptic PDEs
+with random diffusion coefficients are discretized with standard finite
+element methods in the physical domain, the resulting collocation systems
+can be solved iteratively with the conjugate gradient method and
+algebraic multigrid (amg) is a highly robust preconditioner. When mixed
+finite element methods are applied, amg is also a key tool for solving
+the resulting sequence of saddle point systems via the preconditioned
+minimal residual method. In both cases, the stochastic collocation
+systems are trivial to solve when considered individually. The challenge
+lies in exploiting the systems' similarities to recycle information and
+minimize the cost of solving the entire sequence.
+
+<P>
+In this talk, we consider full tensor and sparse grid stochastic
+collocation schemes applied to a model stochastic elliptic problem and
+discretize in physical space using standard piecewise linear finite
+elements and lowest order Raviart-Thomas mixed finite elements. We
+propose efficient solvers for the resulting sequences of linear systems
+and show, in particular, that it is feasible to use finely-tuned amg
+preconditioning for each system if key set-up information is reused.
+Crucially, the preconditioners are robust with respect to variations in
+the discretization and statistical parameters for both stochastically
+linear and nonlinear diffusion coefficients.
+
+<ul>
+<li><a href="../../SCWinners/GordonA.pdf">View full PDF</a>
+</ul>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-09
+</ADDRESS>
+</BODY>
+</HTML>

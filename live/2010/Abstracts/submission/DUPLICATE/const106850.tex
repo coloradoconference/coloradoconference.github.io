@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Paul G. Constantine \\
+{\bf A Stieltjes-Lanczos Method for Parameterized Matrix Equations}}
+
+PO BOX 5800 \\ MS 1318 \\ Albuquerque \\ NM 87185
+\\
+{\tt pconsta@sandia.gov}\\
+David F. Gleich\end{center}
+
+We develop a Stieltjes-Lanczos procedure for a symmetric, positive
+definite parameterized matrix $A(s)$ and a given
+parameterized vector $b(s)$. Each element in $A(s)$ and $b(s)$ is assumed
+to be a bounded and continuous
+function of a set of parameters $s\in\mathcal{D}\subset\mathbb{R}^d$.
+The method computes a \emph{constant} tridiagonal matrix whose
+eigenvalues approximate the parameterized spectrum of
+$A(s)$. We show how this can be interpreted as constructing a Gaussian
+quadrature formula for a Riemann integral of the
+form $\langle b^Tf(A)b \rangle$, where $f(\cdot)$ is an analytic function
+and $\langle\cdot\rangle$ denotes
+integration over the parameter space.
+We also apply this procedure to iteratively approximate the vector-valued
+function $x(s)$ that solves
+$A(s)x(s)=b(s)$; such problems commonly arise within discretizations of
+partial differential equations with
+stochastic inputs. Preliminary numerical experiments are provided which
+validate the theory and suggest future
+directions for research.
+
+
+\end{document}

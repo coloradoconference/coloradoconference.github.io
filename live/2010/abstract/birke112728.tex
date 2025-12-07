@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Philipp Birken \\
+{\bf Matrix-free preconditioned Newton-Krylov methods for nodal discontinous Galerkin schemes}}
+
+University of Kassel \\ Department of Mathematics \\ Heinrich-Plett-Str 40 \\ 34132 Kassel \\ Germany
+\\
+{\tt birken@mathematik.uni-kassel.de}\\
+Mark Haas\end{center}
+
+In recent years, discontinuous Galerkin (DG) methods have received ever
+increasing interest in the context of computational fluid dynamics, both
+for incompressible and compressible flows. Here, we will focus on
+unsteady compressibble flows. DG methods can be seen as generalizations
+of first order finite volume schemes, that extend to higher orders in a
+natural way. However, they have more severe stability restrictions for
+explicit time integration and thus, implicit schemes are necessary for a
+large set of applications. Of interest for unsteady flows are higher
+order schemes and we will apply diagonally implicit Runge-Kutta (DIRK)
+methods. This means that on each stage, a nonlinear equation system has
+to be solved. However, so far efficient solution schemes in the context
+of DG methods are lacking and the design of such algorithms is currently
+one of the most important challenges for the successful application of DG
+schemes.
+
+In this talk, we will consider preconditioned Newton-Krylov schemes for
+the solution of the resulting linear equation systems. The system
+matrices are nonnormal block matrices, with block sizes of 16-120 for two
+dimensional flows, which makes special treatment of these blocks
+necessary and storing the whole matrix impossible for large problems.
+Therefore, we consider matrix-free methods that circumvent storing the
+Jacobian by approximating $Ax$ via difference quotients. Furthermore,
+this allows to approximate the impact of the Jacobian by a cheap low
+order operator in a straight forward way. Several preconditioners
+suitable for matrix-free schemes will be considered, in particular Jacobi
+and SGS.
+
+
+\end{document}

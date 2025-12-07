@@ -1,0 +1,56 @@
+===affil2:
+
+===firstname:
+Andrew
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Canning
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+ACanning@lbl.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Lawrence Berkeley National Laboratory
+One Cyclotron Road
+Berkeley CA94720
+===firstname6:
+
+===ABSTRACT:
+The most widely used approach in first-principles materials science calculations involves the solution of some form of the Schrodinger Equation, typically the Kohn-Sham form based on density functional theory.  The resulting eigenfunction problem involves the solution of the lowest eigenpairs of a very large dense matrix which is typically solved using an iterative approach such as conjugate gradient. In this talk we will look at different methods to speedup the solution on large parallel computers, including the investigation of collective compared to point-to-point methods for reducing the communication costs as well as algorithms to block the communications and reduce latency. We have also investigated mixed MPI and OpenMP programming models to improve performance on multicore computer architectures. We are also studying the use of multilevel methods in Fourier space whereby the eigenvalue problem is solved initially on a coarser grained Fourier grid which is then used as a starting point for the solution on a finer grid. 
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Accelerating Parallel Iterative Eigensolvers for Large Scale First-Principles Materials Science Calculations 
+
+
+===firstname2:
+

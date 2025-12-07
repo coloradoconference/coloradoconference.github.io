@@ -1,0 +1,92 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Killian Miller \\
+{\bf Top-level Acceleration of an AMG Method for Markov Chains Via the Ellipsoid Method}}
+
+University of Waterloo \\ Department of Applied Mathematics \\ 200 University Avenue West \\ Waterloo Ontario N2L 3G1
+\\
+{\tt killian.miller@gmail.com}\\
+Hans De Sterck\\
+Geoffrey Sanders\end{center}
+
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mV}{\mathcal{V}}
+\newcommand{\bx}{{\bf x}}
+
+In many application areas including information retrieval, networking
+systems and performance modeling of communication systems, the
+steady-state distribution vector of an irreducible Markov chain is of
+interest, and it is often difficult to compute. The steady-state vector
+is the solution to a nonsymmetric eigenproblem with known eigenvalue,
+$B\bx = \bx$, subject to the probability constraints $\|\bx\|_1 = 1$ and
+$x_i \geq 0~\forall i$, where $B$ is a column-stochastic matrix. A
+relatively new approach to solving these eigenvalue problems has been the
+application of multigrid techniques. Recently, scalable multilevel
+methods based on {\em smoothed aggregation} [2] and {\em algebraic
+multigrid} [1] were proposed to solve such problems. The performance of
+these methods was investigated for a wide range of numerical test
+problems, and for most test cases, near-optimal multigrid efficiency was
+obtained.
+
+In [3], it was shown how the convergence of these multilevel methods can
+be accelerated by the addition of an outer iteration, with the resulting
+accelerated algorithm similar in principle to a preconditioned flexible
+Krylov subspace method. The acceleration was performed by selecting a
+linear combination of previous fine-level iterates to minimize a
+functional $\mF$
+over the space of probability vectors $\mP$. Only the $m$ most recent
+fine-level iterates were used, where $m$ is the {\em window size}. The
+functional was taken as the 2-norm of the residual, $\mF_2(\bx) =
+\|(I-B)\bx\|_2$; consequently each acceleration step consisted of solving
+a small $(m \leq 5)$ quadratic programming problem, for which both
+constrained and unconstrained variants were considered.
+
+In this talk we consider a different functional, namely, $\mF_1(\bx) =
+\|(I-B)\bx\|_1$. This gives rise to the following nonlinear convex
+programming problem (CPP) which must be solved at each acceleration step:
+\begin{align*}
+\text{minimize} & \quad \mF_1(\bx)\\
+\text{subject to} & \quad \bx \in (\mP \cap \mV),
+\end{align*}
+where $\mV$ is the space spanned by the $m$ most recent fine-level
+iterates. To solve this CPP we use a variation of the well-known {\em
+ellipsoid algorithm} from linear optimization. Our motivation for
+considering the functional $\mF_1$ is from a numerical standpoint: the
+1-norm optimization problem may be easier and faster to solve than the
+2-norm problem. Moreover, since $\mF_1(\bx) \ll 1$ implies that
+$\mF_2(\bx) \ll 1$, the acceleration in the 1-norm case should be
+comparable to the acceleration in the 2-norm case. We quantify our
+approach by directly comparing our results with those obtained in [3],
+for a variety of test problems. For simplicity we focus solely on
+constrained acceleration of the algebraic multigrid method for Markov
+chains from [1].
+
+\vspace{1cm}
+
+{\noindent{\Large{\bf References}}}
+
+\begin{enumerate}
+\item[{[1]}] {\sc Hans De Sterck, Thomas A. Manteuffel, Stephen F.
+McCormick, Killian Miller, John Ruge, and Geoffrey Sanders},
+{\em Algebraic multigrid for Markov chains}, SIAM J. Sci. Comp., accepted, 2009.
+
+\item[{[2]}] {\sc Hans De Sterck, Thomas A. Manteuffel, Stephen F.
+McCormick, Killian Miller, James Pearson, John Ruge, and Geoffrey
+Sanders}, {\em Smoothed aggregation multigrid for Markov chains}, SIAM J.
+Sci. Comp., accepted, 2009.
+
+\item[{[3]}] {\sc Hans De Sterck, Thomas A. Manteuffel, Killian Miller,
+and Geoffrey Sanders},
+{\em Top-level acceleration of adaptive algebraic multilevel methods for
+steady-state solution to Markov
+chains}, submitted to Advances in Computational Mathematics, Sept. 2009.
+\end{enumerate}
+
+
+\end{document}

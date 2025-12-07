@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mille111040</TITLE>
+<META NAME="description" CONTENT="mille111040">
+<META NAME="keywords" CONTENT="mille111040">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mille111040.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Killian Miller 
+<BR><B>Top-level Acceleration of an AMG Method for Markov Chains Via the Ellipsoid Method</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Waterloo 
+<BR>
+Department of Applied Mathematics 
+<BR>
+200 University Avenue West 
+<BR>
+Waterloo 
+<BR>
+Ontario N2L 3G1
+
+<BR><TT>killian.miller@gmail.com</TT>
+<BR>
+Hans De Sterck
+<BR>
+Geoffrey Sanders
+</DIV>
+
+<P>
+
+<P>
+In many application areas including information retrieval, networking
+systems and performance modeling of communication systems, the
+steady-state distribution vector of an irreducible Markov chain is of
+interest, and it is often difficult to compute. The steady-state vector
+is the solution to a nonsymmetric eigenproblem with known eigenvalue,
+<!-- MATH
+ $B{\bf x}= {\bf x}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ B{\bf x}= {\bf x}$">, subject to the probability constraints <!-- MATH
+ $\|{\bf x}\|_1 = 1$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \Vert{\bf x}\Vert _1 = 1$"> and
+<!-- MATH
+ $x_i \geq 0~\forall i$
+ -->
+<IMG
+ WIDTH="68" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ x_i \geq 0~\forall i$">, where <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B$"> is a column-stochastic matrix. A
+relatively new approach to solving these eigenvalue problems has been the
+application of multigrid techniques. Recently, scalable multilevel
+methods based on <EM>smoothed aggregation</EM> [2] and <EM>algebraic
+multigrid</EM> [1] were proposed to solve such problems. The performance of
+these methods was investigated for a wide range of numerical test
+problems, and for most test cases, near-optimal multigrid efficiency was
+obtained.
+
+<P>
+In [3], it was shown how the convergence of these multilevel methods can
+be accelerated by the addition of an outer iteration, with the resulting
+accelerated algorithm similar in principle to a preconditioned flexible
+Krylov subspace method. The acceleration was performed by selecting a
+linear combination of previous fine-level iterates to minimize a
+functional <!-- MATH
+ $\mathcal{F}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \mathcal{F}$">
+over the space of probability vectors <!-- MATH
+ $\mathcal{P}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \mathcal{P}$">. Only the <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ m$"> most recent
+fine-level iterates were used, where <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ m$"> is the <EM>window size</EM>. The
+functional was taken as the 2-norm of the residual, <!-- MATH
+ $\mathcal{F}_2({\bf x}) =
+\|(I-B){\bf x}\|_2$
+ -->
+<IMG
+ WIDTH="152" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \mathcal{F}_2({\bf x}) =
+\Vert(I-B){\bf x}\Vert _2$">; consequently each acceleration step consisted of solving
+a small <!-- MATH
+ $(m \leq 5)$
+ -->
+<IMG
+ WIDTH="60" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ (m \leq 5)$"> quadratic programming problem, for which both
+constrained and unconstrained variants were considered.
+
+<P>
+In this talk we consider a different functional, namely, <!-- MATH
+ $\mathcal{F}_1({\bf x}) =
+\|(I-B){\bf x}\|_1$
+ -->
+<IMG
+ WIDTH="152" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \mathcal{F}_1({\bf x}) =
+\Vert(I-B){\bf x}\Vert _1$">. This gives rise to the following nonlinear convex
+programming problem (CPP) which must be solved at each acceleration step:
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT">minimize</TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="61" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle \quad \mathcal{F}_1({\bf x})$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT">subject to</TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="107" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \quad {\bf x}\in (\mathcal{P}\cap \mathcal{V}),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\mathcal{V}$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \mathcal{V}$"> is the space spanned by the <IMG
+ WIDTH="18" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ m$"> most recent fine-level
+iterates. To solve this CPP we use a variation of the well-known <EM>ellipsoid algorithm</EM> from linear optimization. Our motivation for
+considering the functional <!-- MATH
+ $\mathcal{F}_1$
+ -->
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \mathcal{F}_1$"> is from a numerical standpoint: the
+1-norm optimization problem may be easier and faster to solve than the
+2-norm problem. Moreover, since <!-- MATH
+ $\mathcal{F}_1({\bf x}) \ll 1$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \mathcal{F}_1({\bf x}) \ll 1$"> implies that
+<!-- MATH
+ $\mathcal{F}_2({\bf x}) \ll 1$
+ -->
+<IMG
+ WIDTH="78" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \mathcal{F}_2({\bf x}) \ll 1$">, the acceleration in the 1-norm case should be
+comparable to the acceleration in the 2-norm case. We quantify our
+approach by directly comparing our results with those obtained in [3],
+for a variety of test problems. For simplicity we focus solely on
+constrained acceleration of the algebraic multigrid method for Markov
+chains from [1].
+
+<P>
+<BR>
+<BR>
+
+<P>
+<FONT SIZE="+2"><B>References</B></FONT>
+
+<P>
+<DL COMPACT>
+<DT>[1]</DT>
+<DD>H<SMALL>ANS </SMALL>D<SMALL>E </SMALL>S<SMALL>TERCK, </SMALL>T<SMALL>HOMAS </SMALL>A. M<SMALL>ANTEUFFEL, </SMALL>S<SMALL>TEPHEN </SMALL>F.
+M<SMALL>C</SMALL>C<SMALL>ORMICK, </SMALL>K<SMALL>ILLIAN </SMALL>M<SMALL>ILLER, </SMALL>J<SMALL>OHN </SMALL>R<SMALL>UGE, AND </SMALL>G<SMALL>EOFFREY </SMALL>S<SMALL>ANDERS</SMALL>,
+<EM>Algebraic multigrid for Markov chains</EM>, SIAM J. Sci. Comp., accepted, 2009.
+
+<P>
+</DD>
+<DT>[2]</DT>
+<DD>H<SMALL>ANS </SMALL>D<SMALL>E </SMALL>S<SMALL>TERCK, </SMALL>T<SMALL>HOMAS </SMALL>A. M<SMALL>ANTEUFFEL, </SMALL>S<SMALL>TEPHEN </SMALL>F.
+M<SMALL>C</SMALL>C<SMALL>ORMICK, </SMALL>K<SMALL>ILLIAN </SMALL>M<SMALL>ILLER, </SMALL>J<SMALL>AMES </SMALL>P<SMALL>EARSON, </SMALL>J<SMALL>OHN </SMALL>R<SMALL>UGE, AND </SMALL>G<SMALL>EOFFREY
+</SMALL>S<SMALL>ANDERS</SMALL>, <EM>Smoothed aggregation multigrid for Markov chains</EM>, SIAM J.
+Sci. Comp., accepted, 2009.
+
+<P>
+</DD>
+<DT>[3]</DT>
+<DD>H<SMALL>ANS </SMALL>D<SMALL>E </SMALL>S<SMALL>TERCK, </SMALL>T<SMALL>HOMAS </SMALL>A. M<SMALL>ANTEUFFEL, </SMALL>K<SMALL>ILLIAN </SMALL>M<SMALL>ILLER,
+AND </SMALL>G<SMALL>EOFFREY </SMALL>S<SMALL>ANDERS</SMALL>,
+<EM>Top-level acceleration of adaptive algebraic multilevel methods for
+steady-state solution to Markov
+chains</EM>, submitted to Advances in Computational Mathematics, Sept. 2009.
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

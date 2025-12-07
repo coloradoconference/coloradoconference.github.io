@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>srini112891</TITLE>
+<META NAME="description" CONTENT="srini112891">
+<META NAME="keywords" CONTENT="srini112891">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="srini112891.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Balaji Vasan Srinivasan 
+<BR><B>Fast matrix-vector product based FGMRES for kernel machines</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">3368 AV Williams Bldg 
+<BR>
+University of Maryland 
+<BR>
+College Park 
+<BR>
+MD 20742
+
+<BR><TT>balajiv@umiacs.umd.edu</TT>
+<BR>
+Ramani Duraiswami
+<BR>
+Nail Gumerov
+</DIV>
+
+<P>
+Algorithms based on kernel methods play a central role in statistical
+machine learning. At their core are a number of linear algebra operations
+on matrices of kernel functions which take as arguments the training and
+testing data. A kernel function <!-- MATH
+ $\Phi(x_i,x_j)$
+ -->
+<IMG
+ WIDTH="66" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \Phi(x_i,x_j)$"> generalizes the notion of
+the similarity between a test and training point. Given a set of data
+points, <!-- MATH
+ $\mathbf{X}=\{x_1,x_2,\ldots,x_N\}, x_i\in R^d$
+ -->
+<IMG
+ WIDTH="212" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \mathbf{X}=\{x_1,x_2,\ldots,x_N\}, x_i\in R^d$">, the kernel
+matrix is given by,
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\mathbf{K} = \left(
+\begin{array}{ccc}
+k_{11} & \ldots & k_{1N}\\
+\vdots & \ddots & \vdots\\
+k_{N1} & \ldots & k_{NN}\\
+\end{array}
+\right),
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="200" HEIGHT="84" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \mathbf{K} = \left( \begin{array}{ccc} k_{11} &amp; \ldots &amp; k_{1N}\\ \vdots &amp; \ddots &amp; \vdots\\ k_{N1} &amp; \ldots &amp; k_{NN}\\ \end{array} \right),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $k_{ij}=\Phi(x_i,x_j)$
+ -->
+<IMG
+ WIDTH="106" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ k_{ij}=\Phi(x_i,x_j)$">. Kernel matrices are symmetric and satisfy
+the M&#233;rcer conditions, <!-- MATH
+ $a^T\mathbf{K}a\geq0$
+ -->
+<IMG
+ WIDTH="75" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ a^T\mathbf{K}a\geq0$">, for any <IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ a$">; and hence
+<!-- MATH
+ $\mathbf{K}$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathbf{K}$"> is positive semi-definite. In many algorithms, it might be
+necessary to solve a linear system with the matrix <!-- MATH
+ $\mathbf{K}$
+ -->
+<IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ \mathbf{K}$">,
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\mathbf{K}x=b.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="60" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle \mathbf{K}x=b.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Iterative Krylov approaches are often used with fast matrix vector
+products for efficient solution of such systems (de Freitas et al.,
+<IMG
+ WIDTH="36" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ 2005$">).
+
+<P>
+When the underlying system is ill-conditioned, there is a degradation of
+the performance of iterative approaches, necessitating the use of a
+preconditioner for the Krylov iterations. Popular preconditioners like
+Jacobi, SSOR, ILU can be used to improve the convergence, however, these
+preconditioners have an O(<IMG
+ WIDTH="26" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ N^2$">) space and computation requirement for
+dense matrices, which would ruin any advantage gained by the fast
+matrix-vector products. The preconditioner must have a representation
+that allows for a fast matrix-vector product just like the kernel matrix.
+We propose a <I>Tikhonov regularized kernel matrix </I>solved with a
+truncated conjugate gradient algorithm as a preconditioner for the kernel
+matrix, which can be accelerated using the aforementioned approaches.
+Because the symmetry of this preconditioner cannot be guaranteed, we use
+a flexible GMRES (Saad, <IMG
+ WIDTH="36" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ 1993$">) algorithm.
+
+<P>
+A good preconditioner will improve the convergence of the iterative
+approach at the expense of an increased cost per iteration. The
+convergence with proposed preconditioner is shown to be an order of
+magnitude better than the unpreconditioned approach. But, for a
+preconditioner to be useful, the total time taken by the preconditioned
+approach should be less than the unpreconditioned approach. This is
+achieved by using the the fast matrix-vector product algorithms,
+resulting in a computationally efficient solver with faster convergence.
+We use two classes of fast matrix vector products, approximation-based
+acceleration (eg. FIGTREE (Morariu et al., <IMG
+ WIDTH="36" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ 2008$">) for Gaussian kernel)
+and GPU-based parallelization (Srinivasan et al, <IMG
+ WIDTH="36" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ 2009$">). Each of these
+two approaches have their own advantages and disadvantages. We propose a
+strategy to choose the appropriate acceleration in the light of the
+desired accuracy.
+
+<P>
+The performance is further illustrated in popular learning approaches
+namely, radial basis function interpolation, Gaussian process regression
+and kernel classification. There is an improvement of upto <IMG
+ WIDTH="29" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ \sim8$">X in
+the number of iterations to converge and <IMG
+ WIDTH="42" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \sim3.5$">X in the total time
+taken compared to a conjugate gradient based approach. The core
+preconditioning strategy proposed here will soon be released as an open
+source package.
+
+<P>
+
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

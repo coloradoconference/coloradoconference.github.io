@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Joel E. Dendy \\
+{\bf A Cell-Structure-Preserving Multigrid Method for the Diffusion Equation}}
+
+Los Alamos National Laboratory \\ MS-B284 \\ P O Box 1663 \\ Los Alamos \\ NM 87545
+\\
+{\tt jed@lanl.gov}\\
+Joel E. Dendy\\
+J. David Moulton\end{center}
+
+We consider the standard cell-centered discretization of the
+diffusion equation on a rectangle with discontinuous diffusion coefficient.
+Previously we considered an extension of black box multigrid with a
+coarsening factor of three. For a coarsening factor of two, the
+standard application of black box multigrid has been to coarsen the
+logically rectangular grid. This approach does not preserve the cell
+structure on coarser grids, as one would wish to do for local grid
+refinement and other applications. If variational coarsening is
+employed, with interpolation being a generalization of bilinear
+interpolation, it is well known that the difference operator on the
+next coarser grid has a twenty-five point stencil. In this work we
+extend the difference operator on the cell-centers of the finest grid
+to be a difference operator on the underlying grid consisting of cell-
+centers, cell-vertices and cell-edges. For this extended operator we
+derive an operator-induced interpolation, which is used to coarsen
+variationally to a difference operator on the grid of cell-vertices.
+This second operator is coarsened in the standard black box multigrid
+fashion to the grid of coarse-grid cell centers. The resulting
+operator has a nine point stencil, and the resulting interpolation
+operator from coarse-grid cell-centers to fine grid cell-centers has
+the same stencil as bilinear interpolation while the restriction
+operator from fine grid cell-centers to coarse-grid cell-centers has
+the same stencil as the transpose of bilinear interpolation.
+
+
+\end{document}

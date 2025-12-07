@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large H. Carter Edwards \\
+{\bf Performance Concerns when Iterating Hybrid-Parallel Kernels}}
+
+Sandia National Laboratories \\ P O Box 5800 / MS 0382 \\ Albuquerque \\ NM 87185
+\\
+{\tt hcedwar@sandia.gov}\end{center}
+
+Iterative algorithms are typically implemented by a sequence of calls to
+simple computational kernels, such as the BLAS or their sparse
+equivalent. Hybrid-parallelization of these kernels on clusters of nodes
+with multicore CPUs or GPGPUs has demonstrated performance gains for
+individual kernels. An iterative algorithm can realize a similar
+performance gain only if the programming model for calling a sequence of
+these kernels does not introduce significant overhead. Such a programming
+model for hybrid-parallel kernels has been implemented in Trilinos’
+ThreadPool library. A simple CG iterative solver is implemented using the
+ThreadPool library and its hybrid-parallel performance is assessed.
+
+
+\end{document}

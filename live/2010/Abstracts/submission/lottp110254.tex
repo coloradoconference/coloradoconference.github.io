@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large P. A. Lott \\
+{\bf Fast Solvers for Models of Fluid Flow with Spectral Elements}}
+
+National Institute of Standards & Technology \\ 100 Bureau Dr Stop 8910 \\ Gaithersburg \\ MD 20899
+\\
+{\tt aaron.lott@nist.gov}\\
+H. C. Elman\end{center}
+
+Numerical simulation provides a mechanism for predicting the behavior and
+aiding in the design of fluid systems. Computational methods based on
+explicit or semi-implicit time stepping can fail to provide a scalable
+means of performing simulations because of a stability-based time step
+constraint. Implicit and steady state solvers, however, are not limited
+by this constraint and can provide an efficient alternative for
+performing flow studies. The expense of implicit and steady-state solvers
+depends primarily on the cost of solving associated large sparse linear
+systems. These linear systems are solved using iterative methods, and the
+convergence can often be accelerated via preconditioning. We will
+introduce a new technique for solving convection-diffusion systems that
+leverages properties of the spectral element discretization and
+demonstrate how this technique can be used as a component of a block
+preconditioning strategy for solving a range of fluid flow problems.
+
+
+\end{document}

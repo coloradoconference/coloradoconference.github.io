@@ -1,0 +1,99 @@
+===affil2:
+
+===firstname:
+Matthias
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Bolten
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+bolten@math.uni-wuppertal.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Department of Mathematics and Science
+University of Wuppertal
+D-42097 Wuppertal
+Germany
+===firstname6:
+
+===ABSTRACT:
+In the last years theory for multigrid methods for Toeplitz matrices and circulant matrices has been developed, see e.g. \cite{art:FIOR91, art:SERR04, art:ARIC07}. This theory is based on the convergence results for classical AMG that can be found e.g. in \cite{inc:RUGE87}. The convergence analysis is based on knowledge about the zeros of the system matrices' generating symbols and appropriate construction of the interpolation operators.
+
+For many applications, especially for unstructured grids and in parallel, algebraic multigrid methods based on aggregation \cite{art:BRAE95} or smoothed aggregation \cite{art:VANE96} are used, rather than classical AMG methods. While the first make use of the fact that the constant is a near kernel component for elliptic PDEs, the latter automatically improve the interpolation operator by applying the smoother to the constant vector.
+
+We took the ideas of aggregation and smoothed aggregation and transfered them to the cases of circulant matrices and Toeplitz matrices. Under certain assumptions the generated interpolation operators fulfill the requirements of the available convergence theory, while still generating the interpolation automatically.
+
+In the talk we will present our results and give examples for different choices of (smoothed) interpolation operators.
+
+\begin{thebibliography}{1}
+
+\bibitem{inc:RUGE87}
+J.~W. Ruge and K.~St\"uben.
+\newblock Algebraic multigrid.
+\newblock In S.~F. McCormick, editor, {\em Multigrid methods}, volume~3 of {\em
+  Frontiers Appl. Math.}, pages 73--130. SIAM, Philadelphia, 1987.
+
+\bibitem{art:FIOR91}
+G.~Fiorentino and S.~Serra.
+\newblock Multigrid methods for {Toeplitz} matrices.
+\newblock {\em Calcolo}, 28:238--305, 1991.
+
+\bibitem{art:BRAE95}
+D.~Braess.
+\newblock Towards algebraic multigrid for elliptic problems of second order.
+\newblock {\em Computing}, 55:379--393, 1995.
+
+\bibitem{art:VANE96}
+P.~Va{\v{n}}ek, J.~Mandel, and M.~Brezina.
+\newblock Algebraic multigrid by smoothed aggregation for second and fourth
+  order elliptic problems.
+\newblock {\em Computing}, 56:179--196, 1996.
+
+\bibitem{art:SERR04}
+S.~Serra-Capizzano and C.~Tablino-Possio.
+\newblock Multigrid methods for multilevel circulant matrices.
+\newblock {\em SIAM J. Sci. Comput.}, 26(1):55--85, 2004.
+
+\bibitem{art:ARIC07}
+A.~Aric\`o and M.~Donatelli.
+\newblock A {V}-cycle multigrid for multilevel matrix algebras: proof of
+  optimality.
+\newblock {\em Numer. Math.}, 105:511--547, 2007.
+
+\end{thebibliography}
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Multigrid for circulant matrices and Toeplitz matrices based on aggregation and smoothed aggregation
+===firstname2:
+

@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ira Livshits \\
+{\bf An AMG solver for the Helmholtz equation. }}
+
+Ball State University \\ Department of Mathematical Sciences \\ Muncie \\ IN 47304
+\\
+{\tt ilivshits@bsu.edu}\end{center}
+
+We discuss an adaptive algebraic multigrid algorithm for solving
+indefinite Helmholtz equations. Our approach is reminiscent of the
+wave-ray algorithm developed by Brandt and Livshits in the geometric
+framework -- it is too provides a special treatment to the null- and
+near-null components of the Helmholtz operator.
+
+Unlike it predecessor, our solver
+does not have to rely on analytical solutions but rather computes their
+numerical approximations and fits them using Brandt's least squares
+approach for computing interpolation operators, allowing accurate and
+smooth coarse-grid representation. In this talk, we present preliminary
+one-dimensional results and discuss how this approach can be naturally
+extended to two dimensions.
+
+
+\end{document}

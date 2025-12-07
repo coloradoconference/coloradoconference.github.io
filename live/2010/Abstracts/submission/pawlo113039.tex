@@ -1,0 +1,51 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Roger Pawlowski \\
+{\bf Handling Complexity in Multiphysics Applications}}
+
+Sandia National Laboratories \\ P O Box 5800 \\ Mail Stop 1318 \\ Albuquerque \\ NM 87185-1318
+\\
+{\tt rppawlo@sandia.gov}\\
+Eric Phipps\\
+Patrick Notz\end{center}
+
+Multiphysics simulation is plagued by complexity stemming from
+nonlinearly coupled systems of PDEs. Such software often must support
+many physics models, each of which may require different discretizations,
+transport equations, constitutive models, and equations of state.
+Additionally, the use of sophisticated solution and analysis algorithms
+may impose a burden on users that wish to extend the physics models.
+Strong coupling, together with a multiplicity of models, often leads to
+complex algorithms and rigid software.
+
+This talk will discuss a new paradigm where the focus is shifted from the
+high level algorithmic design to a low level data dependency design.
+Mathematical expressions are represented as objects in software that
+directly expose data dependencies. The entire system of expressions are
+represented as a directed acyclic graph and the high-level assembly
+algorithm is generated automatically through standard graph theory
+algorithms. This approach allows problems with very complex dependencies
+to become entirely tractable, and removes virtually all logic from the
+algorithm itself. Changes are highly localized, allowing model developers
+to implement code without requiring a detailed understanding of the
+algorithms. By leveraging embedded technology, applications can probe the
+expressions to generate auxiliary data including machine precision
+accurate sensitivities for solution algorithms. The localized design
+allows for a number of levels of optimization for large-scale parallel
+computers utilizing both MPI and multithreading. We will discuss the
+design of the library, the use of embedded technology and show results
+from production large-scale computations in the areas of
+magnetohydrodynamics and semiconductor device modeling.
+
+Sandia is a multiprogram laboratory operated by Sandia Corporation, a
+Lockheed Martin Company, for the United States Department of Energy's
+National Nuclear Security Administration under contract
+DE-AC04-94AL85000.
+
+
+\end{document}

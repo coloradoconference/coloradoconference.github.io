@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large David C.-L. Fong \\
+{\bf LSMR: An iterative algorithm for least-squares problems}}
+
+121 Campus Dr  \\ Apt 1109B \\ Stanford \\ CA 94305
+\\
+{\tt clfong@stanford.edu}\\
+Michael A. Saunders\end{center}
+
+\newcommand{\T}{^T\!}
+\newcommand{\norm}[1]{\|#1\|}
+
+
+An iterative method is presented for solving linear systems $Ax=b$ and
+$\min \norm{Ax-b}_2$, with $A$ being large and sparse, or a fast linear
+operator. The method is based on the Golub-Kahan bidiagonalization
+process. It is analytically equivalent to the standard method of MINRES
+applied to the normal equation $A\T Ax = A\T b$, so that the quantities
+$\norm{A\T r_k}$ are monotonically decreasing (where $r_k = b - Ax_k$ is
+the residual for the current iterate $x_k$). In practice we observe that
+$\norm{r_k}$ also decreases monotonically. Compared to LSQR, for which
+only \norm{r_k}$ is monotonic, it is safer to terminate LSMR early.
+
+
+\end{document}

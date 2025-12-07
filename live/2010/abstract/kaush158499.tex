@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dinesh Kaushik \\
+{\bf Computational Challenges in Coupled Multiphysics Simulations of Nuclear Reactor Cores}}
+
+Argonne National Laboratory \\ 9700 Cass Ave \\ Argonne, IL 60439 
+\\
+{\tt kaushik@mcs.anl.gov}\\
+Micheal Smith\\
+Allan Wollaber\\
+Timothy Tautges\\
+Barry Smith\\
+Andrew Siegel\\
+Won Sik Yang\end{center}
+
+As part of the DOE’s Nuclear Energy Advanced Modeling and Simulation
+(NEAMS) program, SHARP framework is being developed at Argonne National
+Laboratory to carry out coupled multiphysics reactor core simulations in
+high fidelity. The goal of this simulation effort is to reduce the
+uncertainties and biases in reactor design calculations by progressively
+replacing existing multi-level averaging (homogenization) techniques with
+more direct solution methods. This talk will discuss the architectural
+and algorithmic challenges encountered in these simulations on the
+leadership platforms (such as Blue Gene/P at Argonne and XT5 at ORNL). We
+will also present detailed, high-resolution simulations of neutron
+transport in fast reactor cores using our code UNIC. This code implements
+a scalable solution methodology for the discrete ordinates, even-parity
+form of the neutron transport equation. For high-fidelity descriptions of
+complex reactor geometries (respecting spatial heterogeneities and large
+number of energy groups), the memory requirements are huge. We will
+discuss an approach (using p-multigrid) to contain the memory requirement
+in the context of Zero Power Reactor (ZPR) Experiment 6/6a simulations on
+Blue Gene/P and XT5. This talk will also highlight the importance of
+developing memory-saving algorithms for multiphysics simulations – a
+crucial requirement for the future petascale (and exascale) machines
+where the current trends indicate significantly reduced memory per thread
+of execution.
+
+
+\end{document}

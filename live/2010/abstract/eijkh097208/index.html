@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>eijkh097208</TITLE>
+<META NAME="description" CONTENT="eijkh097208">
+<META NAME="keywords" CONTENT="eijkh097208">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="eijkh097208.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Victor Eijkhout 
+<BR><B>Toward mechanical derivation of Krylov solver methods and libraries</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Texas Advanced Computing Center 
+<BR>
+Research Office Complex 1 101 
+<BR>
+J J Pickle Research Campus 
+<BR>
+Building 196 
+<BR>
+10100 Burnet Road (R8700) 
+<BR>
+Austin 
+<BR>
+Texas 78758-4497
+
+<BR><TT>eijkhout@tacc.utexas.edu</TT>
+<BR>
+Paolo Bientinesi
+<BR>
+Robert van de Geijn
+</DIV>
+
+<P>
+In a series of papers, it has been shown that from the mere
+mathematical specification of a target operation it is possible to
+systematically and even mechanically derive families of loop-based
+algorithms for dense linear algebra operations. A framework named
+FLAME (Formal Linear Algebra Methods Environment) has been developed
+to realize this aim. FLAME starts with a non-algorithmic specification
+of the inputs and outputs of an operation; in the case of matrix
+inversion this would state that the output is the inverse of the
+input. Once the algebraic description is written as a Partitioned
+Matrix Expression (PME), it becomes possible to choose an invariant
+that is to hold in each iteration of the loop-based algorithm, for
+instance declaring that parts of the result have been computed.
+
+<P>
+This talk will first of all show how the FLAME methodology, so far mostly
+applied to direct dense matrix algorithms, can be applied to
+vector-oriented iterative processes such as Krylov space methods. For
+this we use the block formulation of iterative methods, going back to
+Householder, and reason in terms of matrices that comprise the vectors
+computed. The PME for an iterative method then describes the basic
+generating relations between the vectors, as well as the condition of
+orthogonality. We show that from this high level description we
+can derive specific methods. We will also show that it is possible to
+derive multiple algorithms from the same PME.
+
+<P>
+Secondly, we will establish that the reasoning outlined so far
+can be made sufficiently
+systematic that mechanical derivation, complete with correctness
+proof, is within reach. We show that the derivation of the essential
+steps in a method is in fact driven by the generation of Hoare
+triples, a central tool proving correctness of algorithms.
+
+<P>
+Thus, this research makes a case for the feasibility of
+mechanical generation of proved correct algorithms and corresponding
+library software for iterative methods for solving linear systems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

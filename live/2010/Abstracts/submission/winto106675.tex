@@ -1,0 +1,32 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Corey Winton \\
+{\bf Optimization of Groundwater Models}}
+
+1211 Winding Arbor Trail \\ x005 \\ Raleigh \\ NC 27606
+\\
+{\tt corey.w.winton@usace.army.mil}\\
+C.T. Kelley\\
+Stacy Howington\\
+Owen Eslinger\\
+Jackie Pettway\end{center}
+
+Our goal is to estimate the parameters, specifically hydraulic
+conductivity, that determine subsurface groundwater flow in saturated
+domains. Modeling such flow can be computationally intense; large models
+have unknowns numbering in the tens of millions. Our research constructs
+a reduced order model (ROM) using Proper Orthogonal Decomposition (POD).
+This POD model will reduce the degrees of freedom from millions of
+unknowns to tens. We will use PEST (Parameter ESTimation) as our
+optimization software. The model software, ADH, is under development at
+ERDC in Vicksburg, MS. Our results on 3-D domains demonstrate an order of
+magnitude fewer calls to the full, expensive model without sacrificing
+accuracy in the final solution.
+
+
+\end{document}

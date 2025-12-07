@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mehlm097910</TITLE>
+<META NAME="description" CONTENT="mehlm097910">
+<META NAME="keywords" CONTENT="mehlm097910">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mehlm097910.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Miriam Mehl 
+<BR><B>Parallel Multigrid - a Scalable Alternative to Parallel CG?</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+Technische Universit&#228;t M&#252;nchen 
+<BR>
+Boltzmannstr 3 
+<BR>
+85748 Garching
+
+<BR><TT>mehl@in.tum.de</TT>
+</DIV>
+
+<P>
+From a computer science point of view, the performance evaluation of
+iterative solvers for large systems of equations
+does not only include numerical efficiency but also parallel
+scalability. Whereas multigrid methods are clearly superior from
+a pure numerical point of view, the majority of parallel solvers
+available in software packages are
+based on cg-like methods.
+These solvers achieve very good scalability on high performance
+computing platforms even for large processors numbers. In contrast,
+multigrid methods seem to perform much worse in the parallel context.
+This arises the question whether they are only a nice theoretical
+concept but not applicable in an efficient way in supercomputing
+practice.
+
+<P>
+Considerations that might lead to such a conclusion often only include
+so-called strong-scalability results -- constant problem size and
+growing number of processors.
+This point of view does not take into account the advantage of
+multigrid methods -- the constant number of iterations with
+increasing problem size.
+Thus, the correct setting must be to consider weak-scalability, that
+is problem sizes growing according to the processor number, and, in
+addition, time until convergence instead of only single solver
+iterations.
+
+<P>
+This approach leads to a new definition of an optimal solver.
+Whereas an optimal sequential
+solver computes the solution of a system in a computational
+time growing proportional to the number of unknowns,
+parallelisation even allows to look for solvers with
+constant computational time.
+So the question is: Is it possible
+to implement a solver that solves a system of equations in constant
+time independent from the size of the system or the mesh resolution,
+respectively, by suitably increasing the number of processors?
+In the optimal case, the number of processors increaes only proportional
+to the problem size.
+
+<P>
+We will present first a theoretical
+comparison of cg-like and multigrid methods for parallel computations
+under simplifying assumptions showing the general potential of
+multigrid and cg-like solvers on supercomputers and also
+answering the question on the possibility to develop an optimal
+parallel solver. In addition, we will relate various parallel
+multigrid approaches from literature (see for example
+[1, 2, 3, 4, 6, 7]) to this theoretical analysis
+and, finally, present results from an own parallel multigrid
+implementation on adaptive Cartesian grids with tree-structure
+(see [5] for a decription of the corresponding
+sequential code).
+In contrast to the purely theoretical analysis that only takes into
+account computational and communication costs, this will also give
+hints on ways to improve other performance aspects such as
+cache-efficiency that can be an additional stumbling block
+for high performance multigrid implementations due to the more
+complex data dependencies compared to cg-like solvers.
+
+<P>
+<DL COMPACT>
+<DT>[1]</DT>
+<DD>M. Adams and J. W. Demmel. Parallel multigrid solver for 3d
+unstructured finite element problems. In <EM>Supercomputing '99:
+Proceedings of the 1999
+ACM/IEEE conference on Supercomputing</EM>, page 27, New York,
+NY, USA, 1999. ACM.
+</DD>
+<DT>[2]</DT>
+<DD>M. Berger, M. Aftosmis, and G. Adomavicius. Parallel multigrid
+on cartesian meshes with complex geometry. In <EM>Proc. of the
+8th Intl. Conf. on Parallel CFD. Trondhiem</EM>, 2000.
+</DD>
+<DT>[3]</DT>
+<DD>T. Gradl and U. R&#252;de. High performance multigrid on current
+large scale parallel computers. In <EM>9th Workshop on Parallel
+Systems and Algorithms (PASA), Dresden, 26.02.2008</EM>, volume 124
+of <EM>GI Edition: Lecture Notes in Informatics</EM>,
+pages 37-45. Gesellschaft f&#252;r Informatik, 2008.
+</DD>
+<DT>[4]</DT>
+<DD>H. van Emden and U.Meier Yang. Boomeramg: A parallel
+algebraic multigrid solver and preconditioner. <EM>Applied
+Numerical
+Mathematics</EM>, 41(1):155-177, 2002.
+</DD>
+<DT>[5]</DT>
+<DD>M. Mehl, T. Weinzierl, and Ch. Zenger. A cache-oblivious
+selfadaptive full multigrid method. <EM>Numerical Linear Algebra
+with Applications</EM>, 13(2-3):275-291, 2006.
+</DD>
+<DT>[6]</DT>
+<DD>W. F. Mitchell. A refinement-tree based partitioning method for
+dynamic load balancing with adaptively refined grids. <EM>Journal
+of Parallel and Distributed Computing</EM>, 67(4):417-429, 2007.
+</DD>
+<DT>[7]</DT>
+<DD>G. W. Zumbusch. Data parallel iterators for hierarchical grid
+and tree algorithms. In W. E. Nagel, W. V. Walter,
+and W. Lehner, editors, Euro-Par, volume 4128 of <EM>Lecture Notes
+in Computer Science</EM>, pages 625-634. Springer, 2006.
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-03
+</ADDRESS>
+</BODY>
+</HTML>

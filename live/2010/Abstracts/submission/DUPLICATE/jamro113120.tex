@@ -1,0 +1,55 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ben Jamroz \\
+{\bf  Jacobian-free Newton-Krylov methods in Production Level Magnetohydrodynamic Codes}}
+
+Tech-X Corporation \\ 5621 Arapahoe Ave \\ Suite A \\ Boulder \\ CO 80303
+\\
+{\tt jamroz@txcorp.com}\\
+Travis M. Austin\\
+Scott Kruger\\
+   \\
+   \\
+   \\
+   \end{center}
+
+NIMROD is one of the key MHD simulation tools supported by the DOE's
+Office of Fusion Energy Sciences through the Center for Extended
+Magnetohydrodynamic Modeling (CEMM) SciDAC. NIMROD has successfully
+explained the key heat loss physics mechanisms occurring during tokamak
+disruptions, the onset of tearing modes during tokamak discharges, and
+the confinement times of spheromaks. Although NIMROD is a
+production-level code producing realistic physics results, improvements
+that would enable greater accuracy and faster execution are needed to
+reduce the turnaround time of a simulation.
+
+Although, semi-implicit methods are generally successful for enabling
+many of the simulations that NIMROD performs, NIMROD still has a
+time-step limitation due to the nonlinear advection terms in the
+equations. Although there are implicit operators for these terms which
+are often comparably small for simulated cases, there still exists a
+CFL-like condition that depends on the flow velocities of the MHD fluid
+in the plasma. Simulation time constraints can arise from this condition,
+thus overcoming these constraints would extend the capability of NIMROD.
+In addition, the operator splitting introduces discretization errors in
+the NIMROD algorithms. Moving to an algorithm that is fully-centered
+would improve the accuracy of NIMROD, especially for long-time
+simulations.
+
+Using the PETSc computational framework, we examine the use of
+fully-centered Jacobian-free Newton-Krylov (JFNK) methods in the NIMROD
+code via the SNES package. Previous approaches in NIMROD to incorporate
+nonlinear terms only considered their addition in an ad hoc manner. We
+report on the first fully nonlinear solve of the velocity equations and
+present current progress on solving the fully nonlinear system for
+velocity, temperature, magnetic field, and density. We will also discuss
+the preconditioning strategy that will be required to efficiently solve
+the linear systems within the JFNK iterations.
+
+
+\end{document}

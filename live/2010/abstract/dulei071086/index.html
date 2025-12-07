@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dulei071086</TITLE>
+<META NAME="description" CONTENT="dulei071086">
+<META NAME="keywords" CONTENT="dulei071086">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="dulei071086.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Lei DU 
+<BR><B>A block IDR(s) method for nonsymmetric linear equations with multiple right-hand sides</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computational Science and Engineering 
+<BR>
+Graduate School of Engineering 
+<BR>
+Nagoya University 
+<BR>
+Furo-cho 
+<BR>
+Chikusa-ku 
+<BR>
+Nagoya 464-8603 
+<BR>
+Japan
+
+<BR><TT>lei-du@na.cse.nagoya-u.ac.jp</TT>
+<BR>
+Tomohiro SOGABE
+<BR>
+Bo YU
+<BR>
+Yusaku YAMAMOTO
+<BR>
+Shao-Liang ZHANG
+</DIV>
+
+<P>
+The problem for solving several linear systems of equations with the same
+coefficient matrix and different right-hand sides, which can be written
+as
+<!-- MATH
+ \begin{displaymath}
+Ax_i=b_i, A\in R^{n\times n}, b_i\in R^n, i=1,...,m
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="284" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle Ax_i=b_i, A\in R^{n\times n}, b_i\in R^n, i=1,...,m$">
+</DIV><P></P>
+appears in many applications, such as in electromagnetic scattering and
+structural mechanics.
+
+<P>
+Many methods have been proposed to solve this kind of problem. One main
+class of these methods is the block solvers, including the block CG,
+block QMR, block GMRES, block Bi-CGSTAB, etc.
+Recently, Based on the induced dimension reduction theorem, the IDR(s)
+was developed by Sonneveld and Gijzen[1]. This new family of algorithms
+has some distinguishing features, for example, IDR(s) may converge the
+solution using at most n+n/s matrix-vector products, IDR(1) is equivalent
+to Bi-CGSTAB at the even residuals and IDR(s) with s&gt;1 is competitive
+with most Bi-CG based methods.
+
+<P>
+For these reasons, we proposed the block IDR(s): a block version of
+IDR(s) for solving linear systems of equation with multiple right-hand
+sides. To define our algorithm, we first gave the block IDR theorem,
+which is a generalization of the IDR theorem and proved that the maximum
+number of matrix-vector products for block IDR(s) to reach the exact
+solution is n+n/s in exact arithmetic, the same as IDR(s) for single
+right-hand side. Numerical experiments show the effectiveness of our
+proposed method.
+
+<P>
+Reference:
+[1]P. Sonneveld and M. van Gijzen, IDR(s): a family of simple and fast
+algorithms for solving large nonsymmetric systems of linear equations,
+SIAM J. Sci Comput., 31(2008), pp. 1035-1062.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

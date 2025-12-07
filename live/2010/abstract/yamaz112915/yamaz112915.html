@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>yamaz112915</TITLE>
+<META NAME="description" CONTENT="yamaz112915">
+<META NAME="keywords" CONTENT="yamaz112915">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="yamaz112915.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Wataru YAMAZAKI 
+<BR><B>Design Optimization and Uncertainty Analysis by Using Gradient/Hessian Enhanced Surrogate Model Approaches</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mechanical Engineering 
+<BR>
+1000 E University Ave  
+<BR>
+University of Wyoming 
+<BR>
+Laramie 
+<BR>
+WY 82072
+
+<BR><TT>wyamazak@uwyo.edu</TT>
+<BR>
+Markus P. RUMPFKEIL
+<BR>
+Dimitri J. MAVRIPLIS
+</DIV>
+
+<P>
+Numerical design optimization in the field of aerospace engineering has
+attracted attention these days thanks to the maturity of Computational
+Fluid Dynamics (CFD) and the increase in computer performance. The major
+bottleneck of aerodynamic design optimization with global search methods,
+such as genetic algorithms (GA), is the huge number of required CFD
+function evaluations which can exceed several thousand. Recently,
+therefore, optimization approaches based on surrogate models have
+attracted attention because of the capability to reduce the number of CFD
+function evaluations within design optimization.
+
+<P>
+Recently, efficient gradient and approximate Hessian calculation methods
+using adjoint method and automatic differentiation (AD) have been
+developed in our group [1]. In these approaches, the computational costs
+for a gradient vector and Hessian matrix with respect to geometrical
+variables are respectively comparable to one CFD function evaluation.
+Thus it is promising to utilize the gradient and Hessian information
+within surrogate models to obtain more accurate response surface. Such
+enhanced response surface will promote the efficiency of design
+optimization process.
+
+<P>
+Surrogate models can be constructed using a variety of methods [2]. In
+this work, polynomial regression, radial basis function (RBF) and Kriging
+methods have been extended to be enhanced by gradient and Hessian
+information. Two gradient enhanced Kriging (direct and indirect
+cokriging) approaches have been developed and applied to design
+optimizations in the literature [3]. The indirect cokriging approach has
+been extended in this work to make use of gradient/Hessian information.
+This is because the number of sample points which have gradient/Hessian
+information can be easily limited in this approach, which results in the
+reduction of computational cost to construct surrogate model.
+
+<P>
+The developed gradient/Hessian enhanced surrogate model approaches have
+been firstly investigated for multi-dimensional analytical function
+fitting problems. The results showed that surrogate models enhanced by
+gradient/Hessian information provided better fitting on the actual
+functions. These methods showed better efficiencies even if taking the
+computational cost for gradient/Hessian evaluation into consideration.
+Then, these methods were applied to a drag minimization problem of a
+two-dimensional transonic airfoil. A faster reduction of the objective
+function value, in other words faster convergence towards the global
+optimal design was confirmed with the gradient/Hessian enhanced model
+approaches. Since the computational costs for CFD gradient and Hessian
+evaluation are independent from the number of dimensionality of problem,
+the developed methods should be more capable in higher-dimensional
+complex problems.
+
+<P>
+Uncertainty analysis is also watched with keen interests these days [4-5]
+since high-fidelity CFD computations typically assume perfect knowledge
+of all parameters. In reality, however, there is much uncertainty due to
+manufacturing tolerances, in-service wear-and-tear, approximate modeling
+parameters and so on. The most straightforward and accurate method for
+uncertainty analysis is a full nonlinear Monte Carlo (MC) simulation.
+Although this method is easy to implement, it is still prohibitively
+expensive for high-fidelity CFD computations. Moment methods based on
+Taylor series expansions are alternative ways to assess uncertainty
+although these methods only give the mean and standard deviation of the
+output function. To apply surrogate model approaches is another positive
+way for uncertainty analysis which can reduce the computational cost
+dramatically. The computational advantage is evident because the
+surrogate model is an analytic representation of the design space. Its
+estimated function values can be used for an inexpensive Monte Carlo
+(IMC) simulation to obtain not only mean and standard deviation, but also
+an approximate probability density function (PDF) of the output function.
+Our accurate response surfaces enhanced by gradient and Hessian
+information can increase the accuracy of uncertainty analysis by using
+IMC. The results of uncertainty analysis will be shown in the
+presentation to compare the performances with full nonlinear MC
+simulation. This approach is promising since it can be easily extended to
+"Robust Design" approach because of the lower computational cost of the
+uncertainty analysis.
+
+<P>
+[1] Rumpfkeil, M. P., and Mavriplis, D. J., "Efficient Hessian
+Calculations using Automatic Differentiation and the Adjoint Method,"
+AIAA-2010-1268, 2010.
+
+<P>
+[2] Peter, J., and Marcelet, M., "Comparison of Surrogate Models for
+Turbomachinery Design," WSEAS Transactions on Fluid Mechanics, Issue.1,
+Vol.3, 2008.
+
+<P>
+[3] Laurenceau, J., and Sagaut, P., "Building Efficient Response
+Surfaces of Aerodynamic Functions with Kriging and Cokriging," AIAA
+Journal, Vol. 46, No. 2, pp.498-507, 2008.
+
+<P>
+[4] Ghate, D., and Giles, M. B., "Inexpensive Monte Carlo Uncertainty
+Analysis," Recent Trends in Aerospace Design and Optimization,
+pp.203-210, 2006.
+
+<P>
+[5] Chalot, F., Dinh, Q. V., Herbin, E., Martin, L., Ravachol, M., and
+Roge, G., "Estimation of the Impact of Geometrical Uncertainties on
+Aerodynamic Coefficients Using CFD," AIAA-2008- 2068, 2008.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-03
+</ADDRESS>
+</BODY>
+</HTML>

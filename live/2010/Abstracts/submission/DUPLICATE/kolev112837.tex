@@ -1,0 +1,67 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tzanio Kolev \\
+{\bf AMG for Linear Systems Obtained by Local Elimination}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory
+\\
+{\tt tzanio@llnl.gov}\\
+Thomas Brunner\end{center}
+
+We consider algebraic solvers for linear systems arising in finite
+element simulations of scalar and electromagnetic diffusion applications,
+where a set of ``interior'' degrees of freedom have been eliminated to
+reduce the problem size. This elimination is assumed to be local, so the
+``interior'' principal sub-matrix is block-diagonal, and the resulting
+Schur complement is still sparse. In order to be feasible, the
+elimination process should not only result in using less memory to store
+the matrix and vector, but also lead to an algebraic problem that can
+still be solved efficiently.
+
+In this talk we investigate AMG-type solution algorithms applied to the
+assembled reduced problem, and we discuss the influence of the local
+elimination to solver-related properties such us element aspect ratios,
+operator complexity and near-nullspace preservation. For Nedelec
+discretizations of definite Maxwell problems, the reduction extends to
+the nodal variables and generalizes the concepts of discrete gradient and
+node-to-edge Nedelec interpolation matrices [1]. We also consider a
+modification of the reduction process that targets singular problems,
+which arise naturally in electromagnetic diffusion simulations with pure
+void (zero conductivity) regions. This case needs a special treatment,
+since the local ``interior'' matrices in the void elements have
+non-trivial kernel components.
+
+We conclude the presentation with a number of 2D, 3D and axi-symmetric
+numerical simulations in the framework of [2]. The results demonstrate
+that the combination of an appropriately chosen local elimination with
+the use of the BoomerAMG and AMS solvers from [3] can lead to significant
+improvements in the overall solution time.
+
+\bigskip
+
+\begin{itemize}
+
+\item[][1]
+{\sc T. Kolev and P. Vassilevski},
+{\it Parallel Auxiliary Space AMG for H(curl) Problems}, Journal of
+Computational Mathematics, (27) 2009, pp. 604-623.
+
+\item[][2]
+{\sc P. Bochev and A. Robinson},
+{\it Matching algorithms with physics: Exact sequences of finite element spaces}, in
+Collected Lectures on the Preservation of Stability under Discretization,
+D. Estep and S. Tavener, eds., SIAM, Philadelphia, 2001, pp. 145-165.
+
+\item[][3]
+{\em hypre}: a library of high performance preconditioners, {\it
+http://www.llnl.gov/CASC/hypre/}
+
+\end{itemize}
+
+
+\end{document}

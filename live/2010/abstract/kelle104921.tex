@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Carl T Kelley \\
+{\bf Rank-deficient and Ill-conditioned Nonlinear Least Squares Problems}}
+
+Dept of Mathematics \\ Box 8205 \\ NC State University \\ Raleigh \\ NC 27695-8205
+\\
+{\tt tim\_kelley@ncsu.edu}\\
+Ilse Ipsen\\
+Scott Pope\end{center}
+
+It is easy to construct models with nonlinearly dependent parameters,
+parameters to which the model is insensitive, or redundant parameters.
+When one uses conventional nonlinear least squares methods to solve
+these problems, the iteration can perform poorly. A common remedy for
+this is a combination of the Levenberg-Marquardt method and a truncated
+singular value decomposition. We will show how this approach is
+affected by ill-conditioning and errors in the evaluations of
+the residual and Jacobian. We show how subset selection
+can be applied to the Jacobian to diagnose problems of this type
+and improve the quality of the results. These results are motivated by
+applications to cardiovascular modeling.
+
+
+\end{document}

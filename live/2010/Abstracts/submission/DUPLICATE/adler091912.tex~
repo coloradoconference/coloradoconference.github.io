@@ -1,0 +1,36 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large James Adler \\
+{\bf Nested Iteration and Adaptive Local Refinement for Resistive Magnetohydrodynamic (MHD) Equations}}
+
+255 S Corl St #10 \\ State College \\ PA 16801
+\\
+{\tt adler@math.psu.edu}\\
+Tom Manteuffel\\
+Steve McCormick\\
+John Ruge\\
+Lei Tang\end{center}
+
+In this talk, we propose new adaptive local refinement (ALR) strategies
+for first-order system least-squares (FOSLS) finite element in
+conjunction with algebraic multigrid (AMG) methods in the context of
+nested iteration (NI). The goal is to reach a certain error tolerance
+with the least amount of computational cost and nearly uniform
+distribution of the error over all elements. This talk will develop
+theory that supports this argument, as well as show experiments to
+confirm that the algorithm can be efficient for MHD problems. These
+methods are applied to a 2D reduced model of the incompressible,
+resistive magnetohydrodynamic (MHD) equations. These equations are used
+to simulate instabilities in a large aspect-ratio tokamak. We show that,
+by using the new ALR strategies on this system, we are able to resolve
+the physics using only 10 percent of the computational cost used to
+approximate the solutions on a uniformly refined mesh within the same
+error tolerance.
+
+
+\end{document}

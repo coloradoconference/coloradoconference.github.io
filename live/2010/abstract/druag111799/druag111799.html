@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>druag111799</TITLE>
+<META NAME="description" CONTENT="druag111799">
+<META NAME="keywords" CONTENT="druag111799">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="druag111799.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Andrei Draganescu 
+<BR><B>Multigrid preconditioning of linear systems for interior point methods applied to a class of box-constrained optimal control problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Statistics 
+<BR>
+University of Maryland Baltimore County 
+<BR>
+Baltimore MD 21250
+
+<BR><TT>draga@umbc.edu</TT>
+<BR>
+Cosmin Petra
+</DIV>
+
+<P>
+In this work we construct and analyze multigrid preconditioners for
+operators of the form <!-- MATH
+ ${\mathcal D}_{\lambda}+{\mathcal
+K}^*{\mathcal K}$
+ -->
+<IMG
+ WIDTH="77" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ {\mathcal D}_{\lambda}+{\mathcal
+K}^*{\mathcal K}$">, where <!-- MATH
+ $D_{\lambda}$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ D_{\lambda}$"> is the multiplication with a
+relatively ``smooth'' function <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \lambda&gt;0$"> and <!-- MATH
+ ${\mathcal K}$
+ -->
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ {\mathcal K}$"> is a
+discretization of a compact linear operator. These systems arise when
+applying interior point methods to the distributed optimal control
+problem <!-- MATH
+ $\min_u\frac{1}{2}(|\!|{\mathcal K} u-f|\!|^2
++\beta|\!|u|\!|^2)$
+ -->
+<IMG
+ WIDTH="192" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \min_u\frac{1}{2}(\vert\!\vert{\mathcal K} u-f\vert\!\vert^2
++\beta\vert\!\vert u\vert\!\vert^2)$"> with box constraints <!-- MATH
+ $\underline{u}\leqslant
+u\leqslant\overline{u}$
+ -->
+<IMG
+ WIDTH="74" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \underline{u}\leqslant
+u\leqslant\overline{u}$"> on the control <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ u$">. The presented preconditioning
+technique is related to the one developed by Draganescu and
+Dupont in&nbsp;[<A
+ HREF="node1.html#dradup">1</A>] for the associated unconstrained problem, and is
+intended for large-scale problems. As in&nbsp;[<A
+ HREF="node1.html#dradup">1</A>], the quality of
+the resulting preconditioners is shown to increase as <!-- MATH
+ $h\downarrow 0$
+ -->
+<IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ h\downarrow 0$"> at
+a rate that is optimal with respect to <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ h$"> if the meshes are uniform, but
+decreases as the smoothness of <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \lambda$"> declines. We test this algorithm
+first on a Tikhnov-regularized backward parabolic equation with <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ [0,1]$">
+constraints and then on the elliptic-constrained optimization problem
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+\begin{array}{cc}\vspace{7pt}
+\textnormal{minimize}& \frac{1}{2}|\!|y-f|\!|^2 +
+\frac{\beta}{2}|\!|u|\!|^2 \\\textnormal{subj. to\ \ } &\Delta
+y=u\ ,\ y\in H_0^1(\Omega),\ \underline{u} \leqslant u \leqslant \overline{u}\
+\ a.e.
+\end{array}
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="340" HEIGHT="67" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{displaymath}\begin{array}{cc}\vspace{7pt}
+\textnormal{minimize}&amp; \frac{1}...
+...line{u} \leqslant u \leqslant \overline{u}\
+\ a.e.
+\end{array}\end{displaymath}"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+In both cases it is shown that the number of linear iterations per
+optimization step, as well as the total number of fine-scale
+matrix-vector multiplications is decreasing with increasing resolution,
+thus showing the method to be potentially very efficient for truly
+large-scale problems.
+
+<P>
+This is joint work with Cosmin Petra from the Argonne National Laboratory.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

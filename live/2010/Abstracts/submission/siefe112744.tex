@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chris Siefert \\
+{\bf Block Preconditioning for Implicit Ocean Models}}
+
+Sandia National Laboratories \\ P O Box 5800 \\ MS 0378 \\ Albuquerque \\ NM 87185-0378
+\\
+{\tt csiefer@sandia.gov}\\
+Andy Salinger\end{center}
+
+Ocean modeling is a demanding multi-scale application, involving the
+coupling of phenomena at various time and spatial scales. One
+problem that scalable ocean models need to address is the spin-up
+problem, which requires time integration over intervals measured in
+centuries. Implicit models allow us to bypass CFL-induced timestep
+limits, but leave us with the challenge of developing effective
+preconditioners. We focus our attention on the implicit variant of the
+Parallel Ocean Program (POP), which solves a thin stratified fluid
+problem utilizing the hydrostatic and Boussinesq approximations. We
+consider block preconditioners to address the coupling between the
+velocity, salinity-temperature and pressure blocks. We present modest
+theoretical results which guide the choice of preconditioners as well as
+numerical results illustrating the effect of those choices in practice.
+
+
+\end{document}

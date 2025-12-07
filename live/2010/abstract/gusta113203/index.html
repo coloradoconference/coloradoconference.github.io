@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>gusta113203</TITLE>
+<META NAME="description" CONTENT="gusta113203">
+<META NAME="keywords" CONTENT="gusta113203">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="gusta113203.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Magnus Gustafsson 
+<BR><B>Parallel Lanczos-based exponential integrators for quantum dynamics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Division of Scientific Computing 
+<BR>
+Uppsala University 
+<BR>
+751 05 Uppsala Sweden
+
+<BR><TT>magnus.gustafsson@it.uu.se</TT>
+<BR>
+Katharina Kormann
+<BR>
+Sverker Holmgren
+</DIV>
+
+<P>
+The time-dependent Schr&#246;dinger equation (TDSE) describes the quantum
+dynamical nature of molecular processes. Simulations are, however,
+computationally very demanding due to the curse of dimensionality. With
+our MPI and OpenMP parallelized code, HAParaNDA (cf.[1]), we are able to
+accurately solve the full Schr&#246;dinger equation, currently in up to
+five dimensions using a medium-size cluster.
+
+<P>
+The <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d$">-dimensional TDSE reads
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\mathrm{i}\hbar \psi(x,t) = \left(-
+\sum_{i=1}^d\frac{\hbar^2}{2m_i}\frac{\partial^2}{\partial x_i^2} +
+V(x,t)\right)\psi(x,t), \quad \psi(x,0), x \in \mathbb{R}^d = \psi_0,
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="493" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \mathrm{i}\hbar \psi(x,t) = \left(- \sum_{i=1}^d\frac{\hbar^2}{2m...
+... x_i^2} + V(x,t)\right)\psi(x,t), \quad \psi(x,0), x \in \mathbb{R}^d = \psi_0,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="50" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \psi(x,t)$"> denotes the wave packet and the potential <IMG
+ WIDTH="52" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ V(x,t)$">
+describes interactions within the system. Currently, we only consider
+localized molecules on sufficiently large <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d$">-orthotopes and close the
+system by periodic boundary conditions. We introduce a spatial grid and
+compute the derivatives with an <IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ p$">th order finite difference (FD) method
+(8th order in the reported experiments). For a time-independent
+potential, the solution of the semi-discrete system is given by
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+u(t) = \mathrm{e}^{-\frac{\mathrm{i}}{\hbar} H}u(0),
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="126" HEIGHT="42" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\displaystyle u(t) = \mathrm{e}^{-\frac{\mathrm{i}}{\hbar} H}u(0),$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ H$"> is the spatially discretized differential operator and <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ u$"> is
+the discrete wave packet. For time-dependent potentials, the exponential
+form can still be exploited on small time intervals but the Hamiltonian
+has to be time-averaged using e.g.&nbsp;the Magnus expansion (see [3] for
+details). The matrix exponential can be computed efficiently in serial
+using the Lanczos algorithm. In a parallel environment, the fact that two
+inner products have to be computed in each iteration hampers scalability.
+Kim and Chronopoulos [2] discuss two modifications of the Lanczos
+algorithm with reduced communication. Rearranging the computations makes
+it possible to compute both inner products at the same point, reducing
+the number of synchronizations to one per iteration. In the <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ s$">-step
+Lanczos method, blocks of <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ s$"> consecutive steps are executed with only
+one synchronization step required for each block. We have transferred
+these ideas to the Lanczos propagator method. A second hassle with using
+the Lanczos procedure is that the number of iterations has to be chosen
+with care. Numerical round-off errors cause instabilities. We therefore
+propose to choose the number of steps adaptively and to make sure that
+the iterations are stopped once the residual is small enough. For a
+discussion of error estimation in the propagation of the TDSE, we refer
+to [4].
+
+<P>
+In order to demonstrate the performance of a massively parallel
+simulation of the TDSE based on a FD-Lanczos discretization, we have
+conducted several simulations on a medium-size cluster, consisting of 316
+nodes. Each node is equipped with dual quad-core Intel Nehalem CPU and 24
+GB of DRAM. The nodes are interconnected by an InfiniBand fabric. For the
+experiments, we have considered the harmonic oscillator and the
+Henon-Heiles potential. The analytical solution is known for the
+harmonic oscillator, so we are able to verify the correctness and the
+accuracy of our numerical results. Table <A HREF="#tab:1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A> shows the
+scalability of the results for the 4D harmonic oscillator. Comparing the
+variants of the Lanczos algorithm, we see that the performance can indeed
+be improved by reducing the communication. We are currently working on an
+implementation of the <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ s$">-step method and hope to further improve the
+scalability in that way. The Henon-Heiles potential is a common test
+case for high-dimensional simulations. We have simulated this problem in
+five dimensions on a grid with <IMG
+ WIDTH="28" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ 60^5$"> points over <IMG
+ WIDTH="44" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ 10000$"> time steps. We
+used the standard Lanczos algorithm and have chosen the size of the
+Krylov space adaptively. The simulation was performed on 1024 cores in 19
+hours.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+
+<DIV ALIGN="CENTER">
+<A NAME="76"></A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>Table:</STRONG>
+<FONT SIZE="-1">Scalability of standard Lanczos (L1) and the
+few-synchronizations variant (L2). The wall time is reported in units of
+1000 <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ s$">. Each node solves a <IMG
+ WIDTH="28" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ 60^{4}$"> problem and the largest problem has
+<!-- MATH
+ $240 \times 240 \times 120 \times 120$
+ -->
+<IMG
+ WIDTH="158" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ 240 \times 240 \times 120 \times 120$"> unknowns.</FONT></CAPTION>
+<TR><TD ALIGN="CENTER"># Cores</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="CENTER">64</TD>
+<TD ALIGN="CENTER">128</TD>
+<TD ALIGN="CENTER">256</TD>
+<TD ALIGN="CENTER">512</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L1</TD>
+<TD ALIGN="CENTER">3.92</TD>
+<TD ALIGN="CENTER">4.31</TD>
+<TD ALIGN="CENTER">4.37</TD>
+<TD ALIGN="CENTER">4.55</TD>
+<TD ALIGN="CENTER">4.72</TD>
+<TD ALIGN="CENTER">4.87</TD>
+<TD ALIGN="CENTER">5.16</TD>
+</TR>
+<TR><TD ALIGN="CENTER">L2</TD>
+<TD ALIGN="CENTER">3.79</TD>
+<TD ALIGN="CENTER">4.06</TD>
+<TD ALIGN="CENTER">4.26</TD>
+<TD ALIGN="CENTER">4.33</TD>
+<TD ALIGN="CENTER">4.43</TD>
+<TD ALIGN="CENTER">4.72</TD>
+<TD ALIGN="CENTER">4.83</TD>
+</TR>
+</TABLE>
+</DIV>
+<A NAME="tab:1"></A>
+</DIV>
+<BR>
+<P>
+<DIV ALIGN="CENTER">
+<B>REFERENCES</B>
+<BR>
+</DIV>
+
+<P>
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">[1]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=450><FONT SIZE="-1">M.&nbsp;Gustafsson and S.&nbsp;Holmgren. An implementation
+framework for solving high-dimensional PDEs on massively parallel
+computers, to appear in: <I>Proceedings of ENUMATH 2009</I>, Uppsala,
+Sweden
+</FONT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">[2]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=450><FONT SIZE="-1">S.K.&nbsp;Kim and A.T.&nbsp;Chronopoulos. A class of Lanczos-like
+algorithms implemented on parallel computers, <I>Parallel Comput.</I>
+<B>17</B> (1991)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">[3]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=450><FONT SIZE="-1">K.&nbsp;Kormann, S.&nbsp;Holmgren, and H.O.&nbsp;Karlsson. Accurate
+time propagation for the Schr&#246;dinger equation with an explicitly
+time-dependent Hamiltonian, <I>J. Chem. Phys.</I> <B>128</B> (2008)
+</FONT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">[4]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=450><FONT SIZE="-1">K.&nbsp;Kormann and A.&nbsp;Nissen. Error Control for Simulations
+of a Dissociative Quantum System, to appear in: <I>Proceedings of
+ENUMATH 2009</I>, Uppsala, Sweden
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html5"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

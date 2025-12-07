@@ -1,0 +1,56 @@
+===affil2:
+co-supervisor PhD project
+===firstname:
+T.B.
+===firstname4:
+
+===firstname3:
+C.
+===lastname2:
+Gijzen, van
+===lastname:
+Jonsthovel
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Vuik
+===email:
+t.b.jonsthovel@tudelft.nl
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Stevinweg 1, 2628CN, Delft, the Netherlands
+===firstname6:
+
+===ABSTRACT:
+Finite element computations are indispensable for the simulation of material behavior. Recent developments in visualization and meshing software give rise to high-quality but very large meshes. As a result, large systems with millions of degrees of freedom need to be solved. In our application, the finite element stiffness matrix is symmetric, positive definite and therefore the Preconditioned Conjugate Gradient (PCG) method is our method of choice. The PCG method is also well suited for parallel applications which are needed in practical applications.
+
+Many finite element computations involve simulation of {\it inhomogenous} materials. These materials lead to large jumps in the entries of the stiffness matrix. We have shown that these jumps slow down the convergence of the PCG method and that by decoupling of those regions with a deflation technique a more robust PCG method can be constructed: the Deflated Preconditioned Conjugate Gradient (DPCG) method.
+
+The DPCG method uses deflation vectors that contain the rigid body modes of sets of elements with similar properties. We will derive a cheap and general applicable method to compute those rigid body modes. We also provide a mathematical justification of our approach. Finally, we will discuss numerical experiments on composite materials to validate our results.
+===affil3:
+supervisor PhD project
+===lastname5:
+
+===affilother:
+
+===title:
+On the use of rigid body modes to the deflated preconditioned conjugate gradient method
+===firstname2:
+M.B.

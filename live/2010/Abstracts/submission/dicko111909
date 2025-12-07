@@ -1,0 +1,62 @@
+===affil2:
+Institute of Computational Science
+University of Lugano
+===firstname:
+Thomas
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Krause
+===lastname:
+Dickopf
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+dickopf@ins.uni-bonn.de
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Institute for Numerical Simulation
+University of Bonn
+Wegelerstr. 6
+53115 Bonn
+Germany
+===firstname6:
+
+===ABSTRACT:
+This talk is about multilevel discretization and solution strategies for variational equalities and inequalities arising from, e.\,g., contact problems in elasticity. Many important applications in computational engineering, especially involving complicated geometries in three dimensions, do not allow for a straightforward multilevel hierarchy. Moreover, it may be a challenging task to obtain a proper multilevel representation of the (contact) constraints. As fast and efficient preconditioners for a broad set of linear problems, we introduce a new class of semi-geometric multigrid methods that is based on non-nested meshes. On top of that, a monotone method is developed by employing appropriate (nonlinear) smoothers and local modifications of the coarse level problems.
+
+We compare existing and new strategies serving the above purposes. The analysis of the semi-geometric method using non-nested meshes can be carried out in a natural way by looking at the associated non-nested spaces and the connecting operators. Going beyond previous studies in context of, e.\,g., the auxiliary space method, we examine traditional and novel operators for the implementation of an efficient and stable information transfer between non-nested finite element spaces. The treatment of boundary data for the coarse level problems is also reconsidered. A particular advantage of our method is that the coarse meshes can be chosen quite freely, e.\,g., generated independently by standard mesh generators. Thus, the presented approach allows for a more direct control of the additional coarse degrees of freedom; the little geometric information entering the setup leads to a very efficient multilevel hierarchy and both grid and operator complexity are particularly small.
+
+The convergence properties of both the proposed linear multilevel methods and the (nonlinear) monotone methods as well as their complexities are discussed in detail. We show various numerical results for three dimensional applications and present a numerical comparison of existing strategies and our new approach. Several selected prolongation and restriction operators are studied and hints about the efficient computation of inner products are given. We demonstrate the robustness of the proposed semi-geometric methods with respect to the mesh size for scalar problems and systems of PDEs.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Semi-geometric monotone multigrid methods using non-nested meshes
+===firstname2:
+Rolf

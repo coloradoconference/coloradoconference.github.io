@@ -1,0 +1,33 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sarah M. Knepper \\
+{\bf Iterative Restoration of Motion Blurred Brain Images}}
+
+Dept of Math and CS \\ Emory University \\ 400 Dowman Drive W401 \\ Atlanta GA 30322
+\\
+{\tt smknepp@emory.edu}\\
+James G. Nagy\end{center}
+
+Due to the long duration time of a positron emission tomography (PET)
+scan, a patient may move. These movements degrade the reconstructed
+image, especially as the resolution of scanners increases. Removing these
+degradations through computational post-processing requires solving a
+large-scale linear inverse problem. The quality of the model, and hence
+the quality of the post-processing, depends on how accurately the patient
+motion information can be measured. When imaging a rigid object, such as
+the brain, the patient movements may be tracked and recorded with fairly
+high precision. In this talk we describe the model problem, and in
+particular how the matrix is generated from a series of interpolation
+matrices based on the given patient motion. We discuss how sparsity
+changes as we incorporate more motion information, and how to exploit
+structure of the problem for parallel implementations. Results from
+simulations as well as real patient data are presented to illustrate the
+effectiveness of our approach.
+
+
+\end{document}

@@ -1,0 +1,61 @@
+===affil2:
+The University of Manchester, UK.
+===firstname:
+A. D.
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Powell
+===lastname:
+Gordon
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+ 	   Andrew.Gordon-2@postgrad.manchester.ac.uk
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+School of Mathematics, 
+University of Manchester, 
+Oxford Road, 
+Manchester,
+M13 9PL, 
+UK.
+
+===firstname6:
+
+===ABSTRACT:
+Stochastic collocation methods facilitate the numerical solution of partial differential equations (PDEs) with random data and give rise to long sequences of similar discrete linear systems. When elliptic PDEs with random diffusion coefficients are discretized with standard finite element methods in the physical domain, the resulting collocation systems can be solved iteratively with the conjugate gradient method and algebraic multigrid (amg) is a highly robust preconditioner. When mixed finite element methods are applied, amg is also a key tool for solving the resulting sequence of saddle point systems via the preconditioned minimal residual method. In both cases, the stochastic collocation systems are trivial to solve when considered individually. The challenge lies in exploiting the systems' similarities to recycle information and minimize the cost of solving the entire sequence.
+
+In this talk, we consider full tensor and sparse grid stochastic collocation schemes applied to a model stochastic elliptic problem and discretize in physical space using standard piecewise linear finite elements and lowest order Raviart-Thomas mixed finite elements. We propose efficient solvers for the resulting sequences of linear systems and show, in particular, that it is feasible to use finely-tuned amg preconditioning for each system if key set-up information is reused. Crucially, the preconditioners are robust with respect to variations in the discretization and statistical parameters for both stochastically linear and nonlinear diffusion coefficients.
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Solving Stochastic Collocation Systems with Algebraic Multigrid
+===firstname2:
+C. E.

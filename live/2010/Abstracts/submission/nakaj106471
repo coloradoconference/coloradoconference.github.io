@@ -1,0 +1,61 @@
+===affil2:
+
+===firstname:
+Kengo
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+NAKAJIMA
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+nakajima@cc.u-tokyo.ac.jp
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Information Technology Center
+The University of Tokyo
+2-11-16 Yayoi, Bunkyo-ku, Tokyo 113-8658, JAPAN
+===firstname6:
+
+===ABSTRACT:
+In order to achieve minimal parallelization overheads on SMP (symmetric multiprocessors) and multi-core clusters, a multi-level hybrid parallel programming model is often employed. In this method, coarse-grained parallelism is achieved through domain decomposition by message passing among nodes, while fine grained parallelism is obtained via loop-level parallelism inside each node using compiler-based thread parallelization techniques, such as OpenMP. Another often used programming model is the single-level flat MPI model, in which separate single-threaded MPI processes are executed on each core. In the previous work [1], author applied OpenMP/MPI hybrid parallel programming models to finite-element based simulations of linear elasticity problems. The developed code has been tested on the T2K Open Supercomputer using up to 512 cores. Performance of OpenMP/MPI hybrid parallel programming model is competitive with that of flat MPI using appropriate command lines for NUMA control. Furthermore, reordering of the mesh data for contiguous access to memory with first touch data placement provides excellent improvement on performance of OpenMP/MPI hybrid parallel programming models. Generally speaking, OpenMP/MPI hybrid parallel programming model provides excellent performance for strong scaling cases where problems are less memory-bound. In the present work, OpenMP/MPI hybrid parallel programming models were implemented to 3D finite-volume based simulation code for groundwater flow problems through heterogeneous porous media using parallel iterative solvers with multigrid preconditioning. Multigrid is a scalable method and expected to be a promising approach for large-scale computations, but there are no detailed research works where multigrid methods are evaluated on multi-core/multi-socket clusters using OpenMP/MPI hybrid parallel programming models. In this work, developed code has been evaluated on the ÅgT2K Open Super Computer (Todai Combined Cluster) (T2K/Tokyo)Åh at the University of Tokyo, and ÅgCray-XT4Åh at National Energy Research Scientific Computing Center (NERSC) of Lawrence Berkeley National Laboratory using up to 1,024 cores, and performance of flat MPI and three kinds of OpenMP/MPI hybrid parallel programming models are evaluated. Optimization procedures for OpenMP/MPI hybrid parallel programming models originally developed for 3D FEM applications, such as appropriate command lines for NUMA control, first touch data placement and reordering of the mesh data for contiguous access to memory, provided excellent improvement of performance on multigrid preconditioners with OpenMP/MPI hybrid parallel programming models. OpenMP/MPI hybrid demonstrated better performance and robustness than flat MPI, especially with large number of cores for illconditioned problems. Thus, hybrid parallel programming model could be a reasonable choice for large-scale computing on multi-core/multi-socket clusters.
+
+
+References
+
+
+[1] Nakajima, K.: Flat MPI vs. Hybrid: Evaluation of Parallel Programming Models for Preconditioned Iterative Solvers on ÅgT2K Open SupercomputerÅh, IEEE Proceedings of the 38th International Conference on Parallel Processing (ICPP-09), pp.73-80 (2009)
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Parallel Multigrid Solvers using OpenMP/MPI Hybrid Programming Models on Multi-Core/Multi-Socket Clusters
+===firstname2:
+

@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Mark Hoemmen \\
+{\bf Communication-avoiding Krylov subspace methods}}
+
+Sandia National Laboratories \\ New Mexico \\ PO Box 5800 \\ Albuquerque \\ NM 87185-1320
+\\
+{\tt mhoemme@sandia.gov}\\
+James Demmel\\
+Marghoob Mohiyuddin\\
+Kathy Yelick\end{center}
+
+Krylov subspace methods (KSMs) are numerical algorithms for
+solving large, sparse linear systems of equations and
+eigenvalue problems. Although they are commonly used and
+often highly optimized, most KSMs achieve only a small
+fraction of peak arithmetic performance of the computers on
+which they are run. This occurs on almost all computers,
+from workstations to massively parallel supercomputers. The
+cause is that the performance of most commonly used KSMs is
+bound by the speed of communication -- moving data between
+processors or between levels of the memory hierarchy --
+rather than by the speed of arithmetic. Communication is
+much slower than arithmetic, and is only getting slower
+relative to arithmetic as hardware evolves.
+
+In previous works, we proposed new "communication-avoiding"
+Krylov methods to address this problem. These require much
+less data movement between levels of the memory hierarchy,
+and between processors in parallel, than standard KSMs. In
+this talk, we will present new communication-avoiding Krylov
+methods, and discuss new numerical experiments and
+performance results for different platforms.
+
+
+\end{document}

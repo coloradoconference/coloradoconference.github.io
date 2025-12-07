@@ -1,0 +1,31 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eran Treister \\
+{\bf On Multiplicative and Additive Multigrid Schemes for Sparse Eigenproblems}}
+
+Computer Science Department \\ Technion \\ Haifa 32000 \\ Israel
+\\
+{\tt eran@cs.technion.ac.il}\\
+Irad Yavneh\end{center}
+
+Multiplicative multigrid algorithms have recently been shown to be
+powerful and robust, mainly as pure eigen-solvers or as a setup phase for
+adaptive linear system solvers. However, such multiplicative algorithms
+have one significant drawback, in that
+they require recalculating the whole multigrid hierarchy of operators in
+each cycle, entailing a relatively high computational cost. This work
+suggests a scheme where multiplicative
+and additive algorithms are applied in a complementary manner, with the
+multiplicative solver providing the coarse-grid hierarchy to the additive
+algorithm, and getting in return an improved solution with which to
+construct better operators. This approach is demonstrated with two new
+and improved versions of the recent adaptive Smoothed Aggregation
+multiplicative method for solving Markov Chains.
+
+
+\end{document}

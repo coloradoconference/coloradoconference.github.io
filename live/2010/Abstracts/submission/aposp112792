@@ -1,0 +1,81 @@
+===affil2:
+Department of Mathematics and Computer Science, Emory University, USA
+===firstname:
+Alexis
+===firstname4:
+
+===firstname3:
+Eldad
+===lastname2:
+Veneziani
+===lastname:
+Aposporidis
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Haber
+===email:
+aapospo@emory.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Emory University
+400 Dowman Drive, W401
+Atlanta, GA30322
+USA
+===firstname6:
+
+===ABSTRACT:
+\newcommand{\Du}{\textbf{Du}}
+\newcommand{\bu}{\textbf{u}}
+\newcommand{\f}{\textbf{f}}
+\newcommand{\tr}{\textnormal{tr}}
+\newcommand{\bW}{\textbf{W}}
+
+The Bingham flow is an example  of a Stokes-type equation with shear-dependent viscosity. If $\Du=\frac{1}{2}(\nabla \bu + \nabla \bu^T)$ and $|\Du|=\sqrt{\tr(\Du^2)}$, the equations read
+\[ \left\{ \begin{array}{rl} -\nabla \cdot \tau +\nabla p &= \f, \\ -\nabla \cdot \bu &=0 \\ +B.C., \end{array} \right. \]
+and
+\[ \left\{ \begin{array}{rl} \tau=2\mu \Du+\tau_s \frac{\Du}{|\Du|}, &\textnormal{ if } |\Du| \not=0, \\ |\tau| \leq \tau_s, & \textnormal{ if } |\Du|=0, \end{array} \right. \]
+where the velocity $\bu \in \mathbb{R}^n$, $n=2,3$ and $p \in \mathbb{R}$ are the unknowns and $\mu$, $\tau_s$ are given constants. Due to its non-differentiability for $\Du =0$, a regularization of the form $\Du = \sqrt{\tr(\Du^2)+\varepsilon}$  ($\varepsilon >0$) is necessary. It is a well-known fact that applying a nonlinear solver such as Newton or Picard to these equations results in a high number of outer iterations, especially for small choices of $\varepsilon$ \cite{1}. In this talk we suggest an alternative approach inspired by \cite{6}: We introduce a dual variable $\bW = \frac{\Du}{|\Du|}$, the equations for the Bingham flow are then reformulated as
+\[ \left\{ \begin{array}{rl} -\nabla \cdot \left( 2\mu \Du + \tau_s \bW \right) +\nabla p &=\f, \\ -\nabla \cdot \bu &=0, \\ \bW |\Du| &=\Du \\ +B.C. \end{array} \right. \]
+We address a few properties of this formulation and its numerical solution. Moreover, we perform several numerical experiments for solving the Bingham equations in this formulation, including the lid-driven cavity test and an example where the analytical solution is known. These experiments indicate a significant reduction in the number of nonlinear iterations over the nonlinear solvers of the equations in primal variables. \\[2mm]
+
+\noindent \textbf{Acknowledgement:}\\
+We thank M. Olshanskii for fruitful discussions.
+
+\begin{thebibliography}{99}
+\bibitem{1}P. Grinevich, M. Olshanskii, \textit{An Iterative Method for the Stokes Type Problem with Variable Viscosity}, SIAM J. Sci. Comput. Volume 31, Issue 5, pp. 3959-3978 (2009) 
+\bibitem{2}E. Mitsoulis, Th. Zisis, \textit{Flow of Bingham plasics in a lid-driven square cavity}, J. Non-Newtonian Fluid Mech., 101 (2001), pp. 173-180
+\bibitem{3} M. Olshanskii, \textit{Analysis of semi-staggered finite-difference method with application to Bingham flows}, Comput. Methods Appl. Mech. Engrg., 198 (2009) pp. 975-985
+\bibitem{4}T.C. Papanastasiou, A.G. Boudouvis, \textit{Flows of Viscoplastic Materials: Models and Computations}, Computers and Structures Vol. 64, No. 1-4, pp. 677-694, 1997
+\bibitem{5}E.A. Muravleva, M.A. Olshanskii, \textit{Two finite-difference schemes for calculation of Bingham fluid flows in a cavity}, Russ. J. Numer. Anal. Math. Modelling, Vol. 23, No. 6, pp. 615-634 (2008)
+\bibitem{6}T. F. Chan, G. H. Golub,  P. Mulet, \textit{A nonlinear primal dual method
+for total variation based image restoration}, SIAM J. Sci. Comput., 20 (1999), 1964-1977.
+\bibitem{7}E.J. Dean, R. Glowinski, G. Guidoboni, \textit{On the numerical simulation of Bingham viscoplastic flow: Old and new results}, J. Non-Newtonian Fluid Mech., 142 (2007), pp. 36-62.
+\end{thebibliography}
+===affil3:
+Department of Mathematics, University of British Columbia, Canada
+===lastname5:
+
+===affilother:
+
+===title:
+A Primal-Dual Formulation for the Bingham Flow
+===firstname2:
+Alessandro

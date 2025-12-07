@@ -1,0 +1,42 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Geoffrey D. Sanders \\
+{\bf RECURSIVELY ACCELERATED MULTILEVEL AGGREGATION FOR MARKOV CHAINS}}
+
+University of Colorado \\ Applied Math \\ 526 UCB \\ Boulder \\ CO 80309
+\\
+{\tt sandersg@colorado.edu}\\
+Hans De Sterck\\
+Killian Miller \\
+Manda Winlaw\end{center}
+
+A recursive acceleration method is proposed for multiplicative multilevel aggregation
+algorithms that calculate the stationary probability vector of large,
+sparse and irreducible Markov chains. Pairs of consecutive iterates at
+all branches and levels of a multigrid W-cycle with simple,
+non-overlapping aggregation are recombined to produce improved iterates
+at those levels, in an approach that is inspired by so-called k-cycle
+(Krylov-cycle) methods. The acceleration is achieved by solving quadratic
+programming problems with inequality constraints: the linear combination
+of the two iterates is sought that has minimal two-norm residual, under
+the constraint that all vector components are nonnegative. It is shown
+how the two-dimensional quadratic programming problems can be solved
+explicitly in an e&#64259;cient way. The method is further enhanced by
+windowed top-level acceleration of the W cycles using the same
+constrained quadratic programming approach. Recursive acceleration is an
+attractive alternative to smoothing the restriction and interpolation
+operators, since the operator complexity is better controlled and the
+probabilistic interpretation of coarse-level operators is maintained on
+all levels. Numerical results are presented showing that the resulting
+recursively accelerated multilevel aggregation cycles for Markov chains,
+combined with top-level acceleration, converge signi&#64257;cantly faster
+than W cycles, and lead to close-to-linear computational complexity for
+challenging test problems.
+
+
+\end{document}

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>weinz109072</TITLE>
+<META NAME="description" CONTENT="weinz109072">
+<META NAME="keywords" CONTENT="weinz109072">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="weinz109072.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Tobias Weinzierl 
+<BR><B>Peano--A PDE Framework on Octree-Like Adaptive Cartesian Multiscale Grids</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institut für Informatik 5 
+<BR>
+Technische Universität München 
+<BR>
+Boltzmannstr 3 
+<BR>
+85748 Garching
+
+<BR><TT>weinzier@in.tum.de</TT>
+<BR>
+Miriam Mehl
+</DIV>
+
+<P>
+Almost all approaches to solve a PDE are based upon a spatial discretisation of
+the computational domain -- a grid. This paper presents an algorithm to
+traverse a hierarchy of <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d$">-dimensional adaptive cartesian grids represented by
+a spacetree. The algorithm uses <IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ 2d+2$"> stacks as data structure, and the
+storage requirements for the pure grid reduce to one bit per vertex for
+both the complete grid structure and the multilevel grid relations. Since the
+traversal algorithm uses
+only stacks, the algorithm's cache hit rate is higher than 99.9 percent, and the
+runtime costs per vertex remain constant not depending on the overall number of
+vertices, even if the required memory exceeds the main memory available. The
+algorithmic approach might be the basis to solve
+any <IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ d$">-dimensional problem represented by a compact discrete <IMG
+ WIDTH="20" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ 3^d$">-point
+operator as they occur e.g.&nbsp;in image processing or in FEM codes. In
+the latter case, one can implement a Jacobi smoother, a Krylov
+solver, or a geometric multigrid scheme within the presented traversal scheme
+according to literature.
+Results for a matrix-free multigrid FAS scheme are presented.
+Due to the matrix-free approach, this multigrid scheme inherits the very low
+memory footprint and the good cache characteristics from the pure grid
+traversal.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

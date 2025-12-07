@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert M. Lewis \\
+{\bf A squared dissimilarity approach to the molecular embedding problem}}
+
+Department of Mathematics \\ College of William and Mary \\ P O Box 8795 \\ Williamsburg \\ VA 23187-8795
+\\
+{\tt rmlewi@wm.edu}\\
+Stephen G Nash\end{center}
+
+We discuss an efficient computational approach to the embedding problem
+in structural molecular biology.  This is the determination of a
+molecule's three-dimensional structure from information about its
+interatomic distances.  In the work discussed here, this information is
+conveyed by lower and upper bounds on the distances which are estimated
+by nuclear magnetic resonance (NMR) spectroscopy and a priori knowledge
+of chemical structure.
+
+Given a molecule with n atoms, in our approach we treat the n(n-1)/2
+interatomic distances (dissimilarities, more precisely) as independent
+variables, rather than parameterizing the problem in terms of the 3n
+Cartesian coordinates of the atoms.  A classical result from distance
+geometry enables us to steer the set of dissimilarities to one that
+corresponds to the squared interpoint distances of an actual
+configuration of atoms in three dimensions.
+
+This formulation leads to a large-scale bound constrained, nonconvex
+rank-constrained matrix optimization problem with a spectral objective.
+ At first glance our approach appears to result in a much
+larger, and therefore more computationally expensive, problem than one
+would encounter in a coordinate-parameterized approach.  However, as we
+discuss, the computational costs are actually quite tractable. Moreover,
+the formulation leads to an optimization problem that, though
+large, is relatively easy to solve, as is demonstrated by the numerical
+results we present.
+
+We also comment on the difference between real NMR data sets and the
+synthetic data sets that are frequently used in the mathematical
+literature on molecular embedding.  In particular, real NMR data sets
+are sparse and have other features (such as lack of stereospecificity
+for some atoms) that make realistic molecular embedding problems more
+difficult than synthetic problems.
+
+\end{document}

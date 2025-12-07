@@ -1,0 +1,475 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>rumpf109484</TITLE>
+<META NAME="description" CONTENT="rumpf109484">
+<META NAME="keywords" CONTENT="rumpf109484">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="rumpf109484.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Markus P. Rumpfkeil 
+<BR><B>Optimization-based Multigrid Applied to Aerodynamic Shape Design</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">University of Wyoming Department of Mechanical Engineering 
+<BR>
+1000 E University Avenue 
+<BR>
+Laramie Wyoming 82071
+
+<BR><TT>mrumpfke@uwyo.edu</TT>
+<BR>
+Dimitri J. Mavriplis
+</DIV>
+
+<P>
+In this presentation an optimization-based multigrid algorithm is applied
+to an elliptic model problem and steady as well as unsteady aerodynamic
+shape designs showing
+the potential for large improvement in the overall computational cost for
+high fidelity optimizations which typically involve many design
+and state variables. Nash and Lewis&nbsp;[<A
+ HREF="node1.html#Lewis2005">1</A>] proposed a multigrid
+optimization framework for solving optimization problems which they
+called MG/OPT.
+MG/OPT recursively uses coarse resolution optimization problems to
+generate search directions for finer-resolution optimization problems.
+Since the sub-problems on the different levels are of similar structure
+one can use the same algorithms and software modules to solve them. The
+good performance of MG/OPT for model problems&nbsp;[<A
+ HREF="node1.html#Lewis2005">1</A>] encouraged
+us to apply this algorithm to CFD inspired optimization problems.
+
+<P>
+The elliptic model problem is the Dirichlet-to-Neumann map for the
+Laplacian on a square&nbsp;[<A
+ HREF="node1.html#Toint2006">2</A>].
+We use BFGS as optimizer on all multigrid levels except for the coarsest
+level where we use a full Newton optimizer.
+Results for our FMG/OPT algorithm are shown in the Table. The term
+``tnfg'' refers to total number of function and gradient
+evaluations and ``tnh'' means total number of Hessian evaluations. <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ M$"> is
+the number of design variables as well as grid points in one dimension.
+One can clearly see that FMG/OPT is superior to the use of BFGS alone,
+since it shifts much of the computational effort to coarser grids.
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="67" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ M=513$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="67" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ M=257$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="67" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ M=129$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="59" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ M=65$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="59" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ M=33$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="59" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ M=17$"> </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">Pure BFGS </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">iter </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ 206$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ 106$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ 64$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ 40$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ 23$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ 16$"> </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnfg </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ 215$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ 118$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ 70$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="$ 44$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img18.png"
+ ALT="$ 25$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ 18$"> </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">FMG/OPT </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">cycles </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ 5$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">(start at M=513) </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnfg </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ 34$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$ 84$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ 30$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnh </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ 15$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">-</FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">FMG/OPT </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">cycles </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ 5$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">(start at M=257) </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnfg </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img25.png"
+ ALT="$ 33$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ 63$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ 30$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnh </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ 15$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">FMG/OPT </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">cycles </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ 5$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">-</FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">(start at M=129) </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnfg </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ 34$">
+</FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img27.png"
+ ALT="$ 66$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ 30$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">-</FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnh </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ 15$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">-</FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">FMG/OPT </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">cycles</FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ 5$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">-</FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><FONT SIZE="-2">(start at M=65) </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnfg </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="$ 35$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="$ 69$"> </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img23.png"
+ ALT="$ 30$"> </FONT></TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">tnh </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">- </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2">0 </FONT></TD>
+<TD ALIGN="CENTER"><FONT SIZE="-2"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img24.png"
+ ALT="$ 15$"> </FONT></TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+
+<P>
+We also consider the steady inviscid flow around a NACA 0012 airfoil, as
+well as the unsteady case of a sinusoidally pitching airfoil about its
+quarter-chord location as flow examples
+which are described in more detail in Mani and Mavriplis&nbsp;[<A
+ HREF="node1.html#Mani2008">3</A>].
+The finest mesh has about <IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img30.png"
+ ALT="$ 20,000$"> triangular elements and the flow
+solver is second order in both time and space.
+The required coarser meshes are built by repeated agglomeration or
+merging of neighboring control volumes.
+Two coarser levels are used with <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ 7,900$"> and <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$ 2,600$"> elements,
+respectively. The deformation and movement of the mesh is performed via a
+linear tension spring analogy on the finest level.
+The free-stream Mach number is <!-- MATH
+ $M_\infty=0.755$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$ M_\infty=0.755$"> with an angle of attack
+of <IMG
+ WIDTH="33" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img34.png"
+ ALT="$ 1.25$"> degrees in the steady case and a mean angle of attack of
+<IMG
+ WIDTH="41" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ 0.016$"> degrees for the
+pitching airfoil. The optimization examples consists of inverse designs
+given by the following objective function:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+f=\sum_{n=0}^N \frac{1}{2} (C_l^n-C_l^{*n})^2 + \frac{100}{2} (C_d^n-C_d^{*n})^2,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="301" HEIGHT="66" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$\displaystyle f=\sum_{n=0}^N \frac{1}{2} (C_l^n-C_l^{*n})^2 + \frac{100}{2} (C_d^n-C_d^{*n})^2,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where a star denotes a target lift or drag coefficient and <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ N$"> is the
+number of time steps.
+
+<P>
+We use <IMG
+ WIDTH="63" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img38.png"
+ ALT="$ D=258$"> design variables, half of which are placed at upper and
+the other half at lower surface points which control the magnitude of
+Hicks-Henne sine bump functions.
+At the time of this writing we do not have any unsteady results yet.
+However, when FMG/OPT is applied to the steady problem, it shows
+substantial improvement over the use of steepest-descent (SD).
+Using SD as a single level optimizer requires more than <IMG
+ WIDTH="36" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img39.png"
+ ALT="$ 5000$"> function
+and gradient evaluations (``tnfg'') to reduce <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img40.png"
+ ALT="$ f$"> by three orders of
+magnitude. Using it as smoother/optimizer in FMG/OPT
+only requires <IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$ 100$"> ``tnfg'' on the finest level.
+In addition, FMG/OPT takes about three times ``tnfg'' on the medium level
+and about twenty times ``tnfg''
+on the coarsest level. Since the computational costs are approximately
+a factor of four and sixteen cheaper, respectively, this adds ``only''
+about <IMG
+ WIDTH="28" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img42.png"
+ ALT="$ 200$"> per cent to the overall computational cost.
+We expect even higher savings in the unsteady case since we can also
+coarsen the ``grid'' in the time domain. Multigrid optimization for time
+dependent problems
+should be directly applicable to the acceleration of data assimilation
+problems (i.e. 4DVAR) in future work.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">Bibliography</A>
+<LI><A NAME="tex2html5"
+  HREF="node2.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">Bibliography</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,123 @@
+===affil2:
+University of Wyoming
+===firstname:
+Markus P.
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+Mavriplis
+===lastname:
+Rumpfkeil
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+mrumpfke@uwyo.edu
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+University of Wyoming
+Department of Mechanical Engineering
+1000 E. University Avenue
+Laramie, Wyoming 82071
+===firstname6:
+
+===ABSTRACT:
+In this presentation an optimization-based multigrid algorithm is applied to an elliptic model problem and steady as well as unsteady aerodynamic shape designs showing
+the potential for large improvement in the overall computational cost for high fidelity optimizations which typically involve many design
+and state variables. Nash and Lewis~\cite{Lewis2005} proposed a multigrid optimization framework for solving optimization problems which they called MG/OPT.
+MG/OPT recursively uses coarse resolution optimization problems to generate search directions for finer-resolution optimization problems.
+Since the sub-problems on the different levels are of similar structure one can use the same algorithms and software modules to solve them.
+
+The elliptic model problem is the Dirichlet-to-Neumann map for the Laplacian on a square~\cite{Toint2006}.
+We use BFGS as optimizer on all multigrid levels except for the coarsest level where we use a full Newton optimizer.
+Results for our FMG/OPT algorithm are shown in the Table. The term ``tnfg'' refers to total number of function and gradient
+evaluations and ``tnh'' means total number of Hessian evaluations. $M$ is the number of design variables as well as grid points in one dimension.
+One can clearly see that FMG/OPT is superior to the use of BFGS alone, since it shifts much of the computational effort to coarser grids.
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccccc}
+         &                 & \tiny{$M=513$} & \tiny{$M=257$} & \tiny{$M=129$} & \tiny{$M=65$} & \tiny{$M=33$} & \tiny{$M=17$} \\
+\hline 
+\tiny{Pure BFGS}   & \tiny{iter} & \tiny{$206$} & \tiny{$106$} & \tiny{$64$} & \tiny{$40$} & \tiny{$23$} & \tiny{$16$} \\
+                          & \tiny{tnfg}  & \tiny{$215$} & \tiny{$118$} & \tiny{$70$} & \tiny{$44$} & \tiny{$25$} & \tiny{$18$}  \\
+\tiny{FMG/OPT}    & \tiny{cycles} & \tiny{$5$} & \tiny{-} & \tiny{-} & \tiny{-} & \tiny{-} & \tiny{-} \\
+\tiny{(start at M=513)}  & \tiny{tnfg}    & \tiny{$34$} & \tiny{$84$} & \tiny{$30$} & \tiny{-} & \tiny{-} & \tiny{-} \\
+                          & \tiny{tnh}     & \tiny{$0$} & \tiny{$0$} & \tiny{$15$} & \tiny{-} & \tiny{-} & \tiny{-}\\
+\tiny{FMG/OPT}    & \tiny{cycles} & \tiny{-} & \tiny{$5$} & \tiny{-} & \tiny{-} & \tiny{-} & \tiny{-} \\
+\tiny{(start at M=257)}  & \tiny{tnfg}  & \tiny{-}  & \tiny{$33$} & \tiny{$63$} & \tiny{$30$} & \tiny{-} & \tiny{-} \\
+                          & \tiny{tnh}  & \tiny{-}   & \tiny{$0$} & \tiny{$0$} & \tiny{$15$} & \tiny{-} & \tiny{-} \\
+\tiny{FMG/OPT}    & \tiny{cycles} & \tiny{-} & \tiny{-} & \tiny{$5$} & \tiny{-} & \tiny{-} & \tiny{-}\\
+\tiny{(start at M=129)}  & \tiny{tnfg} & \tiny{-}  & \tiny{-} & \tiny{$34$} & \tiny{$66$} & \tiny{$30$} & \tiny{-}\\
+                          & \tiny{tnh}  & \tiny{-}  & \tiny{-} & \tiny{$0$} & \tiny{$0$} & \tiny{$15$} & \tiny{-}\\
+\tiny{FMG/OPT}    & \tiny{cycles}& \tiny{-} & \tiny{-} & \tiny{-} & \tiny{$5$} & \tiny{-} & \tiny{-}\\
+\tiny{(start at M=65)}   & \tiny{tnfg}  & \tiny{-}  & \tiny{-} & \tiny{-} & \tiny{$35$} & \tiny{$69$} & \tiny{$30$} \\
+                          & \tiny{tnh}  & \tiny{-}   & \tiny{-} & \tiny{-} & \tiny{$0$} & \tiny{$0$} & \tiny{$15$} \\
+\hline
+\end{tabular}
+\end{table}
+
+We also consider the steady inviscid flow around a NACA 0012 airfoil, as well as the unsteady case of a sinusoidally pitching airfoil about its quarter-chord location as flow examples 
+which are described in more detail in Mani and Mavriplis~\cite{Mani2008}. The finest mesh has about $20,000$ triangular elements and the flow solver is second order in both time and space. 
+The required coarser meshes are built by repeated agglomeration or merging of neighboring control volumes. 
+Two coarser levels are used with $7,900$ and $2,600$ elements, respectively. The deformation and movement of the mesh is performed via a linear tension spring analogy on the finest level.
+The free-stream Mach number is $M_\infty=0.755$ with an angle of attack of $1.25$ degrees in the steady case and a mean angle of attack of $0.016$ degrees for the
+pitching airfoil. The optimization examples consists of inverse designs given by the following objective function:
+\begin{equation}
+f=\sum_{n=0}^N \frac{1}{2} (C_l^n-C_l^{*n})^2 + \frac{100}{2} (C_d^n-C_d^{*n})^2,
+\end{equation}
+where a star denotes a target lift or drag coefficient and $N$ is the number of time steps. 
+
+We use $D=258$ design variables, half of which are placed at upper and the other half at lower surface points which control the magnitude of Hicks-Henne sine bump functions.
+At the time of this writing we do not have any unsteady results yet. However, when FMG/OPT is applied to the steady problem, it shows substantial improvement over the use of steepest-descent (SD). 
+Using SD as a single level optimizer requires more than $5000$ function and gradient evaluations (``tnfg'') to reduce $f$ by three orders of magnitude. Using it as smoother/optimizer in FMG/OPT
+only requires $100$ ``tnfg'' on the finest level.
+In addition, FMG/OPT takes about three times ``tnfg'' on the medium level and about twenty times ``tnfg'' 
+on the coarsest level. Since the computational costs are approximately 
+a factor of four and sixteen cheaper, respectively, this adds ``only'' about $200$ per cent to the overall computational cost.
+We expect even higher savings in the unsteady case since we can also coarsen the ``grid'' in the time domain. Multigrid optimization for time dependent problems
+should be directly applicable to the acceleration of data assimilation problems (i.e. 4DVAR) in future work.
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Lewis2005} Lewis, R.M. \& Nash, S.G. 2005 Model Problems for the Multigrid Optimization of Systems Governed by Differential Equations.
+{\it SIAM Journal on Scientific Computing}, Vol. 26, No. 6, pp. 1811 - 1837.
+   
+\bibitem{Toint2006} Gratton, S., Sartenaer, A. \& Toint, P. 2006 Second-order convergence properties of trust-region methods using incomplete curvature information, with an application to multigrid optimization.
+{\it Journal of Computational Mathematics}, Vol. 24, pp. 676 - 692.
+
+\bibitem{Mani2008} Mani, K. \& Mavriplis, D.J. 2008 Unsteady Discrete Adjoint Formulation for Two-Dimensional Flow Problems with Deforming Meshes.
+{\it AIAA Journal}, Vol. 46 No. 6, pp. 1351-1364.
+      
+\end{thebibliography}
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Optimization-based Multigrid Applied to Aerodynamic Shape Design
+===firstname2:
+Dimitri J.

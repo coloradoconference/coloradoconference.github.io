@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mcinn112883</TITLE>
+<META NAME="description" CONTENT="mcinn112883">
+<META NAME="keywords" CONTENT="mcinn112883">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mcinn112883.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Lois Curfman McInnes 
+<BR><B>Coupled Core-Edge Fusion Simulations</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 South Cass Avenue 
+<BR>
+Argonne 
+<BR>
+IL 60439
+
+<BR><TT>mcinnes@mcs.anl.gov</TT>
+<BR>
+John Cary
+<BR>
+and the FACETS Project Team
+</DIV>
+
+<P>
+Construction of large test fusion reactors such as the International
+Thermonuclear Experimental Reactor (ITER) will require comprehensive
+full-device modeling to answer key design questions that are far too
+expensive to solve through direct experimentation. Full-device modeling
+will require the self-consistent coupling of codes simulating different
+physical processes. The regions that develop are distinct in time scales
+and the physics needed to model them: (1) the core region is a
+high-temperature, magnetically confined plasma where the fusion reactions
+take place; (2) the edge region is a colder plasma where the parallel
+transport competes with the perpendicular transport and the material wall
+interactions cause atomic and chemical processes to be important; and (3)
+the material wall contains approximately 90 percent of the fuel in the
+entire system because of absorption of the plasma fueling gas by the
+material lattice. Researchers have developed models with varying degrees
+of accuracy for describing the physics of a region. These different
+mathematical models subsequently have led to different codes being
+written, each with many varying implementations and numerical techniques.
+
+<P>
+To enable modeling from the material wall to the plasma core, the
+Framework Application for Core-Edge Transport Simulations (FACETS)
+project is developing a multiphysics, parallel application. An integral
+aspect of this work is the coupling of core and edge simulations, along
+with transport and wall interactions. The simplest model for the core
+eliminates the fast parallel time scale analytically and models only the
+transport of the plasma across the fieldlines, a slow process. The models
+for this transport are stiff because the flux transport increases rapidly
+past a critical threshold. Modern tokamaks operate in the regime where
+the boundary is near this threshold and thus displays a sensitivity to
+the core-edge boundary for the regimes of interest.
+
+<P>
+This presentation will discuss the approach used in FACETS for core-edge
+coupling, including issues involved in managing concurrent component
+parallelism. We will provide an overview of the components that model the
+core and edge regions, and we will explain the role of preconditioned
+Newton-Krylov methods in this context. We will present preliminary
+results using the FACETS framework for coupled core-edge simulations of
+H-mode pedestal buildup in the DIII-D tokamak.
+
+<P>
+In addition, we will explain how this fusion research is motivating new
+capabilities in the PETSc library to better handle strong coupling
+between two or more distinct mathematical models based on partial
+differential equations. Two complementary aspects of research are
+multimodel algebraic system solution, or how to solve the resulting
+coupled nonlinear algebraic systems, using Newton-based methods with
+multiphysics-based linear and/or nonlinear preconditioning, and
+multimodel algebraic system specification, or how to provide the
+application programmer the flexibility to specify subsets of physics from
+which the subsolvers may be efficiently constructed.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

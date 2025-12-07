@@ -1,0 +1,40 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthew Parno \\
+{\bf Population based optimization of mixed-variable problems with applications in hydrology}}
+
+235 Albany St \\ Apartment 3073 \\ Cambridge \\ MA 02139
+\\
+{\tt mparno@mit.edu}\end{center}
+
+Many difficult engineering optimization problems involve both continuous
+and discrete variables. Additionally, some problems may have discrete
+variables that alter the dimension of the continuous problem. Formally,
+this work considers problems of the form
+\begin{eqnarray*}
+\mbox{min}& & f(x,y,z)\\
+& & z\in F_z \\
+& & y \in F_y(z)\\
+& & x \in F_x(y,z)
+\end{eqnarray*}
+where $F_z\subseteq Z^{n_z}$, $F_y(z)\subseteq Z^{n_y(z)}$, and
+$F_x(y,z)\subseteq \Re^{n_x(z)}$. The variables in $F_z$ and $F_y(z)$ do
+not need to be ordered and can be categorical. In general, the continuous
+problem $f(z,y,\cdot )$ will be nonsmooth and derivatives will not be
+available. Thus, current algorithms alternate local searches with
+derivative free optimization algorithms on the continuous variables with
+a local search of the discrete parameters However, the continuous problem
+can often be noisy with many local minima.
+
+To this end, we review the existing framework and demonstrate that a
+population based algorithm can also be used as a more robust continuous
+optimization algorithm. Numerical results are given for several academic
+problems as well as a hydraulic capture problem from hydrology.
+
+
+\end{document}

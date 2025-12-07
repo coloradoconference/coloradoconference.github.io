@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Haw-ren Fang \\
+{\bf Two Classes of Multisecant Methods for Nonlinear Acceleration}}
+
+Department of Computer Science and Engineering \\ University of Minnesota \\ 4-192 EE/CS Building \\ 200 Union St SE \\ Minneapolis \\ MN 55455
+\\
+{\tt hrfang@cs.umn.edu}\\
+Yousef Saad\end{center}
+
+Many applications in science and engineering lead to models which require
+solving large-scale fixed point problems, or equivalently, systems of
+nonlinear equations. Several successful techniques for handling such
+problems are based on quasi-Newton methods that implicitly update the
+approximate Jacobian or inverse Jacobian to satisfy a certain secant
+condition.
+
+We present two classes of multisecant methods which allows to take
+into account a variable number of secant equations at each iteration. The
+first is the Broyden-like class, of which Broyden's family is a subclass,
+and Anderson mixing is a particular member. The second class is that of
+the nonlinear Eirola-Nevanlinna-type methods.
+
+This work was motivated by a problem in electronic structure
+calculations, whereby a fixed point iteration, known as the
+self-consistent field (SCF) iteration, is accelerated by various
+strategies termed `mixing'.
+
+
+\end{document}

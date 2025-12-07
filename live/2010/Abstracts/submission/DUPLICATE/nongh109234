@@ -1,0 +1,66 @@
+===affil2:
+
+===firstname:
+Hung D
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+Nong
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+hdnong@sandia.gov
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Sandia National Labs
+CSRI/133
+P.O. Box 5800
+Albuquerque, NM 87185-1318
+===firstname6:
+
+===ABSTRACT:
+SEACISM is an active and on-going project to develop a scalable, efficient and accurate Community Ice Sheet Model for predictive ice sheet simulation at the petascale. It will eventually be integrated into the Community Climate System Model as the ice sheet component.
+With Glimmer, an existing "shallow-ice approximation" model, as the starting point, SEACISM will incorporate to the model improved ice dynamics and representations of subglacial hydrology and basal processes. It will also consider using higher-resolution grids and realistic treatments of sub-shelf melting, iceberg calving and grounding-line motion. In addition, it will couple to global climate models such as the atmospheric and oceanic in order to be able to simulate the rapid dynamic changes currently observed and contributing to global sea level.
+
+Computationally, SEACISM will rely on Trilinos for efficiency and scalability. Trilinos has capabilities of performing partitioning and load balancing to achieve good performance and scalability of parallel codes, i.e., to guarantee that all processors have approximately the same amount of data (or computation) while minimizing inter-processor communication. Trilinos hosts a wide range of different linear solvers, preconditioning techniques and nonlinear solvers. It also provides users with strategies for optimizing the problem solving process.
+
+This talk will focus on the computational aspect and software development side of SEACISM. I will present an overview of how Trilinos will be used in SEACISM and what computational impacts this will result in. In particular, some preliminary results will be presented to illustrate computational improvements acquiring from utilizing Trilinos in SEACISM.
+
+
+
+
+
+* Note: I would like this abstract to be placed in the "Environmental Science Applications" session.
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Trilinos Interface in SEACISM
+===firstname2:
+

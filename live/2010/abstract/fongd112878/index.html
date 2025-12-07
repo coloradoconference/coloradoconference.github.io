@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>fongd112878</TITLE>
+<META NAME="description" CONTENT="fongd112878">
+<META NAME="keywords" CONTENT="fongd112878">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="fongd112878.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">David C.-L. Fong 
+<BR><B>LSMR: An iterative algorithm for least-squares problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">121 Campus Dr  
+<BR>
+Apt 1109B 
+<BR>
+Stanford 
+<BR>
+CA 94305
+
+<BR><TT>clfong@stanford.edu</TT>
+<BR>
+Michael A. Saunders
+</DIV>
+
+<P>
+
+<P>
+An iterative method is presented for solving linear systems <IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ Ax=b$"> and
+<!-- MATH
+ $\min \|Ax-b\|_2$
+ -->
+<IMG
+ WIDTH="104" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \min \Vert Ax-b\Vert _2$">, with <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A$"> being large and sparse, or a fast linear
+operator. The method is based on the Golub-Kahan bidiagonalization
+process. It is analytically equivalent to the standard method of MINRES
+applied to the normal equation <!-- MATH
+ $A^T\!Ax = A^T\!b$
+ -->
+<IMG
+ WIDTH="92" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A^T\!Ax = A^T\!b$">, so that the quantities
+<!-- MATH
+ $\|A^T\!r_k\|$
+ -->
+<IMG
+ WIDTH="55" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \Vert A^T\!r_k\Vert$"> are monotonically decreasing (where <!-- MATH
+ $r_k = b - Ax_k$
+ -->
+<IMG
+ WIDTH="96" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ r_k = b - Ax_k$"> is
+the residual for the current iterate <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ x_k$">). In practice we observe that
+<IMG
+ WIDTH="35" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \Vert r_k\Vert$"> also decreases monotonically. Compared to LSQR, for which
+only <IMG
+ WIDTH="35" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \Vert r_k\Vert$"> is monotonic, it is safer to terminate LSMR early.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2010-03-03
+</ADDRESS>
+</BODY>
+</HTML>

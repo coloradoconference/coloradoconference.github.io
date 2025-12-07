@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chris Newman \\
+{\bf A JFNK IMEX method for moving fluid simulation}}
+
+Idaho National Laboratory \\ PO Box 1625 \\ Idaho Falls \\ ID 83415-3840
+\\
+{\tt christopher.newman@inl.gov}\\
+Glen Hansen\\
+Dana Knoll\end{center}
+
+We discuss a method for coupling the Laplace-Beltrami mesh smoothing equations
+to the incompressible Navier-Stokes equations.
+The method is based on implicit/explicit treatment of the coupled PDES and
+solved using the Jacobian-free Newton-Krylov method interleaved
+with an error indicator for the mesh smoothing process.
+
+We present numerical examples to support this study and provide comparison to
+fully coupled methods.
+
+
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christopher, W. Miller \\
+{\bf Assessment of Collocation and Galerkin Approaches to Partial Differential Equations With Random Data}}
+
+7521 Maple Ave \\ Apt 10 \\ Takoma Park \\ MD 20912
+\\
+{\tt cmiller@math.umd.edu}\\
+Raymond, S. Tuminaro\\
+Eric, T. Phipps\\
+Howard, C. Elman\end{center}
+
+We compare the performance of two methods, the stochastic Galerkin method and
+the stochastic collocation method for solving partial differential
+equations (PDEs) with random data. The stochastic Galerkin method
+requires the solution of a single linear system that is several orders
+larger than linear systems associated with deterministic PDEs. The
+stochastic collocation method requires many solves of deterministic PDEs,
+which allows the use of existing software. However, the number of systems
+that need to be solved for the stochastic collocation method can be
+several times larger than the number of unknowns in the stochastic
+Galerkin system.
+
+We implement both of the above methods using the Trilinos software
+package and we assess their cost and performance. The implementations in
+Trilinos are known to be efficient which, allows
+for a realistic assessment of the computational complexity of the
+methods. We also develop a cost model for both methods that allows us to
+examine asymptotic behavior.
+
+
+\end{document}

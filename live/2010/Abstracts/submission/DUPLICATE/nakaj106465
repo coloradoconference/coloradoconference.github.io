@@ -1,0 +1,60 @@
+===affil2:
+
+===firstname:
+Kengo
+===firstname4:
+
+===firstname3:
+
+===lastname2:
+
+===lastname:
+NAKAJIMA
+===firstname5:
+
+===affil6:
+
+===lastname3:
+
+===email:
+nakajima@cc.u-tokyo.ac.jp
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Information Technology Center
+The University of Tokyo
+2-11-16 Yayoi, Bunkyo-ku, Tokyo 113-8658, JAPAN
+===firstname6:
+
+===ABSTRACT:
+OpenMP/MPI hybrid parallel programming models were implemented to 3D finite-volume based simulation code for groundwater flow problems through heterogeneous porous media using parallel iterative solvers with multigrid preconditioning by IC(0) smoothing. Performance and robustness of the developed code has been evaluated on ÅgT2K Open Supercomputer (Tokyo)Åh and ÅgCray-XT4Åh using up to 1,024 cores through both of weak and strong scaling computations. Optimization procedures for OpenMP/MPI hybrid parallel programming models originally developed for 3D FEM applications [1], such as appropriate command lines for NUMA control, first touch data placement and reordering of the mesh data for contiguous access to memory, provided excellent improvement of performance on multigrid preconditioners with OpenMP/MPI hybrid parallel programming models. OpenMP/MPI hybrid demonstrated better performance and robustness than flat MPI, especially with large number of cores for ill-conditioned problems. Thus, hybrid parallel programming model could be a reasonable choice for large-scale computing on multi-core/multi-socket clusters.
+
+
+References
+
+[1] Nakajima, K.: Flat MPI vs. Hybrid: Evaluation of Parallel Programming Models for Preconditioned Iterative Solvers on ÅgT2K Open SupercomputerÅh, IEEE Proceedings of the 38th International Conference on Parallel Processing (ICPP-09), pp.73-80 (2009)
+
+===affil3:
+
+===lastname5:
+
+===affilother:
+
+===title:
+Parallel Multigrid Solvers using OpenMP/MPI Hybrid Programming Models on Multi-Core/Multi-Socket Clusters
+===firstname2:
+

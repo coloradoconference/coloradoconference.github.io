@@ -1,0 +1,55 @@
+===affil2:
+Sandia National Laboratories
+===firstname:
+Jacob B.
+===firstname4:
+
+===firstname3:
+Luke N.
+===lastname2:
+Tuminaro
+===lastname:
+Schroder
+===firstname5:
+
+===affil6:
+
+===lastname3:
+Olson
+===email:
+jacob.bb.schroder@gmail.com
+===lastname6:
+
+===affil5:
+
+===otherauths:
+
+===lastname4:
+
+===affil4:
+
+===lastname7:
+
+===affil7:
+
+===firstname7:
+
+===postal:
+Siebel Center for Computer Science
+4328 Siebel Center
+201 N. Goodwin Ave.
+Urbana, IL 61801 USA
+===firstname6:
+
+===ABSTRACT:
+A general interpolation strategy for algebraic multigrid that uses an energy-minimization principle is presented.  The  proposed strategy is applicable to symmetric and nonsymmetric problems in both a classical and smoothed-aggregation-based algebraic multigrid framework.  Each column of the interpolation operator, $P$, is minimized in an energy-based norm, while enforcing two constraints.  A sparsity pattern is enforced on $P$ and important user-defined modes, such as the constant, are preserved in the span of $P$.  To minimize energy, we use a Krylov-based strategy that is equivalent to solving $A P = 0$, where the constraints ensure a nonzero answer.  For the symmetric case, a CG-based strategy is utilized, while for the nonsymmetric case, GMRES and CGNR are explored.  The approach is flexible allowing for arbitrary coarsenings and sparsity patterns, easy long distance interpolation and general constraints, which we choose to be the preservation of important user-defined modes.  We conclude with encouraging numerical results.  
+===affil3:
+University of Illinois at Urbana-Champaign
+===lastname5:
+
+===affilother:
+
+===title:
+A General Interpolation Strategy for Algebraic Multigrid Using Energy-Minimization
+===firstname2:
+Raymond S.

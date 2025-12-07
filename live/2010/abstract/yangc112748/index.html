@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>yangc112748</TITLE>
+<META NAME="description" CONTENT="yangc112748">
+<META NAME="keywords" CONTENT="yangc112748">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="yangc112748.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Chao Yang 
+<BR><B>Multilevel Schwarz Preconditioner for a Fully Implicit Global Shallow Water Solver</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+University of Colorado at Boulder 
+<BR>
+Boulder 
+<BR>
+CO 80309-0430
+
+<BR><TT>yangchao.china@gmail.com</TT>
+<BR>
+Xiao-Chuan Cai
+</DIV>
+
+<P>
+A multilevel Schwarz preconditioner is proposed as part of a fully
+implicit solver for the shallow water equations discretized with a
+second-order well-balanced finite volume scheme on the cubed-sphere.
+Fully implicit methods have the advantage that the time step size is no
+longer constrained by the CFL condition. But a large sparse nonlinear
+system of equations has to be solved at every time step. To solve these
+nonlinear systems, we use a Newton-Krylov-Schwarz method, in which the
+multilevel Schwarz preconditioner plays a key role for the effectiveness
+and efficiency. We show by numerical experiments that with the multilevel
+method, the numbers of nonlinear and linear iterations per time step are
+almost independent on the number of processors and much less sensitive to
+the implicit time step size compared to the one-level method. Numerical
+results obtained on machines with thousands of processors are provided to
+show the parallel scalability of the solver.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

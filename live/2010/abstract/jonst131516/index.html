@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>jonst131516</TITLE>
+<META NAME="description" CONTENT="jonst131516">
+<META NAME="keywords" CONTENT="jonst131516">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="jonst131516.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">T.B. Jonsthovel 
+<BR><B>On the use of rigid body modes to the deflated preconditioned conjugate gradient method</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Stevinweg 1 
+<BR>
+2628CN 
+<BR>
+Delft 
+<BR>
+the Netherlands
+
+<BR><TT>t.b.jonsthovel@tudelft.nl</TT>
+<BR>
+M.B. van Gijzen
+<BR>
+C. Vuik
+</DIV>
+
+<P>
+Finite element computations are indispensable for the simulation of
+material behavior. Recent developments in visualization and meshing
+software give rise to high-quality but very large meshes. As a result,
+large systems with millions of degrees of freedom need to be solved. In
+our application, the finite element stiffness matrix is symmetric,
+positive definite and therefore the Preconditioned Conjugate Gradient
+(PCG) method is our method of choice. The PCG method is also well suited
+for parallel applications which are needed in practical applications.
+
+<P>
+Many finite element computations involve simulation of <I>inhomogenous</I>
+materials. These materials lead to large jumps in the entries of the
+stiffness matrix. We have shown that these jumps slow down the
+convergence of the PCG method and that by decoupling of those regions
+with a deflation technique a more robust PCG method can be constructed:
+the Deflated Preconditioned Conjugate Gradient (DPCG) method.
+
+<P>
+The DPCG method uses deflation vectors that contain the rigid body modes
+of sets of elements with similar properties. We will derive a cheap and
+general applicable method to compute those rigid body modes. We also
+provide a mathematical justification of our approach. Finally, we will
+discuss numerical experiments on composite materials to validate our
+results.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

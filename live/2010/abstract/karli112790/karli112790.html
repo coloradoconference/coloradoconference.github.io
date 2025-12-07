@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>karli112790</TITLE>
+<META NAME="description" CONTENT="karli112790">
+<META NAME="keywords" CONTENT="karli112790">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="karli112790.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Ian Karlin 
+<BR><B>Fusion of Linear Algebra Kernels and the Memory Subsystem</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Computer Science 
+<BR>
+College of Engineering and Applied Science 
+<BR>
+University of Colorado at Boulder 
+<BR>
+Boulder 
+<BR>
+CO 80309-0430 USA
+
+<BR><TT>Ian.Karlin@colorado.edu</TT>
+<BR>
+Elizabeth Jessup
+<BR>
+Erik Silkensen
+<BR>
+Geoffrey Belter
+<BR>
+Jeremy Siek
+</DIV>
+
+<P>
+Efficient use of the memory subsystem is important to the performance of
+many scientific simulations. For calculations, such as matrix-matrix
+multiplication, that perform many operations per data access, tuning
+techniques like blocking are effective in reducing memory traffic and
+result in computationally bound routines. However, other calculations
+like matrix-vector multiplies that perform a small number of operations
+per memory access remain memory bound even when tuned. To improve the
+performance of these memory-bound computations, multiple computations
+that access the same data can be combined using loop fusion.
+
+<P>
+One issue in using loop fusion to tune programs is the difficulty of
+determining when it is profitable. Loop fusion can substantially reduce
+data access and
+speedups. Yet, in some circumstances, it can be detrimental to
+performance. The following code shows loop fusion applied to the GEMVER
+kernel of the updated BLAS.
+
+<P>
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">for j = 1:n</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">A(:, j) <!-- MATH
+ $\leftarrow$
+ -->
+<IMG
+ WIDTH="20" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \leftarrow$"> A(:,j) + u1 * v1(j)</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<P>
+<BR>
+When a column of matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$"> remains in cache throughout an
+iteration of the loop, the fused implementation reads that column only
+once from main memory during that iteration. When just two vectors fit
+in cache, fusing the first two scaled vector additions forces the column
+of <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ A$"> to be evicted meaning that it must be reread when accessed again.
+This example demonstrates that creating an
+efficient fused routine requires careful consideration of both algorithm
+and memory subsystem.
+
+<P>
+Additionally, the number of ways that loops can be fused expands
+exponentially with routine complexity. With increasingly involved
+routines, it becomes infeasible to program and test more than a
+few variants, and and it becomes more difficult to identify the the most
+efficient fusion. To automate the process of searching through loop fusion choices, we
+created the Build to Order (BTO) compiler. BTO takes in a sequence of
+annotated MATLAB statements, searches through all possible loop fusion
+combinations that reduce memory traffic, and generates optimized C code.
+An analytic model that estimates the cost of routines helps to explore
+the search space produced by the compiler. Specifically, the model
+reduces the number of routines that need to be empirically tested by
+the compiler to a small subset. The combined analytic/empirical search
+technique produces tuned codes efficiently.
+
+<P>
+To improve on our model and to understand the effects of fusion on
+traffic through the memory hierarchy, we ran experiments fusing successive
+matrix-vector multiplies. In these tests, each multiply used the same
+coefficient matrix and different vectors,
+e.g., <!-- MATH
+ $v_1 = A * u_1$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ v_1 = A * u_1$">,
+<!-- MATH
+ $v_2 = A * u_2$
+ -->
+<IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ v_2 = A * u_2$">, ..., <!-- MATH
+ $v_n = A * u_n$
+ -->
+<IMG
+ WIDTH="87" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ v_n = A * u_n$">. The results show that fusion becomes
+unprofitable when a memory structure can no longer contain all the data
+accessed within the fused loop.
+
+<P>
+In this talk we present the results from our matrix-vector multiply experiments
+that show how fusing too many operations can have negative effects on
+the use of the memory subsystem. One focus is how fusion can impact the
+ability of the compiler to keep data within registers. We demonstrate
+how, by modeling registers, we improve the predictive capabilities of
+our model to account for compiler allocation of registers. We also
+discuss how our findings are important to keep in mind when developing codes for
+multi-core processors and other parallel machines.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+root
+2010-03-02
+</ADDRESS>
+</BODY>
+</HTML>

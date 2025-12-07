@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Genetha Gray \\
+{\bf Determining the Impact of Computational Resolution Using a Mixed-Integer Hybrid Optimization Technique }}
+
+Sandia National Labs \\ P O Box 969 \\ MS 9159 \\ Livermore \\ CA 94551-0969
+\\
+{\tt gagray@sandia.gov}\\
+Katie Fowler\\
+Matthew Farthing\\
+Joshua Griffin\end{center}
+
+Tackling water resources management problems routinely requires the
+pairing of subsurface simulators and optimization algorithm. Inherent
+challenges lie in choosing the appropriate realization of the subsurface,
+formulating the objective function and constraints, and applying a
+suitable optimization algorithm. The objective function and constraints
+rely on output from the simulator, and the simulator often requires the
+numerical solution to a system of nonlinear partial differential
+equations thus derivative-free methods have emerged as the optimization
+algorithms of choice.
+
+Various assumptions can be made to simplify either the objective function
+or the physical system including the use of coarsely discretized grids to
+improve the computational efficiency the underlying simulation tool.
+Previous studies have shown that solutions obtained using a course grid
+simulation become suboptimal as the grid resolution is improved.
+Moreover, optimization algorithms that previously succeeded in
+identifying those are no longer suitable as the physical domain
+approaches reality either due to the computational burden or the impact
+of increased constraint violations.
+
+In this work, we describe a derivative-free hybrid approach, which allows
+us to combine the beneficial elements of multiple methods, and more
+efficiently search the design space. We will use this method to
+demonstrate a study of a groundwater supply problem on a series of
+increasingly fine grids. Specifically, we will show that solutions on the
+coarse grid are infeasible on a finer grid and subsequently show how the
+hybrid approach can be applied to find a new solution on the fine grid.
+
+
+\end{document}

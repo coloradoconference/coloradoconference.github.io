@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Denis Ridzal \\
+{\bf A Robust Matrix-Free SQP Method for Large-Scale Optimization}}
+
+Optimization and UQ \\ Sandia National Laboratories \\ P O Box 5800 \\ MS 1320 \\ Albuquerque \\ NM 87185-1320
+\\
+{\tt dridzal@sandia.gov}\end{center}
+
+Optimal design, optimal control, parameter estimation and inverse
+problems are ubiquitous in science and engineering. Their mathematical
+models often involve large-scale PDE-constrained optimization problems
+that can be solved numerically using sequential quadratic programming
+(SQP) methods. For this class of problems, however, the inexactness in
+the iterative solution of linear systems, typically due to the need for
+matrix-free linear algebra, severely limits the effectiveness of a
+conventional SQP approach. Recently, several strategies have been
+proposed that aim at rigorous control of inexactness via a dynamic
+management of stopping tolerances for linear solvers, based on the
+overall progress of the optimization algorithm.
+
+In this talk, we revisit an inexact matrix-free trust-region SQP
+algorithm for equality-constrained optimization, and demonstrate its
+effectiveness on several classes of problems for which conventional SQP
+methods fail to converge. In addition, we investigate subtle yet
+important algorithmic differences between the inexact trust-region
+approach and a recently introduced line-search technique and identify
+possible areas of improvement in both cases. Finally, we briefly examine
+the challenges in extending the inexactness-control mechanisms of the
+trust-region approach to the case of inequality constraints.
+
+
+\end{document}
