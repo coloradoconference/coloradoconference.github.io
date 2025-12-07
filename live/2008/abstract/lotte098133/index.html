@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lotte098133</TITLE>
+<META NAME="description" CONTENT="lotte098133">
+<META NAME="keywords" CONTENT="lotte098133">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html505"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html506"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">James W. Lottes 
+<BR><B>Independent quality measures for optimized AMG</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Mathematics and Computer Science Division 
+<BR>
+Argonne National Laboratory 
+<BR>
+9700 S Cass Avenue 
+<BR>
+Argonne 
+<BR>
+IL 60439
+
+<BR><TT>jlottes@mcs.anl.gov</TT>
+</DIV>
+
+<P>
+
+<P>
+We consider the development of an algebraic multigrid (AMG) strategy for
+parallel solution of linear systems with target processor counts of
+<IMG
+ WIDTH="61" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ P &gt; 10^5$">. We are interested in the case of many right-hand sides (e.g., as
+arise in the solution of time-dependent PDEs) and are therefore willing to
+accept significant set-up costs in favor of reduced solution time per
+solve. Presently, we are focusing on the case where the system of interest
+is the distributed coarse-grid problem that arises in domain decomposition
+methods or in multigrid methods that have relaxed to the coarsest-level
+skeleton that covers all processors. Our approach is more general, however,
+and we believe it would readily extend to any sparse distributed
+symmetric-positive definite system, coarse or fine.
+
+<P>
+Our selection of an AMG procedure is guided by the two-grid asymptotic
+convergence rate, equal to the spectral radius of the error propagation
+matrix <!-- MATH
+ \begin{displaymath}
+E_{\text{tg}}\equiv (I - B A)(I - P A_c^{-1} P^T A),
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="235" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle E_{\text{tg}}\equiv (I - B A)(I - P A_c^{-1} P^T A), $">
+</DIV><P></P>
+where the coarse
+operator is defined by <!-- MATH
+ $A_c \equiv P^T A P$
+ -->
+<IMG
+ WIDTH="91" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ A_c \equiv P^T A P$">. The iteration is determined by
+<IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B$">, defining the <I>smoother</I>, and by the <!-- MATH
+ $n \times n_c$
+ -->
+<IMG
+ WIDTH="50" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ n \times n_c$">
+<I>prolongation</I> matrix <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ P$">. In classical AMG, the prolongation operator is
+further constrained in that the coarse variables are a subset of the
+original variables. If we order these last, then <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A$"> and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ P$"> take the block
+forms <BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+A \equiv \begin{bmatrix} A_{f\hspace{-0.1667 em}f}& A_{f\hspace{-0.0833 em}c}\\A_{c\hspace{-0.0833 em}f}& A_{c\hspace{0 em}c}\end{bmatrix}, &&
+P \equiv \begin{bmatrix} W \\I \end{bmatrix}.
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="127" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$\displaystyle A \equiv \begin{bmatrix}A_{f\hspace{-0.1667 em}f}&amp; A_{f\hspace{-0.0833 em}c}\\ A_{c\hspace{-0.0833 em}f}&amp; A_{c\hspace{0 em}c}\end{bmatrix},$"></TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="79" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle P \equiv \begin{bmatrix}W \\ I \end{bmatrix}.$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+Thus, we may consider three components to make up a classical AMG procedure:
+selection of the coarse variables (<I>coarsening</I>), selection of <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ W$">, and
+selection of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B$">. We have come up with <I>independent</I> measures of the
+quality of each component, guiding our selection of each, which together imply
+an efficient method.
+
+<OL>
+<LI><I>Coarsening</I>. We propose that the coarsening ratio <IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ n_c/n$"> and
+the condition number <!-- MATH
+ $\kappa(D_{f\hspace{-0.1667 em}f}^{-1/2} A_{f\hspace{-0.1667 em}f}D_{f\hspace{-0.1667 em}f}^{-1/2})$
+ -->
+<IMG
+ WIDTH="138" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$ \kappa(D_{f\hspace{-0.1667 em}f}^{-1/2} A_{f\hspace{-0.1667 em}f}D_{f\hspace{-0.1667 em}f}^{-1/2})$"> together measure
+the quality of a given coarsening. Here <!-- MATH
+ $D_{f\hspace{-0.1667 em}f}$
+ -->
+<IMG
+ WIDTH="31" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$ D_{f\hspace{-0.1667 em}f}$"> is the diagonal part of
+<!-- MATH
+ $A_{f\hspace{-0.1667 em}f}$
+ -->
+<IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A_{f\hspace{-0.1667 em}f}$">. Our simple coarsening scheme is based on Gershgorin discs and provides
+a guaranteed bound on <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \kappa$">.
+</LI>
+<LI><I>Prolongation weights</I>. We propose that the quality of <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ W$"> can be
+measured as an energy norm of the departure of <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ W$"> from the minimal energy
+weights <!-- MATH
+ $-A_{f\hspace{-0.1667 em}f}^{-1} A_{f\hspace{-0.0833 em}c}$
+ -->
+<IMG
+ WIDTH="70" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ -A_{f\hspace{-0.1667 em}f}^{-1} A_{f\hspace{-0.0833 em}c}$">,
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+\gamma \equiv \sup_{\mathbf{v}\ne \mathbf{0}} \frac{\lVert F\mathbf{v} \rVert _{A_{f\hspace{-0.1667 em}f}}}{\lVert \mathbf{v} \rVert _{A_c}},
+&&
+F \equiv W - (-A_{f\hspace{-0.1667 em}f}^{-1} A_{f\hspace{-0.0833 em}c}).
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="130" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle \gamma \equiv \sup_{\mathbf{v}\ne \mathbf{0}} \frac{\lVert F\mathbf{v} \rVert _{A_{f\hspace{-0.1667 em}f}}}{\lVert \mathbf{v} \rVert _{A_c}},$"></TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="158" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$\displaystyle F \equiv W - (-A_{f\hspace{-0.1667 em}f}^{-1} A_{f\hspace{-0.0833 em}c}).$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+We augment the energy-minimizing interpolation of Wan, Chan, and Smith
+with a dynamic procedure for determining the support of <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ W$"> based
+on a computable estimate of <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \gamma$">.
+</LI>
+<LI><I>Smoothing</I>. In our forthcoming paper we demonstrate that the
+asymptotic convergence rate is determined only by the component of <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ B$">
+affecting the F-variables in the hierarchical basis,
+<!-- MATH
+ \begin{displaymath}
+\hat{B}_{f\hspace{-0.1667 em}f}\equiv \begin{bmatrix} I & -W \end{bmatrix} B
+\begin{bmatrix} I & -W \end{bmatrix}^T.
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="220" HEIGHT="44" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle \hat{B}_{f\hspace{-0.1667 em}f}\equiv \begin{bmatrix}I &amp; -W \end{bmatrix} B
+\begin{bmatrix}I &amp; -W \end{bmatrix}^T. $">
+</DIV><P></P>
+We propose that the quality of the smoother can be measured by the asymptotic
+convergence rate of the iteration using <!-- MATH
+ $\hat{B}_{f\hspace{-0.1667 em}f}$
+ -->
+<IMG
+ WIDTH="30" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \hat{B}_{f\hspace{-0.1667 em}f}$"> to solve equations
+governed by <!-- MATH
+ $A_{f\hspace{-0.1667 em}f}$
+ -->
+<IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A_{f\hspace{-0.1667 em}f}$">,
+<!-- MATH
+ \begin{displaymath}
+\rho_f \equiv \rho ( I - \hat{B}_{f\hspace{-0.1667 em}f}A_{f\hspace{-0.1667 em}f}).
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="145" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$\displaystyle \rho_f \equiv \rho ( I - \hat{B}_{f\hspace{-0.1667 em}f}A_{f\hspace{-0.1667 em}f}). $">
+</DIV><P></P>
+We target this measure with a simple diagonal SAI
+preconditioner within a Chebyshev polynomial.
+</LI>
+</OL>
+The above measures are motivated by the bound, closely related to others in the
+literature, on the two-grid asymptotic convergence
+rate, <!-- MATH
+ \begin{displaymath}
+\rho(E_{\text{tg}}) \le \gamma^2 + (1 - \gamma^2) \rho_f,
+\end{displaymath}
+ -->
+<P></P>
+<DIV ALIGN="CENTER">
+<IMG
+ WIDTH="183" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$\displaystyle \rho(E_{\text{tg}}) \le \gamma^2 + (1 - \gamma^2) \rho_f, $">
+</DIV><P></P>
+which we prove in
+our forthcoming paper, and which immediately explains the latter two
+measures. The justification of the coarsening measure <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \kappa$"> is
+twofold. First, a small <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \kappa$"> implies that a few steps of diagonal
+preconditioning suffices to make <IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ \rho_f$"> small. Second, a small <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ \kappa$">
+implies that <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ W$"> may be highly sparse and yet be a good approximation to
+<!-- MATH
+ $A_{f\hspace{-0.1667 em}f}^{-1} A_{f\hspace{-0.0833 em}c}$
+ -->
+<IMG
+ WIDTH="58" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ A_{f\hspace{-0.1667 em}f}^{-1} A_{f\hspace{-0.0833 em}c}$">, thereby inducing a small <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$ \gamma$">. This is due to a result
+of Demko, that the entries in the inverse of a sparse matrix
+(here <!-- MATH
+ $A_{f\hspace{-0.1667 em}f}^{-1}$
+ -->
+<IMG
+ WIDTH="33" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$ A_{f\hspace{-0.1667 em}f}^{-1}$">) decay exponentially with a rate characterized by the
+condition number. Vassilevski was the first to mention the
+relevance of this result to multigrid.
+
+<P>
+Although our solver is still in the development stage, we have had some initial
+success in deploying it on the 4096-processor BG/P at Argonne for a coarse-grid
+problem of dimension <IMG
+ WIDTH="90" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ n=412,000$"> (originating fine-grid problem of dimension
+<IMG
+ WIDTH="59" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img28.png"
+ ALT="$ n_f = 44$">M). The new solver yields the same outer (fine-grid) iteration count
+as that realized with our direct projection-based solver. After
+some tuning of the communication kernels the AMG solver is 6.5 times faster
+than the original coarse-grid solver, and the overall solution time is reduced
+nearly two-fold. We expect further improvements with additional tuning.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html507"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html505"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html506"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

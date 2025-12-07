@@ -1,0 +1,25 @@
+===firstname:
+Geoffrey D.
+===firstname3:
+Stephen F.
+===lastname2:
+Manteuffel
+===postal:
+Department of Applied Mathematics
+526 UCB
+University of Colorado
+Boulder, CO 80309-0526
+===lastname:
+Sanders
+===lastname3:
+McCormick
+===ABSTRACT:
+Applying smoothed aggregation multigrid (SA) to solve nonsymmetric linear systems, $A {\bf x} = {\bf b}$, can be problematic due to a lack of minimization principle in the coarse-grid corrections.   We propose an approach that is based on applying SA to the symmetric positive definite matrices $\sqrt{A^* A}$ or $\sqrt{A A^*}$.  These matrices however, are typically full and difficult to compute, and it is therefore not computationally efficient to use them directly to form a coarse-grid correction.   Our proposed approach approximates these coarse-grid corrections by using smoothed aggregation to accurately approximate singular vectors of $A$ that correspond to the lowest singular value.  We present some preliminary theory two-level convergence theory for unsmoothed versions the intergrid transfer operators and simple examples to illustrate this theory.
+===email:
+sandersg@colorado.edu
+===otherauths:
+
+===title:
+Convergence Theory for Nonsymmetric Smoothed Aggregation Multigrid
+===firstname2:
+Thomas A.

@@ -1,0 +1,42 @@
+===firstname:
+Khosro, KS
+===firstname3:
+
+===lastname2:
+Mavriplis
+===postal:
+Department of Mechanical Engineering
+University of Wyoming
+1000 E. University Ave.
+Laramie, WY 82071-3295 USA
+===lastname:
+Shahbazi
+===lastname3:
+
+===ABSTRACT:
+We present a multigrid solver for the system arising from high-order discontinuous Galerkin (DG) discretizations of the compressible Navier-Stokes equations. We use the interior 
+penalty method (D. Arnold, SIAM J. Numer. Anal. 19 (1982), pp. 742-760) for the discretization of the diffusion term and the local Lax-Fredriches fluxes for the convective term. In the interior penalty method, the penalty parameter is chosen based on an explicit expression derived in (K. Shahbazi, J. Comput. Phys. 
+205 (2005), pp. 401-407). A Hierarchical basis consisting of high-order polynomials is used for spatial discretizations.
+
+The coarse grid approximations and smoothing schemes of our multigrid solver are chosen as follows.
+The coarse grid operators are direct discretizations of the governing equations at lower approximation orders. 
+For smoothing schemes, we consider both block Jacobi and block Gauss-Seidle iterations, where block corresponds to the matrix arising from the restriction of DG discretizations to a single element. Since we use hierarchical basis, the restriction operator from a high order to a low order vectors is simply an identity matrix with zero columns. 
+
+We first verify the performance of the proposed multigrid solver for the two-dimensional Poisson equation on a square domain for different approximation orders and different mesh sizes. 
+We choose the coarsest grid to be the dicretization at approximation order p=0. This allows fast solution of the 
+the coarsest grid system using the geometric multigrid. Mesh- and order-independent convergence rates are achieved if the number of smoothing iterations are chosen large enough.
+
+We then examine the behavior of the scheme in simulating viscous flow over NACA0012 airfoil at zero degree incidence, and with a freestream Mach number of 0.5, and a Reynolds number of 5000. 
+Unlike the Poisson case, adopting p=0 for the coarsest grid, 
+does not yield a robust multigrid solver. Except for the p=1 approximation where fast convergence is obtained, consistent improvements in convergence rates are not observed at higher 
+orders. We attribute this to the inconsistent discretization of the 
+diffusion operator at p=0. Thus, instead of the p=0, we propose to use the p=1 as the coarsest level. The p=1 (coarsest grid) system itself is efficiently solved using the proposed multigrid scheme. 
+Numerical results verifies the robustness and fast convergence of this scheme.
+===email:
+kshahbaz@uwyo.edu
+===otherauths:
+
+===title:
+A Multigrid Solver for High-Order Discontinuous Galerkin Discretizations of the Compressible Navier-Stokes Equations
+===firstname2:
+Dimitri

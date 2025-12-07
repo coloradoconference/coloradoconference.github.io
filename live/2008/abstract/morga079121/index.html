@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>morga079121</TITLE>
+<META NAME="description" CONTENT="morga079121">
+<META NAME="keywords" CONTENT="morga079121">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="morga079121.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Ron Morgan 
+<BR><B>Linear Equations with Multiple Right-hand Sides</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Math Department 
+<BR>
+Baylor University 
+<BR>
+Waco 
+<BR>
+TX 76798-7328
+
+<BR><TT>Ronald_Morgan@baylor.edu</TT>
+<BR>
+Dywayne Nicely
+</DIV>
+
+<P>
+This talk will concentrate on symmetric and Hermitian systems with
+multiple right-hand sides, but work on nonsymmetric problems may also be
+mentioned. We first give the Lan-DR method. It is a restarted Lanczos
+algorithm that solves a system of linear equations and simultaneously
+computes both eigenvalues and eigenvectors. We will discuss the
+relationship of Lan-DR to other methods such as GMRES-DR (a deflated
+GMRES approach), implicitly restarted Arnoldi, and thick restart Lanczos.
+We will give some reorthogonalization approaches, including a combination
+of Parlett and Scott's selective orthogonalization and Simon's partial
+orthogonalization.
+
+<P>
+For systems of linear equations with multiple right-hand sides, one
+approach is to solve the first system with Lan-DR and then use the
+eigenvectors generated to assist solving the other right-hand sides. A
+deflated conjugate gradient method can be implemented that has a
+projection over the eigenvectors followed by CG. We also consider seed
+methods for solving multiple right-hand sides and suggest some
+improvements. Both deflated CG and the new seed CG will be tested on
+Hermitian problems from QCD.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Marian
+2008-03-01
+</ADDRESS>
+</BODY>
+</HTML>

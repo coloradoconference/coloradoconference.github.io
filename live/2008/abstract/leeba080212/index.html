@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>leeba080212</TITLE>
+<META NAME="description" CONTENT="leeba080212">
+<META NAME="keywords" CONTENT="leeba080212">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html442"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html443"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Barry Lee 
+<BR><B>A Novel Multigrid Method for Sn Discretizations of the Mono-Energetic Boltzmann Transport Equation in the Optically Thick and Thin Regimes with Anisotropic Scattering</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Center for Applied Scientific Computing 
+<BR>
+Lawrence Livermore National Laboratory 
+<BR>
+P O&nbsp;Box&nbsp;808 
+<BR>
+L-561 
+<BR>
+Livermore 
+<BR>
+CA 94551 
+<BR>
+USA
+
+<BR><TT>lee123@llnl.gov</TT>
+</DIV>
+
+<P>
+This talk presents a new multigrid method applied to the most common Sn discretizations 
+(Petrov-Galerkin, diamond-differenced, corner-balanced, and discontinuous Galerkin) of
+the mono-energetic Boltzmann transport equation in the optically thick and thin regimes, and
+with strong anisotropic scattering. Unlike methods that use scalar DSA diffusion preconditioners 
+for the source iteration, this multigrid method is applied directly to an integral equation for the 
+scalar flux. Thus, unlike the former methods that apply a multigrid strategy to the scalar DSA 
+diffusion operator, this method applies a multigrid strategy to the integral source iteration
+operator, which is an operator for 5 independent variables in 3-d and 4 in 2-d : 3 or 2 in space 
+and 2 in angle. The core smoother of this multigrid method involves applications
+of the integral operator. Since the kernel of this integral operator involves 
+the transport sweeps, applying this integral operator requires a transport sweep
+(an inversion of an upper triagular matrix) for each of the angles used. As the equation is in 
+5-space or 4-space, the multigrid approach in this talk coarsens in both angle and space,
+effecting efficient applications of the coarse integral operators. Although each V-cycle
+of this method is more expensive than a V-cycle for the DSA preconditioner, since the DSA equation 
+does not have angular dependence, the overall computational efficiency is about
+the same for problems where DSA preconditioning <I>is</I> effective. This new method also appears
+to be more robust over all parameter regimes than DSA approaches. Moreover, this new method is 
+applicable to a variety of Sn spatial discretizations, to problems involving a combination
+of optically thick and thin regimes, and more importantly, to problems with anisotropic
+scattering cross-sections, all of which DSA approaches perform poorly or are not applicable to.
+This multigrid approach is most effective in neutron scattering applications, where the total 
+cross-section coefficient <IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \sigma_t$"> and spatial meshsize <IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ h$"> satisfies <!-- MATH
+ $\sigma_t h\approx 1.$
+ -->
+<IMG
+ WIDTH="62" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \sigma_t h\approx 1.$">
+For this case, coarsening can be done aggressively. For problems with <!-- MATH
+ $\sigma_t h\approx 10,$
+ -->
+<IMG
+ WIDTH="70" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \sigma_t h\approx 10,$"> this
+multigrid scheme requires a moderate coarsening rate. An even slow coarsening is required
+for problems with <!-- MATH
+ $\sigma_t h$
+ -->
+<IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \sigma_t h$"> ranges between 20 and 1000, which occur in high-energy photon applications.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html444"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html442"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html443"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

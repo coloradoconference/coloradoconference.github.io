@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>gutkn080119</TITLE>
+<META NAME="description" CONTENT="gutkn080119">
+<META NAME="keywords" CONTENT="gutkn080119">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html323"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html324"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Martin H. Gutknecht 
+<BR><B>Block GMRES With a New Deflation Strategy</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Seminar for Applied Mathematics 
+<BR>
+ETH Zurich 
+<BR>
+HG 
+<BR>
+CH-8092 Zurich 
+<BR>
+Switzerland
+
+<BR><TT>mhg@math.ethz.ch</TT>
+</DIV>
+
+<P>
+In the last ten years there has been considerable interest in
+iterative solvers for linear systems of equations with multiple
+right-hand sides.
+There exist mainly two basic approaches: (i) using a seed system
+that reduces cost when a ``normal'' Krylov space method is
+subsequently applied to other right-hand sides and (ii) generalizing
+Krylov space methods to block Krylov space methods that treat all
+right-hand sides simultaneously (which requires all to be
+available at once).
+A typical and seemingly straightforward method of the second kind is
+block GMRES.
+
+<P>
+Block Krylov space methods have two major potential advantages over
+ordinary Krylov space methods. Firstly, when they are applied to a
+system with, say, <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> right-hand sides, typically <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> matrix-vector
+products can be computed at once. On most of today's computers, even
+on those with a single processor, this takes considerably less time
+than to compute <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> times a single matrix-vector product.
+
+<P>
+Secondly, after <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ n$"> iterations with a total of <IMG
+ WIDTH="21" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ ns$"> matrix-vector
+products, the dimension of the search space for the approximate
+solutions can be up to <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> times larger than if we apply the ordinary
+Krylov space solver individually to all <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> right-hand sides.
+Therefore the cost per system may asymptotically decrease by as much
+as a factor of <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$">.
+Unfortunately, in practice we often see little benefit from this
+potential speedup.
+
+<P>
+There is, however, another closely related aspect: the <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> approximate
+solutions obtained after <IMG
+ WIDTH="14" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ n$"> steps may approximately live in an affine
+space of much smaller dimension than <IMG
+ WIDTH="21" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ ns$">, because the corresponding
+residuals may be approximately linear dependent.
+By detecting this dependency and taking appropriate action (normally
+called ``deflation'', although this notion is used in other situations
+too), we can reduce the number of matrix-vector products needed
+significantly.
+
+<P>
+In exact arithmetic, deflation and its effect on the minimum dimension
+of the block Krylov space that contains the exact solution is well
+understood. It is related to the so-called block grade of the system,
+which was the topic of our talk at Copper Mountain in 2006.
+It is also known how, in exact arithmetic, deflation can be built
+into block GMRES. In particular, deflation can be checked for and taken
+care of in the block Arnoldi process; there is no need to check directly
+(at high cost) for the linear dependence of the <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ s$"> residuals except at the
+beginning and at restarts. However, Julien Langou pointed out at the above
+mentioned talk that, in practice, i.e., in finite precision arithmetic,
+block GMRES is not as effective as one would hope for, even if the
+deflation process is adapted to treat nearly linear dependent situations
+in an analogous way.
+(He had pointed out this before in his talk at Copper Mountain in 2004.)
+We had observed similarly disappointing outcomes in small examples we
+had tried.
+
+<P>
+In this talk we will propose a completely different deflation strategy
+based on checking the block quasi-residuals for approximate linear
+dependence. To achieve a reduction of the number of matrix-vector
+products deflation still needs to be enforced in the block Arnoldi
+process, however.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html325"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html323"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html324"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

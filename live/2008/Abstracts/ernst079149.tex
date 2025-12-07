@@ -1,0 +1,49 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Oliver G. Ernst \\
+{\bf Iterative Solvers for Stochastic Galerkin Systems }}
+
+Institut für Numerische Mathematik und Optimierung \\ TU Bergakademie Freiberg \\ 09596 Freiberg \\ Germany
+\\
+{\tt ernst@math.tu-freiberg.de}\\
+Catherine Powell\\
+David Silvester\\
+	Ullmann, Elisabeth\end{center}
+
+In recent years the technique of uncertainty quantification by solving
+partial differential equations with random data has received increasing
+attention.
+A particularly popular solution approach for such problems is the
+\emph{Stochastic Galerkin Method}, also known as the \emph{Stochastic
+Finite Element Method}.
+Stochastic Galerkin discretization combines a standard finite element
+discretization of the deterministic variant of the underlying problem
+with a discretization of the dependence of the solution on the uncertain
+variables, in the form of a tensor product space. It has recently been
+shown that, under certain weak stochastic regularity assumptions on the
+uncertain variables, that stochastic Galerkin discretizations converge
+faster than the more well-known Monte Carlo simulations.
+
+Aside from many modeling and discretization issues, the task of solving
+the extremely large linear systems of equations which arise in stochastic
+Galerkin discretizations poses a substantial challenge.
+In this talk we discuss the influence of various stochastic Galerkin
+formulations on the resulting linear system of equations and present
+recent theoretical and numerical results [1] based on Krylov subspace
+solvers using a preconditioner based on the mean problem -- that which
+results when the random coefficients are replaced by their mean values.
+
+References
+
+[1] Oliver G. Ernst, Catherine E. Powell, David Silvester, and Elisabeth Ullmann. Effi-
+cient solvers for a linear stochastic Galerkin mixed formulation of diffusion problems
+with random data. EPrint 2007.126, Manchester Institute for Mathematical Sciences,
+University of Manchester, Manchester, UK, 2007.
+
+
+\end{document}

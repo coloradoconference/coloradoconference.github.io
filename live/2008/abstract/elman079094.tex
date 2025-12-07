@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large 
+%-mb: Howard C. Elman \\
+Robert R. Shuttleworth\\
+{\bf Fast Solvers for Models of ICEO Microfluidic Flows}}
+
+Department of Computer Science \\ University of Maryland \\ College Park \\ MD 20817 \\ USA
+\\
+%-mb: {\tt elman@cs.umd.edu}\\
+{\tt robert.shuttleworth@gmail.com}\\
+%-mb: Robert R. Shuttleworth\\
+Howard C. Elman \\
+Kevin R. Long\\
+	Templeton, Jeremy A.\end{center}
+
+We demonstrate the performance of a fast computational algorithm
+for modeling the design of a microfluidic mixing device. The mixing
+device uses an electrokinetic process, induced charge
+electroosmosis, by which a flow through the device is driven by a
+set of charged obstacles in it. The device's design is realized by
+manipulating the shape and orientation of the obstacles in order to
+maximize the amount of fluid mixing within the device. The
+computations required in the modeling of the electrokinetic process
+entails the solution of a constrained optimization problem in which
+function evaluations require the numerical solution of a set of
+partial differential equations: a potential equation, the
+incompressible Navier-Stokes equations, and a mass transport
+equation. The most expensive component of the function evaluation
+(which must be performed at every step of an iteration for the
+optimization) is the solution of the Navier-Stokes equations. We
+show that by using some new robust algorithms for this task, based
+on certain preconditioners that take advantage of the structure of
+the linearized problem and approximate the Schur complement, this
+computation can be done efficiently. Using this computational
+strategy, in conjunction with a derivative-free pattern search
+algorithm for the optimization, applied to a finite element
+discretization of the problem, we are able to determine optimal
+configurations of microfluidic devices.
+
+
+\end{document}

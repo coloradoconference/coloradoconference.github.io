@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>moult080391</TITLE>
+<META NAME="description" CONTENT="moult080391">
+<META NAME="keywords" CONTENT="moult080391">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html617"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html618"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">J. D. Moulton 
+<BR><B>A Multilevel Multiscale Mimetic (M<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^3$">) Method for Two-Phase Flows in Porous Media </B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">MS B284 
+<BR>
+Los Alamos National Laboratory 
+<BR>
+Los Alamos 
+<BR>
+NM 87545
+
+<BR><TT>moulton@lanl.gov</TT>
+<BR>
+K. Lipnikov
+<BR>
+D. Svyatskiy
+</DIV>
+
+<P>
+In many subsurface applications, homogenization (or upscaling)
+techniques are necessary to develop computationally feasible models on
+scales coarser than the variation of the coefficients of the continuum
+model. The accuracy of such techniques depends dramatically on
+assumptions that underlie the particular upscaling methodology used. For
+example, decoupling of fine- and coarse-scale effects in the underlying
+medium may utilize artificial internal boundary conditions on sub-cell
+problems. Such assumptions, however, may be at odds with the true,
+fine-scale solution, and hence, may lead to significant errors in
+computed coarse-scale quantities. To address this problem we are
+developing truly multilevel methods that do not make such a rigid
+distinction between resolved and unresolved (coarse and fine) spatial
+scales. Specifically, we are interested in developing techniques that
+draw on various aspects of robust and efficient multilevel solvers to
+upscale or homogenize the underlying mathematical model, and not simply
+the parameters of the model.
+
+<P>
+In this talk we develop a new multilevel multiscale mimetic
+(M<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ ^{3}$">) method for discretizations of the first order system for
+pressure and bulk fluid velocity. This work combines an
+algebraically-based sub-grid modeling technique recently proposed by Y.
+Kuznetsov with an algebraic multigrid (AMG) method for
+approximating the flux coarsening parameters. The use of a robust
+variational multigrid algorithm, such as AMG, efficiently captures the
+effects of the fine-scale structure on the flow, and hence, provides
+accurate estimates of the problem dependent flux coarsening parameters in
+a very small number of iterations. By design, the structure of the
+coarse-scale system is identical to the original fine-scale system, hence
+we can apply the coarsening procedure recursively to obtain a multilevel
+algorithm. This algorithm is very flexible with a number of free
+parameters, including the number of coarse levels, the coarsening factor
+for each level, and the accuracy of the flux coarsening. We demonstrate
+the new M<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ ^{3}$"> method using the IMPES time discretization approach for
+the mimetic finite difference
+(MFD) discretization of two-dimensional benchmark problems
+with highly heterogeneous permeability fields.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html619"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html617"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html618"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

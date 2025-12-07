@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>wangm078237</TITLE>
+<META NAME="description" CONTENT="wangm078237">
+<META NAME="keywords" CONTENT="wangm078237">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html990"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html991"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Meiqiu Wang 
+<BR><B>Constructing M-matrix preconditioners for Finite Element Matrices</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">309D 
+<BR>
+H R Bright Building 
+<BR>
+Department of Computer Science 
+<BR>
+Texas A&amp;M University 
+<BR>
+College Station 
+<BR>
+TX 77843-3112
+
+<BR><TT>mqwang@cs.tamu.edu</TT>
+<BR>
+Vivek Sarin
+</DIV>
+
+<P>
+The finite element method is one of the most popular numerical techniques
+for solving partial differential equations (PDEs), especially over
+complex domains. The finite element discretization of second order
+elliptic PDEs gives a large sparse linear system of equations that can be
+solved by iterative methods such as the preconditioned conjugate gradient
+method.
+
+<P>
+Support graph preconditioning is a relatively new technique to construct
+preconditioners. A support graph is a subgraph of the graph associated
+with the sparse matrix which is obtained by eliminating certain edges.
+The matrix corresponding to the support graph is used as a
+preconditioner. This approach has several attractive features. The scheme
+yields robust preconditioners whose effectiveness can be increased at the
+expense of additional memory during the edge elimination process itself.
+The quality of the preconditioner appears to be relatively insensitive to
+boundary conditions and domain characteristics such as anisotropy and
+inhomogeneity. In addition, there are theoretical results to quantify the
+behavior of the preconditioner. A recent study shows that this approach
+can be used to solve the system in almost linear time.
+
+<P>
+A major limitation of the original support graph approach was that the
+coefficient matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$"> had to be a symmetric, positive semi-definite, and
+diagonally dominant M-matrix. In recent years, the support graph idea has
+been extended to a larger class of matrices: maximum weight bases
+preconditioner has been proposed for symmetric diagonally dominant
+matrices; techniques have been proposed for matrices arising from the
+finite element discretization of elliptic problems.
+
+<P>
+In this talk, we describe a technique to extend support graph
+preconditioners to symmetric positive definite matrices arising in the
+finite element discretization of elliptic problems. Our approach uses
+element-level coordinate transformations to construct a symmetric
+positive definite diagonally dominant M-matrix <IMG
+ WIDTH="16" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \tilde{A}$"> that can be
+used to approximate <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">. A support graph preconditioner <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ M$"> for
+<!-- MATH
+ $\tilde{A}^{\prime}$
+ -->
+<IMG
+ WIDTH="21" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \tilde{A}^{\prime}$"> is constructed in the usual way, and used as a
+preconditioner for <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ A$">. In order to have an effective preconditioner, it
+is necessary to construct an accurate approximation <IMG
+ WIDTH="16" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \tilde{A}$"> that
+guarantees that the condition number <!-- MATH
+ $\kappa(\tilde{A}^{-1}A)$
+ -->
+<IMG
+ WIDTH="67" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ \kappa(\tilde{A}^{-1}A)$"> will be
+small. In our approach the condition number of matrix <!-- MATH
+ $\tilde{A}^{-1}A$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \tilde{A}^{-1}A$">
+is bounded as a function of the mesh angles. We show that this property
+holds for the common triangular elements and quadrilateral elements, as
+well as their three-dimensional counterparts. The element-level
+coordinate transformations can be extended easily to other types of
+Lagrangian elements. Our approach is simple, effective, easy to analyze
+and is applicable to a large class of problems.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html992"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html990"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html991"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

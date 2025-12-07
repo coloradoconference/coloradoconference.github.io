@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Submit Abstract</title>
+<body bgcolor="#00bfbf">
+<center>
+<h2>Submit Abstract</h2>
+<table width="80%" cellpadding=8><tr><td>
+	Abstracts are limited to two pages.  Submit it below in
+	text form.  You may include HTML markup or LaTeX markup,
+	but please not both.  If you cut/paste from Word or other
+	word processors, fix any binary characters that may be
+	introduced.
+	</td</tr></table>
+</center>
+
+<!--	form method="POST" action="Check.cgi"	-->
+
+<table cellpadding=4>
+
+<tr><th align=right>TITLE</th>
+	<td><input type="text" name="title" size=60>
+	</td></tr>
+
+<tr><th align=right>Speaker's Name</th>
+	<td><input type="text" name="speaker" size=60>
+	</td></tr>
+
+<tr><th align=right>Speaker's email:</th>
+	<td><input type="text" name="email" size=60>
+	</td></tr>
+
+<tr><th align=right>Speaker's Address</th>
+	<td><textarea name="address" cols=60
+	rows=3 align="top"></textarea>
+	</td></tr>
+
+<tr><th align=right>2nd author:</th>
+	<td><input type="text" name="authortwo" size=60>
+	</td></tr>
+
+<tr><th align=right>3rd author:</th>
+	<td><input type="text" name="authorthree" size=60>
+	</td></tr>
+
+<tr valign=top><th align=right>Abstract:</th>
+	<td><textarea name="abstract" cols=78
+	rows=50 align="top"></textarea>
+	</td></tr>
+
+<tr><th colspan=2><input type="submit" value="SUBMIT ABSTRACT"></th></tr>
+
+</table>
+</form>
+</body>
+</html>

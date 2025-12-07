@@ -1,0 +1,43 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Christopher Newman \\
+{\bf Parallel Preconditioned Newton-Krylov solutions of the Laplace--Beltrami Target Metric (LBTM) smoothing method applied to three-dimensional unstructured meshes}}
+
+Idaho National Laboratory \\ PO Box 1625 \\ Idaho Falls \\ ID 83415-3840
+\\
+{\tt christopher.newman@inl.gov}\\
+Glen Hansen\\
+Benoit Forget\end{center}
+
+This presentation examines the performance of selected parallel,
+"physics-based" preconditioning methods applied
+to the Laplace--Beltrami Target Metric (LBTM) mesh smoothing equations.
+These equations constitute a nonlinear elliptic
+system of partial differential equations and are primarly used for unstructured mesh
+generation on complex geometry. When a target metric mesh improvement
+method is used, the three coordinate
+equations are coupled through the metric. The weak form of this system
+is solved using a standard Jacobian-free Newton--Krylov approach,
+employing the NOX, EPETRA
+and AZTECOO packages
+contained in Sandia National Laboratories TRILINOS project.
+
+Historically the use of Laplace--Beltrami mesh generation methods have been
+limited by the scalability and efficiency of linear solvers.
+This work focuses on a study
+of the effectiveness and parallel scalability of selected "physics-based"
+preconditioners applied to this
+problem, and presents numerical examples to support this study
+and to provide for comparison of the preconditioning strategies.
+
+INL/CON-08-13810 Rev. 0
+Work supported by the U.S. Department of Energy Office of Nuclear Energy,
+under DOE Idaho Operations Office Contract DE-AC07-05ID14517.
+
+
+\end{document}

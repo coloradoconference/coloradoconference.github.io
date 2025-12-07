@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Sue Dollar \\
+{\bf Equivalent SPD systems for saddle-point problems}}
+
+Rutherford Appleton Laboratory \\ Chilton \\ Oxfordshire \\ OX11 0QX
+\\
+{\tt s.dollar@rl.ac.uk}\\
+Nick Gould\\
+Martin Stoll\\
+	Andy Wathen\end{center}
+
+Consider symmetric saddle-point problems of the form
+\begin{equation}\label{eqn1}
+\left( \begin{array}{cc} A & B^T \\ B & -C \end{array} \right) \left(
+\begin{array}{c} x \\ y \end{array} \right) =\left( \begin{array}{c} b \\
+d \end{array} \right).
+\end{equation}
+The solution to
+(\ref{eqn1}) also satisfies the symmetric system
+\begin{eqnarray}
+& & \left[ \sigma \left( \begin{array}{cc} A & B^T \\ B & -C \end{array}
+\right) + \left(\begin{array}{cc} A & B^T \\ B & -C \end{array} \right)
+\left(\begin{array}{cc} D & F^T \\ F & E \end{array}
+\right)\left(\begin{array}{cc} A & B^T \\ B & -C \end{array} \right)
+\right] \left( \begin{array}{c} x \\ y \end{array} \right) \\ \nonumber
+& & = \left( \begin{array}{c} \sigma b + A(Db + F^T d) + B^T ( F b + E d)
+\\ \sigma d + B(D b + F^T d) - C (F b - E d) \end{array}
+\right),\label{eqn2}
+\end{eqnarray}
+for given real $\sigma,$ arbitrary symmetric matrices $D$ and $E,$ and
+arbitrary matrix $F.$
+
+We show that many popular conjugate gradient-based methods for solving
+(\ref{eqn1}) can be reformulated as applying the (preconditioned)
+conjugate gradient method to (\ref{eqn2}) for some $\sigma,$ $D,$ $E$ and
+$F.$ We also provide conditions for guaranteeing that (\ref{eqn2}) is
+positive definite. Using these conditions we propose new conjugate
+gradient-based methods for solving (\ref{eqn1}).
+
+
+\end{document}

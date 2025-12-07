@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Pablo Navarrete Michelini \\
+{\bf Design of Multigrid Methods for Traffic Models based on Correlated Random Walks}}
+
+Center for Wireless Systems and Applications \\ 465 Northwestern Ave  \\ Purdue University \\ West Lafayette \\ IN 47907-2035 \\ USA
+\\
+{\tt pnavarre@purdue.edu}\\
+Edward J. Coyle\end{center}
+
+We study the configuration of multigrid methods for computing statistics
+of traffic models. For this purpose we consider the available models for
+the mobility of vehicles based on different types of continuous-time
+Markov chains. Of these models we concentrate on the subset represented
+by Correlated Random Walks because we will show that they are amenable to
+solution by efficient multigrid methods.
+
+The goal of the multigrid method is to compute statistics of ``absorbing
+times'' that represent the time needed for a vehicle to arrive at a
+certain destination from either a random or a fixed starting point.
+Within this framework we apply our recent results on the convergence of
+multigrid methods to design efficient inter-grid operators [1]. Thus, we
+are able to obtain an optimal method, with efficient parameters, to
+compute statistics on traffic models based on correlated random walks. We
+are also able to provide a complete understanding of the convergence
+issues in this setting.
+
+A mobility model based on continuous-time Markov chains models the
+streets of a city as a finite grid where each point on the grid
+corresponds to an intersection of streets. Therefore, a vehicle moving in
+the city belongs to one point in the grid at a time and it jumps to other
+grid nodes at random times. The time instant at which the vehicle takes
+its steps is governed by a Poisson process, meaning that it moves from
+one intersection to a neighboring intersection with a randomly chosen
+velocity. In the simplest scenario, the transitions occur only between
+neighboring grid nodes, which represents a random walk mobility model. In
+the correlated random walk mobility model, the probability of a vehicle
+moving between grid nodes in the same direction as its previous step is
+different than the probability of moving in the opposite direction. Thus,
+correlated random walks are both more flexible and more accurate models
+of traffic because they can account for time dependency, geographical
+restrictions, and nonzero drift.
+
+The statistics associated with absorbing times are important for the
+evaluation of mobility models because they give an accurate description
+of the motion of vehicles on a grid. For example, knowledge of the times
+between a vehicle's contacts with other vehicles is important in mobile
+ad-hoc networks that create a communication network based only on
+wireless communications between vehicles. An important goal is to scale
+the network and maintain reliable communication. In this scenario, it is
+known that the mobility patterns have a significant impact on the network
+coverage and throughput-delay characteristics [2]. The statistics of
+absorbing times are thus important for the design of large mobile ad-hoc
+networks.
+
+The statistics of absorbing times are difficult to obtain since they
+require the solution of sparse linear systems. The multigrid algorithm
+represents an optimal choice for this purpose because its complexity
+scales optimally. Nevertheless, the configuration of parameters needs
+special care to guarantee and optimize convergence. Although the
+structure of the systems is unusual for classic multigrid theory, we
+prove that it fits the assumptions of our previous results on convergence
+analysis. Using this analysis, we can design smoothing and inter-grid
+operators with precise adjustment of convergence properties. Thus, we
+obtain an efficient and robust algorithm for the calculation of absorbing
+times.
+
+To apply our analysis, we first need to check some assumptions on the
+system. The strongest assumption is condensed in a single algebraic
+property, called the Harmonic Aliasing Property, that contains all the
+information needed from the geometry of the discretization and the modal
+structure of the system. Then, the starting point is to check this
+property on the correlated random walk mobility model. After proving this
+property holds, we apply our analysis to design efficient inter-grid
+operators and check their performance. By this means we obtain the exact
+rates at which groups of modal components of the error evolve and
+interact for systems of different sizes. This provides a complete
+understanding of the algorithm in terms of its convergence properties and
+how they scale with the system.
+
+The multigrid configuration that we propose is not the only choice for
+this application. The most common choice for these type of problems is
+algebraic multigrid methods (AMGs), as they are designed to avoid almost
+any assumption on the system. Unfortunately, the convergence results
+obtained so far in the theory of AMG are not as strong as the
+well-established results for linear operators with constant stencil
+coefficients, known as Local Fourier Analysis (LFA). On the other hand,
+the use of LFA for this application is not possible because the linear
+systems needed to be solved have variable stencil coefficients. Thus,
+this application shows how our convergence analysis is more flexible than
+LFA as it allows us to obtain exact convergence rates for models where
+LFA is not applicable.
+
+Finally, in our previous work it remained unknown how flexible our
+convergence analysis could be. We have shown that it is more general than
+LFA but at the same time it is not as general as AMG. The last seems
+reasonable, as our analysis gives convergence rates which are as precise
+as the ones obtained by LFA. We have also provided examples of systems
+where our analysis works but LFA does not. These early examples were not,
+unlike the one in this paper, motivated by real applications. Thus, the
+application of our convergence analysis in traffic models gives new
+insight on the nature of the systems where our analysis is applicable.
+This application is therefore an important step towards understanding the
+flexibility and limitations of our new analytical approach.
+
+[1]P. Navarrete, and E.J. Coyle, ``A semi-algebraic approach that enables
+the design of inter-grid operators to optimize multigrid convergence''
+Numerical Linear Algebra with Applications, Accepted for publication Nov.
+2007.
+
+[2]S. Bandyopadhyay, E.J. Coyle, and T. Falck, ``Stochastic Properties of
+Mobility Models in Mobile Ad-Hoc Networks,'' IEEE Transactions on Mobile
+Computing, Vol. 6, No. 11, pp. 1218-1229, Nov. 2007.
+
+
+\end{document}

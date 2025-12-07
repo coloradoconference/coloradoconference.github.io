@@ -1,0 +1,66 @@
+===firstname:
+Roger G
+===firstname3:
+Maarten
+===lastname2:
+Tipireddy
+===postal:
+Civil and Environmental Engineering 
+University of Southern California 
+3620 S. Vermont Street, KAP 254C
+Los Angeles, CA 90089-2531
+Tel: (213) 740-9528
+Fax: (213) 740-2037
+
+===lastname:
+Ghanem
+===lastname3:
+Arnst
+===ABSTRACT:
+This communication investigates the use of preconditioning and parallellization methods to improve the computational efficiency of iterative solvers for linear systems arising in the Stochastic Finite Element Method~(SFEM).
+
+Linear matrix systems obtained in the SFEM are typically of much larger dimension than those obtained in the classical deterministic FEM.  Indeed, SFEM systems are typically~\cite{ghanem1991} of form:    
+\begin{equation}
+\sum_{i=0}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}=\boldsymbol{f}_{k}\;,\quad\text{for~$k = 0,\ldots,N$}\quad,\label{eq:sfemsystem}
+\end{equation}
+where~$N$ is the number of terms retained in the polynomial chaos expansion of the random response, $L$ is the number of terms in the Karhunen-Loeve expansion of the random material properties, and the dimension of all submatrices~$\boldsymbol{K}_{i}$ is equal to the number of spatial degrees of freedom.  Since the coefficients~$c_{ijk}$ vanish for certain combinations of the indices~$i$, $j$ and~$k$, the system matrix derived from the above formulation has a particular block-sparsity structure, see e.g.~\cite{pellisetti2000}.  Other important properties include the dominance of~$\boldsymbol{K}_0$ over the other~$\boldsymbol{K}_i$'s, and the fact that all matrices~$\boldsymbol{K}_i$ have the same sparsity pattern and are usually symmetric.
+
+The objective of this communication is to compare several preconditioning and parallellization methods which capitalize on the aforementioned properties to improve the computational efficiency of iterative solvers for SFEM systems of form~(\ref{eq:sfemsystem}).  Based on the dominance of~$\boldsymbol{K}_0$ over the other~$\boldsymbol{K}_i$'s, a first preconditioning method consists in reformulating the problem as a system of linear equations with multiple right-hand sides: 
+\begin{equation}
+c_{k0k}\boldsymbol{K}_{0}\boldsymbol{u}_{k}=\boldsymbol{f}_{k}-\sum_{i\not=k}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}-\left(\sum_{j\not=0}^{L}c_{kjk}\boldsymbol{K}_{j}\right)\boldsymbol{u}_{k}\;,\quad\text{for~$k = 0,\ldots,N$}.
+\end{equation}
+A second preconditioning method consists in keeping only the diagonal block matrices on the left-hand side and moving the remaining blocks to the right-hand side: 
+\begin{equation}
+\sum_{j=0}^{L}c_{kjk}\boldsymbol{K}_{j}\boldsymbol{u}_{k}=\boldsymbol{f}_{k}-\sum_{i\not=k}^{N}\sum_{j=0}^{L}c_{ijk}\boldsymbol{K}_{j}\boldsymbol{u}_{i}\;,\quad\text{for~$k = 0,\ldots,N$}.
+\end{equation}
+This method is expected to need fewer iterations to converge, but entails a higher computational effort at each iteration since the diagonal blocks are not identical. 
+   
+The SANDIA developed Trilinos library~\cite{heroux2007} is used to implement the framework.  The package Epetra for mat-vec operations, and the AztecOO, IFPACK and Belos preconditioner packages are used in particular.  The Belos package provides a solver manager for solving linear systems simultaneously on multiple right-hand sides.  All packages use the Message Passing Interface~(MPI) to allow for execution on parallel platforms.  At the conference, the methods discussed above will be presented and then compared based on their application to a case history in stochastic structural mechanics.        
+    
+\begin{thebibliography}{99}
+\bibitem[1]{ghanem1991}
+{R}. {G}hanem and {P}. {S}panos.
+\newblock {\em {S}tochastic {F}inite {El}ements:{A} {S}pectral {A}pproach}.
+\newblock Springer, 1991.
+
+\bibitem[2]{heroux2007}
+M.~Heroux and J.M. Willenbring.
+\newblock Trilinos users guide.
+\newblock Technical report, Sandia National Laboratories, 2007.
+\newblock SAND2003-2952.
+
+\bibitem[3]{pellisetti2000}
+M.F. Pellissetti and R.G. Ghanem.
+\newblock Iterative solution of systems of linear equations arising in the
+  context of stochastic finite elements.
+\newblock {\em Advances in Engineering Software}, 31:\penalty0 607--616, 2000.
+\end{thebibliography}
+===email:
+ghanem@usc.edu
+===otherauths:
+
+===title:
+Parallellization and preconditioning of iterative solvers for
+linear systems arising in the stochastic finite element method
+===firstname2:
+Ramakrishna

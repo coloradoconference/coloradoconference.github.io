@@ -1,0 +1,29 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Tim Chartier \\
+{\bf Adaptive Algebraic Smoothers}}
+
+Department of Mathematics \\ Davidson College \\ P O Box 6908 \\ Davidson \\ NC 28035-6908
+\\
+{\tt tichartier@davidson.edu}\\
+Bobby Philip\end{center}
+
+This talk will present a new method of adaptively constructing
+smoothers based on Local Sensitivity Analysis (LSA). Given a linear
+system, $Ax=b$, LSA identifies blocks of the matrix, $A$, so that a
+smoother, such as block iterative Gauss-Seidel, can be constructed based
+on the identified blocks. Results will be presented for constant and
+variable coefficient elliptic problems, systems arising from scalar and
+coupled system PDEs, as well as linear systems not arising from PDEs. The
+simplicity of the method will allow it to be easily incorporated into
+existing multigrid codes while providing a
+powerful tool for adaptively constructing smoothers tuned to the
+problem.
+
+
+\end{document}

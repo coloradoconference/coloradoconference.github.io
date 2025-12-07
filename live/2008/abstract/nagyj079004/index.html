@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>nagyj079004</TITLE>
+<META NAME="description" CONTENT="nagyj079004">
+<META NAME="keywords" CONTENT="nagyj079004">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html635"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html636"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">James Nagy 
+<BR><B>Preconditioning HyBR for Inverse Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Emory University 
+<BR>
+Math/CS Department 
+<BR>
+400 Dowman Drive 
+<BR>
+Suite W401 
+<BR>
+Atlanta 
+<BR>
+GA 30322
+
+<BR><TT>nagy@mathcs.emory.edu</TT>
+</DIV>
+
+<P>
+In this talk we consider large scale severely ill-conditioned linear
+systems that arise when solving ill-posed inverse problems. Computed
+solutions are very sensitive to errors in the data, and regularization
+is needed to stabilize the inversion process. There are many forms or
+regularization. In this talk we consider an iterative hybrid
+bidiagonalization regularization (HyBR) scheme that efficiently
+applies Tikhonov regularization. An advantage of the HyBR algorithm
+is that it can automatically estimate and refine regularization
+parameters at each iteration, and it can estimate a stopping iteration
+(both of these issues are very difficult for inverse problems). HyBR
+is based on Lanczos bidiagonalization, where the large scale problem
+is projected onto a small Krylov subspace. The ``hybrid" part refers
+to the fact that regularization is not applied a priori to the large
+scale problem, but instead to the small projected problem.
+Preconditioning to accelerate convergence of HyBR is very difficult;
+standard approaches are likely to magnify data errors in the early
+iterations, making it impossible to recover a good approximation of
+the desired solution. In this talk we illustrate the difficulties of
+preconditioning HyBR, and describe an approach that can be used for
+certain classes of inverse problems. Computational examples include
+the inverse heat equation, as well as examples from image processing.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html637"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html635"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html636"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

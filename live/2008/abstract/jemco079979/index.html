@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>jemco079979</TITLE>
+<META NAME="description" CONTENT="jemco079979">
+<META NAME="keywords" CONTENT="jemco079979">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html379"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html380"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Aleksandar Jemcov 
+<BR><B>Application of Vector Sequence Extrapolation to Iterative Algorithms in Computational Fluid Dynamics</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">10 Cavendish Court 
+<BR>
+Lebanon 
+<BR>
+NH 
+<BR>
+03766 
+<BR>
+USA
+
+<BR><TT>aj@fluent.com</TT>
+<BR>
+Joseph P. Maruszewski
+</DIV>
+
+<P>
+The vector extrapolation methods are the generalization of the
+Aitken's <!-- MATH
+ $\triangle^2$
+ -->
+<IMG
+ WIDTH="26" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \triangle^2$"> method for the scalar equations that allow
+a significant acceleration of the monotonic convergence. The idea
+of the convergence acceleration through the extrapolation methods
+is based on the transformation of a slowly converging sequence
+<IMG
+ WIDTH="39" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \{X_i\}$"> into a new sequence <IMG
+ WIDTH="35" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \{Y_i\}$"> converging to the same
+limit faster than the initial one. The transformation
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+T: \{X_i\} \rightarrow \{Y_i\}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="119" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\displaystyle T: \{X_i\} \rightarrow \{Y_i\}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+is constructed by interpolating a finite number of terms in the
+sequence <IMG
+ WIDTH="39" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \{X_i\}$">, thus effectively computing the sequence limit
+through the following linear combination:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="sum"></A><!-- MATH
+ \begin{equation}
+s = \sum_{i=0}^{k} \alpha_i X_i.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="97" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\displaystyle s = \sum_{i=0}^{k} \alpha_i X_i.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The vector extrapolation methods extend this approach to the
+sequences whose elements are vectors in the same way they were
+used in Eq.&nbsp;(<A HREF="#sum"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) to accelerate the scalar sequences.
+Weighting coefficients <IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \alpha_i$"> are determined by minimizing
+the error terms defined as the difference between the limit of
+the sequence <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ s$"> and the arbitrary elements of the sequence
+<IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ X_i$">:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="error"></A><!-- MATH
+ \begin{equation}
+\epsilon_i = s - X_i.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="87" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$\displaystyle \epsilon_i = s - X_i.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+For the linear fixed-point functions this is achieved by
+observing that the initial error <!-- MATH
+ $\epsilon_0$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \epsilon_0$"> can be related to
+the subsequent error <!-- MATH
+ $\epsilon_i$
+ -->
+<IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$ \epsilon_i$"> through the powers of the
+iteration matrix of the fixed-point function:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="recursion"></A><!-- MATH
+ \begin{equation}
+\epsilon_i = {\cal R}^i \epsilon_0.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="74" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle \epsilon_i = {\cal R}^i \epsilon_0.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Here the fixed point function is defined by
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="fp"></A><!-- MATH
+ \begin{equation}
+X_{i+1} = {\cal R}X_i + b.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="123" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle X_{i+1} = {\cal R}X_i + b.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(5)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+If we take the definition of the error, Eq.&nbsp;(<A HREF="#error"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) and
+observing that the arbitrary element of the sequence can be
+expressed as
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+X_i = s - {\cal R}^i \epsilon_0,
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="108" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$\displaystyle X_i = s - {\cal R}^i \epsilon_0,$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(6)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and if we substitute Eq.&nbsp;(<A HREF="#fp"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>), we can arrive to the
+conditions that the weighting coefficients must satisfy in order
+to minimize the error in Eq.&nbsp;(<A HREF="#sum"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>):
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="cond"></A><!-- MATH
+ \begin{equation}
+\sum_{i=0}^{k} \alpha_i X_i = s \sum_{i = 0}^k \alpha_i -
+\sum_{i=0}^{k} \alpha_i {\cal R}^i \epsilon_0.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="234" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\displaystyle \sum_{i=0}^{k} \alpha_i X_i = s \sum_{i = 0}^k \alpha_i - \sum_{i=0}^{k} \alpha_i {\cal R}^i \epsilon_0.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(7)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Eq.&nbsp;(<A HREF="#cond"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is equivalent to the following constrained
+minimization problem:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="min"></A><!-- MATH
+ \begin{equation}
+\mathbf{\alpha} = argmin(\alpha_i)
+|| X_0 + \sum_{i=0}^k \alpha_i \triangle X_i ||
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="248" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$\displaystyle \mathbf{\alpha} = argmin(\alpha_i) \vert\vert X_0 + \sum_{i=0}^k \alpha_i \triangle X_i \vert\vert$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(8)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+such that
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="constr"></A><!-- MATH
+ \begin{equation}
+\sum_{i = 0}^k \alpha_i = 1.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="79" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle \sum_{i = 0}^k \alpha_i = 1.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(9)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Here <!-- MATH
+ $\triangle X_i = X_{i+1} - X_i$
+ -->
+<IMG
+ WIDTH="131" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ \triangle X_i = X_{i+1} - X_i$">.
+In other words, Eq.&nbsp;(<A HREF="#cond"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) corresponds to finding the
+coefficients of the minimal polynomial associated with the
+iteration matrix <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ {\cal R}$"> and this indicates an intimate link
+between vector sequence extrapolation and Krylov subspace
+methods. Another point of view that we will be taking here is
+that the vector sequence extrapolation methods correspond to the
+preconditioned Krylov subspace methods that use the fixed-point
+algorithms as the nonlinear preconditioners.
+
+<P>
+Strictly speaking, Eq.&nbsp;(<A HREF="#fp"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is valid for the linear fixed
+point functions but the method can be extended to the nonlinear
+fixed point functions through a local linearization and by the
+inclusion of restarts in the algorithm. The general form of
+the nonlinear fixed-point functions considered here takes the
+following form:
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+X_{i+1} = \mathbf{F}\left(X_i\right).
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="112" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$\displaystyle X_{i+1} = \mathbf{F}\left(X_i\right).$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(10)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Using the local linearization, the initial and <IMG
+ WIDTH="10" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="$ i$">-th error are
+related through the powers of the Jacobian of the fixed point
+function with the second order accuracy, similarly to
+Eq.&nbsp;(<A HREF="#recursion"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>):
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\epsilon_i = \partial_X \mathbf{F}^i\left(X_i\right) \epsilon_0
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="125" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$\displaystyle \epsilon_i = \partial_X \mathbf{F}^i\left(X_i\right) \epsilon_0$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(11)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The nonlinearly preconditioned Krylov subspace method algorithm
+can be devised that is similar to the algorithm described in
+Eq.&nbsp;(<A HREF="#min"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) and Eq.&nbsp;(<A HREF="#constr"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) but with the use of
+restarts.
+
+<P>
+The vector extrapolation method is applied to problems in
+Computational Fluid Dynamics and it is shown that it leads to a
+significant acceleration of the convergence rates. Moreover, the
+method can be applied to the acceleration of any fixed-point
+algorithm with the minimal or no changes to the original
+algorithm. Results are demonstrated for the cases of the
+compressible and incompressible flows as well in conjunction with
+the explicit and implicit algorithms.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html381"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html379"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html380"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

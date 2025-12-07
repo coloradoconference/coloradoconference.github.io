@@ -1,0 +1,35 @@
+===firstname:
+Richard Tran
+===firstname3:
+Glenn
+===lastname2:
+Smith
+===postal:
+Oak Ridge National Laboratory 
+1 Bethel Valley Road 
+P.O. Box 2008 MS 6015 
+Oak Ridge TN 37830
+===lastname:
+Mills
+===lastname3:
+Hammond
+===ABSTRACT:
+Detailed modeling of reactive flows in geologic media is necessary to understand a number of environmental problems of national importance; examples are migration of radionuclides in groundwater and geologic sequestration of CO$_2$ in deep reservoirs.  Such problems generally require three dimensional simulations of non-isothermal systems consisting of multiple phases and possibly dozens of chemical components, and often must incorporate processes operating at different spatial and temporal scales ranging over orders of magnitude. In many cases, detailed understanding
+will require extremely computationally demanding simulations that will require not only the coming advances in hardware but commensurate advances in algorithms and software.
+
+We will discuss our experiences developing and using PFLOTRAN, a new code for the fully implicit simulation of coupled thermal-hydrologic-chemical processes in variably saturated, nonisothermal, porous media.  PFLOTRAN is built on top of PETSc, the Portable, Extensible Toolkit for Scientific Computation developed at Argonne National Laboratory.  Leveraging PETSc
+has allowed us to develop---with a relatively modest investment in
+development effort---a code that exhibits excellent performance on
+machines ranging from laptops to the very largest scale supercomputers.
+
+We have recently begun using PFLOTRAN to simulate problems involving on the order of one billion total degrees of freedom using tens of thousands of processors on Jaguar, the Cray XT4 at Oak Ridge National Laboratory.  Running problems at such massive scales presents unique and considerable challenges for the underlying algebraic solvers (in which the great majority of our wall-clock time is spent).  We will discuss some of the solver challenges we have faced and the progress that has been made in addressing them, and we will outline future challenges
+that we foresee as we continue to add new physics and capabilities to PFLOTRAN.
+
+===email:
+rmills@ornl.gov
+===otherauths:
+Peter Lichtner
+===title:
+Experiences using PETSc-based solvers in ultrascale simulations of subsurface flow and transport using PFLOTRAN
+===firstname2:
+Barry

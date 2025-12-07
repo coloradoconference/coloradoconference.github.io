@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>taylo083806</TITLE>
+<META NAME="description" CONTENT="taylo083806">
+<META NAME="keywords" CONTENT="taylo083806">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html898"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html899"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Mark, A Taylor 
+<BR><B>A fully implicit time integration scheme for the global ocean circulation model POP</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">MS 0370 
+<BR>
+Sandia National Labs 
+<BR>
+Albuquerque NM 87185
+
+<BR><TT>mataylo@sandia.gov</TT>
+<BR>
+Balu Nadiga
+<BR>
+Jens Lorenz
+</DIV>
+
+<P>
+We have implemented a fully implicit time integration scheme into a
+version of Los Alamos National Laboratories' popular ocean general
+circulation model POP (Parallel Ocean Program). POP has traditionally
+used a semi-implicit time integration scheme where key linear terms in
+the equations are treated implicitly and the remaining terms are treated
+explicitly. In our fully implicit scheme, we use Crank-Nicholson on all
+terms of the equations and Jacobian free Newton-Krylov iterations to
+solve the resulting system. We substantially reduce the number of
+iterations needed by POP's semi-implicit integration scheme as a
+preconditioner. In idealized geometries, we can achieve timesteps 800
+times larger than allowed by the semi-implicit scheme. For simulations of
+the North Atlantic and the global ocean, we can obtain time steps up to
+25 times larger than allowed by the semi-implicit scheme. These realistic
+simulations use actual topography, continental geometry, initial Levitus
+temperature and salinity, observed annual averaged wind stress and
+restoring boundary conditions at the surface for temperature and
+salinity.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html900"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

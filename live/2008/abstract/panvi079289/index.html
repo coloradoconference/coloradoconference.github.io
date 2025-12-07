@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>panvi079289</TITLE>
+<META NAME="description" CONTENT="panvi079289">
+<META NAME="keywords" CONTENT="panvi079289">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html689"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html690"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Victor Y. Pan 
+<BR><B>Novel Techniques for Linear Systems and Eigen-solving</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics and Computer Science 
+<BR>
+Lehman College 
+<BR>
+The City University of New York 
+<BR>
+Bronx NY 10468 USA
+
+<BR><TT>victor.pan@lehman.cuny.edu</TT>
+</DIV>
+
+<P>
+
+<B>Summary</B>
+
+<P>
+Additive preconditioning facilitates the computation of a vector in the
+null space of a matrix as well as a basis for this space. This amounts to
+new effective algorithms for solving linear systems of equations. We
+further incorporate our technique into the inverse iteration for
+computing the eigenvectors and eigenspaces of a matrix, which are the
+null vectors and null spaces of the same matrix shifted by its
+eigenvalues. This facilitates every iteration step but does not slow down
+convergence, according to our analysis and extensive experiments.
+We elaborate upon this approach for simple and multiple eigenvalues as
+well as for clusters of eigenvalues.
+
+<P>
+
+<B>1. Solving Linear Systems of Equations with Additive Preconditioning</B>
+
+<P>
+Given an <!-- MATH
+ $n \times n$
+ -->
+<IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ n \times n$"> matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$"> of a rank <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ \rho&lt;n$">, suppose we seek its
+null vector or null basis, that is, a vector in the (right) null space
+<IMG
+ WIDTH="56" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ RN(A)$"> or a basis for this space. This is equivalent to solving the
+homogeneous linear system of equations <IMG
+ WIDTH="58" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ AY=0$"> and is readily extended to
+the solution of a nonhomogeneous linear system <!-- MATH
+ $M{\bf y}={\bf b}$
+ -->
+<IMG
+ WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ M{\bf y}={\bf b}$">. Indeed
+we can just write <!-- MATH
+ $A=(-{\bf b},M)$
+ -->
+<IMG
+ WIDTH="97" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$ A=(-{\bf b},M)$"> and observe that <IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ {\bf y}$"> is a null
+vector for the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$"> that has its first coordinate equal to one.
+
+<P>
+We can obtain the solution to these problems via computing the SVD, QRP
+or PLU factorizations, or the inverse of a nonsingular <!-- MATH
+ $\rho \times \rho$
+ -->
+<IMG
+ WIDTH="40" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \rho \times \rho$">
+submatrix of matrices <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$"> or <IMG
+ WIDTH="48" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$ MAN$"> for some
+nonsingular multipliers <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ M$"> and <IMG
+ WIDTH="19" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ N$">.
+
+<P>
+Our alternative approach employs <EM>addititive preprocessing</EM> of the
+input matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">. See detailed descriptions of this approach in the
+author's technical reports in the Computer Science Program of the
+Graduate Center of the City University of New York, 2005-2008 and in his
+paper in Computers and Mathematics with Applications (in press).
+Hereafter ``A-" and ``APP" abbreviate ``additive" and ``additive
+preprocessor", respectively.
+
+<P>
+Define two <EM>generators</EM> <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ U$"> and <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ V$"> of size <!-- MATH
+ $n \times r$
+ -->
+<IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$ n \times r$">, suppose an
+APP <IMG
+ WIDTH="42" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ UV^H$"> has rank <IMG
+ WIDTH="71" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$ r=n-\rho$"> equal to the nullity of the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">,
+and let the A-modification <IMG
+ WIDTH="107" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ C=A+UV^H$"> have full rank. Then the columns of
+the <EM>null aggregate</EM> <IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ C^{-1}U$"> form a null basis for the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">,
+and so we call the matrix <IMG
+ WIDTH="47" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img19.png"
+ ALT="$ C^{-1}U$"> a <EM>null matrix basis</EM> for the
+matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">.
+
+<P>
+According to our analysis and experiments, A-preprocessing of an <IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ n \times n$"> ill conditioned input matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$"> with a random well conditioned and
+properly scaled APPs <IMG
+ WIDTH="42" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="$ UV^H$"> of a rank <IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ r$"> (normalized so that the ratio
+<!-- MATH
+ $||UV^H||_2/||A||_2$
+ -->
+<IMG
+ WIDTH="111" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \vert\vert UV^H\vert\vert _2/\vert\vert A\vert\vert _2$"> is neither large nor small) is expected to yield an
+A-modification <IMG
+ WIDTH="107" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ C=A+UV^H$"> with the condition number of the order of
+<!-- MATH
+ $\sigma_{1}(A)/\sigma_{n-r}(A)$
+ -->
+<IMG
+ WIDTH="111" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \sigma_{1}(A)/\sigma_{n-r}(A)$"> where <!-- MATH
+ $\sigma_j(A)$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$ \sigma_j(A)$"> denotes the <IMG
+ WIDTH="12" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$ j$">th
+largest singular value of the matrix <IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ A$">. If <!-- MATH
+ $\sigma_{n-r}(A)\gg
+\sigma_{n}(A)$
+ -->
+<IMG
+ WIDTH="130" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$ \sigma_{n-r}(A)\gg
+\sigma_{n}(A)$">, then our A-preprocessing is expected to be <EM>A-preconditioning</EM>, that is, expected to decrease the condition number
+substantially.
+
+<P>
+Furthermore, even very weak randomization is actually sufficient,
+allowing us to choose structured or sparse APPs. Since our techniques
+preserve matrix structure and improve conditioning, they enable effective
+application of the Conjugate Gradient algorithms.
+
+<P>
+
+<B>2. Extension to Eigen-solving</B>
+
+<P>
+The eigenspace of a matrix <IMG
+ WIDTH="22" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ M$"> associated with its eigenvalue <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ \lambda$">
+is just the null space of the matrix <!-- MATH
+ $A=A(\lambda)=\lambda I_n-M$
+ -->
+<IMG
+ WIDTH="154" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$ A=A(\lambda)=\lambda I_n-M$">, and so
+the above approach can be incorporated into the known eigen-solvers. We
+elaborate upon its incorporation into the inverse iteration. Our study
+can be readily extended to the shift-and-invert enhancements of the
+Lanczos, Arnoldi, Jacobi-Davidson, and other effective eigen-solvers.
+
+<P>
+Our analysis and experiments show that our modification does not affect
+the convergence rate, even though it improves conditioning of every
+iteration step. We elaborate upon this approach for simple and multiple
+eigenvalues as well as for clusters of eigenvalues and point out its
+various natural extensions. In spite of apparent similarity of the
+classical and our algorithms, our analysis and in particular our
+treatment of multiple and clustered eigenvalues and our proof of local
+quadratic convergence show the distinct nature of the power of the two
+approaches. This suggests concurrent application of both iterations (also
+performed concurrently for a number of distinct initial approximations to
+the eigenvalues) to improve global convergence.
+
+<P>
+We apply A-preconditioning to the inverse iteration in its both linear
+and multilinear settings. The latter variant is natural for approximating
+multiple and clustered eigenvalues as well as complex conjugate pairs of
+eigenvalues of a real matrix.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html691"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html689"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html690"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

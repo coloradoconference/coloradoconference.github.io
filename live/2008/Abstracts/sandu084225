@@ -1,0 +1,40 @@
+===firstname:
+Adrian
+===firstname3:
+
+===lastname2:
+Constantinescu
+===postal:
+Computer Science Department
+Virginia Tech
+Blacksburg, VA 24061
+===lastname:
+Sandu
+===lastname3:
+
+===ABSTRACT:
+
+
+Conservative high resolutionmethods with explicit time discretization
+have gained widespread popularity for numerically solving conservation
+laws. Stability requirements limit the temporal step size, with the upper bound being determined by the ratio of the temporal and spatial
+meshes and the magnitude of the wave speed. The timestep for the entire
+domain is restricted by the finest (spatial)mesh resolution or by the highest
+wave velocity, and is typically (much) smaller than necessary to accurately
+represent other variables in the computational domain.
+Implicit, unconditionally stable timestepping algorithms allow large
+global timesteps; however, this approach requires the solution of large
+(non)linear systems of equations.
+
+We discuss new multirate methods for the solution of conservation laws.In multirate time integrationmethods, the timestep can vary across the
+spatial domain and has to satisfy the CFL condition only locally, resulting
+in substantiallymore efficient overall computations. We discuss the construction of multirate methods that are conservative and preserve the linear and nonlinear stability.
+
+===email:
+sandu@cs.vt.edu
+===otherauths:
+
+===title:
+Multirate integration methods for PDEs
+===firstname2:
+Emil

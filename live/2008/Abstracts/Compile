@@ -1,0 +1,38 @@
+#!/usr/bin/sh
+#######################################################################
+#-mb: SubmissionsDir=~copper/2008_tent/Abstracts/submission
+SubmissionsDir=/srv/www/cgi-bin/copper2008/Abstracts/submission
+PDFLATEX="/usr/bin/pdflatex"
+#######################################################################
+LD_LIBRARY_PATH=/usr/openwin/lib:/usr/local/X11/lib:/usr/local/lib:/lib
+LIBDIRS=/usr/lib:/usr/local/X11/lib:/usr/local/lib:/lib
+PATH=/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/usr/local/X11/bin
+PATH=${PATH}:/usr/local/tex/bin
+TEXHOME=/usr/local/tex
+export LD_LIBRARY_PATH LIBDIRS PATH TEXHOME
+#######################################################################
+
+if [ $# -ne 1 ]; then
+    echo "USAGE:  $0  file.tex"
+    exit 0;
+fi
+
+texfile=$1
+name=`echo $texfile | sed 's/.tex$//'`
+
+#######################################################################
+#	run pdflatex three times, to fix references.
+#	pipe "q" to pdflatex to run as batch job!!
+#######################################################################
+
+cd $SubmissionsDir
+echo q | $PDFLATEX $1 > /dev/null 2>&1
+echo q | $PDFLATEX $1 > /dev/null 2>&1
+echo q | $PDFLATEX $1 > /dev/null 2>&1
+
+# allow Submit.cgi time to read info from log file:
+
+(sleep 15 ; rm -f ${name}.aux > /dev/null 2>&1) &
+#######################################################################
+
+

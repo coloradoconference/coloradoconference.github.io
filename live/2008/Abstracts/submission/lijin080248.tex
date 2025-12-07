@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jing Li \\
+{\bf A dual-primal FETI method for a type of fluid-structure interaction problem }}
+
+Department of Mathematical Sciences \\ Kent State University \\ Kent \\ OH 44242
+\\
+{\tt li@math.kent.edu}\\
+Charbel  Farhat \\
+Philip  Avery \\
+	Radek Tezaur\end{center}
+
+The Dual-Primal Finite Element Tearing and Interconnecting method
+(FETI-DP) is extended to solving a type of fluid-structure interaction
+problem which simulates the time harmonic vibration of an elastic
+structure immersed in a fluid in response to an incident acoustic wave
+and/or external forces, as well as scattering of the acoustic wave by the
+obstacle. We show that straightforward application of the FETI-DP
+algorithm to fluid-structure interaction problems does not perform
+satisfactorily, in particular for three-dimensional problems. Appropriate
+choices of coarse level primal degrees of freedom on the fluid-structure
+interface have to be made to improve both the iteration count and the
+overall CPU time greatly. Such choices and their implementations are
+discussed in this paper and they are able to make the convergence rate of
+the proposed algorithm scalable with respect to the problem size, the
+number of subdomains, and the wave number. Numerical experiments for
+solving several three-dimensional fluid-structure interaction problems
+are implemented on cluster computers and demonstrate the satisfactory
+performance of the proposed algorithm.
+
+
+\end{document}

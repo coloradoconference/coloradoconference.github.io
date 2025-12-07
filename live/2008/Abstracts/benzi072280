@@ -1,0 +1,43 @@
+===firstname:
+Michele
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Mathematics and Computer Science
+Emory University
+400 Dowman Drive
+Atlanta, GA 30322, USA
+===lastname:
+Benzi
+===lastname3:
+
+===ABSTRACT:
+Augmented Lagrangian-based preconditioners have been shown to be highly
+effective and robust in the solution of the discrete Stokes and Oseen problem
+and in solving the linear systems arising from the stability analysis of
+(Newton) linearized solution to incompressible flow problems. So far, however,
+the use of this methodology has been limited to discretizations using
+structured meshes in simple, two-dimensional geometries. The main challenge
+is the (approximate) solution of the velocity subproblem in the augmented
+Lagrangian formulation: while effective geometric multigrid methods have been
+developed for 2D structured meshes, the question remains open for the case of
+3D unstructured meshes. One possible solution to this problem is to approximate
+the coefficient matrix of the velocity subproblem in the preconditioner
+with a more manageable one, in particular, one for which there exist
+efficient algebraic solvers. The problem is how to do this in such a way
+that the overall effectiveness of the preconditioner is preserved.
+In this talk I will present some variants of the augmented Lagrangian
+preconditioner that are applicable to rather general discretizations
+and geometries and retain excellent overall robustness and effectiveness.
+
+This is joint work with Alessandro Veneziani (Emory University).
+===email:
+benzi@mathcs.emory.edu
+===otherauths:
+
+===title:
+Modified Augmented Lagrangian Methods for the Navier-Stokes Equations
+===firstname2:
+

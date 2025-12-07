@@ -1,0 +1,38 @@
+===firstname:
+Gilles
+===firstname3:
+St\'{e}phane
+===lastname2:
+Bottin
+===postal:
+CEA-DAM Ile de France
+
+Bruy\`{e}res le Ch\^{a}tel-91297 Arpajon Cedex
+
+France
+===lastname:
+Z\'{e}rah
+===lastname3:
+Le Roux
+===ABSTRACT:
+We present an implementation in the {\it ab initio} plane-wave code ABINIT, of a  parallelization scheme based on the locally optimal block preconditioned conjugate gradient LOBPCG method, and using an optimized three-dimensional (3D) fast Fourier transform (FFT). 
+
+We will first compare, for various systems, the performance of the method with the more standard eigensolvers currently used in ABINIT.
+
+Next, we present the parallelization scheme, which, in addition to the standard data partitioning over processors corresponding to different k-points, relies upon data partitioning with respect to blocks of bands and Fourier coefficients.
+
+Finally we analyze the performances of the whole scheme on multiprocessor machines in terms of scalability  and convergence speed.
+
+
+Reference:
+
+F. Bottin, S. Leroux, A. Knyazev, G. Zerah, Large scale ab initio calculations based on three levels of parallelization. (2007). Computational Material Science. http://dx.doi.org/10.1016/j.commatsci.2007.07.019
+
+===email:
+gilles.zerah@cea.fr
+===otherauths:
+Andrew Knyazev 
+===title:
+Large scale parallel ab initio electronic structure calculations with the LOBPCG method.
+===firstname2:
+Fran\c{c}ois

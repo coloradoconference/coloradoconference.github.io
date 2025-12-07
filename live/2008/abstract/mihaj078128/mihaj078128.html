@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mihaj078128</TITLE>
+<META NAME="description" CONTENT="mihaj078128">
+<META NAME="keywords" CONTENT="mihaj078128">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mihaj078128.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">David Silvester 
+<BR><B>Efficient AMG block preconditioning of the Boussinesq problem</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">School of Computer Science 
+<BR>
+University of Manchester 
+<BR>
+Oxford Road 
+<BR>
+Manchester M13 9PL 
+<BR>
+United Kingdom
+
+<BR><TT>d.silvester@manchester.ac.uk</TT>
+<BR>
+Howard Elman
+<BR>
+Milan Mihajlovic 
+
+</DIV>
+
+<P>
+In this presentation we describe the design and examine the effectiveness
+of a block preconditioner, based on a robust AMG solver, for the
+iterative solution of linear systems that arise in the finite element
+discretisation of the Boussinesq problem. The Boussinesq problem
+represents a model of a thermally-driven flow, i.e. the flow of a
+Newtonian fluid under a temperature
+gradient. Such a model is valid under the assumption that the temperature
+gradient is small, which allows fluid density to change linearly under
+the action of gravity. The applications of this model are considerable:
+various heat exchange systems (such as nuclear reactor cooling system,
+forced cooling of
+electronic equipment), semiconductor fabrication (crystal growth),
+superconductivity (e.g. Rayleigh-Benard flow of liquid helium), etc.
+
+<P>
+The Boussinesq flow represents a coupled system of PDEs for the unknown
+velocity, pressure and temperature fields. It consists of the
+Navier-Stokes equations describing the fluid flow coupled with the
+convection-diffusion equation for energy balance. The two classes of
+problem that are the most frequently studied in this context are
+time-dependent problems (describing the
+transient behaviour of the system), and steady-state problems (essential
+in the linear stability analysis).
+
+<P>
+The finite element discretisation of both classes of problem can be
+performed using the same combinations of velocity-pressure approximation
+spaces (as in the case of Navier-Stokes equations), while the usual
+choice for the temperature
+approximation space is the piecewise quadratic finite element space. The
+time domain in transient problems is usually discretised using modern
+adaptive fully implicit time-stepping algorithms (such as the trapesoidal
+rule), resulting in a
+sequence of large non-linear problems that need to be solved. Similar
+situations arise in linear stability analysis if some of the continuation
+algorithms (e.g. Keller's pseudo-arclength method) are used to compute
+the solution paths. Standard linearisation procedures (e.g. Picard's or
+Newton's method) are used to solve these non-linear systems, resulting in
+a sequence of linear problems that need to be solved. From this argument
+it is obvious that accurate solution of the Boussinesq problem (both
+transient and steady-state) requires the solution of potentially large
+number of linear systems, with different coefficient matrices. The size
+of such linear systems needed for
+accurate prediction of certain effects (e.g. critical values of the
+bifurcation parameters) can be very large, especially in 3D. Thus, robust
+and efficient preconditioned iterative solvers are absolutely essential
+in this context.
+
+<P>
+In this presentation we discuss the development and study the efficiency
+of a preconditioner for a fully coupled Boussinesq system. The
+preconditioner is based on existing efficient preconditioners for the
+Navier-Stokes equations (we
+choose the scaled commutator preconditioner in this case). In the case of
+Picard's linearisation, the Boussinesq coefficient matrix has an inherent
+block triangular form, which allows the natural extension of the
+Navier-Stokes preconditioner. When Newton's linearisation is used, the
+block triangular form
+of the coefficient matrix is lost, however the use of the same
+preconditioner as in Picard's case (with the necessary modifications in
+the treatment of the momentum block, as in the Navier-Stokes case) proved
+to be the effective choice.
+We test our preconditioning strategy on a range of non-trivial Boussinesq
+problems recently studied in literature in various contexts
+(differentially heated cavities, Rayleigh-Benard convection). We consider
+both the transient and the steady-state problems, and demonstrate
+numerically robustness of our
+preconditioner with respect to the time step size, diffusivity
+parameters, spatial discretisation parameter, grid stretching and the
+shape of the domain.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-03-12
+</ADDRESS>
+</BODY>
+</HTML>

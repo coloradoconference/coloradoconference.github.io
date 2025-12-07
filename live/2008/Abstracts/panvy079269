@@ -1,0 +1,77 @@
+===firstname:
+V. Y.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Mathematics and Computer Science
+Lehman College of the City University of New York
+Bronx, NY 10468 USA
+===lastname:
+Pan
+===lastname3:
+
+===ABSTRACT:
+Additive preconditioning facilitates the computation of a vector in the null space of a matrix as well as a basis for this space. This amounts to new effective algorithms for solving linear systems of equations. We further incorporate our technique into the inverse iteration for computing the eigenvectors and eigenspaces of a matrix, which are the null vectors and null spaces of the same matrix shifted by its eigenvalues. This facilitates every iteration step but does not slow down convergence, according to our analysis and extensive experiments.
+We elaborate upon this approach for simple and multiple eigenvalues as well as for clusters of eigenvalues.
+
+\section{Solving Linear Systems of Equations with Additive Preconditioning}\label{s3ns}
+
+Given an $n \times n$ matrix $A$ of a rank $\rho<n$, suppose we seek its null vector or null basis, that is, a vector in the (right) null space $RN(A)$ or a basis for this space. This is equivalent to solving the homogeneous linear system of equations $AY=0$ and is readily extended to the solution of a nonhomogeneous linear system $M{\bf y}={\bf b}$. Indeed we can just write $A=(-{\bf b},M)$ and observe that ${\bf y}$ is a null vector for the matrix $A$ that has its first coordinate equal to one.
+
+We can obtain the solution to these problems via computing the SVD, QRP or PLU factorizations, or the inverse of a nonsingular $\rho \times \rho$ submatrix of matrices $A$ or $MAN$ for some 
+nonsingular multipliers $M$ and $N$. 
+
+Our alternative approach employs {\em addititive preprocessing} of the input matrix $A$ \cite{na}--\cite{eig}. Hereafter ``A-" and ``APP"  abbreviate ``additive" and ``additive preprocessor", respectively. 
+
+Define two {\em generators} $U$ and $V$ of size $n \times r$, suppose an APP $UV^H$ has rank $r=n-\rho$ equal to the nullity of the matrix $A$, and let the A-modification $C=A+UV^H$ have full rank. Then the columns of the {\em null aggregate} $C^{-1}U$ form a null basis for the matrix $A$, and so we call the matrix $C^{-1}U$ a {\em null matrix basis} for the matrix $A$.
+
+According to the analysis and experiments in \cite{apf},
+A-preprocessing of an $n\times n$ ill conditioned input matrix $A$ with a random well conditioned and properly scaled APPs $UV^H$ of a rank $r$ (normalized so that the ratio $||UV^H||_2/||A||_2$ is neither large nor small) is expected to yield an A-modification $C=A+UV^H$ with the condition number of the order of $\sigma_{1}(A)/\sigma_{n-r}(A)$ where $\sigma_j(A)$ denotes the $j$th largest singular value of the matrix $A$. If $\sigma_{n-r}(A)\gg \sigma_{n}(A)$, then our A-preprocessing is expected to be {\em A-preconditioning}, that is, expected to decrease the condition number substantially.
+
+Furthermore, even very weak randomization is actually sufficient, allowing us to choose structured or sparse APPs \cite[Examples 4.1--4.6]{apf}. Since our techniques preserve matrix structure and improve conditioning, they enable effective application of the Conjugate Gradient algorithms.
+
+\section{Extension to Eigen-solving}\label{s3}
+
+The eigenspace of a matrix $M$ associated with its eigenvalue $\lambda$ is just the null space of the matrix $A=A(\lambda)=\lambda I_n-M$, and so the above approach can be incorporated into the known eigen-solvers. We elaborate upon its incorporation into the inverse iteration. Our study can be readily extended to the shift-\-and-\-invert enhancements of the Lanczos, Arnoldi, Jacobi--Davidson, and other effective eigen-solvers. 
+
+Our analysis and experiments show that our modification does not affect the convergence rate, even though it improves conditioning of every iteration step. We elaborate upon this approach for simple and multiple eigenvalues as well as for clusters of eigenvalues and point out its various natural extensions. In spite of apparent similarity of the classical and our algorithms, our analysis and in particular our treatment of multiple and clustered eigenvalues and our proof of local quadratic convergence show the distinct nature of the power of the two approaches. This suggests concurrent application of both iterations (also performed concurrently for a number of distinct initial approximations to the eigenvalues) to improve global convergence. 
+
+We apply A-preconditioning to the inverse iteration in its both linear and multilinear settings. The latter variant is natural for approximating multiple and clustered eigenvalues as well as complex conjugate pairs of eigenvalues of a real matrix.
+
+\begin{thebibliography}{\hspace{0.2in}} 
+
+\bibitem{na}
+V. Y. Pan,
+Computations in the Null Spaces with Additive Preconditioning,
+ Technical Reports TR 2007009 and 2008, {\em CUNY Ph.D. Program 
+in Computer Science, Graduate Center, City University of New York}, April 2007.
+
+\bibitem{PIMR}
+V. Y. Pan, D. Ivolgin, B. Murphy, R. E. Rosholt, Y. Tang, X. Yan,
+Additive Preconditioning and Aggregation in Matrix Computations,
+{\em Computers and Math. with Applications}, in press.
+
+\bibitem{apf} 
+V. Y. Pan, D. Ivolgin, B. Murphy, R. E. Rosholt, Y. Tang, X. Yan,
+Additive Preconditioning for Matrix Computations,
+ Technical Report TR 2007003, {\em CUNY Ph.D. Program 
+in Computer Science, Graduate Center, City University of New York}, March 2007.
+
+\bibitem{eig} 
+V. Y. Pan, X. Yan,
+Additive Preconditioning, Eigenspaces, and the Inverse Iteration,
+ Technical Report TR 2008, {\em CUNY Ph.D. Program 
+in Computer Science, Graduate Center, City University of New York}, 2008.
+
+\end{thebibliography}
+
+===email:
+victor.pan@lehman.cuny.edu
+===otherauths:
+
+===title:
+Novel Techniques for Linear Systems and Eigen-solving
+===firstname2:
+

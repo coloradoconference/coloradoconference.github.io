@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eric de Sturler \\
+{\bf Recycling Preconditioners and Krylov Subspaces for Quasi-Newton Methods}}
+
+Department of Mathematics \\ 544 McBryde Hall \\ Virginia Tech \\ Blacksburg \\ VA 24061 \\ USA
+\\
+{\tt sturler@vt.edu}\\
+Hector Klie\end{center}
+
+For many large systems of nonlinear equations or optimization problems
+the computation of the Jacobian (Hessian) may be very expensive. In
+addition, potentially large jumps in the coefficients of a system of
+partial differential equations and the highly nonlinear nature of some
+problems, for example, porous media flow, require robust Newton methods.
+As a result, such problems are often solved by Broyden-type methods or
+other quasi-Newton algorithms, and, for large problems, the resulting
+linear systems are solved using Krylov subspace methods. This leads to a
+sequence of related linear systems that change in a structured way
+although the changes need not be norm-wise small.
+
+In this presentation we discuss how to solve such problems efficiently
+using preconditioned Krylov subspace methods. The key to efficient
+solvers is to update and reuse, hence {\em recycle}, preconditioners and
+the generated search spaces, and modify the Newton scheme such as to
+exploit this optimally.
+
+Updating preconditioners reduces the often high computational cost of
+computing the preconditioner while maintaining or even improving the
+convergence rate.
+We consider very simple right preconditioner updates that can be combined
+directly with the recycling of an existing Krylov space or with the
+generation of a new Krylov space. Furthermore, we consider various types
+of recycling of search spaces to make the solution methods more
+efficient. In particular, we focus on an algorithm that combines two
+complementary types of recycling. The first type are the Krylov-Secant
+solvers proposed by Klie and Wheeler [1]. These methods force secant type
+updates to the
+Jacobian such that the range of the operator (over a given number of
+steps) remains in the Krylov space that already exists. The second type
+are the recycling solvers proposed by Parks, de Sturler et al. [2] and
+Wang, de Sturler, and Paulino [3] that significantly improve convergence
+rates for sequences of linear systems where the matrix changes slowly.
+
+By modifying the (quasi-)Newton method we are able to make multiple
+nonlinear iterations with a very modest number of (preconditioned)
+matrix-vector products in the linear solver, sometimes none. In
+experimental results it also appears that the number of nonlinear steps
+where a new accurate Jacobian must be computed is reduced.
+
+
+\noindent
+{\bf REFERENCES}
+\begin{enumerate}
+\item H. Klie and M.F. Wheeler, {\em Nonlinear Krylov-Secant Solvers},
+Technical Report ICES 06-02, Institute for Computational Engineering
+and Sciences, University of Texas at Austin, January 2006
+
+\item M.L. Parks, E. de Sturler, G. Mackey, D.D. Johnson, S.
+Maiti. {\em Recycling Krylov Subspaces for Sequences of Linear Systems}.
+SIAM Journal on Scientific Computing, Vol. {\bf 28}, 1651-1674, 2006.
+
+\item S. Wang, E. de Sturler, and G.H. Paulino. {\em Large-Scale
+Topology Optimization using Preconditioned Krylov Subspace Methods with
+Recycling}. International Journal for Numerical Methods in Engineering,
+Vol. {\bf 69}, 2441--2468, 2007.
+
+\end{enumerate}
+
+
+\end{document}

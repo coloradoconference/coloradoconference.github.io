@@ -1,0 +1,233 @@
+#!/usr/local/bin/perl
+#################### read info for this year: ############################
+do "../INFO.pl";
+##########################################################################
+$ThisDIR="/www/faculty/copper/$Year/Abstracts";
+$ThisURL="http://amath.colorado.edu/faculty/copper/$Year/Abstracts";
+$SubmDIR="$ThisDIR/submission";
+$SubmURL="$ThisURL/submission";
+##########################################################################
+$WordMin=40;		# abstract length
+$WordLimit=1000;	# abstract length
+#######################################################################
+#######################################################################
+
+unless ($ENV{'REQUEST_METHOD'} eq 'POST') {
+	die "\tUse with POST / web page\n\t$ThisURL/TEMPLATE.html\n\n";
+	}
+read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
+@pairs = split(/&/,$buffer);
+foreach $pair (@pairs) {
+	($name, $value) = split(/=/,$pair);
+	$value =~ tr/+/ /;
+	$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C",hex($1))/eg;
+	$FORM{$name} = $value;
+	}
+
+#########################################################################
+#### check for missing fields ###########################################
+#########################################################################
+
+($Title = $FORM{"title"}) =~ s/\s+/ /g;
+if (length($Title)<9) { &GoBack("Title of Talk"); }
+
+($LastName = $FORM{"lastname"}) =~ s/\s+/ /g;
+$LastName =~ s/^ //;
+$LastName =~ s/ $//;
+if (length($LastName)<2) { &GoBack("Speaker's Last Name"); }
+
+($FirstName = $FORM{"firstname"}) =~ s/\s+/ /g;
+$FirstName =~ s/^ //;
+$FirstName =~ s/ $//;
+if (length($FirstName)<2) { &GoBack("Speaker's First Name"); }
+
+($Email = $FORM{"email"}) =~ s/\s+/ /g;
+$Email =~ s/^ //;
+$Email =~ s/ $//;
+unless (($Email =~ /\@/) && (length($Email)>11)) {
+			&GoBack("Speaker's Email address"); }
+
+($Address = $FORM{"postal"}) =~ s/\r\n/\n/g;
+$Address =~ s/\n\n*/\n/g;
+$Address =~ s/,\s*$//mg;
+$Address =~ s/\./ /g;
+$Address =~ s/^\s*//mg;
+$Address =~ s/\s*$//mg;
+$Address =~ s/\n/, /g;
+$Address =~ s/\s+/ /g;
+if (length($Address)<20) { &GoBack("Speaker's Postal Address"); }
+($TeXaddress = $Address) =~ s/, / \\\\ /g;
+
+($Abstract = $FORM{"ABSTRACT"}) =~ s/\r\n/\n/g;
+$Abstract =~ s/\r/\n/g;
+$Abstract =~ s/\n\n+/ WWXX11XXWW /sg;
+$Abstract =~ s/\s+/ /sg;
+$Abstract =~ s/\s*WWXX11XXWW\s*/\n\n/g;
+$Abstract =~ s/\. /\.\n/g;
+$Abstract =~ s/\, /\,\n/g;
+$Abstract =~ s/^ //mg;
+$Abstract =~ s/ $//mg;
+
+$nwords = &Wordcount($Abstract);
+# if ($nwords < $WordMin) { &AbstractProblem("too short"); }
+# if ($nwords > $WordLimit) { &AbstractProblem("too long"); }
+
+$reltime = int( (time() - $startline)/100 ) % 1000000;
+
+$filename = $FORM{"lastname"} . $FORM{"firstname"} . "____";
+$filename =~ s/\W//g;
+$filename = sprintf("%s%06d", substr(lc($filename),0,5), $reltime);
+
+############################################################################
+
+open (DBFILE,"> $SubmDIR/$filename") || die "cannot write to $filename\n\n";
+foreach $key (keys %FORM) { printf DBFILE "===%s:\n%s\n", $key, $FORM{$key}; }
+close DBFILE;
+
+open (HFILE,"> $SubmDIR/$filename.tex");
+print HFILE <<HHEAD;
+\\documentclass{report}
+\\usepackage{amsmath}
+\\setlength{\\parindent}{0mm}
+\\setlength{\\parskip}{1em}
+\\begin{document}
+\\begin{center}
+\\rule{6in}{1pt} \\
+{\\large $FirstName $LastName \\\\
+{\\bf $Title}}
+
+$TeXaddress
+HHEAD
+
+if ($Email) { printf HFILE "\\\\\n{\\tt $Email}"; }
+if ($FORM{"lastname2"}) {
+	printf HFILE "\\\\\n%s %s", $FORM{"firstname2"}, $FORM{"lastname2"};
+	}
+if ($FORM{"lastname3"}) {
+	printf HFILE "\\\\\n%s %s", $FORM{"firstname3"}, $FORM{"lastname3"};
+	}
+if ($FORM{"otherauths"}) {
+	($Others = $FORM{"otherauths"}) =~ s/\r\n/\n/g;
+	$Others =~ s/\n/\n\t/g;
+	print HFILE "\\\\\n\t$Others";
+	}
+
+printf HFILE "\\end{center}\n\n%s\n\n\\end{document}\n", $Abstract;
+close HFILE;		# HEY
+
+system("$ThisDIR/Compile $filename.tex");
+open(TEXLOG,"$SubmDIR/$filename.log");
+while (<TEXLOG>) { if (/\d page/) {
+	chomp;
+	($npages = $_) =~ s/(\d) page.*$/\1/;
+	$npages =~ s/^.*\D//;
+	}}
+close TEXLOG;
+
+if ($npages > 2) { &AbstractProblem("too long; $npages pages"); }
+if ($npages == 1) { $howmanypages = "1 page"; }
+if ($npages == 2) { $howmanypages = "2 pages"; }
+
+
+@mname=qw(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec);
+($sec,$min,$hour,$mday,$mon) = localtime(time());
+open (LOG, ">>$ThisDIR/LOG");
+printf LOG "%d %s, %s %s, %s, %s.pdf\n", $mday, $mname[$mon],
+	$FirstName, $LastName, $Email, $filename;
+close LOG;
+
+&ThankYouAndGoodbye();
+exit 0;
+
+
+######################################################################
+##### SUBROUTINES ####################################################
+######################################################################
+
+sub ThankYouAndGoodbye { print <<EOH;
+Content-type: text/html\n
+<title>submitted abstract</title>
+<body bgcolor=yellow>
+<p align=right>
+<a href="$SubmURL/$filename.pdf">VIEW SUBMITTED ABSTRACT (PDF)</a></p>
+<h2 align=center>Thank You</h2>
+Your abstract has been submitted.
+To view it as rendered
+into PDF ($nwords words, $howmanypages)
+click on the link above, and/or save the address
+<b><tt>$SubmURL/$filename.pdf</tt></b>.
+If you spot errors, back up to the previous page,
+edit the form appropriately, and re-submit.
+(See $SubmURL/ for a link to the PDF file
+and a list of any previous submissions.)
+<p>
+<b>$FORM{"firstname"} $FORM{"lastname"}</b><br>
+$FORM{"email"}<br>
+$Address<br>
+$FORM{"firstname2"} $FORM{"lastname2"}<br>
+$FORM{"firstname3"} $FORM{"lastname3"}<br>
+$FORM{"otherauths"}<p>
+<b>$FORM{"title"}</b><p>
+EOH
+($abstext = $Abstract) =~ s/\n\n/\n<p>/g;
+print $abstext, "\n</body>\n";
+}
+
+######################################################################
+
+sub GoBack {
+my ($msg) = @_;
+print <<EOGB;
+Content-type: text/html\n
+<title>Sorry</title>
+<body bgcolor=orange>
+<h2>Sorry</h2><b>
+You don't seem to have entered information into
+<br>the box titled <font size="+1">"$msg"</font>.
+<p>
+Please go back (click the ``back'' arrow of your browser),
+<br>enter the required "$msg" information,
+<br>then click the ``Submit'' button again.
+</b></body>
+EOGB
+exit 0;
+}
+
+######################################################################
+
+sub AbstractProblem {
+my ($msg) = @_;
+print <<EOPROB;
+Content-type: text/html\n
+<title>Sorry</title>
+<body bgcolor=orange>
+<h2>Sorry</h2><b>
+The abstract you have entered seems to be $msg.
+<p>
+Abstracts are expected to be somewhere in the range
+of $WordMin--$WordLimit words in length.
+<p>
+Please go back (click the ``back'' arrow of your browser),
+<br>revise the entered text of your abstract,
+<br>then click the ``Submit'' button again.
+</b></body>
+EOPROB
+exit 0;
+}
+
+######################################################################
+
+sub Wordcount {
+    my ($ab) = @_;
+    $ab =~ s/\s+/ /g;
+    $ab =~ s/\$\$[^\$]+\$\$/ x x x x x x x x x x x x /g;
+    $ab =~ s/\$[^\$]+\$/ x x /g;
+    $ab =~ s/\\begin{eq[^q]+\\end{eq/ x x x x x x x x x x x x /g; # }}
+    $ab =~ s/\\[a-zA-Z]+/ /g;
+    $ab =~ s/[{}]/ /g;
+    return int(0.99 * scalar(split(/\s+/,$ab)));
+    }
+
+######################################################################
+
+

@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Grady, B. Wright \\
+{\bf A robust multigrid preconditioner for two phase gel dynamics}}
+
+Department of Mathematics \\ Boise State University \\ 1910 University Drive \\ Boise \\ ID 83725-1555 \\ USA
+\\
+{\tt wright@math.boisestate.edu}\end{center}
+
+We develop a computational method for simulating models of gel dynamics
+where the gel is described by two phases, a networked polymer and a fluid
+solvent. The models consist of transport equations for the two phases,
+two coupled momentum equations, and a volume-averaged incompressibility
+constraint, which we discretize with finite differences/volumes. The
+momentum and incompressibility equations, which are similar to those
+arising in Stokes' equations, present the greatest numerical challenges
+since i) they involve partial derivatives with variable coefficients that
+can vary quite significantly throughout the domain (when the two phases
+separate), and ii) their approximate solution requires the ``inversion''
+of a large linear system of equations. For solving this system, we
+propose a box-type multigrid method to be used as a preconditioner for
+the GMRES method. Through numerical experiments of a model problem, which
+exhibits phase separation, we show that the computational cost of the
+solver scales nearly linearly with the number of unknowns, and performs
+consistently well over a wide range of parameters. We conclude with
+results on the parallelization of this new method.
+
+
+\end{document}

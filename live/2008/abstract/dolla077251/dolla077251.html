@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>dolla077251</TITLE>
+<META NAME="description" CONTENT="dolla077251">
+<META NAME="keywords" CONTENT="dolla077251">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html163"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html164"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Sue Dollar 
+<BR><B>Equivalent SPD systems for saddle-point problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Rutherford Appleton Laboratory 
+<BR>
+Chilton 
+<BR>
+Oxfordshire 
+<BR>
+OX11 0QX
+
+<BR><TT>s.dollar@rl.ac.uk</TT>
+<BR>
+Nick Gould
+<BR>
+Martin Stoll
+<BR>
+Andy Wathen
+</DIV>
+
+<P>
+Consider symmetric saddle-point problems of the form
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eqn1"></A><!-- MATH
+ \begin{equation}
+\left( \begin{array}{cc} A & B^T \\B & -C \end{array} \right) \left(
+\begin{array}{c} x \\y \end{array} \right) =\left( \begin{array}{c} b \\
+d \end{array} \right).
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="224" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle \left( \begin{array}{cc} A &amp; B^T \\ B &amp; -C \end{array} \right) \l...
+...x \\ y \end{array} \right) =\left( \begin{array}{c} b \\ d \end{array} \right).$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The solution to
+(<A HREF="#eqn1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) also satisfies the symmetric system
+<BR>
+<DIV ALIGN="CENTER"><A NAME="eqn2"></A><!-- MATH
+ \begin{eqnarray}
+& & \left[ \sigma \left( \begin{array}{cc} A & B^T \\B & -C \end{array}
+\right) + \left(\begin{array}{cc} A & B^T \\B & -C \end{array} \right)
+\left(\begin{array}{cc} D & F^T \\F & E \end{array}
+\right)\left(\begin{array}{cc} A & B^T \\B & -C \end{array} \right)
+\right] \left( \begin{array}{c} x \\y \end{array} \right) \\\nonumber
+& & = \left( \begin{array}{c} \sigma b + A(Db + F^T d) + B^T ( F b + E d)
+\\\sigma d + B(D b + F^T d) - C (F b - E d) \end{array} \right),
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="480" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle \left[ \sigma \left( \begin{array}{cc} A &amp; B^T \\ B &amp; -C \end{arr...
+... \end{array} \right)
+\right] \left( \begin{array}{c} x \\ y \end{array} \right)$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(2)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP><IMG
+ WIDTH="313" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle = \left( \begin{array}{c} \sigma b + A(Db + F^T d) + B^T ( F b + E d)
+\\ \sigma d + B(D b + F^T d) - C (F b - E d) \end{array} \right),$"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+for given real <IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \sigma,$"> arbitrary symmetric matrices <IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ D$"> and <IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ E,$"> and
+arbitrary matrix <IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ F.$">
+
+<P>
+We show that many popular conjugate gradient-based methods for solving
+(<A HREF="#eqn1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) can be reformulated as applying the (preconditioned)
+conjugate gradient method to (<A HREF="#eqn2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) for some <IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \sigma,$"> <IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ D,$"> <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ E$"> and
+<IMG
+ WIDTH="20" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ F.$"> We also provide conditions for guaranteeing that (<A HREF="#eqn2"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) is
+positive definite. Using these conditions we propose new conjugate
+gradient-based methods for solving (<A HREF="#eqn1"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/usr/share/latex2html/icons/crossref.png"></A>) and give numerical
+results for problems from optimization and fluid dynamics.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html165"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

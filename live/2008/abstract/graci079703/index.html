@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>graci079703</TITLE>
+<META NAME="description" CONTENT="graci079703">
+<META NAME="keywords" CONTENT="graci079703">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="graci079703.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jose Luis Gracia 
+<BR><B>Distributive Smoother for Dominating Grad-Div Problems</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Applied Mathematics 
+<BR>
+Escuela Universitaria de Ingenier&#237;a T&#233;cnica Industrial 
+<BR>
+Campus R&#237;o Ebro Edificio Torres Quevedo 
+<BR>
+Mar&#237;a de Luna s/n 50018 Zaragoza (Spain)
+
+<BR><TT>jlgracia@unizar.es</TT>
+<BR>
+Cornelis Oosterlee
+<BR>
+Francisco Lisbona
+<BR>
+Gaspar Francisco
+</DIV>
+
+<P>
+Some problems in applied mathematics related, for example, to fluid flow,
+solid mechanics, magnetohydrodynamics or electromagnetism problems are
+governed by equations in which a grad-div term is dominant. This
+circumstance makes the corresponding algebraic equations appearing in the
+discrete problem difficult to solve efficiently. In particular, standard
+multigrid algorithms are not effective when applied to grad-div
+dominating problems because the eigenspace associated to the minimal
+eigenvalue of the discrete operator contains many arbitrary oscillatory
+eigenvectors. These can neither be reduced by standard smoothing
+procedures, nor be well represented on coarse grids
+
+<P>
+In the finite element context, multigrid methods for this kind of
+problems were analyzed by Arnold et al. [1], Hiptmair and Hoppe [2] and
+Vassilevski and Wang [3]. In this talk robust distributive smoothers are
+proposed for discrete systems of equations that arise when discretizating
+with finite differences on staggered grids. This kind of discretization
+preserves the main properties of the differential operator in its
+discrete form. Similarly to the continuous case, this property permits to
+reformulate the discrete problems as a decoupled system where the
+Laplacian is the dominant operator.
+
+<P>
+In particular we study the model problem <!-- MATH
+ $-\lambda \, {\rm grad \ div\,}
+u +u= f$
+ -->
+<IMG
+ WIDTH="158" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$ -\lambda \, {\rm grad \ div\,}
+u +u= f$">, where <IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \lambda$"> is a large positive number as well as more
+realistic problems as nearly incompressible elasticity and secondary
+consolidation Biot's model. Some numerical experiments show that
+distributive smoothing methods give small multigrid convergence factors
+that are independent of problem parameters and of the mesh sizes in space
+and time.
+
+<P>
+ 
+<P>
+References:
+
+<P>
+<DL COMPACT>
+<DT>[1]</DT>
+<DD>D.N. Arnold, R.S. Falk and R. Winther. Preconditioning in
+H(div) and applications.
+Math. Comput. 1997; 66: 957-984.
+</DD>
+<DT>[2]</DT>
+<DD>R. Hiptmair, R.H.W. Hoppe. Multilevel methods for mixed
+finite elements in three
+dimensions. Numer. Math. 1999 82: 253-279.
+</DD>
+<DT>[3]</DT>
+<DD>P.S. Vassilevski, J. Wang. Multilevel iterative methods for
+mixed finite element
+discretizations for elliptic problems. Num. Mathematik 1992; 63; 503-520.
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html4"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html3"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-03-01
+</ADDRESS>
+</BODY>
+</HTML>

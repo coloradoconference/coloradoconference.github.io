@@ -1,0 +1,131 @@
+===firstname:
+Dominique
+===firstname3:
+
+===lastname2:
+
+===postal:
+GERAD and Ecole Polytechnique de Montreal,
+Department of Mathematics & Industrial Engineering,
+CP 6079, Succ. Centre-Ville
+Montreal H3C 3A7
+Quebec, Canada
+===lastname:
+Orban
+===lastname3:
+
+===ABSTRACT:
+\newcommand{\eqn}[2]{%
+ \begin{equation}
+  \label{#1}
+  {#2}
+ \end{equation}
+} 
+\newcommand{\req}[1]{(\ref{#1})}
+\newcommand{\sub}[1]{_{{\mbox {\tiny #1}}}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\T}{^T\!}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\minim}{\mathop{\hbox{minimize}}}
+\newcommand{\minimize}[1]{\displaystyle\minim_{#1}}
+\newcommand{\st}{\mathop{\hbox{subject to}}}
+\newcommand{\vect}[1]{
+ \left[
+  \begin{array}{c}
+   #1
+  \end{array}
+ \right]
+}
+
+We consider the iterative solution of systems of the form
+\eqn{eq:augmented}{
+ \begin{bmatrix}
+  A & B^T \\
+  B & 0
+ \end{bmatrix}
+ \vect{u \\ p} = \vect{b \\ d},
+}
+where $A \in \R^{n \times n}$ is square but not necessarily symmetric, $B \in
+\R^{m \times n}$, $b \in \R^n$ and $d \in \R^m$. In a fluid flow context,
+systems such as \req{eq:augmented} arise in Navier-Stokes
+iterations when considering the flow of two or more immiscible fluids through a
+cavity and must be solved to compute a correction $(u,p)$ in the velocity and
+pressure fields. The large size of such problems preclude a direct
+factorization of the coefficient matrix of \req{eq:augmented}. On the other
+hand, iterative methods applied to \req{eq:augmented} usually perform very
+poorly. We are particularly interested in the case where $A$ may not be
+assembled explicitly but rather, matrix-vector products with $A$ may be
+obtained by calling a function. We assume that $B$ is available explicitly.
+
+Whenever $A$ is symmetric and positive definite,
+\req{eq:augmented} represents the first-order optimality conditions of the
+equality-constrained quadratic program
+\eqn{eq:qp}{
+ \setlength{\arraycolsep}{.75em}
+ \begin{array}{ll}
+  \minimize{u \in \R^n} & -b\T u + \half u\T A u \\
+  \st & B u = d.
+ \end{array}
+}
+In this type of application, the density of the coefficient matrix is mostly
+due to $A$.  Assuming that $B$ has full row rank, it is often feasible to
+compute a factorization of the {\em projection matrix}
+\eqn{eq:projector}{
+ \begin{bmatrix}
+  G & B^T \\
+  B & 0
+ \end{bmatrix},
+}
+where $G$ is a sparse symmetric approximation to $A$ that is positive definite
+over the nullspace of $B$. A particularly efficient iterative method for
+\req{eq:qp} is then the projected preconditioned conjugate gradient algorithm
+often used in
+nonlinear optimization contexts.  This method typically requires the
+factorization of a single projection matrix and one matrix-vector product with
+$A$ per iteration.
+
+We examine similar Krylov-type iterations for the case where $A$
+is unsymmetric and present a methodology by which to derive projected Krylov
+methods for systems of the form \req{eq:augmented}.  We concentrate on the {\sc
+b}i-{\sc cgstab} and {\sc tfqmr} families of methods.  The methods we consider
+are akin to so-called projection methods,
+which are
+sometimes regarded as being too expensive and only effective on systems in
+which $A$ is diagonally dominant. We hope that this
+paper will correct that reputation by showing that efficient projections
+combined with the appropriate Krylov iteration make for a very competitive
+numerical method.
+
+Let $Z \in \R^{q \times n}$ be a matrix whose rows form a basis for the
+nullspace of $B$. Any solution $u^*$ to \req{eq:augmented} may be written $u^*
+= Z u^*\sub{Z} + B\T u^*\sub{B}$, so that \req{eq:augmented} yields $B B\T
+u^*\sub{B} = d$, which uniquely determines $u^*\sub{B}$ and leaves $u^*\sub{Z}$
+as a solution to $Z\T A Z u^*\sub{Z} = Z^T (b - A B\T u^*\sub{B})$. Applying
+any Krylov method to the latter system with a preconditioner of the form $M =
+Z\T G Z$, where $G$ is such that $M$ is positive definite, is equivalent to
+applying the same Krylov method with $A$ as coefficient matrix, with
+preconditioning steps replaced by projections computed via \req{eq:projector},
+and without recourse to computing $Z$. Special care must be observed in an
+implementation of this scheme as severe numerical cancellation likely occurs,
+especially in the projection steps. We will present a remedy to this difficulty.
+
+In our implementation, factorization of the projection matrix is performed by the
+multi-frontal symmetric indefinite {\sc ma57} from the Harwell Subroutine
+Library.  The stopping test implemented by default is triggered when the
+projected {\sc b}i-{\sc cg} residual vector $s_k$ is small or when the residual
+vector $r_k$ satisfies a Galerkin-type condition, or if the total number of
+matrix-vector products exceeds $2 n_A$, where $n_A$ is the order of the $(1,1)$
+block matrix $A$.  We compare the projected {\sc b}i-{\sc cgstab} approach with
+a direct LU factorization of \req{eq:augmented}. The comparison is based on the
+total solution time and memory requirements. The LU factorization is realized
+by means of the {\sc umfpack} package.
+
+We present results on systems arising from the discretization of Navier-Stokes equations for the flow of one or more immiscible incompressible fuilds. Some test cases involve a potentially moving obstacle taken into account by the fictitious domains method.
+===email:
+dominique.orban@gerad.ca
+===otherauths:
+
+===title:
+Projected Krylov Methods for the Solution of Unsymmetric Augmented Systems
+===firstname2:
+

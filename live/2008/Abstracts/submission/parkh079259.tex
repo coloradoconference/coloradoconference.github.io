@@ -1,0 +1,156 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large HyeongKae Park \\
+{\bf Physics-Based Preconditioning of the rDG-JFNK method for All-Speed Fluid Flows with Heat Conduction and Viscosity}}
+
+Idaho National Laboratory \\ Advanced Nuclear Energy Systems \\ Multiphysics Methods Group \\ P O Box 1625 \\ Idaho Falls \\ ID 83415-3840 \\ USA
+\\
+{\tt ryosuke.park@inl.gov}\\
+Robert Nourgaliev\\
+Vincent Mousseau\\
+	Knoll, Dana\end{center}
+
+A novel high-order-accurate, fully-implicit solution algorithm for
+all-speed, Navier-Stokes equations is introduced. It combines the
+``\textit{recovery Discontinuous Galerkin}'' (rDG) method for spatial
+discretization of the hyperbolic and diffusion operators with the
+``\textit{Explicit, Singly Diagonal Implicit Runge-Kutta}'' (ESDIRK)
+scheme for time integration. Both algorithms are implemented under the
+``\textit{Jacobian-free Newton-Krylov}'' (JFNK) framework. Since
+hyperbolic and diffusion operators are fully-coupled, temporal
+discretization errors due to operator-splitting are completely
+eliminated. The algorithm is demonstrated to be high-(up to
+$5^{th}$)-order time-accurate in a wide range of Mach, Reynolds and
+P\'{e}clet numbers even when the pressure-gradient, viscous and
+heat-conduction operators become of comparable size. The rDG formulation
+exhibits nearly-spectral accuracy (shown up to the $12^{th}$-order) in
+space. The Newton-Krylov (NK) solution is formulated in conservative
+variables (i.e. density, $\rho$ ; total energy, $E$; and momentum, $m$),
+which allows one to stop Newton’s iteration any time (if locked in the
+limit cycle) without loosing conservation. The ESDIRK and rDG
+discretizations provide natural utilities to compute a high-order error
+estimate in both time and space, which is especially beneficial for
+Adaptive Mesh Refinement (AMR) and time step control.
+
+The main challenge is to ensure the efficiency of the JFNK linear solver,
+for which we employ the Jacobian-free version of the right-preconditioned
+GMRES method. The focus of this paper is the
+\textit{\underline{Physics-Based Preconditioning}} (PBP) of our rDG-JFNK
+algorithm. It is designed to “cluster” eigenvalues of the Jacobian
+matrix, ensuring convergence of the GMRES within a few Krylov iterations.
+Two PBP strategies, specifically designed for DG-type of spatial
+discretizations, are introduced and extensively tested.
+
+\underline{The first PBP} capitalizes on explicit availability of the
+higher-order derivatives in the DG local solution vector. The Jacobian
+matrix $\mathbb{J} $ can be rearranged in the block-vector form. Each
+element $\tilde{\hat{\mathbb J}}_{_{km}} $ of the Jacobian matrix
+$\mathbb{J} $ is a $\left[3 \left(p+1 \right) \times 3 \left(p+1 \right)
+\right]$ matrix, and \textit{p} is the highest order of the basis
+functions, representing non-local coupling of solutions between $k^{th}$
+and $m^{th}$ cells (i.e. $\delta \mathbb{U}_{_k} $ and $\delta
+\mathbb{U}_{_m} $).
+$\delta \mathbb{U}_{_{j}}=\left( \delta
+\rho_{_j}^{^{(0)}}, ...~, \delta \rho_{_j}^{^{(p)}},
+\delta m_{_j}^{^{(0)}}, ...~, \delta m_{_j}^{^{(p)}},
+\delta E_{_j}^{^{(0)}}, ...~, \delta E_{_j}^{^{(p)}}
+\right)^{^{\sf T}} $
+is a local solution vector at cell \textit{j}. Elimination of the
+off-diagonal blocks $\left(\tilde{\hat{\mathbb J}}_{_{km}}=0,~ k \neq m
+\right)$ can be interpreted as freezing the nonlocal coupling at the
+previous Newton iteration. When used for preconditioning, this
+block-diagonal approximation not only provides a tight coupling of the
+local solution vector (which is very effective when the reaction terms
+are stiff), but also takes into account \textit{some non-local coupling}
+since the spatial derivatives are the part of the local solution vector.
+We refer to this as ``\textit{Block-Diagonal}''(BD) preconditioner, and
+its efficiency is demonstrated here in terms of \textit{a}) the patterns
+of eigenvalues for the Jacobian matrix (``\textit{Eigenscopy}''); and
+\textit{b}) the number of the Krylov iterations/vectors required to
+converge the GMRES to a given linear tolerance.
+
+\underline{The second PBP} incorporates non-local effects. We split
+preconditioning into three steps, each targeting eigenvalues associated
+with a specific physics (i.e., heat conduction, stiff pressure waves and
+viscous operator). First, we transform the NK solution vector from
+conservative variables to primitive variables (i.e., pressure, $P$;
+velocity, $u$: and internal energy, $e$). A consistent transformation of
+the higher order derivatives is carried out by enforcing the conservation
+in the weak sense. The resulting system can be cast into the following
+block-vector form,
+
+\[
+\left[
+\begin{array}{ccc}
+\mathbb{J}_{_{P P}} &\mathbb{J}_{_{P u}} & \mathbb{J}_{_{P i}} \\
+\mathbb{J}_{_{u P}} &\mathbb{J}_{_{u u}} & \mathbb{J}_{_{u i}} \\
+\mathbb{J}_{_{i P}} &\mathbb{J}_{_{i u}} & \mathbb{J}_{_{i i}}
+\end{array}
+\right]
+\left(
+\begin{array}{c}
+\delta {\cal P} \\
+\delta {\cal U} \\
+\delta {\cal I}
+\end{array}
+\right)
+=-
+\left(
+\begin{array}{c}
+{\bf res}_{_{\cal P}} \\
+{\bf res}_{_{\cal U}} \\
+{\bf res}_{_{\cal I}}
+\end{array}
+\right),
+\]
+
+\noindent
+where each element $\mathbb{J}_{_{km}} $ is a $N_{_{\rm cells}}
+(p+1)\times N_{_{\rm cells}}(p+1) $ matrix, representing non-linear
+coupling between the $k^{th}$ and $m^{th}$ primitive variables.
+
+In order to solve this coupled system, we first decouple the internal
+energy from the pressure-velocity matrix, solving for $\delta {\cal I} $.
+Step I targets the heat conduction operator. Next, we formulate the
+pressure-Poisson equation as
+
+\[
+\underbrace{\left( \mathbb{J}_{_{PP}}- \mathbb{J}_{_{Pu}}
+\mathbb{J}_{_{uu}}^{^{-1}}\mathbb{J}_{_{uP}}
+\right)}_{Laplacian,~\mathbb{L}} \delta {\cal P} =
+\underbrace{-\left( {\bf res}_{_{\cal P}}+\mathbb{J}_{_{Pi}} \delta {\cal
+I}-\mathbb{J}_{_{Pu}} \mathbb{J}_{_{uu}}^{^{-1}} \left( {\bf res}_{_{\cal
+U}} +\mathbb{J}_{_{ui}} \delta {\cal I} \right) \right)}
+_{\bf b},
+\]
+
+\noindent
+where the Laplacian can be shown to be closely related to the Schur
+complement of the pressure-velocity matrix. This parabolic system can be
+solved efficiently using a multigrid method. Step II targets stiff
+pressure waves. Finally, we solve for velocity, accounting for viscous
+stress terms. In the 1D representation, this Step III can be written as
+
+\[
+\delta {\cal U} =- \mathbb{J}_{_{uu}}^{^{-1}} \left({\bf res}_{_{\cal U}}
++ \mathbb{J}_{_{uP}} \delta {\cal P}+ \mathbb{J}_{_{ui}} \delta {\cal I}
+\right) .
+\]
+
+It can be easily seen that this PBP is closely related to the classical
+``operator-split'' solution algorithms for incompressible and
+weakly-compressible flows (e.g., ICE, SIMPLE, Projection). Therefore, we
+referred to this as ``\textit{Operator-Split}'' (OS) preconditioner. We
+demonstrate that the OS preconditioner is very effective in clustering
+generally-complex eigenvalues near the real axis. It is also found to be
+very effective in a wide range of Mach ($M$) and Reynolds ($Re$) numbers,
+keeping the number of GMRES iterations $\sim10$, even at the extremes of
+$M=10^{-4}$ and very low $Re$ numbers.
+
+
+\end{document}

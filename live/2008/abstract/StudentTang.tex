@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jok M. Tang \\
+{\bf 
+%-orig: A Generalized Projected CG Method with Applications to Bubbly Flow Problems.
+A generalized two-level PCG method derived from deflation,
+multigrid and domain decomposition.
+}}
+
+Faculty of Electrical Engineering, Mathematics and Computer Science \\ 
+Delft University of Technology \\
+%% Mekelweg 4, 2628 CD Delft \\
+%% The Netherlands
+{\tt j.m.tang@tudelft.nl}
+\end{center}
+
+%-orig: For various applications, it is well-known that a two-level preconditioned CG method is an efficient method for solving large and sparse linear system
+%-orig: s whose coefficient matrix is SPD. A combination of traditional and projection-type preconditioners is used to get rid of the effect of both small and large eigenvalues of the coefficient matrix. The resulting methods are called projection
+%-orig: methods. In the literature, various projection methods are known, coming from the fields of deflation, domain decomposition and multigrid. At first glance, these methods seem to be different. However, from an abstract point of view, they are closely related to each other theoretically. We show that a generalized projected CG method can be formulated based on these methods. The various variants are also compared numerically in order to test their robustness, where our main applications are bubbly flows. The computational cost for the simulations of bubbly flows is often dominated by the solution of a linear system corresponding to a pressure Poisson equation with discontinuous coefficients. We will explore the efficient solution of these linear systems using projection methods. Some of these methods turn out to be very fast and robust, resulting in efficient calculations for bubbly flows on highly resolved grids. We conclude with a suggestion of a two-level preconditioner for the CG method, that is as robust as the abstract balancing preconditioner and nearly as cheap and fast as the deflation preconditioner.
+
+For various applications, it is well-known that a two-level PCG method is an
+efficient method for solving large and sparse linear systems. A combination
+of traditional and projection-type preconditioners is used to get rid of the
+effect of both small and large eigenvalues of the coefficient matrix. The
+resulting two-level PCG methods are known in literature, coming from the
+fields of deflation, domain decomposition and multigrid. At first glance,
+these methods seem to be different. However, from an abstract point of view,
+it can be shown that some of them are closely related to each other and some
+of them are even equivalent. The aim of this talk is to compare these
+two-level PCG methods both theoretically and numerically. We investigate
+their equivalences, robustness, spectral and convergence properties.
+
+\end{document}

@@ -1,0 +1,31 @@
+===firstname:
+Misha
+===firstname3:
+
+===lastname2:
+Hansen
+===postal:
+Department of Mathematics
+Tufts University
+503 Boston Ave.
+Medford, MA 02155
+===lastname:
+Kilmer
+===lastname3:
+
+===ABSTRACT:
+We present a projection-based regularization strategy and algorithm for retaining edges in a regularized solution. Our algorithm is suitable for large-scale discrete ill-posed problems arising from the discretization of Fredholm integral equations of the first kind.  Such problems arise in many technical and scientific applications such as astronomical or medical imaging, geoscience, and non-destructive testing. Discretizations of these problems often lead to large structured or sparse systems of linear equations with highly ill-conditioned coefficient matrices.  In this talk, we focus on image deblurring applications. 
+
+Many of the edge-preserving regularization algorithms that have been developed in the context of image de-noising and deblurring to date involve ideas and techniques from partial differential equations and/or level sets.  The difficulty is that efficient implementation of these algorithms is a complicated, computationally intensive task due to the nonlinear computational problems involved.
+
+Our strategy avoids some of these pitfalls by making use of orthogonal decompositions/transforms, for example the DCT, in which components in the so-called noise and signal subspaces can be generated quickly.  The edge-preserving algorithm is implemented by use of iteratively reweighted least squares (O’Leary, 1990).  The efficiency of the approach relies in part on the choice of preconditioner for each least squares system, as well as on some more subtle issues of formulation and tolerance levels.  Some preconditioner options for specific choices of orthogonal transform and choice of regularization operator will be discussed.  Numerical results based on two-dimensional image deblurring problems show the promise of our approach.  
+
+
+===email:
+misha.kilmer@tufts.edu
+===otherauths:
+
+===title:
+Edge Preserving Projection-based Regularization
+===firstname2:
+Per Christian

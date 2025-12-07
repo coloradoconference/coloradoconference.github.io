@@ -1,0 +1,143 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Li Wang \\
+{\bf Goal-oriented \textit{hp}-adaptive Discontinuous Galerkin Methods for the Compressible Euler Equations on Unstructured Meshes}}
+
+Department of Mechanical Engineering \\ University of Wyoming \\ Laramie \\ Wyoming 82071-3295
+\\
+{\tt wangli@uwyo.edu}\\
+Dimitri J. Mavriplis\end{center}
+
+High-order accurate Discontinuous Galerkin (DG) methods
+\cite{Cockburn::98_1,Barter::07_1,Nastase::05_1,Wang::07_1}
+have become a popular approach for solving hyperbolic conservation
+systems over the last decade. The use of adaptive solution strategies via
+the finite element method has also become a more accepted technique
+to guarantee and improve numerical accuracy, particularly for cases
+with complex geometries. The main idea of the adaptive strategies used in
+this work is to start the computation with a relatively coarse mesh associated
+with a uniformly low order of discretization on the computation domain.
+Thereafter, a local or cellwise error indicator arising from an objective
+functional of interest with engineering properties, such as Lift or Drag,
+is estimated using an adjoint-based sensitivity analysis technique.
+This approach results in a spatial error distribution, which is then used
+to drive local mesh subdivision (\textit{h}-refinement) or
+local modification of discretization orders (\textit{p}-enrichment),
+in order to improve the accuracy of the objective function and the approximation.
+One of the main benefits of the given method from a finite
+element point of view is that the number of unknowns and thus the computational expense
+are optimized by avoiding excessive resolution
+in areas of little influence on the quantity of interest.
+
+The \textit{a posteriori} error estimates employed in this work to predict the error
+distribution involve the inner product of the finite element residuals with
+the adjoint solution variables.
+In order to approximate the adjoint solution,
+we make use of the discrete adjoint strategy \cite{Mavriplis::06_1}
+where the governing equations are first
+discretized by the Discontinuous Galerkin method and then linearized,
+thus reproducing the
+exact sensitivity derivatives of the original discretization of the governing equations.
+This approach requires one adjoint solution at each adaptive step, which
+is equivalent to the cost
+of one flow solution, since the coefficient matrix of the linear system of equations
+constructed for the adjoint problem corresponds to the transpose
+of the full-Jacobian matrix of the flow equations.
+The solution of this system is relatively
+straight-forward since many of the entries in the full Jacobian matrix
+are already computed for the implicit element Jacobi scheme used to solve
+the flow equations.
+Moreover,
+a linearized element Gauss-Seidel smoother and an \textit{hp}-multigrid
+approach \cite{Nastase::05_1,Wang::07_1} are exclusively
+used to accelerate the convergence of both the flow and adjoint solvers.
+
+The adaptive mesh approach used in this paper consists of a purely \textit{h}-refinement
+technique, locally subdividing one triangle into four self-similar
+children triangles, while keeping
+the discretization order fixed, as well as a purely \textit{p}-enrichment
+technique, locally increasing
+the order of interpolation polynomials while keeping the underlying triangulation fixed,
+and a combined scheme known as \textit{hp}-adaptive refinement.
+However, the principal obstacle towards effective use of \textit{hp}-adaptation
+lies in making a decision between \textit{h}- and \textit{p}-refinement.
+In this work, the choice is made by utilizing a smoothness
+indicator to isolate regions with smooth solution behavior where local
+\textit{p}-enrichment
+performs more effectively, from areas with singularities or discontinuities where local
+\textit{h}-refinement is more suitable.
+
+In this paper, we show the convergence properties for both the flow
+(primal) and the discrete adjoint (dual)
+problems using \textit{hp}-multigrid solver driven by the element Gauss-Seidel smoother.
+Then, the overall efficiency and accuracy of the purely
+\textit{h}-refinement and the purely
+\textit{p}-enrichment approaches are compared with those of the scheme
+with uniform mesh or order refinement, respectively.
+Next, the performance of the \textit{hp}-adaptive approach is compared with the purely
+\textit{h}- and \textit{p}-refinement. Finally, a case with strong shocks
+or discontinuities is
+employed to demonstrate the shock-capturing properties of both \textit{h}- and
+combined \textit{hp}-adaptive strategies. Future work will focus on
+extending this approach
+to unsteady problems.
+
+
+\begin{thebibliography}{}
+
+\bibitem[1]{Cockburn::98_1}
+
+{B. Cockburn and C.-W. Shu},
+{The Local Discontinuous Galerkin Method for Time-Dependent
+Convection-diffusion Systems},
+{SIAM J. Numer. Appl. Mech. Engrg.},
+{1998},
+{35},
+{2440--2463}
+
+\bibitem[2]{Barter::07_1}
+
+{Garrett E. Barter and David L. Darmofal},
+{Shock Capturing with Higher-Order, PDE-Based Artificial Viscosity},
+{June},
+{2007},
+{{AIAA} Paper 2007-3823}
+
+\bibitem[3]{Nastase::05_1}
+
+{C. R. Nastase and Dimitri J. Mavriplis},
+{High-Order Discontinuous Galerkin Methods using a Spectral Multigrid Approach},
+{Jan.},
+{2005},
+{{AIAA} Paper 2005-1268}
+
+
+\bibitem[4]{Wang::07_1}
+
+{Li Wang and Dimitri J. Mavriplis},
+{Implicit Solution of the Unsteady {E}uler Equations for High-order
+Accurate Discontinuous {G}alerkin Discretizations},
+{J. Comput. Phys.},
+{2007},
+{225},
+{1994--2015}
+
+
+\bibitem[5]{Mavriplis::06_1}
+
+{Dimitri J. Mavriplis},
+{A Discrete Adjoint-Based Approach for Optimization Problems on
+Three-Dimensional Unstructured Meshes},
+{{J}an.},
+{2006},
+{{AIAA} Paper 2006-0050}
+
+\end{thebibliography}
+
+
+\end{document}

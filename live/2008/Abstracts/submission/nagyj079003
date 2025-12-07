@@ -1,0 +1,47 @@
+===firstname:
+James
+===firstname3:
+
+===lastname2:
+
+===postal:
+Emory University
+Math/CS Department
+400 Dowman Drive, Suite W401
+Atlanta, GA  30322
+===lastname:
+Nagy
+===lastname3:
+
+===ABSTRACT:
+In this talk we consider large scale severely ill-conditioned linear
+systems that arise when solving ill-posed inverse problems.  Computed
+solutions are very sensitive to errors in the data, and regularization
+is needed to stabilize the inversion process.  There are many forms or
+regularization.  In this talk we consider an iterative hybrid
+bidiagonalization regularization (HyBR) scheme that efficiently
+applies Tikhonov regularization.  An advantage of the HyBR algorithm
+is that it can automatically estimate and refine regularization
+parameters at each iteration, and it can estimate a stopping iteration
+(both of these issues are very difficult for inverse problems).  HyBR
+is based on Lanczos bidiagonalization, where the large scale problem
+is projected onto a small Krylov subspace.  The ``hybrid" part refers
+to the fact that regularization is not applied a priori to the large
+scale problem, but instead to the small projected problem.
+Preconditioning to accelerate convergence of HyBR is very difficult;
+standard approaches are likely to magnify data errors in the early
+iterations, making it impossible to recover a good approximation of
+the desired solution.  In this talk we illustrate the difficulties of
+preconditioning HyBR, and describe an approach that can be used for
+certain classes of inverse problems.  Computational examples include
+the inverse heat equation, as well as examples from image processing.
+
+
+===email:
+nagy@mathcs.emory.edu
+===otherauths:
+
+===title:
+Preconditioning HyBR for Inverse Problems
+===firstname2:
+

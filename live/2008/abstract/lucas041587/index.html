@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>lucas041587</TITLE>
+<META NAME="description" CONTENT="lucas041587">
+<META NAME="keywords" CONTENT="lucas041587">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html514"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html515"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Peter Lucas 
+<BR><B>Efficient nonlinear solver for unsteady <SMALL>CFD</SMALL> problems solved with higher order implicit time integration schemes</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Kluyverweg 1 
+<BR>
+2629 HS Delft 
+<BR>
+The Netherlands
+
+<BR><TT>p.lucas@tudelft.nl</TT>
+<BR>
+Hester Bijl
+</DIV>
+
+<P>
+Over the last decade(s) there has been an increasing demand to predict
+unsteady flows. Knowledge of unsteady loads on, for example, wind turbine
+blades have proved to be of vital importance for an efficient life cycle
+design. Due to the unsteadiness of these problems and the large stiffness
+associated with large Reynold number flows, these computations can take
+months on a series of processors. To speed up these computations we use
+higher order multistage implicit time integrations schemes, because they
+were shown to be more computationally efficient than the standard
+backward difference schemes, also for engineering orders of
+accuracies<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ ^1$">. However, specially for larger time steps the performance
+of standard nonlinear multigrid deteriorates. The goal of this research
+is therefore to further speed up the computations.
+
+<P>
+Because of the potential speed up of a Jacobian-free Newton-Krylov (<SMALL>JFNK</SMALL>) method over standard nonlinear multigrid for these problems<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ ^2$"> we
+have implemented a <SMALL>JFNK</SMALL> method in our aerodynamic production code.
+Preconditioning of the linear systems that arise after Newton
+linearization is, however, of crucial importance for the computational
+efficiency of the <SMALL>JFNK</SMALL> method<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="$ ^3$">. This paper therefore seeks for
+an optimal preconditioner to compute unsteady, large Reynolds' number
+flows solved with higher order implicit time integration schemes. Because
+higher order implicit time integrations schemes are not yet often used,
+not much is known on how to create an efficient preconditioner.
+
+<P>
+Possible preconditioners are: (non)linear multigrid, a recursive variant
+of <SMALL>GMRES</SMALL> and (matrix-free) approximate factorizations (<SMALL>AF</SMALL>) of
+the Jacobian. (Non)linear multigrid, matrix-free <SMALL>AF</SMALL>'s and <SMALL>GMRESR</SMALL> have the advantage of a low memory consumption. However, they
+require more computational time per iteration and the low-frequency
+errors may be poorly damped. <SMALL>AF</SMALL>'s of (an approximation of) the
+Jacobian can be very powerful because errors in the whole frequency
+domain are damped. Furthermore, once the factorization has been computed
+it can be reused for next linear solves, which can make them relatively
+cheap to apply. Finally, this type of preconditioner is relatively
+straightforward to implement in our aerodynamic production code. We have
+therefore chosen to precondition the linear systems with a Jacobian based
+Incomplete Lower Upper factorization based on the footprint of the
+Jacobian (<SMALL>ILU</SMALL>(k)). Preliminary results showed that these <SMALL>AF</SMALL>'s
+greatly outperformed multilevel <SMALL>AF</SMALL>'s and <SMALL>AF</SMALL>'s based on dual
+thresholds.
+
+<P>
+Disadvantages of <SMALL>ILU</SMALL>(k) preconditioners can be lack of
+robustness<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ ^4$"> and large memory consumption. The lack of robustness is
+easily circumvented by slightly increasing the diagonal dominance of the
+Jacobian. A common approach to reduce memory usage is to neglect
+contributions further away than nearest neighbors in the Jacobian<IMG
+ WIDTH="12" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$ ^5$">.
+However, for unsteady two-dimensional flows around wind turbine profiles
+on unstructured grids, we find a much better linear convergence with an
+<SMALL>ILU</SMALL>(k) preconditioner that is based on a lumped Jacobian. For the
+lumped Jacobian all contributions from neighbors of neighbors are
+included into the Jacobian. Hereafter the contributions from neighbors of
+neighbors are lumped to nearest neighbors and the <SMALL>AF</SMALL> is computed.
+
+<P>
+To further enhance the efficiency of the iterative solver we have
+investigated the successive combination of nonlinear multigrid and the
+<SMALL>JFNK</SMALL> method. Furthermore, we are investigating recycling of Krylov
+subspace to speed up the linear solves. In our paper results for a two
+and three dimensional unsteady test case are discussed.
+
+<P>
+<BR>
+<BR>
+<BR>
+
+<P>
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">[1]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>A. H. van Zuijlen, and H. Bijl. <EM>Implicit and explicit higher order
+time integration schemes for structural dynamics and fluid-structure
+interaction computations</EM>, Computers <IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ \&amp;$"> Structures, Vol. 83, 93-105,
+2005.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">[2]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>G. Jothiprasad, D.J. Mavriplis, D.J. and D. A. Caughey. <EM>Higher-order
+time integration schemes for the unsteady Navier-Stokes equations on
+unstructured meshes</EM>, Journal of Computational Physics, Vol. 191,
+542-566, 2003.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">[3]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>D.A. Knoll and D.E. Keyes. <EM>Jacobian-free Newton-Krylov methods: a
+survey of approaches and applications</EM>, Journal of Computational Physics,
+Vol. 193, 357-397 2004.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">[4]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>E. Chow and Y. Saad. <EM>Experimental study of ilu preconditioners for
+indefinite matrices</EM>, Journal of computational and applied mathematics,
+Vol. 86, 387-414 1997.</TD>
+</TR>
+<TR><TD ALIGN="LEFT">[5]</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>P. Wong and D.W. Zingg. ``Three-Dimensional Aerodynamic Computations on
+Unstructured Grids Using a Newton-Krylov Approach''. <EM>17<IMG
+ WIDTH="18" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ ^{th}$"> AIAA
+Computational Fluid Dynamics Conference</EM>, Toronto, Canada, June 2005,
+AIAA 2005-5231.</TD>
+</TR>
+</TABLE>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html516"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html514"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html515"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

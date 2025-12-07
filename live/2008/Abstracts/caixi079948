@@ -1,0 +1,34 @@
+===firstname:
+Xiao-Chuan
+===firstname3:
+
+===lastname2:
+Li
+===postal:
+Department of Computer Science,
+University of Colorado at Boulder,
+Boulder, CO 80309-0430
+
+===lastname:
+Cai
+===lastname3:
+
+===ABSTRACT:
+We present locally refined Newton type methods for
+large nonlinear systems of algebraic equations, arising from the
+discretization of nonlinear partial differential equations. We focus on the type of systems that have local high
+nonlinearities. In other words, the nonlinear system may have many equations, but only a small percentage of them are highly nonlinear compared to the rest of the equations.  Global Newton methods may be used to solve the system, but often the computing time is wasted since all equations are
+treated equally as if they were all highly nonlinear. We introduce subspace Newton methods to remove the local
+high nonlinearities and therefore improve the efficiency and
+the effectiveness of the outer global Newton method, which performs well on equations with roughly the same level of nonlinearities.  We also discuss the parallel implementation of the new method using PETSc and provide some numerical results from solving several different nonlinear differential
+equations. 
+
+===email:
+cai@cs.colorado.edu
+===otherauths:
+
+===title:
+Parallel Subspace Newton Methods for  Algebraic Systems
+with Local High Nonlinearities
+===firstname2:
+Xuefeng

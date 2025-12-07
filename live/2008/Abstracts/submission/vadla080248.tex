@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Srinath Vadlamani \\
+{\bf Investigations of Multgrid implementiaton of precondition within the extended MHD NIMROD code.}}
+
+Tech-X Corporation \\ 5621 Arapahoe Ave \\ Suite A \\ Boulder \\ CO 80303
+\\
+{\tt srinath@txcorp.com}\\
+Scott Kruger\\
+Carl Sovinec\end{center}
+
+Considerable effort has been put forth in efforts to simulate
+Edge Localized Modes (ELMs) with nonlinear extended magnetohydrodynamic
+codes in order to understand the effects of ELMs on plasma confinement
+properties. These simulations have led to new numerical challenges.
+The disparate time scales demand implicit treatment, but the required
+operators for the two-fluid physics leads to non-symmetric matrices.
+The broad linear spectrum means greater resolution is required, further
+increasing the condition number of the matrices. Thus, an effective
+preconditioner is necessary. SuperLU, a direct linear solver, has
+proven to be an effective preconditioner for NIMROD's three-dimensional
+matrices by application to only the decoupled two-dimensional matrices.
+Because the majority of the simulation time is spent in matrix solves,
+effective use of computational resources requires effective linear
+solves. Multigrid methods, while more than 30 years old, are currently
+regarded as the most efficient solvers for a wide variety of problems.
+For elliptic problems, they have been shown to be the fastest algorithms.
+Multigrid methods are \emph{scalable} (or \emph{optimal)} because
+they can solve a linear system with $N$ unknowns with $O(N)$ operations.
+In addition to this favorable scaling, the fundamental idea of operating
+at different scales can also be exploited to minimize the computations
+and work well for parallel computing. We currently implement the multgrid
+linear solver \emph{hypre} via an interface to the PETSc numerical
+suite, which also can interface Super LU. We will present processor
+scaling results comparing SuperLU and \emph{hypre} as preconditioners
+for the $(2,1)$ tearing mode benchmark case and recent ELM milestone
+case. Also, we will present the extended MHD system from which the
+preconditioned matrices are derived from so as to illicit further
+insight for preconditioning techniques.
+
+
+\end{document}

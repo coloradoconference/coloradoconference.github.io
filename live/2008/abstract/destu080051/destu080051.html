@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>destu080051</TITLE>
+<META NAME="description" CONTENT="destu080051">
+<META NAME="keywords" CONTENT="destu080051">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html145"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html146"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Eric de Sturler 
+<BR><B>Recycling Preconditioners and Krylov Subspaces for Quasi-Newton Methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Department of Mathematics 
+<BR>
+544 McBryde Hall 
+<BR>
+Virginia Tech 
+<BR>
+Blacksburg 
+<BR>
+VA 24061 
+<BR>
+USA
+
+<BR><TT>sturler@vt.edu</TT>
+<BR>
+Hector Klie
+</DIV>
+
+<P>
+For many large systems of nonlinear equations or optimization problems
+the computation of the Jacobian (Hessian) may be very expensive. In
+addition, potentially large jumps in the coefficients of a system of
+partial differential equations and the highly nonlinear nature of some
+problems, for example, porous media flow, require robust Newton methods.
+As a result, such problems are often solved by Broyden-type methods or
+other quasi-Newton algorithms, and, for large problems, the resulting
+linear systems are solved using Krylov subspace methods. This leads to a
+sequence of related linear systems that change in a structured way
+although the changes need not be norm-wise small.
+
+<P>
+In this presentation we discuss how to solve such problems efficiently
+using preconditioned Krylov subspace methods. The key to efficient
+solvers is to update and reuse, hence <EM>recycle</EM>, preconditioners and
+the generated search spaces, and modify the Newton scheme such as to
+exploit this optimally.
+
+<P>
+Updating preconditioners reduces the often high computational cost of
+computing the preconditioner while maintaining or even improving the
+convergence rate.
+We consider very simple right preconditioner updates that can be combined
+directly with the recycling of an existing Krylov space or with the
+generation of a new Krylov space. Furthermore, we consider various types
+of recycling of search spaces to make the solution methods more
+efficient. In particular, we focus on an algorithm that combines two
+complementary types of recycling. The first type are the Krylov-Secant
+solvers proposed by Klie and Wheeler [1]. These methods force secant type
+updates to the
+Jacobian such that the range of the operator (over a given number of
+steps) remains in the Krylov space that already exists. The second type
+are the recycling solvers proposed by Parks, de Sturler et al. [2] and
+Wang, de Sturler, and Paulino [3] that significantly improve convergence
+rates for sequences of linear systems where the matrix changes slowly.
+
+<P>
+By modifying the (quasi-)Newton method we are able to make multiple
+nonlinear iterations with a very modest number of (preconditioned)
+matrix-vector products in the linear solver, sometimes none. In
+experimental results it also appears that the number of nonlinear steps
+where a new accurate Jacobian must be computed is reduced.
+
+<P>
+
+<B>REFERENCES</B>
+
+<OL>
+<LI>H. Klie and M.F. Wheeler, <EM>Nonlinear Krylov-Secant Solvers</EM>,
+Technical Report ICES 06-02, Institute for Computational Engineering
+and Sciences, University of Texas at Austin, January 2006
+
+<P>
+</LI>
+<LI>M.L. Parks, E. de Sturler, G. Mackey, D.D. Johnson, S.
+Maiti. <EM>Recycling Krylov Subspaces for Sequences of Linear Systems</EM>.
+SIAM Journal on Scientific Computing, Vol. <B>28</B>, 1651-1674, 2006.
+
+<P>
+</LI>
+<LI>S. Wang, E. de Sturler, and G.H. Paulino. <EM>Large-Scale
+Topology Optimization using Preconditioned Krylov Subspace Methods with
+Recycling</EM>. International Journal for Numerical Methods in Engineering,
+Vol. <B>69</B>, 2441-2468, 2007.
+
+<P>
+</LI>
+</OL>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html147"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html145"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html146"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

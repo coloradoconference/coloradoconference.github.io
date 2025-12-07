@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>schro080136</TITLE>
+<META NAME="description" CONTENT="schro080136">
+<META NAME="keywords" CONTENT="schro080136">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html835"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html836"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Jacob Schroder 
+<BR><B>Defining a General Strength-of-Connection Concept in AMG</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Jacob Schroder 
+<BR>
+Siebel Center for Computer Science 
+<BR>
+4328 Siebel Center 
+<BR>
+201 N Goodwin Ave 
+<BR>
+Urbana IL 61801 USA
+
+<BR><TT>jacob.bb.schroder@gmail.com</TT>
+<BR>
+Raymond Tuminaro
+<BR>
+Luke Olson
+</DIV>
+
+<P>
+Algebraic Multigrid (AMG) is often optimal, in that <I>O(n)</I>
+complexity is realized by efficiently reducing significant residual
+components on carefully constructed coarse spaces. A crucial part of
+constructing coarse spaces is determining how algebraically smooth error
+at one point depends on algebraically smooth error at a neighboring
+point. If dependence is strong, the two points are considered strongly
+connected. Accurate strength of connection information allows AMG to
+correctly pick coarse spaces and to construct the corresponding
+interpolation operators.
+
+<P>
+An accurate strength-of-connection measure exists for M-matrices, but
+strength-of-connection is not well-understood for more general classes of
+matrices. The purpose of this talk is to present a new general
+strength-of-connection measure grounded in the relaxation-based evolution
+of an initial Dirac <IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="$ \delta$">-function. Motivated by the relationship
+between weighted-Jacobi relaxation and the time marching of ordinary
+differential equations (ODEs), an ODE perspective is presented for
+understanding the new strength-of-connection measure. The ODE perspective
+is also very enlightening when examining strengths and weaknesses of
+classical strength-of-connection measures and recent attempts to define a
+general strength-of-connection concept, such as compatible relaxation and
+an energy based approach.
+
+<P>
+We also present encouraging numerical results for the new
+strength-of-connection measure used in conjunction with smoothed
+aggregation. The modified smoothed aggregation solver is used to
+accelerate Krylov-subspace methods applied to diffusion,
+convection-diffusion and linearized elasticity problems. Last, the
+effectiveness of the new strength-of-connection measure when applied to
+higher-order discretizations is explored.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html837"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html835"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html836"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>

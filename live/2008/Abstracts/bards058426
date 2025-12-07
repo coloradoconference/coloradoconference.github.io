@@ -1,0 +1,30 @@
+===firstname:
+Johnathan M.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Mathematical Sciences
+University of Montana
+Missoula, MT 59812-0864
+USA
+===lastname:
+Bardsley 
+===lastname3:
+
+===ABSTRACT:
+Approximating non-Gaussian noise processes with Gaussian models is standard in data analysis. This is due in large part to the fact that Gaussian models yield parameter estimation problems of least squares form, which have been extensively studied both from the theoretical and computational points of view. In image processing applications, for example, data is often collected by a CCD camera, in which case the noise is a Guassian/Poisson mixture with the Poisson noise dominating for a sufficiently strong signal. 
+
+In this talk, we will present an efficient computational method for minimizing the Poisson negative-log likelihood function resulting from an accurate CCD camera noise model with a regularization term and a nonnegativity constraint. We will prove convergence of the method for a general, convex regularization function. We will then present numerical results when Tikhonov, total variation, and Laplacian regularization terms are used. Our results suggest that the iterative method is highly efficient and yields a computationally viable—and even advantageous—alternative to standard approaches for unconstrained, regularized least squares minimization for image reconstruction.
+
+Given the fact images corrupted by Poisson noise are myriad in applications, e.g. astronomical imaging, and positron emission tomography (PET) imaging, the use of the Poisson negative-log likelihood function in image reconstruction is important. Moreover, the addition of a regularization term both stabilizes the problem and allows for the natural incorporation of prior information about an image. However this approach has seen little attention in the literature. The iterative method that is the subject of this talk gives researchers the ability to implement this approach in a computationally efficient manner.
+
+===email:
+bardsleyj@mso.umt.edu
+===otherauths:
+
+===title:
+An Efficient Iterative Method for Regularized Poisson Imaging Problems
+===firstname2:
+

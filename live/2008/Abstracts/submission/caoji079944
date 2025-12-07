@@ -1,0 +1,35 @@
+===firstname:
+Jianwen
+===firstname3:
+Xiao-Chuan
+===lastname2:
+Yang
+===postal:
+Institute of Software,
+Chinese Academy of Sciences,
+Beijing 100080, P. R. China
+===lastname:
+Cao
+===lastname3:
+Cai
+===ABSTRACT:
+Popular approaches for solving the shallow water equations
+for climate modeling are explicit and semi-implicit methods. 
+In this talk,  we discuss a fully implicit method for solving the shallow water equations on the cubed sphere. In the fully
+implicit method, a large sparse nonlinear system of equations
+needs to be solved at each time step, and the focus of the talk is a parallel, fully coupled, Newton-Krylov-Schwarz algorithm
+with a Jacobian matrix approximately calculated on a weakly
+non-matching mesh on the cubed sphere. We show numerically
+that with such a preconditioned nonlinearly implicit method the 
+time step size is no longer constrained by the CFL number and
+the parallel scalability of the algorithm on machines with
+a large number of processors will be reported.
+===email:
+caojianwen@gmail.com
+===otherauths:
+
+===title:
+A Fully Implicit Domain Decomposition Algorithm for
+Shallow Water Equations on the Cubed-Sphere
+===firstname2:
+Chao

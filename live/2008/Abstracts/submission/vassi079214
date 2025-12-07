@@ -1,0 +1,36 @@
+===firstname:
+Panayot, S.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Center for Applied Scientific Computing,
+           Lawrence Livermore National Laboratory,
+             P.O. Box 808, L-560,
+             Livermore, CA 94551, U.S.A.
+===lastname:
+Vassilevski
+===lastname3:
+
+===ABSTRACT:
+Traditional finite volume discretization of the Euler equations of gas dynamics (in Lagrangian coordinates)
+allow for straightforward computation of averaged (piecewise constant) values of the physical quantities involved 
+(pressure, velocity, density and energy).
+In other parts of the computation however, certain derivatives (gradient and divergence) of the pressure and 
+velocity are needed to close the overall discretization scheme.
+We study an approach based on minimizing TV (total variation) functionals subject to 
+equality and/or  inequality constraints to construct smooth function recovery of the 
+pressure and velocity. The constraints have physical meaning; namely, positivity of pressure (or internal energy)
+and the recovered functions to preserve (approximately) their averages computed by the finite volume scheme.
+The overall scheme is illustrated with some preliminary numerical results. 
+
+This work performed under the auspices of the U.S. Department of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
+===email:
+panayot@llnl.gov
+===otherauths:
+
+===title:
+Constrained minimization function recovery in Lagrangian hydrodynamics
+===firstname2:
+

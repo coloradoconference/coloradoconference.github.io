@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>bolte080051</TITLE>
+<META NAME="description" CONTENT="bolte080051">
+<META NAME="keywords" CONTENT="bolte080051">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html46"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html47"
+  HREF="node1.html">About this document ...</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<DIV ALIGN="CENTER">
+  <FONT SIZE="+1">Matthias Bolten 
+<BR><B>Algebraic considerations regarding the replacement of the Galerkin operator in multigrid methods</B></FONT>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Institute for Advanced Simulation (IAS) 
+<BR>
+IAS-1: Juelich Supercomputing Centre (JSC) 
+<BR>
+Research Centre Juelich 
+<BR>
+52425 Juelich 
+<BR>
+Germany
+
+<BR><TT>m.bolten@fz-juelich.de</TT>
+</DIV>
+
+<P>
+Most algebraic multigrid methods use the Galerkin operator
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+A_{C} = R A R^{H}
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="97" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\displaystyle A_{C} = R A R^{H}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+as approximation of the linear system on the coarse level. This
+originates from finite element discretizations of the PDEs, where it is
+natural to demand this property from the coarse level approximation. The
+choice of the Galerkin operator is not mandatory, but it is optimal in
+the sense that it fulfills a variational property and a lot of the theory
+depends on this fact, which results in the coarse grid correction being
+an orthogonal projector.
+
+<P>
+Nevertheless the use of the Galerkin operator has one big downside. As it
+is essentially formed by applying the fine level operator to the
+prolongated vector and restricting the result back to the coarse level,
+the stencil describing the operator grows. Consider the 5-point
+approximation of the Laplacian on a uniform grid in two dimensions. In
+that case the Galerkin operator on the coarser level will be represented
+by 9 points, resulting in a higher complexity per unknown on that level.
+While this is not a big problem for stencils involving only nearest
+neighbors, the problem gets more severe for very large and sparse
+stencils. We were interested in replacing the Galerkin operator by some
+similar operator, which does not posses this behaviour.
+
+<P>
+For that purpose we analyzed the convergence proofs for algebraic
+multigrid methods by Ruge and St&#252;ben and derived some sufficient
+conditions for convergence of multigrid methods not using the Galerkin
+operator on the coarse level. It turns out that it is actually possible
+to use another operator, that is close to the Galerkin operator and
+fulffills some other purely algebraic conditions. We replace the original
+coarse grid correction
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+T = I - R^{H} A_{C}^{-1} R A
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="142" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$\displaystyle T = I - R^{H} A_{C}^{-1} R A$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+by another one, that is using an approximation to the Galerkin operator, namely
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\hat{T} = I - R^{H} \hat{A}_{C}^{-1} R A.
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="147" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\displaystyle \hat{T} = I - R^{H} \hat{A}_{C}^{-1} R A.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+While it is relatively simple to derive sufficient conditions that
+<!-- MATH
+ $\hat{A}_{C}$
+ -->
+<IMG
+ WIDTH="27" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$ \hat{A}_{C}$"> has to fulfill in order to achieve W-cycle convergence,
+more attention is required in the V-cycle case. We modified the general
+estimate of the V-cycle convergence factor in the work of Ruge and
+St&#252;ben, which goes back to the work of Mandel and McCormick.
+
+<P>
+In the the talk an outline over the altered convergence analysis
+including a discussion of the sufficient conditions will be given and
+some examples will be presented.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL>
+<LI><A NAME="tex2html48"
+  HREF="node1.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html46"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/usr/share/latex2html/icons/prev_g.png">   
+<BR>
+<B> Next:</B> <A NAME="tex2html47"
+  HREF="node1.html">About this document ...</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Marian
+2008-02-26
+</ADDRESS>
+</BODY>
+</HTML>
