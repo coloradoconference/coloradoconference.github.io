@@ -1,0 +1,80 @@
+
+<html>
+<head>
+<title>cm conference abstract: Lambert</title>
+</head>
+
+<body>
+
+<center>
+ADI methods for the Poisson equation on locally refined othogonal composite grids
+</center>
+
+<p>
+<center>
+<a href="mailto: mlambert@llnl.gov">
+Michael Lambert</a><br><br>
+Center for Applied Scientific Computing
+LLNL, M.S. L-560
+7000 East Ave.
+Livermore, CA  94550 
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Since the late 1950s, alternating direction implicit (ADI) methods have been 
+used for modeling diffusive heat transfer and analogous physical processes.  
+In most cases, ADI has been applied to problems with uniform orthogonal grids 
+(UOGs), due to directional operator splitting.  Based on UOGs, 2D Peaceman-Rachford 
+ADI and 3D Douglas-Brian ADI are second order accurate in space (and time when 
+modeling time-dependent linear diffusion).   With appropriate time-step adaption,
+these implementations require as few as O(logN) iterations to converge to steady
+state solutions over N unknowns.  They also exhibit good parallel scalability 
+down to fairly small numbers of unknowns, using spatial domain decomposition.  But 
+since UOGs are incompatible with most ways of resolving multiple spatial scales, 
+ADI has fallen to the wayside of less spatially structured discretizations on top 
+of Krylov and multigrid iterative linear solvers.
+
+However, it should be realized that UOGs are only a subset of the grids on which 
+ADI can be defined.  ADI discretizations and iterations can be defined for 
+locally refined orthogonal composite grids (LROCGs) as well.  This could 
+significantly benefit many LROCG block-structured AMR simulations of diffusive 
+processes.
+
+Conceptually, local refinement merely increases the complexity of the line-
+solves in ADI.  In particular, a graph showing interdependence of unknowns 
+along a particular direction is no longer simply-connected.  Such graphs take on 
+topologies resembling vascular capillaries.  For one of the simplest conservative 
+spatial discretizations, traversal of a coarse-fine boundary into the finer region 
+links the coarser unknown by matrix coefficients to r^(d-1) finer unknowns, 
+assuming the same refinement ratio (r) for the (d) dimensions of space.  However, 
+the finer unknowns at the boundary are not linked by matrix coefficients to one 
+another.  The spatial accuracy for such a coarse-fine discretization is reduced to 
+first order, but the linear system of equations for the capillary requires few 
+more FLOPs than a compact tridiagonal system with the same number of unknowns.
+
+In particular, for N "capillary" unknowns and a fixed number of refinement 
+levels, ADI still takes only O(N) FLOPs.  However, for efficiency, the solvers 
+require a carefully structured and sufficiently general Gaussian elimination 
+algorithm greatly exceeding the complexity of the compact tridiagonal algorithm.  
+For this reason initial studies of LROCG ADI might use almost any iterative 
+solvers for the capillaries.  In particular, the Portable Extensible Toolkit 
+for Scientific Computations (PETSc), is being investigated due to parallelizability. 
+
+Overall parallelism of a block-structured AMR based on ADI should not be
+significantly degraded from UOG ADI once direct capillary solvers commensurate
+with spatial domain decomposition are implemented.  These direct capillary 
+solvers might explicitly take advantage of block-wise homogeneous and particular 
+solutions to diminish serial bottlenecks.  Whether such direct solvers are 
+actually necessary is to be determined.
+
+This presentation should illuminate:  time-dependent accuracy and steady-state 
+convergence properties of LROCG ADI, discretization error differences between LROCG 
+and UOG ADI, and preliminary code timings and timing estimates for LROCG ADI.
+
+</body>
+</html>
