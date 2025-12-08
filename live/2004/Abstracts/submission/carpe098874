@@ -1,0 +1,80 @@
+===firstname:
+Bruno
+===firstname3:
+Serge
+===lastname2:
+Giraud
+===postal:
+CERFACS
+42, Avenue Gaspard Coriolis. 
+31057 Toulouse Cedex 01. 
+France.
+===lastname:
+Carpentieri
+===lastname3:
+Gratton
+===ABSTRACT:
+
+Multigrid methods are among the fastest techniques to solve a linear system $Ax = b$ arising from the
+discretization of a partial differential equation.
+The core of the multigrid algorithms is a two-grid procedure that is applied recursively.
+The basic idea of the two-grid solver is :
+\begin{enumerate}
+   \item given $x_0$, perform a few ($\mu_1$) steps of a basic stationary method of 
+    the form $x^{(k+1)}~=~(I~-~MA)x^{(k)}~+~g $ to compute $x^{\mu_1}$.
+   This step is referred to as the pre-smoothing.
+   \item  project the residual $r = b- Ax^{\mu_1}$ on a coarse space using a restriction operator $R$ and solve
+     the linear system $RAP e = R r$, where $P$ is the prolongation operator.
+   \item prolongate the error in the fine space and update $x = x^{\mu_1} + P e$.
+   \item perform few ($\mu_2$) steps of a basic stationary method of
+    the form $x^{(k+1)}~=~(I~-~MA)x^{(k)}~+~g $ to compute $x^{\mu_2}$.
+   This step is referred to as the post-smoothing.
+   \item If $x^\mu_2$ is accurate enough stop, else $x_0 = x^{\mu_2}$, go to Step 1.
+\end{enumerate}
+The smoother iterations aim at reducing the high frequencies of
+the error (i.e. the components of the error in the space spanned by the vectors associated 
+with the largest eigenvectors of $A$).
+The restriction operator and consequently the coarse space is chosen so that this space contains the
+low frequency of the error (i.e. the components associated with the smallest eigenvalues).
+In classical multigrid, the coarse space is not defined explicitly through the knowledge of the
+eigencomponents but by the selection of a space that is expected to capture them.
+The scheme presented above is a multiplicative algorithm~[1] but additive
+variants~[2] also exist.
+
+In this work, we exploit the idea of the two-grid method to design additive and multiplicative
+preconditioners for general linear systems.
+We explicitly define the coarse space by computing the eigenvectors $V$ associated with the
+smallest eigenvalues of $MA$ (that is, the components of the error that are not 
+damped efficiently by the smoother).
+In that context, the prolongation operator is $P = V$.
+We show that our preconditioners shift the smallest eigenvalues of $MA$ to one and tend to
+cluster those that were already in the neighbourhood of one closer to one.
+We illustrate the performance of our method through numerical experiments
+on a set of general linear systems, both symmetric and positive definite and unsymmetric.
+Finally,  we consider a case study of a non-overlapping domain decomposition method
+of semiconductor device modelling for the solution of the drift-diffusion equations.
+
+
+
+\begin{enumerate}
+  \item[{[}1{]}] W. Hackbusch. 
+Multigrid methods and applications.
+Springer-Verlag, 
+1985. 
+
+\item[{[}2{]}] R.~S.~Tuminaro. A highly parallel multigrid-like method for the solution of the 
+ Euler equations.
+{\em SIAM J. Scientific and Statistical Computing}
+vol.~13, pages~88-100,
+1992.
+
+\end{enumerate}
+
+===email:
+carpenti@cerfacs.fr
+===otherauths:
+
+===title:
+Two grid spectral preconditioning for general sparse linear systems
+===firstname2:
+Luc

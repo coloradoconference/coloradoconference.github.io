@@ -1,0 +1,26 @@
+===firstname:
+John M.
+===firstname3:
+Elizabeth R. 
+===lastname2:
+Thomas
+===postal:
+Department of Computer Science 
+University of Colorado
+Boulder, CO 80309-0430
+===lastname:
+Dennis
+===lastname3:
+Jessup
+===ABSTRACT:
+	We present ongoing work on the development of a block conjugate gradient algorithm.  Our efforts are motivated by the need to solve a Schur complement problem arising in the spectral element dynamical core of an atmospheric general circulation model.  Eigen-mode decomposition of the vertical structure matrix results in decoupled 2D problems for each vertical level. These are currently solved using a preconditioned conjugate gradient iteration.  The coefficient matrix for the $k^{th}$ vertical level has the form 
+$(A + \sigma^{(k)} I)$ where $\sigma^{(k)}$ is a real valued shift.  We propose to solve the block shifted system  $(A + \sigma^{(k)} I) x^{(k)} = b^{(k)}$ where each horizontal problem has a separate right hand side.  The block shifted conjugate gradient (BSCG) algorithm combines existing block and shifted variants.  We describe progress on the development of BSCG, including testing the numerical stability of the individual algorithms by solving the shallow water equations for each vertical layer.  
+
+===email:
+dennis@ucar.edu
+===otherauths:
+
+===title:
+Development of a Block Conjugate Gradient Algorithm for Shifted Systems
+===firstname2:
+Stephen J. 

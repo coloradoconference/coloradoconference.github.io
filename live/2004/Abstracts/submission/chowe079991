@@ -1,0 +1,72 @@
+===firstname:
+Edmond
+===firstname3:
+
+===lastname2:
+
+===postal:
+Lawrence Livermore National Laboratory
+L-560, Box 808
+Livermore, CA 94551
+===lastname:
+Chow
+===lastname3:
+
+===ABSTRACT:
+We will present a new method for constructing the prolongation
+operator in aggregation multilevel methods.  Suppose a fine grid
+has been partitioned by nodes into aggregates.  For scalar 
+elliptic problems, the error is often represented (roughly) by a
+piecewise constant function, i.e., the error is represented
+by a constant function over each aggregate.  This constant
+function is called a basis function for the aggregate.
+
+The performance of methods like the above can be improved 
+for various types of problems by increasing the number of
+basis functions.  This is particularly important when the dimension of the
+near null-space of the operator is greater than unity, for example
+in elasticity problems.  For elasticity, the rigid body modes
+are used as basis functions.  For other problems, it is not clear 
+how to choose the basis functions, however, they are generally
+chosen to be smooth functions, e.g., functions of the coordinates
+of the grid nodes.  Related current research has proposed using
+low-energy eigenvectors of the local stiffness matrices associated
+with each aggregate.
+
+The prolongation operator $P$ should be able to represent, as well as possible,
+slow-to-converge error.  We thus propose the following method.
+First, generate $m$ samples of algebraically smooth
+error by applying the smoother to $Ax=0$ with a random initial guess.
+For a given aggregate,
+let $V$ denote the matrix of $k$ basis vectors being sought, and let $S$ denote
+the matrix of sample vectors over that aggregate.  We seek
+\[
+\min_{V,X} \| V X - S \| .
+\]
+The minimum is achieved when $VX$ is the rank-$k$ matrix nearest to $S$.
+The matrix $V$ is thus the first $k$ left singular vectors
+from the singular value decomposition of $S$.  The singular values can
+be used to select $k$.  $V$ is used to construct $P$.  Note that a
+different $k$ may be used for each aggregate.
+
+This technique produces basis vectors that are matrix-dependent.
+In particular, anisotropies and physical jumps in the smoothed error
+are reflected in the basis vectors.  The method can easily be extended
+to multiple levels.  Our experiments show that for an arbitrarily
+scaled linear elasticity problem, the method can perform as well
+as if the scaled rigid body modes were known.  The method can also
+be used adaptively, by using V-cycles to generate the smooth
+error vectors $S$.
+
+This work was performed under the auspices of the U.S. Department of
+Energy by University of California Lawrence Livermore National
+Laboratory under Contract W-7405-Eng-48.
+
+===email:
+echow@llnl.gov
+===otherauths:
+
+===title:
+An aggregation multilevel method based on smoothed error vectors
+===firstname2:
+

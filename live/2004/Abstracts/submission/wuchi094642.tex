@@ -1,0 +1,64 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Chin-Tien Wu \\
+{\bf A Comparison of Geometric and Algebraic Multigrid for the Discrete Convection-Diffusion Equation}}
+
+Department of Mathematics \\ University of Maryland \\ College Park MD 20742
+\\
+{\tt ctw@math.umd.edu}\\
+Howard Elman\end{center}
+
+The purpose of this paper is to evaluate
+different solution strategies for the linear systems obtained from
+discretization of the convection-diffusion equation \vspace{3mm}
+\[
+\left\{ \begin{array}{ll}
+&-\epsilon \triangle u + b\cdot \nabla u = f,\\
+&u=g \hspace{5mm} \mbox{on $\partial \Omega$},
+\end{array} \right.\vspace{3mm}
+\]
+where $b$ and $f$ are sufficiently smooth and the
+domain $\Omega$ is convex with Lipschitz boundary $\partial
+\Omega$. We are interested in convection-dominated case, i.e. $|b| \gg
+\epsilon$. In this setting, the solution typically has steep gradients in
+some parts of the domain $\Omega$. These may take the form of boundary
+layers caused by Dirichlet conditions on the outflow boundaries or
+internal layers caused by discontinuities in the inflow boundaries.
+
+It is well known that the standard Galerkin finite element
+discretization on uniform grids produce inaccurate oscillatory
+solutions to these problems. On the other hand, with carefully
+chosen stabilization parameter, the streamline diffusion finite
+element discretization (SDFEM) is able to eliminate most
+oscillations and produce accurate solutions in the regions where
+no layers are present. To increase accuracy of the solutions in
+the regions where layers are present, an adaptive mesh refinement process
+can be used. The adaptive mesh refinement process in this paper consists
+of the following steps.\vspace{3mm}
+\begin{enumerate}
+\item The posteriori error estimator proposed by Kay and
+Silvester is computed.
+\item The maximum marking strategy is employed to select elements in
+which the values of the error estimator are large.
+\item The selected elements are refined by regular refinement.
+\end{enumerate}
+\vspace{3mm} This adaptive mesh refinement process can be applied
+recursively until a certain tolerance of the error between the finite
+element solution and the true solution is met.
+
+In this paper, we are concerned with the costs of solving the
+discrete system obtained when the effective discretization
+strategy SDFEM together with an adaptive mesh refinement process
+are used. We would like to explore the effectiveness of the
+geometric multigrid (GMG) and algebraic multigrid (AMG) methods
+for solving this linear system. Our numerical studies suggest that the
+Krylov-subspace accelerated AMG is a robust solver for the
+convection-diffusion problems.
+
+
+\end{document}

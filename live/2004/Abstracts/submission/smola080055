@@ -1,0 +1,43 @@
+===firstname:
+Dennis C.
+===firstname3:
+F. Douglas
+===lastname2:
+Saylor
+===postal:
+Department of Mathematics and Computer Science
+Santa Clara University
+500 El Camino Real
+Santa Clara, CA  95053-0290
+===lastname:
+Smolarski
+===lastname3:
+Swesty
+===ABSTRACT:
+One of the known bottlenecks to parallel scalability of Krylov
+subspace algorithms is the need for inner products.  For this
+reason, Chebyshev iteration has often been mentioned, but
+rarely studied, as an optimal Krylov subspace algorithm for
+parallel architectures since it does not require the inner
+products if the iterative parameters are known.
+
+In this paper, we consider {\sc Chebycode,} a hybrid Chebyshev
+algorithm developed by Howard Elman, Steve Ashby, and Tom
+Manteuffel, that estimates iterative parameters by means of
+variants of the power method. A parallel F90+MPI implementation of
+this algorithm was recently developed by Ryan Szypowski and we
+have been employing this algorithm in conjunction with sparse,
+parallel approximate inverse preconditioners in radiation
+transport simulations. We present some preliminary results on the
+scalability and effectiveness of this method in comparison with
+other Krylov subspace algorithms.
+
+===email:
+dsmolarski@math.scu.edu
+===otherauths:
+Ryan S. Szypowski
+===title:
+Implementing Chebyshev Iteration on Parallel Architectures:
+Some Preliminary Results
+===firstname2:
+Paul E.

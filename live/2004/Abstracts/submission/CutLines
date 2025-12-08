@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+################################################################
+if ($#ARGV) { die "Usage: $0 file.tex\n\n"; }
+$texfile=$ARGV[0];
+unless (-r $texfile) { die "cannot read $texfile\n\n"; }
+$outfile="$texfile.bak";
+open (TEX,  $texfile ) || die "cannot read $texfile\n\n";
+open (OUT,">$outfile") || die "cannot write to $outfile\n\n";
+################################################################
+while (<TEX>) {
+	chomp $_;
+	$_ =~ s/^\s*//;
+	$_ =~ s/\s*$//;
+	$_ =~ s/\s+/ /g;
+
+	$line =~ s/\\\\ /\\\\\n/g;
+	$line =~ s/\. /\.\n/mg;
+	$line =~ s/\, /\,\n/mg;
+	$line =~ s/\; /\;\n/mg;
+	$line =~ s/\s*\&\s* /\n\& /mg;
+	print "$line\n";
+	}

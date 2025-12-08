@@ -1,0 +1,102 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Yogi A. Erlangga \\
+{\bf On a complex Shifted-Laplace preconditioner for high wavenumber heterogeneous Helmholtz problems}}
+
+Department of Applied Mathematical Analysis \\ Delft University of Technology \\ Mekelweg 4 \\ 2628 CD Delft \\ The Netherlands
+\\
+{\tt y.a.erlangga@math.tudelft.nl}\\
+C. Vuik\\
+C. W. Oosterlee\end{center}
+
+We are concerned with numerical solutions of the boundary value problem
+\begin{eqnarray}
+\mathcal{L} u \equiv \left( \partial_{xx} + \partial_{yy} + k^2(x,y) \right) u
+&=& f \, \, \, \text{in} \, \, \, \Omega \in \mathbb{R}^2, \label{eq1}\\
+\lim_{r \rightarrow \infty} \sqrt{r} \left(\frac{\partial u}{\partial n}
+- i k u \right) &=& 0 \, \, \, \text{on} \, \, \, \Gamma = \partial \Omega. \label{eq2}
+\end{eqnarray}
+This boundary value problem, so-called the Helmholtz problem, arises in
+many applications, e.g. acoustics, electromagnetics and geophysics. Here,
+we consider problems which mimic geophysical applications, in which
+inhomogeneous property and high wavenumber $k$ are used. Furthermore, we
+are interested in the solution methods based on the construction of the
+iterants in the Krylov subspace.
+
+For high wavenumbers, the matrix $A$ obtained from any discretization of
+(\ref{eq1}) and (\ref{eq2}) has a property of indefiniteness, where the
+spectrum is highly distributed in the left and right complex plane.
+Furthermore, the condition number is also very large. These two
+properties are not favorable for Krylov subspace iterative methods. So
+far, there is no iterative method specially developed for indefinite
+systems. Applying Krylov methods on its normal equations representation,
+$A^*A$, does not provide a practical remedy since, even though the linear
+system can be made definite, the condition number is even worse. Another
+remedy is by suggesting a preconditioner.
+
+In {\it [Erlangga et. al., TU Delft-AMA Report 03-01]}, we propose a
+class of preconditioners, called Shifted-Laplace preconditioner, acting
+on the Helmholtz problem. We also analyze some properties of these
+preconditioners. The preconditioners are constructed based on an operator
+\begin{eqnarray}
+\mathcal{M} \equiv \partial_{xx} + \partial_{yy} - \alpha k^2(x,y), \label{eq3}
+\end{eqnarray}
+where $\alpha \in \mathbb{C}$. We have previously found that $\alpha =
+i$, $i^2 = -1$ gives the best convergence for this class of
+preconditioners. We call the preconditioner (\ref{eq3}) with $\alpha = i$
+as the Complex Shifted-Laplace (CSL). We have shown also that (i) the
+spectrum of $M^{-1}A$ is bounded above by one, and (ii) the lower bound
+of the spectrum of $M^{-1}A$ is $\mathcal{O}(1/k^2)$. From the latter
+conclusion, we may expect that the convergence rate for increasing $k$ is
+only determined by the smallest eigenvalue. We have used the
+preconditioner in BiCGSTAB. A significant reduction in the number of
+iteration is observed.
+
+In this paper, we discuss another issue in relation with preconditioner
+solves of any Krylov subspace method. Previously, we solved the
+preconditioner exactly using direct methods. This process is very costly.
+Since the preconditioning matrix $M$ is complex, symmetric positive
+definite (CSPD), several efficient methods can be implemented. We study
+the use of incomplete LU decomposition of $M$ and multigrid as the
+preconditioner solver.
+
+For ILU factorizations, level-of-fill ILU acting on $M$ (or ILU(M)) is
+used. For constructing the LU factors, an algorithm based on regular
+stencil is used. The algorithm is not only fast in computing the LU
+factors (so reduce initialization cost) but also requires less storage.
+Only some diagonals should be stored, the remaining entries are
+recomputed as needed. As for multigrid, we implement an algorithm as
+discussed in {\it [Oosterlee et. al., SIAM J. Sci. Comput. 19(1) (1998),
+pp.87--110]}, called MG1. MG1 is originally developed for real-valued
+matrix. For our applications no modification is made to MG1.
+
+We compare the number of iteration and time to convergence from the two
+approaches with ILU preconditioner based on $A$ (or ILU(A)) for various
+wavenumber $k$. The conclusions are as follows:
+\begin{itemize}
+\item[(1)] ILU(M) results in better performance than ILU(A). The
+improvement becomes more significant as $k$ increases.
+\item[(2)] One V(1,1) multigrid iteration is adequate to further improve
+the computational performance. In comparison with the unpreconditioned
+and ILU(M)-preconditioned case, for sufficiently large $k$, the
+computational time is reduced almost by factor 10 and 3, respectively.
+Furthermore, the number of iteration can be reduced by factor of 50 and
+8, respectively.
+\item[(3)] Preconditioner solves using multigrid seem to be less
+sensitive to the inhomogeneity of the media. In comparison with constant
+media, only less than 10 \% increase of the number iteration is observed
+for multigrid. For ILU(M) and ILU(A), the number of iteration increases
+by almost 100 \%.
+\end{itemize}
+
+In the future, the research will be geared towards an effective multigrid
+algorithm for CSPD linear systems, such that the similar reduction factor
+in the computation time and number of iteration can be achieved.
+
+
+\end{document}

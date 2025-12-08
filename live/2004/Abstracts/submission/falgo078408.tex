@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Robert Falgout \\
+{\bf Coarse Grid Selection via Compatible Relaxation}}
+
+Lawrence Livermore National Laboratory \\ P.O. Box 808 \\ L-561 \\ Livermore \\ CA  94551
+\\
+{\tt rfalgout@llnl.gov}\\
+James Brannick\end{center}
+
+The notion of {\em compatible relaxation} (CR) was introduced by
+Brandt in \cite{ABrandt_2000} as a modified relaxation scheme that
+keeps the coarse-level variables invariant. Brandt states that the
+convergence rate of CR is a general measure for the quality of the set
+of coarse variables. In \cite{RDFalgout_PSVassilevski_2003}, a
+supporting theory for these ideas was introduced, and an outline for
+an algebraic coarsening algorithm was also described.
+
+In this talk, we will describe recent progress developing CR-based
+coarsening algorithms for algebraic multigrid. In particular, we will
+discuss some of the motivations (theoretical and heuristic) behind our
+algorithm, point out its current strengths and weaknesses, and discuss
+open questions and future directions.
+
+This work was performed under the auspices of the U.S. Department of
+Energy by University of California Lawrence Livermore National
+Laboratory under contract No. W-7405-Eng-48.
+
+\begin{thebibliography}{1}
+
+\bibitem{ABrandt_2000}
+{\sc A.~Brandt}, {\em General highly accurate algebraic coarsening},
+Electronic Transactions on Numerical Analysis, 10 (2000), pp.~1--20.
+
+\bibitem{RDFalgout_PSVassilevski_2003}
+{\sc R.~D.~Falgout and P.~S.~Vassilevski}, {\em On Generalizing the
+{AMG} Framework}, submitted. Also available as LLNL technical report
+UCRL-JC-150807, 2003.
+
+\end{thebibliography}
+
+
+\end{document}

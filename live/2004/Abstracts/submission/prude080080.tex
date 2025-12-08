@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Ernesto E. Prudencio \\
+{\bf Interaction between Nonlinear Preconditioning and Line Search in Inexact Newton Methods}}
+
+1350 \\ 20th St. \\ Apt. G-26 \\ Boulder \\ CO 80302
+\\
+{\tt ernesto.prudencio@colorado.edu}\\
+Richard Byrd\\
+Xiao-Chuan Cai\end{center}
+
+In this talk we present
+a class of algorithms
+for the parallel numerical solution of nonlinear partial differential
+equations arising in both simulation
+and optimization problems.
+The algorithm can be considered as an improved version of inexact Newton methods through
+the use of nonlinear Schwarz preconditioning, adaptive step-length for
+line search, and adaptive merit functions.
+In addition,
+we couple
+the Krylov stopping conditions with the quality of the Newton direction
+with respect to the merit functions.
+Because of the flexibility on the overlapping size, the type of
+restrictions, the number of levels,
+and the inexactness of the subdomain solvers, Schwarz preconditioners constitute a key
+element for the overall robustness and scalability of our proposed algorithm.
+We report computational results for some two-dimensional flows described
+by incompressible Navier-Stokes equations with
+different combinations of Reynolds numbers, grid sizes and number of processors.
+
+
+\end{document}

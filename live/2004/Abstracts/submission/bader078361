@@ -1,0 +1,27 @@
+===firstname:
+Brett
+===firstname3:
+
+===lastname2:
+
+===postal:
+Sandia National Laboratories
+P.O. Box 5800
+Albuquerque, NM  87185-1110
+===lastname:
+Bader
+===lastname3:
+
+===ABSTRACT:
+We compare and contrast a variety of iterative tensor methods for solving large-scale systems of nonlinear equations.  Tensor methods are an alternative to Newton-based methods and are based on using a limited quadratic local model rather than a linear model.  These higher order models often provide information that is lacking in a (nearly) singular Jacobian, thus making the solver more efficient when solving difficult problems.
+
+This talk has three areas of emphasis.  First, we introduce several new and recent iterative tensor methods for solving large-scale problems, including tensor-Krylov methods and a new implementation that can use a stand-alone linear solver.  The methods have a range of characteristics and other considerations for a practical implementation, which we discuss.  Second, we apply a curvilinear linesearch globalization technique to the tensor methods that smoothly combines the Newton and tensor directions.  Our results show that the curvilinear linesearch is more robust and efficient than other linesearch implementations.  Finally, we explore the performance of these large-scale tensor methods in comparison to Newton-GMRES on several realistic problems, including some Navier-Stokes fluid flow problems.  All methods are implemented in an object-oriented nonlinear software package called NOX that is being developed at Sandia National Laboratories.  Our results show that the iterative tensor methods have computational advantages over Newton-GMRES, especially when the Jacobian at the root is ill-conditioned or singular.
+
+===email:
+bwbader@sandia.gov
+===otherauths:
+
+===title:
+A Comparison of Iterative Tensor Methods for Solving Large Systems of Nonlinear Equations
+===firstname2:
+

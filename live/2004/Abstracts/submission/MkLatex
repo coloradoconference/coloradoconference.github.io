@@ -1,0 +1,93 @@
+#!/usr/local/bin/perl
+##########################################################################
+if ($#ARGV) { die "Usage: $0 file\n\n"; }
+$infile=$ARGV[0];
+unless (-r $infile) { die "cannot read $infile\n\n"; }
+$texfile="$infile.tex";
+if (-r $texfile) { system("mv $texfile $texfile.bak"); }
+##########################################################################
+open (DATA, $infile ) || die "cannot read $infile\n\n";
+open (TEX,">$texfile") || die "cannot write to $texfile\n\n";
+##########################################################################
+while (<DATA>) {
+	if (/^===/) {
+		chomp;
+		($Field=$_) =~ s/===//;
+		$Field =~ s/:\s*$//;
+	} else { $$Field .= $_; }
+	}
+close DATA;
+##########################################################################
+
+# 	FIX ===ABSTRACT:
+# 	FIX ===postal:
+
+($TeXaddress=$postal) =~ s/\s$//;
+$TeXaddress =~ s/^\s//;
+$TeXaddress =~ s/[\r\n]+/ \\\\ /mg;
+$TeXaddress =~ s/, / \\\\ /g;
+$TeXaddress =~ s/\s*\\\\\s*$//;
+
+($Others = $otherauths) =~ s/[\r\n]+/\n\t/g;
+$Others =~ s/^\s*//;
+$Others =~ s/\s*$//;
+
+foreach $field (qw( title email firstname2 firstname3 firstname 
+		lastname2 lastname3 lastname)) {
+	$$field =~ s/\s+/ /mg;
+	$$field =~ s/^\s*//;
+	$$field =~ s/\s*$//;
+	}
+
+@ABSTR = split(/\r?\n/,$ABSTRACT);
+$Abstract="";
+foreach $line (@ABSTR) {
+	if ($line =~ /^\s*\%/) { next; }
+	$line =~ s/\s+\%.*$//;
+	$line =~ s/^\s*//;
+	$line =~ s/\s*$//;
+	$line =~ s/\s+/ /g;
+	if (length($line) < 90) { $Abstract .= "$line\n"; next; }
+	@words = split(/\s+/,$line);
+	$col=0;
+	while (@words) {
+		$word = shift @words;
+		$l = length($word);
+		if ($col == 0) { $Abstract .= $word; $col=$l; }
+		elsif (($col+$l)>72) { $Abstract .= "\n$word"; $col=$l; }
+		else { $Abstract .= " $word"; $col += (1+$l); }
+	}
+	$Abstract .= "\n";
+	}
+
+################################################################
+################################################################
+
+print TEX <<HHEAD;
+\\documentclass{report}
+\\usepackage{amsmath,amssymb}
+\\setlength{\\parindent}{0mm}
+\\setlength{\\parskip}{1em}
+\\begin{document}
+\\begin{center}
+\\rule{6in}{1pt} \\
+{\\large $firstname $lastname \\\\
+{\\bf $title}}
+\n$TeXaddress
+HHEAD
+
+if ($email) { printf TEX "\\\\\n{\\tt $email}"; }
+if ($lastname2) { printf TEX "\\\\\n%s %s", $firstname2, $lastname2; }
+if ($lastname3) { printf TEX "\\\\\n%s %s", $firstname3, $lastname3; }
+if ($Others)	{ printf TEX "\\\\\n\t%s", $Others; }
+printf TEX "\\end{center}\n\n%s\n\n\\end{document}\n", $Abstract;
+
+
+close TEX;		# HEY
+system("/bin/ls -l $texfile $texfile.bak");
+exit 0;
+
+##########################################################################
+##########################################################################
+##########################################################################
+__END__

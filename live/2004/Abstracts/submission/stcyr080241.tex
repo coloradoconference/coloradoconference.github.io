@@ -1,0 +1,114 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Amik St-Cyr \\
+{\bf On Optimized Schwarz Preconditioning for High-Order Spectral Element Methods}}
+
+National Center for Atmospheric Research \\  \\ 1850 Table Mesa Drive \\  \\ Boulder \\ CO 80305.
+\\
+{\tt amik@ucar.edu}\\
+Martin. J. Gander\\
+Stephen J. Thomas\end{center}
+
+\begin{document}
+\title{On Optimized Schwarz Preconditioning for High-Order
+Spectral Element Methods}
+\author{
+A.~St-Cyr\footnote{{\bf amik@ucar.edu},
+NCAR 1850 Table Mesa Drive Boulder, CO 80305, USA.}, \;\;
+M.J. Gander\footnote{{\bf mgander@math.mcgill.ca},
+McGill 805 Sherbrooke W. Montreal QC,Canada H3A2K6} \; and
+S.~J.~Thomas\footnote{{\bf thomas@ucar.edu},
+NCAR 1850 Table Mesa Drive Boulder, CO 80305, USA.}}
+\maketitle
+\begin{abstract}
+Optimized Schwarz preconditioning is applied to a spectral element method
+for the modified Helmholtz equation and pseudo-Laplacian arising in
+incompressible flow solvers. The preconditioning is performed on an
+element-by-element basis. The method enables one to use non-overlapping
+elements, yielding an effective algorithm in terms of communication
+between elements and implementation. Two approaches are tested. The first
+consists of constructing a $P_1$ finite element problem on each
+overlapping element. In the second, the preconditioner is applied
+directly on a non-overlapping spectral element. Numerical results demonstrate
+an improvement in the iteration count over the classical Schwarz algorithm.
+\end{abstract}
+\small
+\section*{Introduction}
+The classical Schwarz algorithm uses Dirichlet transmission conditions
+between subdomains. By introducing a more general Robin boundary
+condition, it is possible to optimize the convergence characteristics
+of the original algorithm \cite{cnr91,cn98,gmn02,g04}. In this work, a study of
+the model equations $u - \Delta u = f$ and pseudo-Laplacian arising
+in incompressible flow solvers is performed. As suggested by the work
+of \cite{fmt00}, the preconditioning is either implemented via a $P_1$
+finite element formulation of the original problem build on the spectral
+element grid, or directly by solving a smaller spectral element problem
+without overlap on each spectral element.
+Although traditional Schwarz preconditioning combined with a coarse
+grid solver is quite efficient, the need for even more powerful
+preconditioning techniques stems from atmospheric modeling. Recently
+(see \cite{tl02,st04}), a semi-implicit SEM was combined with
+OIFS time stepping, enabling time steps on the order of
+20 times the advective CFL condition \cite{xk01}. This directly reflects
+as a significant increase in the number of conjugate gradient iterations
+required to perform the semi-implicit step.
+\tiny
+\begin{thebibliography}{20}
+\bibitem{cnr91}
+{\sc P. Charton, F. Nataf and F. Rogier (1991)},
+{\em M\'ethode de d\'ecomposition de domaines pour l'\'equation d'advection-diffusion},
+C. R. Acad. Sci., Vol. 313, No. 9, pp. 623-626.
+\bibitem{cn98}
+{\sc P. Chevalier and F. Nataf (1998)},
+{\em Symmetrized method with optimized second-order conditions for the
+Helmholtz equation},
+In Domain decomposition methods, 10 (Boulder, CO, 1997), pp. 400-407, Amer. Math. Soc.,
+Providence, RI.
+\bibitem{fmt00}
+{\sc P.F. Fischer, N.I. Miller and H.M. Tufo (2000)},
+{\em An overlapping Schwarz method for spectral element simulation of
+three-dimensional
+incompressible flows},
+in Parallel Solution of Partial Differential Equations, P. Bjorstad and M.
+Luskin, eds.,
+Springer-Verlag, pp.159-180.
+\bibitem{g04}
+{\sc M. J. Gander}, {\em Optimized Schwarz Methods (2003)},
+Research Report, No. 2003-01, Dept. of Mathematics and Statistics,
+McGill University, 33 pages, submitted.
+\bibitem{gmn02}
+{\sc M.J. Gander, F. Magoules and F. Nataf (2002)},
+{\em Optimized Schwarz Methods without Overlap for the Helmholtz
+Equation},
+SIAM Journal on Scientific Computing, Vol. 24, No 1, pp. 38-60.
+\bibitem{lf04}
+{\sc J.W. Lottes and P.F. Fischer (2003)},
+{\em Hybrid Multigrid/Schwarz Algorithms for the Spectral Element Method},
+submitted.
+\bibitem{st04}
+{\sc A. St-Cyr and S.J. Thomas (2004)},
+{\em Non-linear operator integration factor splitting for the shallow
+water equations},
+In preparation for J. Sci. Comp.
+\bibitem{tdtf03}
+{\sc S. J. Thomas, J. M. Dennis, H. M. Tufo, and P. F. Fischer (2003)},
+{\em A Schwarz Preconditioner for the Cubed-Sphere},
+SIAM J. Sci. Comp., Vol. 25, No. 2, pp. 442-453.
+\bibitem{tl02}
+{\sc S.J. Thomas and R.D. Loft (2002)},
+{\em Semi-implicit spectral element atmospheric model}.
+Journal of Scientific Computing, vol 17, 339-350.
+\bibitem{xk01}
+{\sc D. Xiu and G.E. Karniadakis (2001)},
+{\em A semi-Lagrangian high-order method for Navier-Stokes equations},
+J.C.P., No. 172, pp. 658-684.
+\end{thebibliography}
+\end{document}
+
+
+\end{document}

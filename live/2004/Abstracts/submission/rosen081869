@@ -1,0 +1,101 @@
+===firstname:
+Duane
+===firstname3:
+Annick
+===lastname2:
+Fournier
+===postal:
+Geophysical Turbulence Program
+NCAR
+PO Box 3000, Boulder CO 80307-3000
+===lastname:
+Rosenberg
+===lastname3:
+Pouquet
+===ABSTRACT:
+\newcommand\Rn{{\rm Re}}
+We present a status report on the Geophysical Astrophysical Spectral element
+Adaptive Refinement (GASpAR) code developed within the Geophysical
+Turbulence Program at NCAR.
+                                                                                                                                                                                    
+Turbulent flows are ubiquitous, and as manifestations of one of the
+last outstanding unsolved problems of classical physics, they form
+today the focus of numerous investigations; they
+are linked to many issues in the geosciences, {\it e.g.,} in meteorology,
+oceanography, climatology, ecology, solar--terrestrial interactions
+and fusion, as well as dynamo effects.
+Nonlinearities prevail in turbulent flows when the
+Reynolds number $\Rn$
+is large; the number of degrees of freedom increases as
+$\Rn^{9/4}$ for $\Rn\gg1$ in the Kolmogorov (1941) framework,
+and for geophysical flows, often $\Rn> 10^8$.
+The ability to probe large $\Rn$, and to examine in detail the
+large-scale behavior of turbulent flows, depends
+critically on the ability to resolve adequately such a large number of
+spatial and temporal scales, or else to model them, or a combination of both.
+                                                                                                                                                                                    
+One intriguing observation concerning turbulent flows
+resides in the
+departure from normality in the probability distribution
+functions.
+The origin of these fat wings is not understood;
+one does not know yet what structures are key to our
+understanding the statistical properties of turbulent flows ({\it e.g.,}
+vortex sheets, spirals or filaments,
+shocks or fronts, blobs, plumes or tetrads, knots, helices, tubes or
+arches).
+The link between structures and non-Gaussian statistics is the basis
+for the notion of intermittency which plays a role {\it e.g.,} in
+reactive flows, in convective plumes, in combustion or in the heating of
+the solar corona.
+                                                                                                                                                                                    
+Theory demands that computations of turbulent flows
+reflect a clear scale separation between the energy-containing,
+inertial (self-similar) and dissipative ranges.
+Convergence
+studies on compressible flows show that to achieve the desired
+scale separation between the
+energy-containing modes and the dissipation regime, it is necessary to
+compute on regular grids of at least $2048^3$ cells (Sytine {\it et
+al.},  {\it J.\ Comp.\ Phys.\ }{\bf 158},  225, 2000).
+                                                                                                                                                                                    
+Today such computations can barely be accomplished.
+A pseudo-spectral Navier-Stokes code on a grid of $4096^3$ regularly spaced
+points has been run on the Earth Simulator (Isihara {\it et al.},
+{\it J.\ Phys.\ Soc.\ Japan} {\bf 72}, 983, 2003)
+but the Taylor Reynolds number is still of the order of $500$, still very far
+from what is asked for in geophysics.
+Adaptivity seems to be needed, provided the
+significant structures of the flow are indeed sparse so that their
+dynamics be followed accurately although such structures are embedded
+in random noise.
+                                                                                                                                                                                    
+We have built an object-oriented code, GASpAR, that is flexible enough to
+be applicable to a wide class of turbulent-flow and other multi-scale problems.
+The computational core is based on spectral element operators, which are
+represented as objects.
+The formalism accommodates both conforming and
+nonconforming elements, and their associated data structures for
+handling inter-element communications in a parallel environment.
+Dynamic
+adaptive mesh (nonconforming {\it h}-type) refinement is provided for, and its
+suitability for turbulent flow models will be examined.
+The first application of the code will concern the Hwa-Kardar
+({\it Phys.\ Rev.\ A} {\bf 45}, 7002, 1992) equations,
+which arise when writing the dynamical version of self-organized criticality.
+These equations can serve as a model of solar flares when viewed as overlapping
+avalanches (Liu {\it et al.}, {\it Phys.\ Rev.\ E} {\bf 66}, 056111, 2002).
+\vskip0.2truein
+                                                                                                                                                                                    
+{\it Acknowledgments:}
+We are thankful to Huiyu Feng, Paul Fisher and Catherine Mavriplis
+for numerous helpful discussions, and to the CSS group at NCAR for
+early help in using spectral element methods.
+===email:
+duaner@ucar.edu
+===otherauths:
+
+===title:
+The GASpAR code for geophysical turbulent flows
+===firstname2:
+Aim\'e

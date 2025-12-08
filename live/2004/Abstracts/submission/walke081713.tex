@@ -1,0 +1,27 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Homer F. Walker \\
+{\bf Inexact Newton dogleg methods}}
+
+Mathematical Sciences Department \\ Worcester Polytechnic Institute \\ Worcester \\ MA 01609-2280
+\\
+{\tt walker@wpi.edu}\\
+Roger P.  Pawlowski\\
+John N.  Shadid\\
+	Simonis, Joseph P. \end{center}
+
+The dogleg method is a classical trust-regiontechnique for globalizing Newton's method.
+While it is widelyused in optimization,
+including large-scale optimization viatruncated-Newton approaches,
+its implementation in generalNewton-Krylov methods or other Newton-iterative methods canbe problematic.
+In this talk,
+we first outline a doglegmethod suitable for the general inexact Newton context andprovide a global convergence analysis for it.
+We then discusscertain issues that may arise with standard doglegimplementational strategies and propose modified strategiesthat avoid them.
+We conclude with a report on numericalexperiments involving benchmark CFD problems.
+
+\end{document}

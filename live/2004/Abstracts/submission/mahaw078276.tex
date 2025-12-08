@@ -1,0 +1,168 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Hemant Mahawar \\
+{\bf Parallel Preconditioned Iterative Solvers for Inductance Extraction}}
+
+301 Harvey R. Bright Building \\ \\ Department of Computer Science \\ \\ Texas A&M University \\ \\ College Station \\ TX 77843-3112
+\\
+{\tt mahawarh@cs.tamu.edu}\\
+Vivek Sarin\end{center}
+
+\usepackage{fullpage}
+
+The design phase of VLSI circuits needs to take into account the signal
+delays due to parasitic resistance (R), capacitance (C), and inductance
+(L). With increasing clock frequency and integration density, signal
+delays in next-generation circuits with millions of interconnect segments
+will be dominated by parasitic inductance. In this paper, we develop fast
+and accurate inductance extraction techniques that are critical to the
+design of future VLSI circuits. We present a parallel preconditioned
+iterative algorithm for solving the linear system arising in inductance
+extraction. The reduced system, obtained in divergence free subspace
+using solenoidal basis method, is solved efficiently by preconditioned
+GMRES method. Parallel implementations of the algorithm have also shown
+good scalability and speedup on multiprocessors.
+
+For a set of interconnect segments, the inductance extraction problem
+consists of finding an impedance matrix that represents pairwise mutual
+impedance among the segments at a given frequency. Each interconnect
+segment is discretized using a uniform mesh whose edges represent current
+carrying filaments. The equation for the potential drop across each
+filament and Kirchoff's conservation law on node currents give rise to
+the following liner system ~\cite{fasthenry}:
+\begin{equation}
+\label{eq:basic}
+\left[\begin{array}
+{c c} {\bf Z} & -{\bf B}\\
+{\bf B}^{T} & 0 \end{array} \right ]
+\left[\begin{array}
+{c}{\bf I}_f \\ {\bf V}_n
+\end{array}
+\right]
+=
+\left[\begin{array}
+{c}{\bf F} \\
+{\bf 0}
+\end{array}
+\right] ,
+\end{equation}
+where ${\bf Z} = {\bf R} + j\omega{\bf L}$ is $n \times n$ impedance
+matrix, ${\bf R}$ is diagonal matrix of filament resistance, ${\bf L}$ is
+a dense, symmetric, positive definite inductance matrix denoting the
+inductive coupling between current carrying filaments. ${\bf B}^T$ is the
+$m \times n$ branch index matrix of filaments and nodes containing only
+two nonzero entries, -1 and 1, per row. ${\bf I}_f$ is the unknown
+filament current vector, and ${\bf V}_n$ is the unknown node potential
+vector. Here, $j$ denotes the complex root of unity and $\omega$
+represents the operational frequency. The coefficient matrix in
+(\ref{eq:basic}) consists of a sparse submatrix and a dense submatrix.
+Entries in ${\bf L}$ are given by:
+$$
+{\bf L}_{kl}
+=\frac{\mu}{4\pi}\frac{1}{a_{k}a_{l}}\int_{{r_k}\epsilon{V_k}}
+\int_{{r_l}\epsilon{V_l}}\frac{{\bf u}_{k}{\bf .}{\bf u}_{l}}{||{\bf
+r}_{k}
+- {\bf r}_{l} ||} dV_{k}dV_{l},
+$$
+
+The current ${\bf I}_f$ may be expressed as the matrix vector product
+${\bf I}_f = {\bf Px}$ for arbitrary ${\bf x}$, where ${\bf P}$ is a
+basis for null space of ${\bf B^T}$. This leads to a reduced system of
+the form:
+\begin{equation}
+\label{eq:reduced_system}
+{\bf P^TZPx} = {\bf P^TF}
+\end{equation}
+which is solved using an iterative method such as GMRES. A sparse basis
+for the null space of ${\bf B^T}$ can be constructed using local
+solenoidal functions that represent a unit current circulating along the
+filaments of a single mesh cell. Each such local flow contributes a
+column to the matrix ${\bf P}$. (see, e.g.,~\cite{dac} for more details.)
+
+The most time consuming step in the iterative solver is matrix vector
+product with {\bf L} which appears in the reduced system
+(\ref{eq:reduced_system}). Use of fast hierarchical methods like Fast
+Multipole Method~\cite{fmm} makes the algorithm matrix-free and reduces
+the time complexity from O$(n^2)$ to O$(n)$. In absence of the system
+matrix, however preconditioning the iterative method becomes a
+challenging task.
+
+We present a nearly optimal preconditioner~\cite{dac} for the reduced
+system that demonstrates convergence independent of the problem
+parameters, namely the mesh size $h$ and the frequency of operation
+$\omega$. Preconditioning step is analogus to computing the mutual
+impedance of filaments placed at the center of each mesh cell. The
+preconditioner has a structure similar to ${\bf L}$, and is applied to a
+vector using fast hierarchical methods. Following table shows the number
+of right preconditioned GMRES iterations to compute the self-impedance of
+the ground plane conductor problem.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|} \hline
+{Mesh} & {Filament} & \multicolumn {3}{|c|}{Frequency}\\
+\cline{3-5}
+{Size} & {Length} & 1 GHz & 10 GHz & 100 GHz \\ \hline
+$65 \times 65$ & $2^{-6}$cm & 6 & 6 & 5 \\ \hline
+$129 \times 129$ & $2^{-7}$cm & 7 & 6 & 6 \\ \hline
+$257 \times 257$ & $2^{-8}$cm & 9 & 7 & 7 \\ \hline
+$513 \times 513$ & $2^{-9}$cm & 12 & 8 & 7 \\ \hline
+\end{tabular}
+\end{center}
+
+On a set of benchmark problems, a serial implementation of this technique
+is up to 5 times faster than {\it FastHenry}, a popular inductance
+extraction software, with only one-fifth of memory requirements. Further
+enhancements to the implementation are achieved by exploiting the
+parallelism in the algorithm~\cite{pmaa}. Following table shows the
+parallel efficiency of the code on the IBM p690 multiprocessor. Ongoing
+work involves development of an MPI-based parallel object oriented code
+for the algorithm for distributed memory multiprocessors. Performance
+evaluation of a hybrid MPI-OpenMP implementation is also underway.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+No. of & \multicolumn {6}{|c|}{Mesh Size}\\ \cline{2-7}
+Processors & \multicolumn {2}{|c|}{128 $\times$ 128} & \multicolumn
+{2}{|c|}{256 $\times$ 256} & \multicolumn {2}{|c|}{512 $\times$ 512}\\
+\cline{2-7}
+& Time & Efficiency (\%) & Time & Efficiency (\%) & Time & Efficiency (\%) \\ \hline
+1 & 769.87 & 100.0 & 3727.04 & 100.0 & 17163.5 & 100.0 \\ \hline
+2 & 385.00 & 100.0 & 1864.51 & 100.0 & 8610.04 & 99.7 \\ \hline
+4 & 192.74 & 99.8 & 937.95 & 99.3 & 4315.18 & 99.4 \\ \hline
+8 & 102.72 & 93.8 & 482.45 & 96.6 & 2203.06 & 97.4 \\ \hline
+16 & 54.84 & 87.7 & 249.91 & 93.3 & 1192.77 & 89.9 \\ \hline
+\end{tabular}
+\end{center}
+
+\bibliographystyle{abbrv}
+\begin{thebibliography}{1}
+
+\bibitem{fmm}
+L.~Greengard. \newblock {\em The Rapid Evaluation of Potential Fields in
+Particle Systems}. \newblock The MIT Press, Cambridge, Massachusetts,
+1988.
+
+\bibitem{fasthenry}
+M.~Kamon, M.~J. Tsuk, and J.~White. \newblock {FASTHENRY}: A
+multipole-accelerated 3{D} inductance extraction program. \newblock {\em
+IEEE Transaction on Microwave Theory and Techniques}, Vol. 42:1750--1758,
+1994.
+
+\bibitem{pmaa}
+H.~Mahawar and V.~Sarin. \newblock Parallel iterative methods for dense
+linear systems in inductance extraction. \newblock {\em Parallel
+Computing}, Vol. 29:1219--1235, 2003.
+
+\bibitem{dac}
+H.~Mahawar, V.~Sarin, and W.~Shi. \newblock A solenoidal basis method for
+efficient inductance extraction. \newblock In {\em Proceedings of the
+$39^{th}$ Conference on Design Automation}, 751--756, New Orleans,
+Louisiana, June 2002.
+
+\end{thebibliography}
+
+
+\end{document}

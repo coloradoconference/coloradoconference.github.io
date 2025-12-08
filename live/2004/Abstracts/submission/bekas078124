@@ -1,0 +1,71 @@
+===firstname:
+Constantine
+===firstname3:
+
+===lastname2:
+Saad
+===postal:
+EE/CS Bld.
+200 Union St. SE
+Computer Science and Engineering Dept.
+University of Minnesota, 55455, Minneapolis, MN
+===lastname:
+Bekas
+===lastname3:
+
+===ABSTRACT:
+In the last few decades, Krylov projection methods such as the Lanczos algorithm and its variants, have dominated the scene of algorithms for eigenvalue problems.  Recently, an alternative approach has emerged in structural   engineering    as   a  competitor    to   the   standard shift-and-invert  Lanczos approach.  The  algorithm, called  Automated Multilevel Substructuring  method ({\tt AMLS})  is rooted in  a domain
+decomposition  framework. It  has been  reported as  being  capable of computing thousands of the smallest normal modes of dynamic structures on commodity workstations and of being orders of magnitude faster than the standard approach 
+\cite{kropp.heiserer.02}.
+
+A  theoretical framework  for  {\tt AMLS}  was  recently presented  by Benighof and Lehoucq in \cite{lehoucq.amls}  from the point of view of domain decomposition,  using adequate functional  spaces and operators on  them.  The  goal  of  this  talk is  to  present  a  complementary viewpoint, which  is entirely algebraic.  {\tt AMLS} is  essentially a
+Schur  complement   method.  Schur  complement   techniques  are  well understood for solving linear systems  and play a major role in Domain Decomposition techniques. Relatively speaking, the formulation of this method  for  eigenvalue problems  has  been  essentially neglected  so far. One could  of course extend the approach  used for linear systems
+in  order to compute  eigenvalues, by  formulating a  Schur complement problem  for   each  different  eigen-pair,  (e.g.,   by  solving  the eigenvalue   problem  as   a  sequence   of  linear   systems  through shift-and-invert). This viewpoint was considered quite early on by Abramov \cite{Abramov1,Abramov2} and Chichov \cite{Chichov} who presented what may termed a spectral Schur complement method.  It can easily be verified that  a scalar $\lambda$ is an eigenvalue of a matrix $A$ partitioned as
+\[ A = \pmatrix{ B & F \cr E & C}, \]
+if and only if it is an eigenvalue of $S(\lambda) = C - E (B - \lambda I) \inv F $ (this is clearly restricted to those $\lambda $'s that are not in the spectrum of  $B$). This nonlinear eigenvalue problem may be solved by a Newton-type  approach.  Alternatively, one can also devise
+special iterative schemes based  on the above observation. An approach of this  type is clearly limited  by the fact that  a Schur complement (or several consecutive ones in  an iterative process) is required for each different  eigenvalue. It can,  however, work well  for computing one, or a  few, eigenvalues or in some  other special situations.  For example, this nonlinear viewpoint  led to the development of effective
+shifts  of  origin  for  the  QR algorithm  for  tridiagonal matrices 
+%%\cite{Saad-cras}.
+
+The fundamental premise of {\tt  AMLS}, and its attraction, is that it is capable of extracting very good approximations to a large number of the  smallest eigenvalues  {\it with  only one  Schur  complement}. To achieve this,  {\tt AMLS} relies  on clever projection  techniques. It builds good  bases from one Schur  complement, and expands  them in an
+effective way to bigger and bigger domains.
+
+In this  talk we  adopt a purely  algebraic viewpoint  and demonstrate that {\tt AMLS} can be viewed as a method which exploits a first order approximation to a nonlinear eigenvalue  problem in order to extract a good subspace for a  Rayleigh-Ritz projection process.  This technique leads to approximations from a  single Schur complement derived from a domain  decomposition  of   the  physical  problem.   Exploiting  this
+observation, we have devised several possible enhancements in two main directions. The  first introduces  Krylov subspaces to  the technique, and  the second  considers a  more accurate  (second order  instead of first order) scheme, which is based on a quadratic eigenvalue problem. Finally, combinations of the above two strategies have been considered with a goal of enhancing robustness.
+
+Currently, {\tt AMLS}  is a  one-shot algorithm in  the sense  that certain approximate  eigenvectors are  build from  the  last level  up to  the highest  level  and  no  further  refinements are  made.  The  current framework  does  iteratively  refine  these  approximations.  We  will
+discuss this  issue and will  explore the feasibility of  an iterative scheme based on {\tt AMLS}.
+
+
+\bibliographystyle{siam}
+\begin{thebibliography}{10}
+
+\bibitem{Abramov1}
+{\sc A.~Abramov}, {\em On the separation of the principal part of some algebraic problems}, Zh. Vych. Mat., 2 (1962), pp.~141--145.
+
+\bibitem{Abramov2}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Remarks on finding the eigenvalues and eigenvectors of matrices which arise in the application of ritz's method or in the difference method}, Zh. Vych. Mat. Fiz., 7 (1962), pp.~644--647.
+
+\bibitem{lehoucq.amls}
+{\sc J.~K. Bennighof and R.~B. Lehoucq}, {\em An automated multilevel substructuring method for eigenspace computation in linear elastodynamics}. To appear in SIAM. J. Sci. Comput.,  (2003).
+
+\bibitem{Chichov} {\sc V.~S. Chichov}, {\em A method for partitioning a high order matrix into blocks in order to compute its eigenvalues}, Zh. Vych. Mat., 1 (1961), pp.~169--173.
+
+
+\bibitem{kropp.heiserer.02}
+{\sc A.~Kropp and D.~Heiserer}, {\em Efficient broadband vibro-accoustic analysis of passenger car bodies using {FE}-based component mode synthesis approach}, in Fifth World Congress on Computational Mechanics (WCCM V), H.~A. Mang, G.~H. Rammerstorfer, and J.~Eberhardsteiner, eds., Austria, July 7-12
+2002, Vienna University of Technology.
+
+
+
+
+\end{thebibliography}
+
+===email:
+bekas@cs.umn.edu
+===otherauths:
+
+===title:
+AMLS and Spectral Schur Complements
+===firstname2:
+Yousef

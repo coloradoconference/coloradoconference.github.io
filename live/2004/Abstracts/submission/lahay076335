@@ -1,0 +1,77 @@
+===firstname:
+Domenico
+===firstname3:
+
+===lastname2:
+
+===postal:
+PO Box 94079 
+1090 GB Amsterdam 
+The Netherlands 
+===lastname:
+Lahaye
+===lastname3:
+
+===ABSTRACT:
+The goal of this work is to infer a reliable velocity model from zero-offset
+seismic traces by minimizing the difference between input and simulated data 
+in the space-frequency domain. Typical applications of this inverse problem
+include subsoil imaging for hydrocarbon prospecting, near surface geophysics, environmental monitoring, archaeological investigation and risk assessment
+analysis.
+
+In geophysical surveys, data are
+collected from multi-shot acquisitions covering wide areas. For each shot
+gather, the seismic traces are recorded by an array of receivers; the total
+amount of stored information can reach the order of terabytes. Seismic data are
+then averaged in such a way to simulate zero-offset traces resulting from a
+virtual experiment where sources and receivers are coincident. The resulting
+compressed datasets are at most of the order of gigabytes. Transforming these
+data in the time frequency domain yields a further compression, making full 3D
+inversions feasible. 
+
+In the standard industrial approach, a rough velocity estimate results from a
+simplified processing on the complete set of shot gathers, coupled to a long
+interpretation phase. The proposed automatic procedure is innovative in the
+sense that it requires finding the medium velocities that minimizes the L2 
+norm of the misfit between {\em zero-offset} and simulated data. The resulting 
+formulation gives rise to non-analytic and non-linear problem with about 
+10$^8$ unknowns. The direct problem consists in the simulation of zero-offset 
+data by propagating {\em upward} the acoustic wave-field using the one-way 
+wave equation. The reflectivity of the medium, computed along zero-offset ray 
+trajectories, is used as a source term for the upward propagation. The 
+estimate of the reflectivity is possible by a simple edge detection 
+filtering of the velocity field. 
+
+To control the velocity model updating,
+we have adopted a Lagrange minimization approach in which the enlarged
+objective function includes an additional field multiplying the one-way
+equation. From the first variation of the objective function, one obtains the
+equation propagating the Lagrange multiplier. As a matter of fact, this field
+is downward propagated by the adjoint of the one-way operator including a 
+source term equal to the residual between simulated and zero-offset
+data. Because of the nature of the direct operator, it is natural to
+approximate the adjoint operator by its conjugate. 
+
+Finally, this formulation provides the
+gradient of the objective function with respect to the velocity field as the
+integral over all frequencies of the wavefield times the velocity derivative of
+the direct operator applied to the Lagrange field. The gradient evaluation loop
+is concurrent over the frequencies and the only communication phase is just the
+sum over all frequencies of each partial contribution.
+
+A {\em projected conjugate gradient} algorithm for the velocity updating solves
+the minimization problem simultaneously for all frequencies. At each step, once
+computed the conjugate direction, a Brent's method bracketing performs
+the minimum line search. Numerical results on synthetic and almost real 
+datasets will be provided to demonstrate the accuracy and the robustness of 
+the overall procedure. 
+
+===email:
+d.lahaye@cwi.nl
+===otherauths:
+
+===title:
+A Velocity Model Inference from the Inversion of 3D
+Zero-Offest Seismic Traces in the Space-Frequency Domain
+===firstname2:
+

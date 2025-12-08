@@ -1,0 +1,38 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel B Szyld \\
+{\bf The effect of non-optimal bases on the convergence of Krylov subspace methods}}
+
+Department of Mathematics (038-16) \\ Temple University \\ 1805 N Broad Street \\ Philadelphia \\ PA 19122-6094 \\ USA
+\\
+{\tt szyld@math.temple.edu}\\
+Valeria Simoncini\end{center}
+
+There are many examples where non-orthogonality of a basis
+for Krylov subspace methods arises naturally from the
+application. Similarly, in many occasions it is desirable
+not to orthogonalize with respect to all previous vectors,
+thus obtaining truncated bases.
+One such example is when $A$ is symmetric positive definite,
+and we use a preconditioner $P=LU$. The preconditioned matrix
+$L^{-1} A U^{-1}$ is nonsymmetric. One option is to use
+an ``optimal" method for the preconditioned problem, say
+GMRES or FOM. Another option is to use symmetric Lanczos,
+i.e., orthogonalizing only with respect to the last two vectors
+of the basis, thus obtaining a "non-optimal" basis.
+This is less expensive, but the convergence is ``delayed."
+We explore the question on what is the effect of having this
+non-optimal basis. In particular, we compare the
+residuals in the two cases. We conclude that the orthogonality
+of the basis is not important.
+We provide a bound on the ``delay" which depends on the
+linear independence of the basis vectors.
+Numerical examples illustrate our theoretical results.
+
+
+\end{document}

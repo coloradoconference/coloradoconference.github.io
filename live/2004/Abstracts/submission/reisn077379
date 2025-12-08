@@ -1,0 +1,58 @@
+===firstname:
+J.
+===firstname3:
+A.
+===lastname2:
+Mousseau
+===postal:
+Los Alamos National Laboratory
+Mail Stop D401/EES-2
+Los Alamos, NM 87545
+===lastname:
+Reisner
+===lastname3:
+Wyszogrodzki
+===ABSTRACT:
+A numerical framework for simulating hurricanes based
+upon solving a nonlinear equation set in a consistent
+manner without time splitting is described in this
+paper.  The physical model is the Navier-Stokes
+equations plus a highly simplified and differentiable
+microphysics parameterization package.  Because the
+method is fully implicit, the approach is able to
+employ time steps that result in
+Courant-Friedrichs-Lewy (CFL) numbers greater than one
+for advection, gravity, and sound waves; however, the
+dynamical time scale of the problem must still be
+respected for accuracy.  The physical model is solved
+via the Jacobian-Free Newton-Krylov (JFNK) method.  The
+JFNK approach typically requires the approximate
+solution of a large linear system several times per
+time step.  To increase the efficiency of the linear
+system solves, a physics-based preconditioner has been
+employed.  To quantify the accuracy and efficiency of
+the new approach against traditional time-split
+approaches, the fully-implicit solver was first
+compared against the semi-implicit approach for the
+simulation of a precipitating moist bubble.  The
+moist-bubble simulations not only demonstrated the
+ability of the fully-implicit approach to achieve
+second-order accuracy in time, but also the ability of
+the fully-implicit approach to achieve a given level of
+accuracy in a more efficient manner than traditional
+approaches.  This behavior is further illustrated in
+first-of-a-kind three-dimensional fully-implicit
+hurricane simulations that reveal the semi-implicit
+algorithm needs to take a time step at least 60 times
+smaller than the fully-implicit algorithm to produce a
+comparable change in the intensity of a hurricane.
+
+===email:
+reisner@lanl.gov
+===otherauths:
+Knoll, D.
+===title:
+A fully-implicit hurricane model with physics-based
+preconditioning
+===firstname2:
+V.

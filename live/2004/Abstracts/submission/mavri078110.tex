@@ -1,0 +1,51 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Dimitri J. Mavriplis \\
+{\bf Solution of High-Order Discontinuous Galerkin Methods using a Spectral Multigrid Approach}}
+
+Department of Mechanical Engineering \\ Dept. 3295  \\ 1000 E. University Ave. \\ University of Wyoming \\ Laramie \\ WY 82071
+\\
+{\tt mavripl@uwyo.edu}\end{center}
+
+The use of high-order Discontinuous Galerkin methods has become
+more widespread in recent years.
+These methods are attractive due to their compact support
+and ease of implementation, particularly for high-order
+approximations (higher than second order).
+While much work has been performed in developing spatial discretizations
+based on this approach, relatively few investigations have addressed the
+issue of efficient
+solvers for the resulting discretized equations, with most applications
+relying on explicit time-stepping approaches.
+
+In the interest of achieving fast steady-state and time-implicit
+solvers for high-order Discontinuous Galerkin (DG) discretizations,
+we propose the use of a multigrid method where the coarser levels
+are obtained by reducing the order of the DG approximation
+(reducing the spectral index "p") as opposed to the traditional multigrid
+approach of reducing the grid spatial resolution (discretization index
+"h").
+An "element Jacobi" iterative method is used to drive the "p"-multigrid
+algorithm. This technique consists of (directly) inverting the block
+Jacobian associated with all degrees of freedom within each grid cell at
+each iteration.
+
+Numerical experiments on the linear two-dimensional wave equation
+demonstrate order-independent convergence rates (for p=1,2,3,4)
+using element Jacobi as a solver, while convergence degradation
+with increasing spatial grid resolution (h-refinement) is observed.
+When the element Jacobi solver is used as a smoother on each level
+of a "p"-multigrid approach, order independent convergence rates
+are retained, and rates which are nearly independent of the spatial
+grid resolution are observed.
+Future work is underway to improve the grid independence of this
+approach, and to extend the method to more coplex systems
+of equations, such as the Euler and Navier-Stokes equations.
+
+
+\end{document}

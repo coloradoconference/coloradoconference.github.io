@@ -1,0 +1,26 @@
+===firstname:
+Markus
+===firstname3:
+Travis
+===lastname2:
+Moulton
+===postal:
+Mail Stop B284, T-7
+Mathematical Modeling and Analysis
+Los Alamos National Laboratory
+Los Alamos, NM 87545
+U.S.A.
+===lastname:
+Berndt
+===lastname3:
+Austin
+===ABSTRACT:
+Parallel BoxMG is an implementation of Dendy's black box multigrid algorithm that is based on MPI, and is geared toward distributed memory parallel computers. The computational workhorse in this multigrid scheme is an efficient parallel line relaxation for 2D BoxMG. In 3D parallel BoxMG, 2D parallel BoxMG is used as a parallel plane relaxation, which employs parallel line relaxation as its core computational routine. In our talk, we will give a review of parallel line relaxation algorithms, and introduce our efficient version of it. We will further show how to efficiently incorporate this line relaxation into a parallel plane relaxation.
+===email:
+berndt@lanl.gov
+===otherauths:
+Dendy, Joel
+===title:
+Line and Plane Relaxation in parallel BoxMG
+===firstname2:
+J. David

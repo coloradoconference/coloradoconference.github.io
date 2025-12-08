@@ -1,0 +1,93 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eyal Arian \\
+{\bf Preconditioining Techniques in TRANAIR: an Industrial Application}}
+
+Mathematics & Engineering Analysis \\ The Boeing Company \\ MC 7L-21         \\ PO Box 3707 \\ Seattle \\ WA 98124-2207
+\\
+{\tt eyal.arian@boeing.com}\\
+David P. Young\\
+Robin G. Melvin\\
+	Hilmes Craig, Johnson Forrester T.\end{center}
+
+TRANAIR is a general geometry computational fluid dynamics
+(CFD) tools used by Boeing Commercial
+Airplanes for aerodynamic design, optimization,
+and analysis and is run thousands of times a year.
+It is applied to large scale problems containing millions of
+variables and is Boeing Commercial
+main CFD ``work horse''. It can be used to analyze or design aerodynamic
+configurations using the
+nonlinear full potential equation with a coupled integral boundary layer.
+In the far field the
+full potential equation reduces to the linear Prandtl-Glauert equation.
+Unsteady TRANAIR computes the effects of a linear harmonic perturbation
+about the steady velocity field,
+representing a flow solution about an aircraft configuration.
+In the far field the latter reduces to
+the convective Helmholtz equation.
+
+For exterior flow problems the far field boundary condition is
+a non-trivial issue that needs careful care.
+To achieve high accuracy a charge formulation is implemented in TRANAIR.
+Assuming the flow is linear at the far field, the charge formulation
+amounts to having the far field
+boundary at infinity. The variables are split into two major sets:
+global grid $(X)$ and
+refined grid $(Y)$ variables. The global grid variables are transformed
+to charge variables by $X=T^{-1} Q$,
+where $T$ is a linear operator that is fast to invert, and $Q$ is
+different than zero only where the non
+linear operator, $L$, is not equal to $T$. This approach is
+reminiscent of a two level multigrid method
+where $Q$ and $T$ are the ``coarse grid'' variable and operator respectively.
+An inexact Newton solver in combination with GMRES
+(Generalized Minimum Residual Method) is applied to
+this problem taking advantage of the fact that it is very inexpensive
+to multiply a
+vector of $Q$ by $T^-1$ and by $L$.
+The calculation of the preconditioned residual, $R$,
+is computed by $R=N^{-1}\times L\times T^{-1}\times Q,Y]$. The left
+preconditioning matrix, $N$,
+is approximating $L$ excluding the far field. It is large and sparse and
+therefore it is feasible to apply a
+direct sparse incomplete factorization of $N$. A drop tolerance can be
+introduced into the sparse
+elimination process allowing small elements in the decomposition to be
+dropped as they are generated.
+A grid based nested dissection ordering is generated, which reduces
+fill during elimination.
+
+Most preconditioning techniques assume a given matrix that
+represents the linear system at hand.
+One difficulty with the far field charge formulation approach is that the
+full Jacobian matrix of the
+linearized system is not accessible, limiting the scope of
+preconditioning opportunities (such as right preconditioning).
+Recently, a new approach has been developed in which the charges
+are eliminated and instead a discrete integral equation is
+applied at the far field.
+That equation was obtained by calculating the discrete
+Green's identity in the domain between
+the computational box and infinity using the discrete Greens function.
+The resulting Jacobian
+matrix is mostly sparse but significantly denser at the far field.
+Given a uniform $N^3$ grid in
+$3$ space dimensions, $O(N^2)$ of the Jacobian rows will have
+$O(N^2)$ elements while the remaining rows
+will have $O(1)$ elements.
+
+
+In the talk recent preconditioning results using TRANAIR will be presented,
+focusing on the role of the far field condition in exterior flow.
+Among the issues that are addressed are right and left preconditioning,
+and reordering schemes to account for the
+denser parts of the Jacobian matrix.
+
+
+\end{document}

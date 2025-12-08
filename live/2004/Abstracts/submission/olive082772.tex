@@ -1,0 +1,95 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Suely Oliveira \\
+{\bf Algebraic Multigrid (AMG) for saddle point systems from meshfree discretizations}}
+
+The University of Iowa \\ Department of Computer Science \\ 14 MLH \\ Iowa City \\ IA 52242
+\\
+{\tt oliveira@cs.uiowa.edu}\end{center}
+
+Meshfree discretizations construct approximate solutions to partial
+differential equation based on particles, not on meshes, so that it
+is well suited to solve the problems on irregular domains. Since the
+nodal basis property is not satisfied in meshfree discretizations,
+it is difficult to handle essential boundary conditions. In this paper,
+we employ the Lagrange multiplier approach to solve this problem,
+but this will result in an indefinite linear system of a saddle point
+type. We adapt a variation of the smoothed aggregation AMG method
+of Van\v{e}k, Mandel \& Brezina to this saddle point system. We give
+numerical results showing that this method is practical and competitive
+with other methods with convergence rates that are $\sim c/\log N$.
+
+Meshfree discretizations are Galerkin approximations to the weak form
+of partial differential equations, where each unknown corresponds to a
+``particle'' --- a smooth function with compact support. In most meshfree
+methods these particle functions are not arbitrary, but are constructed
+to satisfy certain properties in order to achieve good approximation
+properties. In particular, we work with Reproducing Kernel Particle
+Methods (RKPM's). In RKPM's, an initial collection of smooth functions
+with compact support (kernel functions $\Phi_i$ with associated nodes $x_i$)
+are processed to construct new smooth functions with compact support
+(basis functions $\Psi_i$) which satisfy the discrete reproducing condition
+\[ \sum_i x_i^\alpha \, \Psi_i(x) = x^\alpha \]
+where $\alpha$ is any multiindex $|\alpha|\leq p$.
+
+Meshfree discretizations are Galerkin approximations to the weak form
+of partial differential equations, where each unknown corresponds to a
+``particle'' --- a smooth function with compact support. In most meshfree
+methods these particle functions are not arbitrary, but are constructed
+to satisfy certain properties in order to achieve good approximation
+properties. In particular, we work with Reproducing Kernel Particle
+Methods (RKPM's). In RKPM's, an initial collection of smooth functions
+with compact support (kernel functions $\Phi_i$ with associated nodes $x_i$)
+are processed to construct new smooth functions with compact support
+(basis functions $\Psi_i$) which satisfy the discrete reproducing condition
+\[ \sum_i x_i^\alpha \, \Psi_i(x) = x^\alpha \]
+where $\alpha$ is any multiindex $|\alpha|\leq p$.
+
+Since there is no particular relationship between the nodes and the kernel
+functions, the nodal basis property fails for the RKPM and other standard
+meshfree methods. The nodal basis property can be re-established by
+modifying the basis functions using a variety of techniques (singular kernel
+functions, hybrid finite element/meshfree methods, etc.). Instead we
+consider a Lagrange multiplier method. Lagrange multiplier methods are
+often vulnerable to numerical instabilities if the discrete Babuska--Brezzi
+conditions fail, as they typically do for meshfree methods. To overcome
+this problem, we construct a separate family of basis functions for the
+boundary for approximating the Lagrange multiplier function.
+
+The starting point for our preconditioner is a smoothed aggregation
+method of Van\v{e}k, Mandel \& Brezina. However, to construct our
+smoothed interpolation operator we use a different way of deriving
+the interpolation operator to that of Van\v{e}k \emph{et al}.
+
+We have a large-scale saddle point system to solve. Since we need to
+maintain the discrete Babuska--Brezzi condition for the grid coarsenings,
+we also coarsen the boundary discretization. Smoothed aggregation
+techniques similar to those for the interior of the domain, are used
+to construct the boundary interpolation and restriction operators.
+The coarse grid operators are constructed using a Galerkin approach ---
+pre-multiplying the fine-grid saddle-point operator with the block
+diagonal matrix consisting of the interpolation operators for
+the interior and the boundary, and post-multiplying by the transpose of the
+above block-diagonal matrix. We use a saddle-point JOR-type method
+for the pre- and post-smoother. The resulting multigrid V-cycle operator
+is then used to precondition GMRES.
+
+The numerical results we obtain are certainly encouraging, giving a number
+of iterations which grows like $c\,\log N\log(1/\epsilon)$ where $N$ is the
+number of unknowns and $\epsilon$ is the error tolerance.
+Unfortunately, the number of flops per V-cycle is not constant because
+of reductions in the sparsity of the course-grid operators, and the smoother
+used. In spite of these problems, the method out-performed the methods
+we compared it with (including straight aggregation, using the
+smoother as a preconditioner, and no preconditioner at all),
+especially for larger problems. Good performance can be seen
+both in the number of iterations and the total time taken.
+This is joint work with Koung Hee Leem and David Stewart.
+
+
+\end{document}

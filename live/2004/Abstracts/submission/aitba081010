@@ -1,0 +1,128 @@
+===firstname:
+Rakhim
+===firstname3:
+
+===lastname2:
+Bialecki
+===postal:
+Department of Mathematics
+New Mexico Tech
+Socorro, NM 87801
+===lastname:
+Aitbayev
+===lastname3:
+
+===ABSTRACT:
+\newtheorem*{theorem}{Theorem}
+\newcommand{\GP}{\mbox{${\cal G}$}}
+\newcommand{\SH}{\mbox{$\scriptscriptstyle H^{2}(\Omega)$}}
+\newcommand{\SL}{\mbox{$\scriptscriptstyle L^{2}(\Omega)$}}
+
+We develop and study symmetric multilevel preconditioners for the computation of
+the orthogonal spline collocation (OSC) solution of a Dirichlet boundary value problem
+(BVP) with a nonselfadjoint or an indefinite operator.
+The OSC solution is sought in the space of piecewise Hermite bicubic spline functions
+defined on a uniform partition.
+We consider an additive and a multiplicative multilevel preconditioners
+that are used with the preconditioned conjugate gradient (PCG) method.
+Our results and algorithms are closely related to those in
+\cite{Aitbayev_Bialecki_2003}, \cite{Bialecki_1998}, \cite{Bialecki_Dryja_1997},
+and \cite{SBG_1996}.
+
+Let $\Omega$ be a unit square $(0,1)\times(0,1)$ with the boundary $\partial\Omega$, and
+let $x=(x_1,x_2)$. We consider a BVP
+\begin{equation}
+\label{eq:bvp}
+Lu\equiv\sum_{i,j=1}^{2} a_{ij}(x)u_{x_ix_j}+\sum_{i=1}^{2} b_i(x) u_{x_i}+c(x)u  = f(x),
+\;\;x\in\Omega,\quad u=0 \;\;\mbox{on}\;\;\partial\Omega.
+\end{equation}
+Operator $L$ could be non-selfadjoint or indefinite in $L^2$ inner product.
+We assume that the principal part of $L$ satisfies the uniform ellipticity condition
+and that BVP (\ref{eq:bvp}) has a unique solution in $H^2(\Omega)$.
+
+Let $\pi_0$ be a uniform coarsest rectangular partition of $\Omega$. We obtain a set of partitions
+$\{\pi_k\}_{k=0}^{K}$ by standard coarsening, and
+let $V_0\subset V_1\subset\ldots\subset V_K\equiv V_h$ be the set of corresponding nested spaces of
+piecewise Hermite bicubics that vanish on $\partial\Omega$.
+Let $\sum$ denote the two-dimensional composite Gauss quadrature corresponding to partition
+$\pi_h$ with 4 nodes in each element. Let $\GP_h$ denote the corresponding set of Gauss points.
+The OSC discretization of BVP (\ref{eq:bvp}) is defined by
+\begin{equation}
+\label{eq:osc}
+u_h\in V_h,\quad Lu_h(\xi)=f(\xi),\quad\xi\in\GP_h,
+\end{equation}
+and it can be written as the operator equation $L_hu_h=f_h$ in the Hilbert space $V_h$ with the
+inner product $(v,w)_h=\sum vw$.
+
+We define and study multilevel additive
+$B_{\textup{\scriptsize a}}$ and multiplicative $B_{\textup{\scriptsize m}}$ preconditioners
+for solving the normal equation $L_h^*L_hu_h=L_h^*f_h$, where $L_h^*$ is the adjoint to $L_h$.
+The implementation of $B_{\textup{\scriptsize a}}$ and $B_{\textup{\scriptsize m}}$
+is based on relationships between basis functions for two consecutive partitions
+and the implementation of  $B_{\textup{\scriptsize m}}$ is similar to that for
+V(1,1)-cycle with the Gauss-Seidel smoothing.
+A problem on the coarsest partition is assumed sufficiently small, and it is solved exactly.
+The computational cost of the preconditioning algorithms is $\mbox{O}(N_K)$.
+The following is our main result.
+\begin{theorem}
+There are positive independent of $h$ and $K$ constants
+$\alpha_{\textup{\scriptsize a}}$,
+$\beta_{\textup{\scriptsize a}}$,
+$\alpha_{\textup{\scriptsize m}}$,
+and
+$\beta_{\textup{\scriptsize m}}$,
+such that
+\begin{eqnarray}
+\label{eq:spectral_equiv}
+&&\alpha_{\textup{\scriptsize a}}\, (B_{\textup{\scriptsize a}}v,v)_h
+\leq (L_h^*L_hv,v)_h \leq
+\beta_{\textup{\scriptsize a}}\, (B_{\textup{\scriptsize a}}v,v)_h,\quad v\in V_h,
+\\\nonumber
+&&\alpha_{\textup{\scriptsize m}}\, (B_{\textup{\scriptsize m}}v,v)_h
+\leq (L_h^*L_hv,v)_h \leq
+\beta_{\textup{\scriptsize m}}\, (B_{\textup{\scriptsize m}}v,v)_h,\quad v\in V_h.
+\end{eqnarray}
+\end{theorem}
+To obtain this result, we prove the key assumptions in the general theory of Schwarz methods
+formulated in \cite{SBG_1996} and use the inequalities
+\[
+C^{-1}\|v\|_{\SH}^2\leq a_h(v,v)\leq C\|\Delta v\|_{\SL}^2,\quad v\in V_h,
+\]
+obtained in \cite{Bialecki_1998}.
+We present numerical results that demonstrate the efficiency of
+our preconditioning algorithms.
+
+\begin{thebibliography}{1}
+
+\bibitem{Aitbayev_Bialecki_2003}
+{\sc R.~Aitbayev and B.~Bialecki}, {\em A preconditioned conjugate gradient
+  method for nonselfadjoint or indefinite orthogonal spline collocation
+  problems}, SIAM J. Numer. Anal., 41 (2003), pp.~589--604.
+
+\bibitem{Bialecki_1998}
+{\sc B.~Bialecki}, {\em Convergence analysis of orthogonal spline collocation
+  for elliptic boundary value problems}, SIAM J. Numer. Anal., 35 (1998),
+  pp.~617--631.
+
+\bibitem{Bialecki_Dryja_1997}
+{\sc B.~Bialecki and M.~Dryja}, {\em Multilevel additive and multiplicative
+  methods for orthogonal spline collocation problems}, Numer. Math., 77 (1997),
+  pp.~35--58.
+
+\bibitem{SBG_1996}
+{\sc B.~F. Smith, P.~E. Bj{\o}rstad, and W.~D. Gropp}, {\em Domain Decomposition:
+Parallel Multilevel Methods for Elliptic Partial Differential Equations},
+  Cambridge University Press, New York, 1996.
+
+
+\end{thebibliography}
+% The end
+===email:
+aitbayev@nmt.edu
+===otherauths:
+
+===title:
+Multilevel Preconditioners for Nonselfadjoint or Indefinite
+Orthogonal Spline Collocation Problems
+===firstname2:
+Bernard

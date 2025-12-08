@@ -1,0 +1,25 @@
+===firstname:
+Jeffrey J.
+===firstname3:
+Stephen F.
+===lastname2:
+Manteuffel
+===postal:
+Department of Applied Mathematics
+University of Colorado at Boulder
+Campus Box 526
+Boulder, CO  80309-0526
+===lastname:
+Heys
+===lastname3:
+McCormick
+===ABSTRACT:
+The mechanical interaction between a fluid and solid can me mathematically modeled using a number of different approaches depending on the physical characteristics of the problem being solved.  We are interested in systems consisting of a Newtonian fluid, modeled using the Navier-Stokes equations, and a linear elastic material with properties similar to a soft tissue. These coupled fluid-elastic problems are inherently nonlinear because the shape of the fluid domain is not known a priori, and the computational grid must be moved or mapped.  We typically use elliptic grid generation (EGG) to map the physical domain to a fixed computational domain.  A FOSLS formulation of the Navier-Stokes, EGG, and linear elasticity equations provides a number of benefits to solving coupled systems problems, including: optimal finite element approximation in a desirable norm (H^1), optimal multilevel solver performance, optimal scalability, and a sharp a posteriori error measure.  The optimality and performance of the formulation has been demonstrated extensively in 2-D for a variety of problems, including the fully coupled fluid-elastic system.  However, as expected, the extension to 3-D brings new challenges for both the whole and the individual parts of the coupled system.  Some of the issues associated with the extension to 3-D have been partially or fully addressed, such as: growing complexity in the multilevel solver, iteration schemes between the components of the fully coupled system, extension to parallel computers, and proper scaling of the equations.  Other questions we are only beginning to answer, including the handling of singularities and p-refinement.
+===email:
+heys@colorado.edu
+===otherauths:
+
+===title:
+Modeling Fluid-Elastic Interaction in 3-D with First-Order System Least Squares (FOSLS)
+===firstname2:
+Thomas A.

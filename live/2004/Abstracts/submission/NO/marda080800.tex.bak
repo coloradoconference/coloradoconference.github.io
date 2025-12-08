@@ -1,0 +1,30 @@
+\documentclass{report}
+\usepackage{amsmath}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Kent-Andre Mardal \\
+{\bf Block Preconditioners for PDEs Arising from the Bidomain Model of the Electrical Activity in the Heart}}
+
+P.O. Box 134 \\ NO-1325 Lysaker \\ Norway \\
+
+\\
+{\tt kent-and@simula.no}\\
+Aslak Tveito\end{center}
+
+
+In this talk we will study block preconditioners
+based on the Jacobi, Gauss-Seidel and symmetric
+Gauss-Seidel block algorithms for two alternative
+formulations of the Bidomain equations, that
+model the electrical activity in the heart.
+Numerical experiments and theoretical
+results show that the two formulations behave differently
+with respect to the different algorithms. Some, but
+not all of the algorithms are order optimal with respect
+to the spatial and the time discretization parameters.
+
+
+\end{document}

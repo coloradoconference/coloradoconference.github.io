@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Henrik Brand\'en \\
+{\bf A Fundamental Solution Preconditioner for First Order PDE}}
+
+Uppsala University \\ Department of Information Technology \\ Box 337 \\ SE-751 05  Uppsala \\ SWEDEN
+\\
+{\tt Henrik.Branden@it.uu.se}\\
+Per Sundqvist\\
+Sverker Holmgren\end{center}
+
+We present a new preconditioner for the iterative solution of
+systems of equations arising from discretisations of systems of
+first order partial differential equations on structured grids.
+Such systems occur in many important applications, including
+compressible fluid flow and electromagnetic wave propagation.
+
+The preconditioner is a truncated convolution operator, with a
+kernel that is a fundamental solution of a difference operator
+closely related to the original discretisation. We give an
+FFT-based algorithm for computing fundamental solutions.
+
+Analysis of a relevant scalar model problem in two spatial
+dimensions shows that grid independent convergence is obtained
+using a simple one-stage iterative method.
+
+As an example of a more involved problem, we consider the steady
+state solution of the non-linear Euler equations in a two
+dimensional, narrowing channel. We present results from numerical
+experiments, verifying that the preconditioning technique again
+achieves grid independent convergence, both for an upwind
+discretisation and for a centred second order discretisation with
+fourth order artificial viscosity.
+
+
+\end{document}

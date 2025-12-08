@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Charles Tong \\
+{\bf Parallel Performance of Algebraic Multigrid Methods for Structural Dynamics }}
+
+Lawrence Livermore National Lab \\ MS 560 \\ P O 808 \\ 7000 East Avenue \\ Livermore \\ CA 94551-0808
+\\
+{\tt chtong@llnl.gov}\\
+Rich Becker\end{center}
+
+Multigrid preconditioning have been demonstrated to be efficient solution
+techniques for many scientific problems. The idea of multigrid is to
+capture errors at different scales by using grids of different fineness.
+By traversing and relaxing between the fine and the coarse grids, optimal
+convergence rates are often observed. In adidition, the computation on
+each grid can be performed in parallel, making it relatively suitable for
+parallel implementation (the degree of parallelism, however, decreases
+rapidly with coarser grids). The difficulties in using geometric multigrid
+for unstructured grid problems have prompted the development of algebraic
+multigrid methods.
+
+In this talk we present a study of parallel performance for a number of
+algebraic multigrid (AMG) methods on a few selected structural mechanics
+problems. The first one is the classical algebraic multigrid by Ruge and
+Stuben. This classical AMG has been implemented in the HYPRE solver
+library with many modifications for parallel computations. A second AMG
+method is the smoothed aggregation method proposed by Vanek, Brezina, and
+others. We also introduce a substructure-based aggregation AMG method that
+uses local eigenvector information for construction prolongation operators
+for smoothed aggregation multigrid. We will discuss scalability and robustness
+issues with these algebraic multigrids.
+
+
+
+This work was performed under the auspices of the U.S. Department of
+Energy by the University of California, Lawrence Livermore National
+Laboratory under Contract No. W-7405-Eng-48.
+
+
+\end{document}

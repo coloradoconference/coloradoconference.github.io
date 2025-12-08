@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Matthew Lasater \\
+{\bf Using Continuation Methods for Modeling Nanoscale Semiconductor Devices}}
+
+Department of Mathematics \\ Box 8205 \\ Center for Research in Scientific Computing \\ North Carolina State University \\ Raleigh \\ NC  27695-8205
+\\
+{\tt mslasate@unity.ncsu.edu}\\
+C. T. Kelley\\
+Andrew Salinger\\
+	Dwight Woolard\end{center}
+
+Resonant tunneling structures are quantum sized semiconductor devices,
+which both theory and numerical simulation predict can sustain terahertz
+current oscillations. The current in these devices are modeled by the
+Wigner-Poisson Equations: a nonlinear PDE which describes the
+time-evolution of the electrons and Poisson's equation to incorporate the
+potential effects of the electrons. To study the steady-state solutions
+of the PDE, we connected our simulator to LOCA (Library of Continuation
+Algorithms), a software library developed at Sandia National Labs. These
+algorithms track out steady-state solutions branches as a function of a
+parameter using Newton's method and can also determine the stability of
+these solutions.
+In this talk, the equations, simulator, and the algorithms of LOCA will
+be discussed. A scalable preconditioner was developed for the
+parallelized simulator to accelerate the convergence of the linear solves
+in Newton's method. Numerical results, including scalability and
+efficiency statistics of the simulator,
+will be presented.
+
+
+\end{document}

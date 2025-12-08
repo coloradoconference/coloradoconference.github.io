@@ -1,0 +1,80 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jens G. Schmidt \\
+{\bf A Simulation Tool for Maxillo-Facial Surgery based on Finite Element Methods and Algebraic Multigrid}}
+
+Jens Georg Schmidt \\ C&C Research Labs \\ NEC Europe Ltd. \\ Rathausallee 10 \\ 53757 St.Augustin \\ Germany
+\\
+{\tt schmidt@ccrl-nece.de}\\
+Guntram Berti\\
+Jochen Fingberg\end{center}
+
+
+In this paper we describe a chain of computational tools (Maxillo-Facial
+toolbox) for the simulation and planning of Maxillo-Facial surgery, known
+as distraction osteogenesis. This surgery is performed to correct the
+configuration of the bones of the midface of a patient. Therefore some of
+the bones are cut and are given new positions. The repositioning of the
+bones can be completed during the surgery or, if the displacements are
+large, after the surgery by a pulling procedure that can last several
+weeks.
+
+While the final position of most of the bones is determined by medical
+needs, the final shape of the facial tissue is not known a-priori. Often
+additional plastic surgeries are necessary to correct the outcome of the
+initial distraction. Our tool chain simulates the displacements of bones
+and soft tissues and therefore provides the possibility to plan the
+surgery in a way that the final shape of the facial tissues satisfies
+patient and surgeon. The tool chain consists of the following parts:
+
+The first tool of our simulation environment is a segmentation step that
+takes a CT image of the patient's head as input and labels the volume
+data into different anatomical structures. Then we generate a surface
+mesh of the bone volume and use it as input for our virtual bone cutting
+tool.
+
+With the cutting tool the surgeon defines abitrary 3D cutting paths to
+cut out parts of the skull and define their new positions.
+
+The next tool in our chain creates a volume mesh based on the image data
+of the head and incorporates the cuts and prescribed displacements. The
+output of this tool is a Finite Element mesh of the head and a set of
+boundary conditions corresponding to the prescribed cuts and
+distractions.
+
+In our main tool this mesh is used to simulate the distracting process by
+our parallel Finite Element code which is combined with a fast multigrid
+solver and can use a variety of material laws (linear elastic,
+hyperelastic, viscoelastic) and different Finite Element formulations
+(linear, quadratic, mixed elements of tetrahedral, hexahedral and
+pyramidal shape). By using different discretizations our tool can provide
+simulations of varying accuracy, starting from linear, static and very
+fast simulations, that are used to provide a first impression for the
+surgeon, up to very detailed ones that take into account non-linearities
+and time dependencies of the underlying problem and need several hours of
+computing time. The ability to vary the accuracy of the physical model
+and its discretization is highly required by the physicians and one of
+the major advantages of our tool. In a last step the results are
+downloaded and post-processed.
+
+In this paper we focus on the details of the parallel Finite Element
+code. We show how our improvements in both areas from static linear
+elastic models to time dependent viscoelastic ones lead to more reliable
+results for the surgeon. We will also present our experience in combining
+different discretization methods, such as pure displacement elements or
+mixed elements, with different linear and non-linear solvers. We will
+show that in order to build an efficient and robust simulation tool one
+has to choose the combination of models and solvers very carefully.
+
+\bigskip
+
+{\bf Keywords:} Biomechanic, Maxillo-Facial Surgery, Parallel Finite
+Element Method, Nonlinear Elasticity, Algebraic Multigrid
+
+
+\end{document}

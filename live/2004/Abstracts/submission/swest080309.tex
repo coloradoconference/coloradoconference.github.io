@@ -1,0 +1,37 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Doug Swesty \\
+{\bf A comparison of iterative techniques for the solution of the time dependent Boltzmann equation for radiation transport.}}
+
+Dept. of Physics & Astronomy \\ State University of NY at Stony Brook \\ Stony Brook \\ NY 11794-3800
+\\
+{\tt dswesty@mail.astro.sunysb.edu}\end{center}
+
+The discrete ordinates Boltzmann equation is often employed to
+describe radiation transport and radiation hydrodynamics in a variety of
+physical contexts. Usually the solution of this equation relies on the
+use of implicit finite-difference, finite-volume, or finite-element
+methods. The use of implicit methods gives rise to large, sparse linear
+systems which mush be solved at every timestep of a simulation. One
+widely used method of iteratively solving this linear system involves
+splitting the linear system through a method known as {\it
+source-iteration}. This particular iterative method has been favored by
+the nuclear
+engineering community. However, this method suffers from a number of
+difficulties including convergence problems in the diffusive limit and
+algorithmic impediments to parallel implementation. An alternative method
+for iteratively solving the linear system is to attack the full, i.e.
+unsplit, linear system with Krylov subspace techniques combined with
+parallel preconditioners. In this talk we present results from a
+comparison of the source-iteration and
+full-linear-system approaches on a series of radiation transport test
+problems. Our study addresses the issues of both numerical and parallel
+efficiency of these two different iterative methods.
+
+
+\end{document}

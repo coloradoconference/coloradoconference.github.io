@@ -1,0 +1,80 @@
+===firstname:
+Christer
+===firstname3:
+
+===lastname2:
+Holmgren
+===postal:
+Uppsala University
+Department of Information Technology
+Box 337
+SE-751 05 Uppsala
+Sweden 
+===lastname:
+Peterson
+===lastname3:
+
+===ABSTRACT:
+We consider iterative methods for solution of the time-dependent
+Schr\"odinger equation. The aim is to perform accurate computations of the dynamic behavior of small molecular systems, describing fundamental chemical reactions occurring on a femtosecond time-scale. Accurate predictions of such reactions allows for a deeper understanding of the fundamentals of chemistry and complements modern experimental techniques. For this type of computations, the Born-Oppenheimer approximation is first applied for separating the problems for the nucleii and electrons in the molecular system. We then solve the Schr\"odinger equation for the wave functions representing the nucleii for $l$ interacting electronic states. For example, for a two-state system, we solve
+\[
+ i\frac{\partial}{\partial t}
+ \begin{pmatrix}
+   \psi_{1} \\
+   \psi_{2} \\
+ \end{pmatrix}
+ = 
+ \begin{pmatrix}
+   \mathcal{K}_{1}+\mathcal{V}_{1} & \mathcal{C}_{12}^* \\
+   \mathcal{C}_{12}   & \mathcal{K}_{2}+\mathcal{V}_{2} \\
+ \end{pmatrix}
+ \begin{pmatrix}
+  \psi_{1} \\
+   \psi_{2} \\
+ \end{pmatrix}.
+\]
+Here, the kinetic energy operators are given by 
+\[ \mathcal{K}_{1,2}=-\frac{1}{2m}\nabla^2, \] where $m$ is
+corresponds to a mass. We assume that the time-independent diagonal potential energy operators $\mathcal{V}_{1,2}$ and the diagonal,time-dependent coupling operator $\mathcal{C}_{12}$ are given. In practice, these operators are described by analytic models or, in the case of $\mathcal{V}_{1,2}$, computed by solving the time-independent Schr\"odinger equation for the electrons. In principle, the number of spatial dimensions grows as $3^p$, where $p$ is the number of nucleii in the molecular system.  However, the number of dimensions is in practice normally reduced by introducing approximations and specific
+choices of coordinate systems.  Still, to be able to consider new and interesting problem settings in quantum chemistry, the solution of high-dimensional PDE problems is required.
+
+
+In applications, a standard time-integration method for the
+Schr\"odinger equation is based on operator splitting
+\cite{Strang}\cite{Feit_Flech_Steiger}. In the original original form of this scheme, a pseudo-spectral spatial discretization is used while the discretization in time is only second-order accurate.  However, an important feature of the operator splitting method is that it preserves probability, which in many cases reduces the error from the from the
+time marching. We examine several alternative methods for the
+time-integration of the Schr\"odinger equation, which are all
+probability preserving. Using the trapezoidal method in time implies that some standard iterative solver has to be applied to the arising system of equations. An interesting alternative to standard implicit time-discretizations is to use the Lanczos method directly to approximate the time evolution operator $\exp(-i\hbar Ht)$ \cite{Park_Light}. The formal order of accuracy of such a scheme is determined by the number of Lanczos steps, and the method preserves probability by construction.  For a non-symmetric Hamiltonian matrix, the Arnoldi method is used instead.  Another class of schemes which is considered is partitioned runge-kutta, PRK, methods \cite{Gray_Manolopoulos}\cite{Blanes_Casas_Ros}. It is possible to construct high-order PRK methods which have the desired conservation property. For all these time-marching methods we use a pseudo-spectral spatial discretization and compare the accuracy and computational work to the standard operator splitting method. We also present some experiments where we combine the time-integration schemes with high-order finite difference discretizations in space.  The goal here is to employ an adaptive spatial discretization, concentrating the grid points to the regions where the wave function is located.
+
+\begin{thebibliography}{99}
+% Strang first article on splitting methods
+\bibitem{Strang} G. Strang, \emph{On the construction and comparison
+    of difference schemes}, SIAM Journal of Numerical Analysis 5
+  (1968), pp. 506-517.
+% First article in Quantum Chemistry on the use of Split-Operator 
+\bibitem{Feit_Flech_Steiger} M.D. Feit, J.A. Flech, Jr., and A.
+  Steiger, \emph{Solution of the Schr\"odinger Equation by a Spectral
+    Method}, Journal of Computational Physics 47 (1982), pp. 412-433.
+% First article in Quantum Chemistry on the use of Lanczos
+\bibitem{Park_Light} T.J. Park and J.C. Light, \emph{Unitary quantum
+    time evolution by iterative Lanczos reduction}, Journal of
+  Chemical Physics 85 (1986), pp. 5870-5876.
+% First partitioned runge-kutta
+\bibitem{Gray_Manolopoulos} S. Grey and D.E. Manolopoulos,
+  \emph{Symplectic integrators tailored to the time-dependent
+    Schr\"odinger equation}, Journal of Chemical Physics 104 (1966),
+  pp. 7099-7112.
+% Extension of the partitioned runge-kutta
+\bibitem{Blanes_Casas_Ros} S. Blanes, F. Casas, and J. Ros, \emph{High
+    order optimized geometric integrators for linear differential
+    equations}, DAMTP technical report 2000/NA07, University of
+  Cambridge (2000).
+\end{thebibliography}
+===email:
+christer.peterson@it.uu.se
+===otherauths:
+
+===title:
+Time-accurate solution of the Schrödinger equation
+===firstname2:
+Sverker

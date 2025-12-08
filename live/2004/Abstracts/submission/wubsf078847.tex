@@ -1,0 +1,148 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Fred W. Wubs \\
+{\bf Preconditioners for Saddle Point Problems arising in Ocean Flow Computations}}
+
+University of Groningen \\  \\ Research Institute for Mathematics and Computing Science \\  \\ P.O. Box 800 \\  \\ 9700 AV Groningen \\ \\ The Netherlands.
+\\
+{\tt wubs@math.rug.nl}\\
+Arie C. de Niet\end{center}
+
+Commonly used finite element and finite difference discretizations of the
+(Navier-)Stokes equation lead to the saddle point problem
+\[
+K \left(\begin{array}{c}
+u \\ p \end{array}\right)\equiv
+\left(\begin{array}{cc}
+A & B\\ B^T & 0 \end{array}\right)
+\left(\begin{array}{c}
+u \\ p \end{array}\right)=
+\left(\begin{array}{c}
+f \\ g \end{array}\right),
+\]
+where the unknown vector $(u,p)^T$ contains velocities and
+pressures respectively. The matrix $A$ is positive definite (not
+necessarily symmetric). This matrix contains also the essence of
+matrices arising in ocean flow computations using THCM~[4]. In
+those matrices we have to deal with non-symmetry of $A$ due to the
+Coriolis force, which plays a very important role in the
+equations.
+
+In literature one can find several good preconditioners for the matrix
+$K$. In general they exploit somehow the structure of the matrix. We
+present two alternative preconditioners:
+\[
+\hat K_a = \left(\begin{array}{cc} A & B\\ B^T & -I/\omega \end{array}\right)
+\;\;\mbox{ and } \;\;
+\hat K_g = \left(\begin{array}{cc} A +\omega BB^T & 0\\ 0 & -I/\omega \end{array}\right),
+\]
+the {\it artificial compressibility} preconditioner and the {\it
+grad-div} preconditioner respectively. The preconditioners are related to each other: to
+solve an equation with $\hat K_a$ or $\hat K_g$ we have to solve an equation
+with the matrix $A+\omega B B^T$.
+
+In the table below, we compare the number of iterations of our
+preconditioners with that of {\sc simpler} [3] and the
+preconditioner of Elman et al.~[2] on the 2D Stokes problem. In
+the iterations we used an exact factorization of $A+\omega BB^T$
+(in case of $\hat K_a$ and $\hat K_g$) and $A$ ({\sc simpler} and
+Elman). Clearly the preconditioners perform better for $\omega$
+large.
+\begin{center}
+\begin{tabular}{l|rrr|rrr|r|r|}
+&\multicolumn{3}{|c|}{\sc grad-div} &\multicolumn{3}{|c|}{\sc art.
+compr.} &\sc Elman & \sc simpler\\
+\hline
+$\omega$ & 1 & 16 & 256 & 1 & 16 & 256 & - & - \\
+\sc iter& 4.5 & 3.0 & 3.0& 4.0 & 2.0 & 1.0 & 5.5& 16.5 \\
+\hline
+\end{tabular}
+\end{center}
+
+Of course, solving $A+\omega BB^T$ by a direct method is to
+costly and therefore we employ {\sc mrilu}~[1]. We observed that
+for large $\omega$, the system became harder to solve since then
+the matrix is far from diagonal dominant. Experiments showed that
+good preconditioners are constructed for $\omega$ ranging from 0
+to 2.
+
+For $\omega=1$, we compared the performance of {\sc mrilu} to the
+performance of an exact factorization in {\sc matlab} for a range
+of problem sizes. For the exact factorization we used an
+approximate minimum degree ordering to reduce the fill. For a
+repeated doubling of the number of variables in each direction it
+appeared that the construction time in the exact factorization
+grows with almost a factor $8$, while the construction time in
+{\sc mrilu} grows with a factor close to $4$; the latter is also
+the increase in problem size. For a problem of size about 1
+million the fill in the {\sc MRILU} factorization is more than 4
+times less than that in the exact factorization, leading to a more
+than proportional reduction of a factor 7 for the construction
+time. In order to gain 6 digits of accuracy 10 to 30 iterations
+where needed using only a modest amount of time.
+
+In order to study whether the above is also applicable in the presence of a
+Coriolis force we took a matrix from THCM and stripped it from parts related to
+the vertical velocity, the salt transport and the energy
+transport. The table below shows the number of iterations with the
+grad-div solver using an exact factorization of $A+\omega BB^T$.
+
+\begin{center}
+\begin{tabular}{l|rrrr|}
+&\multicolumn{4}{|c}{\sc grad-div} \\
+\hline
+$\omega$ &1/4 &1 & 16 &256\\
+iterations &20.5 &11.5 &3.5 &3.0\\
+\hline
+\end{tabular}
+\end{center}
+Applying {\sc MRILU} to the system $A+\omega BB^T$ in this case
+showed a behavior similar to that observed for the Stokes
+equation.
+
+We concluded that for small values of $\omega$, MRILU combined
+with the grad-div or artificial compressibility preconditioner
+leads an effective method for the considered saddle point
+problems.
+
+In the talk we will present results of an eigenvalue analysis for
+both preconditioners, which shows the effect of the parameter
+$\omega$. Moreover we intend to show more results on the
+performance of this approach, especially for the full ocean flow
+equations.
+
+\subsubsection*{References}
+{\small
+
+\noindent
+[1] E. Botta and F. Wubs.
+\newblock Matrix renumbering {I}{L}{U}: an effective algebraic multilevel
+{I}{L}{U} preconditioner for sparse matrices.
+\newblock {\em SIAM J. Matrix Anal. Appl.}, 20(4):1007--1026,
+1999.
+
+\noindent
+[2] H. Elman, D. Silvester, and A. Wathen.
+\newblock Performance and analysis of saddle point preconditioners for the
+discrete steady-state {N}avier-{S}tokes equations.
+\newblock {\em Numer. Math.}, 90(4):665--688, 2002.
+
+\noindent
+[3] C.~Vuik and A.~Saghir.
+\newblock The {K}rylov accelerated {SIMPLE(R)} method for incompressible flow.
+\newblock Report 02-01, Delft Univ. of Techn., Dep. Appl. Math. Anal., Delft, 2002.
+
+\noindent
+[4] W.~Weijer, H.~Dijkstra, H.~Oksuzoglu, F.~Wubs, and
+A.~de~N~iet.
+\newblock A fully implicit model of the global ocean circulation.
+\newblock {\em J. Comput. Phys.}, 192:452--470, 2003.
+}
+
+
+\end{document}

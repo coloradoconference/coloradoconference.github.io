@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Abdelkader Baggag \\
+{\bf Preconditioned Schemes for Nonsymmetric Saddle-Point Problems}}
+
+McGill University \\ CLUMEQ Supercomputer Centre \\ 688 Sherbrooke Street West \\ Suite 710 \\ Montreal \\ Quebec \\ Canada H3A 2S6
+\\
+{\tt baggag@clumeq.mcgill.ca}\\
+Ahmed Sameh\end{center}
+
+In this talk, we present a nested preconditioning technique for solving
+nonsymmetric saddle-point problems. In particular, we consider those
+saddle-point problems that arise from the numerical solution of the mixed
+finite element discretization of particulate flows - flow of solid
+particles in incompressible fluids.
+These indefinite linear systems are solved using a preconditioned Krylov
+subspace method with an indefinite preconditioner. This
+creates an inner-outer iteration in which the inner iteration is handled
+via a preconditioned Richardson scheme.
+We provide an analysis of our approach that relates the convergence
+properties of the three nested iterations. Also, ``optimal" approaches
+are proposed for the construction of the preconditioner
+of the inner Richardson iteration.
+The analysis is validated by numerical experiments that demonstrate the
+robustness of our nested iteration scheme, its lack of sensitivity to
+changes in the fluid-particle system, and its
+``scalability".
+
+
+\end{document}

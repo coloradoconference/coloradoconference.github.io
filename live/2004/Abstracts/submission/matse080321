@@ -1,0 +1,229 @@
+===firstname:
+Anna
+===firstname3:
+
+===lastname2:
+
+===postal:
+CCS-3, Los Alamos National Laboratory,
+P.O. Box 1663, MS B256, 
+Los Alamos, NM 87544, USA
+===lastname:
+Matsekh
+===lastname3:
+
+===ABSTRACT:
+We present a new fast implementation of inverse iteration for
+real symmetric tridiagonal matrices. This implementation does not
+require reorthogonalization of eigenvectors in tight clusters.
+We achieve this by choosing initial vectors from well-defined
+subspaces generated using two-sided Sturm sequence-based spectral
+deflation~\cite{garant:eng}.
+
+We apply spectral deflation to the tridiagonal matrix $T \in
+R^{n\times n},\, T = T^T$ to find a sequnce of Givens
+transformations to obtain matrices $T_{n-1} \in R^{n-1 \times
+n-1}, T_{n-2} \in R^{n-2 \times n-2},\ldots, T_{1} \in R^{1\times
+1}$, such that $\Lambda(T_{n-1}) \subset \Lambda(T_{n-2})\ldots
+\Lambda(T_{n-1}) \subset \Lambda(T)$, where $\Lambda(\cdot)$
+denotes a spectrum of a matrix. Instead of computing eigenvectors
+of the matrix $T$ directly from the corresponding sequences of
+Givens rotation parameters, as it is done in the Godunov et al.\
+version of the method (which in our studies fails to give
+satisfactory residuals because of rounding errors), we compute
+eigenvector approximations $\tilde{x}_n(T_n) \in R^{n},
+\tilde{x}_{n-1}(T_{n-1}) \in R^{n-1}, \ldots \tilde{x}_1(T_1) \in
+R^{1}$ corresponding to the eigenvalues
+$\lambda_n(T)=\lambda_n(T_n) \geq
+\lambda_{n-1}(T)=\lambda_{n-1}(T_{n-1}) \geq
+\lambda_1(T)=\lambda_1(T_1)$ in $O(n^2)$ floating point
+operations. We next proceed to construct initial vectors
+${y^0_k},\, k = 1, 2, \ldots, n$ for inverse iteration by padding
+the vector $\tilde{x}_k(T_{k})$ with $n-k$ zeros.  Even if two
+consecutive eigenvalues $\lambda_k$ and $\lambda_{k-1}$ are very
+close or coincident, the corresponding vectors ${y^0_k}$ and
+${y^0_{k-1}}$ differ in at least one component, while
+$\tilde{x}_k$ and $\tilde{x}_{k-1}$ approximately solve the
+respective eigenproblems $T_{k} \tilde{x}_{k} \approx
+\tilde{\lambda}_{k} \tilde{x}_k$ and $T_{k} \tilde{x}_{k-1}
+\approx \tilde{\lambda}_{k} \tilde{x}_{k-1}$.  This approach
+appears sufficient to produce an accurate orthogonal eigensystem
+$\{\tilde{y_k}\},\, k = 1,2, \ldots, n$ such that $T \tilde{y}_k
+\approx \tilde{\lambda}_k \tilde{y}_k\, k = 1,2, \ldots, n$ in
+two steps of inverse iteration without reorthogonalization.  We
+call this method \emph{Incomplete Spectral Deflation}.
+Incomplete Spectral Deflation has $O(n^2)$ complexity and
+requires fewer steps than most existing implementations of
+inverse iteration.  By omitting reorthogonalization from the
+inverse iteration step, we obtain eigenvector approximations
+$\{\tilde{y_k}\},\, k = 1,2, \ldots, n$ which in our experiments
+often appear to be slightly less orthogonal than eigensystems
+computed using explicit reorthogonalization.  If a few extra
+digits of orthogonality are desired, the eigenvector
+approximations $\{\tilde{y_k}\},\, k = 1,2, \ldots, n$ may be
+reorthogonalized once before renormalization, which increases
+worst case complexity. We call this variation of the method
+\emph{Reorthogonalized Incomplete Spectral Deflation}.
+
+Incomplete Spectral Deflation uses an interval implementation of
+the bisection method~\cite{garant:eng, matsekh_imacs} to find the
+smallest machine representable intervals $(\alpha_k,
+\beta_k),\,k=1, 2, \ldots, n$, each guaranteed to contain
+$\lambda_k$---the $k$th largest eigenvalue of the matrix $T$.
+Next, we set $T_n= T$ to compute the two-sided Sturm sequence
+$S(T_n(\alpha_n, \beta_n))$~\cite{garant:eng, matsekh_imacs}.
+Knowing $S(T_n(\alpha_n, \beta_n))$ we can compute rotation
+parameters which enable us to transform $T_n$ to the equivalent
+block-diagonal form with tridiagonal block $T_{n-1}$ and
+$\tilde{\lambda}_n$ on the main diagonal and to compute the
+eigenvector approximation $\tilde{x}_n$ of the matrix $T_n$
+corresponding to the eigenvalue $\lambda_n$. Because of the
+nature of Givens transformations, the spectrum $\Lambda(T_{n-1})$
+is a subset of the spectrum $\Lambda(T)$. We can repeat the
+deflation process for $T_{n-1}$, computing
+$S(T_{n-1}(\alpha_{n-1}, \beta_{n-1}))$ to find the eigenvector
+approximation $\tilde{x}_{n-1}$ and to further diagonalize the
+matrix $T$, which now has tridiagonal block $T_{n-2}$ and
+diagonal matrix $\mathrm{diag}(\lambda_{n-1}, \lambda_{n-2})$ on
+the main diagonal.  Again, we have $\Lambda(T_{n-2}) \subset
+\Lambda(T_{n-1}) \subset \Lambda(T)$. We can repeat this process
+until the matrix $T$ is fully diagonalized and we have
+constructed the matrix sequence $T_{n-1}, T_{n-2}, \ldots, T_{1}$
+and the sequence of eigenvector approximations $\tilde{x}_n(T_n),
+\tilde{x}_{n-1}(T_{n-1}), \ldots \tilde{x}_1(T_1)$.
+ 
+We implemented Incomplete Spectral Deflation, Reorthogonalized
+Incomplete Spectral Deflation, and the Godunov-Inverse Iteration
+method~\cite{matsekh_imacs}, along with an interval version of
+the eigenvalue bisection (which we use in all three algorithms)
+in ANSI~C (GNU~C compiler, version~3.2) using IEEE
+double-precision arithmetic.  In the table below we present
+computational times and residuals for the eigenproblem with
+tridiagonal matrix $T$ of size $n=2500$ with main diagonal $(0,
+0, 0, \ldots)$ and codiagonals $(10, 0.1, 10, 0.1, 10, 0.1,
+...\ldots)$.  For large $n$ we can treat this matrix as a matrix
+with two eigenvalues with algebraic multiplicity $1250$.  We
+solve this test problem using Incomplete Spectral Deflation
+(\textbf{isd}), Reorthogonalized Incomplete Spectral Deflation
+(\textbf{risd}), Godunov--Inverse Iteration (\textbf{gii}) and
+LAPACK dste\emph{xx} routines on the 180 GHz
+Intel\textregistered{} Pentium~4 Mobile\textregistered{} CPU\@.
+We used the following LAPACK routines in our tests:
+\textbf{dstein}, an implementation of inverse iteration which
+uses a bisection procedure; \textbf{dstebz}, to find eigenvalue
+approximations; \textbf{dsteqr}, an implementation of the QR
+algorithm; and, \textbf{dstedc}, an implementation of the Divide
+and Conquer algorithm.
+
+In the table below we report the following characteristics for
+the computed eigenpairs
+$(\tilde{\lambda_i},\,\tilde{y_i}),\,i=1,\ldots, n$: the maximum
+residual $\mathcal{R}(\tilde{\lambda}, \tilde{Y}) = \max_i \| (T
+- \tilde{\lambda}_i I) \tilde{y}_i \|_\infty$; the maximum
+deviation $\mathcal{O}(\tilde{Y})$ of the system
+$\{\tilde{y_i}\}, i = 1, 2, \ldots, n$ from the unit basis, where
+$\mathcal{O}(\tilde{Y})=(\max_i \|(\tilde{Y}^T \tilde{Y} - I)
+e_i\|_\infty$, $\tilde{Y} = \{\tilde{y_i}\},\, i = 1, 2, \ldots,
+n$, $I = {e_i},\, i = 1, 2, \ldots, n$, and $\{e_i\},\, i = 1, 2,
+\ldots, n$ are the unit vectors; $\mathcal{T}( \tilde{\lambda})$,
+the time in seconds spent computing all eigenvalue
+approximations; $\mathcal{T}( \tilde{Y})$, the time in seconds
+spent computing all eigenvector approximations; and, the
+cumulative time, $\Sigma_{\mathcal{T}} \equiv
+\mathcal{T}(\tilde{\lambda}) + \mathcal{T}( \tilde{Y})$.
+
+\begin{table}[hbtp]
+\centering
+\makebox[0pt]{%
+\begin{tabular}{@{}lrrrrr@{}}\hline
+& \multicolumn{1}{c}{$\mathcal{R}(\tilde{\lambda},\,\tilde{Y})$}
+& \multicolumn{1}{c}{$\mathcal{O}(\tilde{Y})$}
+& \multicolumn{1}{c}{$\mathcal{T}( \tilde{\lambda}),\text{s}$}
+& \multicolumn{1}{c}{$\mathcal{T}( \tilde{Y}),\text{s}$}
+& \multicolumn{1}{c}{$\Sigma_{\mathcal{T}},\text{s}$} \\\hline 
+isd
+&$2.03e-15$
+&$4.16e-11$
+&$16.21$
+&$\bf{4.40}$
+&$\bf{20.61}$\\
+risd
+&$7.66e-15 $
+&$\bf{5.05e-15} $
+&$16.21$
+&$46.09$
+&$62.30$\\
+gii
+&$\bf{2.02e-15}$
+&$3.32e-11  $
+&$16.21 $
+&$5.13$
+&$21.34$\\
+dstein
+&$9.77e-15 $
+&$5.06e-15  $
+&$11.76$
+&$119.33$
+&$131.09$\\
+dstedc
+&$1.07e-13   $
+&$6.32e-15  $
+&$\bf{0.76}$
+&$52.30$
+&$53.06 $\\
+dsteqr
+&$2.35e-13 $
+&$9.10e-15  $
+&$1.21 $
+&$249.57 $
+&$250.78$\\
+% dstegr
+% &$ \it{7.86e+03} $
+% &$ \it{1.26e+05} $
+% &$ \it{1.85}$
+% &$ \it{0.90}$
+% &$ \it{2.75}$\\
+\hline 
+\end{tabular}
+}
+\label{tbl:TestNew}
+\end{table}
+
+The table shows that Incomplete Spectral Deflation can produce
+accurate orthogonal eigensystem significantly faster than LAPACK
+implementations of the Inverse Iteration, Divide and Conquer, and
+the QR methods. Incomplete Spectral Deflation results are very
+close to the results of the Godunov-Inverse Iteration
+method. Both Incomplete Spectral Deflation and Godunov-Inverse
+Iteration produced eigensystems which were less orthogonal than
+the eigenvectors computed with the LAPACK routines. With
+Reorthogonalized Incomplete Spectral Deflation we can achieve the
+same orthogonality as the LAPACK methods, still, overall
+outperforming LAPACK.
+
+\begin{thebibliography}{GAKK93}
+
+\bibitem[GAKK93]{garant:eng}
+S.~K. Godunov, A.~G. Antonov, O.~P. Kiriljuk, and V.~I. Kostin.
+\newblock {\em Guaranteed accuracy in numerical linear algebra}.
+\newblock Kluwer Academic Publishers Group, Dordrecht, 1993.
+\newblock Translated and revised from the 1988 Russian original.
+
+\bibitem[Mat03]{matsekh_imacs}
+Anna~M. Matsekh.
+\newblock The {G}odunov-Inverse Iteration: {a} fast and accurate solution to
+  the symmetric tridiagonal eigenvalue problem.
+\newblock In {\em Sixth IMACS International Symposium on Iterative Methods in
+  Scientific Computing}, Denver, CO, USA, 2003.
+\newblock Available from http://math.cudenver.edu/IMACS03/papers/matsekh.pdf.
+
+\end{thebibliography}
+
+===email:
+matsekh@lanl.gov
+===otherauths:
+
+===title:
+Using Spectral Deflation to Accelerate Convergence of Inverse Iteration for Symmetric Tridiagonal Eigenproblems
+===firstname2:
+

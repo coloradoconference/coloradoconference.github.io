@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Qing Tang \\
+{\bf The Use of an Algebraic Multi-Grid Pre-Conditioner in a Newton-Krylov Based CFD Solver for Modeling Turbulent Reacting Flow}}
+
+Reaction Engineering International \\ 77 West 200 South \\ Suite 210 \\ Salt Lake City \\ UT 84101
+\\
+{\tt tang@reaction-eng.com}\\
+Martin Denison\\
+Mike Maguire\\
+	Bockelie, Mike\end{center}
+
+A Newton-Krylov based Computational Fluid Dynamic (CFD) modeling tool is
+being developed for performing engineering calculations of turbulent
+reacting flows in which finite rate chemistry effects are important. The
+near term target applications are simulations of NOx emissions from
+industrial combustion systems.
+
+The finite rate chemistry effects are modeled using reduced chemical
+kinetic mechanisms. Reduced mechanisms are noted for being able to
+faithfully reproduce the reactions of a detailed kinetic mechanism while
+tracking only a relatively small number of species. However, the
+disadvantage to using reduced mechanisms is the (sometimes) severe
+non-linearity and corresponding ?numerical stiffness? they induce in the
+governing equations.
+
+The new tool employs a matrix free Newton-Krylov iteration scheme which
+is suitable for solving large scale systems containing severe
+non-linearity. A GMRES method is used to solve for the inexact Newton
+step. Experience has taught us that a pre-conditioner must be used in the
+linear solves within the GMRES method due to the stiffness problem. In
+our current research, an Algebraic Multi-Grid (AMG) solver has been
+integrated into the pre-conditioning calls of the Newton-Krylov solver.
+The AMG preconditioner uses a generalized method for agglomerating fine
+grid cells to create the coarse grid problem. Preliminary results have
+shown the improvement in the overall efficiency and robustness of the new
+solver.
+
+In this presentation, we will describe the formulation for our
+Newton-Krylov solver with the AMG pre-conditioner. Performance of the new
+solver will be highlighted through NOx simulations for a simple, ?hotbox?
+furnace and a full scale coal fired electric utility boiler.
+
+Acknowledgements:
+This work was performed under support from the National Science
+Foundation under SBIR Phase II grant no. DMI-0216590 (NSF Program Manager
+Dr. Errol Arkilic). The authors would like to thank Dr. Michael Pernice
+(Los Alamos National Laboratory) and Prof. J.-Y. Chen (U. of
+California-Berkeley) for their input and guidance in this work.
+
+
+\end{document}

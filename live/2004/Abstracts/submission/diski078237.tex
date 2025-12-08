@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Boris Diskin \\
+{\bf Quantitative Analysis Methods for Multigrid Solvers}}
+
+National Institute of Aerospace \\ \\ 144 Research Drive \\ \\ Hampton \\ VA 23666
+\\
+{\tt bdiskin@nianet.org}\\
+James L. Thomas\\
+Raymond E. Mineck\end{center}
+
+
+Limitations of the classical local-mode Fourier (LMF) analysis in application
+to variable-coefficient problems have been discussed. Some restrictions
+are required in both the
+physical and frequency spaces to ensure accurate
+predictions of convergence in these applications. With these
+restrictions, certain solution regions,
+are inaccessible to the LMF analysis.
+
+
+Alternative, very general, quantitative analysis methods for
+multigrid solutions of partial differential equation are
+introduced.
+The methods are applied to available, non-perfect multigrid solvers
+that deal with practical problems;
+parts of the solvers responsible for the less-than-optimal performance
+are isolated, identified and improved.
+The analysis methods considered in this talk focus
+on the main complimentary parts
+of a multigrid cycle: relaxation and coarse-grid correction.
+Ideal relaxation (IR) and ideal coarse-grid (ICG) iterations
+are introduced. In these iterations,
+one part of the cycle (coarse-grid correction for IR iterations
+and relaxation for ICG iterations) is actual
+and its complimentary part is
+replaced with an ideal imitation.
+The IR and ICG iterations are very general and can be directly applied
+in the most complicated situations including highly variable
+(or nonlinear) coefficients,
+complex geometries, and unstructured grids.
+The results of this analysis
+are not single-number estimates;
+they are rather convergence patterns of the iterations
+that may either confirm or refute expectations indicating
+what part of the actual solver should be improved.
+The generality of the analysis
+makes it very valuable tool for analyzing
+complicated large-scale computational problems, where no other
+analysis methods are currently available.
+
+Applications of these new analysis methods are demonstrated for model
+problems arising in computational fluid dynamics.
+
+
+\end{document}

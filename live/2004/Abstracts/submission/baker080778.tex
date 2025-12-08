@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Allison H. Baker \\
+{\bf On improving linear solver performance: a block variant of GMRES}}
+
+Center for Applied Scientific Computing \\ Lawrence Livermore National Laboratory  \\ Box 808 \\ L-551  \\ Livermore \\ CA 94551
+\\
+{\tt abaker@llnl.gov}\\
+J.M. Dennis\\
+E.R. Jessup\end{center}
+
+Two approaches to improving the performance, i.e. time to solution, of
+an iterative linear solver algorithm are particularly viable. First,
+algorithmic changes that improve convergence properties result in
+faster convergence due to fewer overall floating-point operations.
+Second, modifications to an algorithm that reduce the movement of data
+through memory greatly impact performance because of the growing gap
+between CPU floating-point performance and memory access time.
+Ideally, a balance is achieved between improving the efficiency of an
+iterative linear solver from a memory-usage standpoint and maintaining
+favorable numerical properties. In this talk, we discuss the
+restarted generalized minimum residual (GMRES) method in the context
+of both approaches to improving performance. In particular, we
+present an alternative to the standard restarted GMRES algorithm for
+solving a single right-hand side linear system $Ax=b$ based on solving
+the block linear system $AX=B$. Additional starting vectors and
+right-hand sides are chosen to accelerate convergence.
+
+
+\end{document}

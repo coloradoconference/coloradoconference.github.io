@@ -1,0 +1,52 @@
+===firstname:
+david, j
+===firstname3:
+
+===lastname2:
+kay
+===postal:
+Mathematics Department 
+UMIST
+PO Box 88
+Manchester M60 1QD
+UK
+===lastname:
+silvester
+===lastname3:
+
+===ABSTRACT:
+Simulation of the motion of an incompressible fluid remains an 
+important but very challenging problem. The resources required for
+accurate three-dimensional simulation of practical flows test even
+the most advanced computer hardware. The necessity for reliable 
+and efficient solvers is widely recognised. This talk will focus 
+on two components of such a solver: the error control used for
+self-adaptive time stepping;  and the linear solver used at each
+time level.
+
+Conventional codes typically use semi-implicit time integration 
+leading to a Poisson or Stokes-type system at every time step, but
+with a stability restriction on the time step.  Our alternative 
+approach is  the so-called TR-AB2 "smart integrator" developed by
+Gresho in the 1980's. Such fully-implicit methods have no 
+restriction on the time step, but have only become feasible in
+recent years because of developments in solution techniques for
+the linear (or linearized) Oseen systems that arise at each time
+level.  To this end, the preconditioning  framework that we have
+developed offers the possibility of uniformly fast convergence
+independent of the problem parameters (namely; the mesh size, 
+the time step and the Reynolds number). (In contrast, conventional
+multigrid solvers for this problem tend to work well if the time
+step is sufficiently small, but efficiency  deteriorates rapidly
+if either the time step or the Reynolds number is increased.) 
+
+
+
+===email:
+djs@ma.umist.ac.uk
+===otherauths:
+
+===title:
+Black-box multigrid preconditioning for unsteady incompressible flows
+===firstname2:
+david

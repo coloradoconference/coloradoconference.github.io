@@ -1,0 +1,35 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Carol Woodward \\
+{\bf Newton-Krylov Methods for Expensive Nonlinear Function Evaluations}}
+
+Center for Applied Scientific Computing \\ P.O. Box 808 \\ L-561 \\ Livermore \\ CA  94551
+\\
+{\tt cswoodward@llnl.gov}\\
+Peter Brown\\
+Homer Walker\\
+	Rebecca Wasyk\end{center}
+
+Newton-Krylov methods have proven useful for solving large scale
+nonlinear systems. An advantage of these iterative methods is that they
+do not require storage of the system Jacobian, but only require knowledge
+of how the Jacobian acts on a vector. A difference quotient evaluated at
+each linear iteration is often used to approximate this action without
+slowing the convergence rate of the method. For systems with expensive
+nonlinear function evaluations, however, the requirement of a function
+evaluation for each linear iteration can result in a very costly
+computation. We present results exploring convergence rates and time
+savings associated with using different approximations to the system
+function in the difference quotient.
+
+This work was performed under the auspices of the U.S. Department of
+Energy by University of California Lawrence Livermore National Laboratory
+under contract No. W-7405-Eng-48.
+
+
+\end{document}

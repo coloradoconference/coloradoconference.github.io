@@ -1,0 +1,77 @@
+===firstname:
+Ioannis G.
+===firstname3:
+
+===lastname2:
+
+===postal:
+Department of Chemical Engineering and PACM
+E-quad, Olden Street
+Princeton University
+Princeton, NJ 08544
+===lastname:
+Kevrekidis
+===lastname3:
+
+===ABSTRACT:
+In current modeling , the best available descriptions of a system often
+come at a fine level
+(atomistic, stochastic, microscopic, individual-based) while the
+questions asked and the
+tasks required by the modeler (prediction, parametric analysis,
+optimization and control) are at a
+much coarser, averaged, macroscopic level. Traditional modeling
+approaches start
+by first deriving macroscopic evolution equations from the microscopic
+models, and
+then bringing our arsenal of mathematical and algorithmic tools to
+bear on these macroscopic descriptions.
+
+Over the last few years, and with several collaborators, we have
+developed and validated a
+mathematically inspired, computational enabling technology that allows
+the modeler to
+perform macroscopic tasks acting on the microscopic models directly.
+We call this the ``equation-free” approach, since it circumvents the
+step of obtaining
+accurate macroscopic descriptions and links with matrix-free
+iterative linear algebra.
+
+I will argue that the backbone of this approach is the design of
+(computational) experiments.
+In traditional numerical analysis, the main code “pings” a subroutine
+containing the model,
+and uses the returned information (time derivatives, function
+evaluations, functional
+derivatives) to perform computer-assisted analysis. In our approach the
+same main code “pings” a subroutine that sets up a short  ensemble of
+appropriately initialized
+computational experiments from which the same quantities are estimated
+(rather than evaluated).
+Traditional continuum numerical algorithms can thus be viewed as
+protocols for experimental design
+(where “experiment” means a computational experiment set up and
+performed with a model at a
+different level of description).
+
+Ultimately, what makes it all possible is the ability to initialize
+computational experiments at will.
+Short bursts of appropriately initialized computational experimentation
+­through matrix-free
+numerical analysis and systems theory tools like variance reduction and
+estimation- bridges
+microscopic simulation with macroscopic modeling.
+Remarkably, if enough control authority exists to initialize
+laboratory experiments "at will", this computational enabling technology
+can become a set of experimental protocols for the equation-free
+exploration of complex system dynamics.
+
+
+===email:
+yannis@princeton.edu
+===otherauths:
+
+===title:
+Equation-Free Computation for Complex/Multiscale Systems Modeling
+===firstname2:
+

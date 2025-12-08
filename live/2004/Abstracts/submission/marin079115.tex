@@ -1,0 +1,91 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Jos\'e Mar\'{\i}n \\
+{\bf Block approximate inverse preconditioners using the Sherman-Morrison-Woodbury formula}}
+
+Universitat Polit\'ecnica de Valencia \\ ETSIA \\ Cam\'{\i} de vera \\ 14 \\ 46022 Valencia \\ Spain \\ Supported by Spanish DGI Grant BFM2001-2641
+\\
+{\tt jmarinma@mat.upv.es}\\
+Juana Cerd\'an\\
+Jos\'e Mas\\
+	Taher Faraj\end{center}
+
+In this work we consider the solution of nonsymmetric linear systems of the form
+\begin{equation*}
+Ax=b \, ,
+\end{equation*}
+by preconditioned Krylov iterations where $A \in \mathbf{R}^{n \times n}$
+is a sparse, nonsingular matrix. We introduce a block approximate inverse
+preconditioner which is a generalization of the AISM preconditioner
+presented
+by Bru et al. [SIAM Journal on Scientific Computing}, 25(2):701--715,
+2003]. The computation of the preconditioner involves the well known
+Sherman-Morrison-Woodbury formula.
+
+Consider the matrix $A$ partitioned in block form:
+\begin{equation}\label{equ:Apartitioned}
+A = \left[ \begin{array}{cccc}
+A_{11} & A_{12} & \ldots & A_{1p}\\
+A_{21} & A_{22} & \ldots & A_{2p}\\
+\vdots & \vdots & \ddots & \vdots\\
+A_{p1} & A_{p2} & \ldots & A_{pp} \end{array} \right]
+\end{equation}
+where $A_{ij} \in \mathbf{R}^{m_i \times m_j}$, $\sum_{k=1}^{p} m_k = n$.
+We denote the block columns of $A$ by $A_i$, $i=1,\ldots,p$. That is,
+\[ A_i = [A_{1i}, A_{2i},\ldots,A_{pi}]^T.\]
+Let $X=I_n$ and $Y=(A - sI_n)^T$ be matrices partitioned accordingly
+where $I_n$ is the identity matrix of size $n$ and $s$ is a positive scalar.
+One has that,
+\begin{equation}\label{equ:sumA}
+A = sI_n + \sum_{k=1}^{p} X_k Y_k^T.
+\end{equation}
+By defining block column vectors $U_k,V_k$, $k=1,\ldots,p$ as,
+\begin{equation}\label{equ:unew2}
+U_{k}=X_{k}-\sum_{i=1}^{k-1}s^{-1}U_{i}T_{i}^{-1}V_{i}^{T}X_{k},
+\end{equation}
+\begin{equation}\label{equ:vnew2}
+V_{k}=Y_{k}-\sum_{i=1}^{k-1}s^{-1}V_{i}T_{i}^{-T}U_{i}^{T}Y_{k},
+\end{equation}
+where
+\begin{equation}\label{equ:pivotenew}
+T_k = I_{m_k} + s^{-1} V_k^T X_k = I_{m_k} + s^{-1} V_{kk}^T,
+\end{equation}
+one obtains the following expression for the inverse of $A$,
+\begin{equation}\label{equ:Afactorized}
+A^{-1}= s^{-1} I_n - s^{-2} U T^{-1} V^T \, .
+\end{equation}
+
+The matrices $U, V$ have block columns $U_k, V_k$, $k=1,\ldots,p$, respectively, and
+$T$ is a block diagonal matrix with diagonal blocks $T_k$, $k=1,\ldots,p$.
+
+A sparse preconditioner is obtained by applying a dropping strategy
+during the computation of $U_k$ and $V_k$. This strategy consists in
+removing off-diagonal nonzero entries which are less than a given
+threshold. Once the inexact factors $\bar{U}_k$ and $\bar{V}_k$ have been
+computed, two different preconditioning strategies can be defined:
+\begin{equation*}
+M_1 := s^{-1} I_n - s^{-2} \bar{U} \bar{T}^{-1} \bar{V}^T,
+\end{equation*}
+and
+\begin{equation*}\label{equ:AISM2}
+M_2 := s^{-2} \bar{U} \bar{T}^{-1} \bar{V}^T .
+\end{equation*}
+
+It will be shown that the block preconditioner can be computed without breakdowns for
+$M-$matrices and $H-$matrices.
+The results of numerical experiments obtained for a representative set of
+matrices will be presented. Compared with point AISM it will be shown
+that the BiCGSTAB and GMRES methods preconditioned with block AISM
+converge in less iterations. Indeed, for some problems where point AISM
+fails to converge, as the UTM* matrices, the block version works
+successfully. In addition, the effect of some reorderings of the
+coefficient matrix on the performance of the preconditioner is also
+considered. The results will show that AISM can benefit from them.
+
+
+\end{document}

@@ -1,0 +1,52 @@
+===firstname:
+Roger P.
+===firstname3:
+Russell
+===lastname2:
+Kolda
+===postal:
+Sandia National Laboratories
+PO Box 5800, MS-0316
+Albuquerque, NM 87185-0316
+===lastname:
+Pawlowski
+===lastname3:
+Hooper
+===ABSTRACT:
+Designing a nonlinear solver library with the flexiblity to support 
+multiple applications with robust, cutting-edge algorithms presents a 
+number of difficulties.  Not only must the library supply a large 
+number of solution algorithms, but it must also account for the many 
+application specific optimizations that production-level codes 
+require.  This presentation will discuss the design of NOX, an 
+object-oriented C++ library being developed to support applications at 
+Sandia National Laboratories.  We will discuss the design requirements 
+that the nonlinear solver library must meet and how NOX handles those 
+issues. Specifics we plan to address include: \\
+
+1. Desiging a flexible environment to allow for the efficient 
+introduction of new algorithms. \\
+2. Defining a flexible methodology for convergence and failure 
+criteria of the nonlinear algorithms (and allowing users to supply 
+their own criteria). \\
+3. Abstracting the linear solvers and the linear algebra storage 
+format from the nonlinear algorithm.  This allows applications to use 
+their own specialized algorithms for optimal performance. \\
+4. Allowing users to pass objects/arguments through the code efficiently. \\
+5. Library portability. \\
+
+Examples will be presented from large-scale engineering applications 
+developed at Sandia National Laboratories including reacting flows 
+(MPSalsa), compressible flows (Premo), and electrical circuit modeling 
+(Xyce).  Comparisons of the nonlinear globalization algorithms will 
+also be briefly discussed. 
+
+
+===email:
+rppawlo@sandia.gov
+===otherauths:
+John N. Shadid
+===title:
+Desiging a Flexible Nonlinear Solver Library.
+===firstname2:
+Tamara G.

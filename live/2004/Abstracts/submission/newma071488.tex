@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Gregory, A Newman \\
+{\bf An AMG solver for the 3D time-harmonic Maxwell equations}}
+
+Earth Science Division \\ Lawrence Berkeley National Laboratory \\ One Cyclotron \\ MS 90-1116 \\ Berkeley Ca \\ 94720
+\\
+{\tt ganewman@lbl.gov}\\
+Jonathan Hu\\
+Ray Tuminaro\\
+	Steve Margolis
+	 
+	Sandia National Laboratories, Livermore CA\end{center}
+
+We describe a parallel algebraic multigrid (AMG) method for the solution
+of the 3D Maxwell’s equations in the frequency domain in the quasi-static
+limit. This AMG method is intended as a preconditioner to a Krylov
+iterative method such as quasi-minimum residual, where the application of
+interest is the repeated solution of the forward modeling problem arising
+in geophysical subsurface imaging applications. The underlying
+formulation of the new frequency-domain AMG method leverages off of an
+AMG scheme for real valued Maxwell problems arising from the
+time-dependent eddy current equations. The central components of the real
+valued AMG method are distributed relaxation for the smoother and a
+specialized grid transfer operator for the coarse grid correction. The
+key to this AMG method is the proper representation of the (curl, curl)
+null space on coarse meshes. This is achieved by maintaining certain
+commuting properties of the inter-grid transfers. To adapt the real
+valued AMG scheme to complex arithmetic, the complex operator is first
+written as a 2x2 real block matrix system, called an equivalent real form
+(ERF). The inter-grid transfers for the ERF are then generated via the
+real valued AMG algorithm. The smoother for the ERF is also adapted from
+the real value AMG method. This distributed relaxation on the ERF matrix
+in turn leads to a nice decoupling of the problem. To complete the
+method, a variety of smoothers, including complex polynomial, Jacobi and
+one-step Krylov smoothers are developed for use within the distributed
+relaxation process. While some care is required to develop these
+smoothers, they work well in parallel and avoid difficulties associated
+with parallel Gauss-Seidel. Numerical experiments are presented for some
+3D problems arising in geophysical subsurface imaging applications. The
+experiments illustrate the efficiency of the approach on various parallel
+machines in terms of both convergence and parallel speed-up.
+
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Eric Phipps \\
+{\bf Bifurcation Methods for Large-Scale Problems}}
+
+Sandia National Laboratories \\ Computational Sciences Department \\ PO Box 5800 MS-1111 \\ Albuquerque \\ NM  87185
+\\
+{\tt etphipp@sandia.gov}\\
+Andy Salinger\\
+David Day\end{center}
+
+Computing families of solutions to nonlinear problems and their
+bifurcations can provide invaluable insight to understanding the dynamics
+of physical and biological systems. However, developing continuation and
+bifurcation tracking algorithms that are scalable to a large-scale
+context is quite challenging. In particular, limited memory, lack of
+derivative information, inexact linear
+solves from iterative linear solvers, and an inability to add rows and
+columns to the system Jacobian matrix severly restrict the algorithmic
+choices available.
+
+In this talk, we will discuss how these difficulties are overcome in
+LOCA: The Library of Continuation Algorithms, a software package for
+large-scale continuation and bifurcation tracking developed at Sandia
+National Laboratories, focusing on the turning point or saddle-node
+bifurcation commonly observed in nonlinear systems. This algorithm has
+the advantage of requring little additional information from the
+application code than it
+already most likely provides, and only requires linear solves of the
+underlying system Jacobian matrix. However, these linear solves become
+extremely ill-conditioned near the turning point bifurcation, limiting
+the accuracy and robustness of the turning point tracking algorithm. We
+will then describe a promising new algorithm recently developed at Sandia
+based upon the idea of
+applying the Moore-Penrose pseudo-inverse near the bifurcation point.
+This algorithm avoids ill-conditioned matrix solves and has shown to be
+significantly more robust and accurate than the original turning point
+tracking algorithm. Its implementation requires a linear solver with a
+"matrix free" mode that only requires matrix-vector and
+preconditioner-vector products. Results from applying these techniques to
+physical systems of practial interest will be presented.
+
+
+
+\end{document}

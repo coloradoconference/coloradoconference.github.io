@@ -1,0 +1,93 @@
+===firstname:
+Eunjung,EJ
+===firstname3:
+
+===lastname2:
+Manteuffel
+===postal:
+Department of Applied Mathematics
+526 UCB
+University of Colorado at Boulder
+Boulder, CO  80309-0526 
+===lastname:
+Lee
+===lastname3:
+
+===ABSTRACT:
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\newcommand{\curl}{\nabla\times}
+\newcommand{\mydiv}{\nabla\cdot}
+\newcommand{\bH}{\boldsymbol{H}}
+\newcommand{\bE}{\boldsymbol{E}}
+\newcommand{\bU}{\boldsymbol{U}}
+
+
+\begin{document}
+
+Maxwell's equations are a set of fundamental equations governing
+all macroscopic electromagnetic phenomena. The equations can be
+written in both differential and integral form, but we present
+them only in simplified differential form, so called Eddy current
+problem. Here we consider the following two basic laws of
+electricity and magnetism:
+\begin{eqnarray*}
+\text{Faraday's Law} && \frac{\partial \mu \bH}{\partial t} + \curl \bE = 0\\
+\text{Amp$\grave{\text{e}}$re's Law} && \curl \bH - \sigma \bE = 0.
+\end{eqnarray*}
+Here we consider the $L L^*$ method to solve least squares of the
+first order system for partial differential equations. The main
+goal of the $L L^*$ approach was to use a first order system least
+squares method for partial differential equations, which do not
+fulfill the regularity requirements of the standard first order
+system least squares method. The main idea of the first order
+system least squares method with the first order equations
+$L\bU=\boldsymbol{F}$ is minimizing the functional
+$||L\bU-\boldsymbol{F}||_0$, whose bilinear part is equivalent to
+the product $H^1$ norm. The standard FOSLS method approximates to
+the unknown $\bU$ in the given $H^1$ finite element spaces. But
+this $H^1$-equivalence is provided only under sufficient
+smoothness assumptions on the original problem like the domain,
+coefficients, and data. $LL^*$ method was introduced to overcome
+the problem of standard FOSLS coming from lack of sufficient
+smoothness by solving the dual problem $L^*\boldsymbol{W} =\bU$
+with the dual variable $\boldsymbol{W}$ and the adjoint operator
+$L^*$. So the original problem is recast  as one of minimizing the
+functional $||L^*\boldsymbol{W}-\bU||_0$ which has the same
+minimizer of the functional
+$||L^*\boldsymbol{W}||^2-2\left<\boldsymbol{W},
+\boldsymbol{F}\right>$. \\
+FOSL$\text{L}^*$ has been successfully performed to achieve an
+accurate approximation using $H^1$-conforming finite element
+spaces for the PDE having discontinuous coefficients or irregular
+boundary points in the bounded plane. But that known method is
+hard to apply for 3D singular problems specially for the case
+having irregular boundary conditions. So we focus on the problem
+in the domain having irregular boundaries, i.e., reentrant
+corners. If domain is bounded and either boundary is
+$\mathcal{C}^{1,1}$ or domain is a convex polyhedron that is given
+some boundary conditions, then $H(\mydiv)\cap H(\curl)$ is
+continuously imbedded into $H^1(\Omega)^3$. Since boundary has
+reentrant corners, the original solution $\bU$ is not anymore in
+$H^1$ and also the dual solution $\boldsymbol{W}$ is not in $H^1$
+which cannot be approximated by $H^1$ finite element spaces. That
+is, in the case that the domain has edges, the standard finite
+element method loses its global accuracy because of the
+singularities on the boundary. We modify the dual operator $L^*$
+and look for a sequence in $H^1$ converging to the dual solution
+$\boldsymbol{W}$. Here we don't care the injectivity of $L^*$
+because we want to find a solution $\boldsymbol{W}$ for
+$L^*\boldsymbol{W}=\bU$.
+
+\end{document}
+
+===email:
+eunjung@colorado.edu
+===otherauths:
+
+===title:
+LL* method for Eddy current problem in 3D with edges.
+===firstname2:
+Thomas

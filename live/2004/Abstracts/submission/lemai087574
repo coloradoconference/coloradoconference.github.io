@@ -1,0 +1,50 @@
+===firstname:
+Olivier, P.
+===firstname3:
+Roger, G.
+===lastname2:
+Debusschere
+===postal:
+Universite d'Evry Val d'Essonne, IUP
+40 rue du Pelvoux, CE1455
+91 020 Evry Courcourone cedex
+France
+===lastname:
+Le Maitre
+===lastname3:
+Ghanem
+===ABSTRACT:
+Stochastic modeling of two-dimensional steady and unsteady
+diffusion equations in presence of uncertainties in the 
+diffusivity field, forcing term and/or boundary conditions 
+is considered, using spectral expansions.  Diffusivity and 
+source fields, as well as the boundary conditions, are 
+stochastic processes which are first represented using
+their respective Karhunen-Lo\`eve (KL) expansions. When 
+truncated, the KL expansions involve a finite set of independent 
+random variables that multiply the eigen-modes of the 
+correlation kernels of the corresponding processes. 
+Propagation and quantification of the impact of these 
+uncertainties on the solution is performed by means of a
+Polynomial Chaos (PC) expansion, whose spectral coefficients are
+determined using a Galerkin approach.  The Galerkin projection 
+leads to a set of coupled problems for the PC 
+coefficients of the solution which are functions of space and 
+time.  Spatial finite-difference discretization of these coupled 
+problems results in a large system of equations, whose dimension 
+necessitates the use of iterative approaches in order to obtain 
+the solution within a reasonable computational time.  
+To accelerate the convergence of the iterative technique, a 
+multigrid method, based on spatial coarsening, is implemented.  
+Numerical experiments show good scaling properties of
+the method, both with respect to the number of spatial grid points 
+and the stochastic resolution level.
+
+===email:
+olm@cemif.univ-evry.fr
+===otherauths:
+Knio, Najm
+===title:
+Multigrid Method for Spectral Propagation of Uncertainty in Diffusion Equations
+===firstname2:
+Bert, J.

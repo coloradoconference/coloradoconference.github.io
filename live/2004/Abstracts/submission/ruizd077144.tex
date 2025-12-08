@@ -1,0 +1,46 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Daniel Ruiz \\
+{\bf Adaptive preconditioners for Newton-Krylov methods}}
+
+INPT-ENSEEIHT \\ 2 \\ rue Camichel \\ 31071 Toulouse CEDEX \\ France
+\\
+{\tt Daniel.Ruiz@enseeiht.fr}\\
+Daniel Loghin\\
+Ahmed Touhami\end{center}
+
+The use of preconditioned Newton-Krylov methods is in many applications
+mandatory for computing efficiently the solution of large nonlinear
+systems of equations. However, the available preconditioners are often
+sub-optimal, due to the changing nature of the linearized operator. This
+the case, for instance, for quasi-Newton methods where the Jacobian (and
+its preconditioner) are kept fixed at each non-linear iteration, with the
+rate of convergence usually degraded from quadratic to linear. Updated
+Jacobians, on the other hand require updated preconditioners, which may
+not be readily available. In this work we introduce an adaptive
+preconditioning technique based on the Krylov subspace information
+generated at previous steps in the nonlinear iteration. In particular, we
+use to advantage a deflation technique suggested in [1] for restarted
+GMRES to enhance existing preconditioners with information about (almost)
+invariant subspaces constructed by GMRES at previous stages in the
+nonlinear iteration. We provide guidelines on the choice of
+invariant-subspace basis used in the construction of our preconditioner
+and demonstrate the improved performance on various test problems. As a
+useful general application we consider the case of augmented systems
+preconditioned by block triangular matrices based on the structure of the
+system matrix. We show that a sufficiently good solution involving the
+primal space operator allows for an efficient application of our adaptive
+technique restricted to the space of dual variables.
+
+
+[1] J. Baglama, D. Calvetti, G. H. Golub, and L. Reichel.
+Adaptively preconditioned GMRES algorithms.
+SIAM J. Sci. Comput., 20(1):243--269 (electronic), 1998.
+
+
+\end{document}

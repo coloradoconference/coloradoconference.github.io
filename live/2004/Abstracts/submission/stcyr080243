@@ -1,0 +1,50 @@
+===firstname:
+Amik
+===firstname3:
+Stephen J.
+===lastname2:
+Gander
+===postal:
+National Center for Atmospheric Research, 
+1850 Table Mesa Drive, 
+Boulder, CO 80305.
+===lastname:
+St-Cyr
+===lastname3:
+Thomas
+===ABSTRACT:
+\begin{document}
+\title{On Optimized Schwarz Preconditioning for High-Order 
+       Spectral Element Methods}
+\author{
+	A.~St-Cyr\footnote{{\bf amik@ucar.edu},  
+	NCAR 1850 Table Mesa Drive Boulder, CO 80305, USA.}, \;\;
+        	M.J. Gander\footnote{{\bf mgander@math.mcgill.ca}, 
+	McGill 805 Sherbrooke W. Montreal QC,Canada H3A2K6} \; and 
+	S.~J.~Thomas\footnote{{\bf thomas@ucar.edu},   
+	NCAR 1850 Table Mesa Drive Boulder, CO 80305, USA.}}
+%
+\maketitle
+%
+\begin{abstract}
+Optimized Schwarz preconditioning is applied to a spectral element method
+for the modified Helmholtz equation and pseudo-Laplacian arising in
+incompressible flow solvers.  The preconditioning is performed on an
+element-by-element basis. The method enables one to use non-overlapping
+elements, yielding an effective algorithm in terms of communication
+between elements and implementation. Two approaches are tested. The first
+consists of constructing a $P_1$ finite element problem on each
+overlapping element. In the second, the preconditioner is applied 
+directly on a non-overlapping spectral element. Numerical results demonstrate
+an improvement in the iteration count over the classical Schwarz algorithm.  
+\end{abstract}
+\end{document}
+
+===email:
+amik@ucar.edu
+===otherauths:
+
+===title:
+On Optimized Schwarz Preconditioning for High-Order Spectral Element Methods
+===firstname2:
+Martin. J.

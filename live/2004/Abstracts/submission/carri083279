@@ -1,0 +1,26 @@
+===firstname:
+David B.
+===firstname3:
+Dana A.
+===lastname2:
+Mousseau
+===postal:
+Los Alamos National Laboratory
+P.O. Box 1663
+MS - D409
+Los Alamos, NM 87544 
+===lastname:
+Carrington
+===lastname3:
+Knoll
+===ABSTRACT:
+  Zathras is a computer code that solves the nonequlibrium radiation diffusion equations.  The current time integration method is based on operator splitting.  With the operator splitting method implicit solution of one or more parabolic systems is required on each time step. The original matrix solution method was point-Jacobi preconditioned conjugate gradient.  Results will be presented from a work in progress where new preconditioning options are being considered.  The list of potential preconditioners include,  algebraic multigrid, box multigrid, additive Schwarz 
+without overlap (Block Jacobi) and a two-level Schwarz method without overlap which is additive on the fine level and  multiplicative between levels.  Comparisons between the different  preconditioners will be presented for multidimensional simulations in parallel.
+===email:
+dcarring@lanl.gov
+===otherauths:
+
+===title:
+Preconditioning Radiation Diffusion
+===firstname2:
+Vince A.

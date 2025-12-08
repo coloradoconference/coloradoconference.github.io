@@ -1,0 +1,161 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Aleksei I. Shestakov \\
+{\bf Solution of the nonlinear multifrequency radiation
+diffusion equations using pseudo transient
+continuation\thanks{This work was performed under the
+auspices of the U.S.\ Dept.\ of Energy by the
+Univ.\ of Calif.\ Lawrence Livermore National Laboratory
+under contract No.\ W-7405-Eng-48.}}}
+
+Lawrence Livermore National Laboratory \\
+POB 808 \\ L-38 \\ Livermore \\ CA \\ 94550 \\
+{\tt shestakov@llnl.gov}
+\end{center}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bey}{\begin{eqnarray}}
+\newcommand{\eey}{\end{eqnarray}}
+
+\newcommand{\pref}[1]{(\ref{#1})}
+
+\newcommand{\cv}{c_{\rm v}}
+\newcommand{\dt}{\Delta t}
+\newcommand{\gdt}{\Delta \tau}
+
+
+Computer codes simulating high energy density physics
+consist of modules for distinct physical processes, e.g.,
+compressible hydrodynamics and radiation transport. For the
+latter, one model assumes tight coupling between radiation
+and matter. The dependent variables are the
+spectral radiation energy density $u( x, \nu, t)$ and the matter
+temperature $T( x, t)$, where $x$, $\nu$, and $t$ denote position,
+frequency, and time, respectively.
+The system is of parabolic form,
+\bey
+\partial_t u & = & \nabla \cdot (D \nabla u) +
+c \, \rho \, \kappa \, ( B - u ) \; , \label{ueq} \\
+\rho \, \cv \, \partial_t T & = & - c \, \rho \int_0^{\infty} d \nu
+\, \kappa \, ( B - u ) \; . \label{eeq}
+\eey
+
+In \pref{ueq}-\pref{eeq}, $c$ is the speed of light, $\rho$ the
+mass density, $\kappa$ the opacity, and $\cv$ the specific heat.
+The Planck function
+$B \propto y^3 / (e^y - 1)$, where $y \propto \nu / T$.
+In our context, $\rho( x, t)$ is a known function. The opacity
+is a complicated function of $\rho$, $T$, and $\nu$.
+For ``free-free transitions'', $\kappa \propto \nu^{-3}$.
+The coefficient $D$ depends on the mean free path
+$\ell \doteq 1 / \rho \, \kappa$ and, to mitigate unphysical
+propagation speeds, a flux limiter is introduced. One common
+description is $D = c / [ f(u) + 3/ \ell]$, where $f= |\nabla u| / u$.
+
+Equations \pref{ueq}-\pref{eeq} are solved by discretizing the
+spectrum $0 \le \nu \le \infty$ into $G$ {\em groups\/}
+defined by $\{ \nu_j \}_{j = 0}^G$.
+Integration over each interval $( \nu_{j-1}, \nu_j)$,
+yields the multigroup equations in which the integral
+over $\nu$ is replaced by a sum of $G$ terms.
+The system is difficult to solve because of
+its nonlinearity and wide ranges of time and spatial scales.
+The ranges are evidenced by the coupling
+$c \, \rho \, \kappa \; (= c / \ell)$
+and diffusion $D \sim c \ell$ terms.
+High frequency radiation is characterized by
+$\ell \gg 1$, i.e.,
+slow coupling and fast transport. The
+opposite holds for low
+frequencies. In simulations,
+the coefficients can vary over 10 to 30 orders of magnitude.
+The difficulty is compounded by nonlinearity and material
+composition since the coefficients depend on $\rho$ and $T$.
+
+In this talk we describe a scheme to solve \pref{ueq}-\pref{eeq}
+for multiphysics codes containing a separate hydrodynamic module.
+Since such codes typically run at
+the Courant-limited {\em sound\/} speed, for our
+applications, the time step $\dt$ is arbitrarily large.
+Hence, we use backward Euler temporal
+differencing. After multiplying through by $\dt$,
+we obtain,
+\bey
+0 & = & u_j^0 - u_j + \nabla \cdot (D_j' \nabla u_j) +
+k_j \, ( B_j - u_j ) \; ,
+\;\; j = 1, \ldots \, , G \; , \label{ujeq2} \\
+0 & = &
+\rho \, \cv \, ( T^0 - T) - \sum_{j-1}^G k_j
+\, ( B_j - u_j ) \; , \label{Teq2}
+\eey
+where $D_j' = \dt \, D_j$, $k_j = c \, \dt \, \rho \, \kappa_j$,
+and the superscript $0$ denotes the solution at the prior time level.
+The index $j$ replaces the frequency dependence.
+Thus, $u_j = \int d \nu \, u$ and similarly for $B$,
+where the integration is over $( \nu_{j-1}, \, \nu_j)$.
+The coefficients $D_j$ and $\kappa_j$ denote averages
+over the interval.
+
+Viewing \pref{ujeq2}-\pref{Teq2} as a nonlinear elliptic system, we
+introduce pseudo
+transient continuation $(\Psi$tc). On the LS
+of \pref{ujeq2}, we place $(u_j - u_j^*)/\gdt$,
+where $\gdt$ is the $\Psi$tc parameter and
+$u_j^*$ is the solution at the previous {\em pseudo\/}
+time. Similarly, the LS of \pref{Teq2} becomes
+$\rho \, \cv \, ( T - T^*)/\gdt$. The desired solution
+is the pseudo time steady-state.
+
+For each $\Psi$tc step, we linearize $B_j$
+about the previous iterate,
+$B_j = B_j^* + (\partial B_j / \partial T)|_{T = T^*} (T - T^*)$.
+Remaining coefficients, e.g., $k_j$, are evaluated at $T = T^*$.
+We avoid a full Newton linearization in order to maintain
+robustness. (Coefficients such as $\kappa_j$
+are only known approximately and are given in tabular
+form.) For the first $\Psi$tc step, $u_j^* = u_j^0$ and
+$T^* = T^0$.
+
+The energies $u_j$ are directly coupled to $T$
+through the coefficients $k_j$.
+The equation for $T$ does not contain any spatial derivatives.
+After linearizing, we solve for $T$ analytically and
+substitute the result into the $u_j$ equations,
+(Schur complement). This yields $G$
+equations in which each $u_j$ is explicitly
+coupled to the rest. The linear system is of
+order $N \, G$, where $N$ is the number of spatial
+points and is of the form
+\begin{equation}
+(\Lambda - M_1 - M_2) \, u = b \; . \label{linsys}
+\end{equation}
+In \pref{linsys},
+$\Lambda$ is diagonal, $M_1$ contains the offdiagonal terms
+stemming from diffusion and $M_2$, from
+intergroup coupling. The parameter $1/\gdt$
+appears in both $\Lambda$ and $b$; in both places, it contributes
+to robustness.
+
+We derive conditions on $1/\gdt$ that yield
+diagonal dominance and non-negative RS, $b \ge 0$.
+The conditions determine the initial value of $1/\gdt$.
+Our strategy ensures that each $\Psi$tc iterate,
+yields a physically reasonable result.
+In ``real'' problems, the requirement is crucial since the
+solution of \pref{linsys} is used to obtain $T$, which
+in turn determines updates of $k_j$, $B_j$, etc.
+A conventional Newton iteration may generate an unphysical
+value, e.g., $T = -1$, causing the code to halt.
+
+The scheme has been implemented in a radiation-hydrodynamic
+code. Results will be presented comparing
+the $\Psi$tc scheme with a more conventional one.
+
+
+\end{document}

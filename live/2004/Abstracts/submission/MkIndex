@@ -1,0 +1,87 @@
+#!/usr/local/bin/perl
+#################### read info for this year: ############################
+chdir "/www/faculty/copper/2004/Abstracts/submission";
+##########################################################################
+do "../../INFO.pl";
+##########################################################################
+$ThisDIR="/www/faculty/copper/$Year/Abstracts/submission";
+($ThisURL=$ThisDIR) =~ s/^.www/http:\/\/amath.colorado.edu/;
+##########################################################################
+open (INDEX,">index.html") || die "cannot write to index.html\n\n";
+print INDEX "<title>abstracts</title>\n<body>\n<h2>Abstracts\n";
+        @dname=qw(Sun Mon Tue Wed Thu Fri Sat);
+        @daynum{@dname} = 0..6;
+        @mname=qw(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec);
+        @monnum{@mname} = 0..11;
+	($sec,$min,$hour,$mday,$mon,$year,$wday) = localtime(time());
+	printf INDEX "(as of %2d:%02d on %s %d %s)</h2>\n<OL>\n",
+		$hour,$min,$dname[$wday],$mday,$mname[$mon];
+
+foreach $file (<*[0-9]>) {
+	($code=$file) =~ s/\d+$//;
+	if ($file lt $LatestFile{$code}) {
+		$Also{$code} .= " $file.pdf";
+		next;
+		}
+	if ($LatestFile{$code}) { $Also{$code} .= " $LatestFile{$code}.pdf"; }
+	$LatestFile{$code} = $file;
+	$PDF{$code} = "$file.pdf";
+	open (ABS,$file) || die "cannot open file $file\n\n";
+	while (<ABS>) {
+		if (/^===firstname:/) { $FirstName{$code} = &NextLine(); }
+		if (/^===lastname:/) { $LastName{$code} = &NextLine(); }
+		if (/^===email:/) { $Email{$code} = &NextLine(); }
+		if (/^===title:/) { $Title{$code} = &RemainingLines(); }
+		}
+	close ABS;
+	}
+
+
+foreach $key (sort keys %LatestFile) {
+
+	printf INDEX "<p><li><b>%s %s</b> (%s):\n",
+		$FirstName{$key},
+		$LastName{$key},
+		$Email{$key};
+
+	printf INDEX "<a href=\"%s\"><i>%s</i></a> (<tt>%s</tt>)\n",
+		$PDF{$key},
+		$Title{$key},
+		$PDF{$key};
+
+	if ($Also{$key}) {
+		printf INDEX "<br>\&nbsp (%s %s)\n",
+			"also earlier versions", $Also{$key};
+		}
+	}
+
+print INDEX "\n</OL>\n</body>\n";
+close INDEX;
+exit 0;
+
+#######################################################################
+
+sub NextLine {
+	$nextline=<ABS>;
+	chomp $nextline;
+	$nextline =~ s/^\s*//;
+	$nextline =~ s/\s*$//;
+	$nextline =~ s/\s+/ /g;
+	return $nextline;
+	}
+
+#######################################################################
+
+sub RemainingLines {
+	@nextlines=<ABS>;
+	$nextline = join(" ",@nextlines);
+	$nextline =~ s/\s+/ /mg;
+	$nextline =~ s/===.*$//;
+	$nextline =~ s/^\s*//;
+	$nextline =~ s/\s*$//;
+	$nextline =~ s/\s+/ /g;
+	return $nextline;
+	}
+
+#######################################################################
+

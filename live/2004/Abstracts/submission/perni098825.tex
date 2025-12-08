@@ -1,0 +1,58 @@
+\documentclass{report}
+\usepackage{amsmath,amssymb}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1em}
+\begin{document}
+\begin{center}
+\rule{6in}{1pt} \
+{\large Michael Pernice \\
+{\bf Performance of a Newton-Krylov-FAC Method for Equilibrium Radiation Diffusion on Locally Refined Grids}}
+
+Los Alamos National Laboratory \\ P O Box 1663 \\ MS B265 \\ Los Alamos \\ NM 87544
+\\
+{\tt pernice@lanl.gov}\end{center}
+
+Radiation transport plays an important role in numerous fields of study,
+including astrophysics, laser fusion, and combustion
+applications such as modeling of coal-fired power generation systems and
+wildfire spread. A diffusion approximation provides a reasonably accurate
+description of penetration of radiation from a hot source to a cold
+medium. This approximation often features a nonlinear conduction
+coefficient that leads to formation of a sharply defined thermal front,
+or Marshak wave, in which the solution can vary several orders of
+magnitude over a very short distance.
+
+Classic solution techniques use a linearized conduction coefficient. This
+introduces a first order error in time, and requires small time steps to
+manage the size of this error. Numerous recent studies have shown that
+fully implicit time integration methods provide more accurate predictions
+of the position of the thermal front, even when using large time steps.
+Fully implicit approaches require the solution of a large-scale system of
+nonlinear equations at each time step. Newton-Krylov methods, usually
+preconditioned by a multigrid method, have been instrumental in
+demonstrating that a fully implicit approach is practical.
+
+The shape of the thermal front can be very complex as it interacts with
+different materials having different conduction properties. Resolving
+these localized features with a global fine mesh can be prohibitively
+expensive. Adaptive mesh refinement (AMR) concentrates computational
+effort by increasing spatial resolution only locally, and a properly
+designed method is capable of greatly reducing the computational cost
+needed to achieve a desired accuracy. AMR can readily be incorporated
+into the Newton-Krylov solution framework, by properly accounting for the
+presence of local refinement in the preconditioner. In particular, the
+Fast Adaptive Composite grid (FAC) method of McCormick and Thomas is well
+suited for this purpose.
+
+We report on efforts to solve equilibrium radiation diffusion problems
+using structured AMR and the Newton-Krylov-FAC method. While structured
+AMR facilitates reuse of existing software written for logically
+rectangular grids, discretization at locations near changes in resolution
+must be treated carefully in order to avoid the creation of artificial
+sources. We describe our FAC solver and report on its performance, both
+as a standalone solver and as a preconditioner within Newton-Krylov
+iterations.
+
+
+
+\end{document}
