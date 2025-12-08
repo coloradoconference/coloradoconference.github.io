@@ -1,0 +1,109 @@
+<html>
+<head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=Hk4-lkW3" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://amath.colorado.edu:80/faculty/copper/2002/abs/ghattas.html","20040928212018","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1096406418");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+<title>cm conference abstract: GHATTAS</title>
+</head>
+
+<body>
+
+<center>
+Multiscale Newton-Krylov Methods for Inverse Wave Propagation
+</center>
+
+<p>
+<center>
+<a href="https://web.archive.org/web/20040928212018/mailto: oghattas@cs.cmu.edu">
+Volkan Akcelik and Omar Ghattas </a><br><br>
+Department of Civil and Environmental Engineering<br>
+Carnegie Mellon University<br>
+Pittsburgh, PA 15213
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Toward our goal of modeling strong earthquakes in seismic regions, we
+are interested in determining mechanical properties of sedimentary
+basins (such as the greater Los Angeles Basin) from seismograms of
+past earthquakes.
+<p>
+As an intermediate problem, we consider the inverse wave propagation
+problem of determining the material properties of a heterogeneous
+acoustic medium, given a source and observations at receiver locations
+on its boundary. The inverse problem is formulated as a
+PDE-constrained optimization problem, in which the objective function
+is an L2 norm misfit between model and observations, the constraint is
+the acoustic wave equation with appropriate initial and boundary
+conditions, and the inversion variable is the density field. Both
+Tikhonov (H1) and total variation regularization are used to render
+the inverse problem well-posed.
+<p>
+The Euler-Lagrange equations representing first-order optimality
+yield a coupled three-field system composed of the (forward-in-time)
+acoustic wave equation, the (backward-in-time) adjoint acoustic wave
+equation, and the integro-differential inversion equation. Newton
+solution of an appropriate spatio-temporal discretization of this
+system for state variables, adjoint variables, and the material field
+yields a linear system with a large indefinite coefficient matrix. Due
+to the size (proportional to the product of the number of grid points
+and time steps) and lack of structure of this system, we invoke a
+block elimination that produces a Schur complement system in the
+reduced space of the material field.
+<p>
+We solve the Schur complement system using conjugate gradients; these
+inner iterations are embedded within an inexact Newton outer
+iteration.  The Schur complement is too large and expensive to be
+formed explicitly; instead, each CG matrix-vector product requires the
+solution of a forward and an adjoint wave propagation problem.  CG
+converges rapidly for the Tikhonov-regularized Schur complement, and
+no preconditioning is needed.  On the other hand, TV-regularized Schur
+complement systems are much more difficult to converge, and we are
+currently investigating various multigrid strategies for there
+solution.
+<p>
+To address the difficulties posed by numerous local minima of the
+objective function, we employ a multiscale algorithm that sweeps
+through the source frequencies, determining successively higher
+spectral components of the material field, on successively finer
+grids. Successive material fields remain in the (increasingly
+narrowing) basin of attraction of the global minimum. Numerical
+experiments on synthetic 3D inverse wave propagation problems with up
+to a million variables on up to 256 Cray T3E processors demonstrate
+high parallel and algorithmic scalability, and the ability to capture
+global minima and recover accurate inversion fields.
+
+</body>
+</html>
+<!--
+     FILE ARCHIVED ON 21:20:18 Sep 28, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:40:42 Dec 08, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.537
+  exclusion.robots: 0.017
+  exclusion.robots.policy: 0.007
+  esindex: 0.012
+  cdx.remote: 21.096
+  LoadShardBlock: 131.828 (3)
+  PetaboxLoader3.datanode: 148.424 (4)
+  load_resource: 42.718
+-->

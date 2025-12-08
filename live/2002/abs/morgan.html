@@ -1,0 +1,94 @@
+
+<html>
+<head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=Hk4-lkW3" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://amath.colorado.edu:80/faculty/copper/2002/abs/morgan.html","20040928211825","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1096406305");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+<title>cm conference abstract: Morgan</title>
+</head>
+
+<body>
+
+<center>
+GMRES with Deflated Restarting and Multiple Right-Hand Sides
+</center>
+
+<p>
+<center>
+<a href="https://web.archive.org/web/20040928211825/mailto: Ronald_Morgan@baylor.edu">
+Ron Morgan</a><br><br>
+Department of Mathematics,
+Baylor University,
+Waco, TX 76798-7328
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Convergence of restarted GMRES is strongly affected by the presence of
+small eigenvalues. However, if corresponding eigenvectors are added to
+the subspace, these eigenvalues are deflated. The method GMRES with
+Deflated Restarting (GMRES-DR) efficiently adds approximate eigenvectors
+to a Krylov subspace. This method can generate eigenvectors at the same
+time that it solves the linear equations. Once the eigenvectors are
+moderately accurate, the convergence of the linear equations improves.
+
+Deflating eigenvalues is particularly useful when there are multiple
+right-hand sides. The eigenvectors developed while solving the first
+right-hand side can be used for subsequent ones, and the improvement in
+convergence can start at the beginning. An occasional projection is
+sufficient for deflating eigenvalues for the subsequent right-hand sides.
+
+We will look at applications to the large matrix problems generated in
+lattice QCD (quantum chromodynamics). One difficult example has
+eigenvalues half surrounding the origin in the the complex plane. If 30
+approximate eigenvectors are used along with Krylov subspaces of
+dimension 20, the linear equations with the second right-hand side can be
+solved three times as fast as with standard GMRES(20). There is
+additional storage needed for the approximate eigenvectors, but the
+expense per iteration is about the same.
+
+Block methods will also be discussed. A full orthogonalization method
+such as Block GMRES may have to be restarted frequently if there are
+limits on the storage or if orthogonalization costs are significant
+compared to the cost of matrix-vector products. Frequent restarting can
+strongly impair performance. However, sometimes this problem can be
+fixed by deflating eigenvalues. The deflation makes the problem easy
+enough that small Krylov subspaces are effective. Deflation makes
+block-GMRES more competitive with nonrestarted methods.
+
+</body>
+</html>
+
+
+<!--
+     FILE ARCHIVED ON 21:18:25 Sep 28, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:41:02 Dec 08, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.619
+  exclusion.robots: 0.018
+  exclusion.robots.policy: 0.007
+  esindex: 0.011
+  cdx.remote: 10.62
+  LoadShardBlock: 65.079 (3)
+  PetaboxLoader3.datanode: 104.965 (4)
+  load_resource: 76.832
+-->

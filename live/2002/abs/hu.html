@@ -1,0 +1,106 @@
+<html>
+<head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=Hk4-lkW3" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://amath.colorado.edu:80/faculty/copper/2002/abs/hu.html","20040928211203","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1096405923");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+   <title>cm conference abstract: Hu</title>
+</head>
+
+<body>
+
+<center>
+Recent Improvements in Parallel Algebraic Multigrid for Solving Maxwell's Equations
+</center>
+
+<p>
+<center>
+<a href="https://web.archive.org/web/20040928211203/mailto: pbboche@sandia.gov">Pavel B. Bochev</a>
+<p>Computational Mathematics and Algorithms
+<br>Sandia National Laboratories
+<br>P.O. Box 5800, MS 1110
+<br>Albuquerque, NM 87185-1110
+<p><a href="https://web.archive.org/web/20040928211203/mailto: cjgaras@sandia.gov">Christopher J. Garasi</a>
+<p>Computational Physics R&amp;D
+<br>Sandia National Laboratories
+<br>P.O. Box 5800, MS 0819
+<br>Albuquerque, NM 87185-0819
+<p><a href="https://web.archive.org/web/20040928211203/mailto: jhu@ca.sandia.gov">Jonathan J. Hu</a>
+<p>Computational Mathematics and Algorithms
+<br>Sandia National Laboratories
+<br>P.O. Box 969, MS 9217
+<br>Livermore, CA 94551
+<p><a href="https://web.archive.org/web/20040928211203/mailto: tuminaro@ca.sandia.gov">Ray S. Tuminaro</a>
+<p>Computational Mathematics and Algorithms
+<br>Sandia National Laboratories
+<br>P.O. Box 969, MS 9217
+<br>Livermore, CA 94551
+<p><a href="https://web.archive.org/web/20040928211203/mailto: acrobin@sandia.gov">Allen C. Robinson</a>
+<br>Computational Physics R&amp;D
+<br>Sandia National Laboratories
+<br>P.O. Box 5800, MS 0819
+<br>Albuquerque, NM 87185-0819
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We describe our experiences with using parallel algebraic multigrid
+(AMG) for the solution of Maxwell's equations discretized via edge elements.
+A key difficulty is properly mapping the (<b>curl</b>,<b>curl</b>) operator's
+null space on
+to coarser grids via a prolongation operator that is constructed using
+only algebraic information (i.e. matrix coefficients and a minimal amount
+of element information). The AMG coarse grid correction scheme that we start
+with is based on the work of Stefan Reitzinger and Joachim Sch&ouml;berl, and
+the smoother is a form of distributed relaxation.
+We describe modifications to the coarse grid correction
+and the smoother that result in improved convergence behavior.
+
+<p>
+The resulting parallel multilevel preconditioner is implemented within ML,
+a Sandia multilevel package that
+already contains similar techniques like smoothed aggregation.
+The resulting capability has been integrated within the Sandia supported Nevada
+code framework and applied to a 3D Arbitrary
+Lagrangian-Eulerian magnetohydrodynamics capability (ALEGRA/MHD).
+Repeated solution of the eddy current approximation to
+Maxwell's equations in a highly heterogeneous material properties environment
+is required in this application.
+
+<p>
+Numerical experiments are presented for various 3D model problems and an
+application of current interest: 3D simulations of Z-pinch
+implosions.
+The experiments illustrate the efficiency of the approach on various parallel
+machines in terms of both convergence and parallel speed-up.
+<!--
+     FILE ARCHIVED ON 21:12:03 Sep 28, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:41:18 Dec 08, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.637
+  exclusion.robots: 0.017
+  exclusion.robots.policy: 0.006
+  esindex: 0.011
+  cdx.remote: 38.424
+  LoadShardBlock: 118.24 (3)
+  PetaboxLoader3.datanode: 530.597 (4)
+  load_resource: 429.591
+-->

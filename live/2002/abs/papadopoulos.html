@@ -1,0 +1,106 @@
+<html><head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=Hk4-lkW3" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://amath.colorado.edu:80/faculty/copper/2002/abs/papadopoulos.html","20040928212437","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1096406677");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+<title>cm conference abstract: PUT LASTNAME HERE</title>
+<meta content="text/html; charset=windows-1253" http-equiv="Content-Type">
+<meta content="MSHTML 5.00.2614.3500" name="GENERATOR"></head>
+<body>
+<center>Mr</center>
+<p>
+<center><a href="https://web.archive.org/web/20040928212437/mailto:andp@comlab.ox.ac.uk">Andreas T. Papadopoulos</a><br><br>Somerville College, Oxford, OX2 6HD, United Kingdom</center>
+<p>
+<center><br>Abstract </center>
+<p> <center> <b> Incomplete orthogonal factorization preconditioning 
+        with Givens rotations </b> </center> </p>
+<p>
+        We explain, examine and present computational results
+        for some incomplete Givens QR factorisation
+        methods recently introduced as preconditioning methods by 
+        Z.-Z. Bai, I.S. Duff and A.J. Wathen (BIT 41(1), March 2001).
+        <br>
+        Given a (sparse) nonsingular system of linear equations, 
+        these algorithms produce an incomplete QR-type factorization
+        of the original matrix.
+        The factors can be used as preconditioners for any standard
+        iterative method applied either to the original system or to
+        the associated system of normal equations, in order to speed
+        up its convergence.
+        <br>
+        In this talk we will deal with two of these algorithms: the          
+        Incomplete Givens Orthogonalization (IGO-method), where the
+        sparsity patterns of the resulting factors are determined by
+        the sparsity pattern of the original matrix (dropping by
+        position) and the Threshold IGO-method (TIGO-method) which
+        drops entries dynamically by their magnitudes. For both these
+        methods, we rotate elements out in a column-wise fashion. 
+        <br>
+        In the first part of the talk we will concentrate on
+        programming aspects and difficulties related to the
+        implementation of these algorithms: when we construct the
+        factors using one of these methods we proceed by both columns
+        and rows; thus, special matrix storage formats need to be
+        adopted in order to avoid excessive computational time and
+        memory requirements. In particular, linked lists are employed 
+        in order to pin-point elements that need to be rotated out as 
+        efficiently as possible, whereas standard sparse vectors and 
+        compressed sparse row formats are used for updating the matrix 
+        during the factorization process.                                         
+        <br>
+        In the second part, we will identify classes of matrices for
+        which these methods can produce useful preconditioners
+        without too high requirements. A comparative analysis of the
+        performance of these methods against standard general
+        incomplete LU type factorizations will also be presented,
+        having chosen Saad's SPARSKIT toolbox 
+        as the opposing standard. We also compare them against 
+        incomplete QR factorizations we obtain when elimination via 
+        Givens rotations is performed in a row-wise fashion. 
+        <br>
+        With few exceptions, ILU factorizations, when fine-tuned, 
+        tend to perform much better than any incomplete Givens QR 
+        preconditioner we mentioned above, the reason being that 
+        incomplete QR factorizations that are qualitatively good 
+        preconditioners are much more expensive to compute, mainly
+        in terms of sparse matrix structures one has to maintain 
+        and update throughout the factorization process. 
+        <br>
+        The situation is more interesting for rectangular systems
+        arising from least squares problems. Here, an incomplete QR 
+        factorization can still be obtained for the original matrix. 
+        This factorization can then be used to precondition conjugate 
+        gradients for normal equations.
+        We report some results for such problems using both our 
+        methods (column-wise Givens reduction) and the standard 
+        row-wise incomplete reduction via Givens rotations as 
+        preconditioner. 
+
+
+                                                                </p></body></html>
+<!--
+     FILE ARCHIVED ON 21:24:37 Sep 28, 2004 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:40:27 Dec 08, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.481
+  exclusion.robots: 0.015
+  exclusion.robots.policy: 0.006
+  esindex: 0.008
+  cdx.remote: 102.343
+  LoadShardBlock: 91.423 (3)
+  PetaboxLoader3.datanode: 440.524 (4)
+  load_resource: 350.094
+-->
