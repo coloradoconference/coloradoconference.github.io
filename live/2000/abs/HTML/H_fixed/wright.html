@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>cm conference abstract: Wright</title>
+</head>
+
+<body>
+
+<center>
+Computation of Pseudospectra Using ARPACK and EIGS
+</center>
+
+<p>
+<center>
+Thomas Wright \\
+{\tt tgw@comlab.ox.ac.uk} \\
+Oxford University Computing Laboratory,<br>
+Wolfson Building, Parks Road,<br>
+Oxford, OX1 3QD, England.
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>For highly non-normal matrices, pseudospectra may
+provide useful
+information in addition to eigenvalues. Unfortunately, computing
+pseudospectra is expensive for large matrices; the straightforward
+algorithm for an
+$N\times N$
+matrix using a grid of
+$v\times v$ takes
+$O(v^2 N^3)$ time. This can
+often be improved by a 
+factor of around $N/4$ using a variety of methods, but even with
+this
+saving the algorithm is still too slow to make it a practical tool for
+large matrices.
+
+<P>In light of the above, one might think that
+pseudospectra could be 
+computed more efficiently using iterative rather than direct
+methods. It has already been shown that the upper Hessenberg matrix
+constructed during an Arnoldi iteration can be used to give a
+reasonable approximation to the pseudospectra of the original
+matrix. Here, I consider an extension to the Matlab iterative
+eigenvalue solver `eigs' (based on the Fortran code ARPACK), which
+allows the pseudospectra to be computed in a region around
+the eigenvalues calculated. This will provide the user of eigs with
+graphical information that may highlight cases in which the accuracy
+of the eigenvalues returned should be carefully investigated. Due to
+the size of the Hessenberg matrices 
+constructed, this method is much more efficient than the direct method
+(locally, at least), and for large matrices an approximation to the
+pseudospectra can be computed along with the eigenvalues for a
+relatively small additional cost.
+
+<P>We plan to demonstrate the above idea using an
+interactive Matlab GUI. 
+
+</body>
+</html>

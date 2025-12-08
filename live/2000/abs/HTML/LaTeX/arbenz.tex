@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{On Computing Some of the Principal Eigenfrequencies of Cavity Resonators  }
+
+\author{Peter Arbenz \\ {\tt arbenz@inf.ethz.ch} \\    Swiss Federal Institute of Technology (ETH)  \\  Institute of Scientific Computing  \\  CH-8092 Zurich, Switzerland}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+The computation of steady state electromagnetic waves in resonant cavities
+is governed by the Maxwell equations. Their finite element (FEM) discretization
+with Ned\'{e}l\'{e}c's edge elements leads to constrained symmetric
+matrix eigenvalue problems of the form
+$$ A \mbox{\boldmath $x$} = \lambda M \mbox{\boldmath $x$}
+~~~~~~~~
+C'\mbox{\boldmath $x$}=\mbox{\boldmath $0$} $$
+
+
+
+
+Here, M is positive definite, and A, the discretization of the double-curl,
+is positive semidefinite. The constraint corresponds to the divergence-free
+condition in the continuous problem. We present and compare various approaches
+to compute a few of the smallest eigenvalues of this problem. The approaches
+differ in how the constraints are dealt with. All the approaches employ
+the shift-and-invert spectral transformation which implies that large sparse
+indefinite systems of equations have to be solved in the course of the
+solution of the eigenvalue problem. We use the preconditioned conjugate
+gradient method to solve the systems of equations. Two level preconditioners
+evolve naturally from the hierarchical formulation of the FEM. The theoretical
+behavior of the algorithms is verified by the numerical experiments.
+
+
+
+
+\end{document}

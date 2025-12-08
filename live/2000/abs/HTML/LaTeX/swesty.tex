@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Parallelizable Preconditioners for Multigroup Flux-limited Diffusion Problems   }
+
+\author{Doug Swesty \\ {\tt dswesty@mail.astro.sunysb.edu} \\ Department of Physics and Astronomy \\ SUNY at Stony Brook \\ Stony Brook, NY 11733}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+Numerical multi-group flux-limited diffusion problems are found in a
+wide variety of contexts in many fields.  One common aspect of these
+problems are the large linear systems that arise from the implicit
+finite-difference techniques that are used to solve the underlying
+integro-PDEs that describe the flow of radiation.  These problems
+define an important class of linear systems worthy of further study.
+In order to lay the groundwork for parallel approaches to solving
+these systems we investigate the efficiency of a number of
+combinations of parallelizable preconditioners and Krylov subspace
+methods as applied to a series of test problems with one spatial and
+one spectral dimension.  These test problems are designed to span the
+range of physical conditions that one would typically encounter in in
+a radiation transport simulation.  In turn these test problems produce
+linear systems which span the range of possible properties for these
+systems.  We describe the results found for several
+sparse-approximate-inverse preconditioners when applied to these
+problems.  We also discuss the effects of row scaling and symmetric
+scaling on these methods.  Finally, we offer some suggestions for
+further areas of investigation.
+
+
+
+
+
+
+\end{document}

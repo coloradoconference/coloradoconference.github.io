@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>cm conference abstract: De Gersem</title>
+</head>
+
+<body>
+
+<center>
+<b>A Multigrid Algorithm for Quasistatic Electromagnetic Simulation</b>
+</center>
+
+<center>
+Herbert De Gersem<sup>1</sup>
+({\tt Herbert.DeGersem@esat.kuleuven.ac.be}), \\
+Stefan Vandewalle<sup>2</sup> and Kay Hameyer<sup>1</sup>
+\\ \\
+<sup>1</sup>Katholieke Universiteit Leuven, Dep. ESAT, Div. ELEN<br>
+Kardinaal Mercierlaan 94, B-3001 Leuven, Belgium<br>
+<sup>2</sup>Katholieke Universiteit Leuven, Dep. Computer Science<br>
+Celestijnenlaan 200A, B-3001 Leuven, Belgium
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+<i>Abstract:</i><br>
+Quasistatic simulations of the electrical devices, such as electrical machines, transformers and furnaces, necessitate the solution of a subset of the Maxwell equations. Electromagnetic simulation usually involves automatic and adaptive mesh refinement, non-linear material characterictics, periodic boundary conditions and coupled field descriptions. Here, a multigrid algorithm tuned to these particular requirements is presented.<br>
+
+<p><i>Adaptive mesh refinement:</i><br>
+Electrical machines are often cylindrical and usually have many slots and cooling channels that are hard to represent on coarse meshes. An automatic mesh generation and refinement technique is provided in our code. Any mesh refinement near boundaries will restore the original geometry on curved outlines. Local mesh improvement techniques, such as moving nodes and swapping edges, are performed [2]. As a prolongator between the non-nested grids, linear interpolation is applied. Particular attention is paid to interfaces with large jumps in material coefficients. In spite of the more expensive prolongation, non-nested refinement establishes a better convergence of the global error when compared to the nested variant.<br>
+
+<p><i>Non-linearities:</i><br>
+Non-linear materials are handled by means of Newton linearisations. Coarse level matrices are constructed using the Galerkin technique. Applying a full multigrid scheme, diminishes the number of Newton iteration on the finer grids significantly.<br>
+
+<p><i>Periodic boundary conditions:</i><br>
+The geometries and the excitations of electrical devices are often periodic in space. Hence, the domain of the partial differential equation (PDE) can be reduced e.g. to half or one quarter of the entire device. The appropriate symmetric or anti-symmetric boundary conditions are applied. The prolongator has to incorporate these dependencies.<br>
+
+<p><i>Coupled field description, magnetic PDE + equivalent electric circuit:</i><br>
+A technical model usually consists of a finite element discretised magnetic problem coupled to a lumped parameter model for the electric circuit. The integral relations between both are discretised and yield a few dense algebraic equations added to the sparse magnetic matrix system. The circuit system matrix remains the same during mesh adaptation whereas the coupling terms are influenced by the refinement. For this particular modellisation, a remarkable improvement of the iterative solver has been achieved when compared to common preconditioned Krylov solvers.<br>
+
+<p><i>Equivalent circuit as coarse model:</i><br>
+A finite element model of a problem on a domain with many geometrical details yields a large non-linear system. The size of such a problem may prevent its use as the coarse grid problem inside a multigrid method. A  magnetic equivalent circuit model can serve as coarse model [1]. It is possible to define corresponding restriction and prolongation operators and to add the circuit model as coarsest level to the multigrid hierarchy. This approach may however suffer from the difference in model size between the two coarsest levels. Another possibility is to inject the prolongated eigenvectors of the equivalent circuit to the Krylov subspace of the iterative solver applied on the coarsest finite element system.<br>
+
+<p><i>Applications and conclusions:</i><br>
+Our code is applied to the quasistatic simulation of a permanent magnet synchronous machine and an induction machine. The models contain 10<sup>3</sup> up to 10<sup>6</sup> finite element degrees of freedom, coupled to a few hundred unknowns related to the electric circuit. The performance of geometrical multigrid is compared to that of algebraic multigrid [3], possibly accelerated by means of a Krylov subspace solver. The multigrid tuned for these specific applications brings up a substantial reduction of the computation time required by the system solution in the electromagnetic simulation package when compared to common preconditioned Krylov solvers, such as the Incomplete Cholesky preconditioned Conjugate Gradient method and the Successive Overrelaxation preconditioned Quasi Minimal Residual method.<br>
+
+<p>
+[1] H. De Gersem, S. Vandewalle and K. Hameyer, ``A finite-element/equivalent-circuit two-level method for magnetic field simulations'', <i>6th European Multigrid Conference EMG'99</i>, Gent, Belgium, September 27-30, 1999, pp. 27-28.<br>
+[2] R. Mertens, U. Pahner, H. De Gersem, R. Belmans and K. Hameyer, ``Improving the overall solver speed: a fast, reliable and simple adaptive mesh refinement scheme'', <i>4th International Workshop on Electric and Magnetic Fields</i>, Marseille, France, 12-15 May, 1998, pp. 385-390.<br>
+[3] J. Ruge and K. Stueben, ``Algebraic multigrid'', in <i>Multigrid Methods</i>, S. McCormick, Ed., Philadelphia, PA, 1987, Vol. 3 of <i>Frontiers in Applied Mathematics</i>, pp. 73-130, SIAM.<br>
+
+
+</body>
+</html>

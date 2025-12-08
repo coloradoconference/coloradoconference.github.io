@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Applications of Brandt's General Algebraic Coarsening  }
+
+\author{David Moulton ({\tt moulton@lanl.gov}) \\ Joel Dendy \\ \\ Mathematical Modeling and Analysis Group  \\  Theoretical Division, Los Alamos National Laboratory  \\  Los Alamos, NM 87545  \\  LA-UR-00-577}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+    The development of robust structured multigrid methods, such as
+Dendy's black box multigrid, is based on operator-induced
+(matrix-dependent) interpolation with variational coarsening.
+Similarly, for more general problems, algebraic multigrid employs
+variational coarsening.  Although some progress has been made in this
+area (e.g., AMGe), controlling the accuracy and growth of the
+coarse-grid operators is difficult in this setting.  In contrast
+Brandt's general algebraic coarsening is based on a constrained
+least-squares formulation.  Similar to algebraic methods it uses
+coarse-grid selection as its primary tool, but more importantly, the
+least-squares approach offers a flexible formulation for limiting the
+growth of coarse-grid operators.
+
+
+
+
+   In this work we consider the application of Brandt's algebraic
+coarsening procedure to two applications.  First we consider
+homogenization or upscaling of the permeability in porous media, where
+we investigate the convergence of Brandt's method as well as compare with
+our earlier work on Multigrid Homogenization.  Second we will apply
+the method to mixed-discretizations of the diffusion operator,
+examining the resulting coarse-grid operators, and the efficiency of
+the resulting multilevel method.
+
+
+
+
+This research is supported by the Department of Energy,
+  under contract W-7405-ENG-36
+
+
+
+
+
+\end{document}

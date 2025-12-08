@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>cm conference abstract: Chartier</title>
+</head>
+
+<body>
+
+<center>
+Element Based Algebraic Multigrid (AMGe)
+</center>
+
+<p>
+<center>
+<a href="mailto:chartier@colorado.edu">
+Tim Chartier</a><br><br>
+Department of Applied Mathematics<br>
+Box 526<br>
+University of Colorado at Boulder<br>
+Boulder   CO   80309-0526 
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Generic iterative methods can be robust in the sense that they converge
+for a large class of matrix equations, but they typically do not obtain
+full efficiency without taking the origin of the problem into account.
+Multigrid and other methods that do take the problem origin into account
+can obtain full efficiency, but they are usually tailored to specific
+aspects of the target application. Algebraic multigrid (AMG) is a method
+that attempts to take the middle ground by providing a matrix equation
+solver that is removed from problem details, but that attains efficiency
+comparable to conventional multigrid. In essence, AMG abstracts multigrid
+principles to the matrix level by developing 'coarser' matrices and
+interlevel transfer operators based solely on the original matrix
+entries.
+<P>
+AMGe is a special version of AMG designed to exploit the special nature
+of matrices that arise in finite element discretization of partial differential
+equations. Assuming access to the element stiffness matrices, AMGe uses
+a measure derived from multigrid theory to determine local representations
+of algebraically "smooth" error components. We believe that this measure
+and the resulting representations provide the basis for effective design of
+coarse grids, coarse grid matrices, and interlevel transfers.  Our aim is to
+use this measure for defining multigrid components in order to create a
+more robust AMG scheme.  This talk will discuss this measure and recent
+results in AMGe on difficult problems that arise in linear elasticity.
+
+</body>
+</html>
+

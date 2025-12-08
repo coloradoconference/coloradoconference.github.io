@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>cm conference abstract: Larsen</title>
+</head>
+
+<body>
+
+<center> 
+Iterative algorithms for least squares problems with
+multiple right-hand sides
+</center>
+
+<p>
+<center>
+<a href="mailto:rmunk@solen.stanford.edu">
+Rasmus Munk Larsen </a><br><br>
+  HEPL Annex A206,  Stanford University,  Stanford, CA 94305-4085, USA
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p> We discuss iterative algorithms for solving linear least squares
+problems with multiple right-hand sides when the coefficient matrix is
+large, ill-conditioned and sparse or structured.
+
+<p> The algorithms presented are all based on the Lanczos
+bidiagonalization process, but different implementations allow
+significant trade-off between the number of operations, required
+amount of storage, parallel efficiency and fraction of BLAS level 3
+operations involved. We study the performance of three algorithms:<br>
+
+<ol>
+<li> The (block-) conjugate gradient algorithm applied to the normal
+equations (CGLS) augmented with a Galerkin projection step.  <br>
+
+<li> A projection algorithm based on (block-) Lanczos bidiagonalization
+with partial reorthogonalization.<br>
+
+<li> Solving for each right-hand side independently by means of the LSQR
+algorithm. 
+    </ol>
+
+<p> As an example, ill-conditioned least squares problems with
+multiple right-hand sides arise in image deblurring when restoring
+multiple frames distorted by the same point spread function or when
+implementing the Backus-Gilbert (BG) inversion method. The BG method
+is used extensively in seismology, helioseismology, astronomy and
+other areas involving inverse problems.
+
+We present numerical results for examples from image deblurring and
+helioseismology, where BG implementations based on the three algorithms
+above were used to solve the 2D inverse problem of the solar rotation.
+
+</body> </html>

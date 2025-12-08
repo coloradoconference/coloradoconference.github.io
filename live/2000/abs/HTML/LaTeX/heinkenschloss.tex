@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Inexact Sequential Quadratic Programming Methods for the Solution of Inverse Problems Governed by PDEs  }
+
+\author{Matthias Heinkenschloss \\ {\tt  heinken@caam.rice.edu} \\ Rice University  \\  Department of Computational and Applied Mathematics  \\  MS-134  \\  Houston TX 77005-1892}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+The numerical solution of inverse problems often leads to
+large-scale optimization problems.
+In this talk we discuss the solution of such problems
+using sequential quadratic programming (SQP) methods.
+While SQP methods are well established and successfully
+used for constrained optimization, there are still open
+issues when SQP subproblems, in particular the linearized
+constraints, are not solved by direct linear algebra but
+by iterative methods. Critical issues are the control of inexactness
+to achieve global convergence of the SQP method and the design
+of preconditioners for the solution of saddle point SQP subproblems.
+ \newline 
+In this talk we will first provide the necessary background on SQP
+methods
+and motivate the issues that arise when SQP subproblems are solved
+iteratively.
+Then we will propose ways to control inexactness to maintain global
+and local convergence, and we will discuss the construction of
+preconditioners
+for the saddle point SQP subproblems. Theoretical results will be
+supported by applications to inverse problem testexamples.
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,96 @@
+
+<html>
+<head>
+<title>cm conference abstract: Vuik</title>
+</head>
+
+<body>
+
+<center>
+Deflated ICCG applied to problems with extreme contrasts in the
+coefficients
+</center>
+
+<p>
+<center>
+<a href="mailto: c.vuik@math.tudelft.nl">
+C. Vuik</a> , A. Segal, and J.A. Meijerink<br><br>
+Delft University of Technology<br>
+Faculty of Information Technology and Systems<br>
+Department of Applied Mathematical Analysis<br>
+P.O. Box 5031<br>
+2600 GA Delft<br>
+The Netherlands
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Knowledge of the fluid pressure history in the subsurface is important
+for an
+oil company to predict the presence of oil and natural gas in reservoirs
+and a
+key factor in safety and environmental aspects of drilling a well.
+A mathematical  model for the prediction of fluid pressures in a
+geological
+time scale is based on conservation of mass and Darcy's law. The
+resulting time-dependent three-dimensional non-linear
+diffusion equation is linearized and
+integrated in time by the Euler backward method. For the space
+discretization the finite element method is applied. As a consequence in
+each time-step a linear system of equations has to be
+solved.
+<br><br>
+The matrix itself is sparse, but due to fill-in a
+direct method requires too much memory to fit in core. Therefore only
+iterative methods are
+acceptable candidates for the solution of the linear systems of
+equations.
+Since the coefficient matrix of this system is symmetric and positive
+definite, a
+preconditioned Conjugate Gradient method (ICCG)
+seems to be a suitable iterative method. Unfortunately the earth's crust
+consists of layers with large contrasts in permeability. Hence a large
+difference of the extreme eigenvalues
+ is common in the system of equations to be solved. This leads
+to slow convergence of ICCG and conventional termination criteria
+are no longer reliable.
+<br><br>
+We prove that the number of small eigenvalues of the IC preconditioned
+matrix is equal to the number of high-permeability
+domains, which are not connected to a Dirichlet boundary.
+The bad effect of these eigenvalues on the convergence of ICCG
+can be annihilated by using the corresponding 'small' eigenvectors as
+projection vectors in Deflated  ICCG.
+We describe an approximation of these 'small' eigenvectors and prove
+that the span of these vectors approximates the
+'small' eigenspace of the IC preconditioned matrix.
+This implies that the convergence behavior of the
+resulting DICCG is independent
+of the size of the jump in the coefficients.
+<br><br>
+We investigate the effect of perturbations of the projection vectors. It
+appears that large perturbations in the low-permeability parts
+have only a limited influence on
+the convergence properties of DICCG. 
+This implies that small components of the projection vectors 
+in these parts can be neglected to
+save work and memory requirements.
+Small perturbations of the projection vectors in high-permeability parts
+have only a small effect on DICCG.
+<br><br>
+We observe that
+ the resulting method is robust for elliptic problems with highly
+discontinuous coefficients, and a robust stopping
+criterion is available, which is not the case for the standard 
+ICCG method. For high accuracies the DICCG method converges
+considerably faster than the  ICCG method. However, for practical
+accuracies the gain is enormous. This means that in the context of
+non-linear problems or time-dependent problems DICCG is far
+superior above ICCG.
+</body>
+</html>

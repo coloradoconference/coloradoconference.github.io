@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Preconditioning Strategies for Low Frequency Electromagnetic Simulations   }
+
+\author{Dhavide Aruliah \\ {\tt  dhavide@cs.ubc.ca} \\ Dept. of Computer Science  \\  University of British Columbia  \\  Vancouver, BC, Canada  \\  V6T 1Z4  \\}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+  We consider three-dimensional electromagnetic problems in
+  parameter regimes where the quasi-static approximation applies, the
+  permeability is constant, the conductivity may vary significantly, and
+  the range of frequencies is moderate. The difficulties encountered
+  include handling solution discontinuities across interfaces and
+  accelerating convergence of traditional iterative methods for the
+  solution of the linear systems of algebraic equations that arise when
+  discretizing Maxwell's equations in the frequency domain.
+
+
+
+
+A finite volume discretization on a staggered grid derived from a
+potential-current formulation leads to a large, sparse, complex linear
+system of equations with a block structure that is diagonally dominant.
+We compare various strategies based on block-ILU, SSOR, and multigrid
+preconditioners used within a Krylov space iteration. A Fourier analysis
+suggests a block preconditioner that leads to mesh independent rates of
+convergence. Numerical experiments support theoretical predictions and
+demonstrate the efficacy of this approach.
+
+
+
+
+
+
+
+\end{document}

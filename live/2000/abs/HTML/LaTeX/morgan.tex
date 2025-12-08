@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{An Algorithm for Outlining the Spectrum of a Large Matrix and Determining Multiplicity of Eigenvalues  }
+
+\author{Ron Morgan \\ {\tt  Ronald\_Morgan@baylor.edu} \\ Department of Mathematics \\ Baylor University \\ Waco, TX 76798-7328}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+We present an algorithm for finding certain information about the eigenvalues of a large nonsymmetric matrix.  First, a general outline of the spectrum is estimated.   This is done with limited expense by generating a single Krylov subspace and solving several harmonic Ritz problems.  Different shifts are used to find approximate eigenvalues in different regions of the complex plane.
+
+Next, if requested, the eigenvalues nearest to a specified value are computed accurately.  A restarted Arnoldi method is used.  This method is related to implicit restarting, but instead uses Wu and Simon's restarting approach, adapted for nonsymmetric matrices.  It also uses harmonic Ritz vectors, in case interior eigenvalues are desired.
+
+Finally, multiplicity of eigenvalues is determined by generating a Krylov subspace with a random  starting vector, and then augmenting with the computed approximate eigenvectors.  The restarting is then less efficient, but multiple eigenvalues can be found quickly.
+
+
+
+
+
+\end{document}

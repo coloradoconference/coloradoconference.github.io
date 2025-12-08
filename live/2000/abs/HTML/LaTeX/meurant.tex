@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{On the perturbation of the Incomplete Cholesky factorization  }
+
+\author{Gerard Meurant \\ {\tt  meurant@bruyeres.cea.fr} \\ CEA/DIF \\ DCSA/EDD \\ BP12 \\ 91680 Bruyeres le Chatel \\ France}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+In this paper we are concerned with the incomplete Cholesky
+decomposition of symmetric M-matrices $C=e I +A$ where
+$A$ arises from the discretization of an elliptic partial
+differential equation, e being a ``small'' positive real
+parameter. Such problem arise, for instance, from discretizing
+parabolic equations.
+
+As a model problem we can use the two-dimensional heat equation in the
+unit
+square with Dirichlet boundary conditions and an initial condition
+$u(x,0)=u_0(t)$.
+We discretize in space with finite differences
+with a stepsize  h and a time implicit scheme. Then, we obtain
+$(I/k+(\frac1{h^2})A) u^{n+1}=u^n/ k+f^{n+1}$, where
+$k$ is the time step and  $A$ the matrix of the corresponding
+elliptic problem. For some problems it makes sense to choose
+$k=h$. After multiplication by  $h^2$ the matrix of the problem is
+$C=kI+A$ where $k$ is ``small''.
+
+The matrix C being symmetric positive definite, we would like to
+solve the linear system at each time step with the preconditioned
+conjugate gradient algorithm. A very popular preconditioner is the
+incomplete Cholesky decomposition without any fill-in  IC(1,1). 
+Usually the time step $k$ is
+small. Therefore, it is interesting to know if one can compute an
+approximation of the incomplete decomposition of C knowing the one
+of $A$. Moreover, most of the time the time step is not constant,
+therefore one cannot compute the decomposition of C once for
+all. It has to be recomputed at each time step. Hence, it would be
+interesting to find a way to cheaply update the incomplete
+decomposition from one time step to the next.
+
+We will describe answers to this problem and algorithms corresponding to
+perturbations of order 0 and 1 and give numerical
+examples for several problems with comparisons between our perturbed 
+preconditioners and the
+incomplete decomposition of  C, the one of $A$ and the SSOR
+preconditioning showing that our perturbed factorizations give better
+results. 
+Then  we will apply the previous results to the solution
+of the heat equation. Finally we will deal with another problem where
+$C=I+e A$.
+
+
+
+
+
+\end{document}

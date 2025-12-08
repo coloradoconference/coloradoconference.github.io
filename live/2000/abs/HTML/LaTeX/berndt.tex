@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{On a multilevel solver that utilizes singular basis functions for the solution of the diffusion equation with discontinuous coefficient.  }
+
+\author{Markus Berndt \\ {\tt berndt@lanl.gov} \\ Mathematical Modeling and Analysis Group  \\  Los Alamos National Laboratory  \\  Mail Stop B284  \\  Los Alamos, NM 87545  \\}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+We will introduce a first-order system least squares (FOSLS) formulation 
+of the diffusion equation with discontinuous coefficient. We discretize this
+equation using a standard finite element space augmented by singular basis 
+functions. These singular basis functions enable us to resolve the flux 
+without deterioration of discretization order in the neighborhood of 
+singularities. Such singularities of the flux are typically induced by the 
+geometry of the discontinuity of the porosity coefficient, or by reentrant 
+corners. We introduce a multilevel solver for the discrete problem that 
+utilizes singular basis functions on coarser levels, without compromising 
+the efficiency of the solver.
+
+  This research is supported by the Department of Energy, under contract
+W-7405-ENG-36, LA-UR-00-575. 
+
+
+
+
+\end{document}

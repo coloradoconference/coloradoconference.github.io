@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>cm conference abstract: Haber </title>
+</head>
+
+<body>
+
+<center>
+On the solution of the linear systems which evolve from
+ large scale inverse problems
+</center>
+
+<p>
+<center>
+<a href="mailto:haber@cs.ubc.ca">
+Eldad Haber</a><br><br>
+Dept of Computer Science, the University of British Columbia
+Vancouver Canada
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+In this talk we consider an inverse problem where the forward
+problem is governed by a (discrete) Partial Differential Equation of the
+form
+<p> 
+(1)    A(m) u = f
+<p>
+where A(m) is a matrix which depends on the "model" m, u is some
+physical field and f is the source and boundary conditions. 
+Such problems include the DC resistivity (or impedance tomography),
+inverse Maxwell's equations, hydrology and many other problems.
+The goal of the inverse problem is to recover the model m
+based on the measurements of the field u.
+<p>
+In the inverse problem we consider recovering m from
+measurements of u in a discrete number
+of locations. 
+The problem is usually solved by minimizing an objective
+function of the form
+<p> 
+(2)    min phi =  ||A(m)^{-1}f - b ||^2 + beta || Wm||^2
+<p>
+where b is the measured data beta is a penalty parameter
+and W has the a priori information.
+
+<p>
+The optimization problem leads to
+the solution of the Gauss-Newton (or quasi-Newton)
+step at each iteration for the perturbation dm.
+<p>
+(3)     Ldm =  (J(m)'J(m) + beta W'W) dm = -r(m)
+<p>
+Where the matrix J is a dense sensitivity matrix
+<p>
+(4)     J(m) =  db(m)/dm
+<p>
+and r(m) is the gradient of the objective function in (2).
+ 
+<p>
+The solution of this system is complicated because it involves
+large dense matrices. Furthermore, preconditioning the iteration
+is not simple due to the different nature of the sensitivity matrix
+J (which can be viewed as an integral operator) and the weighting matrix W
+(which is usually a difference matrix).
+<p>
+In this talk we present a new approach for the solution of such systems.
+First, we show that this system is equivalent to the solution
+of a sparse KKT matrix. Second, we use the KKT matrix in order to
+construct a sparse approximation approximate to J
+based on  the reduced Hessian method applied to the sparse KKT system.
+Thirdly, we show that using the sparse approximation
+we can use standard preconditioners in order to solve
+the approximate system.
+<p> 
+We demonstrate the efficiency of the method on two model problems
+from electromagnetics.
+
+</body>
+</html>
+
+

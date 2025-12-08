@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{First-Order Systems Least Squares for Electrical Impedance Tomography  }
+
+\author{Hugh MacMillan \\ {\tt  hugh.macmillan@colorado.edu} \\ Dept. Applied Mathematics, CB 526 \\ University of Colorado, Boulder, CO 80309-0526}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+In electrical impedance tomography (EIT), the impedance within an
+object is estimated from the surface voltage patterns that are
+induced by a sequence of known current flux patterns. The
+mathematical formulation of the EIT problem is a set of elliptic
+equations (one for each boundary pattern) where both the scalar
+variables (interior voltages) and the coefficient (interior
+impedance) are unknown, and both Dirichlet (voltage) and Neumann
+(current) boundary conditions are known. We develop a new
+first-order systems least squares (FOSLS) formulation to determine
+a suitable impedance and investigate the sense in which it is
+suitable. For each set of boundary patterns, the full domain
+FOSLS formulation is tailored to balance enforcement of the pair
+of boundary conditions and the interior PDE .  The nonlinearity is
+mild enough (polynomial) to admit a realizable nonlinear multigrid
+scheme that yields successive approximations to the impedance and
+to the scaled interior currents for each test.
+
+
+
+
+\end{document}

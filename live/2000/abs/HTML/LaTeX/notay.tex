@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Conjugate Gradient with  variable preconditioning  }
+
+\author{Yvan Notay \\ {\tt  ynotay@ulb.ac.be} \\ Universit\'{e} Libre de Bruxelles \\ Service de M\'{e}trologie Nucl\'{e}aire (CP 165-84) \\ 50 av. F.D.Roosevelt \\ B-1050 Bruxelles, BELGIUM}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+We analyze the conjugate gradient  method with 
+preconditioning
+slightly variable from one iteration to the next.
+To maintain the optimal convergence properties, we
+consider a variant that performs an explicit
+orthogonalization of the search directions vectors.
+For this method,
+which we refer to as  ``flexible'' conjugate gradient, 
+we develop a
+theoretical analysis that shows that the convergence 
+rate is essentially independent of the variations in 
+the preconditioner as long as a proper
+measure of these variations remains reasonably small,
+but not necessarily very small.
+
+Further, when the condition number is
+relatively small, heuristic arguments indicate that this
+also holds for some truncated versions of the algorithm 
+or even for the standard conjugate gradient method. 
+Some typical numerical experiments illustrate these
+conclusions while showing that the flexible 
+variant effectively outperforms the
+standard conjugate gradient algorithm in several 
+circumstances.
+
+
+
+
+
+
+\end{document}

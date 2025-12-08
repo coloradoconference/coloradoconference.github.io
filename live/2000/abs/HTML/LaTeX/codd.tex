@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{First-order System Least Squares (FOSLS) for Elliptic Grid Generation (EGG)   }
+
+\author{Andrea Codd \\ {\tt andrea.codd@colorado.edu} \\ Department of Applied Mathematics  \\  University of Colorado at Boulder  \\  Boulder Colorado 80309-0526  \\}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+ 
+ 
+
+
+ 
+Elliptic Grid Generation (EGG), using the Winslow generator, defines a map
+between a simple computational region and a potentially complicated
+physical region.  It can be used numerically to create a mesh for use with
+a finite element or other discretization method to solve the system of
+equations posed on the physical domain.  Alternatively, it can be used to
+transform equations posed on the physical region to a logical region,
+where the transformed equations are then solved.  EGG allows complete
+specification of the boundary maps.  Moreover, by choosing the
+computational region to be convex, we can ensure that the Jacobian of the
+map is positive, and that the map is one-to-one and onto.
+
+
+
+Here we explore a new numerical method for solving the Winslow EGG
+equations.  The approach is based on first-order system least squares
+(FOSLS) for formulating the problem, Newton's method for linearization,
+and algebraic multigrid for the matrix solver.  The basic purpose is to
+provide a fully variational principle for EGG that facilitates accurate
+discretization and fast solution methods.  We develop theoretical
+estimates and demonstrate the potential of the method with numerical
+experiments.    
+
+ 
+ 
+
+
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Solving Complex-valued Linear Systems via Equivalent Real Formulations  }
+
+\author{David Day, {\tt dmday@sandia.gov} \\ Michael A. Heroux (presenter), {\tt maherou@sandia.gov} \\ Sandia National Laboratories, New Mexico \\ PO Box 5800, Albuquerque, NM 87185-1110}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+
+Most algorithms used in preconditioned iterative methods are generally applicable to complex valued linear systems, with real valued linear systems simply being a special case. However, most iterative solver packages available today focus exclusively on real valued systems, or deal with complex valued systems as an afterthought. One obvious approach to addressing this problem is to recast the complex problem into one of a several equivalent real forms and then use a real valued solver to solve the related system. However, well-known theoretical results showing unfavorable spectral properties for the equivalent real forms have diminished enthusiasm for this approach. 
+
+
+
+
+
+At the same time, our experience has shown us that there are situations where using an equivalent real form can be very effective. In this paper, we explore this approach, giving both theoretical and experimental evidence that an equivalent real form can be useful for a number of practical situations. Furthermore, we show that by making good use of some of the advance features of modern solver packages, we can easily generate equivalent real form preconditioners that are computationally efficient and mathematically identical to their complex counterparts.
+
+
+
+
+
+Using our techniques, we are able to solve very ill-conditioned complex valued linear systems for a variety of large scale applications. However, more importantly, we shed more light on the effectiveness of equivalent real forms and more clearly delineate how and when they should be used.
+
+
+
+
+\end{document}

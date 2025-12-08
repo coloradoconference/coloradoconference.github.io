@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{A Divergence-Free Relaxation Scheme in an $H^1$-Finite Element Space  }
+
+\author{Travis Austin \\ {\tt  travis.austin@colorado.edu} \\ Department of Applied Mathematics       Campus Box 526, CU Boulder, CO 80309-0526}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+An effective multilevel solver for (I - grad div) must account for the
+presence of divergence-free error components.  As a result, the Raviart-Thomas
+(RT) finite element spaces, which have locally computable divergence-free 
+subspaces, are often used in the discretization of (I - grad div).  
+The presence of an epsilon-sized Laplacian term, leading to
+(I - $\epsilon$~Laplacian - grad div),
+results in poor approximation properties for the
+discontinuous RT finite element spaces.  We present a new, 
+continuous, RT-like finite element space for the discretization of 
+(I - $\epsilon$~Laplacian - grad div)
+and a corresponding multilevel solver which 
+includes divergence-free relaxation.
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Acceleration Strategies for Restarted Minimal Residual Methods  }
+
+\author{Oliver Ernst \\ {\tt ernst@math.tu-freiberg.de} \\ Dept. of Mathematics and Computer Science  \\  TU Bergakademie Freiberg  \\  09596 Freiberg, Germany}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+Restarted minimum residual methods are a popular solution approach for 
+solving non-Hermitian linear systems, but one that is fraught with the 
+basic difficulty that convergence of the restarted method may be considerably 
+impeded compared with the full (unrestarted) method.
+We provide an overview of existing strategies which compensate for this
+deterioration in convergence due to restarting for the class of minimum 
+residual (MR) Krylov subspace methods.
+The key theoretical device for comparing different strategies is their 
+abstract formulation as repeated orthogonal projections with respect to 
+general correction spaces.
+We further evaluate the popular practice of using nearly
+invariant subspaces to either augment Krylov subspaces or to construct
+preconditioners which invert on these subspaces.
+In the case where these spaces are exactly invariant, the augmentation
+approach is shown to be superior.
+Moreover, we show how a strategy recently introduced by de Sturler for 
+truncating the approximation space of an MR method  can
+be interpreted as a controlled loosening of the condition for global 
+MR approximation based on the canonical angles between subspaces.
+
+
+
+This is joint work with Michael Eiermann and Olaf Schneider (TU Freiberg)
+
+
+
+
+
+\end{document}

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>cm conference abstract: Saad - eigenvalue problems</title>
+</head>
+
+<body>
+
+<center>
+Parallel solution of eigenvalue problems in 
+electronic structure calculations 
+</center> 
+
+
+<p>
+<center>
+<a href="mailto: saad@cs.umn.edu">
+Yousef Saad</a><br><br>
+University of Minnesota, Computer Science and Engineering \br
+200 Union St. SE, Minneapolis, MN 55455 
+</center>
+<p> 
+
+<i> * To be presented at the mini-symposium on "Eigenvalue
+Problems'' organized by H. van der Vorst. 
+</i> 
+
+<p> 
+
+Physical properties of matter  can be  determined by solving a 
+coupled  system    involving Schr\"odinger's equation   coupled   with
+Poisson's equation.  This  coupling  is nonlinear and rather  complex.
+It  involves a charge density  $\rho$ which can   be computed from the
+wavefunctions $\psi_i$,  for    all  occupied states.   However,   the
+wavefunctions  $\psi_i$ are the   solution  of the  eigenvalue problem
+resulting  from  Schr\"odinger's  equation  whose coefficients  depend
+nonlinearly  on the  charge density. This   gives rise to a non-linear
+eigenvalue problem which  is  solved by  a so-called Self   Consistent
+Field (SCF)  iteration.  The challenge  comes from the large number of
+eigenfunctions to be  computed for realistic  systems which consist of
+hundreds or thousands   of   atoms.  We   will  discuss   a   parallel
+implementation  of a finite difference  approach  for this problem and
+report on some results.
+
+We will also explore the fundamental underlying linear algebra which 
+can be viewed as a problem of determining the diagonal of a projector 
+associated with an invariant subspace. Methods that avoid completely
+the computation of eigenvectors will be briefly outlined. 
+
+
+</body>
+</html>

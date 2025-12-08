@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>cm conference abstract: Ramage</title>
+</head>
+
+<body>
+
+<center>
+Iterative convergence for stabilised finite element
+discretisations of advection-diffusion problems.
+</center>
+
+<p>
+<center>
+Alison Ramage \\
+{\tt  A.Ramage@strath.ac.uk} \\
+Department of Mathematics, 
+University of Strathclyde \\
+26 Richmond Street,
+Glasgow G1 1XH,
+Scotland, UK
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+This talk is concerned with the design of robust and 
+efficient iterative methods for solving advection-diffusion
+equations. Specifically, we consider the stabilisation
+of discrete finite element approximations on uniform
+grids which do not resolve boundary layers. Such
+stabilisation is necessary when the ratio of convection to 
+diffusion is large, in order to prevent oscillations in the discrete 
+solutions. 
+<p>
+The particular stabilisation method featured in this talk
+is the commonly-used streamline diffusion approach, where
+a certain amount of additional diffusion is added in the
+direction of the flow streamlines  in order to damp
+these oscillations. One issue which immediately arises is
+how much  diffusion should be added: adding too little will not
+damp the oscillations sufficiently, but adding too much will result in
+an overly smooth and inaccurate solution. In the first part
+of the talk, we will use Fourier analysis
+to establish an appropriate value for the streamline
+diffusion parameter in terms of producing accurate solutions.
+<p>
+In addition, we face the equally important question of how to solve the resulting
+matrix equation efficiently. The large size of the linear systems
+arising from discretisations of practical problems, particularly
+in three dimensions, means that iterative solution methods are often
+the only feasible option. In the second part of the talk, we consider
+the choice of streamline diffusion parameter from the point of view
+of ensuring fast convergence of smoothers based on the standard
+GMRES iteration, and show that there is a symbiotic relationship between 
+`optimal' solution approximation (in the above sense) and efficient
+GMRES performance.
+
+</body>
+</html>

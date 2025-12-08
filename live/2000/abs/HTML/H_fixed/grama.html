@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>
+CMCIM'00 Abstract: Error Controlled Multipole Methods for Arbitrary Particle
+Distributions.
+</title>
+</head>
+<BODY>
+
+<center>
+Error Controlled Multipole Methods for Arbitrary Particle Distributions
+</center>
+
+<center>
+Ananth Grama \\
+{\tt http://www.cs.purdue.edu/people/ayg} \\
+Department of Computer Sciences,
+Purdue University<br>
+W. Lafayette, IN 47907 \\
+ayg@cs.purdue.edu
+</center>
+
+<p>
+
+Hierarchical multipole methods such as the Fast Multipole Method (FMM)
+and Barnes-Hut (BH) method find extensive application in particle
+dynamics problems and boundary element solvers. The computational complexity
+of the dense matrix-vector product in these solvers is effectively reduced
+by hierarchical multipole approximations. It has been shown that the
+computational complexity of FMM can be bounded by $O(n \log n)$
+for an arbitrarily
+distributed set of n particles using box-collapsing and fair-split techniques.
+The overall error introduced can be shown to grow linearly in the magnitude
+of total charge in the system. This error behavior can be reduced to
+logarithmic in total charge magnitude by using variable degree multipoles
+for uniform distributions. In this paper, we demonstrate the use of alternate
+multipole acceptance criteria to reduce the error in a single matrix-vector
+product for arbitrarily unstructured domains. These results are particularly
+important for boundary element solvers that typically mesh only surfaces of
+3-D objects, resulting in highly unstructured domain models.
+Experimental results are provided on a variety of distributions to
+illustrate the error and computational characteristics of our method.
+
+</body>
+</html>

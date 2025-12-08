@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{Least-Squares Methods for Partial Differential Equations  }
+
+\author{Steve McCormick \\ {\tt  stevem@colorado.edu} \\ Department of Applied Mathematics  \\  Campus Box 526  \\  University of Colorado at Boulder  \\  Boulder, CO 80309-0526}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+ 
+
+
+
+Least-squares methods have become increasingly popular for solving a wide
+variety of partial differential equations (PDEs). First-order system least
+squares (FOSLS) is a special type of least-squares method that attempts to
+reformulate the PDE so that it is self-adjoint with an associated energy
+functional that is product H$^1$ equivalent. Some of the compelling
+features of the FOSLS methodology include:
+
+
+
+
+   * self-adjoint equations, stemming from the minimization principle;
+ \newline 
+   * good operator 'conditioning', stemming from the use of first-order
+     formulations of the PDE or inverse norms in the minimization
+     principle;
+ \newline 
+   * finite element and multigrid performance that is optimal and uniform
+     in certain parameters (e.g., Reynolds number, Poisson ratio, and wave
+     number), stemming from uniform product norm equivalence results.
+ \newline 
+
+
+
+
+Unfortunately, one of its limitations is that these benefits come only when
+the original problem exhibits sufficient smoothness (it typically requires
+H$^2$ regularity). An alternative to the usual L$^2$ form
+of FOSLS is to use inverse norms, but this is generally very awkward and
+it comes with substantially reduced efficiency.
+
+
+
+
+This talk will describe an alternative, called FOSLL*, that exhibits the
+generality of the inverse-norm FOSLS, but retains the efficiency and
+simplicity of the L$^2$-norm FOSLS.
+
+
+
+
+
+
+
+
+
+
+\end{document}

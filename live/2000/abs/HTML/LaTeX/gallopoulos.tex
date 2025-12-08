@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\setlength{\parskip}{1.2ex}      % space between paragraphs
+\setlength{\parindent}{0em}      % amount of indention
+\setlength{\textwidth}{165mm}    % default = 6.5in
+\setlength{\oddsidemargin}{0mm}  % default = 0mm
+\setlength{\textheight}{225mm}   % default = 9in
+\setlength{\topmargin}{-1mm}     % default = 0mm
+\date{ ~ \hspace{-4mm}}
+
+
+\title{{\bf  On the computational effectiveness of transfer function approximations to the matrix pseudospectrum. }  }
+
+\author{C. Bekas and E. Gallopoulos ({\tt stratis@hpclab.ceid.upatras.gr}) \\ {\em  Department of Computer Engineering and Informatics \\ University of Patras, Greece } \\ \\ V. Simoncini  \\  {\em  IAN-CNR Pavia, Italy }}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+
+
+The $\epsilon$-
+{\em 
+pseudospectrum
+}
+of a matrix,
+defined for example as
+
+$$
+\Lambda_{\epsilon} (A) = \{ z: z \in \Lambda(A+E)
+\mbox{~~for some~} E\in C^{n\times n}
+\mbox{~~with~} \| E \| \leq \epsilon \}
+$$
+
+where $\Lambda(A)$ denotes the spectrum of $A$, is acknowledged
+to be a powerful mechanism for investigating the behavior of several (nonnormal)
+matrix-dependent algorithms, ranging from iterative methods for large linear
+systems to time-stepping algorithms; note the inclusion of specific functions
+to that effect in the popular
+Test Matrix Toolbox
+(\verb2http://www.ma.man.ac.uk/~higham/testmat.html2)
+of MATLAB.
+The standard workhorse method for computing pseudospectra is the following:
+(i) Discretize the region of interest in the complex plane and (ii) compute
+the minimum singular value of the matrix $zI-A$ at every gridpoint $z$.
+This
+algorithm is simple, robust, embarassingly parallel and extremely expensive
+even for medium sized matrices: Much more expensive than having to compute
+matrix spectral information, such as eigenvalues and singular values.
+In other words, pseudospectra are powerful but we must find ways
+for obtaining them at lesser cost. ``Domain oriented'' methods for computing
+pseudospectra attempt to reduce the number of gridpoints while ``matrix
+oriented'' methods attempt to obtain the singular values faster.
+Toh and Trefethen (SIAM J. Sci. Comput. 17(1)1-15, 1996)
+have studied the following matrix oriented
+approach: Apply Arnoldi to compute from $A$ a Hessenberg matrix of
+smaller dimension and approximate the pseudospectrum from the
+singular values of $H$ or the corresponding augmented Hessenberg
+matrix. This has the potential to offer great computational
+savings as it only requires SVD calculations for a Hessenberg
+matrix of smaller size, but as shown in the aforementioned article, there
+are cases where the method does not perform well.
+In recent work
+(\verb3http://etna.mcs.kent.edu/vol.7.1998/pp190-201.dir/pp190-201.html3)
+we have shown, based on the equivalent definition
+of the matrix pseudospectrum  that is based on resolvents
+$ \Lambda_{\epsilon} (A) = \{ z: z \in C^{n\times n}:
+\| \left(zI-A\right)^{-1} \| \geq \epsilon^{-1} \} $,
+that  one promising improvement
+to the Arnoldi approaches is to utilize a transfer
+function formulation that provides a better approximation
+to the pseudospectrum.
+In this talk we will present
+computational issues related to this method and investigate its
+effectiveness compared  to existing approaches for computing
+pseudospectra.
+
+
+
+
+\end{document}
