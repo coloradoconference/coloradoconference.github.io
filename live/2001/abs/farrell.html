@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>cm conference abstract: Farrell</title>
+</head>
+
+<body>
+
+<center>
+Factors Involved in the Performance of Computations on 
+Beowulf Clusters
+</center>
+
+<p>
+<center>
+<a href="mailto: farrell@mcs.kent.edu">
+Paul A. Farrell</a><br><br>
+Department of Mathematics & Computer Science<br>
+Kent State University, Kent, OH 44242, USA
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+PC (Beowulf) clusters represent a cost-effective platform
+for large scale scientific computations. In this talk,
+we examine the effects of some possible configuration,
+hardware, and software choices on
+the communications latency and throughput attainable, and the consequent
+impact on scalability and performance of codes.
+We compare performance currently attainable using Gigabit Ethernet with
+that of Fast Ethernet.
+We discuss the effects of various versions of the Linux kernel,
+and the approaches to tuning it to improve TCP/IP performance.
+
+<P>
+We evaluate and compare the performance of LAM, MPICH, and MVICH on a
+Linux cluster connected by a Gigabit Ethernet network.  
+Since LAM and MPICH use the
+TCP/IP socket interface for communicating messages, it is critical to
+have high TCP/IP performance for these to give satisfactory results.
+Despite many efforts to improve TCP/IP
+performance, the performance graphs presented here indicate that the
+overhead incurred in protocol stack processing is still high. 
+We discuss the Virtual Interface Architecture (VIA) which is intended to
+provide low latency, high bandwidth message-passing between user processes.
+Developments such as the VIA-based MPI implementation MVICH can improve
+communication throughput and thus give the promise of enabling
+distributed applications to improve performance.
+<P>
+Finally we present some examples of how these various choices can
+impact the performance of an example multigrid code.
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>cm conference abstract: Mardal</title>
+</head>
+
+<body>
+
+<center>
+An efficient parallel iterative approach to the time-dependent Stokes problem
+</center>
+
+<p>
+<center>
+<a href="mailto: kent-and@ifi.uio.no">
+Kent-Andre Mardal</a><br><br>
+P.O. Box 1080, Blindern, N-0316 Oslo, Norway
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+In this paper we consider an optimal multigrid/domain decomposition preconditioner for the time-dependent Stokes problem. 
+Preconditioners for this problem arise when using fully implicit time stepping schemes for the Navier-Stokes equations. 
+However, as the time stepping parameter decreases against 0, 
+the problem to be solved at each time step changes from the Stokes problem to the mixed formulation of the Poisson equation. 
+The same preconditioning techniques do not work in both cases, even 
+the finite elements typically used for Stokes are not considered stable for the mixed Poisson equation.
+We will show that some typical Stokes elements are in fact stable also for the Poisson equation in another norm,
+this leads us to a proper preconditioner working uniformly in the time stepping parameter.
+Preconditioners for this problem have been studied before in [Bramble,Pasciak 94], however our approach is different. 
+In essence they constructed the preconditioner  by assuming only that the finite elements satisfy the usual Babuska-Brezzi condition for Stokes problem, requiring that the time parameter k &lt;  h^2. 
+Our preconditioner is based on the observation that the continuous time-dependent Stokes problem satisfy  another Babuska-Brezzi condition, 
+which also the Mini element satisfy. We are therefore able to make a rather simple preconditioner, where the
+time stepping parameter only enters the preconditioner as a constant.  
+The efficiency of this preconditioner will  be demonstrated by numerical experiments 
+done in parallel with  Diffpack, a C++ toolbox for finite element simulations,  on a Beowulf cluster having roughly 50 CPU's.
+It is established that the preconditioner works for the Mini element.
+Other elements like the Crouzeix-Raviart element and the P2-P1 element will be considered.
+<p>
+This is joint work with Hans Petter Langtangen and  Ragnar Winther.
+<p>
+An extended abstract can be found <a href="http://www.ifi.uio.no/~kent-and/copper.ps">here</a>.
+ 
+
+</body>
+</html>

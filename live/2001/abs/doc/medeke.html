@@ -1,0 +1,62 @@
+
+<html>
+<head>
+<title>cm conference abstract: Medeke</title>
+</head>
+
+<body>
+
+<center>
+On Algebraic Multilevel Preconditioners for Disordered Systems
+</center>
+
+<p>
+<center>
+<a href="mailto: medeke@math.uni-wuppertal.de">
+Bj&ouml;rn Medeke</a><br><br>
+Department of Mathematics,
+University of Wuppertal,
+D-42097 Wuppertal, Germany
+</center>
+
+<p>
+<center>
+<br> Based on a Schur complement approach we present an algebraic multilevel 
+preconditioning technique for large, sparse and totally disordered systems. 
+</center>
+
+<p>
+We focus on the Schwinger model which is an ideal laboratory to 
+develop and to test preconditioners for discretizations of lattice 
+fermions since it has many features in common with lattice QCD. The 
+corresponding Schwinger matrices represent a nearest neighbor coupling 
+on a regular two-dimensional lattice. In general, the Schwinger matrices 
+are large, sparse and structured but totally disordered.   
+
+<p>
+
+In contrast to the original system, an initial odd-even reduction enables us
+to distinguish between strong and weak edges in the digraph induced by the 
+odd-even reduced system. The F-sites are chosen to be a maximal independent 
+vertex set of the reduced digraph consisting of the vertex set and the set
+of strong edges.  Although the F-sites are selected algebraically, 
+the resulting F/C partitioning of the even lattice sites can be easily fixed 
+in advance such that costly coarsening strategies become obsolete.   
+
+<p>
+
+To precondition the subsystem residing on the F-sites only, standard incomplete
+LU preconditioners (ILU) are considered. Rigorous bounds of the condition number
+of the preconditioned submatrix are given. An appropriate and easy to construct 
+Schur complement approximation is proposed. With respect to the odd-even reduced 
+system no fill-in occurs so that the Schur complement preconditioner allows a 
+recursive procedure on coarse lattices. 
+
+<p>
+
+The algebraic multilevel preconditioner is compared with standard
+odd-even preconditioning. Numerical experiments indicate that the 
+Schur complement preconditioner outperforms the standard odd-even 
+preconditioner. 
+</body>
+</html>

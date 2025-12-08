@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>cm conference abstract: Yang</title>
+</head>
+
+<body>
+
+<center>
+On the Use of Schwarz Smoothing in AMG
+</center>
+
+<p>
+<center>
+<a href="mailto: umyang@llnl.gov">
+Ulrike Meier Yang</a><br><br>
+Center for Applied Scientific Computing<br>
+Lawrence Livermore National Laboratory<br>
+Box 808, L-560<br>
+Livermore, CA 94551
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+<p>
+
+The need to solve increasingly larger linear systems, with hundreds of 
+millions or billions of unknowns, has necessitated the use of massively 
+parallel computers and the investigation of scalable linear solvers, such as
+multigrid. For unstructured grid problems, an attractive choice is
+algebraic multigrid (AMG). Although AMG is a very effective method for 
+many applications, however for some applications, e.g. structural elasticity 
+problems where the governing equations are a system of PDEs with the unknowns 
+being the displacements in each coordinate direction, the choice of 
+conventional smoothers such as Jacobi or Gauss-Seidel within AMG is not 
+sufficient to achieve good convergence.
+<p>
+
+In this talk, we investigate the use of the Schwarz alternating method as a 
+smoother on the finest levels of AMG. Preliminary experiments show promising 
+results for such problems as mentioned above. We consider both multiplicative 
+and additive variants of the Schwarz method. The use of a multicoloring 
+technique for parallelization of the multiplicative variant is considered.
+The choice of domains, efficiency and convergence behavior are discussed, 
+and numerical results are presented.
+<p>
+
+*This work was performed under the auspices of the U.S. Department of Energy 
+by University of California Lawrence Livermore National Laboratory under 
+contract number W-7405-Eng-48. 
+
+</body>
+</html>

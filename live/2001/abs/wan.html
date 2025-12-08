@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>cm conference abstract: Jameson/Wan</title>
+</head>
+
+<body>
+
+<center>
+Two Multigrid Time Stepping Schemes which Preserve Monotonicity and TVD
+</center>
+
+<p>
+<center>
+<a href="mailto: jameson@baboon.stanford.edu">
+Antony Jameson</a><br><br>
+Department of Aeronautics and Astronautics, Stanford University, Stanford,
+CA 94305
+<p>
+<a href="mailto: jwlwan@bryce1.uwaterloo.ca">
+Justin W.L. Wan</a> (speaker)<br><br>
+Department of Computer Science, University of Waterloo, Waterloo, Ontario,
+Canada N2L 3G1
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In this talk, we present two efficient multigrid time stepping schemes for
+scalar linear and nonlinear wave equations based on a upwind biased
+interpolation and restriction, and a nonstandard coarse grid update
+formula. Furthermore, we prove that these schemes preserve monotonicity
+and are total variation diminishing (TVD). Thus, no numerical oscillation
+is introduced, resulting in fast wave propagation to the steady state.
+
+<p>
+Multigrid for solving elliptic partial differential equations (PDEs)
+has been proven, both numerically and theoretically, to be a successful
+and powerful techniques. Efficient multigrid methods have also been
+proposed for solving non-elliptic equations, in particular, Euler
+and Navier Stokes equations. One approach is to accelerate the evolution
+of a hyperbolic system to a
+steady state on multiple grids by taking larger time steps on
+coarse grids without violating the stability condition. Thus, the low
+frequency disturbances are rapidly expelled through the outer boundary
+whereas the high frequency errors are locally damped. It can be proved
+that an M-level multigrid cycle consisting of one smoothing
+step on each coarse grid results in an effective time step of the sum
+of the time steps of all the coarser grids.
+
+<p>
+While the above approach has achieved great success, for instance, in
+Euler calculations, the understanding of the numerical property is
+relatively limited and analyses are scarce.
+In this paper, two efficient multigrid time stepping schemes proposed by
+Jameson is studied and extended for the steady state solution of
+scalar linear and nonlinear wave equations. One scheme
+is multiplicative in nature and the other additive. Thus the former is
+usually more effective but the latter is more parallel.
+The upwind biased interpolation and restriction are defined based on the
+characteristic directions. As opposed to elliptic multigrid,
+they are not transpose of each other. For nonlinear wave equations, the
+characteristic directions change at every grid points and in every time
+steps. To define the appropriate upwind interpolation and restriction, we
+solve a local Riemann problem which determines locally the characteristic
+direction. Up to the authors' knowledge, Riemann solutions have not
+been used in the context of multigrid interpolation/restriction.
+
+<p>
+In addition, we present the numerical analysis of these schemes;
+the primary focus is on the monotonicity preserving and total variation
+diminishing properties. Both concepts are fundamental in designing
+discretization schemes for conservation laws, but nevertheless, have never
+been used to analyze multigrid methods in the literature.
+We prove that both the two-level multiplicative and additive schemes
+preserve monotonicity and are TVD; and the same holds for the multilevel
+additive scheme.
+Finally, numerical results for solving the linear wave equation and the
+nonlinear Burgers' equation in one and two dimensions are presented to
+demonstrate the effectiveness of the proposed schemes and verify that no
+oscillation occurs during the multigrid time stepping.
+
+
+</body>
+</html>
+
+

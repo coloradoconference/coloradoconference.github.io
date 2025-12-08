@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>cm conference abstract: Jan Mandel</title>
+</head>
+
+<body>
+<center>
+Approximation and Coupling Estimators for Algebraic Multigrid
+</center>
+<p>
+<center>
+<a href="mailto: jmandel@math.cudenver.edu">
+Jan Mandel
+</a><br><br>
+Center for Computational Mathematics<br>
+Department of Mathematics <br>
+University of Colorado at Denver <br>
+P.O. Box 173364, Campus Box 170 <br>
+Denver, CO 80217-3364 
+</center>
+
+<p>
+<center>Abstract
+</center>
+<p>
+A-priori estimates of approximation of fine grid functions by
+coarse grid functions are important for the design of
+robust Algebraic Multigrid methods. A number of coarsening
+schemes will work well on an easy problem, such as a the Laplace
+equation discretized by linear elements on a reasonable unstructured 
+grid. Methods that incorporate rigid body modes, such as
+[1], work also very well for elasticity. Realistic problems, however,
+typically include elements violating shape limits, large jumps of
+coefficients,  and special
+kinds of elements that destroy the numerical relevance of  the 
+underlying differential equations, such as side constraints on the
+values of degrees of freedom,
+enforced by large penalties ("stiff spring" or "contact" elements
+in engineering parlance), or even arbitrary 
+additional equations that are eliminated before the matrix is passed
+to the solver ("multiple point constraints"). Such problems are hard
+to solve by Algebraic Multigrid even if they are symmetric and positive semidefinite.
+Without a-priori numerical estimates of the rate of convergence, with  a rigorous
+foundation, an Algebraic Multigrid algorithm is essentially based just on the hope
+that the problem will not have anything unexpected and things will work out in the end.
+<p>
+One common estimate that can be computed a-priori is the 
+weak approximation property, which
+bounds the error of the best approximation in Euclidean norm
+of a fine grid vector by the prolongation of a coarse grid vector
+in terms of the energy norm of the fine grid vector. The weak approximation property is known to
+imply a bound on the two-level convergence factor, albeit a fairly
+pessimistic one. In the smoothed aggregation method 
+<a href="#Ref1">[1]</a>,
+two-level as well as multilevel convergence
+bounds can be obtained <a href="#Ref2">[2]</a> from the weak approximation property for the
+so-called tentative prolongator, which is simply the transpose of the matrix of
+a weighted aggregation of degrees of freedom. The actual
+prolongation used in the multigrid algorithm is then obtained by smoothing
+the tentative prolongation. 
+<p>
+In the absence of multiple point constraints, 
+the constant in the weak approximation property can be bounded rigorously from the solution
+of eigenvalue problems based on local element matrices.
+In <a href="#Ref3">[3]</a>, it was proposed to 
+select the columns of the tentative prolongator as the eigenvectors of the local problems
+and to control the convergence of algebraic multigrid by choosing the number of the eigenvectors
+ and by selecting the amount of smoothing of the prolongation.
+<p>
+In practice, the problem to be solved is most conveniently given in terms of a single
+global stiffness matrix with all constraints incorporated. Then the information contained in the
+local stiffness matrices is lost, and  
+to bound the constant in the weak approximation property
+rigorously by the solution of local eigenvalue problems, one would need 
+to decompose the global matrix into the sum of
+positive semidefinite local matrices. We show that in general, such decomposition does not exists
+if the dimension of the coarse space is more than two. To estimate
+the contribution of a single aggregate (or, equivalently, of a block of coarse basis functions)
+to the constant in the weak approximation property, we decompose the global matrix into local
+matrices corresponding to the decomposition
+of the set of all nodes into the given aggregate and its complement. 
+We also present further approximation techniques to reduce the cost of the estimation. 
+The resulting estimates are not
+rigorous but they are still practically useful.
+<p>
+We show that bad constants in the weak approximation condition will sometimes arize when the 
+coarsening does not follow strong couplings of the nodes. An analysis of the mechanism how this happens 
+shows when coarsening along weak couplings can still be tolerated. 
+We observe that while strong couplings can be usually quite well determined from the local stiffness 
+matrices, the computation of strong couplings from the global matrix is not reliable. 
+We propose a new method to estimate the strength of the coupling between two nodes from 
+an approximate local matrix corresponding to the pair of nodes.
+<p>
+<br>
+<a name="Ref1">[1] 
+P. Vanek, J. Mandel, and M. Brezina, 
+<a href="http://www-math.cudenver.edu/~jmandel/papers/meis.ps.gz">
+Algebraic Multigrid by Smoothed Aggregation for
+Second and Fourth Order Elliptic Problems</a>, Computing 56 (1996) 179-196 
+<br>
+<a name="Ref2">[2] 
+P. Vanek, M. Brezina, and J. Mandel, 
+<a href="http://www-math.cudenver.edu/~jmandel/papers/amg.pdf">
+Convergence of Algebraic Multigrid Based
+    on Smoothed Aggregation</a>, UCD/CCM Report 126, February 1998. Revised February
+    2000. To appear in Numerische Mathematik. 
+</a>
+<br>
+<a name="Ref3">[3]
+M. Brezina, C. Heberton, J. Mandel, and P. Vanek, 
+<a href="http://www-math.cudenver.edu/~jmandel/papers/bhmv.ps.gz">
+An Iterative Method with Convergence
+Rate Chosen a Priori</a>, UCD/CCM Report 140, April 1999. 
+</a>
+<p>
+</body>
+</html>
+

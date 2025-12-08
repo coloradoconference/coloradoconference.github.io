@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>cm conference abstract: HAASE</title>
+</head>
+
+<body>
+
+<center>
+Simultaneous Iterations in Ocean Modeling
+</center>
+
+<p>
+<center>
+<a href="mailto: ghaase@numa.uni-linz.ac.at">
+Gundolf Haase</a><br><br>
+Johannes Kepler University Linz,<BR> 
+Institute for Analysis and Computational Mathematics<BR>
+Department of Computational Mathematics and Optimization<BR>
+Altenberger Strasse 69<BR>
+A-4040 Linz, Austria
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The investigated ocean modeling code bases on a 
+five layer model using higher order spectral elements 
+for discretization  
+and a special filtering technique 
+for the vortex and divergence field. 
+
+These filterings contain the solving of the Laplace equation 
+for the velocity components in x- and y-direction 
+cause on each layer most of the arithmetic work per time step. 
+The system matrix is never accumulated and so all 
+matrix operations are performed 
+on an element level with the small dense 
+element matrices. 
+
+We have the special situation that the system matrix and the 
+filtering matrix are the same for both directions and 
+for all layers. This gave us the chance 
+to redesigning the code such that all layers and directions 
+can be handled simultaneously. 
+The general reduction of memory accesses together with  
+cache aware data structures improve the run time significantly. 
+
+These techniques can be also used very successfully when 
+the pcg solver uses multigrid as preconditioner. 
+<p>
+<p>
+Ocean Modeling Session
+</body>
+</html>

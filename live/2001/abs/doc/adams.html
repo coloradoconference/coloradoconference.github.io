@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>cm conference abstract: Adams</title>
+</head>
+
+<body>
+
+<center>
+Parallel algorithms for unstructured Gauss-Seidel multigrid smoothers 
+</center>
+
+<p>
+<center>
+<a href="mailto:mfadams@ca.sandia.gov">
+Mark Adams</a><br><br>
+MS 9217 
+Sandia National Laboratory 
+PO Box 969 
+Livermore CA 94551 
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Gauss-Seidel is the most commonly used multigrid smoother on serial machines as it is provably optimal on structured grids and exhibits superior performance on unstructured grids as well.  Gauss-Seidel is not commonly (or ever to our knowledge) used on parallel machines as it is difficult to parallelize.  Jacobi, block Jacobi and additive Schwarz parallelize well but require damping when used as multigrid smoothers; these damping parameters are well know for say Poisson on regular grids but we are not aware of an effective method to pick this parameter for unstructured elasticity problems.  We have found that Krylov solvers (eg, conjugate gradients (CG) for symmetric positive definite problems) preconditioned with the above mentioned methods are effective and to are knowledge are university used for unstructured elasticity problems.  Gauss-Seidel does however have some very attractive properties as a multigrid smoother, namely: fast convergence, no global communication and fewer flops per iteration as the "Eisenstat" trick allows for a incorporating an initial guess whereas CG requires that a residual be computed first and thus doubles the work required if only one iteration is used (as is common for smoothers).  This talk will discuss some preliminary work on one approach for parallelizing a few iterations (ie, one or two) of Gauss-Seidel with unstructured linear elasticity example problems with up to 76 million degrees of freedom.
+
+</body>
+</html>

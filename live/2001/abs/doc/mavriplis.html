@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>cm conference abstract: MAVRIPLIS </title>
+</head>
+
+<body>
+
+<center>
+Comparisons of Unstructured Multigrid
+as a Non-linear Solver, a Linear Solver, or a Pre-Conditioner
+</center>
+
+<p>
+<center>
+<a href="mailto: dimitri@icase.edu">
+Dimitri Mavriplis</a><br><br>
+ICASE MS 132C
+NASA Langley Research Center
+Hampton, VA 23681
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+
+The relative efficiency of an unstructured multigrid
+algorithm used as a non-linear solver (FAS)
+is compared with the efficiency of the equivalent
+multigrid algorithm used as a linear solver
+on a Newton linearization of the non-linear problem,
+and with the efficiency obtained
+using either approach as a preconditioner
+for a non-linear GMRES method.
+Two types of problems are examined,
+the solution of a transient radiation diffusion
+problem, and the solution of the Navier-Stokes equations.
+In the first case, the discretization employs
+a nearest neighbor stencil and the linearized scheme
+operates on an exact Newton linearization.
+In the second case, the discretization is based
+on a second-order form which involves neighbors of neighbors
+while the linearization employed is based on a first-order
+accurate nearest-neighbor stencil.
+For the radiation diffusion case, the linear multigrid
+approach is more efficient than the FAS approach,
+mainly due to the expense involved in the more frequent
+computation of the highly non-linear residuals required
+in the non-linear multigrid case.
+When the linear system is solved to sufficient
+tolerance, quadratic convergence of the non-linear problem
+is observed.
+For the Navier-Stokes equations, quadratic convergence
+of the non-linear problem is not possible, since an
+inexact linearization is employed.
+While a linear multigrid iteration is shown
+to be substantially cheaper than the corresponding
+non-linear multigrid iteration, the relative performance
+of both methods depends largely on the tolerance
+to which the linear system is solved, and the achievable
+non-linear convergence rate.
+Using either method as a preconditioner
+rather than as a solver is also shown to provide
+additional convergence acceleration.
+Other issues such as memory requirements
+and robustness of the various schemes will also be discussed.
+
+
+
+</body>
+</html>

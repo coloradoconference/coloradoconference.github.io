@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>cm conference abstract: PUT LASTNAME HERE</title>
+</head>
+
+<body>
+
+<p align="center">Multigrid all-at-once methods for large<br>
+scale inverse problems </p>
+
+<p align="center">E. Haber, U. Ascher<br>
+<br>
+Dept of Computer Science UBC, Vancouver BC, Canada</p>
+
+<p align="center"><br>
+Abstract </p>
+
+<p>The problem of recovering a parameter function based on
+measurements of solutions of a system of partial differential
+equations in several space variables leads to a number of
+computational challenges. Upon discretization of a regularized
+formulation a large, sparse constrained optimization problem is
+obtained.<br>
+Typically in the literature, the constraints are eliminated and
+the resulting unconstrained formulation is solved by some variant
+of Newton's method, usually the Gauss-Newton method. A
+preconditioned conjugate gradient algorithm is applied at each
+iteration for the resulting reduced Hessian system.<br>
+<br>
+In this talk we apply instead a multigrid method directly to the
+KKT system arising from a Newton-type method for the constrained
+formulation (an ``all-at-once'' approach). Since the reduced
+Hessian system presents significant expense already in forming<br>
+a matrix-vector product, the savings are substantial.<br>
+<br>
+Numerical experiments are performed for the DC-resistivity
+problem in 3D, comparing the two approaches for solving the
+linear system at each Gauss-Newton iteration and a substantial
+efficiency gain is demonstrated.<br>
+The relative efficiency of our proposed method is even higher in
+the context of inexact Newton-type methods, where the linear
+system at each iteration is solved less accurately. . </p>
+</body>
+</html>

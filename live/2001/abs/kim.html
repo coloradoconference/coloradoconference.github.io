@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>cm conference abstract: Kim</title>
+</head>
+
+<body>
+
+<center>
+A Two-level Preconditioner for an Anisotropic Mixed Finite Element Problem
+</center>
+
+<p>
+<center>
+<a href="mailto:cskim@math.tamu.edu">
+Chisup Kim</a><br><br>
+Dept. of Mathematics,
+Texas A&M University,
+College Station, TX 77843-3368
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We consider a mixed finite element method for a model second anisotropic 
+elliptic equation on the unit square \Omega of the following form
+
+<pre>
+	- ( p_xx + \eps p_yy ) = f  in \Omega,
+	                     p = 0  in \Gamma,
+</pre>
+
+where \Gamma is the boundary of \Omega and \eps is a small constant.
+We study a multilevel preconditioner for this problem on uniform 
+rectangular and triangular meshes. 
+<p>
+We use a two-level result by Bramble, Pasciak, and Zhang [East-West J.
+Numer. Math., 4 (1996), pp.99-120], in which no approximation or regularity
+conditions are required.  Our "coarse" level problem will be the finite
+element problem on the same mesh as in the mixed finite element problem.
+<p>
+In the rectangular case, we use the Schur complement of the mixed problem
+at the "fine" level.  A mesh dependent form is used in the analysis and 
+implementation.  In the triangular case, we take the equivalent 
+nonconforming finite element problem to the mixed finite element problem
+as the "fine" level problem.  In both cases, line Jacobi smoothers are
+used to effectively reduce the error in the "fine" level.
+
+
+</body>
+</html>

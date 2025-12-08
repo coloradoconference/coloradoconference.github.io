@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>cm conference abstract: Hu</title>
+</head>
+
+<body>
+
+<center>
+Parallel Algebraic Aggregation for Maxwell's Equations
+</center>
+
+<p>
+<center>
+<a href="mailto: jhu@ca.sandia.gov">
+Jonathan Hu</a><br><br>
+Sandia National Laboratories<br>
+P.O. Box 969, MS 9217<br>
+Livermore, CA 94551<br>
+</center>
+
+<p>
+<center>
+<a href="mailto: tuminaro@ca.sandia.gov">
+Ray Tuminaro</a><br><br>
+Sandia National Laboratories<br>
+P.O. Box 969, MS 9217<br>
+Livermore, CA 94551
+</center>  
+
+<p>
+<center>
+<a href="mailto: acrobin@sandia.gov">
+Allen C. Robinson</a><br><br>
+Sandia National Laboratories<br>
+ Computational Physics R&D<br>
+Sandia National Laboratories<br>
+P.O. Box 5800, MS 0819<br>
+Albuquerque, NM 87185-0819<br> 
+</center>  
+
+<p>
+<center>
+<a href="mailto: bochev@uta.edu">
+Pavel B. Bochev</a><br><br>
+Department of Mathematics<br>
+Box 19408<br>
+University of Texas at Arlington<br>
+Arlington, TX 76019-0408<br>
+</center>  
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We consider the use of parallel algebraic multigrid for the solution 
+of Maxwell's equations which are discretized via edge elements.
+The key difficulty is properly mapping the Curl operator's null space on to the 
+coarse grids via a prolongation operator that is constructed using only 
+algebraic information (i.e. matrix coefficients and a minimal amount of 
+element information).
+The scheme that we consider is based on the work of 
+Reitzinger and Sch&ouml;berl as well as that of Hiptmair.
+This parallel multilevel 
+preconditioner is implemented within the ML framework which already contains 
+similar techniques like smoothed aggregation.
+The resulting iteration scheme is being integrated into a large complex
+parallel code that requires the repeated solution of the eddy current
+approximation to Maxwell's 
+equations in a heterogeneous material properties environment as part of an 
+overall Arbitrary Lagrangian-Eulerian magnetohydrodynamics algorithm. 
+Numerical experiments are presented illustrating the efficiency of the 
+approach on the ASCI Red machine in terms of both convergence and parallel 
+speed-up.
+</body>
+</html>

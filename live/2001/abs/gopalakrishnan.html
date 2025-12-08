@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>cm conference abstract: Gopalakrishnan</title>
+</head>
+
+<body>
+
+<center>
+Multigrid and Schwarz methods for time-harmonic Maxwell equations 
+</center>
+
+<p>
+<center>
+<a href="mailto:jayg@ima.umn.edu">
+Jayadeep Gopalakrishnan</a><br><br>
+Institute for Mathematics and its Applications <br>
+514 Vincent Hall, 206 Church St SE <br>
+Minneapolis, MN 55414 <br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Time-harmonic Maxwell equations in a lossless cavity lead to a second
+order differential equation for electric field involving a
+differential operator that is neither elliptic nor definite.  A
+Galerkin method using Nedelec's curl-conforming finite elements can be
+employed to get approximate solutions numerically. In this talk,
+results of [4, 5] on the suitability of multigrid and Schwarz methods
+for efficiently solving the resulting indefinite linear system will be
+presented.
+
+
+<p>
+
+The analysis of the present work builds on techniques in [1, 6] to
+overcome the difficulties caused by the non-ellipticity of the
+operator. As in their analysis, discrete Helmholtz decompositions play
+a crucial role.  A new and critical ingredient of our analysis is an
+estimate on discrete solution operators of Maxwell equations.  This
+estimate allows analysis of overlapping Schwarz methods in the spirit
+of perturbation arguments in [3], even though our operator is not
+elliptic.  It also allows analysis of a `\' multigrid cycle
+using techniques of [2], although prima facie it may appear that
+ellipticity is required for application of these techniques. In both
+cases, the analysis involves comparison of operators with their
+analogues in positive definite case.
+
+<p>
+
+Of practical importance is the fact that some algorithms that work
+well in the elliptic case, fails in our application. It has now been
+known for some time that a multigrid V-cycle with a point-Jacobi
+smoother is not appropriate for our problem.  However, we show that a
+multigrid algorithm with block Jacobi or block Gauss-Seidel smoother,
+if the blocks are chosen as in [1], leads to good convergence rates,
+provided the coarse mesh used is sufficiently fine.  Our results also
+indicate that, in contrast to the elliptic case, replacing subdomain
+solves by equivalent operations in overlapping Schwarz methods does
+not lead to good results.
+
+<p>
+
+References:
+<br><br>
+[1] D. N. Arnold, R. S. Falk and R. Winther. Multigrid in H(div) and
+   H(curl). Numer. Math., 85(2):197-217, 2000.
+
+<br>
+[2] J. H. Bramble, D. Y. Kwak, and J. E. Pasciak. Uniform convergence
+   of multigrid V-cycle iterations for indefinite and nonsymmetric
+   problems. SIAM J. Numer. Anal., 31(6):1746-1763, 1994.
+
+<br>
+[3] X.-C. Cai and O. B. Widlund. Domain decomposition algorithms for 
+   indefinite elliptic problems. SIAM J. Sci. Stat. Comput., 
+   13(1):243-258, 1992.
+
+<br>
+[5] J. Gopalakrishnan and J. E. Pasciak. Overlapping Schwarz
+   preconditioners for indefinite time harmonic Maxwell
+   equations. Submitted. Available as IMA Preprint 1711, June 2000.
+
+<br>
+[6] J. Gopalakrishnan, J. E. Pasciak and L. Demkowicz. A multigrid 
+    algorithm for time harmonic Maxwell equations. In preparation. 
+
+
+<br>
+[4] R. Hiptmair. Multigrid method for Maxwell's equations. 
+   SIAM J. Numer. Anal., 36(1):204-225, 1999.
+
+
+<!--  LocalWords:  SE MN Nedelec's facie Winther div Numer Kwak Cai Widlund Sci
+ -->
+<!--  LocalWords:  Stat Comput IMA Demkowicz Hiptmair Maxwell's
+ -->
+
+
+
+
+</body>
+</html>

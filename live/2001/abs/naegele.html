@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>cm conference abstract: N&auml;gele</title>
+</head>
+
+<body>
+
+<center>
+Multigrid Method coupled with Large Eddy Simulation
+</center>
+
+<p>
+<center>
+<a href="mailto: sandra.naegele@iwr.uni-heidelberg.de">
+Sandra N&auml;gele</a><br><br>
+<a href="http://www.iwr.uni-heidelberg.de">
+Interdisciplinary Centre for Scientific Computing</a><br>
+University of Heidelberg<br>
+Im Neuenheimer Feld 368<br>
+69120 Heidelberg<br>
+Germany
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The use of multigrid methods in conjunction with a Large Eddy Simulation (LES) is very
+proximate since both are based on multiple scales. LES is a turbulence model
+which resolves large turbulent scales and models the small ones. The scale
+separation is performed by applying a spacial convolution operator (filter
+operator) to the
+incompressible Navier-Stokes equations. As filter operator a top hat filter is
+applied with a grid dependent support size. Hence the application of the
+filter results in a locally varying 
+average in space. The LES model itself also depends on the grid size since
+the filtering process removes all subgrid scales. Some special dynamic LES models have been developed by various researchers
+which apply two filters with different support size at each point of the
+domain to the gouverning equation system. By comparison of the two different large scale
+resolutions the model term can be specified locally. This is similar to the
+multigrid cycle where the defect is restricted to the coarser grid and higher
+frequencies are removed. 
+Another property of dynamic models is their ability to adjust themselves to
+local flow structures. This adaptivity is very useful since in some regions of the domain the
+flow can be laminar and a turbulence model is not necessary at all. Hence
+dynamic models were used in the simulations.
+<br>
+<dd>
+The simulations were carried out on the software platform <a
+href="http://cox.iwr.uni-heidelberg.de/~ug">UG</a> which is based on
+unstructured grids. Thus the filter width varies in the solution domain. Using unstructured grids the resolution of the turbulent scales can be increased locally to decrease
+the modelling effort. In the neighbourhood of walls for example it
+is possible to use a smaller grid size. By this grid adaptation the local flow
+structures can be better
+resolved and less modelling with less modelling error is necessary.
+<br>
+A Krylov subspace method with linear multigrid as preconditioner is
+used to solve the linearized system. Within the multigrid cycle it is
+important to separate modelling and solving in the sense that only on the
+finest grid the modeled part of the equations is determined as described above. This is necessary for an appropriate modelling of the subgrid
+turbulent scales. Afterwards the
+model term is restricted to the
+coarse grids and a standard linear multigrid cycle can be used.
+This solution strategy was applied to different flow problems which will be presented.
+</body>
+</html>

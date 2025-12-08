@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>cm conference abstract: Bader</title>
+</head>
+
+<body>
+
+<center>
+A robust and parallel Multigrid Method 
+for Convection Diffusion Equations
+</center>
+
+<p>
+<center>
+<a href="mailto: bader@in.tum.de">
+Michael Bader</a><br><br>
+Institut für Informatik,
+TU München,
+80290 München,
+Germany
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+<p>
+We present a multigrid method that is based on the combination of 
+recursive substructuring of the computational domain and the 
+discretisation on hierarchical bases and generating systems. 
+The substructuring approach makes the algorithm inherently parallel. 
+The use of hierarchical generating systems allows an optimal complexity 
+of the resulting method.  
+The robustness of the resulting method for convection problems is 
+achieved by a partial elimination between certain "coarse grid unknowns".
+<p>
+This additional elimination is performed such that in the resulting 
+matrices of the local systems of equations any couplings between coarse 
+grid unknowns on the separator and coarse grid unknowns on the subdomain 
+boundary are zero. 
+The coarse grid unknowns themselves are chosen with respect to the 
+physical properties of the underlying differential equation. 
+<p>
+The resulting coarse grid meshes are not uniformly coarsened but are 
+refined on the edges and separators of the coarse grid cells. 
+This refinement of the coarse grid unknowns is chosen such that the 
+number of coarse grid unknowns grows with the square root of the total 
+number of boundary and separator unknowns. 
+This choice is due to the fact that for convection diffusion problems 
+the isolines of the transported matter are typically parabolic. 
+<p>
+We will present some results for the application of this method to several 
+convection diffusion problems. 
+For these benchmark problems the algorithm shows an O(N) complexity with 
+respect to the required computing time and storage. 
+In particular, the number of iterations needed does not depend on the 
+geometry of the flow field. 
+Moreover it is also independent of the strength of convection as long 
+as a certain amount of diffusion is present. 
+More precisely, it requires that on the finest grid a certain mesh Peclet 
+number is not exceeded. 
+<p>
+The algorithm can also be applied to convection problems on complicated 
+computational domains with reasonably complex boundaries and obstacles. 
+It is especially suited to discretisation techniques that are based on 
+a quadtree or octree representation of the computational domain.
+<p>
+</body>
+</html>                
+
