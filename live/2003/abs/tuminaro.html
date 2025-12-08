@@ -1,0 +1,73 @@
+<html>
+<head>
+   <title>cm conference abstract: Ray Tuminaro</title>
+</head>
+
+<body>
+
+<center>
+Algebraic Multigrid for Maxwell's Equations in the Frequency Domain <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: tuminaro@ca.sandia.gov">Ray Tuminaro</a>
+<br>Computational Mathematics and Algorithms
+<br>Sandia National Laboratories
+<br>P.O. Box 969, MS 9217
+<br>Livermore, CA 94551
+<p><a href="mailto: jhu@ca.sandia.gov">Jonathan Hu</a>
+<br>Computational Mathematics and Algorithms
+<br>Sandia National Laboratories
+<br>P.O. Box 969, MS 9217
+<br>Livermore, CA 94551
+<p><a href="mailto: ganewma@sandia.gov">Greg Newman</a>
+<br>Sandia National Laboratories
+<br>Geophysical Technology
+<br>Sandia National Laboratories
+<br>P.O. Box 969, MS 9217
+<br>Livermore, CA 94551
+<p><a href="mailto: pbboche@sandia.gov">Pavel B. Bochev</a>
+<br>Computational Mathematics and Algorithms
+<br>Sandia National Laboratories
+<br>P.O. Box 5800, MS 1110
+<br>Albuquerque, NM 87185-1110
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+We describe a parallel algebraic multigrid method for the solution of 
+Maxwell's equations in the frequency domain. The underlying formulation
+leverages off of an algebraic multigrid scheme for real valued Maxwell
+problems. This real valued method uses distributed relaxation 
+and a specialized grid transfer operator. The key to this multilevel 
+method is the proper representation of the (<b>curl</b>,<b>curl</b>) null 
+space on coarse meshes. This is achieved by maintaining certain commuting 
+properties of the inter-grid transfers.
+
+<p>
+To adapt the real value scheme to complex arithmetic, equivalent
+real forms are considered. The complex operator is written
+as a 2 x 2 real block matrix system. The real valued multigrid
+algorithm can then be used to generate grid transfers which are 
+adapted to the equivalent real form of the problem. In order to
+complete the scheme a smoother must also be adapted to address
+the equivalent real form. We will show how application of the
+distributed relaxation idea on the equivalent real form matrix
+leads to a nice decoupling of the problem. To complete the method, 
+complex polynomial smoothers are developed for use within the 
+distributed relaxation process. While some care is required to
+develop the polynomials, they work well in parallel
+and avoid difficulties associated with parallel Gauss-Seidel.
+
+<p>
+Numerical experiments are presented for some 3D problems arising
+in geophysical subsurface imaging. The experiments illustrate
+the efficiency of the approach on various parallel machines in terms of
+both convergence and parallel speed-up.
+</body>
+</html>

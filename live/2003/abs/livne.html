@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<title>cm conference abstract: Livne
+</title>
+
+</head>
+
+
+<body>
+
+
+<center>
+
+Coarsening by Compatible Relaxation
+
+</center>
+
+<p>
+<center>
+<a href="mailto: livne@stanford.edu">
+
+Oren E. Livne</a><br><br>Computer Science Department, Gates 2B, Stanford University, Stanford, CA 94305-9025
+<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Algebraic Multigrid (AMG) solvers of large sparse linear system of equations are based
+on multigrid principles but no do explicitly use the geometry of the grids. The emphasis
+in AMG is on black on procedures for coarsening the set of equations, relying on its
+algebraic relations. Although AMG is widely employed, e.g. for solving second-order
+elliptic discretized PDEs with disordered coefficients on unstructured grids, its scope
+is rather limited to these cases. However, AMG may be remedied, by systemtically
+understanding and improving its ingredients: relaxation, coarse levels and inter-level
+transfers.
+
+We present a novel approach for selecting the coarse variables for AMG. Classical
+AMG coarse set construction relies on the strength of local algebraic connections between
+variables, that are often misleading and inaccurate. Alternatively, our coarse set
+quality measure is the rate of convergence of compatible relaxation (CR)
+[Brandt, ETNA, 2000]. It also leads to a construction algorithm of the coarse set.
+We will present numerical examples of our algorithm for simple model problems, e.g.,
+anistropic diffusion and the biharmonic operator, for which classical AMG often fails.
+
+This work makes it possible to assess and construct a coarse set of variables for a given
+system, prior to its actual use by an AMG solver. Undergoing research is focused on
+attaining CR rates (that play a similar role to the smoothing rate in geometric 
+multigrid, predicting the ideal multigrid efficiency). This relates to self-correcting
+AMG (a joint work with Prof. A. Brandt, Weizmann Institute) that iteratively derives
+its own interpolation operators.
+
+
+</body>
+</html>

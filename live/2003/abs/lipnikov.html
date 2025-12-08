@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>cm conference abstract: Konstantin Lipnikov</title>
+</head>
+
+<body>
+
+<center>
+Algebraic multilevel preconditioner with projectors <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: lipnikov@t7.lanl.gov">
+Konstantin Lipnikov</a><br><br>
+T-7, MS-B284, Los Alamos, NM 87545<br><br>
+Yuri Kuznetsov<br><br>
+Department of Mathematics, University of Houston, TX 77204<br><br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The two-level algebraic preconditioner with projectors has been 
+proposed in [1] for symmetric positive definite stiffness matrices. 
+The underlying grid is partitioned into non-overlapping substructures
+of arbitrary shapes (grid subdomains, superelements or simply original 
+grid cells). A projector to the kernel of a subdomain stiffness matrix 
+is build for each subdomain. A coarse grid matrix is an approximation 
+to the original stiffness matrix in the space of images of the projectors. 
+If the original stiffness matrix is a finite element approximation of an 
+elliptic operator, the coarse grid matrix describes connections between 
+integral averages a discrete function over subdomains.
+
+<p>
+In the talk we shall prove the convergence of the two-level scheme for
+the case of elliptic operators. We shall show that the convergence rate
+is independent of jumps in coefficients between subdomains. A multilevel 
+preconditioner based on the two-level scheme will be studied numerically
+for the case of highly distorted meshes and strongly varying coefficients.
+In comparison with a few other multilevel preconditioners, it 
+demostrates robust behavior over a much bigger class of problems [2]. 
+
+<p>
+[1] Yu.Kuznetsov,   
+    Two-level preconditioners with projectors for unstructured grids.
+    Russian J. Numer. Anal. Math. Modelling, (2000), v.15, pp.247-256.
+
+<p>
+[2] Yu.Kuznetsov, K.Lipnikov,
+    Parallel numerical methods for the diffusion and Maxwell equations in
+    heterogeneous media on strongly distorted meshes,
+    Technical Report, University of Houston, May, 2002.
+
+</body>
+</html>
+

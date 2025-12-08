@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>cm conference abstract: Tzanio V. Kolev, Joseph E. Pasciak, Panayot S. Vassilevski</title>
+</head>
+
+<body>
+
+<center>
+Algebraic construction of mortar finite element spaces with application to parallel AMGe <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: tkolev@math.tamu.edu">
+Tzanio V. Kolev</a>, 
+<a href="mailto: pasciak@math.tamu.edu">
+Joseph E. Pasciak</a>,<br><br>
+Department of Mathematics<br>
+Texas A&amp;M University<br>
+College Station, TX 77843-3368<br><br>
+and 
+<a href="mailto: panayot@llnl.gov">
+Panayot S. Vassilevski</a><br><br>
+Center for Applied Scientific Computing<br>
+UC Lawrence Livermore National Laboratory<br>
+P. O. Box 808, L-560<br>
+Livermore, CA 94551<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Finite element problems posed on large unstructured grids arise naturally in 
+simulations, where only a very fine discretization of the domain is available. 
+
+In order to achieve performance comparable with multilevel methods for the 
+geometrically refined case, one can use an algebraic solver based on sequence of 
+coarsened meshes. 
+</p>
+
+<p>
+In this talk we present a possible parallelization of one such algorithm - 
+the agglomeration based algebraic multigrid for finite element problems (AMGe).
+
+The method starts with a partitioning of the original 
+domain into subdomains with a generally unstructured finite element mesh 
+on each subdomain. 
+
+The agglomeration based AMGe is then applied independently in each 
+subdomain. 
+
+It needs access to the local stiffness matrices which are (variationally) 
+constructed after coarsening.
+
+Note that even if one starts with a conforming fine grid, independent 
+coarsening generally leads to non-matching grids on the coarser levels. 
+
+We use an element-based dual basis mortar finite element method in order 
+to set up global problems on each level.
+
+Since the considered AMGe produces abstract elements and faces 
+defined as lists of nodes, the mortar multiplier spaces are also 
+constructed in a purely algebraic way. 
+
+This construction requires inversion of the local mass matrices on each 
+interface boundary shared between two subdomains, which is possible 
+because of the way AMGe agglomerates the faces. 
+
+Finally, a multigrid-preconditioned solver is applied to the resulting 
+sequence of (non-nested) spaces. 
+
+The talk will conclude with set of numerical results illustrating the 
+computational behavior of this new algebraic multigrid algorithm.
+</p>
+
+<p>
+<br><br>
+This work was performed under the auspices of the U.S. Department of Energy 
+by the University of California, Lawrence Livermore National Laboratory 
+under contract No. W-7405-Eng-48.
+</p>
+
+</body>
+</html>

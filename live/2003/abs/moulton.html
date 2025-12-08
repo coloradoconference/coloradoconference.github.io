@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>cm conference abstract: J. David Moulton, Joel E. Dendy, M. Shashkov</title>
+</head>
+
+<body>
+
+<center>
+A Comparison of Mimetic and Variational Preconditioners <!-- TITLE -->
+for Mixed-Hybrid Discretizations of the Diffusion Equation. <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: moulton@lanl.gov">
+J. David Moulton</a>,
+Joel E. Dendy, M. Shashkov
+<br><br>
+Mathematical Modeling and Analysis Group <br>
+Theoretical Division<br>
+Los Alamos National Laboratory <br>
+Los Alamos, NM 87545
+<br><br>
+Jim E. Morel
+<br><br>
+Transport Methods Group<br>
+Computer and Computational Sciences Division <br>
+Los Alamos National Laboratory<br>
+Los Alamos, NM 87545
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In many application areas the diffusive component offers a significant
+challenge because it is characterized by a discontinuous diffusion
+coefficient with fine-scale anisotropic spatial structure; moreover,
+the underlying grid may be severely distorted.  Thus, increasingly
+Mixed and Mixed-Hybrid discretizations (e.g., Support Operator
+Methods, and Mixed-Hybrid finite element methods) are employed because
+they explicitly enforce important physical properties of the problem,
+such as mass balance.  However, these discretizations are based on the
+first order form, and hence, naturally lead to an indefinite linear
+system.  Thus, the primary hurdle in the widespread adoption of these
+methods has been the robust and efficient solution of this linear
+system.
+
+<p>
+In the mixed-hybrid case it is possible to eliminate the flux (i.e.,
+the vector unknowns) locally to obtain a sparse symmetric positive
+definite system.  Unfortunately, the nonstandard sparsity structure of
+this reduced system has posed a significant challenge for the design
+of efficient multigrid preconditioners.  In this presentation we
+compare two different approaches to preconditioning these systems.
+First, we consider a mimetic approach to developing alternative or
+approximate discretizations that generate reduced systems that have a
+sparsity structure amenable to existing robust multigrid solvers.  In
+contrast, we consider the direct application of variational
+coarsening, the robust but potentially costly technique that lies at
+the heart of most robust multigrid algorithms.  Both of these
+techniques have been used to generate a number of preconditioners for
+orthogonal grids, as well as distorted logically rectangular grids.
+We will discuss the varying degrees of robustness associated with
+these preconditioners, as well as their potential extension to
+unstructured grids.
+
+</body>
+</html>
+

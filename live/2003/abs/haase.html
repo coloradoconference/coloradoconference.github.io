@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>cm conference abstract: HAASE</title>
+</head>
+
+<body>
+
+<center>
+Acceleration and Parallelization of 
+Algebraic Multigrid
+</center>
+
+<p>
+<center>
+<a href="mailto: ghaase@numa.uni-linz.ac.at">
+Gundolf Haase</a><br><br>
+Johannes Kepler University Linz, Institute for Computational Mathematics, 
+Altenberger Str.69, A-4040 Linz, Austria <br><br>
+Stefan Reitzinger<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Although algebraic multigrid methods (AMG) possess optimal properties 
+wrt.  memory requirements and the time for solving, 
+a commercial user could be dissatisfied with the computational performance 
+in comparison to highly optimized standard solvers.  
+A lot of performance can be gained by designing data structures 
+with respect to state-of-the-art computer architectures, 
+parallelization and redesign of numerical algorithms. 
+
+The parallelization needs some modifications in the coarsening process 
+such that the inter grid transfer operators fulfill a certain condition on the 
+pattern of the interpolation/restriction. This guarantees that the 
+parallel AMG is only a simple 
+modification of the sequential AMG. 
+The presented parallelization strategy for AMG results in very good speedups. 
+
+Discretized differential equations have to be solved several thousand 
+times inside the solution process of an inverse problem. 
+We got for this special application of AMG 
+a significant gain in CPU time (factor 4 and more) 
+due to additional acceleration of our code PEBBLES by 
+simultaneous handling of several data sets, cache aware programming 
+and by merging of multigrid subroutines. 
+Together with a parallelization, the solution time of the original code 
+was accelerated from 8 days to 5 hours on a 12 processor parallel computer.
+</body>
+</html>

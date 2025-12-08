@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>cm conference abstract: Hans De Sterck</title>
+</head>
+
+<body>
+
+<center>
+Least-Squares Methods for Hyperbolic Conservation Laws <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: desterck@colorado.edu">
+Hans De Sterck</a><br><br>
+Department of Applied Mathematics<br>
+University of Colorado at Boulder<br>
+Campus Box 526<br>
+Boulder, Colorado 80309-0526
+<br>
+Tom Manteuffel,
+Steve McCormick,
+Luke Olson
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Least-squares finite element methods for the inviscid Burgers
+equation in space-time domains are presented. Numerical
+results show that convergence of a standard least-squares approach
+for div(<i>u</i>,<i>u</i><sup>2</sup>/2)=0
+with bilinear elements for <i>u</i> and
+Newton linearization is problematic, possibly due to difficulties
+with the linearizability of the Burgers operator around discontinuous
+solutions. Alternative H(div)-conforming formulations are proposed in
+terms of the flux variables (or their De Rahm-dual) using face and
+edge elements. The face element formulation does not exhibit exact
+numerical conservation at the discrete level, but it is
+shown that the formulation converges to a conservative weak
+solution with the correct shock speed. The dual edge element
+formulation is strictly conservative at the discrete level.
+The least-squares functional naturally provides a sharp a posteriori
+error estimator that is used for adaptive refinement in space-time.
+Standard algebraic multigrid methods are applied to the positive
+semi-definite matrices resulting from the new least-squares
+formulations, and multigrid efficiency as a function of
+problem size is investigated.
+Extension of the new least-squares methods to general
+systems of hyperbolic conservation laws in multiple dimensions
+is discussed.
+
+</body>
+</html>
+

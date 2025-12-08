@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>cm conference abstract: Robert D. Falgout</title>
+</head>
+
+<body>
+
+<center>
+On Generalizing the AMG Framework <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: rfalgout@llnl.gov">
+Robert D. Falgout</a><br><br>
+Lawrence Livermore National Laboratory<br>
+P.O. Box 808, L-561<br>
+Livermore, CA  94551 <br><br>
+Panayot S. Vassilevski<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+In recent years, much work has been done to increase the robustness of
+Algebraic Multigrid (AMG) methods.  The classical AMG method of Ruge
+and St&uuml;ben [5] used heuristics based on properties of M-matrices.
+Although this algorithm works remarkably well for a wide variety of
+problems [3], the M-matrix assumption still limits its applicability.
+To address this, a new class of algorithms was developed based on
+multigrid theory: AMGe [1], element-free AMGe [4], and spectral AMGe
+[2].  All of these algorithms assume a basic framework in their
+construction.  Namely, they assume that relaxation is a simple
+pointwise method, then they build the coarse-grid correction step to
+eliminate the so-called <i>algebraically smooth</i> error left over by
+the relaxation process.  In the AMGe methods above, this is done with
+the help of a <i>measure</i> (or weak-approximation property) that
+defines the approximation property that interpolation must satisfy in
+order to achieve uniform convergence assuming a pointwise relaxation.
+
+<p>
+In this talk, we introduce a new measure for constructing algebraic
+multigrid methods.  The purpose of this new measure is to generalize
+the AMG framework to include problems such as Maxwell's Equations,
+which has a particularly large null-space when discretized using the
+common N&eacute;d&eacute;lec finite elements.  In the old framework,
+it is necessary to take all O(N) of these null-space components to the
+coarse grid, which results in a non-optimal method.  This problem can
+be overcome by using something other than pointwise relaxation to damp
+a subspace of these near-null-space components on the fine grid.
+Examples include overlapping block relaxation or the so-called
+Hiptmair smoother (Brandt's distributive relaxation).  The measure
+proposed here takes into account the smoothing process and changes the
+AMGe heuristic in a subtle but important way.  The hope is that this
+new measure will allow us to develop AMG methods that can handle
+difficult problems such as Maxwell's equations or Helmholtz.
+
+<p>
+This work was performed under the auspices of the U.S. Department of
+Energy by University of California Lawrence Livermore National
+Laboratory under contract No. W-7405-Eng-48.
+
+<p>
+UCRL-JC-150807-ABS
+
+<br>
+
+<br>
+[1] M. Brezina, A. J. Cleary, R. D. Falgout, V. E. Henson,
+J. E. Jones, T. A.  Manteuffel, S. F. McCormick, and J. W. Ruge,
+<i>Algebraic multigrid based on element interpolation (AMGe)</i>, SIAM
+J. Sci. Comput., 22 (2000), pp. 1570 -1592.
+
+<br>
+[2] T. Chartier, R. D. Falgout, V. E. Henson, J. E. Jones,
+T. A. Manteuffel, S. F. McCormick, J. W. Ruge, and P. S. Vassilevski,
+<i>Spectral AMGe</i>, SIAM J. Sci. Comput.  To appear.
+
+<br>
+[3] A. J. Cleary, R. D. Falgout, V. E. Henson, J. E. Jones,
+T. A. Manteuffel, S. F. McCormick, G. N. Miranda, and J. W. Ruge,
+<i>Robustness and scalability of algebraic multigrid</i>, SIAM
+J. Sci. Comput., 21 (2000), pp. 1886-1908.
+
+<br>
+[4] V. E. Henson and P. S. Vassilevski, <i>Element-free AMGe: general
+algorithms for computing interpolation weights in AMG</i>, SIAM
+J. Sci. Comput., 23 (2001), pp. 629-650.
+
+<br>
+[5] J. W. Ruge and K. St&uuml;ben, <i>Algebraic multigrid (AMG)</i>,
+in Multigrid Methods, S. F. McCormick, ed., vol. 3 of Frontiers in
+Applied Mathematics, SIAM, Philadelphia, PA, 1987, pp. 73-130.
+
+</body>
+</html>

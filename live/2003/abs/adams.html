@@ -1,0 +1,53 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en] (X11; U; Linux 2.4.3-20mdksmp i686) [Netscape]">
+   <title>cm conference abstract: Mark Adams</title>
+</head>
+<body>
+
+<center>
+Algebraic Multigrid Methods for Constrained Systems of Linear Equations <!-- TITLE -->
+<p><a href="mailto:mfadams@ca.sandia.gov">Mark Adams</a>
+<p>Sandia National Laboratories
+<br>PO Box 969.
+<br>Livermore CA 94551-9217
+<br>&nbsp;
+<p>Abstract</center>
+
+<p>Constrained systems of linear equations (KKT systems) arise in many
+applications from contact in solid mechanics and incompressible flow, to
+problems in mathematical optimization for PDE systems.&nbsp;&nbsp; Several
+approaches have been developed for solving these systems, given a solver
+for the primal part of the system: 1) constraint reduction, 2) projection
+methods, and 3) Uzawa/augmented Lagrange.&nbsp;&nbsp; All of these methods have
+advantages and disadvantages.&nbsp;&nbsp; Uzawa methods are robust and scalable
+though they require several approximate solves, as they iterate on the
+Shur complement.&nbsp;&nbsp; Constraint reduction is effective for certain types
+of constraints, but is limited in its applicability.&nbsp;&nbsp; Projection methods
+are attractive as they handle general constraints and are simple to use
+with an existing solver or preconditioner, but they are generally not scalable
+nor are they robust when used with powerful preconditioners, such as multigrid.
+<p>Algebraic multigrid is a popular method for solving the equations that
+arise from discretized PDEs, the primal part of KKT systems, but the application
+of multigrid to the entire KKT system has not been investigated to a great
+degree.&nbsp;&nbsp; V.H. Schulz has recently applied structured geometric multigrid
+to optimization problems, S.P. Vanka has developed structured geometric
+multigrid techniques for incompressible flow problems, and a commercial
+product (TaskFlow) has developed an algebraic (aggregation) multigrid method
+for unstructured incompressible flow problems.&nbsp;&nbsp; Multigrid methods
+are attractive for constrained systems as they have the potential to be
+both highly optimal like constraint reduction and general like projection
+methods by maintaining tight coupling of the constraints in the preconditioning
+process while not requiring that the primal part of the system be augmented
+by regularization as in Uzawa methods or a Shur complement as in constraint
+reduction.
+<p>This talk discusses the application of algebraic multigrid techniques
+to discretized PDEs with constraints.&nbsp;&nbsp; We describe a framework for
+developing algebraic multigrid methods for KKT systems and discuss coarsening
+techniques for the constraint equations.&nbsp;&nbsp; We cover several approaches
+to constructing multigrid smoothers and present examples of application
+of some of these ideas to contact problems in solid mechanics.
+</body>
+</html>

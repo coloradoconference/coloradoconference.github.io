@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>cm conference abstract: C. W. Oosterlee</title>
+</head>
+
+<body>
+
+<center>
+An Efficient Multigrid Solver based on Distributive Smoothing for Poroelasticity Equations <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: c.w.oosterlee@math.tudelft.nl">
+C.W. Oosterlee </a><br><br>
+Delft University of Technology, Mekelweg 4, 2628 CD Delft, the Netherlands<br><br>
+F.J. Gaspar, F.J. Lisbona <br>
+R. Wienands <br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+
+Poroelasticity has a wide range of applications in biology, filtration and soil sciences. 
+It represents a model for problems where an elastic porous solid is saturated by a viscous fluid.
+The poroelasticity equations were derived by Biot, studying the consolidation of soils. 
+The equations have also been applied to the study of soft tissue compression to model the deformation and permeability of biological tissues. 
+<br>
+We introduce an efficient multigrid method for the system of poroelasticity equations. In particular, we present a pointwise smoothing method based on distributive iteration.
+In distributive smoothing the original system of equations is transformed by post-conditioning in order to achieve favorable properties, such as a decoupling of the equations and/or possibilities for pointwise smoothing.
+<br>
+A specialty lies in the discretization approach employed. We adopt a so-called staggered grid for the poroelasticity equations, whereas the usual way to discretize the equations is by means of finite elements. Standard finite elements (or finite differences), however, do not lead to stable solutions without additional stabilization. The staggered grid discretization, as proposed in[3], leads to a natural stable discretization for the poroelasticity system. Staggering is a well-known discretization technique in computational fluid dynamics, in particular for incompressible flow.
+The multigrid method is developed with analysis possibilities of increasing complexity on the basis of Fourier analysis. After the analysis of the determinant of the system of equations, the h-ellipticity concept is discussed, which is fundamental for the existence of point smoothers. The smoother is developed based on insights in distributive smoothers for Stokes and incompressible Navier-Stokes equations [1,2,4,5]. It is evaluated and tuned with relaxation parameters on the basis of Fourier smoothing analysis. 
+An equation-wise decoupled smoother with as principal operators simple Laplacian and biharmonic operators is obtained, although the blocks in the system of poroelasticitye equations contain anisotropies.
+Numerical experiments confirm the efficiency of the method proposed.
+<br><br>
+[1] A. Brandt,
+Multigrid techniques: 1984 guide with applications to fluid dynamics,
+(GMD-Studie Nr. 85, Sankt Augustin, Germany, 1984).
+<br>
+[2] A. Brandt and N. Dinar,
+Multigrid solutions to elliptic flow problems,
+in: S. Parter, ed., 
+Numerical methods for partial differential equations,
+(Academic Press, New York, 1979), pp.53--147.
+<br>
+[3]
+F.J. Gaspar, F.J. Lisbona and P.N. Vabishchevich,
+A finite difference analysis of Biot's consolidation model.
+Appl. Num. Math. to appear. 
+<br>
+[4] U. Trottenberg, C.W. Oosterlee, and A. Schueller,
+Multigrid, (Academic Press, New York, 2001).
+<br>
+[5] G. Wittum,
+Multi-grid methods for Stokes and Navier-Stokes equations with transforming smoothers: algorithms and numerical results.
+Num. Math., 54: 543-563, 1989.
+
+</body>
+</html>

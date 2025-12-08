@@ -1,0 +1,59 @@
+
+<html>
+  <head>
+    <title>cm conference abstract: J. Bordner</title>
+  </head>
+
+  <body>
+
+    <center>
+      MGMPI: A Parallel Multigrid Software Library <!-- TITLE -->
+    </center>
+
+    <p>
+      <center>
+	<a href="mailto:jbordner@cosmos.ucsd.edu">
+	  J. Bordner</a><br>
+          University of California, San Diego<br>
+	  9500 Gilman Drive Dept. 0424<br>
+	La Jolla, CA 92093-0424
+      </center>
+
+      <p>
+	<center>
+	  <br>Abstract
+	</center>
+
+	<p>
+	  MGMPI (<a href="http://cosmos.ucsd.edu/mgmpi">http://cosmos.ucsd.edu/mgmpi</a>)
+	  is a parallel multigrid software library under development
+	  at the Laboratory for Computational Astrophysics, currently
+	  located at the University of California, San Diego. MGMPI is
+	  written using a combination of C++ and Fortran-77, and is
+	  designed to solve 3D linear elliptic PDEs discretized on
+	  logically Cartesian grids.  Parallelism is obtained by
+	  partitioning grids into subregions, and using MPI for
+          communication between these subregions.
+	</p>
+
+	<p>
+	  Current multigrid components include V-, W-, and F-cycle
+	  methods, operator-based prolongation and restriction,
+	  coarse-grid problem generation using harmonic averaging or
+	  Galerkin coarsening, and weighted point Jacobi and point
+	  red-black Gauss Seidel smoothers.  Coarse-grid problems can
+	  be solved using one of a variety of Krylov subspace solvers,
+	  including CG and BiCG-STAB, or by applying any of the
+          available smoothers.
+	</p>
+
+	<p>
+	  Future components we hope to implement soon include
+	  semi-coarsening, and alternating line- and plane-smoothers.
+	  We also intend to include fast computational kernels that
+	  exploit properties of multi-level memory hierarchies, and to
+	  optimize parallel performance.
+	</p>
+  </body>
+</html>
+

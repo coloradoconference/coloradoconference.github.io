@@ -1,0 +1,76 @@
+
+<html>
+<head>
+<title>Multilevel Structure and Multigrid
+Calculation of Eigenbases: Brandt</title>
+</head>
+
+<body>
+
+<center>
+Multilevel Structure and Multigrid Calculation of Eigenbases
+</center>
+
+<p>
+<center>
+<a href="achi@wisdom.weizmann.ac.il">
+Achi Brandt</a><br><br>
+Dept. of Computer Science and Applied Mathematics, The Weizmann
+Institute of Science, Rehovot 76100, Israel<br><br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+The eigenfunctions of a differential operator (or a discretized
+differential
+operator, or a matrix of a similar type) need not each be separately
+represented. A compact multilevel collective structure can be organized,
+in
+which many eigenfunctions have the same fine-level representation; they
+are
+distinguished only in the way in which that representation is mollified,
+
+where the mollification is a point-by-pont multiplication by a smooth
+function which is represented on the next coarser grid. At that coarser
+level, many of the mollification functions can again use a common
+representation, etc., so at increasingly coarser levels more and more
+eigensets are separated out, each becoming progressively more specific.
+<p>
+This makes it possible to calculate N eigenfunctions in just O(N log N)
+computer operations, using only O(N log N) storage. By comparison, a
+usual multigrid eigensolver would require at least O(N**3) operations
+and O(N**2) storage. Moreover the multiscale eigenbasis (MEB) structure
+allows to expand any given function in terms of the N eigenfunctions in
+again just O(N log N) operations. This is a vast generalization of the
+Fast Fourier Transform (FFT), which achieves the same complexity order
+(with a smaller prefactor), but is limited to the eigenbasis of
+differential operators with constant coefficients, periodic boundary
+conditions and uniform discretization.
+<p>
+The multiplicative Galerkin mode of coarsening the eigenproblem avoids
+certain flaws in classical multigrid eigensolvers: it yields coarse
+equations that have themselves the form of an eigenproblem, whose
+eigenvectors correspond one-to-one to fine eigenvectors;
+orthogonalizations
+need only be performed at coarse levels; and arbitrarily coarse grids
+can
+be employed even in calculating high eigenfunctions. This mode is
+particularly
+natural and useful for algebraic multigrid (AMG), since it involves
+construction of the intergrid interpolation operators.
+<p>
+The MEB structure also allows very efficient eigen calculations in
+unbounded domains for operators that have asymptotically constant
+or periodic coefficients, which is the usual situation in many
+applications, including molecular and condensed-matter electronic
+structure calculations.
+<p>
+The work is a collaboration in progress with Drs. Oren Livne and
+Ira Livshits.
+</body>
+</html>
+

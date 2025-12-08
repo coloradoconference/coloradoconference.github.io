@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>cm conference abstract: Koung-Hee Leem</title>
+</head>
+
+<body>
+
+<center>
+Algebraic Multigrid (AMG) for indefinite linear systems from meshfree dscretizations  <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: khleem@math.uiowa.edu">
+Koung-Hee Leem</a><br><br>
+Department of Mathematics, 14 MacLean Hall, University of Iowa, Iowa City, IA 52242-1419<br><br>
+S. Oliveira<br>
+D. E. Stewart<br>
+
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Meshfree discretizations construct approximate solutions to
+partial differential equation based on particles, not on meshes, 
+so that it is well suited to solve the problems on irregular domains.
+Since the nodal basis property is not satisfied in meshfree 
+discretizations, it is difficult to handle essential boundary
+conditions. 
+There has been attempts to enforce this property by modifying basis 
+functions. Instead, we employ the Lagrange multiplier approach to 
+resolve this problem, but this will result in indefinite linear systems. 
+
+As a solver for this indefinite linear system, we propose a new
+Algebraic 
+Multigrid (AMG) scheme based on aggregating elements and  
+neighborhoods. AMG based only on aggregation of elements was tried 
+because of its simplicity, but it often shows slow convergence. 
+There have been many attempts to overcome this problem.
+The new interpolation approach utilizes the information in neighborhood
+matrices as well as aggregation of elements. 
+Unlike classical AMG, this new approach can be applied to any 
+symmetric, positive definite linear systems.
+
+Moreover, with additional information for meshfree discretizations,
+we successfully modified this new AMG approach to solve symmetric 
+indefinite linear systems arising from meshfree discretizations 
+with essential boundary conditions. 
+
+</body>
+</html>

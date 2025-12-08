@@ -1,0 +1,70 @@
+  <html>
+    <head>
+      <title>cm conference abstract: Vladimir Ivanov, Joe Maruszewski</title>
+    </head>
+
+    <body>
+
+      <center>
+Development of Selective AMG Solver and Comparison <!-- TITLE -->
+of its Performance with Aggregative AMG <!-- TITLE -->
+      </center>
+
+      <p>
+	<center>
+	  <a href="mailto: vai@fluent.com">
+	    Vladimir Ivanov</a> and 
+	  Joe Maruszewski<br><br>
+	      Fluent Inc., 10 Cavendish Court, Lebanon, NH, 03766
+
+	</center>
+	<p>
+	  <center>
+	    <br>Abstract
+	  </center>
+
+	  <p>
+	    Selective multigrid has higher order of interpolation and
+	    prolongation operators in comparison with standard aggregative
+	    multigrid. These properties provide better convergence rate for
+	    selective multigrid but come at price of a longer setup phase. 
+	    A question what solver is faster can't be answered without direct
+	    comparison of both solvers under a specified convergence criteria.
+	    <br>
+	    The selective multigrid has been implemented following
+	      J.W.Ruge and K.Stueben's works. The standard coarsening
+	      scheme was used and the direct 
+	    and standard interpolations were tried. The standard
+	      interpolation is more exact but more expensive in time
+	      and memory.  
+	      <br>
+
+
+	    The convergence and running time of the selective multigrid were
+	    compared with that of the Weiss et al's
+		aggregative multigrid. Both solvers were applied to a
+		test problem based on a diffusivity
+		equation and to a few matrices built from a pressure
+		equation for some CFD problems. Their performance is
+		analyzed based on reduction of 
+		residuals by one and six order of magnitude. 
+
+
+	    <p>
+	      References:
+
+	      <p>
+		Stueben K.,
+		<i>An Introduction to Algebraic Multigrid</i>, pp. 413-532 in
+		Trottenberg U., Oosterlee C.W., and Schuller A., Multigrid, Academic
+		Press, 2001. 
+
+		<br>
+		  Weiss J.M, Maruszewski J.P, Smith W.A.,
+		  <i>Implicit
+		  Solution of the Navier-Stokes Equations
+		  on Unstructured Meshes</i>, 13th
+		  AIAA CFD Conference, June 1997, Paper 97-2103 
+
+    </body>
+  </html>

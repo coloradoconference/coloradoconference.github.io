@@ -1,0 +1,74 @@
+
+<html>
+<head>
+<title>cm conference abstract: Ulrich Ruede</title>
+</head>
+
+<body>
+
+<center>
+Accurate multigrid techniques for computing singular <!-- TITLE -->
+solutions of elliptic problems. <!-- TITLE -->
+</center>
+
+<p>
+<center>
+<a href="mailto: ruede@informatik.uni-erlangen.de">
+Ulrich Ruede</a><br><br>
+Institute of Computer Science X,<br>
+Universitaet Erlangen-Nuernberg<br>
+Cauerstr.  6<br>
+D-91058 Erlangen, Germany<br><br>
+Harald Koestler, Marcus Mohr<br>
+</center>
+
+<p>
+<center>
+<br>Abstract
+</center>
+
+<p>
+Generalized functions occur in many practical applications as source terms
+in partial differential applications.
+Typical examples are point
+sources and sinks in porous media flow that are described by Dirac delta
+functions or point loads and dipoles as source terms inducing
+electrostatic potentials. We are particularly interested
+in bioelectric field computations where the source terms are modeled
+by dipoles and where the computational goal is to locate dipole sources
+as accurately as possible from electroencephalographic measurements.
+
+<p>
+For analyzing the accuracy of such computations, standard techniques
+cannot be used since they rely on global smoothness. This is both true for
+Sobolev space arguments for finite element based methods,
+and for continuity and differentiability arguments in finite
+difference analysis. At the singularity, the solution tends to infinity and
+therefore standard error norms will not even converge.
+
+<p>
+In this presentation we will demonstrate that these difficulties
+can be overcome by using other metrics to measure
+accuracy and convergence of the numerical solution.
+Only minor modifications
+to the discretization and solver are necessary to obtain the same asymptotic
+accuracy and efficiency as for regular and smooth solutions.
+In particular, no adaptive refinement is necessary and it is also
+unnecessary to use techniques which make use of the analytic knowledge of the
+singularity. Our method relies simply on a mesh-size
+dependent representation of the singular sources
+constructed by appropriate smoothing.
+It can be proved that the pointwise accuracy is of the same order
+as in the regular case. The error coefficient depends on the location
+and will deteriorate when approaching the singularity where the error
+estimate breaks down. Our approach is therefore useful for accurately
+computing the global solution, except in a small neighborhood of the singular
+points. In the talk we will demonstrate how these techniques can
+be integrated into a multigrid solver exploiting additional techniques for
+improving the accuracy, such as Richardson and tau-Extrapolation.
+
+The talk is a follow-up to a paper presented in Copper Mountain in 1987.
+
+</body>
+</html>
+
