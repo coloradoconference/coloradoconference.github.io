@@ -1,0 +1,53 @@
+<h2>Matrix Equation Decomposition and Parallel Solution of Systems Resulting
+from Unstructured Finite Element Problems in Electromagnetics</h2>
+<pre>
+
+Tom Cwik* and Daniel S. Katz**
+
+
+*Jet Propulsion Laboratory, California Institute of Technology, Pasadena,
+CA  91109
+
+**Cray Research, 222 N. Sepulveda Blvd., Ste. 1406, El Segundo, CA  90245
+
+
+
+
+        Finite element modeling has proven useful for accurately simulating
+scattered or radiated electromagnetic fields from complex three-dimensional
+objects whose geometry varies on the scale of a fraction of an electrical
+wavelength.  An unstructured finite element model of realistic objects
+leads to a large, sparse, system of equations that needs to be solved
+efficiently with regard to machine memory and execution time.  Both
+factorization and iterative solvers can be used to produce solutions to
+these systems of equations.  Factorization leads to high memory
+requirements that limit the electrical problem size of three-dimensional
+objects that can be modeled.  An iterative solver can be used to
+efficiently solve the system without excessive memory use and in a minimal
+amount of time if the convergence rate is controlled.
+
+        This paper will discuss a number of topics related to the parallel
+creation and solution of matrices resulting from large unstructured
+problems, in the context of an electromagnetic finite element code running
+on the Cray T3D located at the Jet Propulsion Laboratory.  The JPL code,
+named PHOEBUS, has been used to obtain solutions for systems with nearly
+three-quarters of a million unknowns.
+
+        One of these topics is mesh vs. matrix partitioning.  The code
+running at JPL decomposes the finite element matrix in row slabs, as
+compared with the usual strategy of decomposing the mesh.  Another topic is
+the iterative solver, in this case a quasi minimum residual method.  An
+examination of the computational kernel, a sparse matrix dense vector
+multiply, is given, and the issue of solving for a single right hand side
+vs. multiple right hand sides (possibly a block of right hand sides) is
+discussed.  Another question related to the iterative solver is parallel
+methods of preconditioning, such as using an incomplete Cholesky
+factorization or a sparse approximate inverse.
+
+
+
+
+
+</pre>
+
+

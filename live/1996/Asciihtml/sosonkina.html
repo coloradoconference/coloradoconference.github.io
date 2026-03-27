@@ -1,0 +1,48 @@
+<h2>
+
+A New Adaptive GMRES Algorithm for Achieving High Accuracy
+</h2>
+<pre>
+
+Masha Sosonkina*
+Department of Computer Science
+Virginia Polytechnic Institute & State University
+Blacksburg, VA 24061-0106
+
+Rakesh A. Kapania
+Department of Aerospace and Ocean Engineering
+Virginia Polytechnic Institute & State University
+Blacksburg, VA 24061-0203
+
+Homer F. Walker
+Department of Mathematics and Statistics
+Utah State University
+Logan, UT 84322
+
+Layne T. Watson
+Departments of Computer Science and Mathematics
+Virginia Polytechnic Institute & State University
+Blacksburg, VA 24061-0106
+
+GMRES(k) is widely used for solving nonsymmetric linear systems.
+However, it is inadequate either when it converges only for $k$ close
+to the problem size or when numerical error in the modified
+Gram-Schmidt process used in the GMRES orthogonalization phase
+dramatically affects the algorithm performance.  An adaptive version of
+GMRES(k) which tunes the restart value $k$ based on criteria estimating
+the GMRES convergence rate for the given problem is proposed here.
+This adaptive GMRES(k) procedure outperforms standard GMRES(k), several
+other GMRES-like methods, and QMR on actual large scale sparse
+structural mechanics postbuckling and analog circuit simulation
+problems.  There are some applications, such as homotopy methods for
+high Reynolds number viscous flows, solid mechanics postbuckling
+analysis, and analog circuit simulation, where very high accuracy in
+the linear system solutions is essential. In this context, the modified
+Gram-Schmidt process in GMRES can fail causing the entire GMRES
+iteration to fail.  It is shown that the adaptive GMRES(k) with the
+orthogonalization performed by Householder transformations succeeds
+whenever GMRES(k) with the orthogonalization performed by the modified
+Gram-Schmidt process fails, and the extra cost of computing Householder
+transformations is justified for these applications.
+
+</pre>

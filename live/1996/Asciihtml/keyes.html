@@ -1,0 +1,28 @@
+<h2>Newton-Krylov-Schwarz Methods in Unstructured Grid Euler Flow
+</h2>
+<pre>
+(*) David E. Keyes, ODU & ICASE
+V. Venkatakrishnan, ICASE
+
+Newton-Krylov methods and Krylov-Schwarz methods
+have begun to become established in computational fluid dynamics
+over the past decade.  The former employ a Krylov method
+inside of Newton's method in a
+Jacobian-free manner, through directional differencing.
+The latter employ an overlapping Schwarz domain decomposition
+to derive a preconditioner for the Krylov accelerator that relies
+primarily on local information, for data-parallel concurrency.
+They may be composed
+as Newton-Krylov-Schwarz methods, which seem particularly
+well suited for solving nonlinear elliptic systems in high-latency,
+distributed-memory environments.
+We give a brief description of this family of algorithms, with an emphasis
+on domain decomposition iterative aspects.  We then
+describe numerical simulations with Newton-Krylov-Schwarz
+methods on a family of unstructured-grid Euler problems, emphasizing
+comparisons with a standard defect-correction approach,  subdomain
+preconditioner consistency, subdomain preconditioner quality,
+and the effect of a coarse grid. 
+
+
+</pre>

@@ -1,0 +1,46 @@
+<h2>
+   Advanced Incomplete Factorization Algorithms for Stiltijes Matrices
+</h2>
+<pre>
+                          V.P.Il'in
+  Computing Center, Siberian Division RAS, Novosibirsk, Russia
+
+  The modern numerical methods for solving the linear algebraic systems
+Au = f with high order sparse matrices A, which arise in grid approximations
+of multidimensional boundary value problems, are based mainly on accelerated
+iterative processes with easily invertible preconditioning matrices presented
+in the form of approximate (incomplete) factorization of the original
+matrix A, see [1], [2] for example. We consider some recent algorithmic
+approaches, theoretical foundations, experimental data and open questions
+for incomplete factorization of Stiltijes matrices which are "the best" ones
+in the sense that they have the most advanced results.  Special attention is
+given to solving the elliptic differential equations with strongly variable
+coefficients, singular perturbated diffusion-convection and parabolic
+equations.
+
+  In general, the block tridiagonal Stiltijes matrix A=D-L-U with
+block diagonal or diagonal matrix D, low- and upper-triangular
+matrices L, U = L' can be approximated by the factorized matrix
+B=(G - L)G^(G - U), where G is block-diagonal matrix defined by
+some approximations of Shur complement matrices of A and G^ is inverse of G.
+We describe two sets of explicit and implicit methods with closure in the
+sense that in limit B is the exact factorization of A.
+
+There are presented several modifications of the algorithms with various
+iterative parameters which provide the generalization of wellknown methods and
+application of extended row sum criteria
+                   B yk = A yk,   k=1,2,...,
+the symmetrized alternating direction methods with nonsymmetric preconditioners,
+adapted "flow-directed" algorithms, some versions of algebraic domain
+decomposition and hierarhical multigrid approaches. Both theoretical estimates
+and computational results are included.
+
+                References
+
+1. V.P.Il'in. Iterative incomplete factorization methods, Wold Sci. Pub. Co.,
+   1992, 192 pp.
+2. V.P.Il'in. Incomplete factorization methods for solution of the algebraic
+systems (in Russian), Moscow: Nauka, 1995, 288 pp.
+
+
+</pre>

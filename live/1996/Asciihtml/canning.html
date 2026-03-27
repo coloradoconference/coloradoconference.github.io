@@ -1,0 +1,101 @@
+
+<pre> 
+
+				Francis X. Canning
+				Rockwell Science Center
+				1049 Camino Dos Rios
+				Thousand Oaks, CA 91360
+</pre>
+<h2>
+Solution of Helmholtz Equation in N Unknowns in Sqrt[N] Operations
+</h2>
+<pre>
+     The scattering of waves by a non penetrable body is considered,
+which is the exterior problem for the Helmholtz equation. An integral
+equation formulation is used, so unknowns are required only on the
+surface of the body. These N unknowns give rise to a matrix equation
+involving an N by N matrix, Z. Ordinarily, Z is a full matrix, since a
+source on any one part of the body creates a field at all other points
+on the body. However, the matrix can be made sparse. Consider the
+surface of the body as the union of Sqrt[N] disjoint regions, where
+there are Sqrt[N] unknowns on each region. Initially, each unknown
+is associated with a source localized near a grid point. Then we
+perform a linear transformation acting within each region seperately.
+This gives a description in terms of sources which are localized only
+within an entire region. The transformation is done so that the
+sources radiate highly directional beams. This transformation on the
+columns of the matrix is now also done on the rows, so a similarity
+transformation results. The resulting matrix will be sparse, in the
+sense that nearly all of its elements may be well approximated by
+zero. This technique, called the Impedance Matrix Localization (IML)
+method, has been described in previous papers. The matrix has O[N]
+non zero elements, and there is a method for calculating it in O[N]
+operations.
+
+     The sources which are associated with this description of the
+problem provide a strong analogy to a model in terms of rays. We
+want to solve the matrix problem in a way which maintains this
+analogy. This matrix consists of blocks, where each block corresponds
+to the interaction of two of the regions described above. Each non
+diagonal block has an isolated peak, which is analogous to a
+specification of a ray. Each peak consists of O[1] matrix elements,
+typically about 50 matrix elements, for either two or three
+dimensional problems. We want to find a solution method which
+preserves the analogy to a ray description. Thus, we perform a block
+factorization to preserve the block structure. To prevent significant
+fill in, we make this an approximate factorization using a tolerance
+for approximating elements of the factored form by zero. We have
+found that even when this tolerance allows several digits of accuracy,
+the factored form is nearly as sparse as the matrix before
+factorization. Furthermore, we find that many of the operations in
+the algorithm give zero contribution, since they involve the product
+of some number with zero. When done carefully this calculation can
+be done in O[N] operations, as discussed in our previous papers.
+
+     This approximate inverse is a good preconditioner for methods
+such as conjugate gradients. However, we find the best results by
+using it to define a splitting method. That is, the matrix T is split into
+two parts, the inverse of the approximate inverse, and the
+remainder. The question that now arises is how fast do we have to be
+able to solve the matrix equation for each right hand side so that the
+time for the iterative solution does not dominate all other times. All
+operations up to the iterative solution can be done in a total time
+which is O[N], albeit with a large constant (typically 10,000). For any
+scattering problem, for how many right hand sides do we need to
+solve it? Each right hand side corresponds to a different angle of
+incidence. To resolve all possible interference patterns, we need O[N]
+solutions for either two or three dimensional problems, when N is
+chosen reasonably (such as for a fixed number of unknowns per
+wavelength). However, in practice one never needs this many
+solutions. Let us compromise, and say that we need O[Sqrt[N]]
+solutions. Then we must be able to find each solution in O[Sqrt[N]]
+operations, so that the total time remains O[N].
+
+     Our surprising result is that for sufficiently smooth bodies and for
+right hand sides representing radiation incident from a single
+direction, it is possible to solve the problem in O[Sqrt[N]] operations
+per right hand side. We find that such a right hand side has
+O[Sqrt[N]] non zero elements, and so does the solution vector. This is
+truly a dramatic improvement over other methods. If this matrix had
+been treated as full, even forward and back substitution would have
+been O[N*N] operations, while our method is O[Sqrt[N]].
+
+     To see how this is possible, consider first the problem of
+calculating the residual at some stage in an iterative solution. This
+involves multiplying an N by N matrix by a vector of length N.
+Because of sparseness, this matrix has O[1] non zero elements
+(typically about 50) per row. What is the operation count for taking
+the dot product of one row with the vector? The probability that the
+dot product is non zero is O[1/Sqrt[N]], as is the operation count.
+When this is done N times, once for each row, the total count is
+O[Sqrt[N]].
+
+     In a similar manner, it can be shown that the operation counts for
+back substitution and forward substitution are also O[Sqrt[N]]. By
+taking the tolerance such that a splitting method gives say one order
+of magnitude improvement in residual at each iteration, we find
+convergence in O[1] iterations. This produces a method which is
+O[Sqrt[N]] per right hand side.
+
+
+</pre>

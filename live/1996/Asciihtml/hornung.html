@@ -1,0 +1,135 @@
+<h2>Adaptive Mesh Refinement and Multilevel Iteration for Flow in Porous Media
+</h2>
+<pre>
+Author: Richard D. Hornung 
+        Department of Mathematics, Duke University 
+        Durham, NC 27708-0320 
+        e-mail: hornung@math.duke.edu
+
+                               Abstract
+
+An adaptive local mesh refinement (AMR) algorithm originally developed
+for unsteady gas dynamics is extended to multi-phase flow in porous media.
+Within the AMR framework, we combine specialized numerical methods to treat
+the different aspects of the partial differential equations.
+Multi-level iteration and domain decomposition techniques are incorporated
+to accommodate elliptic/parabolic behavior.
+High-resolution shock capturing schemes are used in the time integration 
+of the hyperbolic mass conservation equations.
+When combined with AMR, these numerical schemes provide high resolution 
+locally in a more efficient manner than if they were applied on a uniformly
+fine computational mesh.
+We will discuss the interplay of physical, mathematical, and numerical concerns
+in the application of adaptive mesh refinement to
+flow in porous media problems of practical interest.
+
+Multi-phase flow in oil recovery and aquifer remediation problems exhibits 
+behavior typical of the solutions to both elliptic/parabolic
+and hyperbolic partial differential equations.
+For example, pressure changes are felt quickly throughout
+the reservoir when the flow is incompressible or only slightly
+compressible.
+In contrast, injected fluids move with finite speeds and the flow can
+develop sharp fronts separating different fluid states.
+Generally, the equations of multi-phase porous media flow can be
+written as a system of conservation equations for the masses of the
+fluid components, subject to a constraint that the fluid fills
+the void space in the rock.
+If the model describes incompressible flow,
+one obtains an elliptic pressure equation by summing the mass
+conservation equations and applying the volume balance constraint.
+In the compressible case, it is often reasonable to linearize the volume
+balance constraint in time to develop a nonlinear parabolic pressure equation.
+Although this separation of the governing equations is not supported by any
+rigorous mathematical analysis, the splitting is heuristically
+motivated by model problems and computational experience.
+
+Conventional numerical treatment of practical multi-dimensional, 
+multi-phase fluid flow problems in enhanced oil recovery and aquifer 
+remediation is very computationally expensive and often provides 
+inadequate results.
+The primary impediments to simulation accuracy are standard
+numerical methods that cannot properly treat complicated physical and
+chemical flow mechanisms, and the employment of computational meshes that
+do not allow sufficient resolution of important flow features.
+To provide useful information for the development of recovery processes,
+field-scale simulations must be able to
+resolve complicated, fine-scale, localized (transient and static) flow behavior.
+Consequently, the computational mesh employed in a simulation must
+be sufficiently fine to resolve the length scales of important features.
+However, the systems of discrete equations resulting from the approximation 
+of typical reservoir and fluid models severely restricts the allowable 
+refinement of the mesh.
+This is due to the magnitude of the discrete systems and the complicated 
+nonlinear relationships amongst the variables. 
+By combining AMR with high resolution numerical techniques, we can concentrate
+numerical effort near localized features. 
+As a result, greater local resolution can be achieved more efficiently than
+if a globally fine mesh is used.
+ 
+The adaptive local mesh refinement paradigm that we employ is based on the
+ideas introduced by Berger and Oliger, and extended by Berger, Colella and
+Trangenstein in separate pursuits.
+The AMR process automatically and
+dynamically generates a hierarchy of nested levels of computational cells.
+Within each level, the cells are maintained as a list of
+logically-rectangular patches.
+The advantages of this patch refinement approach over other refinement
+strategies are significant for a wide range of computational
+problems including, but not limited to, flow in porous media.
+The patch approach is designed so that
+a small number of computationally rich tasks can be organized in a highly
+structured fashion.
+We are able to use integration and iteration routines developed for
+rectangular meshes on all patches on all levels in the
+adaptive mesh hierarchy.
+Therefore, the user interface in the code appears much like it does in
+a conventional simulator.
+Moreover, the implementation of efficient and accurate high resolution
+numerical routines is better understood on logically-rectangular meshes.
+In addition, the numerical integration routines used to solve the
+equations on the adaptive mesh are easily separated from the
+structure of the AMR algorithm.
+This greatly enhances code extendibility, maintenance and generality.
+Finally, high resolution numerical methods and domain decomposition
+methods can be made efficient on vector and parallel computers
+when the data is organized in a logically-rectangular fashion as allowed
+in the patch refinement approach.
+
+Our use of multilevel iteration to solve the pressure equation
+associated with flow in porous media is motivated differently than conventional
+applications of multigrid-type methods.
+We are primarily concerned with capturing fluid interfaces
+whose time evolution is modeled by the coupling between hyperbolic mass
+conservation equations and an elliptic/parabolic pressure equation.
+The placement of mesh refinement is governed by the need to resolve
+fluid interfaces and the complicated wave behavior presented by the 
+hyperbolic system.
+The role of the multilevel iteration is to solve the pressure
+equation on the given adaptive mesh configuration.
+The iteration must be able to treat fairly general
+mesh configurations as well as reasonably general behavior in the system of
+discrete equations representing the pressure equation.
+In addition, physically-motivated up-scaling and mesh communication 
+concerns need to be honored during the iteration process to ensure 
+consistency of the pressure solution with that of the mass equations.
+
+We will discuss algorithmic performance and various computational examples.
+In a typical two-dimensional problem, the overhead cost associated
+with AMR for inter-patch communication and mesh adaptivity is
+roughly 10\% to 20\% of the cost of the entire computation.
+As a result, our AMR code can complete a simulation in a fraction
+the time required for a comparable
+simulation in which the mesh is fine everywhere.
+For the incompressible case, we will present a two-phase polymer flooding model
+consisting of a system of nonlinear hyperbolic mass conservation
+equations coupled to an elliptic pressure equation.
+The presentation of the compressible case will center on 
+a fully compositional reservoir model that
+describes local phase equilibrium through the minimization of the
+Gibbs free energy of the fluid mixture.
+We will also address issues concerning the development of a
+general object-oriented AMR methodology that exploits the advantages of
+C++ for the AMR program structure and data management.
+
+</pre>
