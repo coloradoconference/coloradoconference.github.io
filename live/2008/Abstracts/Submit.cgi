@@ -4,7 +4,7 @@ do "../INFO.pl";
 ##########################################################################
 #-mb: $ThisDIR="~copper/$Year/Abstracts";
 $ThisDIR="/srv/www/cgi-bin/copper2008/Abstracts";
-$ThisURL="http://grandmaster.colorado.edu/~copper/$Year/Abstracts";
+$ThisURL="/$Year/Abstracts";
 $SubmDIR="$ThisDIR/submission";
 $SubmURL="$ThisURL/submission";
 ##########################################################################
