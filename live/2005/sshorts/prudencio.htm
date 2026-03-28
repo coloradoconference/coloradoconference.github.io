@@ -9,20 +9,19 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <meta name=Originator content="Microsoft Word 9">
 <title>Parallel Multi-Level Restricted Schwarz with Pollution</title>
 <!--[if gte mso 9]><xml>
- <o:DocumentProperties>
-  <o:Author>Cathy Lee</o:Author>
-  <o:Template>Normal</o:Template>
-  <o:LastAuthor>Cathy Lee</o:LastAuthor>
-  <o:Revision>1</o:Revision>
-  <o:TotalTime>1</o:TotalTime>
-  <o:Created>2005-03-07T19:34:00Z</o:Created>
-  <o:LastSaved>2005-03-07T19:35:00Z</o:LastSaved>
-  <o:Pages>1</o:Pages>
-  <o:Company>Front Range Scientific Computations</o:Company>
-  <o:Lines>1</o:Lines>
-  <o:Paragraphs>1</o:Paragraphs>
-  <o:Version>9.2720</o:Version>
- </o:DocumentProperties>
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
 </xml><![endif]-->
 <style>
 <!--
@@ -66,92 +65,92 @@ div.Section1
 <div class=Section1>
 
 <p class=MsoNormal>Parallel Multi-Level Restricted Schwarz with Pollution<span
-style='font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+style='font-family:"Arial Unicode MS"'></span></p>
 
-<p class=MsoNormal>Removing for PDE-Constrained Optimization.<o:p></o:p></p>
+<p class=MsoNormal>Removing for PDE-Constrained Optimization.</p>
 
-<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]></p>
 
-<p class=MsoNormal>Ernesto E. Prudencio and Xiao-Chuan Cai<o:p></o:p></p>
+<p class=MsoNormal>Ernesto E. Prudencio and Xiao-Chuan Cai</p>
 
-<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]></p>
 
-<p class=MsoNormal>Although Newton-Krylov-Schwarz (NKSz) methods have been<o:p></o:p></p>
+<p class=MsoNormal>Although Newton-Krylov-Schwarz (NKSz) methods have been</p>
 
-<p class=MsoNormal>successfully applied to the numerical solution of many<o:p></o:p></p>
+<p class=MsoNormal>successfully applied to the numerical solution of many</p>
 
-<p class=MsoNormal>simulation PDEs, little is known about their suitability to<o:p></o:p></p>
+<p class=MsoNormal>simulation PDEs, little is known about their suitability to</p>
 
-<p class=MsoNormal>the Karush-Kuhn-Tucker (KKT) systems arising from<o:p></o:p></p>
+<p class=MsoNormal>the Karush-Kuhn-Tucker (KKT) systems arising from</p>
 
-<p class=MsoNormal>PDE-constrained optimization problems.<o:p></o:p></p>
+<p class=MsoNormal>PDE-constrained optimization problems.</p>
 
-<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
-
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]></p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-In this talk we present multi-level<o:p></o:p></p>
+In this talk we present multi-level</p>
 
-<p class=MsoNormal>versions of the parallel fully coupled full space sequential<o:p></o:p></p>
+<p class=MsoNormal>versions of the parallel fully coupled full space sequential</p>
 
-<p class=MsoNormal>quadratic programming class of methods known as<o:p></o:p></p>
+<p class=MsoNormal>quadratic programming class of methods known as</p>
 
 <p class=MsoNormal>Lagrange-Newton-Krylov-Schwarz
 (LNKSz).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-In<o:p></o:p></p>
+In</p>
 
-<p class=MsoNormal>LNKSz a Lagrangian functional is formed and differentiated<o:p></o:p></p>
+<p class=MsoNormal>LNKSz a Lagrangian functional is formed and differentiated</p>
 
-<p class=MsoNormal>to obtain the KKT optimality system, which is then solved<o:p></o:p></p>
+<p class=MsoNormal>to obtain the KKT optimality system, which is then solved</p>
 
-<p class=MsoNormal>with NKSz algorithms. The multi-level preconditioner for the<o:p></o:p></p>
+<p class=MsoNormal>with NKSz algorithms. The multi-level preconditioner for the</p>
 
-<p class=MsoNormal>KKT Jacobian becomes a key component, combining restricted<o:p></o:p></p>
+<p class=MsoNormal>KKT Jacobian becomes a key component, combining restricted</p>
 
-<p class=MsoNormal>Schwarz smoothers with a pollution removing coarse-to-fine<o:p></o:p></p>
+<p class=MsoNormal>Schwarz smoothers with a pollution removing coarse-to-fine</p>
 
-<p class=MsoNormal>interpolation for the Lagrange multipliers.<o:p></o:p></p>
-
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+<p class=MsoNormal>interpolation for the Lagrange multipliers.</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<o:p></o:p></p>
+</p>
 
-<p class=MsoNormal>Our tests involve the parallel numerical solution of some<o:p></o:p></p>
+<p class=MsoNormal>Our tests involve the parallel numerical solution of some</p>
 
-<p class=MsoNormal>boundary flow control problems with two-level LNKSz<o:p></o:p></p>
+<p class=MsoNormal>boundary flow control problems with two-level LNKSz</p>
 
-<p class=MsoNormal>and show the method providing both the robustness w.r.t.<o:p></o:p></p>
+<p class=MsoNormal>and show the method providing both the robustness w.r.t.</p>
 
-<p class=MsoNormal>Reynolds number and the scalability w.r.t. to number of<o:p></o:p></p>
+<p class=MsoNormal>Reynolds number and the scalability w.r.t. to number of</p>
 
-<p class=MsoNormal>processors and mesh size.<o:p></o:p></p>
+<p class=MsoNormal>processors and mesh size.</p>
 
-<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]></p>
 
 </div>
 
