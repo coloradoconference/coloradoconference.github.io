@@ -1,0 +1,27 @@
+<h2>
+Parallel Implementation of Newton-Krylov-Schwarz 
+Algorithms for the Transonic Full Potential Problem 
+</h2>
+
+<pre>
+(*) Xiao-Chuan Cai, CU Boulder
+William D. Gropp, Argonne
+David E. Keyes, ODU & ICASE
+David P. Young, Boeing
+
+We report on overlapping Schwarz algorithms 
+for nonlinear finite element problems, in particular, for
+the full potential equation of aerodynamics. 
+The main algorithm, Newton-Krylov-Schwarz (NKS),
+uses an inexact finite-difference Newton's method and a Krylov space
+iterative method, with an overlapping Schwarz method as a preconditioner.
+We show that NKS, combined with a density upwinding continuation strategy,
+is robust for problems with weak shocks. Several parameters 
+require specification in NKS algorithms in order to obtain good
+convergence rates. Practical choices are given for both
+numerical convergence rate and execution time 
+on some distributed-memory parallel systems. 
+
+</pre>
+
+

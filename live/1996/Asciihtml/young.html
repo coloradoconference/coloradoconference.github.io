@@ -1,0 +1,31 @@
+<h2>
+On the Implementation of Parallel Implicit USSOR Methods
+for Solving Discrete Periodic Problems
+</h2>
+<pre>	
+David M. Young*, David R. Kincaid, and Wan Chen
+Center for Numerical Analysis
+The University of Texas at Austin
+
+In this paper, we consider certain iterative methods
+for solving discrete periodic problems based on the standard
+5-point finite difference representation of the Poisson equation
+in two dimensions. For a given positive integer m, our
+procedure involves the implementation of m**2 single iterations
+of the implicit USSOR (unsymmetric SOR) method based on the use
+of m**2 pairs of relaxation factors, followed by the construction
+of a linear combination of the results of those iterations.
+It has previously been shown by the authors that the result
+obtained by this process is the same as one would obtain by
+using m iterations of the SSOR methods with varying relaxation
+factor in sequence. (Thus, there is a potential saving in the
+wall-clock time of a factor of m.)  To carry out the implicit USSOR method, 
+we consider various procedures including the (non-implicit) SOR method. 
+The choice of the optimum relaxation factor for the SOR method and 
+the estimation of the corresponding convergence properties is greatly
+simplified since a related matrix is p-cyclic.
+
+---------
+*speaker
+
+</pre>

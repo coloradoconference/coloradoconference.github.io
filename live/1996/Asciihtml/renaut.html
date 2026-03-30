@@ -1,0 +1,68 @@
+<h2> 
+ Multisplitting  For Linear, Least Squares and Nonlinear Problems.
+</h2>
+<pre>
+                       Rosemary Renaut
+ 
+ In earlier work, presented at the 1994 Iterative Methods
+ meeting, a multisplitting (MS) method of block relaxation type
+ was utilised for the solution of the least squares problem,
+ and nonlinear unconstrained problems. This talk will focus
+ on recent developments of the general approach and represents
+ joint work both with Andreas Frommer, University of Wupertal for 
+ the linear problems and with
+ Hans Mittelmann, Arizona State University for the nonlinear problems.
+ 
+ The least squares problem can be solved using MS at the domain level.
+ This amounts to a column partitioning of the underlying system matrix.
+ Equivalently, it can be shown that the MS solution actually finds
+ the solution of the normal equations using MS on the system matrix
+ defined by the normal equations. Hence, this corresponds to the solution
+ of a system of equations with SPD system matrix. According to the
+ standard theory for MS methods this iteration will converge 
+ if and only if the underlying split is P-regular. The theory   
+ for convergence of the least squares problem shows, however, that convergence 
+ is in this case guaranteed. Hence the splitting must be P-regular. This leads
+ us to suppose that the MS of any SPD linear system is necessarily
+ P-regular, and provides a convergent iteration. In this talk
+ I will indicate the convergence theory that leads to this conclusion
+ and investigate how we might seek an alternative proof using the 
+ usual techniques from linear algebra.
+ 
+ Block-Jacobi methods are practical for parallel implementations but
+ the rate of convergence is limited. To attempt to remedy this 
+ inherent problem MS can be reformulated as a two-phase process. 
+ Two-stage methods, in which a splitting is applied to the already
+ split method have already shown to be advantageous in some cases, see 
+ Szyld et al. Here a different strategy, which originates in the 
+ Parallel Variable Distribution idea of Mangasarian et al, is suggested. 
+ At each iterative step there is some flexibility in the manner in which
+ the updated global solution is obtained. Standard MS uses a
+ convex combination of the recent local solutions with a fixed choice
+ of weights. Instead the minimal solution can be found by 
+ carrying out a local optimization with respect to these weights.
+ Typically the number of subproblems indicated by the MS is 
+ substantially less than the original size of the problem. Therefore
+ this optimization can be carried out locally to one processor 
+ with minimal extra cost. For the linear problems this 
+ minimization can actually be formulated as a least squares problem
+ with a system matrix that only needs to be factorized at the 
+ very first iteration. Results demonstrating the increased efficiency will
+ be presented.
+ 
+ These ideas have also been applied for the solution of large-scale
+ unconstrained convex minimization problems. Again,
+ in order to not have the convergence order limited
+ to linear we have started to explore an alternative approach. This
+ combines an exact augmented Lagrangian with a truncated Newton
+ iteration. Preliminary results will be presented.
+ 
+ Rosemary A. Renaut, 
+ Department of Mathematics
+ Arizona State University,
+ email renaut@math.la.asu.edu
+ 
+
+
+
+</pre>

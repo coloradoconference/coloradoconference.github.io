@@ -1,0 +1,57 @@
+<h2>
+Performance of Newton - Krylov Solvers for
+Parallel Reacting Flow Simulations*
+</h2>
+<pre>
+
+1) John N Shadid
+1) Ray S. Tuminaro
+2) Homer Walker
+
+1 Sandia National Laboratories
+  Albuquerque, NM 87185
+
+2 Utah State University
+  Logan, UT
+
+ABSTRACT
+
+In this talk we present some preliminary performance results
+for the fully coupled iterative solution of reacting flow simulations
+using Newton - Krylov methods. The nonlinear solution technique
+is based on an implementation of an inexact Newton method with
+backtracking. This nonlinear solution algorithm adaptively selects
+the convergence criteria for the underlying linear solvers based on
+how well the linearized problem is approximating the nonlinear equations.
+This procedure decreases the required solution time by reducing the
+amount of oversolving of the linear systems. The robust parallel solutions
+of the linear systems is obtained with preconditioned Krylov subspace
+techniques. The Krylov methods include GMRES, TFQMR, BiCGSTAB, CGS.
+The preconditioners are based on block diagonal scaling and domain
+decomposition preconditioners including incomplete point and block
+factorizations along with direct sparse factorizations. Results
+are presented for example benchmark CFD problems and reacting flow
+simulations of gallium arsenide deposition in metal organic
+chemical vapor deposition reactors on a 1840 processor Intel
+Paragon.
+
+*This work was  partially funded by the Department of Energy, Office
+of Scientific Computing, and was carried out at Sandia National Laboratories
+operated for the US Department of Energy under Contract no.
+DE-ACO4-94AL85000.
+
+-- 
+
+
+
+John Shadid
+
+
+Parallel Computational Sciences Dept. 1421
+Mail Stop 1111
+PO Box 5800
+Sandia National Laboratories
+Albuquerque, NM 87185
+(505) 845 - 7876
+jnshadi@cs.sandia.gov
+</pre>

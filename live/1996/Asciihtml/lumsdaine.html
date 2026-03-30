@@ -1,0 +1,34 @@
+<h2>
+Krylov Subspace Acceleration of Waveform Relaxation
+</h2>
+<pre>
+Andrew Lumsdaine and Deyun Wu
+Laboratory for Scientific Computing
+Department of Computer Science and Engineering
+University of Notre Dame
+Notre Dame, IN  46556
+
+Waveform relaxation is an iterative technique for the parallel
+solution of time-dependent problems.  Traditional waveform iterative
+techniques, which are analagous to the Jacobi or Seidel iterations
+from linear algebra, can exhibit prohibitively slow convergence rates
+for many problems.  Thus, methods to accelerate the convergence rate
+of waveform relaxation are sought.
+
+In this paper, we study Krylov subspace techniques for accelerating
+the convergence of waveform relaxation for solving linear
+time-invariant initial value problems.  For solving systems of linear
+equations, Krylov-subspace methods such as CG or GMRES converge
+substantially better than simple iterative methods such as Richardson
+or Gauss-Jacobi.  Unfortunately, because of the spectral (and
+pseudospectral) properties of the waveform relaxation operator, a
+similar improvement in convergence rate is not as easily obtained when
+applying Krylov-subspace acceleration techniques to waveform
+relaxation.  We show that in order to obtain the optimal rate of
+convergence, i.e., the rate of convergence obtained by an optimal
+accelaration method applied to the matrix problem corresponding to the
+initial-value problem, one must combine iterates using convolution
+techniques.  Based on this observation, we present and analyze a new
+class of accelerated waveform methods, convolution Krylov subspace
+methods.
+</pre>
