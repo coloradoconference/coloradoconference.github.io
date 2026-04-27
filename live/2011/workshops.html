@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head
 <title>Evening Workshops, CMCMM 2011</title>
@@ -6,7 +7,7 @@
 </head>
 <!-- body bgcolor="#9fdf9f" -->
 <!-- <body lang=EN-US bgcolor="#DA8849" link=blue alink=blue vlink=purple style='tab-interval:.5in'> -->
-<body lang=EN-US bgcolor="#ccccbf" link=blue alink=blue vlink=purple style='tab-interval:.5in'>
+<body lang="EN-US" bgcolor="#ccccbf" link="blue" alink="blue" vlink="purple" style='tab-interval:.5in'>
 
 <!-- <h3 align=center>Evening Workshops, CMCMM 2011</h3> -->
 
@@ -26,7 +27,7 @@ Luke Olson and Jacob Schroder
 <td>
 </td>
 <td>
-<img src="./image/PyAMG_logo.png" height=100>
+<img src="./image/PyAMG_logo.png" height="100">
 </td>
 </tr>
 </table>
@@ -46,15 +47,15 @@ PyAMG is easy-to-use and the code is readable, making it especially well-suited
 for 
 <ul>
 <li>Use in courses 
-<li>Rapid prototyping of new multigrid methods
-<li>Running simulations with ~10<sup>6</sup> unknowns on typical desktops or laptops
-</ul>
+</li><li>Rapid prototyping of new multigrid methods
+</li><li>Running simulations with ~10<sup>6</sup> unknowns on typical desktops or laptops
+</li></ul>
 These features have contributed to PyAMG's popularity, with thousands of downloads from over one hundred countries.  It is being used for core development of AMG, it has proven to be an efficient solver for a variety of applications in the sciences and imaging, and it has been easily integrated into several largely Python-based simulation packages.
 
 <p>
 This tutorial focuses on the recently released version 2.0, and is broken up into three parts, in order to highlight features for beginning, intermediate, and advanced users.
 
-<h3>Tutorial Format</h3>
+</p><h3>Tutorial Format</h3>
  
 The tutorial includes optional interactive components, and participants are
 encouraged to pre-install PyAMG 2.0 and its dependencies. Alternatively,
@@ -73,24 +74,24 @@ tutorial will utilize features of the interactive Python environment iPython,
 and several of the advanced examples will use a g++ compiler to link the C++
 code snippets to the Python code.
 
-<p>
+</p><p>
 PyAMG 2.0 source and binaries are available through the project <a
 href="http://www.code.google.com/p/pyamg/downloads/list">downloads page.</a>
 The dependencies can be installed through package managers, from binaries
 directly supplied by the packages, or by compiling from source.  
 The dependencies and recommended packages again are
-<ul>
+</p><ul>
   <li> <a href="http://www.python.org/download/releases/2.6.6/"> Python 2.6 </a> 
-  <li> <a href="http://sourceforge.net/projects/numpy/files/NumPy/1.4.1/"> NumPy 1.4.1</a>
-  <li> <a href="http://sourceforge.net/projects/scipy/files/scipy/0.7.1/"> SciPy 0.7.1 </a>
-  <li> <a href="http://code.google.com/p/python-nose/downloads/list"> Nose 0.11.3 </a>
-  <li> g++ compiler 
-  <li> <a href="http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-0.99.1/"> Matplotlib 0.99.1 </a>
-  <li> <a href="http://ipython.scipy.org/moin/Download"> iPython </a>
-  <li> <a href="http://www.paraview.org/paraview/resources/software.html"> Paraview</a>
-  <li> <a href="http://code.google.com/p/pyamg/downloads/list"> PyAMG 2.0 </a>
-  <li> <a href="http://code.google.com/p/pyamg/downloads/list"> PyAMG Examples2.0.x </a>
-</ul>
+  </li><li> <a href="http://sourceforge.net/projects/numpy/files/NumPy/1.4.1/"> NumPy 1.4.1</a>
+  </li><li> <a href="http://sourceforge.net/projects/scipy/files/scipy/0.7.1/"> SciPy 0.7.1 </a>
+  </li><li> <a href="http://code.google.com/p/python-nose/downloads/list"> Nose 0.11.3 </a>
+  </li><li> g++ compiler 
+  </li><li> <a href="http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-0.99.1/"> Matplotlib 0.99.1 </a>
+  </li><li> <a href="http://ipython.scipy.org/moin/Download"> iPython </a>
+  </li><li> <a href="http://www.paraview.org/paraview/resources/software.html"> Paraview</a>
+  </li><li> <a href="http://code.google.com/p/pyamg/downloads/list"> PyAMG 2.0 </a>
+  </li><li> <a href="http://code.google.com/p/pyamg/downloads/list"> PyAMG Examples2.0.x </a>
+</li></ul>
 After installation, PyAMG, NumPy and SciPy should be tested.  From the interactive iPython prompt, type </br>
 >>> import numpy, scipy, pyamg <br/>
 >>> numpy.test() <br/>
@@ -104,24 +105,24 @@ Tutorial Outline
   
 <p>
 Beginners
-<li>Overview of Matlab-like interface available through SciPy and NumPy
-<li>Overview of structure and functionality of PyAMG package
-<li>Classical AMG and SA
-<li>Krylov solvers
-<li>Relaxation methods
-<li>Multilevel-solver object
+</p><li>Overview of Matlab-like interface available through SciPy and NumPy
+</li><li>Overview of structure and functionality of PyAMG package
+</li><li>Classical AMG and SA
+</li><li>Krylov solvers
+</li><li>Relaxation methods
+</li><li>Multilevel-solver object
  
 <p>
 Intermediate
-<li>Plotting and visualizations through Paraview and Matplotlib 
-<li>Overview of some advanced coarsening and interpolation options 
-<li>How to modify an existing multilevel solver object
+</p></li><li>Plotting and visualizations through Paraview and Matplotlib 
+</li><li>Overview of some advanced coarsening and interpolation options 
+</li><li>How to modify an existing multilevel solver object
  
 <p>
 Advanced
-<li>Overview of the hybrid C++/PyAMG framework
-<li>Swig provides language interface and basis for efficiency
-<li>Basic Swig example, i.e., calling a C++ function from Python
+</p></li><li>Overview of the hybrid C++/PyAMG framework
+</li><li>Swig provides language interface and basis for efficiency
+</li><li>Basic Swig example, i.e., calling a C++ function from Python
  
 <p>
 Developers will be available for discussion following the tutorial.
@@ -167,5 +168,5 @@ TBA
 
 <!-- ------------------------------------------------------------------ -->
 
-<p>
-</html>
+</p><p>
+</p></li></html>
